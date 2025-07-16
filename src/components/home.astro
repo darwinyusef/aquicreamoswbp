@@ -1,0 +1,1106 @@
+---
+import astroLogo from "../assets/astro.svg";
+import background from "../assets/background.svg";
+
+import logo from "../assets/img/logoAquicreamos.png";
+import colombiaBandera from "../assets/img/banderaColombia.png";
+import banderaEstadosUnidos from "../assets/img/banderaEstadosUnidos.png";
+import banderaBrasil from "../assets/img/banderaBrasil.png";
+import astronauta from "../assets/img/astronauta.png";
+
+const isVisible = true;
+---
+
+<header
+  class="bg-[#00464e] flex flex-row justify-between items-center p-3 w-screen  fixed top-0 left-0 z-50 shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
+>
+  <img src={logo.src} class="h-7" />
+  <div class="flex flex-row justify-between items-center gap-5">
+    <!-- Banderas para móvil -->
+    <div class="flex gap-1.5 mr-2.5 md:hidden">
+      <img
+        src={colombiaBandera.src}
+        alt="Bandera Colombia"
+        class="w-6 h-4 object-cover cursor-pointer hover:scale-110 transition-transform"
+      />
+      <img
+        src={banderaEstadosUnidos.src}
+        alt="Bandera Estados Unidos"
+        class="w-6 h-4 object-cover cursor-pointer hover:scale-110 transition-transform"
+      />
+      <img
+        src={banderaBrasil.src}
+        alt="Bandera Brasil"
+        class="w-6 h-4 object-cover cursor-pointer hover:scale-110 transition-transform"
+      />
+    </div>
+
+    <!-- Botón de menú móvil -->
+    <button class="menu-toggle p-1.5 md:hidden" aria-label="Menú">
+      <i class="fas fa-bars text-2xl text-black"></i>
+    </button>
+
+    <!-- Menú de navegación para escritorio -->
+    <nav class="hidden md:block">
+      <ul class="flex flex-row gap-6 items-center justify-center">
+        <li>
+          <a
+            href="#contenido1"
+            class="text-white hover:text-accent transition-colors">Inicio</a
+          >
+        </li>
+        <li>
+          <a
+            href="#contenido2"
+            class="text-white hover:text-accent transition-colors">Servicios</a
+          >
+        </li>
+        <li>
+          <a
+            href="#contenido3"
+            class="text-white hover:text-accent transition-colors">Hablemos</a
+          >
+        </li>
+        <li>
+          <a
+            href="#contenido7"
+            class="text-white hover:text-accent transition-colors">Tendencias</a
+          >
+        </li>
+        <li>
+          <a
+            href="#contenido9"
+            class="text-white hover:text-accent transition-colors">Stack</a
+          >
+        </li>
+        <li>
+          <a
+            href="#contenido10"
+            class="text-white hover:text-accent transition-colors">Proyectos</a
+          >
+        </li>
+        <li>
+          <a href="#blog" class="text-white hover:text-accent transition-colors"
+            >Blog</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section
+  id="home"
+  class="relative flex items-center justify-center bg-hero-pattern bg-repeat relative w-screen min-h-screen bg-[url(../assets/img/fondo.png)] bg-no-repeat bg-cover bg-center"
+>
+  <div
+    class="absolute inset-0 bg-gradient-to-b from-black/50 to-background z-10"
+  >
+  </div>
+
+  <div class="container mx-auto px-4 py-32 relative z-20">
+    <div
+      class={` mx-auto text-center transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
+    >
+      <div class="flex justify-center gap-8 items-center">
+        <div>
+          <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold font-heading">
+            <span class="text-glow text-yellow-500"
+              >La Inteligencia Artificial</span
+            >
+            <br />
+            <span class="text-gradient text-[#04ADC0]"
+              >al alcance de tus sueños</span
+            >
+          </h1>
+          <p
+            class="text-lg text-left md:text-xl opacity-90 max-w-3xl ml-[5px] mt-[10px] mx-auto"
+          >
+            Expertos en arquitectura de software moderna e inteligencia
+            artificial desarrollando productos digitales para empresas que
+            buscan destacar en la era digital.
+          </p>
+        </div>
+        <img src={astronauta.src} alt="Astronauta" class="mt-[-20px] w-50" />
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<main class="bg-[#1a1a1a]">
+  <section
+    id="contenido1"
+  >
+    <div class="flex flex-col items-center text-center">
+      <!-- Banderas para escritorio -->
+      <div
+        class="flex-col fixed top-20 z-50 right-4 justify-center items-center gap-2 hidden md:flex"
+      >
+        <img
+          src={colombiaBandera.src}
+          alt="Bandera Colombia"
+          class="w-12 object-cover cursor-pointer hover:scale-110 transition-transform"
+        />
+        <img
+          src={banderaEstadosUnidos.src}
+          alt="Bandera Estados Unidos"
+          class="w-12 object-cover cursor-pointer hover:scale-110 transition-transform"
+        />
+        <img
+          src={banderaBrasil.src}
+          alt="Bandera Brasil"
+          class="w-12 object-cover cursor-pointer hover:scale-110 transition-transform"
+        />
+      </div>
+    </div>
+  </section>
+  <section
+    id="contenido2"
+    class="sticky top-16 w-screen p-5 md:p-0 bg-gradient-to-br from-[#00464e] to-[#d4e256] min-h-screen relative pt-32 flex flex-col items-start justify-start"
+  >
+    <!-- Título centrado -->
+    <h1
+      class="text-4xl md:text-5xl text-gray-200 font-bold mb-8 text-left z-10 mt-16 ml-32"
+    >
+      Servicios
+    </h1>
+
+    <!-- Contenedor de contenido (imagen + texto) -->
+    <div class="grid grid-cols-2 z-10">
+      <!-- Imagen posicionada abajo en el contenedor principal -->
+      <img
+        src="./img/robot.png"
+        alt="Robot"
+        class="absolute bottom-0 left-[30%] transform -translate-x-1/2 origin-bottom w-72 md:w-[30%] z-0 transition-transform duration-300 hover:scale-105"
+      />
+      <div></div>
+      <!-- Caja de contenido -->
+      <div
+        class="w-full mt-36 bg-[#1a1a1a]/80 rounded-3xl md:rounded-l-3xl md:rounded-r-none p-8 items-center md:items-start justify-center gap-5 text-gray-200"
+      >
+        <h2 class="text-3xl md:text-5xl font-bold break-words mb-8">
+          Desarrollo de Aplicaciones con IA
+        </h2>
+        <p class="text-lg md:text-3xl break-words">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod autem
+          corporis nesciunt dolorem, nihil aut, dicta id ipsam et obcaecati
+          vitae.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección de Servicios -->
+  <section
+    id="contenido2"
+    class="sticky top-16 md:pl-20 w-screen p-5 md:p-0 bg-gradient-to-br from-[#00464e] to-[#d4e256] min-h-screen flex flex-col items-center justify-center"
+  >
+    <div
+      class="flex flex-col items-center p-5 h-full text-center md:flex md:flex-row md:justify-between md:p-0"
+    >
+      <div class="flex flex-col">
+        <h1
+          class="text-4xl text-gray-200 font-bold md:text-5xl md:text-left md:w-full md:mb-16"
+        >
+          Servicios
+        </h1>
+        <img
+          src="./img/robot.png"
+          alt="Robot"
+          class="w-72 z-10 md:w-[600px] md:z-10"
+        />
+      </div>
+      <div
+        class="w-full bg-[#1a1a1a]/80 rounded-3xl p-8 -mt-12 flex flex-col items-center justify-center gap-5 text-gray-200 md:rounded-tl-3xl md:rounded-bl-3xl md:rounded-tr-none md:rounded-br-none md:right-0 md:z-20 md:items-start md:gap-5 md:text-left"
+      >
+        <h1
+          class="text-3xl font-bold break-words text-center md:text-left md:text-4xl"
+        >
+          Desarrollo de Aplicaciones con IA
+        </h1>
+        <p class="text-lg break-words text-center md:text-left md:text-2xl">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod autem
+          corporis nesciunt dolorem, nihil aut, dicta id ipsam et obcaecati
+          vitae.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección de Desarrollo Web -->
+  <section
+    id="contenido3"
+    class="sticky top-16 w-screen min-h-screen p-5 md:p-0 flex flex-col items-center justify-center bg-gradient-to-br from-[#d4e256] to-[#00464e]"
+  >
+    <div
+      class="flex flex-col items-center p-5 h-full text-center md:flex md:flex-row-reverse md:justify-between md:p-0 md:text-center"
+    >
+      <img
+        src="./img/personaje1.png"
+        alt="Personaje"
+        class="w-72 z-10 md:[width:900px] md:z-10"
+      />
+      <div
+        class="w-full bg-[#1a1a1a]/80 rounded-3xl p-8 flex flex-col items-center justify-center gap-5 text-gray-200 md:rounded-tr-3xl md:rounded-br-3xl md:rounded-tl-none md:rounded-bl-none md:right-0 md:z-20 md:gap-5"
+      >
+        <h1
+          class="text-3xl font-bold break-words text-center md:text-right md:w-full md:text-4xl"
+        >
+          Desarrollo Web
+        </h1>
+        <p
+          class="text-lg break-words text-center md:text-right md:w-full md:text-2xl"
+        >
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod autem
+          corporis nesciunt dolorem, nihil aut, dicta id ipsam et obcaecati
+          vitae.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección de Aplicaciones Móviles -->
+  <section
+    id="contenido4"
+    class="sticky top-16 w-screen p-5 md:p-0 bg-gradient-to-br from-[#00464e] to-[#d4e256] min-h-screen flex flex-col items-center justify-center"
+  >
+    <div
+      class="flex flex-col items-center p-5 h-full text-center md:flex md:flex-row md:justify-between md:pl-16 md:p-0"
+    >
+      <img
+        src="./img/personaje2.png"
+        alt="Personaje"
+        class="w-72 z-10 md:w-[900px] md:z-10"
+      />
+      <div
+        class="w-full bg-[#1a1a1a]/80 rounded-3xl p-8 -mt-12 flex flex-col items-center justify-center gap-5 text-gray-200 md:rounded-tl-3xl md:rounded-bl-3xl md:rounded-tr-none md:rounded-br-none md:right-0 md:z-20 md:items-start md:gap-5 md:text-left"
+      >
+        <h1
+          class="text-3xl font-bold break-words text-center md:text-left md:text-4xl"
+        >
+          Aplicaciones Móviles
+        </h1>
+        <p class="text-lg break-words text-center md:text-left md:text-2xl">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod autem
+          corporis nesciunt dolorem, nihil aut, dicta id ipsam et obcaecati
+          vitae.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección de Arquitectura de Software -->
+  <section
+    id="contenido5"
+    class="sticky top-16 w-screen min-h-screen p-5 flex flex-col items-center justify-center bg-gradient-to-br from-[#006417] to-[#00464e] md:p-0"
+  >
+    <!-- Sección de Arquitectura de Software para movil -->
+    <div class="flex flex-col items-center p-5 h-full text-center md:hidden">
+      <img src="./img/personaje3.png" alt="Personaje" class="mt-8 w-72" />
+      <div
+        class="w-full bg-[#1a1a1a]/80 rounded-3xl p-8 flex flex-col items-center justify-center gap-5 text-gray-200"
+      >
+        <h1 class="text-3xl font-bold break-words text-center">
+          Arquitectura de Software
+        </h1>
+        <p class="text-lg break-words text-center">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod autem
+          corporis nesciunt dolorem, nihil aut, dicta id ipsam et obcaecati
+          vitae.
+        </p>
+      </div>
+    </div>
+
+    <!-- Sección de Arquitectura de Software para escritorio -->
+    <div
+      class="md:flex flex-row items-center justify-between pt-5 h-full text-center hidden"
+    >
+      <div
+        class="w-full bg-[#1a1a1a]/80 rounded-tr-3xl rounded-br-3xl p-8 left-0 flex flex-col items-end justify-center gap-5 text-gray-200 z-20"
+      >
+        <h1 class="text-4xl font-bold break-words text-right">
+          Arquitectura de Software
+        </h1>
+        <p class="text-2xl break-words text-right">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod autem
+          corporis nesciunt dolorem, nihil aut, dicta id ipsam et obcaecati
+          vitae.
+        </p>
+      </div>
+      <img src="./img/personaje3.png" alt="Personaje" class="w-[900px] z-10" />
+    </div>
+  </section>
+
+  <!-- Sección de Computer Vision -->
+  <section
+    id="contenido6"
+    class="sticky top-16 w-screen md:p-0 p-5 flex flex-col items-center justify-center bg-gradient-to-br from-[#006417] to-[#00464e]"
+  >
+    <!-- Sección de Computer Vision para movil -->
+    <div class="flex flex-col items-center p-5 h-full text-center md:hidden">
+      <img
+        src="./img/personaje4.png"
+        alt="Personaje"
+        class="w-96 md:absolute bottom-0"
+      />
+      <div
+        class="w-full bg-[#1a1a1a]/80 rounded-3xl p-8 flex flex-col items-center justify-center gap-5 text-gray-200"
+      >
+        <h1 class="text-3xl font-bold break-words text-center">
+          Computer Vision
+        </h1>
+        <p class="text-lg break-words text-center">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod autem
+          corporis nesciunt dolorem, nihil aut, dicta id ipsam et obcaecati
+          vitae.
+        </p>
+      </div>
+    </div>
+
+    <!-- Sección de Computer Vision para escritorio -->
+    <div class="md:flex flex-row items-center h-full text-center hidden">
+      <img src="./img/personaje4.png" alt="Personaje" class="w-[800px]" />
+      <div
+        class="w-full bg-[#1a1a1a]/80 rounded-tl-3xl rounded-bl-3xl p-8 flex flex-col items-center justify-center gap-5 text-gray-200 right-0"
+      >
+        <h1 class="text-4xl font-bold break-words text-center">
+          Computer Vision
+        </h1>
+        <p class="text-2xl break-words text-center">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod autem
+          corporis nesciunt dolorem, nihil aut, dicta id ipsam et obcaecati
+          vitae.
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Sección de Hablemos -->
+<section
+  id="contenido7"
+  class="w-screen md:px-16 px-5 py-2 min-h-screen flex flex-col items-center justify-center bg-[#1a1a1a]"
+>
+  <!-- Sección de Hablemos para movil -->
+  <div
+    class="flex flex-col items-center px-5 py-2 h-full text-center md:hidden"
+  >
+    <h1 class="text-4xl font-bold mb-12 text-[#82e256]">
+      Hablemos un poco más
+    </h1>
+    <p class="text-lg text-center text-[#82e256]">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod autem
+      corporis nesciunt dolorem, nihil aut, dicta id ipsam e obcaecati vitae.
+    </p>
+
+    <div
+      class="mt-8 w-full h-48 cursor-pointer bg-black flex items-center justify-center rounded-lg"
+      data-video-id="VIDEO_ID"
+    >
+      <div
+        class="w-20 h-20 bg-red-600 rounded-full z-20 flex items-center justify-center hover:bg-red-700 transition-colors"
+      >
+        <svg
+          class="w-12 h-12 text-white"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path d="M8 5v14l11-7z"></path>
+        </svg>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4 w-full items-center mt-4">
+      <div
+        class="w-full h-28 cursor-pointer bg-black flex items-center justify-center rounded-lg"
+        data-video-id="VIDEO_ID"
+      >
+        <div
+          class="w-15 h-15 bg-red-600 rounded-full z-20 flex items-center justify-center hover:bg-red-700 transition-colors"
+        >
+          <svg
+            class="w-10 h-10 text-white"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path d="M8 5v14l11-7z"></path>
+          </svg>
+        </div>
+      </div>
+      <div
+        class="w-full h-28 cursor-pointer bg-black flex items-center justify-center rounded-lg"
+        data-video-id="VIDEO_ID"
+      >
+        <div
+          class="w-15 h-15 bg-red-600 rounded-full z-20 flex items-center justify-center hover:bg-red-700 transition-colors"
+        >
+          <svg
+            class="w-10 h-10 text-white"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path d="M8 5v14l11-7z"></path>
+          </svg>
+        </div>
+      </div>
+      <div
+        class="w-full h-28 cursor-pointer bg-black flex items-center justify-center rounded-lg"
+        data-video-id="VIDEO_ID"
+      >
+        <div
+          class="w-15 h-15 bg-red-600 rounded-full z-20 flex items-center justify-center hover:bg-red-700 transition-colors"
+        >
+          <svg
+            class="w-10 h-10 text-white"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path d="M8 5v14l11-7z"></path>
+          </svg>
+        </div>
+      </div>
+      <div
+        class="w-full h-28 cursor-pointer bg-black flex items-center justify-center rounded-lg"
+        data-video-id="VIDEO_ID"
+      >
+        <div
+          class="w-15 h-15 bg-red-600 rounded-full z-20 flex items-center justify-center hover:bg-red-700 transition-colors"
+        >
+          <svg
+            class="w-10 h-10 text-white"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path d="M8 5v14l11-7z"></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sección de Hablemos para escritorio -->
+  <div
+    class="md:flex flex-col items-center px-5 py-2 h-full text-center hidden"
+  >
+    <h1 class="text-4xl font-bold mb-12 text-[#82e256]">
+      Hablemos un poco más
+    </h1>
+    <p class="text-lg text-center text-[#82e256]">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod autem
+      corporis nesciunt dolorem, nihil aut, dicta id ipsam e obcaecati vitae.
+    </p>
+
+    <div class="flex flex-row items-center justify-between w-full mt-8">
+      <div
+        class="w-[80%] h-96 cursor-pointer bg-black flex items-center justify-center"
+        data-video-id="VIDEO_ID"
+      >
+        <div
+          class="w-20 h-20 bg-red-600 rounded-full z-20 flex items-center justify-center hover:bg-red-700 transition-colors"
+        >
+          <svg
+            class="w-12 h-12 text-white"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path d="M8 5v14l11-7z"></path>
+          </svg>
+        </div>
+      </div>
+
+      <div class="flex flex-col justify-between w-[15%] h-96 items-center">
+        <div
+          class="w-36 h-20 cursor-pointer bg-black flex items-center justify-center"
+          data-video-id="VIDEO_ID"
+        >
+          <div
+            class="w-10 h-10 bg-red-600 rounded-full z-20 flex items-center justify-center hover:bg-red-700 transition-colors"
+          >
+            <svg
+              class="w-5 h-5 text-white"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path d="M8 5v14l11-7z"></path>
+            </svg>
+          </div>
+        </div>
+        <div
+          class="w-36 h-20 cursor-pointer bg-black flex items-center justify-center"
+          data-video-id="VIDEO_ID"
+        >
+          <div
+            class="w-10 h-10 bg-red-600 rounded-full z-20 flex items-center justify-center hover:bg-red-700 transition-colors"
+          >
+            <svg
+              class="w-5 h-5 text-white"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path d="M8 5v14l11-7z"></path>
+            </svg>
+          </div>
+        </div>
+        <div
+          class="w-36 h-20 cursor-pointer bg-black flex items-center justify-center"
+          data-video-id="VIDEO_ID"
+        >
+          <div
+            class="w-10 h-10 bg-red-600 rounded-full z-20 flex items-center justify-center hover:bg-red-700 transition-colors"
+          >
+            <svg
+              class="w-5 h-5 text-white"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path d="M8 5v14l11-7z"></path>
+            </svg>
+          </div>
+        </div>
+        <div
+          class="w-36 h-20 cursor-pointer bg-black flex items-center justify-center"
+          data-video-id="VIDEO_ID"
+        >
+          <div
+            class="w-10 h-10 bg-red-600 rounded-full z-20 flex items-center justify-center hover:bg-red-700 transition-colors"
+          >
+            <svg
+              class="w-5 h-5 text-white"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path d="M8 5v14l11-7z"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección de Blog tecnológico -->
+<section
+  id="contenido8"
+  class="w-screen min-h-screen md:px-16 px-5 py-4 flex flex-col items-center justify-center bg-[#1a1a1a]"
+>
+  <div class="flex flex-col items-center px-5 py-4 h-full text-center">
+    <h1 class="text-4xl md:text-5xl font-bold mb-5 text-[#0e5c65]">
+      Blog Tecnológico
+    </h1>
+    <p class="text-lg text-center">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod autem
+      corporis nesciunt dolorem, nihil aut, dicta id ipsam e obcaecati vitae.
+    </p>
+    <div
+      class="flex flex-row items-center justify-center gap-2 bg-gray-400/10 rounded-lg p-1 text-gray-200 mt-5"
+    >
+      <span class="rounded-lg bg-[#1a1a1a] p-1">Todos</span>
+      <span class="rounded-lg p-1">IA</span>
+      <span class="rounded-lg p-1">Web</span>
+      <span class="rounded-lg p-1">Mobile</span>
+      <span class="rounded-lg p-1">Arquitectura</span>
+    </div>
+    <div
+      class="flex flex-col items-center justify-center gap-2 mt-5 md:grid md:grid-cols-3"
+    >
+      <div
+        class="bg-gray-400/10 rounded-lg p-3 flex flex-col items-start justify-center text-gray-200"
+      >
+        <div class="flex flex-row items-center justify-end w-full mb-2">
+          <span class="rounded-full bg-[#1a1a1a] py-1 px-2">IA</span>
+        </div>
+        <img
+          src="./img/fondo.png"
+          class="w-full h-48 object-cover bg-black rounded-lg"
+        />
+        <span class="text-gray-500/80 text-sm">05/06/2025</span>
+        <h1 class="word-break text-lg text-left">
+          titulo Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </h1>
+        <p class="word-break text-left text-gray-500/80">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod autem
+          corporis nesciunt dolorem, nihil aut, dicta id ipsam e obcaecati
+          vitae.
+        </p>
+        <button class="text-white py-2 rounded-lg flex items-center gap-2"
+          >Leer más...</button
+        >
+      </div>
+      <div
+        class="bg-gray-400/10 rounded-lg p-3 flex flex-col items-start justify-center text-gray-200"
+      >
+        <div class="flex flex-row items-center justify-end w-full mb-2">
+          <span class="rounded-full bg-[#1a1a1a] py-1 px-2">Web</span>
+        </div>
+        <img
+          src="./img/fondo.png"
+          class="w-full h-48 object-cover bg-black rounded-lg"
+        />
+        <span class="text-gray-500/80 text-sm">05/06/2025</span>
+        <h1 class="word-break text-lg text-left">
+          titulo Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </h1>
+        <p class="word-break text-left text-gray-500/80">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod autem
+          corporis nesciunt dolorem, nihil aut, dicta id ipsam e obcaecati
+          vitae.
+        </p>
+        <button class="text-white py-2 rounded-lg flex items-center gap-2"
+          >Leer más...</button
+        >
+      </div>
+      <div
+        class="bg-gray-400/10 rounded-lg p-3 flex flex-col items-start justify-center text-gray-200"
+      >
+        <div class="flex flex-row items-center justify-end w-full mb-2">
+          <span class="rounded-full bg-[#1a1a1a] py-1 px-2">Mobile</span>
+        </div>
+        <img
+          src="./img/fondo.png"
+          class="w-full h-48 object-cover bg-black rounded-lg"
+        />
+        <span class="text-gray-500/80 text-sm">05/06/2025</span>
+        <h1 class="word-break text-lg text-left">
+          titulo Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </h1>
+        <p class="word-break text-left text-gray-500/80">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod autem
+          corporis nesciunt dolorem, nihil aut, dicta id ipsam e obcaecati
+          vitae.
+        </p>
+        <button class="text-white py-2 rounded-lg flex items-center gap-2"
+          >Leer más...</button
+        >
+      </div>
+      <div
+        class="bg-gray-400/10 rounded-lg p-3 flex flex-col items-start justify-center text-gray-200"
+      >
+        <div class="flex flex-row items-center justify-end w-full mb-2">
+          <span class="rounded-full bg-[#1a1a1a] py-1 px-2">Arquitectura</span>
+        </div>
+        <img
+          src="./img/fondo.png"
+          class="w-full h-48 object-cover bg-black rounded-lg"
+        />
+        <span class="text-gray-500/80 text-sm">05/06/2025</span>
+        <h1 class="word-break text-lg text-left">
+          titulo Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </h1>
+        <p class="word-break text-left text-gray-500/80">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod autem
+          corporis nesciunt dolorem, nihil aut, dicta id ipsam e obcaecati
+          vitae.
+        </p>
+        <button class="text-white py-2 rounded-lg flex items-center gap-2"
+          >Leer más...</button
+        >
+      </div>
+      <div
+        class="bg-gray-400/10 rounded-lg p-3 flex flex-col items-start justify-center text-gray-200"
+      >
+        <div class="flex flex-row items-center justify-end w-full mb-2">
+          <span class="rounded-full bg-[#1a1a1a] py-1 px-2">Mobile</span>
+        </div>
+        <img
+          src="./img/fondo.png"
+          class="w-full h-48 object-cover bg-black rounded-lg"
+        />
+        <span class="text-gray-500/80 text-sm">05/06/2025</span>
+        <h1 class="word-break text-lg text-left">
+          titulo Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </h1>
+        <p class="word-break text-left text-gray-500/80">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod autem
+          corporis nesciunt dolorem, nihil aut, dicta id ipsam e obcaecati
+          vitae.
+        </p>
+        <button class="text-white py-2 rounded-lg flex items-center gap-2"
+          >Leer más...</button
+        >
+      </div>
+      <div
+        class="bg-gray-400/10 rounded-lg p-3 flex flex-col items-start justify-center text-gray-200"
+      >
+        <div class="flex flex-row items-center justify-end w-full mb-2">
+          <span class="rounded-full bg-[#1a1a1a] py-1 px-2">Web</span>
+        </div>
+        <img
+          src="./img/fondo.png"
+          class="w-full h-48 object-cover bg-black rounded-lg"
+        />
+        <span class="text-gray-500/80 text-sm">05/06/2025</span>
+        <h1 class="word-break text-lg text-left">
+          titulo Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </h1>
+        <p class="word-break text-left text-gray-500/80">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod autem
+          corporis nesciunt dolorem, nihil aut, dicta id ipsam e obcaecati
+          vitae.
+        </p>
+        <button class="text-white py-2 rounded-lg flex items-center gap-2"
+          >Leer más...</button
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección de Stack -->
+<section
+  id="contenido9"
+  class="w-screen min-h-screen md:px-16 px-5 py-4 flex flex-col items-center justify-center bg-[#1a1a1a]"
+>
+  <div class="flex flex-col items-center px-5 py-4 h-full text-center">
+    <h1 class="text-4xl md:text-5xl font-bold mb-12 text-[#82e256]">
+      Stack Tech
+    </h1>
+    <p class="text-lg text-center text-[#82e256]">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod autem
+      corporis nesciunt dolorem, nihil aut, dicta id ipsam e obcaecati vitae.
+    </p>
+    <div class="flex flex-col items-center justify-between gap-8 mt-12">
+      <div class="flex flex-row items-center justify-center gap-2 md:gap-8">
+        <img src="img/logoJavaScript.png" class="w-16 h-16" />
+        <img src="img/logoTypeScript.png" class="w-16 h-16" />
+        <img src="img/logoCSS3.png" class="w-16 h-16" />
+        <img src="img/logoHTML.png" class="w-16 h-16" />
+        <img src="img/logoReact.svg" class="w-16 h-16" />
+      </div>
+      <div class="flex flex-row items-center justify-center gap-2 md:gap-8">
+        <img src="img/logoPHP.png" class="w-16 h-16" />
+        <img src="img/logoPython.png" class="w-16 h-16" />
+        <img src="img/logoGO.png" class="w-16 h-16" />
+      </div>
+      <div class="flex flex-row items-center justify-center gap-2 md:gap-8">
+        <img src="img/kotlin.svg" class="w-16 h-16" />
+        <img src="img/logoReactNative.png" class="w-16 h-16" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección de Asesorías en arquitectura de software -->
+<section
+  id="contenido10"
+  class="w-screen md:px-16 px-5 py-4 min-h-screen flex flex-col items-center justify-center bg-[#1a1a1a]"
+>
+  <div
+    class="flex flex-col items-center px-5 py-4 h-full text-center md:grid md:grid-cols-2 md:gap-10"
+  >
+    <div>
+      <h1
+        class="text-4xl bg-gradient-to-br from-[#00464e] to-[#d4e256] bg-clip-text text-transparent md:text-5xl md:text-left font-bold mb-5"
+      >
+        Asesorías en Arquitectura de Software
+      </h1>
+      <p class="text-lg text-center mb-5 md:text-left">
+        Potencia tu proyecto con nuestra experiencia en diseño de sistemas
+        escalables, mantenibles y de alto rendimiento. Nuestro equipo de
+        arquitectos te guiará hacia las mejores prácticas y tecnologías.
+      </p>
+      <div class="flex flex-col items-center p-5">
+        <h1 class="mb-5 font-bold text-2xl md:text-left">
+          ¿Por que elegir nuestra arquitectura?
+        </h1>
+        <ul class="text-start flex flex-col gap-2">
+          <li class="flex flex-row items-center gap-2">
+            <span
+              class="rounded-full bg-gradient-to-br from-[#00464e]/30 to-[#d4e256]/30 p-1 w-6 h-6 flex items-center justify-center text-[#d4e256] text-xs"
+              >✓</span
+            >
+            Equipo con experiencia en proyectos de alta complejidad
+          </li>
+          <li class="flex flex-row items-center gap-2">
+            <span
+              class="rounded-full bg-gradient-to-br from-[#00464e]/30 to-[#d4e256]/30 p-1 w-6 h-6 flex items-center justify-center text-[#d4e256] text-xs"
+              >✓</span
+            >
+            Enfoque personalizado según tus necesidades específicas
+          </li>
+          <li class="flex flex-row items-center gap-2">
+            <span
+              class="rounded-full bg-gradient-to-br from-[#00464e]/30 to-[#d4e256]/30 p-1 w-6 h-6 flex items-center justify-center text-[#d4e256] text-xs"
+              >✓</span
+            >
+            Solución práctica y aplicable inmediatamente
+          </li>
+          <li class="flex flex-row items-center gap-2">
+            <span
+              class="rounded-full bg-gradient-to-br from-[#00464e]/30 to-[#d4e256]/30 p-1 w-6 h-6 flex items-center justify-center text-[#d4e256] text-xs"
+              >✓</span
+            >
+            Seguimiento post-asesoría para resolver dudas
+          </li>
+        </ul>
+      </div>
+      <div
+        class="flex flex-row items-center p-5 gap-5 border mb-10 border-gray-400/50 bg-gray-400/10 rounded-lg"
+      >
+        <img src="./img/calendar.svg" alt="" class="w-16 h-16" />
+        <div class="flex flex-col">
+          <h1 class="font-bold text-xl text-start">Primera sesión gratuita</h1>
+          <p class="text-gray-200/80 text-start text-sm">
+            Agenda una llamada de 30 minutos para discutir tu proyecto y como
+            podemos ayudarte.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex flex-col items-center p-0.5 gap-5 bg-gradient-to-br from-[#006064] to-[#00464e] rounded-lg"
+    >
+      <div
+        class="flex flex-col items-start w-full p-5 gap-5 bg-gradient-to-br from-[#323232] to-[#1a1a1a] rounded-lg"
+      >
+        <h1 class="text-xl font-bold text-gray-200 text-center">
+          Agendar una sesión de asesoría
+        </h1>
+        <div class="flex flex-col w-full">
+          <label class="text-gray-200 text-start">Nombre</label>
+          <input
+            type="text"
+            placeholder="Tu nombre"
+            class="w-full p-2 border border-gray-400/50 bg-[#1a1a1a] rounded-md"
+          />
+        </div>
+        <div class="flex flex-col w-full">
+          <label class="text-gray-200 text-start">Email</label>
+          <input
+            type="email"
+            placeholder="Tu email"
+            class="w-full p-2 border border-gray-400/50 bg-[#1a1a1a] rounded-md"
+          />
+        </div>
+        <div class="flex flex-col w-full">
+          <label class="text-gray-200 text-start mb-2">Tipo de asesoría</label>
+          <div class="grid grid-cols-2 gap-2">
+            <div class="flex items-center gap-2">
+              <input type="radio" value="" />
+              <label class="text-gray-200 text-sm">Startup</label>
+            </div>
+            <div class="flex items-center gap-2">
+              <input type="radio" value="" />
+              <label class="text-gray-200 text-sm">Escalabilidad</label>
+            </div>
+            <div class="flex items-center gap-2">
+              <input type="radio" value="" />
+              <label class="text-gray-200 text-sm">Arquitectura</label>
+            </div>
+            <div class="flex items-center gap-2">
+              <input type="radio" value="" />
+              <label class="text-gray-200 text-sm">Microservicios</label>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col w-full">
+          <label class="text-gray-200 text-start">Fecha preferida</label>
+          <input
+            type="date"
+            class="w-full p-2 border border-gray-400/50 bg-[#1a1a1a] rounded-md"
+          />
+        </div>
+        <div class="flex flex-col w-full">
+          <label class="text-gray-200 text-start">Hora preferida</label>
+          <input
+            type="time"
+            class="w-full p-2 border border-gray-400/50 bg-[#1a1a1a] rounded-md"
+          />
+        </div>
+        <div class="flex flex-col w-full">
+          <label class="text-gray-200 text-start"
+            >Cuéntanos un poco sobre tu proyecto</label
+          >
+          <textarea
+            name=""
+            id=""
+            placeholder="Describe brevemente tu proyecto y desafíos que enfrentas..."
+            class="w-full h-32 p-2 border border-gray-400/50 bg-[#1a1a1a] rounded-md"
+          ></textarea>
+        </div>
+        <button
+          class="w-full p-2 border border-none bg-[#00464e71] rounded-md flex items-center justify-center gap-2"
+          ><img src="./img/send.svg" alt="" class="w-5 h-5" />Solicitar asesoría
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección de Preguntas con IA -->
+<section
+  id="contenido11"
+  class="w-screen md:px-16 py-4 min-h-screen flex flex-col items-center justify-center bg-[#1a1a1a]"
+>
+  <h1
+    class="text-4xl bg-gradient-to-br from-[#00464e] to-[#d4e256] bg-clip-text text-transparent md:text-5xl font-bold mb-5"
+  >
+    10 Preguntas con IA
+  </h1>
+  <p class="text-lg text-center mb-5 md:mt-5">
+    Resuelve tus dudas tecnológicas con respuestas generadas por inteligencia
+    artificial. Seleccióna una pregunta para obtener una respuesta intantánea.
+  </p>
+  <div
+    class="flex flex-col items-center px-5 py-4 h-full text-center md:grid md:grid-cols-2 md:gap-5"
+  >
+    <div>
+      <div
+        class="flex flex-col items-start p-5 gap-5 text-gray-200 md:w-full w-full h-full"
+      >
+        <h1 class="mb-5 font-bold text-2xl text-left">
+          Selecciona una pregunta
+        </h1>
+        <div
+          class="flex flex-row items-center justify-between gap-2 border border-gray-400/50 p-2 rounded-md cursor-pointer bg-gradient-to-br from-[#212121] to-[#1f1f1f] w-full"
+        >
+          <img src="./img/message.svg" alt="" class="w-6 h-6" />
+          <h1 class="text-right">¿Que arquitectura debo usar en mi app?</h1>
+        </div>
+        <div
+          class="flex flex-row items-center justify-between gap-2 border border-gray-400/50 p-2 rounded-md cursor-pointer bg-gradient-to-br from-[#212121] to-[#1f1f1f] w-full"
+        >
+          <img src="./img/message.svg" alt="" class="w-6 h-6" />
+          <h1 class="text-right">
+            ¿React Native o desarrollo nativo para mi app móvil?
+          </h1>
+        </div>
+        <div
+          class="flex flex-row items-center justify-between gap-2 border border-gray-400/50 p-2 rounded-md cursor-pointer bg-gradient-to-br from-[#212121] to-[#1f1f1f] w-full"
+        >
+          <img src="./img/message.svg" alt="" class="w-6 h-6" />
+          <h1 class="text-right">¿Como integrar IA en mi negocio?</h1>
+        </div>
+        <div
+          class="flex flex-row items-center justify-between gap-2 border border-gray-400/50 p-2 rounded-md cursor-pointer bg-gradient-to-br from-[#212121] to-[#1f1f1f] w-full"
+        >
+          <img src="./img/message.svg" alt="" class="w-6 h-6" />
+          <h1 class="text-right">
+            ¿Cuales don las mejores prácticas de seguridad para mi web?
+          </h1>
+        </div>
+        <div
+          class="flex flex-row items-center justify-between gap-2 border border-gray-400/50 p-2 rounded-md cursor-pointer bg-gradient-to-br from-[#212121] to-[#1f1f1f] w-full"
+        >
+          <img src="./img/message.svg" alt="" class="w-6 h-6" />
+          <h1 class="text-right">
+            ¿Como optimizar el rendimiento de mi aplicacion web?
+          </h1>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex flex-col items-center p-0.5 gap-5 bg-gradient-to-br from-[#006064] to-[#00464e] rounded-lg md:w-full w-full md:h-full h-full"
+    >
+      <div
+        class="flex flex-col items-start p-5 gap-5 bg-gradient-to-br from-[#323232] to-[#1a1a1a] rounded-lg md:w-full w-full md:h-full h-full"
+      >
+        <div class="flex flex-row items-center justify-center gap-2">
+          <img src="./img/message2.svg" alt="" class="w-16 h-16" />
+          <div class="flex flex-col justify-center items-center h-full">
+            <h1 class="text-xl font-bold text-gray-200 text-start">
+              Respuesta IA
+            </h1>
+            <p class="text-gray-200 text-sm text-start">
+              Informacion y consejos generados por IA.
+            </p>
+          </div>
+        </div>
+        <div
+          class="flex flex-col w-full items-center justify-center text-gray-200/20"
+        >
+          <img src="./img/message2.svg" alt="" class="w-16 h-16" />
+          <p>Selecciona una pregunta para obtener una respuesta</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer
+  class="w-screen md:px-16 p-5 min-h-screen flex flex-col justify-center bg-[#1a1a1a]"
+>
+  <div class="flex flex-col items-center p-5 gap-5">
+    <h1 class="text-2xl font-bold text-gray-200">
+      Tu éxito digital comienza aquí
+    </h1>
+    <input
+      type="email"
+      placeholder="Ingresa tu correo electronico"
+      class="w-full p-2 border border-gray-400/50 bg-white rounded-md text-gray-500 font-bold focus:border-none focus:outline-none focus:ring-2 focus:ring-[#00464e]"
+    />
+    <button
+      class="p-2 border border-none bg-[#88b43c] text-black font-bold rounded-md flex items-center justify-center gap-2"
+      >Enviar</button
+    >
+  </div>
+
+  <div class="md:flex md:flex-row md:justify-between">
+    <div class="flex flex-col items-start p-5 gap-5">
+      <h1 class="text-2xl font-bold text-[#88b43c] text-start">Pagina Web</h1>
+      <ul class="flex flex-col items-start gap-2">
+        <li><a href="#contenido1">Home</a></li>
+        <li><a href="#contenido2">Servicios</a></li>
+        <li><a href="#contenido7">Hablemos</a></li>
+        <li><a href="#contenido8">Block tecnologico</a></li>
+        <li><a href="#contenido9">Stack</a></li>
+        <li><a href="#contenido10">Asesoría</a></li>
+        <li><a href="#contenido11">Preguntas con IA</a></li>
+      </ul>
+    </div>
+    <div class="flex flex-col items-start p-5 gap-5">
+      <h1 class="text-2xl font-bold text-[#88b43c] text-start">
+        Información Corporativa
+      </h1>
+      <ul class="flex flex-col items-start gap-2">
+        <li><a href="">Quiénes Somos</a></li>
+        <li><a href="">Contacto</a></li>
+      </ul>
+    </div>
+
+    <div class="">
+      <div class="flex flex-col items-start p-5 gap-5">
+        <h1 class="text-2xl font-bold text-[#88b43c] text-start">
+          Legal y Privacidad
+        </h1>
+        <ul class="flex flex-col items-start gap-2">
+          <li><a href="">Politicas</a></li>
+          <li><a href="">Términos y condiciones</a></li>
+          <li><a href="">Manejo de cookies</a></li>
+          <li><a href="">Documentos legales</a></li>
+        </ul>
+      </div>
+
+      <div
+        class="flex flex-row justify-center w-full items-center px-5 py-10 gap-5"
+      >
+        <img
+          src="img/youtube.png"
+          alt="Youtube"
+          class="w-8 h-8 cursor-pointer hover:scale-110 transition-all"
+        />
+        <img
+          src="img/twitter.png"
+          alt="Twitter"
+          class="w-8 h-8 cursor-pointer hover:scale-110 transition-all"
+        />
+        <img
+          src="img/facebook.png"
+          alt="Facebook"
+          class="w-8 h-8 cursor-pointer hover:scale-110 transition-all"
+        />
+        <img
+          src="img/instagram.png"
+          alt="Instagram"
+          class="w-8 h-8 cursor-pointer hover:scale-110 transition-all"
+        />
+        <img
+          src="img/linkedin.png"
+          alt="Linkedin"
+          class="w-8 h-8 cursor-pointer hover:scale-110 transition-all"
+        />
+      </div>
+    </div>
+  </div>
+</footer>
