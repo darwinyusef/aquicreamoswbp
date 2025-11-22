@@ -1,0 +1,132 @@
+---
+import logo from "../assets/img/logoAquicreamos.png";
+
+interface Props {
+  currentPage?: 'home' | 'servicios' | 'blog' | 'contacto';
+}
+
+const { currentPage = 'home' } = Astro.props;
+---
+
+<header
+  class="bg-[#00464e] flex flex-row justify-between items-center p-3 w-full fixed top-0 left-0 z-50 shadow-[0_2px_10px_rgba(0,0,0,0.5)] animate-on-scroll"
+>
+  <a href="/">
+    <img src={logo.src} class="h-7 card-animate" alt="Logo Aquí Creamos" />
+  </a>
+  <div class="flex flex-row justify-between items-center gap-5">
+    <!-- Botón de menú móvil -->
+    <button class="menu-toggle p-1.5 md:hidden card-animate" aria-label="Menú">
+      <i class="fas fa-bars text-2xl text-white"></i>
+    </button>
+
+    <!-- Menú de navegación para escritorio -->
+    <nav class="hidden md:block">
+      <ul class="flex flex-row gap-6 items-center justify-center card-animate">
+        <li>
+          <a
+            href="/#home"
+            class={`transition-colors ${currentPage === 'home' ? 'text-[#82e256] font-semibold' : 'text-white hover:text-[#82e256]'}`}
+          >
+            Inicio
+          </a>
+        </li>
+        <li>
+          <a
+            href="/servicios"
+            class={`transition-colors ${currentPage === 'servicios' ? 'text-[#82e256] font-semibold' : 'text-white hover:text-[#82e256]'}`}
+          >
+            Servicios
+          </a>
+        </li>
+        <li>
+          <a
+            href="/#contenido7"
+            class="text-white hover:text-[#82e256] transition-colors"
+          >
+            Videos
+          </a>
+        </li>
+        <li>
+          <a
+            href="/blog"
+            class={`transition-colors ${currentPage === 'blog' ? 'text-[#82e256] font-semibold' : 'text-white hover:text-[#82e256]'}`}
+          >
+            Blog
+          </a>
+        </li>
+        <li>
+          <a
+            href="/#contenido9"
+            class="text-white hover:text-[#82e256] transition-colors"
+          >
+            Stack
+          </a>
+        </li>
+        <li>
+          <a
+            href="/#contenido10"
+            class={`transition-colors ${currentPage === 'contacto' ? 'text-[#82e256] font-semibold' : 'text-white hover:text-[#82e256]'}`}
+          >
+            Asesorías
+          </a>
+        </li>
+        <li>
+          <a
+            href="/#contenido11"
+            class="text-white hover:text-[#82e256] transition-colors"
+          >
+            IA
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Menú móvil desplegable -->
+<div class="mobile-menu hidden fixed top-16 left-0 w-full bg-[#00464e] shadow-lg z-40 md:hidden">
+  <nav class="flex flex-col p-4 gap-4">
+    <a href="/#home" class="text-white hover:text-[#82e256] transition-colors py-2 border-b border-white/10">
+      Inicio
+    </a>
+    <a href="/servicios" class="text-white hover:text-[#82e256] transition-colors py-2 border-b border-white/10">
+      Servicios
+    </a>
+    <a href="/#contenido7" class="text-white hover:text-[#82e256] transition-colors py-2 border-b border-white/10">
+      Videos
+    </a>
+    <a href="/blog" class="text-white hover:text-[#82e256] transition-colors py-2 border-b border-white/10">
+      Blog
+    </a>
+    <a href="/#contenido9" class="text-white hover:text-[#82e256] transition-colors py-2 border-b border-white/10">
+      Stack
+    </a>
+    <a href="/#contenido10" class="text-white hover:text-[#82e256] transition-colors py-2 border-b border-white/10">
+      Asesorías
+    </a>
+    <a href="/#contenido11" class="text-white hover:text-[#82e256] transition-colors py-2">
+      IA
+    </a>
+  </nav>
+</div>
+
+<script>
+  // Script para el menú móvil
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+
+    menuToggle?.addEventListener('click', () => {
+      mobileMenu?.classList.toggle('hidden');
+    });
+
+    // Cerrar el menú al hacer click en un enlace
+    const mobileLinks = mobileMenu?.querySelectorAll('a');
+    mobileLinks?.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu?.classList.add('hidden');
+      });
+    });
+  });
+</script>

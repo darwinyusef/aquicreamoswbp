@@ -1,6 +1,7 @@
 ---
 import astroLogo from "../assets/astro.svg";
 import background from "../assets/background.svg";
+import Header from "./Header.astro";
 
 import logo from "../assets/img/logoAquicreamos.png";
 import colombiaBandera from "../assets/img/banderaColombia.png";
@@ -11,64 +12,7 @@ import astronauta from "../assets/img/astronauta.png";
 const isVisible = true;
 ---
 
-<header
-  class="bg-[#00464e] flex flex-row justify-between items-center p-3 w-full fixed top-0 left-0 z-50 shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
->
-  <img src={logo.src} class="h-7" alt="Logo Aquí Creamos" />
-  <div class="flex flex-row justify-between items-center gap-5">
-    <!-- Botón de menú móvil -->
-    <button class="menu-toggle p-1.5 md:hidden" aria-label="Menú">
-      <i class="fas fa-bars text-2xl text-white"></i>
-    </button>
-
-    <!-- Menú de navegación para escritorio -->
-    <nav class="hidden md:block">
-      <ul class="flex flex-row gap-6 items-center justify-center">
-        <li>
-          <a
-            href="#home"
-            class="text-white hover:text-[#82e256] transition-colors">Inicio</a
-          >
-        </li>
-        <li>
-          <a
-            href="/servicios"
-            class="text-white hover:text-[#82e256] transition-colors">Servicios</a
-          >
-        </li>
-        <li>
-          <a
-            href="#contenido7"
-            class="text-white hover:text-[#82e256] transition-colors">Videos</a
-          >
-        </li>
-        <li>
-          <a
-            href="/blog"
-            class="text-white hover:text-[#82e256] transition-colors">Blog</a
-          >
-        </li>
-        <li>
-          <a
-            href="#contenido9"
-            class="text-white hover:text-[#82e256] transition-colors">Stack</a
-          >
-        </li>
-        <li>
-          <a
-            href="#contenido10"
-            class="text-white hover:text-[#82e256] transition-colors">Asesorías</a
-          >
-        </li>
-        <li>
-          <a href="#contenido11" class="text-white hover:text-[#82e256] transition-colors"
-            >IA</a
-          >
-        </li>
-      </ul>
-    </nav>
-  </div>
-</header>
+<Header currentPage="home" />
 
 <section
   id="home"
@@ -85,17 +29,17 @@ const isVisible = true;
     >
       <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8">
         <div class="flex-1 text-center md:text-left">
-          <h1 class="text-3xl md:text-5xl lg:text-7xl font-bold font-heading">
-            <span class="text-glow text-yellow-500"
+          <h1 class="text-3xl md:text-5xl lg:text-7xl font-bold font-heading animate-on-scroll">
+            <span class="text-glow text-yellow-500 inline-block animate-on-scroll card-left gradient-animate"
               >La Inteligencia Artificial</span
             >
             <br />
-            <span class="text-gradient text-[#04ADC0]"
+            <span class="text-gradient text-[#04ADC0] inline-block animate-on-scroll card-right gradient-animate"
               >al alcance de tus sueños</span
             >
           </h1>
           <p
-            class="text-base md:text-lg lg:text-xl opacity-90 max-w-3xl mt-4 md:mt-6 text-center md:text-left"
+            class="text-base md:text-lg lg:text-xl opacity-90 max-w-3xl mt-4 md:mt-6 text-center md:text-left animate-on-scroll"
           >
             Expertos en arquitectura de software moderna e inteligencia
             artificial desarrollando productos digitales para empresas que
@@ -105,7 +49,7 @@ const isVisible = true;
         <img
           src={astronauta.src}
           alt="Astronauta"
-          class="w-40 md:w-48 lg:w-64 object-contain hidden md:block"
+          class="w-40 md:w-48 lg:w-64 object-contain hidden md:block animate-on-scroll card-animate parallax-slow"
         />
       </div>
     </div>
@@ -144,21 +88,21 @@ const isVisible = true;
     <!-- Contenedor principal -->
     <div class="w-full h-full flex flex-col md:flex-row items-center justify-between px-5 md:px-16">
       <!-- Columna izquierda: Robot -->
-      <div class="flex flex-col items-center justify-end md:w-1/2 h-full relative">
+      <div class="flex flex-col items-center justify-end md:w-1/2 h-full relative animate-on-scroll card-left">
         <img
         src="./img/robot.png"
           alt="Robot"
-          class="w-64 md:w-96 object-contain z-10 transition-transform duration-300 hover:scale-105"
+          class="w-64 md:w-96 object-contain z-10 transition-transform duration-300 hover:scale-105 parallax-slow"
         />
       </div>
 
       <!-- Columna derecha: Contenido -->
-      <div class="w-full md:w-1/2 flex flex-col items-center md:items-start gap-5">
-        <div class="w-full bg-[#1a1a1a]/80 rounded-3xl md:rounded-l-3xl md:rounded-r-3xl p-8 text-gray-200">
-          <h2 class="text-2xl md:text-4xl font-bold mb-6 text-center md:text-left">
+      <div class="w-full md:w-1/2 flex flex-col items-center md:items-start gap-5 animate-on-scroll card-right">
+        <div class="w-full bg-[#1a1a1a]/80 rounded-3xl md:rounded-l-3xl md:rounded-r-3xl p-8 text-gray-200 hover-lift">
+          <h2 class="text-2xl md:text-4xl font-bold mb-6 text-center md:text-left animate-on-scroll gradient-animate">
             Agentes Cognitivos Empresariales con IA
           </h2>
-          <p class="text-base md:text-xl text-center md:text-left mb-4">
+          <p class="text-base md:text-xl text-center md:text-left mb-4 animate-on-scroll">
             Diseño e implementación de agentes inteligentes capaces de ejecutar tareas
             de forma autónoma usando modelos como GPT, Claude, Gemini o Llama.
             Estos agentes funcionan como miembros digitales de tu equipo: atienden clientes,
@@ -167,7 +111,7 @@ const isVisible = true;
           </p>
           <a
             href="/servicios/agentes-ia"
-            class="inline-flex items-center gap-2 px-6 py-3 bg-[#82e256] text-[#1a1a1a] font-bold rounded-lg hover:bg-[#88b43c] transition-colors duration-300"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-[#82e256] text-[#1a1a1a] font-bold rounded-lg hover:bg-[#88b43c] transition-colors duration-300 hover-lift animate-on-scroll"
           >
             Conocer más
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -187,29 +131,29 @@ const isVisible = true;
     <div
       class="flex flex-col items-center p-5 h-full text-center md:flex md:flex-row md:justify-between md:p-0"
     >
-      <div class="flex flex-col">
+      <div class="flex flex-col animate-on-scroll card-right">
         <img
           src="./img/robot.png"
           alt="Robot"
-          class="w-72 z-10 md:w-[600px] md:z-10"
+          class="w-72 z-10 md:w-[600px] md:z-10 parallax-slow hover:scale-105 transition-transform duration-300"
         />
       </div>
       <div
-        class="w-full bg-[#1a1a1a]/80 rounded-3xl p-8 -mt-12 flex flex-col items-center justify-center gap-5 text-gray-200 md:rounded-tl-3xl md:rounded-bl-3xl md:rounded-tr-none md:rounded-br-none md:right-0 md:z-20 md:items-start md:gap-5 md:text-left"
+        class="w-full bg-[#1a1a1a]/80 rounded-3xl p-8 -mt-12 flex flex-col items-center justify-center gap-5 text-gray-200 md:rounded-tl-3xl md:rounded-bl-3xl md:rounded-tr-none md:rounded-br-none md:right-0 md:z-20 md:items-start md:gap-5 md:text-left animate-on-scroll card-left hover-lift"
       >
         <h1
-          class="text-3xl font-bold break-words text-center md:text-left md:text-4xl"
+          class="text-3xl font-bold break-words text-center md:text-left md:text-4xl animate-on-scroll gradient-animate"
         >
           Desarrollo de Aplicaciones con IA
         </h1>
-        <p class="text-lg break-words text-center md:text-left md:text-2xl">
+        <p class="text-lg break-words text-center md:text-left md:text-2xl animate-on-scroll">
           Desarrollo de aplicaciones inteligentes que incorporan modelos de lenguaje y
           visión por computador para ofrecer funcionalidades como búsqueda semántica,
           recomendaciones personalizadas, automatización de tareas y generación de contenido.
         </p>
         <a
           href="/servicios/aplicaciones-ia"
-          class="inline-flex items-center gap-2 px-6 py-3 bg-[#82e256] text-[#1a1a1a] font-bold rounded-lg hover:bg-[#88b43c] transition-colors duration-300"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-[#82e256] text-[#1a1a1a] font-bold rounded-lg hover:bg-[#88b43c] transition-colors duration-300 hover-lift animate-on-scroll"
         >
           Conocer más
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -231,18 +175,18 @@ const isVisible = true;
       <img
         src="./img/personaje1.png"
         alt="Personaje"
-        class="w-72 z-10 md:w-[900px] md:z-10"
+        class="w-72 z-10 md:w-[900px] md:z-10 animate-on-scroll card-left parallax-slow hover:scale-105 transition-transform duration-300"
       />
       <div
-        class="w-full bg-[#1a1a1a]/80 rounded-3xl p-8 flex flex-col items-center justify-center gap-5 text-gray-200 md:rounded-tr-3xl md:rounded-br-3xl md:rounded-tl-none md:rounded-bl-none md:right-0 md:z-20 md:gap-5"
+        class="w-full bg-[#1a1a1a]/80 rounded-3xl p-8 flex flex-col items-center justify-center gap-5 text-gray-200 md:rounded-tr-3xl md:rounded-br-3xl md:rounded-tl-none md:rounded-bl-none md:right-0 md:z-20 md:gap-5 animate-on-scroll card-right hover-lift"
       >
         <h1
-          class="text-3xl font-bold break-words text-center md:text-right md:w-full md:text-4xl"
+          class="text-3xl font-bold break-words text-center md:text-right md:w-full md:text-4xl animate-on-scroll gradient-animate"
         >
           Desarrollo Web
         </h1>
         <p
-          class="text-lg break-words text-center md:text-right md:w-full md:text-2xl"
+          class="text-lg break-words text-center md:text-right md:w-full md:text-2xl animate-on-scroll"
         >
           Creación de sitios y plataformas web escalables con foco en rendimiento, SEO y
           experiencia de usuario. Implementación de stacks modernos (React, Astro, SSR),
@@ -250,7 +194,7 @@ const isVisible = true;
         </p>
         <a
           href="/servicios/desarrollo-web"
-          class="inline-flex items-center gap-2 px-6 py-3 bg-[#82e256] text-[#1a1a1a] font-bold rounded-lg hover:bg-[#88b43c] transition-colors duration-300"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-[#82e256] text-[#1a1a1a] font-bold rounded-lg hover:bg-[#88b43c] transition-colors duration-300 hover-lift animate-on-scroll"
         >
           Conocer más
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -272,23 +216,23 @@ const isVisible = true;
       <img
         src="./img/personaje2.png"
         alt="Personaje"
-        class="w-72 z-10 md:w-[900px] md:z-10"
+        class="w-72 z-10 md:w-[900px] md:z-10 animate-on-scroll card-left parallax-slow hover:scale-105 transition-transform duration-300"
       />
       <div
-        class="w-full bg-[#1a1a1a]/80 rounded-3xl p-8 -mt-12 flex flex-col items-center justify-center gap-5 text-gray-200 md:rounded-tl-3xl md:rounded-bl-3xl md:rounded-tr-none md:rounded-br-none md:right-0 md:z-20 md:items-start md:gap-5 md:text-left"
+        class="w-full bg-[#1a1a1a]/80 rounded-3xl p-8 -mt-12 flex flex-col items-center justify-center gap-5 text-gray-200 md:rounded-tl-3xl md:rounded-bl-3xl md:rounded-tr-none md:rounded-br-none md:right-0 md:z-20 md:items-start md:gap-5 md:text-left animate-on-scroll card-right hover-lift"
       >
         <h1
-          class="text-3xl font-bold break-words text-center md:text-left md:text-4xl"
+          class="text-3xl font-bold break-words text-center md:text-left md:text-4xl animate-on-scroll gradient-animate"
         >
           Aplicaciones Móviles
         </h1>
-        <p class="text-lg break-words text-center md:text-left md:text-2xl">
+        <p class="text-lg break-words text-center md:text-left md:text-2xl animate-on-scroll">
           Desarrollo nativo e híbrido (Kotlin, Swift, Flutter) con enfoque en UX, rendimiento,
           sincronización offline y comunicación en tiempo real con backends escalables.
         </p>
         <a
           href="/servicios/apps-moviles"
-          class="inline-flex items-center gap-2 px-6 py-3 bg-[#82e256] text-[#1a1a1a] font-bold rounded-lg hover:bg-[#88b43c] transition-colors duration-300"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-[#82e256] text-[#1a1a1a] font-bold rounded-lg hover:bg-[#88b43c] transition-colors duration-300 hover-lift animate-on-scroll"
         >
           Conocer más
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -309,22 +253,22 @@ const isVisible = true;
       <img
         src="./img/personaje3.png"
         alt="Personaje"
-        class="w-72 md:w-[700px] object-contain z-10"
+        class="w-72 md:w-[700px] object-contain z-10 animate-on-scroll card-right parallax-slow hover:scale-105 transition-transform duration-300"
       />
       <!-- Contenido -->
       <div
-        class="w-full md:w-1/2 bg-[#1a1a1a]/80 rounded-3xl md:rounded-tr-3xl md:rounded-br-3xl md:rounded-tl-none md:rounded-bl-none p-8 flex flex-col items-center md:items-end justify-center gap-5 text-gray-200 z-20"
+        class="w-full md:w-1/2 bg-[#1a1a1a]/80 rounded-3xl md:rounded-tr-3xl md:rounded-br-3xl md:rounded-tl-none md:rounded-bl-none p-8 flex flex-col items-center md:items-end justify-center gap-5 text-gray-200 z-20 animate-on-scroll card-left hover-lift"
       >
-        <h1 class="text-3xl md:text-4xl font-bold text-center md:text-right">
+        <h1 class="text-3xl md:text-4xl font-bold text-center md:text-right animate-on-scroll gradient-animate">
           Arquitectura de Software
         </h1>
-        <p class="text-lg md:text-2xl text-center md:text-right">
+        <p class="text-lg md:text-2xl text-center md:text-right animate-on-scroll">
           Diseño de arquitecturas limpias, escalables y observables (Onion, Hexagonal, Microservicios),
           con decisiones tecnológicas orientadas a alta disponibilidad y mantenimiento.
         </p>
         <a
           href="/servicios/arquitectura"
-          class="inline-flex items-center gap-2 px-6 py-3 bg-[#82e256] text-[#1a1a1a] font-bold rounded-lg hover:bg-[#88b43c] transition-colors duration-300"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-[#82e256] text-[#1a1a1a] font-bold rounded-lg hover:bg-[#88b43c] transition-colors duration-300 hover-lift animate-on-scroll"
         >
           Conocer más
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -345,22 +289,22 @@ const isVisible = true;
       <img
         src="./img/personaje4.png"
         alt="Personaje"
-        class="w-72 md:w-[700px] object-contain z-10"
+        class="w-72 md:w-[700px] object-contain z-10 animate-on-scroll card-left parallax-slow hover:scale-105 transition-transform duration-300"
       />
       <!-- Contenido -->
       <div
-        class="w-full md:w-1/2 bg-[#1a1a1a]/80 rounded-3xl md:rounded-tl-3xl md:rounded-bl-3xl md:rounded-tr-none md:rounded-br-none p-8 flex flex-col items-center justify-center gap-5 text-gray-200 z-20"
+        class="w-full md:w-1/2 bg-[#1a1a1a]/80 rounded-3xl md:rounded-tl-3xl md:rounded-bl-3xl md:rounded-tr-none md:rounded-br-none p-8 flex flex-col items-center justify-center gap-5 text-gray-200 z-20 animate-on-scroll card-right hover-lift"
       >
-        <h1 class="text-3xl md:text-4xl font-bold text-center">
+        <h1 class="text-3xl md:text-4xl font-bold text-center animate-on-scroll gradient-animate">
           Computer Vision
         </h1>
-        <p class="text-lg md:text-2xl text-center">
+        <p class="text-lg md:text-2xl text-center animate-on-scroll">
           Soluciones de visión computacional para detección, clasificación y seguimiento de objetos,
           inspección automática, OCR y análisis de video en tiempo real.
         </p>
         <a
           href="/servicios/computer-vision"
-          class="inline-flex items-center gap-2 px-6 py-3 bg-[#82e256] text-[#1a1a1a] font-bold rounded-lg hover:bg-[#88b43c] transition-colors duration-300"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-[#82e256] text-[#1a1a1a] font-bold rounded-lg hover:bg-[#88b43c] transition-colors duration-300 hover-lift animate-on-scroll"
         >
           Conocer más
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -378,10 +322,12 @@ const isVisible = true;
   class="w-full md:px-16 px-5 py-8 min-h-screen flex flex-col items-center justify-center bg-[#1a1a1a]"
 >
   <div class="flex flex-col items-center px-5 py-2 h-full text-center max-w-7xl w-full">
-    <h1 class="text-3xl md:text-4xl font-bold mb-8 text-[#82e256]">
-      Hablemos un poco más
-    </h1>
-    <p class="text-base md:text-lg text-center text-[#82e256] mb-8">
+    <div class="sticky-title w-full">
+      <h1 class="text-3xl md:text-4xl font-bold mb-8 text-[#82e256] animate-on-scroll">
+        Hablemos un poco más
+      </h1>
+    </div>
+    <p class="text-base md:text-lg text-center text-[#82e256] mb-8 animate-on-scroll">
       Descubre nuestros proyectos, tutoriales y consejos sobre desarrollo de software e inteligencia artificial.
     </p>
 
@@ -730,14 +676,14 @@ const isVisible = true;
   class="w-full min-h-screen md:px-16 px-5 py-4 flex flex-col items-center justify-center bg-[#1a1a1a]"
 >
   <div class="flex flex-col items-center px-5 py-4 h-full text-center">
-    <h1 class="text-4xl md:text-5xl font-bold mb-5 text-[#82e256]">
+    <h1 class="text-4xl md:text-5xl font-bold mb-5 text-[#82e256] sticky-title animate-on-scroll gradient-animate">
       Blog Tecnológico
     </h1>
-    <p class="text-lg text-center text-gray-300 mb-6">
+    <p class="text-lg text-center text-gray-300 mb-6 animate-on-scroll">
       Artículos sobre inteligencia artificial, desarrollo web, arquitectura de software y las últimas tendencias tecnológicas. Aprende con tutoriales prácticos y casos de uso reales.
     </p>
     <div
-      class="flex flex-row items-center justify-center gap-2 bg-gray-400/10 rounded-lg p-1 text-gray-200 mt-5"
+      class="flex flex-row items-center justify-center gap-2 bg-gray-400/10 rounded-lg p-1 text-gray-200 mt-5 animate-on-scroll"
     >
       <span class="rounded-lg bg-[#1a1a1a] p-1">Destacados</span>
       <span class="rounded-lg p-1">IA</span>
@@ -749,7 +695,7 @@ const isVisible = true;
     >
       <a
         href="/blog/agentes-ia-revolucion-empresarial"
-        class="bg-gray-400/10 rounded-lg p-3 flex flex-col items-start justify-center text-gray-200 hover:bg-gray-400/20 transition-all duration-300 hover:scale-105"
+        class="bg-gray-400/10 rounded-lg p-3 flex flex-col items-start justify-center text-gray-200 hover:bg-gray-400/20 transition-all duration-300 hover:scale-105 card-animate hover-lift"
       >
         <div class="flex flex-row items-center justify-end w-full mb-2">
           <span class="rounded-full bg-purple-600 py-1 px-3 text-xs font-semibold">IA</span>
@@ -774,7 +720,7 @@ const isVisible = true;
       </a>
       <a
         href="/blog/react-server-components-guia"
-        class="bg-gray-400/10 rounded-lg p-3 flex flex-col items-start justify-center text-gray-200 hover:bg-gray-400/20 transition-all duration-300 hover:scale-105"
+        class="bg-gray-400/10 rounded-lg p-3 flex flex-col items-start justify-center text-gray-200 hover:bg-gray-400/20 transition-all duration-300 hover:scale-105 card-animate hover-lift"
       >
         <div class="flex flex-row items-center justify-end w-full mb-2">
           <span class="rounded-full bg-blue-600 py-1 px-3 text-xs font-semibold">Web</span>
@@ -799,7 +745,7 @@ const isVisible = true;
       </a>
       <a
         href="/blog/flutter-vs-react-native-2025"
-        class="bg-gray-400/10 rounded-lg p-3 flex flex-col items-start justify-center text-gray-200 hover:bg-gray-400/20 transition-all duration-300 hover:scale-105"
+        class="bg-gray-400/10 rounded-lg p-3 flex flex-col items-start justify-center text-gray-200 hover:bg-gray-400/20 transition-all duration-300 hover:scale-105 card-animate hover-lift"
       >
         <div class="flex flex-row items-center justify-end w-full mb-2">
           <span class="rounded-full bg-green-600 py-1 px-3 text-xs font-semibold">Mobile</span>
@@ -824,7 +770,7 @@ const isVisible = true;
       </a>
       <a
         href="/blog/arquitectura-hexagonal-microservicios"
-        class="bg-gray-400/10 rounded-lg p-3 flex flex-col items-start justify-center text-gray-200 hover:bg-gray-400/20 transition-all duration-300 hover:scale-105"
+        class="bg-gray-400/10 rounded-lg p-3 flex flex-col items-start justify-center text-gray-200 hover:bg-gray-400/20 transition-all duration-300 hover:scale-105 card-animate hover-lift"
       >
         <div class="flex flex-row items-center justify-end w-full mb-2">
           <span class="rounded-full bg-orange-600 py-1 px-3 text-xs font-semibold">Arquitectura</span>
@@ -895,29 +841,31 @@ const isVisible = true;
   class="w-full min-h-screen md:px-16 px-5 py-4 flex flex-col items-center justify-center bg-[#1a1a1a]"
 >
   <div class="flex flex-col items-center px-5 py-4 h-full text-center">
-    <h1 class="text-4xl md:text-5xl font-bold mb-12 text-[#82e256]">
-      Stack Tech
-    </h1>
-    <p class="text-lg text-center text-[#82e256]">
+    <div class="sticky-title w-full">
+      <h1 class="text-4xl md:text-5xl font-bold mb-12 text-[#82e256] animate-on-scroll">
+        Stack Tech
+      </h1>
+    </div>
+    <p class="text-lg text-center text-[#82e256] animate-on-scroll">
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod autem
       corporis nesciunt dolorem, nihil aut, dicta id ipsam e obcaecati vitae.
     </p>
     <div class="flex flex-col items-center justify-between gap-8 mt-12">
-      <div class="flex flex-row items-center justify-center gap-2 md:gap-8">
-        <img src="img/logoJavaScript.png" class="w-16 h-16" />
-        <img src="img/logoTypeScript.png" class="w-16 h-16" />
-        <img src="img/logoCSS3.png" class="w-16 h-16" />
-        <img src="img/logoHTML.png" class="w-16 h-16" />
-        <img src="img/logoReact.svg" class="w-16 h-16" />
+      <div class="flex flex-row items-center justify-center gap-2 md:gap-8 animate-on-scroll">
+        <img src="img/logoJavaScript.png" class="w-16 h-16 card-animate hover-lift" />
+        <img src="img/logoTypeScript.png" class="w-16 h-16 card-animate hover-lift" />
+        <img src="img/logoCSS3.png" class="w-16 h-16 card-animate hover-lift" />
+        <img src="img/logoHTML.png" class="w-16 h-16 card-animate hover-lift" />
+        <img src="img/logoReact.svg" class="w-16 h-16 card-animate hover-lift" />
       </div>
-      <div class="flex flex-row items-center justify-center gap-2 md:gap-8">
-        <img src="img/logoPHP.png" class="w-16 h-16" />
-        <img src="img/logoPython.png" class="w-16 h-16" />
-        <img src="img/logoGO.png" class="w-16 h-16" />
+      <div class="flex flex-row items-center justify-center gap-2 md:gap-8 animate-on-scroll">
+        <img src="img/logoPHP.png" class="w-16 h-16 card-animate hover-lift" />
+        <img src="img/logoPython.png" class="w-16 h-16 card-animate hover-lift" />
+        <img src="img/logoGO.png" class="w-16 h-16 card-animate hover-lift" />
       </div>
-      <div class="flex flex-row items-center justify-center gap-2 md:gap-8">
-        <img src="img/kotlin.svg" class="w-16 h-16" />
-        <img src="img/logoReactNative.png" class="w-16 h-16" />
+      <div class="flex flex-row items-center justify-center gap-2 md:gap-8 animate-on-scroll">
+        <img src="img/kotlin.svg" class="w-16 h-16 card-animate hover-lift" />
+        <img src="img/logoReactNative.png" class="w-16 h-16 card-animate hover-lift" />
       </div>
     </div>
   </div>
@@ -932,17 +880,19 @@ const isVisible = true;
     class="flex flex-col items-center px-5 py-4 h-full text-center md:grid md:grid-cols-2 md:gap-10"
   >
     <div>
-      <h1
-        class="text-4xl bg-gradient-to-br from-[#00464e] to-[#d4e256] bg-clip-text text-transparent md:text-5xl md:text-left font-bold mb-5"
-      >
-        Asesorías en Arquitectura de Software
-      </h1>
-      <p class="text-lg text-center mb-5 md:text-left">
+      <div class="sticky-title">
+        <h1
+          class="text-4xl bg-gradient-to-br from-[#00464e] to-[#d4e256] bg-clip-text text-transparent md:text-5xl md:text-left font-bold mb-5 animate-on-scroll gradient-animate"
+        >
+          Asesorías en Arquitectura de Software
+        </h1>
+      </div>
+      <p class="text-lg text-center mb-5 md:text-left animate-on-scroll">
         Potencia tu proyecto con nuestra experiencia en diseño de sistemas
         escalables, mantenibles y de alto rendimiento. Nuestro equipo de
         arquitectos te guiará hacia las mejores prácticas y tecnologías.
       </p>
-      <div class="flex flex-col items-center p-5">
+      <div class="flex flex-col items-center p-5 animate-on-scroll">
         <h1 class="mb-5 font-bold text-2xl md:text-left">
           ¿Por que elegir nuestra arquitectura?
         </h1>
@@ -978,7 +928,7 @@ const isVisible = true;
         </ul>
       </div>
       <div
-        class="flex flex-row items-center p-5 gap-5 border mb-10 border-gray-400/50 bg-gray-400/10 rounded-lg"
+        class="flex flex-row items-center p-5 gap-5 border mb-10 border-gray-400/50 bg-gray-400/10 rounded-lg animate-on-scroll hover-lift"
       >
         <img src="./img/calendar.svg" alt="" class="w-16 h-16" />
         <div class="flex flex-col">
@@ -991,20 +941,20 @@ const isVisible = true;
       </div>
     </div>
     <div
-      class="flex flex-col items-center p-1 gap-5 bg-gradient-to-br from-[#82e256] via-[#6bc73d] to-[#00464e] rounded-2xl shadow-2xl"
+      class="flex flex-col items-center p-1 gap-5 bg-gradient-to-br from-[#82e256] via-[#6bc73d] to-[#00464e] rounded-2xl shadow-2xl animate-on-scroll card-right"
     >
       <form
         id="advisory-form"
-        class="flex flex-col items-start w-full p-8 gap-6 bg-gradient-to-br from-[#1a1a1a] via-[#232323] to-[#1a1a1a] rounded-2xl"
+        class="flex flex-col items-start w-full p-8 gap-6 bg-gradient-to-br from-[#1a1a1a] via-[#232323] to-[#1a1a1a] rounded-2xl animate-on-scroll"
       >
         <!-- Header del formulario -->
-        <div class="w-full text-center pb-4 border-b border-white/10">
-          <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-2xl mb-4 shadow-lg">
+        <div class="w-full text-center pb-4 border-b border-white/10 animate-on-scroll">
+          <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-2xl mb-4 shadow-lg card-animate">
             <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
             </svg>
           </div>
-          <h1 class="text-2xl md:text-3xl font-bold text-white mb-2">
+          <h1 class="text-2xl md:text-3xl font-bold text-white mb-2 gradient-animate">
             Agendar Sesión de Asesoría
           </h1>
           <p class="text-white/70 text-sm">
@@ -1076,236 +1026,184 @@ const isVisible = true;
           </label>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
             <!-- Opción 1: Nueva Idea -->
-            <label class="relative flex flex-col gap-2 px-5 py-4 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all duration-300 group">
-              <div class="flex items-center gap-3">
-                <input type="radio" name="advisory-type" value="new_project" class="peer sr-only" required />
-                <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] transition-all duration-300 flex items-center justify-center flex-shrink-0">
-                  <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
-                </div>
-                <div class="flex items-center gap-2">
-                  <svg class="w-5 h-5 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                  </svg>
-                  <span class="text-white font-semibold text-sm peer-checked:text-[#82e256]">Tengo una idea nueva</span>
-                </div>
+            <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all duration-300 group" title="Quiero crear una app, sitio web o sistema desde cero">
+              <input type="radio" name="advisory-type" value="new_project" class="peer sr-only" required />
+              <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] transition-all duration-300 flex items-center justify-center flex-shrink-0">
+                <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
               </div>
-              <p class="text-white/60 text-xs pl-8">Quiero crear una app, sitio web o sistema desde cero</p>
+              <svg class="w-5 h-5 text-[#82e256] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+              </svg>
+              <span class="text-white font-medium text-sm peer-checked:text-[#82e256] transition-colors text-left">Tengo una idea nueva</span>
               <div class="absolute inset-0 bg-[#82e256]/5 rounded-xl opacity-0 peer-checked:opacity-100 transition-opacity -z-10"></div>
             </label>
 
-            <!-- Opción 2: Mejorar Existente -->
-            <label class="relative flex flex-col gap-2 px-5 py-4 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all duration-300 group">
-              <div class="flex items-center gap-3">
-                <input type="radio" name="advisory-type" value="improve_existing" class="peer sr-only" />
-                <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] transition-all duration-300 flex items-center justify-center flex-shrink-0">
-                  <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
-                </div>
-                <div class="flex items-center gap-2">
-                  <svg class="w-5 h-5 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-                  </svg>
-                  <span class="text-white font-semibold text-sm peer-checked:text-[#82e256]">Mejorar lo que tengo</span>
-                </div>
+            <!-- Opción 2 -->
+            <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all duration-300 group" title="Ya tengo un sistema pero necesita actualizarse o mejoras">
+              <input type="radio" name="advisory-type" value="improve_existing" class="peer sr-only" />
+              <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] transition-all duration-300 flex items-center justify-center flex-shrink-0">
+                <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
               </div>
-              <p class="text-white/60 text-xs pl-8">Ya tengo un sistema pero necesita actualizarse o mejoras</p>
+              <svg class="w-5 h-5 text-[#82e256] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+              </svg>
+              <span class="text-white font-medium text-sm peer-checked:text-[#82e256] transition-colors text-left">Mejorar lo que tengo</span>
               <div class="absolute inset-0 bg-[#82e256]/5 rounded-xl opacity-0 peer-checked:opacity-100 transition-opacity -z-10"></div>
             </label>
 
-            <!-- Opción 3: Crecer mi Negocio -->
-            <label class="relative flex flex-col gap-2 px-5 py-4 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all duration-300 group">
-              <div class="flex items-center gap-3">
-                <input type="radio" name="advisory-type" value="scale_business" class="peer sr-only" />
-                <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] transition-all duration-300 flex items-center justify-center flex-shrink-0">
-                  <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
-                </div>
-                <div class="flex items-center gap-2">
-                  <svg class="w-5 h-5 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                  </svg>
-                  <span class="text-white font-semibold text-sm peer-checked:text-[#82e256]">Crecer mi negocio</span>
-                </div>
+            <!-- Opción 3 -->
+            <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all duration-300 group" title="Necesito soportar más clientes o expandir funcionalidades">
+              <input type="radio" name="advisory-type" value="scale_business" class="peer sr-only" />
+              <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] transition-all duration-300 flex items-center justify-center flex-shrink-0">
+                <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
               </div>
-              <p class="text-white/60 text-xs pl-8">Necesito soportar más clientes o expandir funcionalidades</p>
+              <svg class="w-5 h-5 text-[#82e256] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+              </svg>
+              <span class="text-white font-medium text-sm peer-checked:text-[#82e256] transition-colors text-left">Crecer mi negocio</span>
               <div class="absolute inset-0 bg-[#82e256]/5 rounded-xl opacity-0 peer-checked:opacity-100 transition-opacity -z-10"></div>
             </label>
 
-            <!-- Opción 4: Inteligencia Artificial -->
-            <label class="relative flex flex-col gap-2 px-5 py-4 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all duration-300 group">
-              <div class="flex items-center gap-3">
-                <input type="radio" name="advisory-type" value="ai_integration" class="peer sr-only" />
-                <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] transition-all duration-300 flex items-center justify-center flex-shrink-0">
-                  <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
-                </div>
-                <div class="flex items-center gap-2">
-                  <svg class="w-5 h-5 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                  </svg>
-                  <span class="text-white font-semibold text-sm peer-checked:text-[#82e256]">Usar Inteligencia Artificial</span>
-                </div>
+            <!-- Opción 4 -->
+            <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all duration-300 group" title="Quiero automatizar tareas o agregar chatbots inteligentes">
+              <input type="radio" name="advisory-type" value="ai_integration" class="peer sr-only" />
+              <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] transition-all duration-300 flex items-center justify-center flex-shrink-0">
+                <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
               </div>
-              <p class="text-white/60 text-xs pl-8">Quiero automatizar tareas o agregar chatbots inteligentes</p>
+              <svg class="w-5 h-5 text-[#82e256] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+              <span class="text-white font-medium text-sm peer-checked:text-[#82e256] transition-colors text-left">Usar Inteligencia Artificial</span>
               <div class="absolute inset-0 bg-[#82e256]/5 rounded-xl opacity-0 peer-checked:opacity-100 transition-opacity -z-10"></div>
             </label>
 
-            <!-- Opción 5: Problemas Técnicos -->
-            <label class="relative flex flex-col gap-2 px-5 py-4 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all duration-300 group">
-              <div class="flex items-center gap-3">
-                <input type="radio" name="advisory-type" value="fix_problems" class="peer sr-only" />
-                <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] transition-all duration-300 flex items-center justify-center flex-shrink-0">
-                  <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
-                </div>
-                <div class="flex items-center gap-2">
-                  <svg class="w-5 h-5 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
-                  </svg>
-                  <span class="text-white font-semibold text-sm peer-checked:text-[#82e256]">Resolver problemas</span>
-                </div>
+            <!-- Opción 5 -->
+            <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all duration-300 group" title="Mi sistema es lento, tiene errores o necesita mantenimiento">
+              <input type="radio" name="advisory-type" value="fix_problems" class="peer sr-only" />
+              <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] transition-all duration-300 flex items-center justify-center flex-shrink-0">
+                <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
               </div>
-              <p class="text-white/60 text-xs pl-8">Mi sistema es lento, tiene errores o necesita mantenimiento</p>
+              <svg class="w-5 h-5 text-[#82e256] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+              </svg>
+              <span class="text-white font-medium text-sm peer-checked:text-[#82e256] transition-colors text-left">Resolver problemas</span>
               <div class="absolute inset-0 bg-[#82e256]/5 rounded-xl opacity-0 peer-checked:opacity-100 transition-opacity -z-10"></div>
             </label>
 
-            <!-- Opción 6: Guiar mi Equipo -->
-            <label class="relative flex flex-col gap-2 px-5 py-4 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all duration-300 group">
-              <div class="flex items-center gap-3">
-                <input type="radio" name="advisory-type" value="guide_team" class="peer sr-only" />
-                <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] transition-all duration-300 flex items-center justify-center flex-shrink-0">
-                  <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
-                </div>
-                <div class="flex items-center gap-2">
-                  <svg class="w-5 h-5 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                  </svg>
-                  <span class="text-white font-semibold text-sm peer-checked:text-[#82e256]">Guiar mi equipo técnico</span>
-                </div>
+            <!-- Opción 6 -->
+            <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all duration-300 group" title="Tengo desarrolladores pero necesito liderazgo y dirección">
+              <input type="radio" name="advisory-type" value="guide_team" class="peer sr-only" />
+              <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] transition-all duration-300 flex items-center justify-center flex-shrink-0">
+                <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
               </div>
-              <p class="text-white/60 text-xs pl-8">Tengo desarrolladores pero necesito liderazgo y dirección</p>
+              <svg class="w-5 h-5 text-[#82e256] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </svg>
+              <span class="text-white font-medium text-sm peer-checked:text-[#82e256] transition-colors text-left">Guiar mi equipo técnico</span>
               <div class="absolute inset-0 bg-[#82e256]/5 rounded-xl opacity-0 peer-checked:opacity-100 transition-opacity -z-10"></div>
             </label>
 
-            <!-- Opción 7: Proyecto Estancado -->
-            <label class="relative flex flex-col gap-2 px-5 py-4 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all duration-300 group">
-              <div class="flex items-center gap-3">
-                <input type="radio" name="advisory-type" value="project_stuck" class="peer sr-only" />
-                <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] transition-all duration-300 flex items-center justify-center flex-shrink-0">
-                  <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
-                </div>
-                <div class="flex items-center gap-2">
-                  <svg class="w-5 h-5 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
-                  <span class="text-white font-semibold text-sm peer-checked:text-[#82e256]">Mi proyecto está estancado</span>
-                </div>
+            <!-- Opción 7 -->
+            <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all duration-300 group" title="El desarrollo no avanza o tomó más tiempo del esperado">
+              <input type="radio" name="advisory-type" value="project_stuck" class="peer sr-only" />
+              <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] transition-all duration-300 flex items-center justify-center flex-shrink-0">
+                <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
               </div>
-              <p class="text-white/60 text-xs pl-8">El desarrollo no avanza o tomó más tiempo del esperado</p>
+              <svg class="w-5 h-5 text-[#82e256] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span class="text-white font-medium text-sm peer-checked:text-[#82e256] transition-colors text-left">Mi proyecto está estancado</span>
               <div class="absolute inset-0 bg-[#82e256]/5 rounded-xl opacity-0 peer-checked:opacity-100 transition-opacity -z-10"></div>
             </label>
 
-            <!-- Opción 8: Presupuesto Limitado -->
-            <label class="relative flex flex-col gap-2 px-5 py-4 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all duration-300 group">
-              <div class="flex items-center gap-3">
-                <input type="radio" name="advisory-type" value="limited_budget" class="peer sr-only" />
-                <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] transition-all duration-300 flex items-center justify-center flex-shrink-0">
-                  <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
-                </div>
-                <div class="flex items-center gap-2">
-                  <svg class="w-5 h-5 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
-                  <span class="text-white font-semibold text-sm peer-checked:text-[#82e256]">Tengo presupuesto limitado</span>
-                </div>
+            <!-- Opción 8 -->
+            <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all duration-300 group" title="Necesito soluciones eficientes y priorizar funcionalidades">
+              <input type="radio" name="advisory-type" value="limited_budget" class="peer sr-only" />
+              <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] transition-all duration-300 flex items-center justify-center flex-shrink-0">
+                <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
               </div>
-              <p class="text-white/60 text-xs pl-8">Necesito soluciones eficientes y priorizar funcionalidades</p>
+              <svg class="w-5 h-5 text-[#82e256] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span class="text-white font-medium text-sm peer-checked:text-[#82e256] transition-colors text-left">Tengo presupuesto limitado</span>
               <div class="absolute inset-0 bg-[#82e256]/5 rounded-xl opacity-0 peer-checked:opacity-100 transition-opacity -z-10"></div>
             </label>
 
-            <!-- Opción 9: Validar Idea -->
-            <label class="relative flex flex-col gap-2 px-5 py-4 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all duration-300 group">
-              <div class="flex items-center gap-3">
-                <input type="radio" name="advisory-type" value="validate_idea" class="peer sr-only" />
-                <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] transition-all duration-300 flex items-center justify-center flex-shrink-0">
-                  <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
-                </div>
-                <div class="flex items-center gap-2">
-                  <svg class="w-5 h-5 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
-                  </svg>
-                  <span class="text-white font-semibold text-sm peer-checked:text-[#82e256]">Validar mi idea de negocio</span>
-                </div>
+            <!-- Opción 9 -->
+            <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all duration-300 group" title="Quiero saber si mi idea es viable antes de invertir mucho">
+              <input type="radio" name="advisory-type" value="validate_idea" class="peer sr-only" />
+              <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] transition-all duration-300 flex items-center justify-center flex-shrink-0">
+                <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
               </div>
-              <p class="text-white/60 text-xs pl-8">Quiero saber si mi idea es viable antes de invertir mucho</p>
+              <svg class="w-5 h-5 text-[#82e256] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+              </svg>
+              <span class="text-white font-medium text-sm peer-checked:text-[#82e256] transition-colors text-left">Validar mi idea de negocio</span>
               <div class="absolute inset-0 bg-[#82e256]/5 rounded-xl opacity-0 peer-checked:opacity-100 transition-opacity -z-10"></div>
             </label>
 
-            <!-- Opción 10: Migrar Tecnología -->
-            <label class="relative flex flex-col gap-2 px-5 py-4 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all duration-300 group">
-              <div class="flex items-center gap-3">
-                <input type="radio" name="advisory-type" value="migrate_tech" class="peer sr-only" />
-                <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] transition-all duration-300 flex items-center justify-center flex-shrink-0">
-                  <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
-                </div>
-                <div class="flex items-center gap-2">
-                  <svg class="w-5 h-5 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
-                  </svg>
-                  <span class="text-white font-semibold text-sm peer-checked:text-[#82e256]">Actualizar tecnología antigua</span>
-                </div>
+            <!-- Opción 10 -->
+            <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all duration-300 group" title="Mi sistema usa tecnología vieja y necesito modernizarlo">
+              <input type="radio" name="advisory-type" value="migrate_tech" class="peer sr-only" />
+              <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] transition-all duration-300 flex items-center justify-center flex-shrink-0">
+                <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
               </div>
-              <p class="text-white/60 text-xs pl-8">Mi sistema usa tecnología vieja y necesito modernizarlo</p>
+              <svg class="w-5 h-5 text-[#82e256] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
+              </svg>
+              <span class="text-white font-medium text-sm peer-checked:text-[#82e256] transition-colors text-left">Actualizar tecnología antigua</span>
               <div class="absolute inset-0 bg-[#82e256]/5 rounded-xl opacity-0 peer-checked:opacity-100 transition-opacity -z-10"></div>
             </label>
 
-            <!-- Opción 11: Seguridad -->
-            <label class="relative flex flex-col gap-2 px-5 py-4 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all duration-300 group">
-              <div class="flex items-center gap-3">
-                <input type="radio" name="advisory-type" value="security" class="peer sr-only" />
-                <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] transition-all duration-300 flex items-center justify-center flex-shrink-0">
-                  <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
-                </div>
-                <div class="flex items-center gap-2">
-                  <svg class="w-5 h-5 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-                  </svg>
-                  <span class="text-white font-semibold text-sm peer-checked:text-[#82e256]">Mejorar la seguridad</span>
-                </div>
+            <!-- Opción 11 -->
+            <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all duration-300 group" title="Me preocupa la protección de datos y ciberseguridad">
+              <input type="radio" name="advisory-type" value="security" class="peer sr-only" />
+              <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] transition-all duration-300 flex items-center justify-center flex-shrink-0">
+                <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
               </div>
-              <p class="text-white/60 text-xs pl-8">Me preocupa la protección de datos y ciberseguridad</p>
+              <svg class="w-5 h-5 text-[#82e256] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+              </svg>
+              <span class="text-white font-medium text-sm peer-checked:text-[#82e256] transition-colors text-left">Mejorar la seguridad</span>
               <div class="absolute inset-0 bg-[#82e256]/5 rounded-xl opacity-0 peer-checked:opacity-100 transition-opacity -z-10"></div>
             </label>
 
-            <!-- Opción 12: Integración de Sistemas -->
-            <label class="relative flex flex-col gap-2 px-5 py-4 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all duration-300 group">
-              <div class="flex items-center gap-3">
-                <input type="radio" name="advisory-type" value="integration" class="peer sr-only" />
-                <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] transition-all duration-300 flex items-center justify-center flex-shrink-0">
-                  <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
-                </div>
-                <div class="flex items-center gap-2">
-                  <svg class="w-5 h-5 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"></path>
-                  </svg>
-                  <span class="text-white font-semibold text-sm peer-checked:text-[#82e256]">Conectar mis sistemas</span>
-                </div>
+            <!-- Opción 12 -->
+            <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all duration-300 group" title="Tengo varias herramientas y quiero que trabajen juntas">
+              <input type="radio" name="advisory-type" value="integration" class="peer sr-only" />
+              <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] transition-all duration-300 flex items-center justify-center flex-shrink-0">
+                <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
               </div>
-              <p class="text-white/60 text-xs pl-8">Tengo varias herramientas y quiero que trabajen juntas</p>
+              <svg class="w-5 h-5 text-[#82e256] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"></path>
+              </svg>
+              <span class="text-white font-medium text-sm peer-checked:text-[#82e256] transition-colors text-left">Conectar mis sistemas</span>
               <div class="absolute inset-0 bg-[#82e256]/5 rounded-xl opacity-0 peer-checked:opacity-100 transition-opacity -z-10"></div>
             </label>
 
-            <!-- Opción 13: No estoy seguro -->
-            <label class="relative flex flex-col gap-2 px-5 py-4 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all duration-300 group">
-              <div class="flex items-center gap-3">
-                <input type="radio" name="advisory-type" value="not_sure" class="peer sr-only" />
-                <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] transition-all duration-300 flex items-center justify-center flex-shrink-0">
-                  <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
-                </div>
-                <div class="flex items-center gap-2">
-                  <svg class="w-5 h-5 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
-                  <span class="text-white font-semibold text-sm peer-checked:text-[#82e256]">No estoy seguro</span>
-                </div>
+            <!-- Opción 13 -->
+            <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all duration-300 group" title="Necesito obtener mentoring y learning para mi y mi equipo">
+              <input type="radio" name="advisory-type" value="mentoring" class="peer sr-only" />
+              <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] transition-all duration-300 flex items-center justify-center flex-shrink-0">
+                <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
               </div>
-              <p class="text-white/60 text-xs pl-8">Necesito orientación sobre qué es lo mejor para mi caso</p>
+              <svg class="w-6 h-6 text-[#82e256] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+              </svg>
+              <span class="text-white font-medium text-sm peer-checked:text-[#82e256] transition-colors text-left">Mentoring a la medida</span>
+              <div class="absolute inset-0 bg-[#82e256]/5 rounded-xl opacity-0 peer-checked:opacity-100 transition-opacity -z-10"></div>
+            </label>
+
+              <!-- Opción 14 -->
+            <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all duration-300 group" title="Necesito orientación sobre qué es lo mejor para mi caso">
+              <input type="radio" name="advisory-type" value="not_sure" class="peer sr-only" />
+              <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] transition-all duration-300 flex items-center justify-center flex-shrink-0">
+                <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
+              </div>
+              <svg class="w-5 h-5 text-[#82e256] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span class="text-white font-medium text-sm peer-checked:text-[#82e256] transition-colors text-left">No estoy seguro</span>
               <div class="absolute inset-0 bg-[#82e256]/5 rounded-xl opacity-0 peer-checked:opacity-100 transition-opacity -z-10"></div>
             </label>
           </div>
@@ -1358,16 +1256,16 @@ const isVisible = true;
 >
   <div class="max-w-7xl mx-auto">
     <!-- Header -->
-    <div class="text-center mb-16">
-      <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-2xl mb-6 shadow-xl">
+    <div class="text-center mb-16 sticky-title">
+      <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-2xl mb-6 shadow-xl animate-on-scroll card-animate">
         <svg class="w-10 h-10 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
         </svg>
       </div>
-      <h1 class="text-4xl md:text-5xl font-black text-white mb-4 bg-gradient-to-r from-white via-white to-[#82e256] bg-clip-text text-transparent">
+      <h1 class="text-4xl md:text-5xl font-black text-white mb-4 bg-gradient-to-r from-white via-white to-[#82e256] bg-clip-text text-transparent animate-on-scroll gradient-animate">
         Mentoring y Cursos Especializados
       </h1>
-      <p class="text-white/70 text-lg max-w-3xl mx-auto">
+      <p class="text-white/70 text-lg max-w-3xl mx-auto animate-on-scroll">
         Eleva las habilidades de tu equipo con nuestros programas de mentoring y cursos especializados en arquitectura de software
       </p>
     </div>
@@ -1416,7 +1314,7 @@ const isVisible = true;
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
 
       <!-- Course 1: Arquitectura Hexagonal -->
-      <div class="group relative overflow-hidden rounded-2xl border-2 border-white/10 bg-gradient-to-br from-black/40 to-black/20 hover:border-[#82e256]/50 transition-all duration-300">
+      <div class="group relative overflow-hidden rounded-2xl border-2 border-white/10 bg-gradient-to-br from-black/40 to-black/20 hover:border-[#82e256]/50 transition-all duration-300 card-animate hover-lift">
         <div class="absolute inset-0 bg-gradient-to-br from-[#82e256]/5 to-[#6bc73d]/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
         <div class="relative p-6">
           <div class="flex items-start justify-between mb-4">
@@ -1431,7 +1329,7 @@ const isVisible = true;
           <p class="text-white/60 text-sm mb-4 leading-relaxed">
             Aprende a diseñar aplicaciones desacopladas, testables y escalables con el patrón Ports & Adapters
           </p>
-          <div class="flex items-center gap-4 mb-4 text-sm">
+          <div class="flex items-center gap-4 text-sm">
             <span class="flex items-center gap-1 text-white/70">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -1445,15 +1343,11 @@ const isVisible = true;
               Intermedio
             </span>
           </div>
-          <div class="border-t border-white/10 pt-4">
-            <p class="text-[#82e256] font-bold text-lg mb-1">$299 USD</p>
-            <p class="text-white/50 text-xs">por participante</p>
-          </div>
         </div>
       </div>
 
       <!-- Course 2: Microservicios -->
-      <div class="group relative overflow-hidden rounded-2xl border-2 border-white/10 bg-gradient-to-br from-black/40 to-black/20 hover:border-[#82e256]/50 transition-all duration-300">
+      <div class="group relative overflow-hidden rounded-2xl border-2 border-white/10 bg-gradient-to-br from-black/40 to-black/20 hover:border-[#82e256]/50 transition-all duration-300 card-animate hover-lift">
         <div class="absolute inset-0 bg-gradient-to-br from-[#82e256]/5 to-[#6bc73d]/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
         <div class="relative p-6">
           <div class="flex items-start justify-between mb-4">
@@ -1467,7 +1361,7 @@ const isVisible = true;
           <p class="text-white/60 text-sm mb-4 leading-relaxed">
             Domina el diseño de sistemas distribuidos con Domain-Driven Design y patrones de microservicios
           </p>
-          <div class="flex items-center gap-4 mb-4 text-sm">
+          <div class="flex items-center gap-4 text-sm">
             <span class="flex items-center gap-1 text-white/70">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -1481,15 +1375,11 @@ const isVisible = true;
               Avanzado
             </span>
           </div>
-          <div class="border-t border-white/10 pt-4">
-            <p class="text-[#82e256] font-bold text-lg mb-1">$499 USD</p>
-            <p class="text-white/50 text-xs">por participante</p>
-          </div>
         </div>
       </div>
 
       <!-- Course 3: Clean Code -->
-      <div class="group relative overflow-hidden rounded-2xl border-2 border-white/10 bg-gradient-to-br from-black/40 to-black/20 hover:border-[#82e256]/50 transition-all duration-300">
+      <div class="group relative overflow-hidden rounded-2xl border-2 border-white/10 bg-gradient-to-br from-black/40 to-black/20 hover:border-[#82e256]/50 transition-all duration-300 card-animate hover-lift">
         <div class="absolute inset-0 bg-gradient-to-br from-[#82e256]/5 to-[#6bc73d]/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
         <div class="relative p-6">
           <div class="flex items-start justify-between mb-4">
@@ -1503,7 +1393,7 @@ const isVisible = true;
           <p class="text-white/60 text-sm mb-4 leading-relaxed">
             Escribe código limpio, mantenible y profesional aplicando principios SOLID y mejores prácticas
           </p>
-          <div class="flex items-center gap-4 mb-4 text-sm">
+          <div class="flex items-center gap-4 text-sm">
             <span class="flex items-center gap-1 text-white/70">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -1517,15 +1407,11 @@ const isVisible = true;
               Básico
             </span>
           </div>
-          <div class="border-t border-white/10 pt-4">
-            <p class="text-[#82e256] font-bold text-lg mb-1">$199 USD</p>
-            <p class="text-white/50 text-xs">por participante</p>
-          </div>
         </div>
       </div>
 
       <!-- Course 4: Testing -->
-      <div class="group relative overflow-hidden rounded-2xl border-2 border-white/10 bg-gradient-to-br from-black/40 to-black/20 hover:border-[#82e256]/50 transition-all duration-300">
+      <div class="group relative overflow-hidden rounded-2xl border-2 border-white/10 bg-gradient-to-br from-black/40 to-black/20 hover:border-[#82e256]/50 transition-all duration-300 card-animate hover-lift">
         <div class="absolute inset-0 bg-gradient-to-br from-[#82e256]/5 to-[#6bc73d]/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
         <div class="relative p-6">
           <div class="flex items-start justify-between mb-4">
@@ -1539,7 +1425,7 @@ const isVisible = true;
           <p class="text-white/60 text-sm mb-4 leading-relaxed">
             Domina TDD, testing unitario, de integración y E2E para garantizar calidad en tus aplicaciones
           </p>
-          <div class="flex items-center gap-4 mb-4 text-sm">
+          <div class="flex items-center gap-4 text-sm">
             <span class="flex items-center gap-1 text-white/70">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -1553,15 +1439,11 @@ const isVisible = true;
               Intermedio
             </span>
           </div>
-          <div class="border-t border-white/10 pt-4">
-            <p class="text-[#82e256] font-bold text-lg mb-1">$349 USD</p>
-            <p class="text-white/50 text-xs">por participante</p>
-          </div>
         </div>
       </div>
 
       <!-- Course 5: DevOps -->
-      <div class="group relative overflow-hidden rounded-2xl border-2 border-white/10 bg-gradient-to-br from-black/40 to-black/20 hover:border-[#82e256]/50 transition-all duration-300">
+      <div class="group relative overflow-hidden rounded-2xl border-2 border-white/10 bg-gradient-to-br from-black/40 to-black/20 hover:border-[#82e256]/50 transition-all duration-300 card-animate hover-lift">
         <div class="absolute inset-0 bg-gradient-to-br from-[#82e256]/5 to-[#6bc73d]/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
         <div class="relative p-6">
           <div class="flex items-start justify-between mb-4">
@@ -1575,7 +1457,7 @@ const isVisible = true;
           <p class="text-white/60 text-sm mb-4 leading-relaxed">
             Automatiza deployments, implementa pipelines y domina Docker, Kubernetes y herramientas cloud
           </p>
-          <div class="flex items-center gap-4 mb-4 text-sm">
+          <div class="flex items-center gap-4 text-sm">
             <span class="flex items-center gap-1 text-white/70">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -1589,15 +1471,11 @@ const isVisible = true;
               Intermedio
             </span>
           </div>
-          <div class="border-t border-white/10 pt-4">
-            <p class="text-[#82e256] font-bold text-lg mb-1">$399 USD</p>
-            <p class="text-white/50 text-xs">por participante</p>
-          </div>
         </div>
       </div>
 
       <!-- Course 6: Mentoring Personalizado -->
-      <div class="group relative overflow-hidden rounded-2xl border-2 border-[#82e256]/30 bg-gradient-to-br from-[#82e256]/10 to-[#6bc73d]/10 hover:border-[#82e256] transition-all duration-300">
+      <div class="group relative overflow-hidden rounded-2xl border-2 border-[#82e256]/30 bg-gradient-to-br from-[#82e256]/10 to-[#6bc73d]/10 hover:border-[#82e256] transition-all duration-300 card-animate hover-lift">
         <div class="absolute inset-0 bg-gradient-to-br from-[#82e256]/10 to-[#6bc73d]/10"></div>
         <div class="relative p-6">
           <div class="flex items-start justify-between mb-4">
@@ -1612,7 +1490,7 @@ const isVisible = true;
           <p class="text-white/60 text-sm mb-4 leading-relaxed">
             Sesiones privadas 1-on-1 o para tu equipo, enfocadas en resolver problemas específicos de tu proyecto
           </p>
-          <div class="flex items-center gap-4 mb-4 text-sm">
+          <div class="flex items-center gap-4 text-sm">
             <span class="flex items-center gap-1 text-white/70">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -1626,9 +1504,104 @@ const isVisible = true;
               Todos niveles
             </span>
           </div>
-          <div class="border-t border-white/10 pt-4">
-            <p class="text-[#82e256] font-bold text-lg mb-1">Desde $150/hora</p>
-            <p class="text-white/50 text-xs">consultar paquetes disponibles</p>
+        </div>
+      </div>
+
+      <!-- Course 7: IA Generativa para Empresas -->
+      <div class="group relative overflow-hidden rounded-2xl border-2 border-white/10 bg-gradient-to-br from-black/40 to-black/20 hover:border-[#04ADC0]/50 transition-all duration-300">
+        <div class="absolute inset-0 bg-gradient-to-br from-[#04ADC0]/5 to-[#00464e]/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div class="relative p-6">
+          <div class="flex items-start justify-between mb-4">
+            <div class="w-12 h-12 bg-gradient-to-br from-[#04ADC0] to-[#00464e] rounded-xl flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+              </svg>
+            </div>
+            <span class="px-3 py-1 bg-[#04ADC0]/20 text-[#04ADC0] text-xs font-bold rounded-full">NUEVO</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">IA Generativa para Empresas</h3>
+          <p class="text-white/60 text-sm mb-4 leading-relaxed">
+            Implementa GPT-4, Claude y LLMs en aplicaciones reales. Aprende RAG, embeddings y fine-tuning
+          </p>
+          <div class="flex items-center gap-4 text-sm">
+            <span class="flex items-center gap-1 text-white/70">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              14 horas
+            </span>
+            <span class="flex items-center gap-1 text-white/70">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              Avanzado
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 8: Machine Learning en Producción -->
+      <div class="group relative overflow-hidden rounded-2xl border-2 border-white/10 bg-gradient-to-br from-black/40 to-black/20 hover:border-[#04ADC0]/50 transition-all duration-300">
+        <div class="absolute inset-0 bg-gradient-to-br from-[#04ADC0]/5 to-[#00464e]/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div class="relative p-6">
+          <div class="flex items-start justify-between mb-4">
+            <div class="w-12 h-12 bg-gradient-to-br from-[#04ADC0] to-[#00464e] rounded-xl flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+              </svg>
+            </div>
+            <span class="px-3 py-1 bg-[#04ADC0]/20 text-[#04ADC0] text-xs font-bold rounded-full">NUEVO</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Machine Learning en Producción</h3>
+          <p class="text-white/60 text-sm mb-4 leading-relaxed">
+            MLOps, pipelines de entrenamiento, deployment de modelos y monitoreo en sistemas reales
+          </p>
+          <div class="flex items-center gap-4 text-sm">
+            <span class="flex items-center gap-1 text-white/70">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              16 horas
+            </span>
+            <span class="flex items-center gap-1 text-white/70">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              Avanzado
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 9: Sistemas Agénticos y Multi-Agente -->
+      <div class="group relative overflow-hidden rounded-2xl border-2 border-white/10 bg-gradient-to-br from-black/40 to-black/20 hover:border-[#04ADC0]/50 transition-all duration-300">
+        <div class="absolute inset-0 bg-gradient-to-br from-[#04ADC0]/5 to-[#00464e]/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div class="relative p-6">
+          <div class="flex items-start justify-between mb-4">
+            <div class="w-12 h-12 bg-gradient-to-br from-[#04ADC0] to-[#00464e] rounded-xl flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <span class="px-3 py-1 bg-[#04ADC0]/20 text-[#04ADC0] text-xs font-bold rounded-full">NUEVO</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Sistemas Agénticos y Multi-Agente</h3>
+          <p class="text-white/60 text-sm mb-4 leading-relaxed">
+            Construye agentes autónomos con LangChain, CrewAI y AutoGPT. Orquestación y coordinación de agentes
+          </p>
+          <div class="flex items-center gap-4 text-sm">
+            <span class="flex items-center gap-1 text-white/70">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              18 horas
+            </span>
+            <span class="flex items-center gap-1 text-white/70">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              Avanzado
+            </span>
           </div>
         </div>
       </div>
@@ -1677,16 +1650,16 @@ const isVisible = true;
 >
   <div class="max-w-7xl mx-auto">
     <!-- Header -->
-    <div class="text-center mb-16">
-      <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-2xl mb-6 shadow-xl">
+    <div class="text-center mb-16 sticky-title">
+      <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-2xl mb-6 shadow-xl animate-on-scroll card-animate">
         <svg class="w-10 h-10 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
         </svg>
       </div>
-      <h1 class="text-4xl md:text-5xl font-black text-white mb-4 bg-gradient-to-r from-white via-white to-[#82e256] bg-clip-text text-transparent">
+      <h1 class="text-4xl md:text-5xl font-black text-white mb-4 bg-gradient-to-r from-white via-white to-[#82e256] bg-clip-text text-transparent animate-on-scroll gradient-animate">
         Consulta con IA
       </h1>
-      <p class="text-white/70 text-lg max-w-2xl mx-auto">
+      <p class="text-white/70 text-lg max-w-2xl mx-auto animate-on-scroll">
         Resuelve tus dudas tecnológicas con respuestas generadas por inteligencia artificial. Usa nuestro FAQ o haz tu propia pregunta.
       </p>
     </div>
@@ -2654,3 +2627,318 @@ La elección depende de tu caso de uso específico. Para APIs internas, JWT suel
     </p>
   </div>
 </footer>
+
+<style>
+  /* Animaciones de entrada */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slideInSticky {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Clases de animación */
+  .animate-on-scroll {
+    opacity: 0;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in-left {
+    animation: fadeInLeft 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in-right {
+    animation: fadeInRight 0.8s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-sticky {
+    animation: slideInSticky 0.5s ease-out forwards;
+  }
+
+  /* Títulos sticky */
+  .sticky-title {
+    position: sticky;
+    top: 80px;
+    z-index: 40;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+
+  .sticky-title.stuck {
+    background: rgba(0, 70, 78, 0.95);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    padding: 1rem 0;
+  }
+
+  /* Efecto parallax suave */
+  .parallax-slow {
+    transition: transform 0.3s ease-out;
+  }
+
+  /* Efectos de hover mejorados */
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(130, 226, 86, 0.2);
+  }
+
+  /* Gradientes animados */
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .gradient-animate {
+    background-size: 200% 200%;
+    animation: gradientShift 8s ease infinite;
+  }
+</style>
+
+<script>
+  // Intersection Observer para animaciones al scroll
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        // Añadir delay escalonado para múltiples elementos
+        const delay = index * 100;
+        setTimeout(() => {
+          entry.target.classList.add('animate-fade-in-up');
+          entry.target.style.opacity = '1';
+        }, delay);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observar todos los elementos con la clase animate-on-scroll
+  document.addEventListener('DOMContentLoaded', () => {
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    animatedElements.forEach(el => observer.observe(el));
+
+    // Sticky titles behavior
+    const stickyTitles = document.querySelectorAll('.sticky-title');
+    const stickyObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting && entry.boundingClientRect.top < 100) {
+          entry.target.classList.add('stuck');
+        } else {
+          entry.target.classList.remove('stuck');
+        }
+      });
+    }, {
+      threshold: [0, 1],
+      rootMargin: '-80px 0px 0px 0px'
+    });
+
+    stickyTitles.forEach(title => stickyObserver.observe(title));
+
+    // Parallax suave en scroll
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrolled = window.pageYOffset;
+          const parallaxElements = document.querySelectorAll('.parallax-slow');
+
+          parallaxElements.forEach((element, index) => {
+            const speed = 0.5 + (index * 0.1);
+            const yPos = -(scrolled * speed / 10);
+            element.style.transform = `translateY(${yPos}px)`;
+          });
+
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    // Animaciones de entrada para tarjetas y elementos
+    const cardObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          const delay = index * 150;
+          setTimeout(() => {
+            if (entry.target.classList.contains('card-left')) {
+              entry.target.classList.add('animate-fade-in-left');
+            } else if (entry.target.classList.contains('card-right')) {
+              entry.target.classList.add('animate-fade-in-right');
+            } else {
+              entry.target.classList.add('animate-scale-in');
+            }
+            entry.target.style.opacity = '1';
+          }, delay);
+          cardObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    const cards = document.querySelectorAll('.card-animate');
+    cards.forEach(card => cardObserver.observe(card));
+
+    // Contador animado para números
+    const animateCounter = (element) => {
+      const target = parseInt(element.getAttribute('data-target'));
+      const duration = 2000;
+      const step = target / (duration / 16);
+      let current = 0;
+
+      const updateCounter = () => {
+        current += step;
+        if (current < target) {
+          element.textContent = Math.floor(current);
+          requestAnimationFrame(updateCounter);
+        } else {
+          element.textContent = target;
+        }
+      };
+
+      updateCounter();
+    };
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    const counters = document.querySelectorAll('[data-target]');
+    counters.forEach(counter => counterObserver.observe(counter));
+
+    // Smooth scroll para links internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const offset = 80;
+          const targetPosition = target.offsetTop - offset;
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  });
+
+  // Efecto de partículas al mover el mouse (opcional, sutil)
+  const createParticle = (x, y) => {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    particle.style.cssText = `
+      position: fixed;
+      width: 4px;
+      height: 4px;
+      background: rgba(130, 226, 86, 0.6);
+      border-radius: 50%;
+      pointer-events: none;
+      left: ${x}px;
+      top: ${y}px;
+      z-index: 9999;
+      animation: particleFade 1s ease-out forwards;
+    `;
+    document.body.appendChild(particle);
+    setTimeout(() => particle.remove(), 1000);
+  };
+
+  // Agregar keyframe para partículas
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes particleFade {
+      0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(var(--tx, 0), var(--ty, 20px)) scale(0);
+      }
+    }
+  `;
+  document.head.appendChild(style);
+
+  // Activar partículas solo en elementos interactivos (moderado)
+  let particleTimeout;
+  document.addEventListener('mousemove', (e) => {
+    const isInteractive = e.target.closest('a, button, .hover-lift');
+    if (isInteractive && Math.random() > 0.95) {
+      clearTimeout(particleTimeout);
+      particleTimeout = setTimeout(() => {
+        createParticle(e.clientX, e.clientY);
+      }, 50);
+    }
+  });
+</script>
