@@ -1,0 +1,404 @@
+---
+import Layout from './Layout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  icon: string;
+  gradient: string;
+}
+
+const { title, description, icon, gradient } = Astro.props;
+---
+
+<Layout>
+  <div class="min-h-screen bg-[#1a1a1a]">
+    <!-- Header -->
+    <header
+      class="bg-[#00464e] flex flex-row justify-between items-center p-3 w-full fixed top-0 left-0 z-50 shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
+    >
+      <a href="/">
+        <img src="/img/logoAquicreamos.png" class="h-7" alt="Logo Aquí Creamos" />
+      </a>
+      <nav class="hidden md:block">
+        <ul class="flex flex-row gap-6 items-center justify-center">
+          <li><a href="/#home" class="text-white hover:text-[#82e256] transition-colors">Inicio</a></li>
+          <li><a href="/servicios" class="text-[#82e256] font-semibold">Servicios</a></li>
+          <li><a href="/blog" class="text-white hover:text-[#82e256] transition-colors">Blog</a></li>
+          <li><a href="/#contenido10" class="text-white hover:text-[#82e256] transition-colors">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero Section con efecto parallax -->
+    <section class={`relative pt-20 pb-16 md:py-24 ${gradient} overflow-hidden`}>
+      <!-- Decoración de fondo -->
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-10 left-10 w-72 h-72 bg-white rounded-full blur-3xl"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+      </div>
+
+      <div class="container mx-auto px-4 md:px-16 relative z-10">
+        <div class="max-w-5xl mx-auto">
+          <!-- Icono animado -->
+          <div class="flex justify-center mb-8">
+            <div class="text-8xl md:text-9xl animate-bounce-slow bg-white/10 backdrop-blur-sm rounded-3xl p-6 shadow-2xl">
+              {icon}
+            </div>
+          </div>
+
+          <!-- Título -->
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-center leading-tight">
+            {title}
+          </h1>
+
+          <!-- Descripción -->
+          <p class="text-xl md:text-2xl text-white/95 text-center max-w-3xl mx-auto leading-relaxed">
+            {description}
+          </p>
+
+          <!-- CTA rápido -->
+          <div class="flex flex-col sm:flex-row gap-4 justify-center mt-10">
+            <a
+              href="/#contenido10"
+              class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#82e256] text-black font-bold rounded-lg hover:bg-[#6bc73d] transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+              </svg>
+              Agendar Consultoría Gratuita
+            </a>
+            <a
+              href="/servicios"
+              class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-bold rounded-lg hover:bg-white/20 transition-all duration-300 border-2 border-white/30"
+            >
+              Ver Todos los Servicios
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wave divider -->
+      <div class="absolute bottom-0 left-0 right-0">
+        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full">
+          <path d="M0 0L60 10C120 20 240 40 360 46.7C480 53 600 47 720 43.3C840 40 960 40 1080 46.7C1200 53 1320 67 1380 73.3L1440 80V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V0Z" fill="#1a1a1a"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="py-16 md:py-24 bg-[#1a1a1a]">
+      <div class="container mx-auto px-4 md:px-16">
+        <div class="max-w-5xl mx-auto">
+          <!-- Contenido del servicio -->
+          <article class="prose prose-invert prose-lg max-w-none">
+            <slot />
+          </article>
+
+          <!-- Características destacadas -->
+          <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256] transition-all duration-300 hover:transform hover:scale-105">
+              <div class="text-4xl mb-4">⚡</div>
+              <h3 class="text-xl font-bold text-white mb-2">Implementación Rápida</h3>
+              <p class="text-gray-400">Resultados tangibles en semanas, no meses</p>
+            </div>
+            <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256] transition-all duration-300 hover:transform hover:scale-105">
+              <div class="text-4xl mb-4">🎯</div>
+              <h3 class="text-xl font-bold text-white mb-2">ROI Medible</h3>
+              <p class="text-gray-400">Métricas claras y seguimiento continuo</p>
+            </div>
+            <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256] transition-all duration-300 hover:transform hover:scale-105">
+              <div class="text-4xl mb-4">🚀</div>
+              <h3 class="text-xl font-bold text-white mb-2">Soporte Total</h3>
+              <p class="text-gray-400">Acompañamiento continuo post-implementación</p>
+            </div>
+          </div>
+
+          <!-- CTA Section mejorado -->
+          <div class="mt-20 relative">
+            <!-- Decoración de fondo -->
+            <div class="absolute inset-0 bg-gradient-to-br from-[#00464e] to-[#006064] rounded-2xl opacity-90"></div>
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] rounded-2xl"></div>
+
+            <div class="relative p-8 md:p-12 text-center">
+              <div class="max-w-3xl mx-auto">
+                <h3 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                  ¿Listo para transformar tu negocio?
+                </h3>
+                <p class="text-lg md:text-xl text-white/90 mb-8">
+                  Agenda una consultoría gratuita de 30 minutos y descubre cómo podemos ayudarte a alcanzar tus objetivos
+                </p>
+
+                <!-- Beneficios rápidos -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                  <div class="flex items-center justify-center gap-2 text-white/90">
+                    <svg class="w-5 h-5 text-[#82e256]" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="text-sm">Sin compromiso</span>
+                  </div>
+                  <div class="flex items-center justify-center gap-2 text-white/90">
+                    <svg class="w-5 h-5 text-[#82e256]" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="text-sm">100% gratuita</span>
+                  </div>
+                  <div class="flex items-center justify-center gap-2 text-white/90">
+                    <svg class="w-5 h-5 text-[#82e256]" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="text-sm">Respuesta en 24h</span>
+                  </div>
+                </div>
+
+                <a
+                  href="/#contenido10"
+                  class="inline-flex items-center justify-center gap-2 px-10 py-5 bg-[#82e256] text-black font-bold rounded-xl hover:bg-[#6bc73d] transition-all duration-300 transform hover:scale-105 shadow-2xl text-lg"
+                >
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                  </svg>
+                  Agendar Consultoría Gratuita
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation mejorada -->
+          <div class="mt-16 flex flex-col md:flex-row justify-between items-center gap-6 border-t border-gray-800 pt-10">
+            <a
+              href="/servicios"
+              class="flex items-center gap-2 px-6 py-3 bg-gray-800 hover:bg-gray-700 text-[#82e256] rounded-lg transition-all duration-300 group"
+            >
+              <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+              </svg>
+              Ver todos los servicios
+            </a>
+
+            <div class="flex gap-4">
+              <a
+                href="/#home"
+                class="flex items-center gap-2 px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white/70 hover:text-white rounded-lg transition-all duration-300"
+              >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                </svg>
+                Inicio
+              </a>
+              <a
+                href="/blog"
+                class="flex items-center gap-2 px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white/70 hover:text-white rounded-lg transition-all duration-300"
+              >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                </svg>
+                Blog
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  /* Animación suave para el icono */
+  @keyframes bounce-slow {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-bounce-slow {
+    animation: bounce-slow 3s ease-in-out infinite;
+  }
+
+  /* Estilos para el contenido del artículo */
+  article :global(h2) {
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #82e256;
+    line-height: 1.2;
+    position: relative;
+    padding-bottom: 0.75rem;
+  }
+
+  article :global(h2::after) {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(to right, #82e256, transparent);
+    border-radius: 2px;
+  }
+
+  article :global(h3) {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #82e256;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  article :global(h4) {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #88b43c;
+  }
+
+  article :global(p) {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    font-size: 1.125rem;
+    color: #e5e5e5;
+  }
+
+  article :global(ul),
+  article :global(ol) {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border-left: 4px solid #82e256;
+  }
+
+  article :global(li) {
+    margin-bottom: 0.75rem;
+    line-height: 1.8;
+    color: #d1d5db;
+  }
+
+  article :global(li::marker) {
+    color: #82e256;
+    font-weight: bold;
+  }
+
+  article :global(strong) {
+    color: #82e256;
+    font-weight: 700;
+  }
+
+  article :global(em) {
+    color: #04ADC0;
+    font-style: italic;
+  }
+
+  article :global(code) {
+    background: linear-gradient(135deg, rgba(130, 226, 86, 0.1), rgba(4, 173, 192, 0.1));
+    padding: 0.25rem 0.6rem;
+    border-radius: 0.375rem;
+    font-size: 0.95em;
+    color: #82e256;
+    font-family: 'Courier New', monospace;
+    border: 1px solid rgba(130, 226, 86, 0.2);
+  }
+
+  article :global(pre) {
+    background: #0d1117;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    overflow-x: auto;
+    margin: 2rem 0;
+    border: 1px solid rgba(130, 226, 86, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  article :global(pre code) {
+    background: transparent;
+    padding: 0;
+    color: #e5e5e5;
+    border: none;
+  }
+
+  article :global(blockquote) {
+    border-left: 4px solid #82e256;
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: #b0b0b0;
+    background: rgba(130, 226, 86, 0.05);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+  }
+
+  article :global(hr) {
+    margin: 3rem 0;
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #82e256, transparent);
+  }
+
+  article :global(a) {
+    color: #04ADC0;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s;
+  }
+
+  article :global(a:hover) {
+    color: #06d4e8;
+    border-bottom-color: #04ADC0;
+  }
+
+  article :global(img) {
+    border-radius: 0.75rem;
+    margin: 2rem 0;
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  article :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+
+  article :global(th),
+  article :global(td) {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    text-align: left;
+  }
+
+  article :global(th) {
+    background: linear-gradient(135deg, rgba(130, 226, 86, 0.2), rgba(4, 173, 192, 0.1));
+    color: #82e256;
+    font-weight: 700;
+  }
+
+  article :global(td) {
+    color: #d1d5db;
+  }
+
+  /* Efectos hover mejorados */
+  article :global(ul li:hover),
+  article :global(ol li:hover) {
+    background: rgba(130, 226, 86, 0.05);
+    padding-left: 0.5rem;
+    transition: all 0.3s;
+  }
+</style>

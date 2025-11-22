@@ -1,0 +1,879 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <main class="min-h-screen bg-[#1a1a1a] pt-20">
+    <!-- Hero Section -->
+    <section class="w-full md:px-16 px-5 py-12 bg-gradient-to-br from-[#1a1a1a] via-[#0d1a1a] to-[#1a1a1a]">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-2xl mb-6 shadow-xl">
+          <svg class="w-10 h-10 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+          </svg>
+        </div>
+        <h1 id="hero-title" class="text-4xl md:text-5xl font-black text-white mb-4 bg-gradient-to-r from-white via-white to-[#82e256] bg-clip-text text-transparent">
+          Primera Sesión Gratuita
+        </h1>
+        <p id="hero-description" class="text-white/70 text-lg max-w-2xl mx-auto">
+          Cuéntanos sobre tu proyecto y agenda una consultoría personalizada. Usamos IA para entender mejor tus necesidades y ofrecerte la mejor solución.
+        </p>
+
+        <!-- Welcome message (initially hidden) -->
+        <div id="welcome-message" class="hidden mt-6 p-4 bg-gradient-to-r from-[#82e256]/10 to-[#6bc73d]/10 border border-[#82e256]/30 rounded-xl max-w-2xl mx-auto">
+          <p class="text-white/90">
+            <span class="font-bold text-[#82e256]" id="welcome-name"></span>, gracias por completar el formulario inicial. Ahora vamos a conocer más detalles sobre tu proyecto.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Steps Indicator -->
+    <section class="w-full md:px-16 px-5 py-8">
+      <div class="max-w-4xl mx-auto">
+        <div class="flex items-center justify-center gap-4">
+          <div id="step-1-indicator" class="flex items-center gap-2">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#82e256] to-[#6bc73d] flex items-center justify-center text-black font-bold">
+              1
+            </div>
+            <span class="text-white font-semibold hidden md:block">Cuestionario</span>
+          </div>
+          <div class="h-1 w-20 bg-white/10 rounded-full overflow-hidden">
+            <div id="progress-bar" class="h-full bg-gradient-to-r from-[#82e256] to-[#6bc73d] w-0 transition-all duration-500"></div>
+          </div>
+          <div id="step-2-indicator" class="flex items-center gap-2 opacity-50">
+            <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white font-bold">
+              2
+            </div>
+            <span class="text-white font-semibold hidden md:block">Calendario</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Questionnaire Section -->
+    <section id="questionnaire-section" class="w-full md:px-16 px-5 py-12">
+      <div class="max-w-4xl mx-auto">
+        <div class="p-1 bg-gradient-to-r from-[#82e256] via-[#6bc73d] to-[#04ADC0] rounded-2xl shadow-2xl">
+          <div class="bg-gradient-to-br from-[#1a1a1a] to-[#232323] rounded-2xl p-8 md:p-12">
+
+            <div class="mb-8">
+              <h2 class="text-3xl font-bold text-white mb-3">Cuéntanos sobre tu proyecto</h2>
+              <p class="text-white/70">Responde estas preguntas para que podamos preparar una asesoría más efectiva.</p>
+            </div>
+
+            <form id="consultation-form" class="space-y-6">
+
+              <!-- Pregunta 1: Tipo de proyecto -->
+              <div class="space-y-3">
+                <label class="text-white font-semibold flex items-center gap-2">
+                  <span class="text-[#82e256]">1.</span>
+                  ¿Qué tipo de proyecto necesitas desarrollar?
+                </label>
+                <div class="grid md:grid-cols-2 gap-3">
+                  <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all">
+                    <input type="radio" name="project_type" value="web_app" class="peer sr-only" required />
+                    <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] flex items-center justify-center transition-all">
+                      <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
+                    </div>
+                    <span class="text-white/70 text-sm peer-checked:text-[#82e256] peer-checked:font-semibold">Aplicación Web</span>
+                  </label>
+                  <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all">
+                    <input type="radio" name="project_type" value="mobile_app" class="peer sr-only" />
+                    <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] flex items-center justify-center transition-all">
+                      <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
+                    </div>
+                    <span class="text-white/70 text-sm peer-checked:text-[#82e256] peer-checked:font-semibold">App Móvil</span>
+                  </label>
+                  <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all">
+                    <input type="radio" name="project_type" value="ai_integration" class="peer sr-only" />
+                    <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] flex items-center justify-center transition-all">
+                      <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
+                    </div>
+                    <span class="text-white/70 text-sm peer-checked:text-[#82e256] peer-checked:font-semibold">Integración con IA</span>
+                  </label>
+                  <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all">
+                    <input type="radio" name="project_type" value="architecture_review" class="peer sr-only" />
+                    <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] flex items-center justify-center transition-all">
+                      <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
+                    </div>
+                    <span class="text-white/70 text-sm peer-checked:text-[#82e256] peer-checked:font-semibold">Revisión de Arquitectura</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Pregunta 2: Etapa del proyecto -->
+              <div class="space-y-3">
+                <label class="text-white font-semibold flex items-center gap-2">
+                  <span class="text-[#82e256]">2.</span>
+                  ¿En qué etapa se encuentra tu proyecto?
+                </label>
+                <div class="grid md:grid-cols-3 gap-3">
+                  <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all">
+                    <input type="radio" name="project_stage" value="idea" class="peer sr-only" required />
+                    <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] flex items-center justify-center transition-all">
+                      <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
+                    </div>
+                    <span class="text-white/70 text-sm peer-checked:text-[#82e256] peer-checked:font-semibold">Solo es una idea</span>
+                  </label>
+                  <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all">
+                    <input type="radio" name="project_stage" value="in_progress" class="peer sr-only" />
+                    <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] flex items-center justify-center transition-all">
+                      <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
+                    </div>
+                    <span class="text-white/70 text-sm peer-checked:text-[#82e256] peer-checked:font-semibold">En desarrollo</span>
+                  </label>
+                  <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all">
+                    <input type="radio" name="project_stage" value="production" class="peer sr-only" />
+                    <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] flex items-center justify-center transition-all">
+                      <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
+                    </div>
+                    <span class="text-white/70 text-sm peer-checked:text-[#82e256] peer-checked:font-semibold">Ya está en producción</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Pregunta 3: Presupuesto -->
+              <div class="space-y-3">
+                <label class="text-white font-semibold flex items-center gap-2">
+                  <span class="text-[#82e256]">3.</span>
+                  ¿Cuál es tu presupuesto estimado?
+                </label>
+                <div class="grid md:grid-cols-2 gap-3">
+                  <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all">
+                    <input type="radio" name="budget" value="under_5k" class="peer sr-only" required />
+                    <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] flex items-center justify-center transition-all">
+                      <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
+                    </div>
+                    <span class="text-white/70 text-sm peer-checked:text-[#82e256] peer-checked:font-semibold">Menos de $5,000</span>
+                  </label>
+                  <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all">
+                    <input type="radio" name="budget" value="5k_15k" class="peer sr-only" />
+                    <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] flex items-center justify-center transition-all">
+                      <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
+                    </div>
+                    <span class="text-white/70 text-sm peer-checked:text-[#82e256] peer-checked:font-semibold">$5,000 - $15,000</span>
+                  </label>
+                  <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all">
+                    <input type="radio" name="budget" value="15k_50k" class="peer sr-only" />
+                    <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] flex items-center justify-center transition-all">
+                      <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
+                    </div>
+                    <span class="text-white/70 text-sm peer-checked:text-[#82e256] peer-checked:font-semibold">$15,000 - $50,000</span>
+                  </label>
+                  <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all">
+                    <input type="radio" name="budget" value="over_50k" class="peer sr-only" />
+                    <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] flex items-center justify-center transition-all">
+                      <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
+                    </div>
+                    <span class="text-white/70 text-sm peer-checked:text-[#82e256] peer-checked:font-semibold">Más de $50,000</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Pregunta 4: Timeline -->
+              <div class="space-y-3">
+                <label class="text-white font-semibold flex items-center gap-2">
+                  <span class="text-[#82e256]">4.</span>
+                  ¿Cuál es tu timeline esperado?
+                </label>
+                <div class="grid md:grid-cols-3 gap-3">
+                  <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all">
+                    <input type="radio" name="timeline" value="urgent" class="peer sr-only" required />
+                    <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] flex items-center justify-center transition-all">
+                      <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
+                    </div>
+                    <span class="text-white/70 text-sm peer-checked:text-[#82e256] peer-checked:font-semibold">Urgente (1-2 meses)</span>
+                  </label>
+                  <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all">
+                    <input type="radio" name="timeline" value="normal" class="peer sr-only" />
+                    <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] flex items-center justify-center transition-all">
+                      <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
+                    </div>
+                    <span class="text-white/70 text-sm peer-checked:text-[#82e256] peer-checked:font-semibold">Normal (3-6 meses)</span>
+                  </label>
+                  <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all">
+                    <input type="radio" name="timeline" value="flexible" class="peer sr-only" />
+                    <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] flex items-center justify-center transition-all">
+                      <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
+                    </div>
+                    <span class="text-white/70 text-sm peer-checked:text-[#82e256] peer-checked:font-semibold">Flexible (6+ meses)</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Pregunta 5: Usuarios esperados -->
+              <div class="space-y-3">
+                <label class="text-white font-semibold flex items-center gap-2">
+                  <span class="text-[#82e256]">5.</span>
+                  ¿Cuántos usuarios esperas tener?
+                </label>
+                <div class="grid md:grid-cols-2 gap-3">
+                  <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all">
+                    <input type="radio" name="expected_users" value="small" class="peer sr-only" required />
+                    <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] flex items-center justify-center transition-all">
+                      <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
+                    </div>
+                    <span class="text-white/70 text-sm peer-checked:text-[#82e256] peer-checked:font-semibold">Menos de 1,000</span>
+                  </label>
+                  <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all">
+                    <input type="radio" name="expected_users" value="medium" class="peer sr-only" />
+                    <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] flex items-center justify-center transition-all">
+                      <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
+                    </div>
+                    <span class="text-white/70 text-sm peer-checked:text-[#82e256] peer-checked:font-semibold">1,000 - 10,000</span>
+                  </label>
+                  <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all">
+                    <input type="radio" name="expected_users" value="large" class="peer sr-only" />
+                    <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] flex items-center justify-center transition-all">
+                      <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
+                    </div>
+                    <span class="text-white/70 text-sm peer-checked:text-[#82e256] peer-checked:font-semibold">10,000 - 100,000</span>
+                  </label>
+                  <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all">
+                    <input type="radio" name="expected_users" value="massive" class="peer sr-only" />
+                    <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] flex items-center justify-center transition-all">
+                      <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
+                    </div>
+                    <span class="text-white/70 text-sm peer-checked:text-[#82e256] peer-checked:font-semibold">Más de 100,000</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Pregunta 6: Funcionalidades clave -->
+              <div class="space-y-3">
+                <label class="text-white font-semibold flex items-center gap-2">
+                  <span class="text-[#82e256]">6.</span>
+                  ¿Qué funcionalidades son más importantes? (Selecciona todas las que apliquen)
+                </label>
+                <div class="grid md:grid-cols-2 gap-3">
+                  <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all">
+                    <input type="checkbox" name="features" value="auth" class="peer sr-only" />
+                    <div class="w-5 h-5 rounded border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] flex items-center justify-center transition-all">
+                      <svg class="w-3 h-3 text-black opacity-0 peer-checked:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                    <span class="text-white/70 text-sm peer-checked:text-[#82e256] peer-checked:font-semibold">Autenticación de usuarios</span>
+                  </label>
+                  <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all">
+                    <input type="checkbox" name="features" value="payments" class="peer sr-only" />
+                    <div class="w-5 h-5 rounded border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] flex items-center justify-center transition-all">
+                      <svg class="w-3 h-3 text-black opacity-0 peer-checked:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                    <span class="text-white/70 text-sm peer-checked:text-[#82e256] peer-checked:font-semibold">Procesamiento de pagos</span>
+                  </label>
+                  <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all">
+                    <input type="checkbox" name="features" value="ai" class="peer sr-only" />
+                    <div class="w-5 h-5 rounded border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] flex items-center justify-center transition-all">
+                      <svg class="w-3 h-3 text-black opacity-0 peer-checked:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                    <span class="text-white/70 text-sm peer-checked:text-[#82e256] peer-checked:font-semibold">Integración con IA</span>
+                  </label>
+                  <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all">
+                    <input type="checkbox" name="features" value="real_time" class="peer sr-only" />
+                    <div class="w-5 h-5 rounded border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] flex items-center justify-center transition-all">
+                      <svg class="w-3 h-3 text-black opacity-0 peer-checked:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                    <span class="text-white/70 text-sm peer-checked:text-[#82e256] peer-checked:font-semibold">Comunicación en tiempo real</span>
+                  </label>
+                  <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all">
+                    <input type="checkbox" name="features" value="analytics" class="peer sr-only" />
+                    <div class="w-5 h-5 rounded border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] flex items-center justify-center transition-all">
+                      <svg class="w-3 h-3 text-black opacity-0 peer-checked:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                    <span class="text-white/70 text-sm peer-checked:text-[#82e256] peer-checked:font-semibold">Analytics y reportes</span>
+                  </label>
+                  <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all">
+                    <input type="checkbox" name="features" value="admin" class="peer sr-only" />
+                    <div class="w-5 h-5 rounded border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] flex items-center justify-center transition-all">
+                      <svg class="w-3 h-3 text-black opacity-0 peer-checked:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                    <span class="text-white/70 text-sm peer-checked:text-[#82e256] peer-checked:font-semibold">Panel de administración</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Pregunta 7: Tecnologías preferidas -->
+              <div class="space-y-3">
+                <label class="text-white font-semibold flex items-center gap-2">
+                  <span class="text-[#82e256]">7.</span>
+                  ¿Tienes alguna preferencia tecnológica?
+                </label>
+                <input
+                  type="text"
+                  name="tech_preferences"
+                  placeholder="Ej: React, Python, AWS, etc. (opcional)"
+                  class="w-full px-4 py-3 border-2 border-white/10 bg-black/30 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-[#82e256] transition-all"
+                />
+              </div>
+
+              <!-- Pregunta 8: Equipo actual -->
+              <div class="space-y-3">
+                <label class="text-white font-semibold flex items-center gap-2">
+                  <span class="text-[#82e256]">8.</span>
+                  ¿Tienes un equipo técnico actualmente?
+                </label>
+                <div class="grid md:grid-cols-3 gap-3">
+                  <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all">
+                    <input type="radio" name="has_team" value="no" class="peer sr-only" required />
+                    <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] flex items-center justify-center transition-all">
+                      <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
+                    </div>
+                    <span class="text-white/70 text-sm peer-checked:text-[#82e256] peer-checked:font-semibold">No</span>
+                  </label>
+                  <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all">
+                    <input type="radio" name="has_team" value="partial" class="peer sr-only" />
+                    <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] flex items-center justify-center transition-all">
+                      <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
+                    </div>
+                    <span class="text-white/70 text-sm peer-checked:text-[#82e256] peer-checked:font-semibold">Parcial</span>
+                  </label>
+                  <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all">
+                    <input type="radio" name="has_team" value="complete" class="peer sr-only" />
+                    <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] flex items-center justify-center transition-all">
+                      <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
+                    </div>
+                    <span class="text-white/70 text-sm peer-checked:text-[#82e256] peer-checked:font-semibold">Completo</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Pregunta 9: Prioridad principal -->
+              <div class="space-y-3">
+                <label class="text-white font-semibold flex items-center gap-2">
+                  <span class="text-[#82e256]">9.</span>
+                  ¿Cuál es tu prioridad principal?
+                </label>
+                <div class="grid md:grid-cols-2 gap-3">
+                  <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all">
+                    <input type="radio" name="priority" value="speed" class="peer sr-only" required />
+                    <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] flex items-center justify-center transition-all">
+                      <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
+                    </div>
+                    <span class="text-white/70 text-sm peer-checked:text-[#82e256] peer-checked:font-semibold">Velocidad de lanzamiento</span>
+                  </label>
+                  <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all">
+                    <input type="radio" name="priority" value="quality" class="peer sr-only" />
+                    <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] flex items-center justify-center transition-all">
+                      <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
+                    </div>
+                    <span class="text-white/70 text-sm peer-checked:text-[#82e256] peer-checked:font-semibold">Calidad y escalabilidad</span>
+                  </label>
+                  <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all">
+                    <input type="radio" name="priority" value="cost" class="peer sr-only" />
+                    <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] flex items-center justify-center transition-all">
+                      <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
+                    </div>
+                    <span class="text-white/70 text-sm peer-checked:text-[#82e256] peer-checked:font-semibold">Costo eficiencia</span>
+                  </label>
+                  <label class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all">
+                    <input type="radio" name="priority" value="innovation" class="peer sr-only" />
+                    <div class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] flex items-center justify-center transition-all">
+                      <div class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"></div>
+                    </div>
+                    <span class="text-white/70 text-sm peer-checked:text-[#82e256] peer-checked:font-semibold">Innovación tecnológica</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Pregunta 10: Descripción del proyecto -->
+              <div class="space-y-3">
+                <label class="text-white font-semibold flex items-center gap-2">
+                  <span class="text-[#82e256]">10.</span>
+                  Describe brevemente tu proyecto o necesidad
+                </label>
+                <textarea
+                  name="project_description"
+                  rows="4"
+                  placeholder="Cuéntanos más detalles sobre lo que necesitas..."
+                  class="w-full px-4 py-3 border-2 border-white/10 bg-black/30 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-[#82e256] transition-all resize-none"
+                  required
+                ></textarea>
+              </div>
+
+              <!-- Submit Button -->
+              <button
+                type="submit"
+                class="w-full px-6 py-4 bg-gradient-to-r from-[#82e256] to-[#6bc73d] hover:from-[#6bc73d] hover:to-[#5ba62e] text-black font-bold rounded-xl flex items-center justify-center gap-3 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-2xl shadow-lg group relative overflow-hidden"
+              >
+                <div class="absolute inset-0 bg-white/20 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+                <svg class="w-5 h-5 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+                <span class="relative z-10">Continuar al Calendario</span>
+              </button>
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Calendar Section (initially hidden) -->
+    <section id="calendar-section" class="hidden w-full md:px-16 px-5 py-12">
+      <div class="max-w-4xl mx-auto">
+        <div class="p-1 bg-gradient-to-r from-[#82e256] via-[#6bc73d] to-[#04ADC0] rounded-2xl shadow-2xl">
+          <div class="bg-gradient-to-br from-[#1a1a1a] to-[#232323] rounded-2xl p-8 md:p-12">
+
+            <!-- Classification Result -->
+            <div id="classification-result" class="mb-8 p-6 bg-gradient-to-r from-[#82e256]/10 to-[#6bc73d]/10 border border-[#82e256]/30 rounded-xl">
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-xl flex items-center justify-center">
+                  <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-white font-bold text-lg mb-2">Análisis Completado</h3>
+                  <p class="text-white/70 mb-3">Basándonos en tus respuestas, hemos identificado el tipo de servicio ideal para ti:</p>
+                  <div id="service-recommendation" class="px-4 py-3 bg-black/30 rounded-lg">
+                    <p class="text-[#82e256] font-bold text-lg">Cargando...</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-8">
+              <h2 class="text-3xl font-bold text-white mb-3">Selecciona fecha y hora</h2>
+              <p class="text-white/70">Elige el mejor momento para tu sesión de asesoría gratuita.</p>
+            </div>
+
+            <!-- Calendar -->
+            <div class="space-y-6">
+              <!-- Month Navigation -->
+              <div class="flex items-center justify-between">
+                <button id="prev-month" class="px-4 py-2 bg-black/30 border border-white/10 rounded-lg text-white hover:border-[#82e256]/50 transition-all">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                  </svg>
+                </button>
+                <h3 id="current-month" class="text-2xl font-bold text-white">
+                  <!-- Month/Year will be inserted here -->
+                </h3>
+                <button id="next-month" class="px-4 py-2 bg-black/30 border border-white/10 rounded-lg text-white hover:border-[#82e256]/50 transition-all">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Calendar Grid -->
+              <div class="grid grid-cols-7 gap-2">
+                <!-- Day headers -->
+                <div class="text-center text-white/50 text-sm font-semibold py-2">Dom</div>
+                <div class="text-center text-white/50 text-sm font-semibold py-2">Lun</div>
+                <div class="text-center text-white/50 text-sm font-semibold py-2">Mar</div>
+                <div class="text-center text-white/50 text-sm font-semibold py-2">Mié</div>
+                <div class="text-center text-white/50 text-sm font-semibold py-2">Jue</div>
+                <div class="text-center text-white/50 text-sm font-semibold py-2">Vie</div>
+                <div class="text-center text-white/50 text-sm font-semibold py-2">Sáb</div>
+
+                <!-- Calendar days will be inserted here -->
+                <div id="calendar-days" class="col-span-7 grid grid-cols-7 gap-2">
+                  <!-- Days will be generated by JavaScript -->
+                </div>
+              </div>
+
+              <!-- Time Slots -->
+              <div id="time-slots-container" class="hidden space-y-4">
+                <h4 class="text-white font-bold text-lg">Horarios disponibles</h4>
+                <div id="time-slots" class="grid md:grid-cols-4 gap-3">
+                  <!-- Time slots will be generated by JavaScript -->
+                </div>
+              </div>
+
+              <!-- Confirmation -->
+              <div id="booking-confirmation" class="hidden space-y-4">
+                <div class="p-6 bg-gradient-to-r from-[#82e256]/10 to-[#6bc73d]/10 border border-[#82e256]/30 rounded-xl">
+                  <h4 class="text-white font-bold text-lg mb-3">Confirma tu cita</h4>
+                  <div class="space-y-2 text-white/70">
+                    <p><span class="font-semibold text-white">Fecha:</span> <span id="selected-date-display"></span></p>
+                    <p><span class="font-semibold text-white">Hora:</span> <span id="selected-time-display"></span></p>
+                    <p><span class="font-semibold text-white">Servicio:</span> <span id="selected-service-display"></span></p>
+                  </div>
+                </div>
+
+                <!-- Contact Info - Pre-filled from initial form -->
+                <div class="space-y-3">
+                  <p class="text-white/70 text-sm">
+                    Verifica que tus datos de contacto sean correctos:
+                  </p>
+                  <div class="grid md:grid-cols-2 gap-4">
+                    <div class="flex flex-col">
+                      <label class="text-white/70 text-xs mb-1">Nombre</label>
+                      <input
+                        type="text"
+                        id="client-name"
+                        placeholder="Tu nombre completo"
+                        class="px-4 py-3 border-2 border-white/10 bg-black/30 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-[#82e256] transition-all"
+                        readonly
+                      />
+                    </div>
+                    <div class="flex flex-col">
+                      <label class="text-white/70 text-xs mb-1">Email</label>
+                      <input
+                        type="email"
+                        id="client-email"
+                        placeholder="Tu email"
+                        class="px-4 py-3 border-2 border-white/10 bg-black/30 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-[#82e256] transition-all"
+                        readonly
+                      />
+                    </div>
+                    <div class="flex flex-col">
+                      <label class="text-white/70 text-xs mb-1">Teléfono</label>
+                      <input
+                        type="tel"
+                        id="client-phone"
+                        placeholder="Tu teléfono"
+                        class="px-4 py-3 border-2 border-white/10 bg-black/30 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-[#82e256] transition-all"
+                        readonly
+                      />
+                    </div>
+                    <div class="flex flex-col">
+                      <label class="text-white/70 text-xs mb-1">Empresa (opcional)</label>
+                      <input
+                        type="text"
+                        id="client-company"
+                        placeholder="Empresa (opcional)"
+                        class="px-4 py-3 border-2 border-white/10 bg-black/30 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-[#82e256] transition-all"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <button
+                  id="confirm-booking-btn"
+                  class="w-full px-6 py-4 bg-gradient-to-r from-[#82e256] to-[#6bc73d] hover:from-[#6bc73d] hover:to-[#5ba62e] text-black font-bold rounded-xl flex items-center justify-center gap-3 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-2xl shadow-lg group relative overflow-hidden"
+                >
+                  <div class="absolute inset-0 bg-white/20 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+                  <svg class="w-5 h-5 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="relative z-10">Confirmar Sesión Gratuita</span>
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</Layout>
+
+<script is:inline>
+  // Load advisory form data from localStorage
+  let advisoryData = null;
+  try {
+    const stored = localStorage.getItem('advisoryFormData');
+    if (stored) {
+      advisoryData = JSON.parse(stored);
+      // Show welcome message with user name
+      document.getElementById('welcome-name').textContent = advisoryData.name.split(' ')[0];
+      document.getElementById('welcome-message').classList.remove('hidden');
+
+      // Pre-fill contact info fields (will be done when showing confirmation)
+      // These will be filled automatically when user selects a time slot
+    }
+  } catch (error) {
+    console.error('Error loading advisory data:', error);
+  }
+
+  // Occupied slots - En producción, estos vendrían de tu base de datos
+  const occupiedSlots = [
+    { date: '2025-11-25', time: '10:00' },
+    { date: '2025-11-25', time: '14:00' },
+    { date: '2025-11-26', time: '11:00' },
+    // Agregar más slots ocupados según tu BD
+  ];
+
+  let currentDate = new Date();
+  let selectedDate = null;
+  let selectedTime = null;
+  let formData = null;
+  let classificationResult = null;
+
+  // Form submission handler
+  const consultationForm = document.getElementById('consultation-form');
+  consultationForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Collect form data
+    formData = new FormData(e.target);
+    const data = {};
+
+    for (let [key, value] of formData.entries()) {
+      if (data[key]) {
+        if (Array.isArray(data[key])) {
+          data[key].push(value);
+        } else {
+          data[key] = [data[key], value];
+        }
+      } else {
+        data[key] = value;
+      }
+    }
+
+    // AQUÍ INTEGRARÁS TU MODELO DE ML
+    // Ejemplo de llamada a API:
+    /*
+    const response = await fetch('/api/classify-service', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    classificationResult = await response.json();
+    */
+
+    // Simulación de clasificación ML (REEMPLAZAR con tu modelo)
+    await new Promise(resolve => setTimeout(resolve, 1500));
+
+    const projectType = data.project_type;
+    let service = 'Consultoría General';
+
+    if (projectType === 'ai_integration') {
+      service = 'Desarrollo de Agentes de IA';
+    } else if (projectType === 'architecture_review') {
+      service = 'Revisión de Arquitectura de Software';
+    } else if (projectType === 'mobile_app') {
+      service = 'Desarrollo de Aplicaciones Móviles';
+    } else if (projectType === 'web_app') {
+      service = 'Desarrollo de Aplicaciones Web';
+    }
+
+    classificationResult = {
+      service: service,
+      confidence: 0.92,
+      recommendations: ['Arquitectura escalable', 'Testing automatizado', 'CI/CD']
+    };
+
+    // Show classification result
+    document.getElementById('service-recommendation').innerHTML = `
+      <p class="text-[#82e256] font-bold text-lg mb-1">${classificationResult.service}</p>
+      <p class="text-white/50 text-sm">Confianza: ${(classificationResult.confidence * 100).toFixed(0)}%</p>
+    `;
+
+    // Scroll to calendar and show it
+    document.getElementById('questionnaire-section').style.display = 'none';
+    document.getElementById('calendar-section').classList.remove('hidden');
+    document.getElementById('calendar-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    // Update step indicator
+    document.getElementById('step-1-indicator').classList.add('opacity-50');
+    document.getElementById('step-2-indicator').classList.remove('opacity-50');
+    document.getElementById('step-2-indicator').querySelector('div').classList.add('bg-gradient-to-br', 'from-[#82e256]', 'to-[#6bc73d]');
+    document.getElementById('step-2-indicator').querySelector('div').classList.remove('bg-white/10');
+    document.getElementById('step-2-indicator').querySelector('div').classList.add('text-black');
+    document.getElementById('progress-bar').style.width = '100%';
+
+    // Initialize calendar
+    renderCalendar();
+  });
+
+  // Calendar functions
+  function renderCalendar() {
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth();
+
+    // Update month display
+    const monthNames = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+                       'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+    document.getElementById('current-month').textContent = `${monthNames[month]} ${year}`;
+
+    // Get first day of month and number of days
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const calendarDays = document.getElementById('calendar-days');
+    calendarDays.innerHTML = '';
+
+    // Add empty cells for days before month starts
+    for (let i = 0; i < firstDay; i++) {
+      const emptyDay = document.createElement('div');
+      emptyDay.className = 'aspect-square';
+      calendarDays.appendChild(emptyDay);
+    }
+
+    // Add day cells
+    for (let day = 1; day <= daysInMonth; day++) {
+      const dayDate = new Date(year, month, day);
+      dayDate.setHours(0, 0, 0, 0);
+      const isPast = dayDate < today;
+      const isWeekend = dayDate.getDay() === 0 || dayDate.getDay() === 6;
+
+      const dayCell = document.createElement('button');
+      dayCell.type = 'button';
+      dayCell.className = 'aspect-square rounded-lg flex items-center justify-center text-white font-semibold transition-all ';
+
+      if (isPast) {
+        dayCell.className += 'bg-black/20 text-white/20 cursor-not-allowed';
+        dayCell.disabled = true;
+      } else if (isWeekend) {
+        dayCell.className += 'bg-black/20 text-white/30 cursor-not-allowed';
+        dayCell.disabled = true;
+      } else {
+        dayCell.className += 'bg-black/30 border-2 border-white/10 hover:border-[#82e256]/50 hover:bg-black/50';
+        dayCell.onclick = () => selectDate(year, month, day);
+      }
+
+      dayCell.textContent = day;
+      calendarDays.appendChild(dayCell);
+    }
+  }
+
+  function selectDate(year, month, day) {
+    selectedDate = new Date(year, month, day);
+
+    // Update visual selection
+    document.querySelectorAll('#calendar-days button').forEach(btn => {
+      btn.classList.remove('border-[#82e256]', 'bg-[#82e256]/20');
+    });
+    event.target.classList.add('border-[#82e256]', 'bg-[#82e256]/20');
+
+    // Generate time slots
+    generateTimeSlots(selectedDate);
+  }
+
+  function generateTimeSlots(date) {
+    const timeSlots = [
+      '09:00', '10:00', '11:00', '12:00',
+      '14:00', '15:00', '16:00', '17:00'
+    ];
+
+    const dateStr = date.toISOString().split('T')[0];
+    const timeSlotsContainer = document.getElementById('time-slots');
+    timeSlotsContainer.innerHTML = '';
+
+    timeSlots.forEach(time => {
+      const isOccupied = occupiedSlots.some(slot =>
+        slot.date === dateStr && slot.time === time
+      );
+
+      const timeBtn = document.createElement('button');
+      timeBtn.type = 'button';
+      timeBtn.className = 'px-4 py-3 rounded-lg font-semibold transition-all ';
+
+      if (isOccupied) {
+        timeBtn.className += 'bg-black/20 text-white/30 cursor-not-allowed border-2 border-white/10';
+        timeBtn.disabled = true;
+        timeBtn.innerHTML = `${time} <span class="text-xs block">Ocupado</span>`;
+      } else {
+        timeBtn.className += 'bg-black/30 border-2 border-white/10 text-white hover:border-[#82e256]/50 hover:bg-black/50';
+        timeBtn.textContent = time;
+        timeBtn.onclick = () => selectTime(time);
+      }
+
+      timeSlotsContainer.appendChild(timeBtn);
+    });
+
+    document.getElementById('time-slots-container').classList.remove('hidden');
+  }
+
+  function selectTime(time) {
+    selectedTime = time;
+
+    // Update visual selection
+    document.querySelectorAll('#time-slots button:not(:disabled)').forEach(btn => {
+      btn.classList.remove('border-[#82e256]', 'bg-[#82e256]/20', 'text-[#82e256]');
+    });
+    event.target.classList.add('border-[#82e256]', 'bg-[#82e256]/20', 'text-[#82e256]');
+
+    // Show confirmation
+    const dateStr = selectedDate.toLocaleDateString('es-ES', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+
+    document.getElementById('selected-date-display').textContent = dateStr;
+    document.getElementById('selected-time-display').textContent = time;
+    document.getElementById('selected-service-display').textContent = classificationResult.service;
+
+    // Pre-fill contact info from advisory form data
+    if (advisoryData) {
+      document.getElementById('client-name').value = advisoryData.name || '';
+      document.getElementById('client-email').value = advisoryData.email || '';
+      document.getElementById('client-phone').value = advisoryData.phone || '';
+    }
+
+    document.getElementById('booking-confirmation').classList.remove('hidden');
+  }
+
+  // Month navigation
+  document.getElementById('prev-month').addEventListener('click', () => {
+    currentDate.setMonth(currentDate.getMonth() - 1);
+    renderCalendar();
+    document.getElementById('time-slots-container').classList.add('hidden');
+    document.getElementById('booking-confirmation').classList.add('hidden');
+  });
+
+  document.getElementById('next-month').addEventListener('click', () => {
+    currentDate.setMonth(currentDate.getMonth() + 1);
+    renderCalendar();
+    document.getElementById('time-slots-container').classList.add('hidden');
+    document.getElementById('booking-confirmation').classList.add('hidden');
+  });
+
+  // Confirm booking
+  document.getElementById('confirm-booking-btn').addEventListener('click', async () => {
+    const name = document.getElementById('client-name').value;
+    const email = document.getElementById('client-email').value;
+    const phone = document.getElementById('client-phone').value;
+    const company = document.getElementById('client-company').value;
+
+    // Los campos name, email y phone ya vienen pre-llenados del formulario inicial
+    // Solo validamos que existan (deberían estar siempre)
+    if (!name || !email || !phone) {
+      alert('Error: Faltan datos de contacto. Por favor completa el formulario inicial nuevamente.');
+      window.location.href = '/#contenido10';
+      return;
+    }
+
+    const bookingData = {
+      // Datos de la asesoría inicial
+      ...(advisoryData || {}),
+      // Datos del cuestionario de 10 preguntas
+      ...Object.fromEntries(formData),
+      // Datos de la cita
+      date: selectedDate.toISOString().split('T')[0],
+      time: selectedTime,
+      service: classificationResult.service,
+      clientName: name,
+      clientEmail: email,
+      clientPhone: phone,
+      clientCompany: company,
+      // Metadata
+      bookingTimestamp: new Date().toISOString()
+    };
+
+    // AQUÍ GUARDARÁS LA CITA EN TU BASE DE DATOS
+    console.log('Complete booking data:', bookingData);
+
+    // Simulación
+    alert(`¡Cita confirmada!\n\nFecha: ${selectedDate.toLocaleDateString('es-ES')}\nHora: ${selectedTime}\nServicio: ${classificationResult.service}\n\nRecibirás un email de confirmación en ${email}`);
+
+    // Limpiar localStorage
+    localStorage.removeItem('advisoryFormData');
+
+    // Redirect to home or confirmation page
+    window.location.href = '/';
+  });
+</script>
+</Layout>

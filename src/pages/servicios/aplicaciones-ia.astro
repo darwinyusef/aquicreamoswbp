@@ -1,0 +1,324 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+---
+
+<ServiceLayout
+  title="Desarrollo de Aplicaciones con IA"
+  description="Aplicaciones inteligentes que entienden, predicen y personalizan"
+  icon="🧠"
+  gradient="bg-gradient-to-br from-[#d4e256] to-[#00464e]"
+>
+  <!-- Introducción -->
+  <div class="mb-16">
+    <h2>Más Allá de las Apps Tradicionales</h2>
+    <p class="text-xl text-gray-300 leading-relaxed">
+      Desarrollamos aplicaciones que no solo procesan datos, sino que <strong>comprenden, razonan y actúan</strong>. Integra búsqueda semántica, generación de contenido, recomendaciones predictivas y análisis visual en una experiencia fluida que tus usuarios amarán.
+    </p>
+  </div>
+
+  <!-- Imagen hero -->
+  <div class="my-16 rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-[#00464e]/20 to-[#006064]/20 p-8">
+    <img src="/img/personaje1.png" alt="Aplicación con IA" class="w-full h-auto max-w-3xl mx-auto" />
+  </div>
+
+  <!-- Superpoderes que agregamos -->
+  <div class="mb-20">
+    <h2>Los Superpoderes que Agregamos a Tu App</h2>
+
+    <div class="grid md:grid-cols-2 gap-8 mt-8">
+      <!-- Búsqueda Semántica -->
+      <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+        <div class="text-5xl mb-4">🔍</div>
+        <h3 class="text-2xl font-bold text-white mb-3">Búsqueda Inteligente</h3>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          Los usuarios buscan por intención, no por palabras exactas. Pregunta "¿cómo reseteo mi contraseña?" y encuentra la respuesta correcta aunque el manual diga "procedimiento de recuperación de credenciales".
+        </p>
+        <div class="bg-[#04ADC0]/10 p-4 rounded-lg">
+          <p class="text-sm text-gray-400"><strong>Ejemplo:</strong> E-commerce de moda donde buscas "vestido elegante para boda" y encuentra el outfit perfecto</p>
+        </div>
+      </div>
+
+      <!-- Generación de Contenido -->
+      <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+        <div class="text-5xl mb-4">✍️</div>
+        <h3 class="text-2xl font-bold text-white mb-3">Contenido Personalizado</h3>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          Tu app crea contenido único para cada usuario. Emails de marketing que resuenan, descripciones de productos optimizadas, reportes ejecutivos y traducciones contextuales en segundos.
+        </p>
+        <div class="bg-[#04ADC0]/10 p-4 rounded-lg">
+          <p class="text-sm text-gray-400"><strong>Ejemplo:</strong> Plataforma educativa que genera ejercicios únicos según el nivel de cada estudiante</p>
+        </div>
+      </div>
+
+      <!-- Recomendaciones -->
+      <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+        <div class="text-5xl mb-4">🎯</div>
+        <h3 class="text-2xl font-bold text-white mb-3">Recomendaciones Predictivas</h3>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          Más allá del "otros también compraron". Analiza comportamiento en tiempo real, predice necesidades futuras y explica por qué recomienda cada elemento.
+        </p>
+        <div class="bg-[#04ADC0]/10 p-4 rounded-lg">
+          <p class="text-sm text-gray-400"><strong>Ejemplo:</strong> App de streaming que no solo recomienda, sino que explica por qué te gustará</p>
+        </div>
+      </div>
+
+      <!-- RAG -->
+      <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+        <div class="text-5xl mb-4">📚</div>
+        <h3 class="text-2xl font-bold text-white mb-3">RAG: Tus Datos, Respuestas Precisas</h3>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          La app consulta tu documentación interna, genera respuestas citando fuentes exactas y se actualiza automáticamente cuando cambias tus documentos. Sin alucinaciones.
+        </p>
+        <div class="bg-[#04ADC0]/10 p-4 rounded-lg">
+          <p class="text-sm text-gray-400"><strong>Ejemplo:</strong> Asistente legal que cita cláusulas exactas de tus contratos al responder</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Caso de éxito E-commerce -->
+  <div class="mb-20 bg-gradient-to-br from-[#006417]/20 to-[#00464e]/20 p-10 rounded-2xl border border-[#82e256]/30">
+    <div class="flex items-start gap-4 mb-6">
+      <div class="text-6xl">🛒</div>
+      <div>
+        <h2 class="text-3xl font-bold text-white mb-2">E-commerce con Asistente IA de Compras</h2>
+        <p class="text-gray-400">50K productos • Moda y Accesorios</p>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 mb-6">
+      <div class="bg-black/30 p-6 rounded-xl text-center">
+        <div class="text-4xl font-bold text-[#82e256] mb-2">40%</div>
+        <p class="text-gray-300">Más conversión</p>
+      </div>
+      <div class="bg-black/30 p-6 rounded-xl text-center">
+        <div class="text-4xl font-bold text-[#82e256] mb-2">+25%</div>
+        <p class="text-gray-300">Ticket promedio</p>
+      </div>
+      <div class="bg-black/30 p-6 rounded-xl text-center">
+        <div class="text-4xl font-bold text-[#82e256] mb-2">2x</div>
+        <p class="text-gray-300">Tiempo en sitio</p>
+      </div>
+    </div>
+
+    <p class="text-gray-300 italic">
+      "El asistente pregunta preferencias, busca por descripción natural, genera outfits completos y compara precios. Los usuarios ya no se pierden en nuestro catálogo inmenso. La experiencia pasó de frustrante a mágica."
+    </p>
+  </div>
+
+  <!-- De la idea al lanzamiento -->
+  <div class="mb-20">
+    <h2>De la Idea al Lanzamiento</h2>
+
+    <div class="relative mt-12">
+      <div class="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-[#82e256] to-transparent hidden md:block"></div>
+
+      <!-- Fase 1 -->
+      <div class="relative md:pl-24 pb-12">
+        <div class="absolute left-0 w-16 h-16 bg-[#82e256] rounded-full items-center justify-center text-2xl font-bold text-black hidden md:flex">1</div>
+        <div class="bg-gray-800/50 p-6 rounded-xl">
+          <h3 class="text-xl font-bold text-white mb-2">Discovery - 2 semanas</h3>
+          <p class="text-gray-300">Analizamos casos de uso, definimos arquitectura, creamos POC con dataset real y estimamos costos de IA antes de escribir una línea de código.</p>
+        </div>
+      </div>
+
+      <!-- Fase 2 -->
+      <div class="relative md:pl-24 pb-12">
+        <div class="absolute left-0 w-16 h-16 bg-[#82e256] rounded-full items-center justify-center text-2xl font-bold text-black hidden md:flex">2</div>
+        <div class="bg-gray-800/50 p-6 rounded-xl">
+          <h3 class="text-xl font-bold text-white mb-2">MVP - 6-8 semanas</h3>
+          <p class="text-gray-300">Desarrollo de funcionalidades core, integración con modelos de IA, testing con usuarios reales y ajuste fino de prompts y parámetros.</p>
+        </div>
+      </div>
+
+      <!-- Fase 3 -->
+      <div class="relative md:pl-24 pb-12">
+        <div class="absolute left-0 w-16 h-16 bg-[#82e256] rounded-full items-center justify-center text-2xl font-bold text-black hidden md:flex">3</div>
+        <div class="bg-gray-800/50 p-6 rounded-xl">
+          <h3 class="text-xl font-bold text-white mb-2">Producción - 4 semanas</h3>
+          <p class="text-gray-300">Optimización de performance, implementación de caché inteligente, monitoreo 24/7, alertas automáticas y documentación completa.</p>
+        </div>
+      </div>
+
+      <!-- Fase 4 -->
+      <div class="relative md:pl-24">
+        <div class="absolute left-0 w-16 h-16 bg-[#82e256] rounded-full items-center justify-center text-2xl font-bold text-black hidden md:flex">4</div>
+        <div class="bg-gray-800/50 p-6 rounded-xl">
+          <h3 class="text-xl font-bold text-white mb-2">Escalamiento - Continuo</h3>
+          <p class="text-gray-300">Fine-tuning de modelos con tus datos, optimización de costos (ahorra hasta 80%), nuevas features y soporte técnico especializado.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stack Tecnológico -->
+  <div class="mb-20">
+    <h2>Stack de Vanguardia</h2>
+
+    <div class="grid md:grid-cols-3 gap-6 mt-8">
+      <!-- Modelos -->
+      <div class="bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-6 rounded-xl border border-purple-500/30">
+        <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+          <span class="text-3xl">🤖</span>
+          Modelos de IA
+        </h3>
+        <div class="space-y-2 text-gray-300">
+          <p>• GPT-4 & GPT-4 Vision</p>
+          <p>• Claude Sonnet & Opus</p>
+          <p>• Gemini Pro</p>
+          <p>• Llama 3 (on-premise)</p>
+        </div>
+      </div>
+
+      <!-- Infraestructura -->
+      <div class="bg-gradient-to-br from-blue-900/20 to-blue-800/20 p-6 rounded-xl border border-blue-500/30">
+        <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+          <span class="text-3xl">🏗️</span>
+          Infraestructura
+        </h3>
+        <div class="space-y-2 text-gray-300">
+          <p>• Vector DBs: Pinecone, Weaviate</p>
+          <p>• LangChain, LlamaIndex</p>
+          <p>• Redis + Postgres</p>
+          <p>• AWS, GCP, Azure</p>
+        </div>
+      </div>
+
+      <!-- Frontend -->
+      <div class="bg-gradient-to-br from-green-900/20 to-green-800/20 p-6 rounded-xl border border-green-500/30">
+        <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+          <span class="text-3xl">💻</span>
+          Frontend/Backend
+        </h3>
+        <div class="space-y-2 text-gray-300">
+          <p>• React, Next.js, React Native</p>
+          <p>• Python, FastAPI, Node.js</p>
+          <p>• TypeScript everywhere</p>
+          <p>• CI/CD automatizado</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Precios -->
+  <div class="mb-20">
+    <h2>Inversión por Fase</h2>
+
+    <div class="grid md:grid-cols-3 gap-6 mt-8">
+      <!-- MVP -->
+      <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-8 rounded-2xl border-2 border-gray-700 hover:border-[#82e256] transition-all duration-300">
+        <div class="text-center mb-6">
+          <h3 class="text-2xl font-bold text-white mb-2">MVP Funcional</h3>
+          <div class="text-4xl font-bold text-[#82e256] mb-2">$15K+</div>
+          <p class="text-gray-400">proyecto completo</p>
+        </div>
+        <div class="space-y-3 mb-6">
+          <div class="flex items-start gap-2">
+            <span class="text-[#82e256] mt-1">✓</span>
+            <span class="text-gray-300">1-2 funcionalidades IA</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-[#82e256] mt-1">✓</span>
+            <span class="text-gray-300">Integración básica</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-[#82e256] mt-1">✓</span>
+            <span class="text-gray-300">Deploy en cloud</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-[#82e256] mt-1">✓</span>
+            <span class="text-gray-300">2 meses soporte</span>
+          </div>
+        </div>
+        <p class="text-sm text-gray-400 text-center">Valida tu idea rápido</p>
+      </div>
+
+      <!-- App Completa -->
+      <div class="bg-gradient-to-br from-[#82e256]/20 to-[#006064]/20 p-8 rounded-2xl border-2 border-[#82e256] relative transform scale-105 shadow-2xl">
+        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#82e256] text-black px-4 py-1 rounded-full text-sm font-bold">
+          Recomendado
+        </div>
+        <div class="text-center mb-6">
+          <h3 class="text-2xl font-bold text-white mb-2">App Completa</h3>
+          <div class="text-4xl font-bold text-[#82e256] mb-2">$40K+</div>
+          <p class="text-gray-400">proyecto completo</p>
+        </div>
+        <div class="space-y-3 mb-6">
+          <div class="flex items-start gap-2">
+            <span class="text-[#82e256] mt-1">✓</span>
+            <span class="text-gray-300">5+ funcionalidades IA</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-[#82e256] mt-1">✓</span>
+            <span class="text-gray-300">Integraciones complejas</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-[#82e256] mt-1">✓</span>
+            <span class="text-gray-300">Optimización costos IA</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-[#82e256] mt-1">✓</span>
+            <span class="text-gray-300">6 meses soporte</span>
+          </div>
+        </div>
+        <p class="text-sm text-gray-400 text-center">Producto listo para escalar</p>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-8 rounded-2xl border-2 border-gray-700 hover:border-[#82e256] transition-all duration-300">
+        <div class="text-center mb-6">
+          <h3 class="text-2xl font-bold text-white mb-2">Enterprise</h3>
+          <div class="text-4xl font-bold text-[#82e256] mb-2">Custom</div>
+          <p class="text-gray-400">a medida</p>
+        </div>
+        <div class="space-y-3 mb-6">
+          <div class="flex items-start gap-2">
+            <span class="text-[#82e256] mt-1">✓</span>
+            <span class="text-gray-300">Arquitectura escalable</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-[#82e256] mt-1">✓</span>
+            <span class="text-gray-300">Fine-tuning modelos</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-[#82e256] mt-1">✓</span>
+            <span class="text-gray-300">Infraestructura dedicada</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-[#82e256] mt-1">✓</span>
+            <span class="text-gray-300">Soporte 24/7</span>
+          </div>
+        </div>
+        <p class="text-sm text-gray-400 text-center">Para empresas grandes</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Por qué nosotros -->
+  <div class="mb-16">
+    <h2>Por Qué Elegirnos</h2>
+
+    <div class="grid md:grid-cols-2 gap-6 mt-8">
+      <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border-l-4 border-[#82e256]">
+        <h4 class="text-xl font-bold text-white mb-3">🚀 Experiencia Real en Producción</h4>
+        <p class="text-gray-300">Millones de requests procesados, no solo demos. Sabemos qué funciona y qué no a escala.</p>
+      </div>
+
+      <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border-l-4 border-[#82e256]">
+        <h4 class="text-xl font-bold text-white mb-3">💰 Optimización de Costos</h4>
+        <p class="text-gray-300">Reducimos hasta 80% el gasto en APIs de IA con caché inteligente, fine-tuning y arquitectura eficiente.</p>
+      </div>
+
+      <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border-l-4 border-[#82e256]">
+        <h4 class="text-xl font-bold text-white mb-3">⚡ Latencia Mínima</h4>
+        <p class="text-gray-300">Respuestas en menos de 2 segundos. Streaming para experiencias fluidas. Nunca "cargando..."</p>
+      </div>
+
+      <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border-l-4 border-[#82e256]">
+        <h4 class="text-xl font-bold text-white mb-3">📈 Escalabilidad Probada</h4>
+        <p class="text-gray-300">De 100 a 100K usuarios sin problemas. Arquitectura cloud-native lista para crecer contigo.</p>
+      </div>
+    </div>
+  </div>
+
+</ServiceLayout>

@@ -1,0 +1,774 @@
+---
+import Layout from './Layout.astro';
+
+interface Chapter {
+  time: number;
+  title: string;
+}
+
+interface Props {
+  title?: string;
+  description?: string;
+  date?: string;
+  category?: string;
+  readTime?: string;
+  author?: string;
+  image?: string;
+  audioUrl?: string;
+  chapters?: Chapter[];
+  frontmatter?: {
+    title: string;
+    description: string;
+    date: string;
+    category: string;
+    readTime?: string;
+    author?: string;
+    image?: string;
+    audioUrl?: string;
+    chapters?: Chapter[];
+  };
+}
+
+// Astro pasa las props de markdown en frontmatter
+const props = Astro.props.frontmatter || Astro.props;
+const { title, description, date, category, readTime = '5 min', author = 'Equipo Aquí Creamos', image, audioUrl, chapters } = props;
+
+// Formatear fecha
+const formatDate = (dateString: string) => {
+  const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+  return new Date(dateString).toLocaleDateString('es-ES', options);
+};
+
+// Mapeo de categorías a colores
+const categoryColors: Record<string, string> = {
+  'IA': 'bg-purple-600',
+  'Web': 'bg-blue-600',
+  'Mobile': 'bg-green-600',
+  'Arquitectura': 'bg-orange-600',
+  'DevOps': 'bg-red-600',
+  'General': 'bg-gray-600'
+};
+
+const categoryColor = categoryColors[category] || categoryColors['General'];
+
+// Función para formatear tiempo en minutos:segundos
+const formatTime = (seconds: number): string => {
+  const mins = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  return `${mins}:${secs.toString().padStart(2, '0')}`;
+};
+---
+
+<Layout>
+  <!-- Header -->
+  <header
+    class="bg-[#00464e] flex flex-row justify-between items-center p-3 w-full fixed top-0 left-0 z-50 shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
+  >
+    <a href="/">
+      <img src="/img/logoAquicreamos.png" class="h-7" alt="Logo Aquí Creamos" />
+    </a>
+    <nav class="hidden md:block">
+      <ul class="flex flex-row gap-6 items-center justify-center">
+        <li><a href="/#home" class="text-white hover:text-[#82e256] transition-colors">Inicio</a></li>
+        <li><a href="/servicios" class="text-white hover:text-[#82e256] transition-colors">Servicios</a></li>
+        <li><a href="/blog" class="text-[#82e256] font-semibold">Blog</a></li>
+        <li><a href="/#contenido10" class="text-white hover:text-[#82e256] transition-colors">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="min-h-screen bg-[#1a1a1a]">
+    <!-- Hero Section mejorado -->
+    <section class="relative pt-32 pb-20 md:pt-40 md:pb-24 bg-gradient-to-br from-[#00464e] via-[#006064] to-[#00464e] overflow-hidden">
+      <!-- Efectos de fondo -->
+      <div class="absolute inset-0 opacity-20">
+        <div class="absolute top-20 left-10 w-72 h-72 bg-[#82e256] rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 right-10 w-96 h-96 bg-[#04ADC0] rounded-full blur-3xl"></div>
+      </div>
+
+      {image && (
+        <div class="absolute inset-0 overflow-hidden">
+          <img
+            src={image}
+            alt={title}
+            class="w-full h-full object-cover opacity-10"
+          />
+          <div class="absolute inset-0 bg-gradient-to-br from-[#00464e]/95 to-[#006064]/95"></div>
+        </div>
+      )}
+
+      <div class="container mx-auto px-4 md:px-16 relative z-10">
+        <div class="max-w-4xl mx-auto">
+          <!-- Breadcrumb -->
+          <div class="mb-6">
+            <a href="/blog" class="text-[#82e256] hover:text-[#6bc73d] transition-colors text-sm font-medium flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+              </svg>
+              Volver al blog
+            </a>
+          </div>
+
+          <!-- Categoría y tiempo de lectura -->
+          <div class="flex flex-wrap items-center gap-3 mb-8">
+            <span class={`${categoryColor} text-white px-5 py-2 rounded-full text-sm font-bold shadow-lg`}>
+              {category}
+            </span>
+            <div class="flex items-center gap-2 text-white/90 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span class="text-sm font-semibold">{readTime} de lectura</span>
+            </div>
+          </div>
+
+          <!-- Título principal -->
+          <h1 class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-8 leading-tight">
+            {title}
+          </h1>
+
+          <!-- Descripción mejorada -->
+          <p class="text-xl md:text-2xl text-white/95 mb-10 leading-relaxed font-light">
+            {description}
+          </p>
+
+          <!-- Metadata mejorada -->
+          <div class="flex flex-wrap items-center gap-6 pb-8 border-b border-white/20">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#82e256] to-[#6bc73d] flex items-center justify-center">
+                <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs text-white/60 uppercase tracking-wider">Autor</p>
+                <p class="text-white font-semibold">{author}</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#04ADC0] to-[#0397ab] flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs text-white/60 uppercase tracking-wider">Publicado</p>
+                <p class="text-white font-semibold">{formatDate(date)}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Podcast Audio Player -->
+    {audioUrl && (
+      <section class="py-8 bg-gradient-to-br from-[#1a1a1a] to-[#0d1a1a]">
+        <div class="container mx-auto px-4 md:px-16">
+          <div class="max-w-3xl mx-auto">
+            <div class="bg-gradient-to-br from-[#00464e] to-[#006064] rounded-2xl p-6 md:p-8 border border-[#82e256]/30 shadow-2xl">
+              <!-- Header del reproductor -->
+              <div class="flex items-center gap-4 mb-6">
+                <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-[#82e256] to-[#6bc73d] flex items-center justify-center flex-shrink-0 shadow-lg">
+                  <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path>
+                  </svg>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-2 mb-1">
+                    <span class="bg-[#82e256] text-black px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                      Podcast
+                    </span>
+                    <span class="text-white/60 text-sm">Disponible en audio</span>
+                  </div>
+                  <h3 class="text-white font-bold text-lg">Escucha este artículo</h3>
+                  <p class="text-white/70 text-sm">El texto a continuación es la transcripción completa</p>
+                </div>
+              </div>
+
+              <!-- Reproductor de audio mejorado -->
+              <div class="bg-black/30 rounded-xl p-6 backdrop-blur-sm border border-white/10">
+                <audio
+                  id="podcast-audio"
+                  class="hidden"
+                  preload="metadata"
+                  src={audioUrl}
+                >
+                  Tu navegador no soporta el elemento de audio.
+                </audio>
+
+                <!-- Controles personalizados -->
+                <div class="space-y-4">
+                  <!-- Barra de progreso visual -->
+                  <div class="space-y-2">
+                    <div class="flex justify-between text-sm text-white/70">
+                      <span id="current-time">0:00</span>
+                      <span id="duration">0:00</span>
+                    </div>
+                    <div class="relative h-2 bg-white/10 rounded-full cursor-pointer group" id="progress-bar">
+                      <div class="absolute h-full bg-gradient-to-r from-[#82e256] to-[#6bc73d] rounded-full transition-all" id="progress-fill" style="width: 0%"></div>
+                      <div class="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-[#82e256] rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity" id="progress-thumb" style="left: 0%"></div>
+                    </div>
+                  </div>
+
+                  <!-- Controles principales -->
+                  <div class="flex items-center justify-between gap-4">
+                    <!-- Play/Pause y saltos -->
+                    <div class="flex items-center gap-3">
+                      <button id="rewind-btn" class="text-white/70 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-lg" title="Retroceder 10s">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0019 16V8a1 1 0 00-1.6-.8l-5.333 4zM4.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0011 16V8a1 1 0 00-1.6-.8l-5.334 4z"></path>
+                        </svg>
+                      </button>
+
+                      <button id="play-pause-btn" class="w-14 h-14 flex items-center justify-center bg-[#82e256] hover:bg-[#6bc73d] rounded-full transition-all transform hover:scale-105 shadow-lg">
+                        <svg id="play-icon" class="w-7 h-7 text-black ml-1" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z"></path>
+                        </svg>
+                        <svg id="pause-icon" class="w-7 h-7 text-black hidden" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"></path>
+                        </svg>
+                      </button>
+
+                      <button id="forward-btn" class="text-white/70 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-lg" title="Adelantar 10s">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.933 12.8a1 1 0 000-1.6L6.6 7.2A1 1 0 005 8v8a1 1 0 001.6.8l5.333-4zM19.933 12.8a1 1 0 000-1.6l-5.333-4A1 1 0 0013 8v8a1 1 0 001.6.8l5.333-4z"></path>
+                        </svg>
+                      </button>
+                    </div>
+
+                    <!-- Control de velocidad -->
+                    <div class="flex items-center gap-2">
+                      <span class="text-xs text-white/60 hidden md:block">Velocidad:</span>
+                      <select id="speed-control" class="bg-white/10 text-white border border-white/20 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:border-[#82e256] cursor-pointer hover:bg-white/20 transition-colors">
+                        <option value="0.5">0.5x</option>
+                        <option value="0.75">0.75x</option>
+                        <option value="1" selected>1x</option>
+                        <option value="1.25">1.25x</option>
+                        <option value="1.5">1.5x</option>
+                        <option value="2">2x</option>
+                      </select>
+                    </div>
+
+                    <!-- Botón de descarga -->
+                    <a
+                      href={audioUrl}
+                      download
+                      class="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all duration-300 border border-white/20 hover:border-[#82e256]"
+                      title="Descargar audio"
+                    >
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                      </svg>
+                      <span class="hidden md:inline">Descargar</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Capítulos/Marcadores de tiempo -->
+              {chapters && chapters.length > 0 && (
+                <div class="mt-6 space-y-2">
+                  <h4 class="text-white font-semibold text-sm mb-3 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                    </svg>
+                    Capítulos
+                  </h4>
+                  <div class="space-y-1 max-h-48 overflow-y-auto pr-2 custom-scrollbar">
+                    {chapters.map((chapter, index) => (
+                      <button
+                        class="chapter-marker w-full text-left px-4 py-3 bg-white/5 hover:bg-white/10 rounded-lg transition-all border border-transparent hover:border-[#82e256]/30 group"
+                        data-time={chapter.time}
+                      >
+                        <div class="flex items-start gap-3">
+                          <span class="text-[#82e256] font-mono text-sm mt-0.5 min-w-[3rem]">{formatTime(chapter.time)}</span>
+                          <span class="text-white/90 group-hover:text-white text-sm">{chapter.title}</span>
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Content Section -->
+    <section class="py-16 bg-[#1a1a1a]">
+      <div class="container mx-auto px-4 md:px-16">
+        <div class="max-w-3xl mx-auto">
+          <article class="blog-content">
+            <slot />
+          </article>
+
+          <!-- Share Section -->
+          <div class="mt-12 pt-8 border-t border-gray-700">
+            <h3 class="text-xl font-bold text-white mb-4">Compartir este artículo</h3>
+            <div class="flex gap-4">
+              <button class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors flex items-center gap-2">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+                Facebook
+              </button>
+              <button class="px-4 py-2 bg-sky-500 hover:bg-sky-600 text-white rounded-lg transition-colors flex items-center gap-2">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                </svg>
+                Twitter
+              </button>
+              <button class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors flex items-center gap-2">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                </svg>
+                WhatsApp
+              </button>
+            </div>
+          </div>
+
+          <!-- CTA Section -->
+          <div class="mt-16 p-8 bg-gradient-to-br from-[#00464e] to-[#006064] rounded-2xl text-center">
+            <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">
+              ¿Te gustó este artículo?
+            </h3>
+            <p class="text-lg text-white/90 mb-6">
+              Suscríbete a nuestro newsletter para recibir más contenido sobre tecnología, IA y desarrollo
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 max-w-xl mx-auto">
+              <input
+                type="email"
+                placeholder="tu@email.com"
+                class="flex-1 px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:border-[#82e256]"
+              />
+              <button class="px-8 py-3 bg-[#82e256] text-black font-bold rounded-lg hover:bg-[#6bc73d] transition-all duration-300 transform hover:scale-105">
+                Suscribirme
+              </button>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+          <div class="mt-12 flex flex-col md:flex-row justify-between items-center gap-4 border-t border-gray-700 pt-8">
+            <a
+              href="/blog"
+              class="flex items-center gap-2 text-[#82e256] hover:text-[#6bc73d] transition-colors"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+              </svg>
+              Ver todos los artículos
+            </a>
+            <a
+              href="/#home"
+              class="flex items-center gap-2 text-white/70 hover:text-white transition-colors"
+            >
+              Volver al inicio
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style is:global>
+  /* Estilos para el contenido del artículo */
+  .blog-content {
+    color: #e5e5e5;
+  }
+
+  .blog-content h1 {
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #82e256;
+    line-height: 1.2;
+  }
+
+  .blog-content h2 {
+    margin-top: 3.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #82e256;
+    line-height: 1.3;
+  }
+
+  .blog-content h3 {
+    margin-top: 2.5rem;
+    margin-bottom: 1.25rem;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #82e256;
+    line-height: 1.4;
+  }
+
+  .blog-content h4 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #82e256;
+    line-height: 1.4;
+  }
+
+  .blog-content p {
+    margin-bottom: 2rem;
+    line-height: 1.9;
+    font-size: 1.25rem;
+    color: #e5e5e5;
+  }
+
+  /* Primer párrafo después de un título */
+  .blog-content h2 + p,
+  .blog-content h3 + p,
+  .blog-content h4 + p {
+    margin-top: 0.5rem;
+  }
+
+  .blog-content ul,
+  .blog-content ol {
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+  }
+
+  .blog-content li {
+    margin-bottom: 1rem;
+    line-height: 1.9;
+    font-size: 1.125rem;
+    color: #e5e5e5;
+  }
+
+  .blog-content li::marker {
+    color: #82e256;
+  }
+
+  .blog-content li p {
+    margin-bottom: 0.5rem;
+  }
+
+  .blog-content strong {
+    color: #ffffff;
+    font-weight: 700;
+  }
+
+  .blog-content em {
+    color: #04ADC0;
+    font-style: italic;
+  }
+
+  .blog-content code {
+    background-color: rgba(130, 226, 86, 0.15);
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.375rem;
+    font-size: 1.05rem;
+    color: #82e256;
+    font-family: 'Courier New', monospace;
+  }
+
+  .blog-content pre {
+    background-color: #0d1117;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    overflow-x: auto;
+    margin: 2.5rem 0;
+    border: 1px solid rgba(130, 226, 86, 0.2);
+    line-height: 1.6;
+  }
+
+  .blog-content pre code {
+    background-color: transparent;
+    padding: 0;
+    color: #e5e5e5;
+    font-size: 1rem;
+  }
+
+  .blog-content blockquote {
+    border-left: 4px solid #82e256;
+    padding-left: 2rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin: 2.5rem 0;
+    font-style: italic;
+    color: #b0b0b0;
+    background-color: rgba(130, 226, 86, 0.05);
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
+
+  .blog-content blockquote p {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .blog-content hr {
+    margin: 3.5rem 0;
+    border: none;
+    border-top: 2px solid rgba(130, 226, 86, 0.2);
+  }
+
+  .blog-content a {
+    color: #04ADC0;
+    text-decoration: underline;
+    transition: color 0.3s;
+    font-weight: 500;
+  }
+
+  .blog-content a:hover {
+    color: #06d4e8;
+  }
+
+  .blog-content img {
+    border-radius: 0.75rem;
+    margin: 2.5rem 0;
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .blog-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2.5rem 0;
+    font-size: 1.125rem;
+  }
+
+  .blog-content th,
+  .blog-content td {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    text-align: left;
+  }
+
+  .blog-content th {
+    background-color: rgba(130, 226, 86, 0.15);
+    color: #82e256;
+    font-weight: 700;
+    font-size: 1.125rem;
+  }
+
+  .blog-content td {
+    color: #e5e5e5;
+  }
+
+  /* Responsive: textos más pequeños en móvil */
+  @media (max-width: 768px) {
+    .blog-content h1 {
+      font-size: 2rem;
+    }
+
+    .blog-content h2 {
+      font-size: 1.75rem;
+      margin-top: 2.5rem;
+    }
+
+    .blog-content h3 {
+      font-size: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .blog-content h4 {
+      font-size: 1.25rem;
+    }
+
+    .blog-content p {
+      font-size: 1.125rem;
+      line-height: 1.8;
+    }
+
+    .blog-content li {
+      font-size: 1.05rem;
+    }
+  }
+
+  /* Estilos para el reproductor de audio */
+  .podcast-player {
+    height: 54px;
+    border-radius: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .podcast-player::-webkit-media-controls-panel {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 0.5rem;
+  }
+
+  .podcast-player::-webkit-media-controls-play-button,
+  .podcast-player::-webkit-media-controls-pause-button {
+    background-color: #82e256;
+    border-radius: 50%;
+  }
+
+  .podcast-player::-webkit-media-controls-current-time-display,
+  .podcast-player::-webkit-media-controls-time-remaining-display {
+    color: #82e256;
+    text-shadow: none;
+    font-weight: 600;
+  }
+
+  .podcast-player::-webkit-media-controls-timeline {
+    background-color: rgba(130, 226, 86, 0.2);
+    border-radius: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .podcast-player::-webkit-media-controls-volume-slider {
+    background-color: rgba(130, 226, 86, 0.2);
+    border-radius: 25px;
+  }
+
+  /* Firefox */
+  .podcast-player::-moz-range-track {
+    background-color: rgba(130, 226, 86, 0.2);
+    border-radius: 25px;
+  }
+
+  .podcast-player::-moz-range-thumb {
+    background-color: #82e256;
+    border: none;
+    border-radius: 50%;
+  }
+
+  /* Scrollbar personalizado para capítulos */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(130, 226, 86, 0.3);
+    border-radius: 10px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(130, 226, 86, 0.5);
+  }
+</style>
+
+<script>
+  // Esperar a que el DOM esté completamente cargado
+  document.addEventListener('DOMContentLoaded', () => {
+    const audio = document.getElementById('podcast-audio') as HTMLAudioElement;
+
+    // Si no hay reproductor de audio, salir
+    if (!audio) return;
+
+    const playPauseBtn = document.getElementById('play-pause-btn');
+    const playIcon = document.getElementById('play-icon');
+    const pauseIcon = document.getElementById('pause-icon');
+    const rewindBtn = document.getElementById('rewind-btn');
+    const forwardBtn = document.getElementById('forward-btn');
+    const speedControl = document.getElementById('speed-control') as HTMLSelectElement;
+    const progressBar = document.getElementById('progress-bar');
+    const progressFill = document.getElementById('progress-fill');
+    const progressThumb = document.getElementById('progress-thumb');
+    const currentTimeEl = document.getElementById('current-time');
+    const durationEl = document.getElementById('duration');
+    const chapterMarkers = document.querySelectorAll('.chapter-marker');
+
+    // Función para formatear tiempo
+    function formatTime(seconds: number): string {
+      const mins = Math.floor(seconds / 60);
+      const secs = Math.floor(seconds % 60);
+      return `${mins}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    // Play/Pause
+    playPauseBtn?.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+        playIcon?.classList.add('hidden');
+        pauseIcon?.classList.remove('hidden');
+      } else {
+        audio.pause();
+        playIcon?.classList.remove('hidden');
+        pauseIcon?.classList.add('hidden');
+      }
+    });
+
+    // Retroceder 10 segundos
+    rewindBtn?.addEventListener('click', () => {
+      audio.currentTime = Math.max(0, audio.currentTime - 10);
+    });
+
+    // Adelantar 10 segundos
+    forwardBtn?.addEventListener('click', () => {
+      audio.currentTime = Math.min(audio.duration, audio.currentTime + 10);
+    });
+
+    // Control de velocidad
+    speedControl?.addEventListener('change', (e) => {
+      const target = e.target as HTMLSelectElement;
+      audio.playbackRate = parseFloat(target.value);
+    });
+
+    // Actualizar barra de progreso
+    audio.addEventListener('timeupdate', () => {
+      if (!audio.duration) return;
+
+      const progress = (audio.currentTime / audio.duration) * 100;
+      if (progressFill) progressFill.style.width = `${progress}%`;
+      if (progressThumb) progressThumb.style.left = `${progress}%`;
+      if (currentTimeEl) currentTimeEl.textContent = formatTime(audio.currentTime);
+    });
+
+    // Actualizar duración cuando se carga el metadata
+    audio.addEventListener('loadedmetadata', () => {
+      if (durationEl) durationEl.textContent = formatTime(audio.duration);
+    });
+
+    // Click en la barra de progreso para buscar
+    progressBar?.addEventListener('click', (e) => {
+      const rect = progressBar.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const percentage = clickX / rect.width;
+      audio.currentTime = percentage * audio.duration;
+    });
+
+    // Marcadores de capítulos
+    chapterMarkers.forEach((marker) => {
+      marker.addEventListener('click', () => {
+        const time = parseFloat(marker.getAttribute('data-time') || '0');
+        audio.currentTime = time;
+        audio.play();
+        playIcon?.classList.add('hidden');
+        pauseIcon?.classList.remove('hidden');
+      });
+    });
+
+    // Atajos de teclado
+    document.addEventListener('keydown', (e) => {
+      // Solo si el foco está en el documento y no en un input
+      if (document.activeElement?.tagName === 'INPUT' ||
+          document.activeElement?.tagName === 'TEXTAREA') {
+        return;
+      }
+
+      switch(e.code) {
+        case 'Space':
+          e.preventDefault();
+          playPauseBtn?.click();
+          break;
+        case 'ArrowLeft':
+          e.preventDefault();
+          rewindBtn?.click();
+          break;
+        case 'ArrowRight':
+          e.preventDefault();
+          forwardBtn?.click();
+          break;
+      }
+    });
+  });
+</script>

@@ -1,0 +1,342 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+---
+
+<ServiceLayout
+  title="Arquitectura de Software"
+  description="Sistemas escalables diseñados para crecer sin límites"
+  icon="🏗️"
+  gradient="bg-gradient-to-br from-[#00464e] to-[#006417]"
+>
+  <div class="space-y-8">
+    <h2>Arquitectura que escala con tu negocio</h2>
+
+    <p>No hay nada más costoso que <strong>rediseñar toda tu plataforma</strong> porque la arquitectura inicial no aguantó el crecimiento.</p>
+
+    <p>Diseñamos sistemas que:</p>
+    <ul>
+      <li>Escalan de <strong>100 a 1 millón de usuarios</strong> sin reescribir código</li>
+      <li>Se mantienen <strong>fácilmente</strong> aunque cambien desarrolladores</li>
+      <li>Tienen <strong>alta disponibilidad</strong> (99.9%+ uptime)</li>
+      <li>Permiten <strong>agregar features</strong> sin romper lo existente</li>
+    </ul>
+
+    <hr />
+
+    <h2>Patrones de arquitectura que usamos</h2>
+
+    <h3><strong>Arquitectura Hexagonal (Ports & Adapters)</strong></h3>
+
+    <p><strong>¿Para qué sirve?</strong></p>
+    <p>Tu lógica de negocio <strong>no depende de frameworks ni databases</strong>. Puedes cambiar de Express a Fastify, de MySQL a PostgreSQL, sin tocar el core.</p>
+
+    <p><strong>Ideal para:</strong></p>
+    <ul>
+      <li>Startups que pivotean frecuentemente</li>
+      <li>Productos con múltiples integraciones</li>
+      <li>Equipos que quieren testear fácil</li>
+    </ul>
+
+    <p><strong>Ejemplo:</strong></p>
+    <p>[API REST] ← [Casos de Uso] → [PostgreSQL]</p>
+    <p>↓ ↓</p>
+    <p>[gRPC] [MongoDB]</p>
+
+    <hr />
+
+    <h3><strong>Clean Architecture / Onion Architecture</strong></h3>
+
+    <p><strong>¿Para qué sirve?</strong></p>
+    <p>Código organizado en capas con <strong>dependencias en una sola dirección</strong>. El core del negocio está en el centro, protegido de cambios externos.</p>
+
+    <p><strong>Ideal para:</strong></p>
+    <ul>
+      <li>Proyectos enterprise complejos</li>
+      <li>Equipos grandes (10+ devs)</li>
+      <li>Sistemas que vivirán 5+ años</li>
+    </ul>
+
+    <p><strong>Capas:</strong></p>
+    <ul>
+      <li><strong>Entities:</strong> Reglas de negocio</li>
+      <li><strong>Use Cases:</strong> Lógica de aplicación</li>
+      <li><strong>Interface Adapters:</strong> Controllers, presenters</li>
+      <li><strong>Frameworks & Drivers:</strong> UI, DB, APIs externas</li>
+    </ul>
+
+    <hr />
+
+    <h3><strong>Microservicios</strong></h3>
+
+    <p><strong>¿Para qué sirve?</strong></p>
+    <p>Divide tu aplicación en servicios pequeños e independientes. Cada uno puede:</p>
+    <ul>
+      <li>Deployarse por separado</li>
+      <li>Escalar solo lo que necesita</li>
+      <li>Usar tecnologías diferentes</li>
+    </ul>
+
+    <p><strong>Ideal para:</strong></p>
+    <ul>
+      <li>Plataformas con múltiples funcionalidades</li>
+      <li>Equipos distribuidos</li>
+      <li>SaaS que cobra por módulos</li>
+    </ul>
+
+    <p><strong>Ejemplo:</strong></p>
+    <ul>
+      <li>Servicio de Auth (Node.js)</li>
+      <li>Servicio de Pagos (Python)</li>
+      <li>Servicio de Notificaciones (Go)</li>
+      <li>Servicio de Analytics (Rust)</li>
+    </ul>
+
+    <hr />
+
+    <h3><strong>Event-Driven Architecture</strong></h3>
+
+    <p><strong>¿Para qué sirve?</strong></p>
+    <p>Los servicios se comunican mediante <strong>eventos asíncronos</strong>. Si un servicio cae, los eventos se encolan y procesan después.</p>
+
+    <p><strong>Ideal para:</strong></p>
+    <ul>
+      <li>Sistemas con alto volumen de transacciones</li>
+      <li>Workflows complejos (e-commerce, fintech)</li>
+      <li>Apps que necesitan audit logs</li>
+    </ul>
+
+    <p><strong>Tecnologías:</strong></p>
+    <ul>
+      <li>RabbitMQ, Kafka, AWS SQS</li>
+      <li>Event Sourcing + CQRS</li>
+    </ul>
+
+    <hr />
+
+    <h3><strong>CQRS (Command Query Responsibility Segregation)</strong></h3>
+
+    <p><strong>¿Para qué sirve?</strong></p>
+    <p>Separa las operaciones de <strong>escritura</strong> (commands) de las de <strong>lectura</strong> (queries). Cada una puede optimizarse independientemente.</p>
+
+    <p><strong>Ideal para:</strong></p>
+    <ul>
+      <li>Apps con millones de lecturas, pocas escrituras</li>
+      <li>Dashboards con analíticas complejas</li>
+      <li>E-commerce de alto tráfico</li>
+    </ul>
+
+    <p><strong>Ejemplo:</strong></p>
+    <ul>
+      <li><strong>Write:</strong> PostgreSQL relacional</li>
+      <li><strong>Read:</strong> Elasticsearch para búsquedas rápidas</li>
+    </ul>
+
+    <hr />
+
+    <h2>Servicios que ofrecemos</h2>
+
+    <h3>🔍 <strong>Auditoría de Arquitectura Actual</strong></h3>
+
+    <p>Te decimos <strong>qué está mal</strong> y <strong>cómo arreglarlo</strong>:</p>
+    <ul>
+      <li>Code smells y deuda técnica</li>
+      <li>Cuellos de botella de performance</li>
+      <li>Problemas de escalabilidad</li>
+      <li>Riesgos de seguridad</li>
+    </ul>
+
+    <p><strong>Entregable:</strong> Reporte completo con plan de acción priorizado</p>
+
+    <p><strong>Precio:</strong> $3,500 - $7,000</p>
+    <p><strong>Tiempo:</strong> 1-2 semanas</p>
+
+    <hr />
+
+    <h3>🏗️ <strong>Diseño de Arquitectura desde Cero</strong></h3>
+
+    <p>Diseñamos la arquitectura completa antes de escribir código:</p>
+    <ul>
+      <li>Diagramas C4 (Context, Containers, Components, Code)</li>
+      <li>Selección de tecnologías</li>
+      <li>Estimación de infraestructura</li>
+      <li>Plan de escalamiento</li>
+    </ul>
+
+    <p><strong>Entregable:</strong> Documentación técnica completa + arquitectura visual</p>
+
+    <p><strong>Precio:</strong> $8,000 - $20,000</p>
+    <p><strong>Tiempo:</strong> 3-6 semanas</p>
+
+    <hr />
+
+    <h3>🔄 <strong>Migración/Refactoring</strong></h3>
+
+    <p>Tu sistema actual funciona pero <strong>no escala</strong>. Lo migramos sin downtime:</p>
+    <ul>
+      <li>Monolito → Microservicios</li>
+      <li>Arquitectura spaghetti → Clean Architecture</li>
+      <li>Base de datos legacy → Solución moderna</li>
+    </ul>
+
+    <p><strong>Estrategia:</strong> Strangler Fig Pattern (migración progresiva)</p>
+
+    <p><strong>Precio:</strong> $15,000 - $60,000+</p>
+    <p><strong>Tiempo:</strong> 2-6 meses</p>
+
+    <hr />
+
+    <h3>📊 <strong>Observabilidad y Monitoreo</strong></h3>
+
+    <p>No puedes arreglar lo que no puedes medir:</p>
+    <ul>
+      <li>Logging centralizado (ELK, Loki)</li>
+      <li>Métricas (Prometheus, Grafana)</li>
+      <li>Tracing distribuido (Jaeger, Zipkin)</li>
+      <li>Alertas inteligentes (PagerDuty)</li>
+    </ul>
+
+    <p><strong>Precio:</strong> $5,000 - $15,000</p>
+    <p><strong>Tiempo:</strong> 2-4 semanas</p>
+
+    <hr />
+
+    <h3>🚀 <strong>CI/CD y DevOps</strong></h3>
+
+    <p>Deploy rápido y seguro:</p>
+    <ul>
+      <li>Pipelines automatizados (GitHub Actions, GitLab CI)</li>
+      <li>Infrastructure as Code (Terraform, Pulumi)</li>
+      <li>Blue-Green deployments</li>
+      <li>Rollback automático si algo falla</li>
+    </ul>
+
+    <p><strong>Precio:</strong> $6,000 - $18,000</p>
+    <p><strong>Tiempo:</strong> 3-6 semanas</p>
+
+    <hr />
+
+    <h2>Casos de éxito</h2>
+
+    <h3>📈 <strong>Migración de Monolito a Microservicios</strong></h3>
+
+    <p><strong>Cliente:</strong> Fintech con 500K usuarios</p>
+
+    <p><strong>Problema:</strong></p>
+    <ul>
+      <li>Deploys tomaban 2 horas</li>
+      <li>Bug en un módulo tiraba todo abajo</li>
+      <li>Imposible escalar solo lo necesario</li>
+    </ul>
+
+    <p><strong>Solución:</strong></p>
+    <ul>
+      <li>Extrajimos 6 microservicios críticos</li>
+      <li>Implementamos API Gateway</li>
+      <li>Tracing distribuido con Jaeger</li>
+      <li>Kubernetes para orquestación</li>
+    </ul>
+
+    <p><strong>Resultado:</strong></p>
+    <ul>
+      <li>Deploys en 15 minutos</li>
+      <li>Uptime de 99.95% a 99.99%</li>
+      <li>Costos de infra reducidos 40%</li>
+    </ul>
+
+    <hr />
+
+    <h3>🏥 <strong>Arquitectura para Healthcare</strong></h3>
+
+    <p><strong>Cliente:</strong> Startup de telemedicina</p>
+
+    <p><strong>Requerimientos:</strong></p>
+    <ul>
+      <li>HIPAA compliant</li>
+      <li>Encriptación end-to-end</li>
+      <li>Audit logs inmutables</li>
+      <li>Alta disponibilidad (vidas en riesgo)</li>
+    </ul>
+
+    <p><strong>Solución:</strong></p>
+    <ul>
+      <li>Event Sourcing para audit trail</li>
+      <li>CQRS para queries rápidas</li>
+      <li>Multi-region deployment</li>
+      <li>Disaster recovery automático</li>
+    </ul>
+
+    <p><strong>Resultado:</strong> Certificación HIPAA lograda, 0 incidentes en 2 años</p>
+
+    <hr />
+
+    <h2>Stack de tecnologías</h2>
+
+    <p><strong>Backend:</strong></p>
+    <ul>
+      <li>Node.js / TypeScript</li>
+      <li>Python / FastAPI</li>
+      <li>Go (para servicios de alto performance)</li>
+      <li>Rust (para servicios críticos)</li>
+    </ul>
+
+    <p><strong>Bases de datos:</strong></p>
+    <ul>
+      <li>PostgreSQL (relacional)</li>
+      <li>MongoDB (documentos)</li>
+      <li>Redis (caché y sesiones)</li>
+      <li>Elasticsearch (búsqueda)</li>
+    </ul>
+
+    <p><strong>Mensajería:</strong></p>
+    <ul>
+      <li>RabbitMQ (tareas asíncronas)</li>
+      <li>Apache Kafka (streaming)</li>
+      <li>AWS SQS/SNS (managed queues)</li>
+    </ul>
+
+    <p><strong>Infraestructura:</strong></p>
+    <ul>
+      <li>Docker + Kubernetes</li>
+      <li>AWS / GCP / Azure</li>
+      <li>Terraform (IaC)</li>
+      <li>Nginx / Traefik (reverse proxy)</li>
+    </ul>
+
+    <p><strong>Observabilidad:</strong></p>
+    <ul>
+      <li>Prometheus + Grafana (métricas)</li>
+      <li>ELK Stack (logs)</li>
+      <li>Jaeger (tracing)</li>
+      <li>Sentry (error tracking)</li>
+    </ul>
+
+    <hr />
+
+    <h2>Precios</h2>
+
+    <p><strong>Consultoría Arquitectura</strong></p>
+    <ul>
+      <li>$3,500 - $7,000</li>
+      <li>Auditoría completa</li>
+      <li>Reporte con recomendaciones</li>
+    </ul>
+
+    <p><strong>Diseño de Arquitectura</strong></p>
+    <ul>
+      <li>$8,000 - $20,000</li>
+      <li>Documentación completa</li>
+      <li>Diagramas C4</li>
+      <li>Selección de tech stack</li>
+    </ul>
+
+    <p><strong>Implementación Completa</strong></p>
+    <ul>
+      <li>$30,000 - $100,000+</li>
+      <li>Desarrollo de arquitectura</li>
+      <li>Migración si aplica</li>
+      <li>CI/CD + Monitoreo</li>
+      <li>6 meses de soporte</li>
+    </ul>
+
+  </div>
+</ServiceLayout>

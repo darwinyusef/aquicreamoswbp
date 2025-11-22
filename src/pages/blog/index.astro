@@ -1,0 +1,310 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// Posts de ejemplo - en producción esto vendría de un CMS o archivos markdown
+const posts = [
+  {
+    slug: 'agentes-ia-revolucion-empresarial',
+    title: 'Agentes de IA: La Revolución Empresarial que está Transformando el Trabajo',
+    description: 'Descubre cómo los agentes cognitivos están automatizando tareas complejas y mejorando la productividad en las empresas modernas.',
+    date: '2025-11-15',
+    category: 'IA',
+    readTime: '8 min',
+    image: '/img/fondo.png',
+    author: 'Equipo Aquí Creamos'
+  },
+  {
+    slug: 'arquitectura-hexagonal-microservicios',
+    title: 'Arquitectura Hexagonal: Por qué es la Mejor Opción para Microservicios',
+    description: 'Guía completa sobre cómo implementar arquitectura hexagonal en tus proyectos de microservicios para lograr alta mantenibilidad.',
+    date: '2025-11-10',
+    category: 'Arquitectura',
+    readTime: '12 min',
+    image: '/img/fondo.png',
+    author: 'Equipo Aquí Creamos'
+  },
+  {
+    slug: 'react-server-components-guia',
+    title: 'React Server Components: Guía Completa para Desarrolladores',
+    description: 'Todo lo que necesitas saber sobre React Server Components y cómo pueden mejorar el rendimiento de tus aplicaciones.',
+    date: '2025-11-05',
+    category: 'Web',
+    readTime: '10 min',
+    image: '/img/fondo.png',
+    author: 'Equipo Aquí Creamos'
+  },
+  {
+    slug: 'flutter-vs-react-native-2025',
+    title: 'Flutter vs React Native en 2025: ¿Cuál Elegir para tu Proyecto?',
+    description: 'Comparativa detallada de las dos frameworks más populares para desarrollo móvil multiplataforma.',
+    date: '2025-10-28',
+    category: 'Mobile',
+    readTime: '15 min',
+    image: '/img/fondo.png',
+    author: 'Equipo Aquí Creamos'
+  },
+  {
+    slug: 'computer-vision-deteccion-objetos',
+    title: 'Computer Vision: Implementando Detección de Objetos en Tiempo Real',
+    description: 'Aprende a implementar sistemas de detección de objetos usando YOLO y OpenCV en aplicaciones web.',
+    date: '2025-10-20',
+    category: 'IA',
+    readTime: '14 min',
+    image: '/img/fondo.png',
+    author: 'Equipo Aquí Creamos'
+  },
+  {
+    slug: 'nextjs-14-nuevas-caracteristicas',
+    title: 'Next.js 14: Las Nuevas Características que Debes Conocer',
+    description: 'Explora las mejoras de rendimiento y nuevas funcionalidades que trae Next.js 14 para el desarrollo web.',
+    date: '2025-10-15',
+    category: 'Web',
+    readTime: '9 min',
+    image: '/img/fondo.png',
+    author: 'Equipo Aquí Creamos'
+  }
+];
+
+// Categorías disponibles
+const categories = ['Todos', 'IA', 'Web', 'Mobile', 'Arquitectura'];
+
+// Mapeo de categorías a colores
+const categoryColors: Record<string, string> = {
+  'IA': 'bg-purple-600',
+  'Web': 'bg-blue-600',
+  'Mobile': 'bg-green-600',
+  'Arquitectura': 'bg-orange-600',
+  'DevOps': 'bg-red-600',
+  'General': 'bg-gray-600'
+};
+
+// Formatear fecha
+const formatDate = (dateString: string) => {
+  const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+  return new Date(dateString).toLocaleDateString('es-ES', options);
+};
+---
+
+<Layout>
+  <!-- Header -->
+  <header
+    class="bg-[#00464e] flex flex-row justify-between items-center p-3 w-full fixed top-0 left-0 z-50 shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
+  >
+    <a href="/">
+      <img src="/img/logoAquicreamos.png" class="h-7" alt="Logo Aquí Creamos" />
+    </a>
+    <nav class="hidden md:block">
+      <ul class="flex flex-row gap-6 items-center justify-center">
+        <li><a href="/#home" class="text-white hover:text-[#82e256] transition-colors">Inicio</a></li>
+        <li><a href="/#contenido2" class="text-white hover:text-[#82e256] transition-colors">Servicios</a></li>
+        <li><a href="/blog" class="text-[#82e256] font-semibold">Blog</a></li>
+        <li><a href="/#contenido10" class="text-white hover:text-[#82e256] transition-colors">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="pt-32 pb-16 bg-gradient-to-br from-[#00464e] to-[#006064]">
+    <div class="container mx-auto px-4 md:px-16">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
+          Blog Tecnológico
+        </h1>
+        <p class="text-xl md:text-2xl text-white/90 mb-8">
+          Artículos sobre inteligencia artificial, desarrollo web, arquitectura de software y las últimas tendencias tecnológicas
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="py-16 bg-[#1a1a1a] min-h-screen">
+    <div class="container mx-auto px-4 md:px-16">
+      <!-- Filtros por categoría -->
+      <div class="flex flex-wrap justify-center gap-3 mb-12" id="category-filters">
+        {categories.map((category) => (
+          <button
+            class="category-filter px-6 py-2 rounded-full text-white transition-all duration-300 hover:scale-105"
+            class:list={[
+              category === 'Todos'
+                ? 'bg-[#82e256] text-black font-semibold'
+                : 'bg-gray-700 hover:bg-gray-600'
+            ]}
+            data-category={category}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+
+      <!-- Grid de posts -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="posts-grid">
+        {posts.map((post) => {
+          const categoryColor = categoryColors[post.category] || categoryColors['General'];
+
+          return (
+            <article
+              class="blog-post-card bg-gray-800/50 rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300 border border-gray-700 hover:border-[#82e256] group"
+              data-category={post.category}
+            >
+              {/* Imagen */}
+              <div class="relative overflow-hidden aspect-video">
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div class="absolute top-4 right-4">
+                  <span class={`${categoryColor} text-white px-3 py-1 rounded-full text-xs font-semibold`}>
+                    {post.category}
+                  </span>
+                </div>
+              </div>
+
+              {/* Contenido */}
+              <div class="p-6">
+                {/* Metadata */}
+                <div class="flex items-center gap-4 text-gray-400 text-sm mb-3">
+                  <span class="flex items-center gap-1">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    {formatDate(post.date)}
+                  </span>
+                  <span class="flex items-center gap-1">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    {post.readTime}
+                  </span>
+                </div>
+
+                {/* Título */}
+                <h2 class="text-xl font-bold text-white mb-3 line-clamp-2 group-hover:text-[#82e256] transition-colors">
+                  {post.title}
+                </h2>
+
+                {/* Descripción */}
+                <p class="text-gray-300 mb-4 line-clamp-3">
+                  {post.description}
+                </p>
+
+                {/* Autor y botón */}
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-gray-400">{post.author}</span>
+                  <a
+                    href={`/blog/${post.slug}`}
+                    class="inline-flex items-center gap-2 text-[#82e256] font-semibold hover:gap-3 transition-all"
+                  >
+                    Leer más
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+
+      <!-- Mensaje cuando no hay posts -->
+      <div id="no-posts" class="hidden text-center py-16">
+        <div class="text-gray-400 text-xl mb-4">No se encontraron artículos en esta categoría</div>
+        <button
+          onclick="document.querySelector('[data-category=Todos]').click()"
+          class="text-[#82e256] hover:text-[#6bc73d] transition-colors"
+        >
+          Ver todos los artículos
+        </button>
+      </div>
+
+      <!-- CTA Newsletter -->
+      <div class="mt-20 max-w-4xl mx-auto p-8 md:p-12 bg-gradient-to-br from-[#00464e] to-[#006064] rounded-2xl text-center">
+        <h3 class="text-3xl md:text-4xl font-bold text-white mb-4">
+          Suscríbete a nuestro newsletter
+        </h3>
+        <p class="text-lg text-white/90 mb-8">
+          Recibe los mejores artículos sobre tecnología, IA y desarrollo directamente en tu correo
+        </p>
+        <div class="flex flex-col md:flex-row gap-4 max-w-xl mx-auto">
+          <input
+            type="email"
+            placeholder="tu@email.com"
+            class="flex-1 px-6 py-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:border-[#82e256] text-lg"
+          />
+          <button class="px-8 py-4 bg-[#82e256] text-black font-bold rounded-lg hover:bg-[#6bc73d] transition-all duration-300 transform hover:scale-105 text-lg">
+            Suscribirme
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Filtrado por categoría
+  document.addEventListener('DOMContentLoaded', () => {
+    const filters = document.querySelectorAll('.category-filter');
+    const posts = document.querySelectorAll('.blog-post-card');
+    const noPostsMessage = document.getElementById('no-posts');
+
+    filters.forEach(filter => {
+      filter.addEventListener('click', () => {
+        const category = filter.getAttribute('data-category');
+
+        // Actualizar estilos de los filtros
+        filters.forEach(f => {
+          if (f === filter) {
+            f.classList.add('bg-[#82e256]', 'text-black', 'font-semibold');
+            f.classList.remove('bg-gray-700');
+          } else {
+            f.classList.remove('bg-[#82e256]', 'text-black', 'font-semibold');
+            f.classList.add('bg-gray-700');
+          }
+        });
+
+        // Filtrar posts
+        let visibleCount = 0;
+        posts.forEach(post => {
+          const postCategory = post.getAttribute('data-category');
+          if (category === 'Todos' || postCategory === category) {
+            post.style.display = 'block';
+            visibleCount++;
+          } else {
+            post.style.display = 'none';
+          }
+        });
+
+        // Mostrar/ocultar mensaje de "no hay posts"
+        if (noPostsMessage) {
+          if (visibleCount === 0) {
+            noPostsMessage.classList.remove('hidden');
+          } else {
+            noPostsMessage.classList.add('hidden');
+          }
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .aspect-video {
+    aspect-ratio: 16 / 9;
+  }
+</style>

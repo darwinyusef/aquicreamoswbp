@@ -1,0 +1,366 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+---
+
+<ServiceLayout
+  title="Desarrollo Web Moderno"
+  description="Sitios web rápidos, escalables y preparados para el futuro"
+  icon="🌐"
+  gradient="bg-gradient-to-br from-[#006417] to-[#00464e]"
+>
+  <div class="space-y-16">
+    <!-- Intro -->
+    <div class="text-center max-w-3xl mx-auto">
+      <p class="text-xl text-gray-300">No creamos "páginas web bonitas". Desarrollamos <strong class="text-[#82e256]">plataformas web de alto rendimiento</strong> optimizadas para conversión, posicionamiento y escalabilidad.</p>
+    </div>
+
+    <!-- ¿Por qué tu sitio actual está perdiendo dinero? -->
+    <section>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">¿Por qué tu sitio actual está perdiendo dinero?</h2>
+      <p class="text-gray-300 mb-12 text-lg">Los problemas más comunes que matan las conversiones</p>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Problema 1: Velocidad -->
+        <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all">
+          <div class="text-5xl mb-4">⚡</div>
+          <h3 class="text-2xl font-bold text-white mb-3">Carga Lenta = Ventas Perdidas</h3>
+          <p class="text-gray-400 mb-4"><strong>Dato:</strong> 53% de usuarios abandonan si una página tarda más de 3 segundos.</p>
+
+          <div class="mt-6 p-4 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]">
+            <p class="text-white"><strong>Nuestra solución:</strong></p>
+            <p class="text-gray-300 mt-2">SSR + Lazy Loading + CDN global = Páginas que cargan en 0.8-1.5 segundos</p>
+          </div>
+        </div>
+
+        <!-- Problema 2: SEO -->
+        <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all">
+          <div class="text-5xl mb-4">🔍</div>
+          <h3 class="text-2xl font-bold text-white mb-3">Mal SEO = Invisible en Google</h3>
+          <p class="text-gray-400 mb-4"><strong>Problema:</strong> Sitios en React/Vue sin SSR no indexan bien en buscadores.</p>
+
+          <div class="mt-6 p-4 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]">
+            <p class="text-white"><strong>Nuestra solución:</strong></p>
+            <p class="text-gray-300 mt-2">Frameworks con SSR/SSG + Schema markup = Top 3 en búsquedas en 3-6 meses</p>
+          </div>
+        </div>
+
+        <!-- Problema 3: Mobile -->
+        <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all">
+          <div class="text-5xl mb-4">📱</div>
+          <h3 class="text-2xl font-bold text-white mb-3">No Responsive = Pierdes 60% del Tráfico</h3>
+          <p class="text-gray-400 mb-4"><strong>Dato:</strong> Google penaliza sitios que no son mobile-first desde 2021.</p>
+
+          <div class="mt-6 p-4 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]">
+            <p class="text-white"><strong>Nuestra solución:</strong></p>
+            <p class="text-gray-300 mt-2">Mobile-first design + PWA + Touch-optimized = Experiencia perfecta en cualquier dispositivo</p>
+          </div>
+        </div>
+
+        <!-- Problema 4: Escalabilidad -->
+        <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all">
+          <div class="text-5xl mb-4">📈</div>
+          <h3 class="text-2xl font-bold text-white mb-3">Sin Escalabilidad = Límites de Crecimiento</h3>
+          <p class="text-gray-400 mb-4"><strong>Problema:</strong> Tu sitio se cae cuando hay mucho tráfico o es difícil agregar funcionalidades.</p>
+
+          <div class="mt-6 p-4 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]">
+            <p class="text-white"><strong>Nuestra solución:</strong></p>
+            <p class="text-gray-300 mt-2">Arquitectura modular + API First + Cloud hosting = Soporta millones de usuarios</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Caso de Éxito -->
+    <section class="bg-gradient-to-br from-[#006417]/10 to-[#00464e]/10 p-8 md:p-12 rounded-2xl border border-[#82e256]/20">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="text-4xl">🏆</div>
+        <h2 class="text-3xl md:text-4xl font-bold text-white">Caso de Éxito: E-commerce de Moda</h2>
+      </div>
+
+      <p class="text-gray-300 mb-8 text-lg">
+        Una tienda online vino con un sitio WordPress lento que perdía ventas. La reconstruimos con Next.js + Shopify headless.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-gradient-to-br from-[#82e256]/10 to-transparent p-6 rounded-xl border border-[#82e256]/30">
+          <div class="text-4xl font-bold text-[#82e256] mb-2">-70%</div>
+          <p class="text-white font-semibold">Tiempo de carga</p>
+          <p class="text-gray-400 text-sm mt-1">De 5.2s a 1.5s promedio</p>
+        </div>
+
+        <div class="bg-gradient-to-br from-[#82e256]/10 to-transparent p-6 rounded-xl border border-[#82e256]/30">
+          <div class="text-4xl font-bold text-[#82e256] mb-2">+120%</div>
+          <p class="text-white font-semibold">Conversión móvil</p>
+          <p class="text-gray-400 text-sm mt-1">De 1.8% a 4.0%</p>
+        </div>
+
+        <div class="bg-gradient-to-br from-[#82e256]/10 to-transparent p-6 rounded-xl border border-[#82e256]/30">
+          <div class="text-4xl font-bold text-[#82e256] mb-2">95+</div>
+          <p class="text-white font-semibold">Score Lighthouse</p>
+          <p class="text-gray-400 text-sm mt-1">En todas las métricas</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nuestro Proceso de Desarrollo -->
+    <section>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Nuestro Proceso de Desarrollo</h2>
+      <p class="text-gray-300 mb-12 text-lg">De la idea al lanzamiento en 4 fases claras</p>
+
+      <div class="relative">
+        <!-- Línea vertical -->
+        <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#82e256] to-[#00464e] hidden md:block"></div>
+
+        <div class="space-y-8">
+          <!-- Fase 1 -->
+          <div class="flex gap-6 items-start">
+            <div class="bg-[#82e256] text-black font-bold rounded-full w-16 h-16 flex-shrink-0 flex items-center justify-center text-xl md:relative md:z-10">
+              1
+            </div>
+            <div class="flex-1 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700">
+              <h3 class="text-xl font-bold text-white mb-2">Discovery & Diseño (1-2 semanas)</h3>
+              <p class="text-gray-300">Entendemos tu negocio, audiencia y objetivos. Creamos wireframes y mockups en Figma que apruebas antes de programar.</p>
+            </div>
+          </div>
+
+          <!-- Fase 2 -->
+          <div class="flex gap-6 items-start">
+            <div class="bg-[#82e256] text-black font-bold rounded-full w-16 h-16 flex-shrink-0 flex items-center justify-center text-xl md:relative md:z-10">
+              2
+            </div>
+            <div class="flex-1 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700">
+              <h3 class="text-xl font-bold text-white mb-2">Desarrollo Frontend (2-4 semanas)</h3>
+              <p class="text-gray-300">Construimos la interfaz con las mejores prácticas: componentes reutilizables, animaciones fluidas, y 100% responsive.</p>
+            </div>
+          </div>
+
+          <!-- Fase 3 -->
+          <div class="flex gap-6 items-start">
+            <div class="bg-[#82e256] text-black font-bold rounded-full w-16 h-16 flex-shrink-0 flex items-center justify-center text-xl md:relative md:z-10">
+              3
+            </div>
+            <div class="flex-1 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700">
+              <h3 class="text-xl font-bold text-white mb-2">Backend & Integraciones (1-3 semanas)</h3>
+              <p class="text-gray-300">API, base de datos, CMS, integraciones con terceros (pagos, analytics, CRM). Todo conectado y funcionando.</p>
+            </div>
+          </div>
+
+          <!-- Fase 4 -->
+          <div class="flex gap-6 items-start">
+            <div class="bg-[#82e256] text-black font-bold rounded-full w-16 h-16 flex-shrink-0 flex items-center justify-center text-xl md:relative md:z-10">
+              4
+            </div>
+            <div class="flex-1 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700">
+              <h3 class="text-xl font-bold text-white mb-2">Testing, Deploy & Soporte (1 semana + 3 meses)</h3>
+              <p class="text-gray-300">Pruebas exhaustivas, optimización final, lanzamiento en producción. Incluye 3 meses de soporte y ajustes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stack Tecnológico -->
+    <section>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Stack Tecnológico de Vanguardia</h2>
+      <p class="text-gray-300 mb-12 text-lg">Elegimos la mejor tecnología según tu proyecto</p>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Frontend Frameworks -->
+        <div class="bg-gradient-to-br from-blue-900/20 to-blue-800/20 p-6 rounded-xl border border-blue-500/30">
+          <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+            <span>⚛️</span> Frontend Frameworks
+          </h3>
+          <div class="space-y-2 text-gray-300">
+            <p><strong class="text-white">Astro</strong> - Ultra-rápido para sitios de contenido</p>
+            <p><strong class="text-white">Next.js</strong> - Apps complejas y SaaS</p>
+            <p><strong class="text-white">React</strong> - Interfaces dinámicas</p>
+            <p><strong class="text-white">Vue/Nuxt</strong> - Alternativa ágil</p>
+          </div>
+        </div>
+
+        <!-- Backend & APIs -->
+        <div class="bg-gradient-to-br from-green-900/20 to-green-800/20 p-6 rounded-xl border border-green-500/30">
+          <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+            <span>🔧</span> Backend & APIs
+          </h3>
+          <div class="space-y-2 text-gray-300">
+            <p><strong class="text-white">Node.js + Express</strong> - APIs REST rápidas</p>
+            <p><strong class="text-white">Next.js API Routes</strong> - Backend integrado</p>
+            <p><strong class="text-white">GraphQL</strong> - APIs flexibles</p>
+            <p><strong class="text-white">Supabase</strong> - Backend as a Service</p>
+          </div>
+        </div>
+
+        <!-- CMS & Databases -->
+        <div class="bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-6 rounded-xl border border-purple-500/30">
+          <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+            <span>📦</span> CMS & Databases
+          </h3>
+          <div class="space-y-2 text-gray-300">
+            <p><strong class="text-white">Sanity/Strapi</strong> - CMS headless visual</p>
+            <p><strong class="text-white">PostgreSQL</strong> - Base de datos robusta</p>
+            <p><strong class="text-white">MongoDB</strong> - Datos no estructurados</p>
+            <p><strong class="text-white">Shopify/WooCommerce</strong> - E-commerce</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Imagen de apoyo -->
+    <div class="flex justify-center my-12">
+      <img src="/img/personaje2.png" alt="Desarrollo Web Moderno" class="max-w-md w-full rounded-2xl shadow-2xl" />
+    </div>
+
+    <!-- Planes y Precios -->
+    <section>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 text-center">Planes y Precios</h2>
+      <p class="text-gray-300 mb-12 text-lg text-center">Desde landing pages hasta plataformas empresariales</p>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <!-- Plan Básico -->
+        <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all">
+          <h3 class="text-2xl font-bold text-white mb-2">Landing Page Pro</h3>
+          <div class="text-4xl font-bold text-[#82e256] mb-4">$5K - $10K</div>
+          <p class="text-gray-400 mb-6">Ideal para validar tu producto o servicio</p>
+
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-start gap-2">
+              <span class="text-[#82e256] mt-1">✓</span>
+              <span class="text-gray-300">Diseño UI/UX personalizado</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#82e256] mt-1">✓</span>
+              <span class="text-gray-300">1-3 páginas optimizadas</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#82e256] mt-1">✓</span>
+              <span class="text-gray-300">Formularios + Analytics</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#82e256] mt-1">✓</span>
+              <span class="text-gray-300">SEO básico + Score 90+</span>
+            </li>
+          </ul>
+
+          <p class="text-sm text-gray-500">Entrega: 2-3 semanas</p>
+        </div>
+
+        <!-- Plan Destacado -->
+        <div class="bg-gradient-to-br from-[#82e256]/20 to-[#00464e]/20 p-8 rounded-2xl border-2 border-[#82e256] transform md:scale-105 shadow-2xl relative">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#82e256] text-black px-4 py-1 rounded-full text-sm font-bold">
+            MÁS POPULAR
+          </div>
+
+          <h3 class="text-2xl font-bold text-white mb-2">Sitio Corporativo</h3>
+          <div class="text-4xl font-bold text-[#82e256] mb-4">$15K - $30K</div>
+          <p class="text-gray-400 mb-6">La solución completa para empresas serias</p>
+
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-start gap-2">
+              <span class="text-[#82e256] mt-1">✓</span>
+              <span class="text-gray-300">Hasta 10 páginas + Blog</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#82e256] mt-1">✓</span>
+              <span class="text-gray-300">CMS headless (edita sin código)</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#82e256] mt-1">✓</span>
+              <span class="text-gray-300">SEO avanzado + Schema markup</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#82e256] mt-1">✓</span>
+              <span class="text-gray-300">Integraciones (CRM, Email, etc.)</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#82e256] mt-1">✓</span>
+              <span class="text-gray-300">3 meses de soporte incluido</span>
+            </li>
+          </ul>
+
+          <p class="text-sm text-gray-500">Entrega: 6-8 semanas</p>
+        </div>
+
+        <!-- Plan Enterprise -->
+        <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all">
+          <h3 class="text-2xl font-bold text-white mb-2">Plataforma SaaS</h3>
+          <div class="text-4xl font-bold text-[#82e256] mb-4">$40K+</div>
+          <p class="text-gray-400 mb-6">Aplicación web completa y escalable</p>
+
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-start gap-2">
+              <span class="text-[#82e256] mt-1">✓</span>
+              <span class="text-gray-300">Dashboard completo + Admin</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#82e256] mt-1">✓</span>
+              <span class="text-gray-300">API REST/GraphQL</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#82e256] mt-1">✓</span>
+              <span class="text-gray-300">Autenticación + Roles</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#82e256] mt-1">✓</span>
+              <span class="text-gray-300">Integraciones ilimitadas</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#82e256] mt-1">✓</span>
+              <span class="text-gray-300">Deploy automatizado + CI/CD</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#82e256] mt-1">✓</span>
+              <span class="text-gray-300">6 meses de soporte dedicado</span>
+            </li>
+          </ul>
+
+          <p class="text-sm text-gray-500">Entrega: 12-16 semanas</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Por qué elegirnos -->
+    <section>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Por Qué Elegirnos</h2>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center">
+          <div class="text-4xl mb-3">⚡</div>
+          <h3 class="text-lg font-bold text-white mb-2">Performance Garantizado</h3>
+          <p class="text-gray-400 text-sm">Score 90+ en Lighthouse o te devolvemos tu dinero</p>
+        </div>
+
+        <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center">
+          <div class="text-4xl mb-3">🔒</div>
+          <h3 class="text-lg font-bold text-white mb-2">Código Limpio y Abierto</h3>
+          <p class="text-gray-400 text-sm">Repository completo en GitHub, 100% documentado</p>
+        </div>
+
+        <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center">
+          <div class="text-4xl mb-3">📞</div>
+          <h3 class="text-lg font-bold text-white mb-2">Soporte Incluido</h3>
+          <p class="text-gray-400 text-sm">3-6 meses de ajustes y mejoras post-lanzamiento</p>
+        </div>
+
+        <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center">
+          <div class="text-4xl mb-3">🎯</div>
+          <h3 class="text-lg font-bold text-white mb-2">SEO Real</h3>
+          <p class="text-gray-400 text-sm">No promesas vacías. Resultados medibles en 3-6 meses</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="bg-gradient-to-br from-[#006417] to-[#00464e] p-8 md:p-12 rounded-2xl text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">¿Listo para un sitio que sí convierte?</h2>
+      <p class="text-xl text-white/90 mb-8">Agenda una consultoría gratuita y te mostramos cómo duplicar tu tráfico</p>
+      <a
+        href="/#contenido10"
+        class="inline-block px-8 py-4 bg-[#82e256] text-black font-bold rounded-lg hover:bg-[#6bc73d] transition-all duration-300 transform hover:scale-105 text-lg"
+      >
+        Agendar Consultoría Gratuita
+      </a>
+    </section>
+
+  </div>
+</ServiceLayout>
