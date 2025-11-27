@@ -1,14 +1,65 @@
 ---
-import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import Layout from '../../layouts/Layout.astro';
 ---
 
-<ServiceLayout
-  title="Arquitectura de Software"
-  description="Sistemas escalables diseñados para crecer sin límites"
-  icon="🏗️"
-  gradient="bg-gradient-to-br from-[#00464e] to-[#006417]"
->
-  <div class="space-y-8">
+<Layout>
+  <div class="min-h-screen bg-[#1a1a1a]">
+    <!-- Header -->
+    <header
+      class="bg-[#00464e] flex flex-row justify-between items-center p-3 w-full fixed top-0 left-0 z-50 shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
+    >
+      <a href="/">
+        <img src="/img/logoAquicreamos.png" class="h-7" alt="Logo Aquí Creamos" />
+      </a>
+      <nav class="hidden md:block">
+        <ul class="flex flex-row gap-6 items-center justify-center">
+          <li><a href="/#home" class="text-white hover:text-[#82e256] transition-colors">Inicio</a></li>
+          <li><a href="/servicios" class="text-[#82e256] font-semibold">Servicios</a></li>
+          <li><a href="/blog" class="text-white hover:text-[#82e256] transition-colors">Blog</a></li>
+          <li><a href="/#contenido10" class="text-white hover:text-[#82e256] transition-colors">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-20 pb-16 md:py-24 bg-gradient-to-br from-[#00464e] to-[#006417] overflow-hidden">
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-10 left-10 w-72 h-72 bg-white rounded-full blur-3xl"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+      </div>
+
+      <div class="container mx-auto px-4 md:px-16 relative z-10">
+        <div class="max-w-5xl mx-auto">
+          <div class="flex justify-center mb-8">
+            <div class="text-8xl md:text-9xl animate-bounce-slow bg-white/10 backdrop-blur-sm rounded-3xl p-6 shadow-2xl">
+              🏗️
+            </div>
+          </div>
+
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-center leading-tight">
+            Arquitectura de Software
+          </h1>
+
+          <p class="text-xl md:text-2xl text-white/95 text-center max-w-3xl mx-auto leading-relaxed">
+            Sistemas escalables diseñados para crecer sin límites
+          </p>
+        </div>
+      </div>
+
+      <div class="absolute bottom-0 left-0 right-0">
+        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full">
+          <path d="M0 0L60 10C120 20 240 40 360 46.7C480 53 600 47 720 43.3C840 40 960 40 1080 46.7C1200 53 1320 67 1380 73.3L1440 80V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V0Z" fill="#1a1a1a"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Content Section con Sidebar -->
+    <section class="py-16 md:py-24 bg-[#1a1a1a]">
+      <div class="container mx-auto px-4 md:px-16">
+        <div class="max-w-7xl mx-auto">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Contenido Principal -->
+            <div class="lg:col-span-2 space-y-8">
     <h2>Arquitectura que escala con tu negocio</h2>
 
     <p>No hay nada más costoso que <strong>rediseñar toda tu plataforma</strong> porque la arquitectura inicial no aguantó el crecimiento.</p>
@@ -213,7 +264,7 @@ import ServiceLayout from '../../layouts/ServiceLayout.astro';
     <p><strong>Precio:</strong> $6,000 - $18,000</p>
     <p><strong>Tiempo:</strong> 3-6 semanas</p>
 
-    <hr />
+    <hr class="my-8" />
 
     <h2>Casos de éxito</h2>
 
@@ -337,6 +388,216 @@ import ServiceLayout from '../../layouts/ServiceLayout.astro';
       <li>CI/CD + Monitoreo</li>
       <li>6 meses de soporte</li>
     </ul>
+            </div>
 
+            <!-- Sidebar -->
+            <div class="lg:col-span-1">
+              <div class="sticky top-24 space-y-6">
+                <!-- Info Card -->
+                <div class="bg-gradient-to-br from-[#00464e] to-[#006417] rounded-xl p-6 shadow-2xl">
+                  <h3 class="text-2xl font-bold text-white mb-4">
+                    Potencia tu proyecto con nuestra experiencia
+                  </h3>
+                  <p class="text-white/90 mb-6 text-sm leading-relaxed">
+                    Potencia tu proyecto con nuestra experiencia en diseño de sistemas escalables, mantenibles y de alto rendimiento. Nuestro equipo de arquitectos te guiará hacia las mejores prácticas y tecnologías.
+                  </p>
+
+                  <h4 class="text-lg font-bold text-white mb-4">
+                    ¿Por qué elegir nuestra arquitectura?
+                  </h4>
+
+                  <ul class="space-y-3 mb-6">
+                    <li class="flex items-start gap-2 text-white/90 text-sm">
+                      <span class="text-[#82e256] text-xl flex-shrink-0">✓</span>
+                      <span>Equipo con experiencia en proyectos de alta complejidad</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-white/90 text-sm">
+                      <span class="text-[#82e256] text-xl flex-shrink-0">✓</span>
+                      <span>Enfoque personalizado según tus necesidades específicas</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-white/90 text-sm">
+                      <span class="text-[#82e256] text-xl flex-shrink-0">✓</span>
+                      <span>Solución práctica y aplicable inmediatamente</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-white/90 text-sm">
+                      <span class="text-[#82e256] text-xl flex-shrink-0">✓</span>
+                      <span>Seguimiento post-asesoría para resolver dudas</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Form Card -->
+                <div class="bg-gray-800/50 rounded-xl p-6 shadow-xl border border-gray-700">
+                  <h3 class="text-xl font-bold text-white mb-4">
+                    Solicita tu consultoría
+                  </h3>
+
+                  <form class="space-y-4" action="#" method="POST">
+                    <div>
+                      <label for="nombre" class="block text-sm font-medium text-gray-300 mb-2">
+                        Nombre completo *
+                      </label>
+                      <input
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        required
+                        class="w-full px-4 py-2 bg-gray-900 border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#82e256] focus:border-transparent"
+                        placeholder="Tu nombre"
+                      />
+                    </div>
+
+                    <div>
+                      <label for="telefono" class="block text-sm font-medium text-gray-300 mb-2">
+                        Teléfono *
+                      </label>
+                      <input
+                        type="tel"
+                        id="telefono"
+                        name="telefono"
+                        required
+                        class="w-full px-4 py-2 bg-gray-900 border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#82e256] focus:border-transparent"
+                        placeholder="+52 123 456 7890"
+                      />
+                    </div>
+
+                    <div>
+                      <label for="correo" class="block text-sm font-medium text-gray-300 mb-2">
+                        Correo electrónico *
+                      </label>
+                      <input
+                        type="email"
+                        id="correo"
+                        name="correo"
+                        required
+                        class="w-full px-4 py-2 bg-gray-900 border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#82e256] focus:border-transparent"
+                        placeholder="tu@email.com"
+                      />
+                    </div>
+
+                    <div>
+                      <label for="mensaje" class="block text-sm font-medium text-gray-300 mb-2">
+                        Cuéntanos sobre tu proyecto
+                      </label>
+                      <textarea
+                        id="mensaje"
+                        name="mensaje"
+                        rows="4"
+                        class="w-full px-4 py-2 bg-gray-900 border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#82e256] focus:border-transparent resize-none"
+                        placeholder="Describe brevemente tu proyecto..."
+                      ></textarea>
+                    </div>
+
+                    <button
+                      type="submit"
+                      class="w-full px-6 py-3 bg-[#82e256] text-black font-bold rounded-lg hover:bg-[#6bc73d] transition-all duration-300 transform hover:scale-105 shadow-lg"
+                    >
+                      Enviar solicitud
+                    </button>
+
+                    <p class="text-xs text-gray-400 text-center">
+                      Te responderemos en menos de 24 horas
+                    </p>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
-</ServiceLayout>
+</Layout>
+
+<style>
+  @keyframes bounce-slow {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-bounce-slow {
+    animation: bounce-slow 3s ease-in-out infinite;
+  }
+
+  h2 {
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #82e256;
+    line-height: 1.2;
+    position: relative;
+    padding-bottom: 0.75rem;
+  }
+
+  h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(to right, #82e256, transparent);
+    border-radius: 2px;
+  }
+
+  h3 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #82e256;
+  }
+
+  h4 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #88b43c;
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    font-size: 1.125rem;
+    color: #e5e5e5;
+  }
+
+  ul, ol {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border-left: 4px solid #82e256;
+  }
+
+  li {
+    margin-bottom: 0.75rem;
+    line-height: 1.8;
+    color: #d1d5db;
+  }
+
+  li::marker {
+    color: #82e256;
+    font-weight: bold;
+  }
+
+  strong {
+    color: #82e256;
+    font-weight: 700;
+  }
+
+  hr {
+    margin: 3rem 0;
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #82e256, transparent);
+  }
+</style>
