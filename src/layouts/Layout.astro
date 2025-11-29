@@ -1,5 +1,5 @@
 ---
-import "../assets/style.css";
+
 ---
 
 <!doctype html>
@@ -10,9 +10,18 @@ import "../assets/style.css";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Aquí Creamos - Desarrollo de Software e IA</title>
+		<style is:global>
+			@import "../assets/style.css";
+			@import "../assets/animations.css";
+		</style>
+		<script>
+			import { initAnimations } from "../assets/animations.js";
+			document.addEventListener("DOMContentLoaded", () => {
+				initAnimations();
+			});
+		</script>
 	</head>
 	<body class="bg-[#1a1a1a] text-white overflow-x-hidden">
 		<slot />
 	</body>
 </html>
-
