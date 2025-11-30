@@ -23,26 +23,27 @@ const isVisible = true;
         class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8"
       >
         <div class="flex-1 text-center md:text-left">
-          <h1 class="text-3xl md:text-5xl lg:text-7xl font-bold font-heading">
-            <span class="text-glow text-yellow-500 inline-block"
-              >La Inteligencia Artificial</span
-            >
+          <h1
+            class="text-4xl md:text-6xl lg:text-8xl font-black font-heading leading-tight"
+          >
+            <span class="text-white drop-shadow-lg">INGENIERÍA DE IA</span>
             <br />
-            <span class="text-gradient text-[#04ADC0] inline-block"
-              >al alcance de tus sueños</span
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-[#82e256] to-[#04ADC0] drop-shadow-lg"
+              >& SOFTWARE AVANZADO</span
             >
           </h1>
           <p
-            class="text-base md:text-lg lg:text-xl opacity-90 max-w-3xl mt-4 md:mt-6 text-center md:text-left"
+            class="text-lg md:text-xl lg:text-2xl text-gray-200 font-light max-w-3xl mt-6 md:mt-8 text-center md:text-left drop-shadow-md"
           >
-            Expertos en arquitectura de software moderna e inteligencia
-            artificial desarrollando productos digitales para empresas que
-            buscan destacar en la era digital.
+            Creamos ecosistemas digitales autónomos: Agentes Cognitivos, Apps
+            Inteligentes y Arquitecturas Cloud de alto rendimiento.
           </p>
         </div>
 
         <div
-          class="absolute info right-12 w-[670px] h-[1190px] mt-[230px] hidden md:block"
+          id="full-images-header"
+          class="absolute info right-12 w-[670px] h-[750px] hidden md:block"
         >
           <img
             src="/img/personaje2/01.png"
@@ -69,22 +70,36 @@ const isVisible = true;
             class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
             alt="Personaje IA"
           />
+          <img
+            src="/img/personaje2/06.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
+            alt="Personaje IA"
+          />
         </div>
 
         <script>
-          const images = document.querySelectorAll(".carousel-img");
-          if (images.length > 0) {
-            let currentIndex = 0;
-            setInterval(() => {
-              images[currentIndex].classList.remove("opacity-100");
-              images[currentIndex].classList.add("opacity-0");
+          document.addEventListener("DOMContentLoaded", () => {
+            // Seleccionar todos los contenedores de carrusel (header y secciones)
+            const carousels = document.querySelectorAll(
+              ".carousel-container, #full-images-header",
+            );
 
-              currentIndex = (currentIndex + 1) % images.length;
+            carousels.forEach((container) => {
+              const images = container.querySelectorAll(".carousel-img");
+              if (images.length > 0) {
+                let currentIndex = 0;
+                setInterval(() => {
+                  images[currentIndex].classList.remove("opacity-100");
+                  images[currentIndex].classList.add("opacity-0");
 
-              images[currentIndex].classList.remove("opacity-0");
-              images[currentIndex].classList.add("opacity-100");
-            }, 3000);
-          }
+                  currentIndex = (currentIndex + 1) % images.length;
+
+                  images[currentIndex].classList.remove("opacity-0");
+                  images[currentIndex].classList.add("opacity-100");
+                }, 3000);
+              }
+            });
+          });
         </script>
       </div>
     </div>
@@ -113,310 +128,649 @@ const isVisible = true;
     />
   </div>
 
-  <section
-    id="contenido2"
-    class="sticky top-16 w-full p-5 md:p-0 bg-gradient-to-br from-[#00464e] to-[#d4e256] min-h-screen flex flex-col md:flex-row items-center justify-center relative overflow-hidden"
-  >
-    <!-- Contenedor principal -->
-    <div
-      class="w-full h-full flex flex-col md:flex-row items-center justify-between px-5 md:px-16"
-    >
-      <!-- Columna izquierda: Robot -->
-      <div
-        class="flex flex-col items-center justify-end md:w-1/2 h-full relative"
-      >
-        <img
-          src="/img/robot.png"
-          alt="Robot"
-          class="w-64 md:w-96 object-contain z-10 transition-transform duration-300 hover:scale-105"
-        />
-      </div>
+  <style>
+    /* Paleta 1: Agentes (Verde/Dorado/Bosque) */
+    @keyframes cycle-agents {
+      0% {
+        background-color: #01414a;
+      }
+      33% {
+        background-color: #917e1f;
+      }
+      66% {
+        background-color: #253a11;
+      }
+      100% {
+        background-color: #01414a;
+      }
+    }
 
-      <!-- Columna derecha: Contenido -->
+    /* Paleta 2: Apps IA (Púrpura/Azul Profundo) */
+    @keyframes cycle-apps {
+      0% {
+        background-color: #1a0b2e;
+      }
+      33% {
+        background-color: #2d1b4e;
+      }
+      66% {
+        background-color: #0f172a;
+      }
+      100% {
+        background-color: #1a0b2e;
+      }
+    }
+
+    /* Paleta 3: Web (Azul Petróleo/Cian Oscuro) */
+    @keyframes cycle-web {
+      0% {
+        background-color: #0f2027;
+      }
+      33% {
+        background-color: #203a43;
+      }
+      66% {
+        background-color: #2c5364;
+      }
+      100% {
+        background-color: #0f2027;
+      }
+    }
+
+    /* Paleta 4: Móvil (Teal/Esmeralda Oscuro) */
+    @keyframes cycle-mobile {
+      0% {
+        background-color: #002b36;
+      }
+      33% {
+        background-color: #004d40;
+      }
+      66% {
+        background-color: #001e1d;
+      }
+      100% {
+        background-color: #002b36;
+      }
+    }
+
+    /* Paleta 5: Arquitectura (Gris Plomo/Metálico) */
+    @keyframes cycle-arch {
+      0% {
+        background-color: #111827;
+      }
+      33% {
+        background-color: #1f2937;
+      }
+      66% {
+        background-color: #000000;
+      }
+      100% {
+        background-color: #111827;
+      }
+    }
+
+    /* Paleta 6: Visión (Índigo/Violeta Oscuro) */
+    @keyframes cycle-vision {
+      0% {
+        background-color: #1e1b4b;
+      }
+      33% {
+        background-color: #312e81;
+      }
+      66% {
+        background-color: #020617;
+      }
+      100% {
+        background-color: #1e1b4b;
+      }
+    }
+
+    .animate-agents {
+      animation: cycle-agents 15s infinite ease-in-out;
+    }
+    .animate-apps {
+      animation: cycle-apps 18s infinite ease-in-out;
+    }
+    .animate-web {
+      animation: cycle-web 20s infinite ease-in-out;
+    }
+    .animate-mobile {
+      animation: cycle-mobile 16s infinite ease-in-out;
+    }
+    .animate-arch {
+      animation: cycle-arch 22s infinite ease-in-out;
+    }
+    .animate-vision {
+      animation: cycle-vision 19s infinite ease-in-out;
+    }
+  </style>
+
+  <!-- Sección 1: Agentes IA -->
+  <section
+    id="personaje1"
+    class="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden animate-agents"
+  >
+    <!-- Título Gigante de Fondo -->
+    <h2
+      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[12vw] md:text-[14vw] font-black text-white/25 whitespace-nowrap z-0 select-none pointer-events-none"
+    >
+      AGENTES IA
+    </h2>
+
+    <div
+      class="flex flex-col md:flex-row items-center justify-center w-full max-w-7xl z-10"
+    >
+      <!-- Imagen (Superpuesta) -->
       <div
-        class="w-full md:w-1/2 flex flex-col items-center md:items-start gap-5"
+        class="w-full md:w-1/2 flex justify-center md:justify-end order-1 md:order-1"
       >
         <div
-          class="w-full bg-[#1a1a1a]/80 rounded-3xl md:rounded-l-3xl md:rounded-r-3xl p-8 text-gray-200"
+          class="carousel-container relative w-[500px] h-[500px] md:w-[700px] md:h-[700px] lg:w-[850px] lg:h-[850px] hover:scale-105 transition-transform duration-500 drop-shadow-2xl pointer-events-none"
         >
-          <h2
-            class="text-2xl md:text-4xl font-bold mb-6 text-center md:text-left"
+          <img
+            src="/img/personaje1/01.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-100"
+            alt="Agente IA"
+          />
+          <img
+            src="/img/personaje1/02.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
+            alt="Agente IA"
+          />
+          <img
+            src="/img/personaje1/03.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
+            alt="Agente IA"
+          />
+          <img
+            src="/img/personaje1/04.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
+            alt="Agente IA"
+          />
+          <img
+            src="/img/personaje1/05.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
+            alt="Agente IA"
+          />
+        </div>
+      </div>
+
+      <!-- Descripción Limpia -->
+      <div
+        class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-ml-[300px]"
+      >
+        <div
+          class="backdrop-blur-md bg-black/40 p-8 rounded-3xl border border-white/10 shadow-2xl pointer-events-auto"
+        >
+          <h3
+            class="text-4xl md:text-5xl font-bold text-white leading-tight text-center md:text-left mb-6"
           >
-            Agentes Cognitivos Empresariales con IA
-          </h2>
-          <p class="text-base md:text-xl text-center md:text-left mb-4">
-            Diseño e implementación de agentes inteligentes capaces de ejecutar
-            tareas de forma autónoma usando modelos como GPT, Claude, Gemini o
-            Llama. Estos agentes funcionan como miembros digitales de tu equipo:
-            atienden clientes, clasifican y priorizan leads, automatizan flujos
-            operativos, generan reportes y toman decisiones basadas en datos
-            integrados desde tus sistemas.
-          </p>
-          <a
-            href="/servicios/agentes-ia"
-            class="inline-flex items-center gap-2 px-6 py-3 bg-[#82e256] text-[#1a1a1a] font-bold rounded-lg hover:bg-[#88b43c] transition-colors duration-300"
-          >
-            Conocer más
-            <svg
-              class="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+            Agentes de IA <br />
+            <span class="text-[#82e256]"
+              >Cognitivos, Ventas y Operaciones MCP</span
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 5l7 7-7 7"></path>
-            </svg>
-          </a>
+          </h3>
+
+          <div class="flex flex-col gap-4">
+            <p
+              class="text-lg md:text-xl text-gray-100 font-medium leading-relaxed text-center md:text-left"
+            >
+              Implementamos chatbots, whatsapp agents, agentes de ventas,
+              soporte y operaciones conectados mediante <strong
+                class="text-white">Model Context Protocol (MCP)</strong
+              > que responden multimodalmente. Tu fuerza laboral digital autónoma
+              que entiende, razona y ejecuta.
+            </p>
+            <div class="flex justify-center md:justify-start mt-2">
+              <a
+                href="/servicios/agentes-ia"
+                class="text-[#82e256] font-bold hover:text-white transition-colors duration-300 flex items-center gap-2 group text-lg"
+              >
+                EXPLORAR AGENTES <span
+                  class="transform group-hover:translate-x-1 transition-transform"
+                  >→</span
+                >
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Sección de Servicios -->
+  <!-- Sección 2: Apps IA (Personaje 3) -->
   <section
-    id="contenido2b"
-    class="sticky top-16 md:pl-20 w-full p-5 md:p-0 bg-gradient-to-br from-[#00464e] to-[#d4e256] min-h-screen flex flex-col items-center justify-center"
+    id="personaje3"
+    class="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden animate-apps"
   >
-    <div
-      class="flex flex-col items-center p-5 h-full text-center md:flex md:flex-row md:justify-between md:p-0"
+    <!-- Título Gigante de Fondo -->
+    <h2
+      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[12vw] md:text-[14vw] font-black text-white/25 whitespace-nowrap z-0 select-none pointer-events-none"
     >
-      <div class="flex flex-col">
-        <img
-          src="/img/robot.png"
-          alt="Robot"
-          class="w-72 z-10 md:w-[600px] md:z-10 hover:scale-105 transition-transform duration-300"
-        />
-      </div>
+      APPS ONLINE
+    </h2>
+
+    <div
+      class="flex flex-col md:flex-row items-center justify-center w-full max-w-7xl z-10"
+    >
+      <!-- Descripción (Izquierda, superpuesta a la derecha) -->
       <div
-        class="w-full bg-[#1a1a1a]/80 rounded-3xl p-8 -mt-12 flex flex-col items-center justify-center gap-5 text-gray-200 md:rounded-tl-3xl md:rounded-bl-3xl md:rounded-tr-none md:rounded-br-none md:right-0 md:z-20 md:items-start md:gap-5 md:text-left"
+        class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-mr-[300px] order-2 md:order-1"
       >
-        <h1
-          class="text-3xl font-bold break-words text-center md:text-left md:text-4xl"
+        <div
+          class="backdrop-blur-md bg-black/40 p-8 rounded-3xl border border-white/10 shadow-2xl pointer-events-auto"
         >
-          Desarrollo de Aplicaciones con IA
-        </h1>
-        <p class="text-lg break-words text-center md:text-left md:text-2xl">
-          Desarrollo de aplicaciones inteligentes que incorporan modelos de
-          lenguaje y visión por computador para ofrecer funcionalidades como
-          búsqueda semántica, recomendaciones personalizadas, automatización de
-          tareas y generación de contenido.
-        </p>
-        <a
-          href="/servicios/aplicaciones-ia"
-          class="inline-flex items-center gap-2 px-6 py-3 bg-[#82e256] text-[#1a1a1a] font-bold rounded-lg hover:bg-[#88b43c] transition-colors duration-300"
-        >
-          Conocer más
-          <svg
-            class="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+          <h3
+            class="text-4xl md:text-5xl font-bold text-white leading-tight text-center md:text-left mb-6"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5l7 7-7 7"></path>
-          </svg>
-        </a>
+            IA para Aplicaciones <br />
+            <span class="text-[#82e256]">Online</span>
+          </h3>
+          <div class="flex flex-col gap-4">
+            <p
+              class="text-lg md:text-xl text-gray-100 font-medium leading-relaxed text-center md:text-left"
+            >
+              Potencia tus plataformas web y móviles con modelos de lenguaje y
+              visión. Búsqueda semántica, personalización predictiva y
+              experiencias conversacionales integradas.
+            </p>
+            <div class="flex justify-center md:justify-start mt-2">
+              <a
+                href="/servicios/apps-ia"
+                class="text-[#82e256] font-bold hover:text-white transition-colors duration-300 flex items-center gap-2 group text-lg"
+              >
+                VER SOLUCIONES <span
+                  class="transform group-hover:translate-x-1 transition-transform"
+                  >→</span
+                >
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Imagen (Derecha) -->
+      <div
+        class="w-full md:w-1/2 flex justify-center md:justify-start order-1 md:order-2"
+      >
+        <div
+          class="carousel-container relative w-[500px] h-[500px] md:w-[700px] md:h-[700px] lg:w-[850px] lg:h-[850px] hover:scale-105 transition-transform duration-500 drop-shadow-2xl pointer-events-none"
+        >
+          <img
+            src="/img/personaje3/01.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-100"
+            alt="Apps IA"
+          />
+          <img
+            src="/img/personaje3/02.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
+            alt="Apps IA"
+          />
+          <img
+            src="/img/personaje3/03.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
+            alt="Apps IA"
+          />
+          <img
+            src="/img/personaje3/04.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
+            alt="Apps IA"
+          />
+          <img
+            src="/img/personaje3/05.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
+            alt="Apps IA"
+          />
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Sección de Desarrollo Web -->
+  <!-- Sección 3: Modern Web (Personaje 4) -->
   <section
-    id="contenido3"
-    class="sticky top-16 w-full min-h-screen p-5 md:p-0 flex flex-col items-center justify-center bg-gradient-to-br from-[#d4e256] to-[#00464e]"
+    id="personaje4"
+    class="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden animate-web"
   >
-    <div
-      class="flex flex-col items-center p-5 h-full text-center md:flex md:flex-row-reverse md:justify-between md:p-0 md:text-center"
+    <!-- Título Gigante de Fondo -->
+    <h2
+      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[12vw] md:text-[14vw] font-black text-white/25 whitespace-nowrap z-0 select-none pointer-events-none leading-none"
     >
-      <img
-        src="/img/personaje1.png"
-        alt="Personaje"
-        class="w-72 z-10 md:w-[900px] md:z-10 hover:scale-105 transition-transform duration-300"
-      />
+      WEB <br /> MODERNA
+    </h2>
+
+    <div
+      class="flex flex-col md:flex-row items-center justify-center w-full max-w-7xl z-10"
+    >
+      <!-- Imagen (Izquierda) -->
       <div
-        class="w-full bg-[#1a1a1a]/80 rounded-3xl p-8 flex flex-col items-center justify-center gap-5 text-gray-200 md:rounded-tr-3xl md:rounded-br-3xl md:rounded-tl-none md:rounded-bl-none md:right-0 md:z-20 md:gap-5"
+        class="w-full md:w-1/2 flex justify-center md:justify-end order-1 md:order-1"
       >
-        <h1
-          class="text-3xl font-bold break-words text-center md:text-right md:w-full md:text-4xl"
+        <div
+          class="carousel-container relative w-[500px] h-[500px] md:w-[700px] md:h-[700px] lg:w-[850px] lg:h-[850px] hover:scale-105 transition-transform duration-500 drop-shadow-2xl pointer-events-none"
         >
-          Desarrollo Web
-        </h1>
-        <p
-          class="text-lg break-words text-center md:text-right md:w-full md:text-2xl"
+          <img
+            src="/img/personaje4/01.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-100"
+            alt="Modern Web"
+          />
+          <img
+            src="/img/personaje4/02.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
+            alt="Modern Web"
+          />
+          <img
+            src="/img/personaje4/03.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
+            alt="Modern Web"
+          />
+          <img
+            src="/img/personaje4/04.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
+            alt="Modern Web"
+          />
+          <img
+            src="/img/personaje4/05.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
+            alt="Modern Web"
+          />
+        </div>
+      </div>
+
+      <!-- Descripción (Derecha, superpuesta a la izquierda) -->
+      <div
+        class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-ml-[300px]"
+      >
+        <div
+          class="backdrop-blur-md bg-black/40 p-8 rounded-3xl border border-white/10 shadow-2xl pointer-events-auto"
         >
-          Creación de sitios y plataformas web escalables con foco en
-          rendimiento, SEO y experiencia de usuario. Implementación de stacks
-          modernos (React, Astro, SSR), integración con APIs y despliegue
-          cloud-native.
-        </p>
-        <a
-          href="/servicios/desarrollo-web"
-          class="inline-flex items-center gap-2 px-6 py-3 bg-[#82e256] text-[#1a1a1a] font-bold rounded-lg hover:bg-[#88b43c] transition-colors duration-300"
-        >
-          Conocer más
-          <svg
-            class="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+          <h3
+            class="text-4xl md:text-5xl font-bold text-white leading-tight text-center md:text-left mb-6"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5l7 7-7 7"></path>
-          </svg>
-        </a>
+            Desarrollo Web <br />
+            <span class="text-[#82e256]">Moderno & Rápido</span>
+          </h3>
+          <div class="flex flex-col gap-4">
+            <p
+              class="text-lg md:text-xl text-gray-100 font-medium leading-relaxed text-center md:text-left"
+            >
+              Sitios web ultrarrápidos construidos con Astro y tecnologías de
+              vanguardia. Diseño premium, SEO optimizado y performance
+              inigualable.
+            </p>
+            <div class="flex justify-center md:justify-start mt-2">
+              <a
+                href="/servicios/web"
+                class="text-[#82e256] font-bold hover:text-white transition-colors duration-300 flex items-center gap-2 group text-lg"
+              >
+                VER PROYECTOS <span
+                  class="transform group-hover:translate-x-1 transition-transform"
+                  >→</span
+                >
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Sección de Aplicaciones Móviles -->
+  <!-- Sección 4: Apps Móviles (Personaje 5) -->
   <section
-    id="contenido4"
-    class="sticky top-16 w-full p-5 md:p-0 bg-gradient-to-br from-[#00464e] to-[#d4e256] min-h-screen flex flex-col items-center justify-center"
+    id="personaje5"
+    class="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden animate-mobile"
   >
-    <div
-      class="flex flex-col items-center p-5 h-full text-center md:flex md:flex-row md:justify-between md:pl-16 md:p-0"
+    <!-- Título Gigante de Fondo -->
+    <h2
+      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[12vw] md:text-[14vw] font-black text-white/25 whitespace-nowrap z-0 select-none pointer-events-none leading-none"
     >
-      <img
-        src="/img/personaje2.png"
-        alt="Personaje"
-        class="w-72 z-10 md:w-[900px] md:z-10 hover:scale-105 transition-transform duration-300"
-      />
+      APPS <br /> NATIVAS
+    </h2>
+
+    <div
+      class="flex flex-col md:flex-row items-center justify-center w-full max-w-7xl z-10"
+    >
+      <!-- Descripción (Izquierda, superpuesta a la derecha) -->
       <div
-        class="w-full bg-[#1a1a1a]/80 rounded-3xl p-8 -mt-12 flex flex-col items-center justify-center gap-5 text-gray-200 md:rounded-tl-3xl md:rounded-bl-3xl md:rounded-tr-none md:rounded-br-none md:right-0 md:z-20 md:items-start md:gap-5 md:text-left"
+        class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-mr-[300px] order-2 md:order-1"
       >
-        <h1
-          class="text-3xl font-bold break-words text-center md:text-left md:text-4xl"
+        <div
+          class="backdrop-blur-md bg-black/40 p-8 rounded-3xl border border-white/10 shadow-2xl pointer-events-auto"
         >
-          Aplicaciones Móviles
-        </h1>
-        <p class="text-lg break-words text-center md:text-left md:text-2xl">
-          Desarrollo nativo e híbrido (Kotlin, Swift, Flutter) con enfoque en
-          UX, rendimiento, sincronización offline y comunicación en tiempo real
-          con backends escalables.
-        </p>
-        <a
-          href="/servicios/apps-moviles"
-          class="inline-flex items-center gap-2 px-6 py-3 bg-[#82e256] text-[#1a1a1a] font-bold rounded-lg hover:bg-[#88b43c] transition-colors duration-300"
-        >
-          Conocer más
-          <svg
-            class="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+          <h3
+            class="text-4xl md:text-5xl font-bold text-white leading-tight text-center md:text-left mb-6"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5l7 7-7 7"></path>
-          </svg>
-        </a>
+            Aplicaciones <br />
+            <span class="text-[#82e256]">Nativas & Cross-Platform</span>
+          </h3>
+          <div class="flex flex-col gap-4">
+            <p
+              class="text-lg md:text-xl text-gray-100 font-medium leading-relaxed text-center md:text-left"
+            >
+              Apps iOS y Android de alto rendimiento. Experiencias de usuario
+              fluidas, notificaciones push y funcionalidades nativas avanzadas.
+            </p>
+            <div class="flex justify-center md:justify-start mt-2">
+              <a
+                href="/servicios/movil"
+                class="text-[#82e256] font-bold hover:text-white transition-colors duration-300 flex items-center gap-2 group text-lg"
+              >
+                VER APPS <span
+                  class="transform group-hover:translate-x-1 transition-transform"
+                  >→</span
+                >
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Imagen (Derecha) -->
+      <div
+        class="w-full md:w-1/2 flex justify-center md:justify-start order-1 md:order-2"
+      >
+        <div
+          class="carousel-container relative w-[500px] h-[500px] md:w-[700px] md:h-[700px] lg:w-[850px] lg:h-[850px] hover:scale-105 transition-transform duration-500 drop-shadow-2xl pointer-events-none"
+        >
+          <img
+            src="/img/personaje5/01.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-100"
+            alt="Apps Móviles"
+          />
+          <img
+            src="/img/personaje5/02.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
+            alt="Apps Móviles"
+          />
+          <img
+            src="/img/personaje5/03.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
+            alt="Apps Móviles"
+          />
+          <img
+            src="/img/personaje5/04.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
+            alt="Apps Móviles"
+          />
+          <img
+            src="/img/personaje5/05.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
+            alt="Apps Móviles"
+          />
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Sección de Arquitectura de Software -->
+  <!-- Sección 5: Arquitectura (Personaje 6) -->
   <section
-    id="contenido5"
-    class="sticky top-16 w-full min-h-screen p-5 md:p-0 flex flex-col items-center justify-center bg-gradient-to-br from-[#006417] to-[#00464e]"
+    id="personaje6"
+    class="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden animate-arch"
   >
-    <div
-      class="flex flex-col md:flex-row-reverse items-center justify-between w-full h-full px-5 md:px-16"
+    <!-- Título Gigante de Fondo -->
+    <h2
+      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[13vw] md:text-[12vw] font-black text-white/25 whitespace-nowrap z-0 select-none pointer-events-none leading-none"
     >
-      <!-- Imagen -->
-      <img
-        src="/img/personaje3.png"
-        alt="Personaje"
-        class="w-72 md:w-[700px] object-contain z-10 hover:scale-105 transition-transform duration-300"
-      />
-      <!-- Contenido -->
+      ARQUITECTURA <br /> DE SOFTWARE
+    </h2>
+
+    <div
+      class="flex flex-col md:flex-row items-center justify-center w-full max-w-7xl z-10"
+    >
+      <!-- Imagen (Izquierda) -->
       <div
-        class="w-full md:w-1/2 bg-[#1a1a1a]/80 rounded-3xl md:rounded-tr-3xl md:rounded-br-3xl md:rounded-tl-none md:rounded-bl-none p-8 flex flex-col items-center md:items-end justify-center gap-5 text-gray-200 z-20"
+        class="w-full md:w-1/2 flex justify-center md:justify-end order-1 md:order-1"
       >
-        <h1 class="text-3xl md:text-4xl font-bold text-center md:text-right">
-          Arquitectura de Software
-        </h1>
-        <p class="text-lg md:text-2xl text-center md:text-right">
-          Diseño de arquitecturas limpias, escalables y observables (Onion,
-          Hexagonal, Microservicios), con decisiones tecnológicas orientadas a
-          alta disponibilidad y mantenimiento.
-        </p>
-        <a
-          href="/servicios/arquitectura"
-          class="inline-flex items-center gap-2 px-6 py-3 bg-[#82e256] text-[#1a1a1a] font-bold rounded-lg hover:bg-[#88b43c] transition-colors duration-300"
+        <div
+          class="carousel-container relative w-[500px] h-[500px] md:w-[700px] md:h-[700px] lg:w-[850px] lg:h-[850px] hover:scale-105 transition-transform duration-500 drop-shadow-2xl pointer-events-none"
         >
-          Conocer más
-          <svg
-            class="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+          <img
+            src="/img/personaje6/01.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-100"
+            alt="Arquitectura"
+          />
+          <img
+            src="/img/personaje6/02.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
+            alt="Arquitectura"
+          />
+          <img
+            src="/img/personaje6/03.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
+            alt="Arquitectura"
+          />
+          <img
+            src="/img/personaje6/04.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
+            alt="Arquitectura"
+          />
+          <img
+            src="/img/personaje6/05.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
+            alt="Arquitectura"
+          />
+        </div>
+      </div>
+
+      <!-- Descripción (Derecha, superpuesta a la izquierda) -->
+      <div
+        class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-ml-[300px]"
+      >
+        <div
+          class="backdrop-blur-md bg-black/40 p-8 rounded-3xl border border-white/10 shadow-2xl pointer-events-auto"
+        >
+          <h3
+            class="text-4xl md:text-5xl font-bold text-white leading-tight text-center md:text-left mb-6"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5l7 7-7 7"></path>
-          </svg>
-        </a>
+            Arquitectura <br />
+            <span class="text-[#82e256]">Escalable & Robusta</span>
+          </h3>
+          <div class="flex flex-col gap-4">
+            <p
+              class="text-lg md:text-xl text-gray-100 font-medium leading-relaxed text-center md:text-left"
+            >
+              Diseñamos sistemas que crecen contigo. Microservicios, serverless
+              y cloud-native para garantizar disponibilidad y seguridad.
+            </p>
+            <div class="flex justify-center md:justify-start mt-2">
+              <a
+                href="/servicios/arquitectura"
+                class="text-[#82e256] font-bold hover:text-white transition-colors duration-300 flex items-center gap-2 group text-lg"
+              >
+                VER ARQUITECTURA <span
+                  class="transform group-hover:translate-x-1 transition-transform"
+                  >→</span
+                >
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Sección de Computer Vision -->
+  <!-- Sección 6: Computer Vision (Personaje 7) -->
   <section
-    id="contenido6"
-    class="sticky top-16 w-full min-h-screen p-5 md:p-0 flex flex-col items-center justify-center bg-gradient-to-br from-[#006417] to-[#00464e]"
+    id="personaje7"
+    class="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden animate-vision"
   >
-    <div
-      class="flex flex-col md:flex-row items-center justify-between w-full h-full px-5 md:px-16"
+    <!-- Título Gigante de Fondo -->
+    <h2
+      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[12vw] md:text-[14vw] font-black text-white/25 whitespace-nowrap z-0 select-none pointer-events-none text-center leading-none"
     >
-      <!-- Imagen -->
-      <img
-        src="/img/personaje4.png"
-        alt="Personaje"
-        class="w-72 md:w-[700px] object-contain z-10 hover:scale-105 transition-transform duration-300"
-      />
-      <!-- Contenido -->
+      VISIÓN <br /> ARTIFICIAL
+    </h2>
+
+    <div
+      class="flex flex-col md:flex-row items-center justify-center w-full max-w-7xl z-10"
+    >
+      <!-- Descripción (Izquierda, superpuesta a la derecha) -->
       <div
-        class="w-full md:w-1/2 bg-[#1a1a1a]/80 rounded-3xl md:rounded-tl-3xl md:rounded-bl-3xl md:rounded-tr-none md:rounded-br-none p-8 flex flex-col items-center justify-center gap-5 text-gray-200 z-20"
+        class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-mr-[300px] order-2 md:order-1"
       >
-        <h1 class="text-3xl md:text-4xl font-bold text-center">
-          Computer Vision
-        </h1>
-        <p class="text-lg md:text-2xl text-center">
-          Soluciones de visión computacional para detección, clasificación y
-          seguimiento de objetos, inspección automática, OCR y análisis de video
-          en tiempo real.
-        </p>
-        <a
-          href="/servicios/computer-vision"
-          class="inline-flex items-center gap-2 px-6 py-3 bg-[#82e256] text-[#1a1a1a] font-bold rounded-lg hover:bg-[#88b43c] transition-colors duration-300"
+        <div
+          class="backdrop-blur-md bg-black/40 p-8 rounded-3xl border border-white/10 shadow-2xl pointer-events-auto"
         >
-          Conocer más
-          <svg
-            class="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+          <h3
+            class="text-4xl md:text-5xl font-bold text-white leading-tight text-center md:text-left mb-6"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5l7 7-7 7"></path>
-          </svg>
-        </a>
+            Visión <br />
+            <span class="text-[#82e256]">Artificial</span>
+          </h3>
+          <div class="flex flex-col gap-4">
+            <p
+              class="text-lg md:text-xl text-gray-100 font-medium leading-relaxed text-center md:text-left"
+            >
+              Análisis de imágenes y video en tiempo real. Detección de objetos,
+              reconocimiento facial y control de calidad automatizado.
+            </p>
+            <div class="flex justify-center md:justify-start mt-2">
+              <a
+                href="/servicios/vision"
+                class="text-[#82e256] font-bold hover:text-white transition-colors duration-300 flex items-center gap-2 group text-lg"
+              >
+                VER SOLUCIONES <span
+                  class="transform group-hover:translate-x-1 transition-transform"
+                  >→</span
+                >
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Imagen (Derecha) -->
+      <div
+        class="w-full md:w-1/2 flex justify-center md:justify-start order-1 md:order-2"
+      >
+        <div
+          class="carousel-container relative w-[500px] h-[500px] md:w-[700px] md:h-[700px] lg:w-[850px] lg:h-[850px] hover:scale-105 transition-transform duration-500 drop-shadow-2xl pointer-events-none"
+        >
+          <img
+            src="/img/personaje7/01.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-100"
+            alt="Computer Vision"
+          />
+          <img
+            src="/img/personaje7/02.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
+            alt="Computer Vision"
+          />
+          <img
+            src="/img/personaje7/03.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
+            alt="Computer Vision"
+          />
+          <img
+            src="/img/personaje7/04.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
+            alt="Computer Vision"
+          />
+          <img
+            src="/img/personaje7/05.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
+            alt="Computer Vision"
+          />
+        </div>
       </div>
     </div>
   </section>
@@ -1956,7 +2310,7 @@ const isVisible = true;
         <button
           type="submit"
           id="advisory-submit-btn"
-          class="w-full px-6 py-4 bg-gradient-to-r from-white/20 to-white/10 text-white/50 font-bold rounded-xl flex items-center justify-center gap-3 transition-all duration-300 cursor-not-allowed"
+          class="w-full px-6 py-4 bg-gradient-to-r from-white/20 to-white/10 text-white/0 font-bold rounded-xl flex items-center justify-center gap-3 transition-all duration-300 cursor-not-allowed"
           disabled
         >
           <svg
@@ -1976,7 +2330,7 @@ const isVisible = true;
         </button>
 
         <!-- Nota de privacidad -->
-        <p class="text-white/50 text-xs text-center w-full">
+        <p class="text-white/0 text-xs text-center w-full">
           Al enviar este formulario, aceptas que procesemos tus datos para
           contactarte.
           <a href="#" class="text-[#82e256] hover:underline"
@@ -2806,7 +3160,7 @@ const isVisible = true;
                 d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
             </svg>
           </a>
-          <p class="text-white/50 text-sm mt-4">
+          <p class="text-white/0 text-sm mt-4">
             Descuentos especiales para equipos de 5+ personas
           </p>
         </div>
@@ -3617,7 +3971,7 @@ const isVisible = true;
                 >
                   <div
                     id="ai-main-response"
-                    class="px-6 pb-4 text-white/80 leading-relaxed"
+                    class="px-6 pb-4 text-white/8 leading-relaxed"
                   >
                     <!-- La respuesta principal se insertará aquí -->
                   </div>
@@ -3674,7 +4028,7 @@ const isVisible = true;
                   <div id="ai-sources" class="px-6 pb-4">
                     <div class="space-y-3">
                       <!-- Las fuentes RAG se insertarán aquí -->
-                      <p class="text-white/50 text-sm italic">
+                      <p class="text-white/0 text-sm italic">
                         No hay fuentes disponibles para esta respuesta.
                       </p>
                     </div>
@@ -3956,7 +4310,7 @@ La elección depende de tu caso de uso específico. Para APIs internas, JWT suel
           } else {
             sourcesCount.classList.add("hidden");
             sourcesDiv.innerHTML =
-              '<p class="text-white/50 text-sm italic">No hay fuentes disponibles para esta respuesta.</p>';
+              '<p class="text-white/0 text-sm italic">No hay fuentes disponibles para esta respuesta.</p>';
           }
 
           // Insertar contexto si existe
@@ -4040,7 +4394,7 @@ La elección depende de tu caso de uso específico. Para APIs internas, JWT suel
           "bg-gradient-to-r",
           "from-white/20",
           "to-white/10",
-          "text-white/50",
+          "text-white/0",
           "cursor-not-allowed",
         );
         advisorySubmitBtn.classList.add(
@@ -4067,7 +4421,7 @@ La elección depende de tu caso de uso específico. Para APIs internas, JWT suel
           "bg-gradient-to-r",
           "from-white/20",
           "to-white/10",
-          "text-white/50",
+          "text-white/0",
           "cursor-not-allowed",
         );
         advisorySubmitBtn.classList.remove(
@@ -4580,7 +4934,7 @@ La elección depende de tu caso de uso específico. Para APIs internas, JWT suel
           </div>
         </a>
       </div>
-      <p class="text-white/50 text-sm mt-2">
+      <p class="text-white/0 text-sm mt-2">
         Únete a nuestra comunidad y mantente actualizado con las últimas
         tendencias tecnológicas
       </p>
