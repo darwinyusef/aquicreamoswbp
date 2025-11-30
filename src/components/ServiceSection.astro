@@ -1,0 +1,133 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  linkHref: string;
+  linkText: string;
+  imagePath: string;
+  imageAlt: string;
+  animationClass: string;
+  backgroundTitle: string;
+  imagePosition?: "left" | "right";
+}
+
+const {
+  id,
+  title,
+  subtitle,
+  description,
+  linkHref,
+  linkText,
+  imagePath,
+  imageAlt,
+  animationClass,
+  backgroundTitle,
+  imagePosition = "left",
+} = Astro.props;
+
+const isImageLeft = imagePosition === "left";
+---
+
+<section
+  id={id}
+  class={`relative w-full min-h-screen flex flex-col items-center justify-center ${animationClass}`}
+>
+  <!-- Título Gigante de Fondo -->
+  <h2
+    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[12vw] md:text-[14vw] font-black text-white/25 whitespace-nowrap z-0 select-none pointer-events-none text-center leading-none"
+    set:html={backgroundTitle}
+  >
+  </h2>
+
+  <div
+    class="flex flex-col md:flex-row items-center justify-center w-full max-w-7xl z-10"
+  >
+    {
+      isImageLeft ? (
+        <>
+          <!-- Imagen (Izquierda) -->
+          <div class="w-full md:w-1/2 flex justify-center md:justify-end order-1 md:order-1">
+            <div class="carousel-container relative w-[500px] h-[500px] md:w-[700px] md:h-[700px] lg:w-[850px] lg:h-[850px] hover:scale-105 transition-transform duration-500 drop-shadow-2xl pointer-events-none">
+              {[1, 2, 3, 4, 5].map((num) => (
+                <img
+                  src={`${imagePath}${String(num).padStart(2, "0")}.png`}
+                  class={`carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 ${num === 1 ? "opacity-100" : "opacity-0"}`}
+                  alt={imageAlt}
+                />
+              ))}
+            </div>
+          </div>
+
+          <!-- Descripción (Derecha) -->
+          <div class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-ml-[300px]">
+            <div class="backdrop-blur-md bg-black/40 p-8 rounded-3xl border border-white/10 shadow-2xl pointer-events-auto">
+              <h3 class="text-4xl md:text-5xl font-bold text-white leading-tight text-center md:text-left mb-6">
+                {title} <br />
+                <span class="text-[#82e256]">{subtitle}</span>
+              </h3>
+              <div class="flex flex-col gap-4">
+                <p class="text-lg md:text-xl text-gray-100 font-medium leading-relaxed text-center md:text-left">
+                  {description}
+                </p>
+                <div class="flex justify-center md:justify-start mt-2">
+                  <a
+                    href={linkHref}
+                    class="text-[#82e256] font-bold hover:text-white transition-colors duration-300 flex items-center gap-2 group text-lg"
+                  >
+                    {linkText}{" "}
+                    <span class="transform group-hover:translate-x-1 transition-transform">
+                      →
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+      ) : (
+        <>
+          <!-- Descripción (Izquierda) -->
+          <div class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-mr-[300px] order-2 md:order-1">
+            <div class="backdrop-blur-md bg-black/40 p-8 rounded-3xl border border-white/10 shadow-2xl pointer-events-auto">
+              <h3 class="text-4xl md:text-5xl font-bold text-white leading-tight text-center md:text-left mb-6">
+                {title} <br />
+                <span class="text-[#82e256]">{subtitle}</span>
+              </h3>
+              <div class="flex flex-col gap-4">
+                <p class="text-lg md:text-xl text-gray-100 font-medium leading-relaxed text-center md:text-left">
+                  {description}
+                </p>
+                <div class="flex justify-center md:justify-start mt-2">
+                  <a
+                    href={linkHref}
+                    class="text-[#82e256] font-bold hover:text-white transition-colors duration-300 flex items-center gap-2 group text-lg"
+                  >
+                    {linkText}{" "}
+                    <span class="transform group-hover:translate-x-1 transition-transform">
+                      →
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Imagen (Derecha) -->
+          <div class="w-full md:w-1/2 flex justify-center md:justify-start order-1 md:order-2">
+            <div class="carousel-container relative w-[500px] h-[500px] md:w-[700px] md:h-[700px] lg:w-[850px] lg:h-[850px] hover:scale-105 transition-transform duration-500 drop-shadow-2xl pointer-events-none">
+              {[1, 2, 3, 4, 5].map((num) => (
+                <img
+                  src={`${imagePath}${String(num).padStart(2, "0")}.png`}
+                  class={`carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 ${num === 1 ? "opacity-100" : "opacity-0"}`}
+                  alt={imageAlt}
+                />
+              ))}
+            </div>
+          </div>
+        </>
+      )
+    }
+  </div>
+</section>

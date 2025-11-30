@@ -1,0 +1,162 @@
+---
+// Video Section Component
+---
+
+<section
+    id="contenido7"
+    class="w-full md:px-16 px-5 py-8 min-h-screen flex flex-col items-center justify-center bg-[#1a1a1a]"
+>
+    <div
+        class="flex flex-col items-center px-5 py-2 h-full text-center max-w-7xl w-full"
+    >
+        <div class="sticky-title w-full">
+            <h1 class="text-3xl md:text-4xl font-bold mb-8 text-[#82e256]">
+                Hablemos un poco más
+            </h1>
+        </div>
+        <p class="text-base md:text-lg text-center text-[#82e256] mb-8">
+            Descubre nuestros proyectos, tutoriales y consejos sobre desarrollo
+            de software e inteligencia artificial.
+        </p>
+
+        <!-- Layout responsive de videos -->
+        <div class="flex flex-col md:flex-row gap-4 w-full" id="video-section">
+            <!-- Video principal con controles -->
+            <div class="w-full md:w-3/4 flex flex-col gap-3">
+                <div class="aspect-video bg-black rounded-lg overflow-hidden">
+                    <div id="main-player"></div>
+                </div>
+
+                <!-- Controles de navegación -->
+                <div class="flex items-center justify-between gap-4 px-2">
+                    <button
+                        id="prev-btn"
+                        class="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#00464e] to-[#006064] hover:from-[#006064] hover:to-[#00464e] text-white rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                        <svg
+                            class="w-5 h-5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                        <span class="hidden md:inline">Anterior</span>
+                    </button>
+
+                    <div class="flex items-center gap-2 text-sm text-gray-400">
+                        <span
+                            id="current-video-number"
+                            class="text-[#82e256] font-bold">1</span
+                        >
+                        <span>/</span>
+                        <span id="total-videos">10</span>
+                    </div>
+
+                    <button
+                        id="next-btn"
+                        class="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#00464e] to-[#006064] hover:from-[#006064] hover:to-[#00464e] text-white rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                        <span class="hidden md:inline">Siguiente</span>
+                        <svg
+                            class="w-5 h-5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M9 5l7 7-7-7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Carousel vertical de videos -->
+            <div
+                class="w-full md:w-auto flex flex-col gap-2 items-center md:items-start"
+            >
+                <div
+                    class="flex items-center justify-between mb-2 w-full max-w-[200px]"
+                >
+                    <h3 class="text-white font-semibold text-sm">Videos</h3>
+                    <button
+                        id="scroll-up"
+                        class="p-1 text-[#82e256] hover:bg-[#82e256]/20 rounded"
+                    >
+                        <svg
+                            class="w-5 h-5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M5 15l7-7 7 7"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <div
+                    id="carousel-container"
+                    class="flex flex-col gap-3 overflow-y-auto max-h-[650px] pr-2 custom-scrollbar scroll-smooth items-center md:items-start"
+                >
+                    <!-- Los videos se generarán dinámicamente -->
+                </div>
+
+                <button
+                    id="scroll-down"
+                    class="p-1 text-[#82e256] hover:bg-[#82e256]/20 rounded self-center mt-2"
+                >
+                    <svg
+                        class="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="../assets/video-player.js"></script>
+
+<style>
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 3px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #82e256;
+        border-radius: 3px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: #6bc73d;
+    }
+
+    #main-player {
+        width: 100%;
+        height: 100%;
+    }
+</style>

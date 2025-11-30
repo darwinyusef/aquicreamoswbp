@@ -1,0 +1,114 @@
+/* Paleta 1: Agentes (Verde/Dorado/Bosque) */
+@keyframes cycle-agents {
+  0% {
+    background-color: #01414a;
+  }
+  33% {
+    background-color: #917e1f;
+  }
+  66% {
+    background-color: #253a11;
+  }
+  100% {
+    background-color: #01414a;
+  }
+}
+
+/* Paleta 2: Apps IA (Púrpura/Azul Profundo) */
+@keyframes cycle-apps {
+  0% {
+    background-color: #1a0b2e;
+  }
+  33% {
+    background-color: #2d1b4e;
+  }
+  66% {
+    background-color: #0f172a;
+  }
+  100% {
+    background-color: #1a0b2e;
+  }
+}
+
+/* Paleta 3: Web (Azul Petróleo/Cian Oscuro) */
+@keyframes cycle-web {
+  0% {
+    background-color: #0f2027;
+  }
+  33% {
+    background-color: #203a43;
+  }
+  66% {
+    background-color: #2c5364;
+  }
+  100% {
+    background-color: #0f2027;
+  }
+}
+
+/* Paleta 4: Móvil (Teal/Esmeralda Oscuro) */
+@keyframes cycle-mobile {
+  0% {
+    background-color: #002b36;
+  }
+  33% {
+    background-color: #004d40;
+  }
+  66% {
+    background-color: #001e1d;
+  }
+  100% {
+    background-color: #002b36;
+  }
+}
+
+/* Paleta 5: Arquitectura (Gris Plomo/Metálico) */
+@keyframes cycle-arch {
+  0% {
+    background-color: #111827;
+  }
+  33% {
+    background-color: #1f2937;
+  }
+  66% {
+    background-color: #000000;
+  }
+  100% {
+    background-color: #111827;
+  }
+}
+
+/* Paleta 6: Visión (Índigo/Violeta Oscuro) */
+@keyframes cycle-vision {
+  0% {
+    background-color: #1e1b4b;
+  }
+  33% {
+    background-color: #312e81;
+  }
+  66% {
+    background-color: #020617;
+  }
+  100% {
+    background-color: #1e1b4b;
+  }
+}
+
+.animate-agents {
+  animation: cycle-agents 15s infinite ease-in-out;
+}
+.animate-apps {
+  animation: cycle-apps 18s infinite ease-in-out;
+}
+.animate-web {
+  animation: cycle-web 20s infinite ease-in-out;
+}
+.animate-mobile {
+  animation: cycle-mobile 16s infinite ease-in-out;
+}
+.animate-arch {
+  animation: cycle-arch 22s infinite ease-in-out;
+}
+.animate-vision {
+  animation: cycle-vision 19s infinite ease-in-out;
+}

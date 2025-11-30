@@ -1,0 +1,150 @@
+---
+// Blog Section Component
+const blogPosts = [
+    {
+        href: "/blog/agentes-ia-revolucion-empresarial",
+        category: "IA",
+        categoryColor: "purple-600",
+        image: "/img/fondo.png",
+        date: "15 de noviembre de 2025",
+        title: "Agentes de IA: La Revolución Empresarial que está Transformando el Trabajo",
+        description:
+            "Descubre cómo los agentes cognitivos están automatizando tareas complejas y mejorando la productividad en las empresas modernas.",
+    },
+    {
+        href: "/blog/react-server-components-guia",
+        category: "Web",
+        categoryColor: "blue-600",
+        image: "/img/fondo.png",
+        date: "5 de noviembre de 2025",
+        title: "React Server Components: Guía Completa para Desarrolladores",
+        description:
+            "Todo lo que necesitas saber sobre React Server Components y cómo pueden mejorar el rendimiento de tus aplicaciones.",
+    },
+    {
+        href: "/blog/flutter-vs-react-native-2025",
+        category: "Mobile",
+        categoryColor: "green-600",
+        image: "/img/fondo.png",
+        date: "28 de octubre de 2025",
+        title: "Flutter vs React Native en 2025: ¿Cuál Elegir para tu Proyecto?",
+        description:
+            "Comparativa detallada de las dos frameworks más populares para desarrollo móvil multiplataforma.",
+    },
+    {
+        href: "/blog/arquitectura-hexagonal-microservicios",
+        category: "Arquitectura",
+        categoryColor: "orange-600",
+        image: "/img/fondo.png",
+        date: "10 de noviembre de 2025",
+        title: "Arquitectura Hexagonal: Por qué es la Mejor Opción para Microservicios",
+        description:
+            "Guía completa sobre cómo implementar arquitectura hexagonal en tus proyectos de microservicios para lograr alta mantenibilidad.",
+    },
+    {
+        href: "/blog/computer-vision-deteccion-objetos",
+        category: "IA",
+        categoryColor: "purple-600",
+        image: "/img/fondo.png",
+        date: "20 de octubre de 2025",
+        title: "Computer Vision: Implementando Detección de Objetos en Tiempo Real",
+        description:
+            "Aprende a implementar sistemas de detección de objetos usando YOLO y OpenCV en aplicaciones web.",
+    },
+];
+---
+
+<section
+    id="contenido8"
+    class="w-full min-h-screen md:px-16 px-5 py-4 flex flex-col items-center justify-center bg-[#1a1a1a]"
+>
+    <div class="flex flex-col items-center px-5 py-4 h-full text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-5 text-[#82e256]">
+            Blog Tecnológico
+        </h1>
+        <p class="text-lg text-center text-gray-300 mb-6">
+            Artículos sobre inteligencia artificial, desarrollo web,
+            arquitectura de software y las últimas tendencias tecnológicas.
+            Aprende con tutoriales prácticos y casos de uso reales.
+        </p>
+        <div
+            class="flex flex-row items-center justify-center gap-2 bg-gray-400/10 rounded-lg p-1 text-gray-200 mt-5"
+        >
+            <span class="rounded-lg bg-[#1a1a1a] p-1">Destacados</span>
+            <span class="rounded-lg p-1">IA</span>
+            <span class="rounded-lg p-1">Web</span>
+            <span class="rounded-lg p-1">Mobile</span>
+        </div>
+        <div
+            class="flex flex-col items-center justify-center gap-2 mt-5 md:grid md:grid-cols-3"
+        >
+            {
+                blogPosts.map((post) => (
+                    <a
+                        href={post.href}
+                        class="bg-gray-400/10 rounded-lg p-3 flex flex-col items-start justify-center text-gray-200 hover:bg-gray-400/20 transition-all duration-300 hover:scale-105"
+                    >
+                        <div class="flex flex-row items-center justify-end w-full mb-2">
+                            <span
+                                class={`rounded-full bg-${post.categoryColor} py-1 px-3 text-xs font-semibold`}
+                            >
+                                {post.category}
+                            </span>
+                        </div>
+                        <img
+                            src={post.image}
+                            class="w-full h-48 object-cover bg-black rounded-lg mb-3"
+                        />
+                        <span class="text-gray-500/80 text-sm">
+                            {post.date}
+                        </span>
+                        <h1 class="word-break text-lg text-left font-bold mt-2 mb-2 text-white">
+                            {post.title}
+                        </h1>
+                        <p class="word-break text-left text-gray-400 mb-3">
+                            {post.description}
+                        </p>
+                        <span class="text-[#82e256] py-2 rounded-lg flex items-center gap-2 font-semibold hover:gap-3 transition-all">
+                            Leer más
+                            <svg
+                                class="w-4 h-4"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M9 5l7 7-7 7"
+                                />
+                            </svg>
+                        </span>
+                    </a>
+                ))
+            }
+        </div>
+
+        <!-- Botón Ver todos los artículos -->
+        <div class="flex justify-center mt-12">
+            <a
+                href="/blog"
+                class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#00464e] to-[#006064] text-white font-bold rounded-lg hover:from-[#006064] hover:to-[#00464e] transition-all duration-300 transform hover:scale-105"
+            >
+                Ver todos los artículos
+                <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 5l7 7-7 7"></path>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
