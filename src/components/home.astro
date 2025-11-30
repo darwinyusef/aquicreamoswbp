@@ -1,110 +1,16 @@
 ---
 import Header from "./Header.astro";
-
-const isVisible = true;
+import HeroSection from "./HeroSection.astro";
+import ServiceSection from "./ServiceSection.astro";
+import VideoSection from "./VideoSection.astro";
+import BlogSection from "./BlogSection.astro";
+import TechStackSection from "./TechStackSection.astro";
+import "../assets/service-animations.css";
 ---
 
 <Header currentPage="home" />
 
-<section
-  id="home"
-  class="relative flex items-center justify-center bg-hero-pattern bg-repeat w-full min-h-screen bg-[url(/img/fondo.png)] bg-no-repeat bg-cover bg-center"
->
-  <div
-    class="absolute inset-0 bg-gradient-to-b from-black/50 to-background z-10"
-  >
-  </div>
-
-  <div class="container mx-auto px-4 py-20 md:py-32 relative z-20">
-    <div
-      class={`mx-auto text-center transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
-    >
-      <div
-        class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8"
-      >
-        <div class="flex-1 text-center md:text-left">
-          <h1
-            class="text-4xl md:text-6xl lg:text-8xl font-black font-heading leading-tight"
-          >
-            <span class="text-white drop-shadow-lg">INGENIERÍA DE IA</span>
-            <br />
-            <span
-              class="text-transparent bg-clip-text bg-gradient-to-r from-[#82e256] to-[#04ADC0] drop-shadow-lg"
-              >& SOFTWARE AVANZADO</span
-            >
-          </h1>
-          <p
-            class="text-lg md:text-xl lg:text-2xl text-gray-200 font-light max-w-3xl mt-6 md:mt-8 text-center md:text-left drop-shadow-md"
-          >
-            Creamos ecosistemas digitales autónomos: Agentes Cognitivos, Apps
-            Inteligentes y Arquitecturas Cloud de alto rendimiento.
-          </p>
-        </div>
-
-        <div
-          id="full-images-header"
-          class="absolute info right-12 w-[670px] h-[750px] hidden md:block"
-        >
-          <img
-            src="/img/personaje2/01.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-100"
-            alt="Personaje IA"
-          />
-          <img
-            src="/img/personaje2/02.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Personaje IA"
-          />
-          <img
-            src="/img/personaje2/03.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Personaje IA"
-          />
-          <img
-            src="/img/personaje2/04.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Personaje IA"
-          />
-          <img
-            src="/img/personaje2/05.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Personaje IA"
-          />
-          <img
-            src="/img/personaje2/06.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Personaje IA"
-          />
-        </div>
-
-        <script>
-          document.addEventListener("DOMContentLoaded", () => {
-            // Seleccionar todos los contenedores de carrusel (header y secciones)
-            const carousels = document.querySelectorAll(
-              ".carousel-container, #full-images-header",
-            );
-
-            carousels.forEach((container) => {
-              const images = container.querySelectorAll(".carousel-img");
-              if (images.length > 0) {
-                let currentIndex = 0;
-                setInterval(() => {
-                  images[currentIndex].classList.remove("opacity-100");
-                  images[currentIndex].classList.add("opacity-0");
-
-                  currentIndex = (currentIndex + 1) % images.length;
-
-                  images[currentIndex].classList.remove("opacity-0");
-                  images[currentIndex].classList.add("opacity-100");
-                }, 3000);
-              }
-            });
-          });
-        </script>
-      </div>
-    </div>
-  </div>
-</section>
+<HeroSection />
 
 <main class="bg-[#1a1a1a]">
   <!-- Banderas flotantes (visible en todas las resoluciones) -->
@@ -128,655 +34,100 @@ const isVisible = true;
     />
   </div>
 
-  <style>
-    /* Paleta 1: Agentes (Verde/Dorado/Bosque) */
-    @keyframes cycle-agents {
-      0% {
-        background-color: #01414a;
-      }
-      33% {
-        background-color: #917e1f;
-      }
-      66% {
-        background-color: #253a11;
-      }
-      100% {
-        background-color: #01414a;
-      }
-    }
-
-    /* Paleta 2: Apps IA (Púrpura/Azul Profundo) */
-    @keyframes cycle-apps {
-      0% {
-        background-color: #1a0b2e;
-      }
-      33% {
-        background-color: #2d1b4e;
-      }
-      66% {
-        background-color: #0f172a;
-      }
-      100% {
-        background-color: #1a0b2e;
-      }
-    }
-
-    /* Paleta 3: Web (Azul Petróleo/Cian Oscuro) */
-    @keyframes cycle-web {
-      0% {
-        background-color: #0f2027;
-      }
-      33% {
-        background-color: #203a43;
-      }
-      66% {
-        background-color: #2c5364;
-      }
-      100% {
-        background-color: #0f2027;
-      }
-    }
-
-    /* Paleta 4: Móvil (Teal/Esmeralda Oscuro) */
-    @keyframes cycle-mobile {
-      0% {
-        background-color: #002b36;
-      }
-      33% {
-        background-color: #004d40;
-      }
-      66% {
-        background-color: #001e1d;
-      }
-      100% {
-        background-color: #002b36;
-      }
-    }
-
-    /* Paleta 5: Arquitectura (Gris Plomo/Metálico) */
-    @keyframes cycle-arch {
-      0% {
-        background-color: #111827;
-      }
-      33% {
-        background-color: #1f2937;
-      }
-      66% {
-        background-color: #000000;
-      }
-      100% {
-        background-color: #111827;
-      }
-    }
-
-    /* Paleta 6: Visión (Índigo/Violeta Oscuro) */
-    @keyframes cycle-vision {
-      0% {
-        background-color: #1e1b4b;
-      }
-      33% {
-        background-color: #312e81;
-      }
-      66% {
-        background-color: #020617;
-      }
-      100% {
-        background-color: #1e1b4b;
-      }
-    }
-
-    .animate-agents {
-      animation: cycle-agents 15s infinite ease-in-out;
-    }
-    .animate-apps {
-      animation: cycle-apps 18s infinite ease-in-out;
-    }
-    .animate-web {
-      animation: cycle-web 20s infinite ease-in-out;
-    }
-    .animate-mobile {
-      animation: cycle-mobile 16s infinite ease-in-out;
-    }
-    .animate-arch {
-      animation: cycle-arch 22s infinite ease-in-out;
-    }
-    .animate-vision {
-      animation: cycle-vision 19s infinite ease-in-out;
-    }
-  </style>
-
   <!-- Sección 1: Agentes IA -->
-  <section
+  <ServiceSection
     id="personaje1"
-    class="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden animate-agents"
-  >
-    <!-- Título Gigante de Fondo -->
-    <h2
-      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[12vw] md:text-[14vw] font-black text-white/25 whitespace-nowrap z-0 select-none pointer-events-none"
-    >
-      AGENTES IA
-    </h2>
+    title="Agentes de IA"
+    subtitle="Cognitivos, Ventas y Operaciones MCP"
+    description="Implementamos chatbots, whatsapp agents, agentes de ventas, soporte y operaciones conectados mediante <strong class='text-white'>Model Context Protocol (MCP)</strong> que responden multimodalmente. Tu fuerza laboral digital autónoma que entiende, razona y ejecuta."
+    linkHref="/servicios/agentes-ia"
+    linkText="EXPLORAR AGENTES"
+    imagePath="/img/personaje1/"
+    imageAlt="Agente IA"
+    animationClass="animate-agents"
+    backgroundTitle="AGENTES IA"
+    imagePosition="left"
+  />
 
-    <div
-      class="flex flex-col md:flex-row items-center justify-center w-full max-w-7xl z-10"
-    >
-      <!-- Imagen (Superpuesta) -->
-      <div
-        class="w-full md:w-1/2 flex justify-center md:justify-end order-1 md:order-1"
-      >
-        <div
-          class="carousel-container relative w-[500px] h-[500px] md:w-[700px] md:h-[700px] lg:w-[850px] lg:h-[850px] hover:scale-105 transition-transform duration-500 drop-shadow-2xl pointer-events-none"
-        >
-          <img
-            src="/img/personaje1/01.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-100"
-            alt="Agente IA"
-          />
-          <img
-            src="/img/personaje1/02.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Agente IA"
-          />
-          <img
-            src="/img/personaje1/03.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Agente IA"
-          />
-          <img
-            src="/img/personaje1/04.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Agente IA"
-          />
-          <img
-            src="/img/personaje1/05.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Agente IA"
-          />
-        </div>
-      </div>
-
-      <!-- Descripción Limpia -->
-      <div
-        class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-ml-[300px]"
-      >
-        <div
-          class="backdrop-blur-md bg-black/40 p-8 rounded-3xl border border-white/10 shadow-2xl pointer-events-auto"
-        >
-          <h3
-            class="text-4xl md:text-5xl font-bold text-white leading-tight text-center md:text-left mb-6"
-          >
-            Agentes de IA <br />
-            <span class="text-[#82e256]"
-              >Cognitivos, Ventas y Operaciones MCP</span
-            >
-          </h3>
-
-          <div class="flex flex-col gap-4">
-            <p
-              class="text-lg md:text-xl text-gray-100 font-medium leading-relaxed text-center md:text-left"
-            >
-              Implementamos chatbots, whatsapp agents, agentes de ventas,
-              soporte y operaciones conectados mediante <strong
-                class="text-white">Model Context Protocol (MCP)</strong
-              > que responden multimodalmente. Tu fuerza laboral digital autónoma
-              que entiende, razona y ejecuta.
-            </p>
-            <div class="flex justify-center md:justify-start mt-2">
-              <a
-                href="/servicios/agentes-ia"
-                class="text-[#82e256] font-bold hover:text-white transition-colors duration-300 flex items-center gap-2 group text-lg"
-              >
-                EXPLORAR AGENTES <span
-                  class="transform group-hover:translate-x-1 transition-transform"
-                  >→</span
-                >
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sección 2: Apps IA (Personaje 3) -->
-  <section
+  <!-- Sección 2: Apps IA -->
+  <ServiceSection
     id="personaje3"
-    class="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden animate-apps"
-  >
-    <!-- Título Gigante de Fondo -->
-    <h2
-      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[12vw] md:text-[14vw] font-black text-white/25 whitespace-nowrap z-0 select-none pointer-events-none"
-    >
-      APPS ONLINE
-    </h2>
+    title="IA para Aplicaciones"
+    subtitle="Online"
+    description="Potencia tus plataformas web y móviles con modelos de lenguaje y visión. Búsqueda semántica, personalización predictiva y experiencias conversacionales integradas."
+    linkHref="/servicios/apps-ia"
+    linkText="VER SOLUCIONES"
+    imagePath="/img/personaje3/"
+    imageAlt="Apps IA"
+    animationClass="animate-apps"
+    backgroundTitle="APPS ONLINE"
+    imagePosition="right"
+  />
 
-    <div
-      class="flex flex-col md:flex-row items-center justify-center w-full max-w-7xl z-10"
-    >
-      <!-- Descripción (Izquierda, superpuesta a la derecha) -->
-      <div
-        class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-mr-[300px] order-2 md:order-1"
-      >
-        <div
-          class="backdrop-blur-md bg-black/40 p-8 rounded-3xl border border-white/10 shadow-2xl pointer-events-auto"
-        >
-          <h3
-            class="text-4xl md:text-5xl font-bold text-white leading-tight text-center md:text-left mb-6"
-          >
-            IA para Aplicaciones <br />
-            <span class="text-[#82e256]">Online</span>
-          </h3>
-          <div class="flex flex-col gap-4">
-            <p
-              class="text-lg md:text-xl text-gray-100 font-medium leading-relaxed text-center md:text-left"
-            >
-              Potencia tus plataformas web y móviles con modelos de lenguaje y
-              visión. Búsqueda semántica, personalización predictiva y
-              experiencias conversacionales integradas.
-            </p>
-            <div class="flex justify-center md:justify-start mt-2">
-              <a
-                href="/servicios/apps-ia"
-                class="text-[#82e256] font-bold hover:text-white transition-colors duration-300 flex items-center gap-2 group text-lg"
-              >
-                VER SOLUCIONES <span
-                  class="transform group-hover:translate-x-1 transition-transform"
-                  >→</span
-                >
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Imagen (Derecha) -->
-      <div
-        class="w-full md:w-1/2 flex justify-center md:justify-start order-1 md:order-2"
-      >
-        <div
-          class="carousel-container relative w-[500px] h-[500px] md:w-[700px] md:h-[700px] lg:w-[850px] lg:h-[850px] hover:scale-105 transition-transform duration-500 drop-shadow-2xl pointer-events-none"
-        >
-          <img
-            src="/img/personaje3/01.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-100"
-            alt="Apps IA"
-          />
-          <img
-            src="/img/personaje3/02.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Apps IA"
-          />
-          <img
-            src="/img/personaje3/03.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Apps IA"
-          />
-          <img
-            src="/img/personaje3/04.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Apps IA"
-          />
-          <img
-            src="/img/personaje3/05.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Apps IA"
-          />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sección 3: Modern Web (Personaje 4) -->
-  <section
+  <!-- Sección 3: Web Modernas -->
+  <ServiceSection
     id="personaje4"
-    class="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden animate-web"
-  >
-    <!-- Título Gigante de Fondo -->
-    <h2
-      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[12vw] md:text-[14vw] font-black text-white/25 whitespace-nowrap z-0 select-none pointer-events-none leading-none"
-    >
-      WEB <br /> MODERNA
-    </h2>
+    title="Desarrollo Web"
+    subtitle="Moderno & Rápido"
+    description="Sitios web ultrarrápidos construidos con Astro y tecnologías de vanguardia. Diseño premium, SEO optimizado y performance inigualable."
+    linkHref="/servicios/web"
+    linkText="VER PROYECTOS"
+    imagePath="/img/personaje4/"
+    imageAlt="Modern Web"
+    animationClass="animate-web"
+    backgroundTitle="WEB <br /> MODERNA"
+    imagePosition="left"
+  />
 
-    <div
-      class="flex flex-col md:flex-row items-center justify-center w-full max-w-7xl z-10"
-    >
-      <!-- Imagen (Izquierda) -->
-      <div
-        class="w-full md:w-1/2 flex justify-center md:justify-end order-1 md:order-1"
-      >
-        <div
-          class="carousel-container relative w-[500px] h-[500px] md:w-[700px] md:h-[700px] lg:w-[850px] lg:h-[850px] hover:scale-105 transition-transform duration-500 drop-shadow-2xl pointer-events-none"
-        >
-          <img
-            src="/img/personaje4/01.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-100"
-            alt="Modern Web"
-          />
-          <img
-            src="/img/personaje4/02.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Modern Web"
-          />
-          <img
-            src="/img/personaje4/03.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Modern Web"
-          />
-          <img
-            src="/img/personaje4/04.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Modern Web"
-          />
-          <img
-            src="/img/personaje4/05.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Modern Web"
-          />
-        </div>
-      </div>
-
-      <!-- Descripción (Derecha, superpuesta a la izquierda) -->
-      <div
-        class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-ml-[300px]"
-      >
-        <div
-          class="backdrop-blur-md bg-black/40 p-8 rounded-3xl border border-white/10 shadow-2xl pointer-events-auto"
-        >
-          <h3
-            class="text-4xl md:text-5xl font-bold text-white leading-tight text-center md:text-left mb-6"
-          >
-            Desarrollo Web <br />
-            <span class="text-[#82e256]">Moderno & Rápido</span>
-          </h3>
-          <div class="flex flex-col gap-4">
-            <p
-              class="text-lg md:text-xl text-gray-100 font-medium leading-relaxed text-center md:text-left"
-            >
-              Sitios web ultrarrápidos construidos con Astro y tecnologías de
-              vanguardia. Diseño premium, SEO optimizado y performance
-              inigualable.
-            </p>
-            <div class="flex justify-center md:justify-start mt-2">
-              <a
-                href="/servicios/web"
-                class="text-[#82e256] font-bold hover:text-white transition-colors duration-300 flex items-center gap-2 group text-lg"
-              >
-                VER PROYECTOS <span
-                  class="transform group-hover:translate-x-1 transition-transform"
-                  >→</span
-                >
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sección 4: Apps Móviles (Personaje 5) -->
-  <section
+  <!-- Sección 4: Apps Móviles -->
+  <ServiceSection
     id="personaje5"
-    class="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden animate-mobile"
-  >
-    <!-- Título Gigante de Fondo -->
-    <h2
-      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[12vw] md:text-[14vw] font-black text-white/25 whitespace-nowrap z-0 select-none pointer-events-none leading-none"
-    >
-      APPS <br /> NATIVAS
-    </h2>
+    title="Aplicaciones"
+    subtitle="Nativas & Cross-Platform"
+    description="Apps iOS y Android de alto rendimiento. Experiencias de usuario fluidas, notificaciones push y funcionalidades nativas avanzadas."
+    linkHref="/servicios/movil"
+    linkText="VER APPS"
+    imagePath="/img/personaje5/"
+    imageAlt="Apps Móviles"
+    animationClass="animate-mobile"
+    backgroundTitle="APPS <br /> NATIVAS"
+    imagePosition="right"
+  />
 
-    <div
-      class="flex flex-col md:flex-row items-center justify-center w-full max-w-7xl z-10"
-    >
-      <!-- Descripción (Izquierda, superpuesta a la derecha) -->
-      <div
-        class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-mr-[300px] order-2 md:order-1"
-      >
-        <div
-          class="backdrop-blur-md bg-black/40 p-8 rounded-3xl border border-white/10 shadow-2xl pointer-events-auto"
-        >
-          <h3
-            class="text-4xl md:text-5xl font-bold text-white leading-tight text-center md:text-left mb-6"
-          >
-            Aplicaciones <br />
-            <span class="text-[#82e256]">Nativas & Cross-Platform</span>
-          </h3>
-          <div class="flex flex-col gap-4">
-            <p
-              class="text-lg md:text-xl text-gray-100 font-medium leading-relaxed text-center md:text-left"
-            >
-              Apps iOS y Android de alto rendimiento. Experiencias de usuario
-              fluidas, notificaciones push y funcionalidades nativas avanzadas.
-            </p>
-            <div class="flex justify-center md:justify-start mt-2">
-              <a
-                href="/servicios/movil"
-                class="text-[#82e256] font-bold hover:text-white transition-colors duration-300 flex items-center gap-2 group text-lg"
-              >
-                VER APPS <span
-                  class="transform group-hover:translate-x-1 transition-transform"
-                  >→</span
-                >
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Imagen (Derecha) -->
-      <div
-        class="w-full md:w-1/2 flex justify-center md:justify-start order-1 md:order-2"
-      >
-        <div
-          class="carousel-container relative w-[500px] h-[500px] md:w-[700px] md:h-[700px] lg:w-[850px] lg:h-[850px] hover:scale-105 transition-transform duration-500 drop-shadow-2xl pointer-events-none"
-        >
-          <img
-            src="/img/personaje5/01.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-100"
-            alt="Apps Móviles"
-          />
-          <img
-            src="/img/personaje5/02.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Apps Móviles"
-          />
-          <img
-            src="/img/personaje5/03.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Apps Móviles"
-          />
-          <img
-            src="/img/personaje5/04.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Apps Móviles"
-          />
-          <img
-            src="/img/personaje5/05.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Apps Móviles"
-          />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sección 5: Arquitectura (Personaje 6) -->
-  <section
+  <!-- Sección 5: Arquitectura -->
+  <ServiceSection
     id="personaje6"
-    class="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden animate-arch"
-  >
-    <!-- Título Gigante de Fondo -->
-    <h2
-      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[13vw] md:text-[12vw] font-black text-white/25 whitespace-nowrap z-0 select-none pointer-events-none leading-none"
-    >
-      ARQUITECTURA <br /> DE SOFTWARE
-    </h2>
+    title="Arquitectura"
+    subtitle="Escalable & Robusta"
+    description="Diseñamos sistemas que crecen contigo. Microservicios, serverless y cloud-native para garantizar disponibilidad y seguridad."
+    linkHref="/servicios/arquitectura"
+    linkText="VER ARQUITECTURA"
+    imagePath="/img/personaje6/"
+    imageAlt="Arquitectura"
+    animationClass="animate-arch"
+    backgroundTitle="ARQUITECTURA <br /> DE SOFTWARE"
+    imagePosition="left"
+  />
 
-    <div
-      class="flex flex-col md:flex-row items-center justify-center w-full max-w-7xl z-10"
-    >
-      <!-- Imagen (Izquierda) -->
-      <div
-        class="w-full md:w-1/2 flex justify-center md:justify-end order-1 md:order-1"
-      >
-        <div
-          class="carousel-container relative w-[500px] h-[500px] md:w-[700px] md:h-[700px] lg:w-[850px] lg:h-[850px] hover:scale-105 transition-transform duration-500 drop-shadow-2xl pointer-events-none"
-        >
-          <img
-            src="/img/personaje6/01.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-100"
-            alt="Arquitectura"
-          />
-          <img
-            src="/img/personaje6/02.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Arquitectura"
-          />
-          <img
-            src="/img/personaje6/03.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Arquitectura"
-          />
-          <img
-            src="/img/personaje6/04.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Arquitectura"
-          />
-          <img
-            src="/img/personaje6/05.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Arquitectura"
-          />
-        </div>
-      </div>
-
-      <!-- Descripción (Derecha, superpuesta a la izquierda) -->
-      <div
-        class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-ml-[300px]"
-      >
-        <div
-          class="backdrop-blur-md bg-black/40 p-8 rounded-3xl border border-white/10 shadow-2xl pointer-events-auto"
-        >
-          <h3
-            class="text-4xl md:text-5xl font-bold text-white leading-tight text-center md:text-left mb-6"
-          >
-            Arquitectura <br />
-            <span class="text-[#82e256]">Escalable & Robusta</span>
-          </h3>
-          <div class="flex flex-col gap-4">
-            <p
-              class="text-lg md:text-xl text-gray-100 font-medium leading-relaxed text-center md:text-left"
-            >
-              Diseñamos sistemas que crecen contigo. Microservicios, serverless
-              y cloud-native para garantizar disponibilidad y seguridad.
-            </p>
-            <div class="flex justify-center md:justify-start mt-2">
-              <a
-                href="/servicios/arquitectura"
-                class="text-[#82e256] font-bold hover:text-white transition-colors duration-300 flex items-center gap-2 group text-lg"
-              >
-                VER ARQUITECTURA <span
-                  class="transform group-hover:translate-x-1 transition-transform"
-                  >→</span
-                >
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sección 6: Computer Vision (Personaje 7) -->
-  <section
+  <!-- Sección 6: Computer Vision -->
+  <ServiceSection
     id="personaje7"
-    class="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden animate-vision"
-  >
-    <!-- Título Gigante de Fondo -->
-    <h2
-      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[12vw] md:text-[14vw] font-black text-white/25 whitespace-nowrap z-0 select-none pointer-events-none text-center leading-none"
-    >
-      VISIÓN <br /> ARTIFICIAL
-    </h2>
-
-    <div
-      class="flex flex-col md:flex-row items-center justify-center w-full max-w-7xl z-10"
-    >
-      <!-- Descripción (Izquierda, superpuesta a la derecha) -->
-      <div
-        class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-mr-[300px] order-2 md:order-1"
-      >
-        <div
-          class="backdrop-blur-md bg-black/40 p-8 rounded-3xl border border-white/10 shadow-2xl pointer-events-auto"
-        >
-          <h3
-            class="text-4xl md:text-5xl font-bold text-white leading-tight text-center md:text-left mb-6"
-          >
-            Visión <br />
-            <span class="text-[#82e256]">Artificial</span>
-          </h3>
-          <div class="flex flex-col gap-4">
-            <p
-              class="text-lg md:text-xl text-gray-100 font-medium leading-relaxed text-center md:text-left"
-            >
-              Análisis de imágenes y video en tiempo real. Detección de objetos,
-              reconocimiento facial y control de calidad automatizado.
-            </p>
-            <div class="flex justify-center md:justify-start mt-2">
-              <a
-                href="/servicios/vision"
-                class="text-[#82e256] font-bold hover:text-white transition-colors duration-300 flex items-center gap-2 group text-lg"
-              >
-                VER SOLUCIONES <span
-                  class="transform group-hover:translate-x-1 transition-transform"
-                  >→</span
-                >
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Imagen (Derecha) -->
-      <div
-        class="w-full md:w-1/2 flex justify-center md:justify-start order-1 md:order-2"
-      >
-        <div
-          class="carousel-container relative w-[500px] h-[500px] md:w-[700px] md:h-[700px] lg:w-[850px] lg:h-[850px] hover:scale-105 transition-transform duration-500 drop-shadow-2xl pointer-events-none"
-        >
-          <img
-            src="/img/personaje7/01.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-100"
-            alt="Computer Vision"
-          />
-          <img
-            src="/img/personaje7/02.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Computer Vision"
-          />
-          <img
-            src="/img/personaje7/03.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Computer Vision"
-          />
-          <img
-            src="/img/personaje7/04.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Computer Vision"
-          />
-          <img
-            src="/img/personaje7/05.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Computer Vision"
-          />
-        </div>
-      </div>
-    </div>
-  </section>
+    title="Visión"
+    subtitle="Artificial"
+    description="Análisis de imágenes y video en tiempo real. Detección de objetos, reconocimiento facial y control de calidad automatizado."
+    linkHref="/servicios/vision"
+    linkText="VER SOLUCIONES"
+    imagePath="/img/personaje7/"
+    imageAlt="Computer Vision"
+    animationClass="animate-vision"
+    backgroundTitle="VISIÓN <br /> ARTIFICIAL"
+    imagePosition="right"
+  />
 </main>
 
-<!-- Sección de Hablemos -->
+<script src="../assets/carousel.js"></script>
+
+<VideoSection />
 <section
   id="contenido7"
   class="w-full md:px-16 px-5 py-8 min-h-screen flex flex-col items-center justify-center bg-[#1a1a1a]"
@@ -1189,7 +540,9 @@ const isVisible = true;
   }
 </style>
 
-<!-- Sección de Blog tecnológico -->
+<BlogSection />
+
+<TechStackSection />
 <section
   id="contenido8"
   class="w-full min-h-screen md:px-16 px-5 py-4 flex flex-col items-center justify-center bg-[#1a1a1a]"
