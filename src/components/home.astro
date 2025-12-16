@@ -303,24 +303,22 @@ const isVisible = true;
           class="backdrop-blur-md bg-black/40 p-8 rounded-3xl border border-white/10 shadow-2xl pointer-events-auto"
         >
           <h3
-            class="text-4xl md:text-5xl font-bold text-white leading-tight text-center md:text-left mb-6"
+            class="text-6xl font-bold text-white text-center mb-6"
           >
-            Agentes de IA <br />
-            <span class="text-[#82e256]"
-              >Cognitivos, Ventas y Operaciones MCP</span
-            >
-          </h3>
-
-          <div class="flex flex-col gap-4">
-            <p
-              class="text-lg md:text-xl text-gray-100 font-medium leading-relaxed text-center md:text-left"
+            Agentes de inteligencia artificial y MCP's <br />
+           
+    </h3>
+<p
+              class="text-lg md:text-xl text-gray-100 font-medium text-center md:text-left"
             >
               Implementamos chatbots, whatsapp agents, agentes de ventas,
               soporte y operaciones conectados mediante <strong
-                class="text-white">Model Context Protocol (MCP)</strong
+                class="text-green-500">Model Context Protocol (MCP)</strong
               > que responden multimodalmente. Tu fuerza laboral digital autónoma
               que entiende, razona y ejecuta.
             </p>
+          <div class="flex flex-col gap-4">
+            
             <div class="flex justify-center md:justify-start mt-2">
               <a
                 href="/servicios/agentes-ia"
@@ -4949,3 +4947,118 @@ La elección depende de tu caso de uso específico. Para APIs internas, JWT suel
     </p>
   </div>
 </footer>
+
+<style is:global>
+  /* ===== NUEVA DISTRIBUCIÓN: TEXTOS GRANDES + IMÁGENES SIN DESCRIPCIÓN ===== */
+
+  /* Secciones normales sin sticky */
+  #personaje1, #personaje3, #personaje4, #personaje5, #personaje6, #personaje7 {
+    position: relative !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    padding: 4rem 0 !important;
+  }
+
+  /* Contenedor principal - distribución simple lado a lado */
+  #personaje1 > div,
+  #personaje3 > div,
+  #personaje4 > div,
+  #personaje5 > div,
+  #personaje6 > div,
+  #personaje7 > div {
+    padding: 0 4rem !important;
+    gap: 4rem !important;
+    max-width: 1600px !important;
+    margin: 0 auto !important;
+    align-items: center !important;
+  }
+
+  /* Columnas 50/50 sin overlaps */
+  #personaje1 > div > div,
+  #personaje3 > div > div,
+  #personaje4 > div > div,
+  #personaje5 > div > div,
+  #personaje6 > div > div,
+  #personaje7 > div > div {
+    flex: 1 !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* OCULTAR descripciones y mostrar solo títulos grandes */
+  #personaje1 p,
+  #personaje3 p,
+  #personaje4 p,
+  #personaje5 p,
+  #personaje6 p,
+  #personaje7 p {
+    display: none !important;
+  }
+
+  /* ELIMINAR cajas oscuras - textos flotantes limpios */
+  #personaje1 .backdrop-blur-md,
+  #personaje3 .backdrop-blur-md,
+  #personaje4 .backdrop-blur-md,
+  #personaje5 .backdrop-blur-md,
+  #personaje6 .backdrop-blur-md,
+  #personaje7 .backdrop-blur-md {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 2rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 2rem !important;
+  }
+
+  /* Mostrar botones pequeños con icono */
+  #personaje1 a[href*="/servicios"],
+  #personaje3 a[href*="/servicios"],
+  #personaje4 a[href*="/servicios"],
+  #personaje5 a[href*="/servicios"],
+  #personaje6 a[href*="/servicios"],
+  #personaje7 a[href*="/servicios"] {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 56px !important;
+    height: 56px !important;
+    border-radius: 50% !important;
+    background: linear-gradient(135deg, #82e256 0%, #5fd41c 100%) !important;
+    border: 2px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 8px 24px rgba(130, 226, 86, 0.4),
+                0 0 40px rgba(130, 226, 86, 0.2) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    font-size: 0 !important;
+  }
+  /* Animación de pulso sutil */
+  @keyframes pulse-glow {
+    0%, 100% {
+      filter: drop-shadow(0 0 30px rgba(130, 226, 86, 0.6))
+              drop-shadow(0 4px 20px rgba(0, 0, 0, 0.5));
+    }
+    50% {
+      filter: drop-shadow(0 0 50px rgba(130, 226, 86, 0.8))
+              drop-shadow(0 4px 20px rgba(0, 0, 0, 0.5));
+    }
+  }
+
+  /* Wrapper de imagen centrado */
+  #personaje1 > div > div:has(.carousel-container),
+  #personaje3 > div > div:has(.carousel-container),
+  #personaje4 > div > div:has(.carousel-container),
+  #personaje5 > div > div:has(.carousel-container),
+  #personaje6 > div > div:has(.carousel-container),
+  #personaje7 > div > div:has(.carousel-container) {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+</style>
+
