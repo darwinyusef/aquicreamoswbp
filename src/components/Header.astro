@@ -1,6 +1,6 @@
 ---
 interface Props {
-  currentPage?: "home" | "servicios" | "blog" | "contacto";
+  currentPage?: "home" | "servicios" | "blog" | "contacto" | "usos-ia";
 }
 
 const { currentPage = "home" } = Astro.props;
@@ -67,18 +67,18 @@ const { currentPage = "home" } = Astro.props;
         </li>
         <li>
           <a
-            href="/#contenido10"
-            class={`transition-colors ${currentPage === "contacto" ? "text-[#82e256] font-semibold" : "text-white hover:text-[#82e256]"}`}
+            href="/usos-ia"
+            class={`transition-colors ${currentPage === "usos-ia" ? "text-[#82e256] font-semibold" : "text-white hover:text-[#82e256]"}`}
           >
-            Asesorías
+            Usos IA
           </a>
         </li>
         <li>
           <a
-            href="/#contenido11"
-            class="text-white hover:text-[#82e256] transition-colors"
+            href="/#contenido10"
+            class={`transition-colors ${currentPage === "contacto" ? "text-[#82e256] font-semibold" : "text-white hover:text-[#82e256]"}`}
           >
-            IA
+            Asesorías
           </a>
         </li>
       </ul>
@@ -122,16 +122,16 @@ const { currentPage = "home" } = Astro.props;
       Stack
     </a>
     <a
-      href="/#contenido10"
+      href="/usos-ia"
       class="text-white hover:text-[#82e256] transition-colors py-2 border-b border-white/10"
     >
-      Asesorías
+      Usos IA
     </a>
     <a
-      href="/#contenido11"
+      href="/#contenido10"
       class="text-white hover:text-[#82e256] transition-colors py-2"
     >
-      IA
+      Asesorías
     </a>
   </nav>
 </div>
