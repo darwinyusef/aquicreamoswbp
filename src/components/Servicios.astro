@@ -9,6 +9,7 @@
   <section
     id="personaje1"
     class="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden animate-agents"
+    data-bg="radial-gradient(circle at 50% 100%, #a0f06f 0%, #82e256 25%, #4d9e2a 45%, #1a4d2e 70%, #0a0a0a 100%)"
   >
     <!-- Título Gigante de Fondo -->
     <h2
@@ -93,54 +94,6 @@
               <span class="material-symbols-outlined text-white text-xl">play_circle</span>
             </button>
           </div>
-
-          <!-- Contenedor de videos del servicio - Modal (oculto por defecto) -->
-          <div id="videos-service1" class="service-videos-container hidden fixed inset-0 flex items-center justify-center" style="z-index: 999999;">
-            <!-- Backdrop -->
-            <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" data-backdrop="service1"></div>
-
-            <!-- Modal Content -->
-            <div class="relative z-10 w-full h-full flex items-center justify-center p-4">
-              <div class="relative flex flex-col items-center gap-4 h-full justify-center">
-                <!-- Header -->
-                <div class="flex items-center justify-between w-full max-w-md">
-                  <div class="flex items-center gap-2">
-                    <span class="material-symbols-outlined text-red-500">videocam</span>
-                    <h4 class="text-white font-bold text-sm">Agentes IA - Videos</h4>
-                  </div>
-                  <button
-                    class="close-service-video text-gray-400 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full"
-                    data-service="service1"
-                    aria-label="Cerrar videos"
-                  >
-                    <span class="material-symbols-outlined text-2xl">close</span>
-                  </button>
-                </div>
-
-                <!-- Video centrado -->
-                <div class="video-item-service group relative" style="height: 95vh;">
-                  <div class="relative rounded-xl overflow-hidden border-2 border-gray-700 hover:border-[#82e256] transition-all duration-300 h-full shadow-2xl">
-                    <iframe
-                      class="service-video-iframe transition-all duration-500"
-                      data-service="service1"
-                      style="width: calc(95vh * 9 / 16); height: 95vh;"
-                      src=""
-                      title="Agentes IA - Video"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen
-                    ></iframe>
-                  </div>
-                </div>
-
-                <!-- Tip -->
-                <div class="flex items-center gap-2 text-xs text-gray-400">
-                  <span class="material-symbols-outlined text-sm">info</span>
-                  <span>Videos explicativos sobre Agentes IA</span>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -150,6 +103,7 @@
   <section
     id="personaje3"
     class="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden animate-apps"
+    data-bg="radial-gradient(circle at 50% 100%, #3b82f6 0%, #1e40af 50%, #0a0a0a 100%)"
   >
     <!-- Título Gigante de Fondo -->
     <h2
@@ -200,54 +154,6 @@
               <span class="material-symbols-outlined text-white text-xl">play_circle</span>
             </button>
           </div>
-
-          <!-- Contenedor de videos del servicio - Modal (oculto por defecto) -->
-          <div id="videos-service3" class="service-videos-container hidden fixed inset-0 flex items-center justify-center" style="z-index: 999999;">
-            <!-- Backdrop -->
-            <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" data-backdrop="service3"></div>
-
-            <!-- Modal Content -->
-            <div class="relative z-10 w-full h-full flex items-center justify-center p-4">
-              <div class="relative flex flex-col items-center gap-4 h-full justify-center">
-                <!-- Header -->
-                <div class="flex items-center justify-between w-full max-w-md">
-                  <div class="flex items-center gap-2">
-                    <span class="material-symbols-outlined text-red-500">videocam</span>
-                    <h4 class="text-white font-bold text-sm">Apps IA - Videos</h4>
-                  </div>
-                  <button
-                    class="close-service-video text-gray-400 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full"
-                    data-service="service3"
-                    aria-label="Cerrar videos"
-                  >
-                    <span class="material-symbols-outlined text-2xl">close</span>
-                  </button>
-                </div>
-
-                <!-- Video centrado -->
-                <div class="video-item-service group relative" style="height: 95vh;">
-                  <div class="relative rounded-xl overflow-hidden border-2 border-gray-700 hover:border-[#82e256] transition-all duration-300 h-full shadow-2xl">
-                    <iframe
-                      class="service-video-iframe transition-all duration-500"
-                      data-service="service3"
-                      style="width: calc(95vh * 9 / 16); height: 95vh;"
-                      src=""
-                      title="Apps IA - Video"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen
-                    ></iframe>
-                  </div>
-                </div>
-
-                <!-- Tip -->
-                <div class="flex items-center gap-2 text-xs text-gray-400">
-                  <span class="material-symbols-outlined text-sm">info</span>
-                  <span>Videos explicativos sobre Apps IA</span>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -292,6 +198,7 @@
   <section
     id="personaje4"
     class="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden animate-web"
+    data-bg="radial-gradient(circle at 50% 100%, #f59e0b 0%, #dc2626 50%, #0a0a0a 100%)"
   >
     <!-- Título Gigante de Fondo -->
     <h2
@@ -377,54 +284,6 @@
               <span class="material-symbols-outlined text-white text-xl">play_circle</span>
             </button>
           </div>
-
-          <!-- Contenedor de videos del servicio - Modal (oculto por defecto) -->
-          <div id="videos-service4" class="service-videos-container hidden fixed inset-0 flex items-center justify-center" style="z-index: 999999;">
-            <!-- Backdrop -->
-            <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" data-backdrop="service4"></div>
-
-            <!-- Modal Content -->
-            <div class="relative z-10 w-full h-full flex items-center justify-center p-4">
-              <div class="relative flex flex-col items-center gap-4 h-full justify-center">
-                <!-- Header -->
-                <div class="flex items-center justify-between w-full max-w-md">
-                  <div class="flex items-center gap-2">
-                    <span class="material-symbols-outlined text-red-500">videocam</span>
-                    <h4 class="text-white font-bold text-sm">Web Moderna - Videos</h4>
-                  </div>
-                  <button
-                    class="close-service-video text-gray-400 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full"
-                    data-service="service4"
-                    aria-label="Cerrar videos"
-                  >
-                    <span class="material-symbols-outlined text-2xl">close</span>
-                  </button>
-                </div>
-
-                <!-- Video centrado -->
-                <div class="video-item-service group relative" style="height: 95vh;">
-                  <div class="relative rounded-xl overflow-hidden border-2 border-gray-700 hover:border-[#82e256] transition-all duration-300 h-full shadow-2xl">
-                    <iframe
-                      class="service-video-iframe transition-all duration-500"
-                      data-service="service4"
-                      style="width: calc(95vh * 9 / 16); height: 95vh;"
-                      src=""
-                      title="Web Moderna - Video"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen
-                    ></iframe>
-                  </div>
-                </div>
-
-                <!-- Tip -->
-                <div class="flex items-center gap-2 text-xs text-gray-400">
-                  <span class="material-symbols-outlined text-sm">info</span>
-                  <span>Videos explicativos sobre Web Moderna</span>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -434,6 +293,7 @@
   <section
     id="personaje5"
     class="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden animate-mobile"
+    data-bg="radial-gradient(circle at 50% 100%, #8b5cf6 0%, #5b21b6 50%, #0a0a0a 100%)"
   >
     <!-- Título Gigante de Fondo -->
     <h2
@@ -483,54 +343,6 @@
               <span class="material-symbols-outlined text-white text-xl">play_circle</span>
             </button>
           </div>
-
-          <!-- Contenedor de videos del servicio - Modal (oculto por defecto) -->
-          <div id="videos-service5" class="service-videos-container hidden fixed inset-0 flex items-center justify-center" style="z-index: 999999;">
-            <!-- Backdrop -->
-            <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" data-backdrop="service5"></div>
-
-            <!-- Modal Content -->
-            <div class="relative z-10 w-full h-full flex items-center justify-center p-4">
-              <div class="relative flex flex-col items-center gap-4 h-full justify-center">
-                <!-- Header -->
-                <div class="flex items-center justify-between w-full max-w-md">
-                  <div class="flex items-center gap-2">
-                    <span class="material-symbols-outlined text-red-500">videocam</span>
-                    <h4 class="text-white font-bold text-sm">Apps Móviles - Videos</h4>
-                  </div>
-                  <button
-                    class="close-service-video text-gray-400 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full"
-                    data-service="service5"
-                    aria-label="Cerrar videos"
-                  >
-                    <span class="material-symbols-outlined text-2xl">close</span>
-                  </button>
-                </div>
-
-                <!-- Video centrado -->
-                <div class="video-item-service group relative" style="height: 95vh;">
-                  <div class="relative rounded-xl overflow-hidden border-2 border-gray-700 hover:border-[#82e256] transition-all duration-300 h-full shadow-2xl">
-                    <iframe
-                      class="service-video-iframe transition-all duration-500"
-                      data-service="service5"
-                      style="width: calc(95vh * 9 / 16); height: 95vh;"
-                      src=""
-                      title="Apps Móviles - Video"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen
-                    ></iframe>
-                  </div>
-                </div>
-
-                <!-- Tip -->
-                <div class="flex items-center gap-2 text-xs text-gray-400">
-                  <span class="material-symbols-outlined text-sm">info</span>
-                  <span>Videos explicativos sobre Apps Móviles</span>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -575,6 +387,7 @@
   <section
     id="personaje6"
     class="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden animate-arch"
+    data-bg="radial-gradient(circle at 50% 100%, #06b6d4 0%, #0e7490 50%, #0a0a0a 100%)"
   >
     <!-- Título Gigante de Fondo -->
     <h2
@@ -659,54 +472,6 @@
               <span class="material-symbols-outlined text-white text-xl">play_circle</span>
             </button>
           </div>
-
-          <!-- Contenedor de videos del servicio - Modal (oculto por defecto) -->
-          <div id="videos-service6" class="service-videos-container hidden fixed inset-0 flex items-center justify-center" style="z-index: 999999;">
-            <!-- Backdrop -->
-            <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" data-backdrop="service6"></div>
-
-            <!-- Modal Content -->
-            <div class="relative z-10 w-full h-full flex items-center justify-center p-4">
-              <div class="relative flex flex-col items-center gap-4 h-full justify-center">
-                <!-- Header -->
-                <div class="flex items-center justify-between w-full max-w-md">
-                  <div class="flex items-center gap-2">
-                    <span class="material-symbols-outlined text-red-500">videocam</span>
-                    <h4 class="text-white font-bold text-sm">Arquitectura - Videos</h4>
-                  </div>
-                  <button
-                    class="close-service-video text-gray-400 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full"
-                    data-service="service6"
-                    aria-label="Cerrar videos"
-                  >
-                    <span class="material-symbols-outlined text-2xl">close</span>
-                  </button>
-                </div>
-
-                <!-- Video centrado -->
-                <div class="video-item-service group relative" style="height: 95vh;">
-                  <div class="relative rounded-xl overflow-hidden border-2 border-gray-700 hover:border-[#82e256] transition-all duration-300 h-full shadow-2xl">
-                    <iframe
-                      class="service-video-iframe transition-all duration-500"
-                      data-service="service6"
-                      style="width: calc(95vh * 9 / 16); height: 95vh;"
-                      src=""
-                      title="Arquitectura - Video"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen
-                    ></iframe>
-                  </div>
-                </div>
-
-                <!-- Tip -->
-                <div class="flex items-center gap-2 text-xs text-gray-400">
-                  <span class="material-symbols-outlined text-sm">info</span>
-                  <span>Videos explicativos sobre Arquitectura</span>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -716,6 +481,7 @@
   <section
     id="personaje7"
     class="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden animate-vision"
+    data-bg="radial-gradient(circle at 50% 100%, #ec4899 0%, #be185d 50%, #0a0a0a 100%)"
   >
     <!-- Título Gigante de Fondo -->
     <h2
@@ -766,54 +532,6 @@
               <span class="material-symbols-outlined text-white text-xl">play_circle</span>
             </button>
           </div>
-
-          <!-- Contenedor de videos del servicio - Modal (oculto por defecto) -->
-          <div id="videos-service7" class="service-videos-container hidden fixed inset-0 flex items-center justify-center" style="z-index: 999999;">
-            <!-- Backdrop -->
-            <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" data-backdrop="service7"></div>
-
-            <!-- Modal Content -->
-            <div class="relative z-10 w-full h-full flex items-center justify-center p-4">
-              <div class="relative flex flex-col items-center gap-4 h-full justify-center">
-                <!-- Header -->
-                <div class="flex items-center justify-between w-full max-w-md">
-                  <div class="flex items-center gap-2">
-                    <span class="material-symbols-outlined text-red-500">videocam</span>
-                    <h4 class="text-white font-bold text-sm">Visión Artificial - Videos</h4>
-                  </div>
-                  <button
-                    class="close-service-video text-gray-400 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full"
-                    data-service="service7"
-                    aria-label="Cerrar videos"
-                  >
-                    <span class="material-symbols-outlined text-2xl">close</span>
-                  </button>
-                </div>
-
-                <!-- Video centrado -->
-                <div class="video-item-service group relative" style="height: 95vh;">
-                  <div class="relative rounded-xl overflow-hidden border-2 border-gray-700 hover:border-[#82e256] transition-all duration-300 h-full shadow-2xl">
-                    <iframe
-                      class="service-video-iframe transition-all duration-500"
-                      data-service="service7"
-                      style="width: calc(95vh * 9 / 16); height: 95vh;"
-                      src=""
-                      title="Visión Artificial - Video"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen
-                    ></iframe>
-                  </div>
-                </div>
-
-                <!-- Tip -->
-                <div class="flex items-center gap-2 text-xs text-gray-400">
-                  <span class="material-symbols-outlined text-sm">info</span>
-                  <span>Videos explicativos sobre Visión Artificial</span>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -855,7 +573,318 @@
   </section>
 </div>
 
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- MODALES DE VIDEOS - SCOPE GLOBAL -->
+<!-- Estos modales están fuera de las secciones para respetar el z-index -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+
+<!-- Modal Video Service 1 - Agentes IA -->
+<div id="videos-service1" class="service-videos-container hidden fixed inset-0 flex items-center justify-center" style="z-index: 999999;">
+  <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" data-backdrop="service1"></div>
+  <div class="relative z-10 w-full h-full flex items-center justify-center p-4">
+    <div class="relative flex flex-col items-center gap-4 h-full justify-center">
+      <div class="flex items-center justify-between w-full max-w-md">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-red-500">videocam</span>
+          <h4 class="text-white font-bold text-sm">Agentes IA - Videos</h4>
+        </div>
+        <button class="close-service-video text-gray-400 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full" data-service="service1" aria-label="Cerrar videos">
+          <span class="material-symbols-outlined text-2xl">close</span>
+        </button>
+      </div>
+      <div class="video-item-service group relative" style="height: 95vh;">
+        <div class="relative rounded-xl overflow-hidden border-2 border-gray-700 hover:border-[#82e256] transition-all duration-300 h-full shadow-2xl">
+          <iframe class="service-video-iframe transition-all duration-500" data-service="service1" style="width: calc(95vh * 9 / 16); height: 95vh;" src="" title="Agentes IA - Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 text-xs text-gray-400">
+        <span class="material-symbols-outlined text-sm">info</span>
+        <span>Videos explicativos sobre Agentes IA</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Video Service 3 - Apps IA -->
+<div id="videos-service3" class="service-videos-container hidden fixed inset-0 flex items-center justify-center" style="z-index: 999999;">
+  <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" data-backdrop="service3"></div>
+  <div class="relative z-10 w-full h-full flex items-center justify-center p-4">
+    <div class="relative flex flex-col items-center gap-4 h-full justify-center">
+      <div class="flex items-center justify-between w-full max-w-md">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-red-500">videocam</span>
+          <h4 class="text-white font-bold text-sm">Apps IA - Videos</h4>
+        </div>
+        <button class="close-service-video text-gray-400 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full" data-service="service3" aria-label="Cerrar videos">
+          <span class="material-symbols-outlined text-2xl">close</span>
+        </button>
+      </div>
+      <div class="video-item-service group relative" style="height: 95vh;">
+        <div class="relative rounded-xl overflow-hidden border-2 border-gray-700 hover:border-[#82e256] transition-all duration-300 h-full shadow-2xl">
+          <iframe class="service-video-iframe transition-all duration-500" data-service="service3" style="width: calc(95vh * 9 / 16); height: 95vh;" src="" title="Apps IA - Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 text-xs text-gray-400">
+        <span class="material-symbols-outlined text-sm">info</span>
+        <span>Videos explicativos sobre Apps IA</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Video Service 4 - Web Moderna -->
+<div id="videos-service4" class="service-videos-container hidden fixed inset-0 flex items-center justify-center" style="z-index: 999999;">
+  <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" data-backdrop="service4"></div>
+  <div class="relative z-10 w-full h-full flex items-center justify-center p-4">
+    <div class="relative flex flex-col items-center gap-4 h-full justify-center">
+      <div class="flex items-center justify-between w-full max-w-md">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-red-500">videocam</span>
+          <h4 class="text-white font-bold text-sm">Web Moderna - Videos</h4>
+        </div>
+        <button class="close-service-video text-gray-400 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full" data-service="service4" aria-label="Cerrar videos">
+          <span class="material-symbols-outlined text-2xl">close</span>
+        </button>
+      </div>
+      <div class="video-item-service group relative" style="height: 95vh;">
+        <div class="relative rounded-xl overflow-hidden border-2 border-gray-700 hover:border-[#82e256] transition-all duration-300 h-full shadow-2xl">
+          <iframe class="service-video-iframe transition-all duration-500" data-service="service4" style="width: calc(95vh * 9 / 16); height: 95vh;" src="" title="Web Moderna - Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 text-xs text-gray-400">
+        <span class="material-symbols-outlined text-sm">info</span>
+        <span>Videos explicativos sobre Web Moderna</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Video Service 5 - Apps Móviles -->
+<div id="videos-service5" class="service-videos-container hidden fixed inset-0 flex items-center justify-center" style="z-index: 999999;">
+  <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" data-backdrop="service5"></div>
+  <div class="relative z-10 w-full h-full flex items-center justify-center p-4">
+    <div class="relative flex flex-col items-center gap-4 h-full justify-center">
+      <div class="flex items-center justify-between w-full max-w-md">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-red-500">videocam</span>
+          <h4 class="text-white font-bold text-sm">Apps Móviles - Videos</h4>
+        </div>
+        <button class="close-service-video text-gray-400 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full" data-service="service5" aria-label="Cerrar videos">
+          <span class="material-symbols-outlined text-2xl">close</span>
+        </button>
+      </div>
+      <div class="video-item-service group relative" style="height: 95vh;">
+        <div class="relative rounded-xl overflow-hidden border-2 border-gray-700 hover:border-[#82e256] transition-all duration-300 h-full shadow-2xl">
+          <iframe class="service-video-iframe transition-all duration-500" data-service="service5" style="width: calc(95vh * 9 / 16); height: 95vh;" src="" title="Apps Móviles - Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 text-xs text-gray-400">
+        <span class="material-symbols-outlined text-sm">info</span>
+        <span>Videos explicativos sobre Apps Móviles</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Video Service 6 - Arquitectura -->
+<div id="videos-service6" class="service-videos-container hidden fixed inset-0 flex items-center justify-center" style="z-index: 999999;">
+  <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" data-backdrop="service6"></div>
+  <div class="relative z-10 w-full h-full flex items-center justify-center p-4">
+    <div class="relative flex flex-col items-center gap-4 h-full justify-center">
+      <div class="flex items-center justify-between w-full max-w-md">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-red-500">videocam</span>
+          <h4 class="text-white font-bold text-sm">Arquitectura - Videos</h4>
+        </div>
+        <button class="close-service-video text-gray-400 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full" data-service="service6" aria-label="Cerrar videos">
+          <span class="material-symbols-outlined text-2xl">close</span>
+        </button>
+      </div>
+      <div class="video-item-service group relative" style="height: 95vh;">
+        <div class="relative rounded-xl overflow-hidden border-2 border-gray-700 hover:border-[#82e256] transition-all duration-300 h-full shadow-2xl">
+          <iframe class="service-video-iframe transition-all duration-500" data-service="service6" style="width: calc(95vh * 9 / 16); height: 95vh;" src="" title="Arquitectura - Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 text-xs text-gray-400">
+        <span class="material-symbols-outlined text-sm">info</span>
+        <span>Videos explicativos sobre Arquitectura</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Video Service 7 - Visión Artificial -->
+<div id="videos-service7" class="service-videos-container hidden fixed inset-0 flex items-center justify-center" style="z-index: 999999;">
+  <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" data-backdrop="service7"></div>
+  <div class="relative z-10 w-full h-full flex items-center justify-center p-4">
+    <div class="relative flex flex-col items-center gap-4 h-full justify-center">
+      <div class="flex items-center justify-between w-full max-w-md">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-red-500">videocam</span>
+          <h4 class="text-white font-bold text-sm">Visión Artificial - Videos</h4>
+        </div>
+        <button class="close-service-video text-gray-400 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full" data-service="service7" aria-label="Cerrar videos">
+          <span class="material-symbols-outlined text-2xl">close</span>
+        </button>
+      </div>
+      <div class="video-item-service group relative" style="height: 95vh;">
+        <div class="relative rounded-xl overflow-hidden border-2 border-gray-700 hover:border-[#82e256] transition-all duration-300 h-full shadow-2xl">
+          <iframe class="service-video-iframe transition-all duration-500" data-service="service7" style="width: calc(95vh * 9 / 16); height: 95vh;" src="" title="Visión Artificial - Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 text-xs text-gray-400">
+        <span class="material-symbols-outlined text-sm">info</span>
+        <span>Videos explicativos sobre Visión Artificial</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ═══════════════════════════════════════════════════════════════════
+  // ███████╗███████╗██████╗ ██╗   ██╗██╗ ██████╗██╗ ██████╗ ███████╗
+  // ██╔════╝██╔════╝██╔══██╗██║   ██║██║██╔════╝██║██╔═══██╗██╔════╝
+  // ███████╗█████╗  ██████╔╝██║   ██║██║██║     ██║██║   ██║███████╗
+  // ╚════██║██╔══╝  ██╔══██╗╚██╗ ██╔╝██║██║     ██║██║   ██║╚════██║
+  // ███████║███████╗██║  ██║ ╚████╔╝ ██║╚██████╗██║╚██████╔╝███████║
+  // ╚══════╝╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚═╝ ╚═════╝╚═╝ ╚═════╝ ╚══════╝
+  // ═══════════════════════════════════════════════════════════════════
+  // VIDEOS MODALES DE SERVICIOS (service1, service3, service4, service5, service6, service7)
+  // Estos videos se abren en modales fullscreen al hacer clic en los botones play de cada servicio
+  // ═══════════════════════════════════════════════════════════════════
+
+  // ===== Configuración de Videos por Servicio =====
+  // Aquí puedes cambiar las URLs de los videos de YouTube Shorts para cada servicio
+  const serviceVideos = {
+    service1: '9GFxx6wS9bk',  // Agentes IA
+    service3: '9GFxx6wS9bk',  // Apps IA
+    service4: '9GFxx6wS9bk',  // Web Moderna
+    service5: '9GFxx6wS9bk',  // Apps Móviles
+    service6: '9GFxx6wS9bk',  // Arquitectura
+    service7: '9GFxx6wS9bk'   // Visión Artificial
+  };
+
+  // Función para cerrar modal y detener video
+  const closeVideoModal = (serviceId) => {
+    const container = document.getElementById(`videos-${serviceId}`);
+    const iframe = document.querySelector(`.service-video-iframe[data-service="${serviceId}"]`);
+
+    if (container) {
+      container.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Detener el video completamente reseteando el src
+    if (iframe && iframe.src) {
+      iframe.src = '';
+    }
+  };
+
+  // Función para abrir modal
+  const openVideoModal = (serviceId) => {
+    const container = document.getElementById(`videos-${serviceId}`);
+    const iframe = document.querySelector(`.service-video-iframe[data-service="${serviceId}"]`);
+
+    if (container) {
+      // Cerrar todos los otros contenedores de videos
+      document.querySelectorAll('.service-videos-container').forEach(c => {
+        if (c.id !== `videos-${serviceId}`) {
+          c.classList.add('hidden');
+        }
+      });
+
+      // Cargar el video URL si el iframe está vacío
+      if (iframe && serviceVideos[serviceId]) {
+        const videoId = serviceVideos[serviceId];
+        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=0&mute=1&loop=1&playlist=${videoId}&controls=1&modestbranding=1&rel=0`;
+      }
+
+      // Mostrar modal
+      container.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
+  // Inicializar después de que el DOM esté listo
+  document.addEventListener('DOMContentLoaded', () => {
+    // Service Videos Manager - Abrir modal
+    document.querySelectorAll('.service-video-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const serviceId = btn.getAttribute('data-service');
+        openVideoModal(serviceId);
+      });
+    });
+
+    // Cerrar videos de servicio con botón X
+    document.querySelectorAll('.close-service-video').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const serviceId = btn.getAttribute('data-service');
+        closeVideoModal(serviceId);
+      });
+    });
+
+    // Cerrar videos al hacer clic en el backdrop
+    document.querySelectorAll('[data-backdrop]').forEach(backdrop => {
+      backdrop.addEventListener('click', () => {
+        const serviceId = backdrop.getAttribute('data-backdrop');
+        closeVideoModal(serviceId);
+      });
+    });
+
+    // Cerrar modal con tecla ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.service-videos-container').forEach(container => {
+          if (!container.classList.contains('hidden')) {
+            const serviceId = container.id.replace('videos-', '');
+            closeVideoModal(serviceId);
+          }
+        });
+      }
+    });
+
+    // ═══════════════════════════════════════════════════════════════════
+    // COLOR CHANGE WITH SCROLL - IntersectionObserver
+    // ═══════════════════════════════════════════════════════════════════
+    const serviceSections = document.querySelectorAll('#personaje1, #personaje3, #personaje4, #personaje5, #personaje6, #personaje7');
+
+    const observerOptions = {
+      // rootMargin hace que el cambio empiece antes de llegar al centro
+      rootMargin: '-20% 0% -20% 0%',
+      threshold: 0.1
+    };
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const bgGradient = entry.target.getAttribute('data-bg');
+
+          if (bgGradient) {
+            // Aplicar el gradiente al body de forma suave
+            document.body.style.setProperty('--bg-gradient-current', bgGradient);
+          }
+        }
+      });
+    }, observerOptions);
+
+    // Observar todas las secciones de servicios
+    serviceSections.forEach(section => sectionObserver.observe(section));
+  });
+</script>
+
 <style is:global>
+  /* ===== COLOR CHANGE WITH STICKY SCROLL ===== */
+  :root {
+    --bg-gradient-current: radial-gradient(circle at 50% 100%, #1a1a1a 0%, #0a0a0a 100%);
+  }
+
+  /* Transición suave para el cambio de fondo del body */
+  body {
+    background: var(--bg-gradient-current) !important;
+    transition: background 1.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+
   /* ===== NUEVA DISTRIBUCIÓN: TEXTOS GRANDES + IMÁGENES SIN DESCRIPCIÓN ===== */
 
   /* Secciones normales sin sticky */
@@ -982,109 +1011,3 @@
   }
 
 </style>
-<script>
-  // ═══════════════════════════════════════════════════════════════════
-  // ███████╗███████╗██████╗ ██╗   ██╗██╗ ██████╗██╗ ██████╗ ███████╗
-  // ██╔════╝██╔════╝██╔══██╗██║   ██║██║██╔════╝██║██╔═══██╗██╔════╝
-  // ███████╗█████╗  ██████╔╝██║   ██║██║██║     ██║██║   ██║███████╗
-  // ╚════██║██╔══╝  ██╔══██╗╚██╗ ██╔╝██║██║     ██║██║   ██║╚════██║
-  // ███████║███████╗██║  ██║ ╚████╔╝ ██║╚██████╗██║╚██████╔╝███████║
-  // ╚══════╝╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚═╝ ╚═════╝╚═╝ ╚═════╝ ╚══════╝
-  // ═══════════════════════════════════════════════════════════════════
-  // VIDEOS MODALES DE SERVICIOS (service1, service3, service4, service5, service6, service7)
-  // Estos videos se abren en modales fullscreen al hacer clic en los botones play de cada servicio
-  // ═══════════════════════════════════════════════════════════════════
-
-  // ===== Configuración de Videos por Servicio =====
-  // Aquí puedes cambiar las URLs de los videos de YouTube Shorts para cada servicio
-  const serviceVideos = {
-    service1: '9GFxx6wS9bk',  // Agentes IA
-    service3: '9GFxx6wS9bk',  // Apps IA
-    service4: '9GFxx6wS9bk',  // Web Moderna
-    service5: '9GFxx6wS9bk',  // Apps Móviles
-    service6: '9GFxx6wS9bk',  // Arquitectura
-    service7: '9GFxx6wS9bk'   // Visión Artificial
-  };
-
-  // Función para cerrar modal y detener video
-  const closeVideoModal = (serviceId) => {
-    const container = document.getElementById(`videos-${serviceId}`);
-    const iframe = document.querySelector(`.service-video-iframe[data-service="${serviceId}"]`);
-
-    if (container) {
-      container.classList.add('hidden');
-      document.body.style.overflow = 'auto';
-    }
-
-    // Detener el video completamente reseteando el src
-    if (iframe && iframe.src) {
-      iframe.src = '';
-    }
-  };
-
-  // Función para abrir modal
-  const openVideoModal = (serviceId) => {
-    const container = document.getElementById(`videos-${serviceId}`);
-    const iframe = document.querySelector(`.service-video-iframe[data-service="${serviceId}"]`);
-
-    if (container) {
-      // Cerrar todos los otros contenedores de videos
-      document.querySelectorAll('.service-videos-container').forEach(c => {
-        if (c.id !== `videos-${serviceId}`) {
-          c.classList.add('hidden');
-        }
-      });
-
-      // Cargar el video URL si el iframe está vacío
-      if (iframe && serviceVideos[serviceId]) {
-        const videoId = serviceVideos[serviceId];
-        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=0&mute=1&loop=1&playlist=${videoId}&controls=1&modestbranding=1&rel=0`;
-      }
-
-      // Mostrar modal
-      container.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-    }
-  };
-
-  // Inicializar después de que el DOM esté listo
-  document.addEventListener('DOMContentLoaded', () => {
-    // Service Videos Manager - Abrir modal
-    document.querySelectorAll('.service-video-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const serviceId = btn.getAttribute('data-service');
-        openVideoModal(serviceId);
-      });
-    });
-
-    // Cerrar videos de servicio con botón X
-    document.querySelectorAll('.close-service-video').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const serviceId = btn.getAttribute('data-service');
-        closeVideoModal(serviceId);
-      });
-    });
-
-    // Cerrar videos al hacer clic en el backdrop
-    document.querySelectorAll('[data-backdrop]').forEach(backdrop => {
-      backdrop.addEventListener('click', () => {
-        const serviceId = backdrop.getAttribute('data-backdrop');
-        closeVideoModal(serviceId);
-      });
-    });
-
-    // Cerrar modal con tecla ESC
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        document.querySelectorAll('.service-videos-container').forEach(container => {
-          if (!container.classList.contains('hidden')) {
-            const serviceId = container.id.replace('videos-', '');
-            closeVideoModal(serviceId);
-          }
-        });
-      }
-    });
-  });
-</script>
-
