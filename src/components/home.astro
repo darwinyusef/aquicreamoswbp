@@ -254,7 +254,7 @@ const isVisible = true;
     <h2
       class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[12vw] md:text-[14vw] font-black text-white/25 whitespace-nowrap z-0 select-none pointer-events-none"
     >
-      AGENTES IA
+      AGENTES  + IA
     </h2>
 
     <div
@@ -295,42 +295,33 @@ const isVisible = true;
         </div>
       </div>
 
-      <!-- Descripción Limpia -->
+      <!-- Descripción con Tooltip -->
       <div
         class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-ml-[300px]"
       >
-        <div
-          class="backdrop-blur-md bg-black/40 p-8 rounded-3xl border border-white/10 shadow-2xl pointer-events-auto"
-        >
-          <h3
-            class="text-6xl font-bold text-white text-center mb-6"
-          >
-            Agentes de inteligencia artificial y MCP's <br />
-           
-    </h3>
-<p
-              class="text-lg md:text-xl text-gray-100 font-medium text-center md:text-left"
+        <!-- H3 con Mini Tooltip -->
+        <div class="tooltip-wrapper relative group w-full flex justify-center md:justify-start mt-48">
+          <a href="/servicios/agentes-ia" class="block">
+            <h3
+              class="text-5xl md:text-6xl lg:text-7xl font-bold text-white text-center md:text-left px-6 py-3 cursor-pointer relative inline-block"
             >
-              Implementamos chatbots, whatsapp agents, agentes de ventas,
-              soporte y operaciones conectados mediante <strong
-                class="text-green-500">Model Context Protocol (MCP)</strong
-              > que responden multimodalmente. Tu fuerza laboral digital autónoma
-              que entiende, razona y ejecuta.
-            </p>
-          <div class="flex flex-col gap-4">
-            
-            <div class="flex justify-center md:justify-start mt-2">
-              <a
-                href="/servicios/agentes-ia"
-                class="text-[#82e256] font-bold hover:text-white transition-colors duration-300 flex items-center gap-2 group text-lg"
-              >
-                EXPLORAR AGENTES <span
-                  class="transform group-hover:translate-x-1 transition-transform"
-                  >→</span
-                >
-              </a>
-            </div>
-          </div>
+              Agentes de inteligencia artificial y MCP's
+
+              <!-- Mini Tooltip (aparece arriba al hover) -->
+              <div class="tooltip-content absolute left-0 md:left-auto md:right-0 bottom-full mb-4 w-[90vw] md:w-[450px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:-translate-y-2 z-50 pointer-events-none">
+                <div class="backdrop-blur-xl bg-black/90 p-5 rounded-2xl border-2 border-[#82e256]/50 shadow-2xl">
+                  <!-- Contenido del Tooltip -->
+                  <p class="text-sm md:text-base text-white font-light leading-relaxed">
+                    Implementamos chatbots, whatsapp agents, agentes de ventas,
+                    soporte y operaciones conectados mediante <strong class="text-[#82e256] font-semibold">Model Context Protocol (MCP)</strong> que responden multimodalmente. Tu fuerza laboral digital autónoma que entiende, razona y ejecuta.
+                  </p>
+                </div>
+
+                <!-- Flecha indicadora del tooltip (apunta hacia abajo) -->
+                <div class="absolute -bottom-2 left-8 md:left-auto md:right-8 w-4 h-4 bg-black/90 border-r border-b border-[#82e256]/50 transform rotate-45"></div>
+              </div>
+            </h3>
+          </a>
         </div>
       </div>
     </div>
@@ -343,47 +334,42 @@ const isVisible = true;
   >
     <!-- Título Gigante de Fondo -->
     <h2
-      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[12vw] md:text-[14vw] font-black text-white/25 whitespace-nowrap z-0 select-none pointer-events-none"
+      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[11vw] md:text-[12vw] font-black text-white/25 whitespace-nowrap z-0 select-none pointer-events-none"
     >
-      APPS ONLINE
+      APPS WEBS
     </h2>
 
     <div
       class="flex flex-col md:flex-row items-center justify-center w-full max-w-7xl z-10"
     >
-      <!-- Descripción (Izquierda, superpuesta a la derecha) -->
+      <!-- Descripción con Tooltip -->
       <div
         class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-mr-[300px] order-2 md:order-1"
       >
-        <div
-          class="backdrop-blur-md bg-black/40 p-8 rounded-3xl border border-white/10 shadow-2xl pointer-events-auto"
-        >
-          <h3
-            class="text-4xl md:text-5xl font-bold text-white leading-tight text-center md:text-left mb-6"
-          >
-            IA para Aplicaciones <br />
-            <span class="text-[#82e256]">Online</span>
-          </h3>
-          <div class="flex flex-col gap-4">
-            <p
-              class="text-lg md:text-xl text-gray-100 font-medium leading-relaxed text-center md:text-left"
+        <!-- H3 con Mini Tooltip -->
+        <div class="tooltip-wrapper relative group w-full flex justify-center md:justify-start mt-48">
+          <a href="/servicios/apps-ia" class="block">
+            <h3
+              class="text-4xl md:text-5xl lg:text-6xl font-bold mt-16 text-white text-center md:text-left px-6 py-3 cursor-pointer relative inline-block"
             >
-              Potencia tus plataformas web y móviles con modelos de lenguaje y
-              visión. Búsqueda semántica, personalización predictiva y
-              experiencias conversacionales integradas.
-            </p>
-            <div class="flex justify-center md:justify-start mt-2">
-              <a
-                href="/servicios/apps-ia"
-                class="text-[#82e256] font-bold hover:text-white transition-colors duration-300 flex items-center gap-2 group text-lg"
-              >
-                VER SOLUCIONES <span
-                  class="transform group-hover:translate-x-1 transition-transform"
-                  >→</span
-                >
-              </a>
-            </div>
-          </div>
+              Apps con integraciones hechas a la medida + IA
+
+              <!-- Mini Tooltip (aparece arriba al hover) -->
+              <div class="tooltip-content absolute left-0 md:left-auto md:right-0 bottom-full mb-4 w-[90vw] md:w-[450px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:-translate-y-2 z-50 pointer-events-none">
+                <div class="backdrop-blur-xl bg-black/90 p-5 rounded-2xl border-2 border-[#82e256]/50 shadow-2xl">
+                  <!-- Contenido del Tooltip -->
+                  <p class="text-sm md:text-base text-white font-light leading-relaxed">
+                    Potencia tus plataformas, y aplicaciones webs, con integraciones de modelos de lenguaje LLM, machine learning, 
+                   computer visión. búsqueda semántica, Analisis de datos, personalización predictiva y
+                    experiencias conversacionales integradas (STT - TTS).
+                  </p>
+                </div>
+
+                <!-- Flecha indicadora del tooltip (apunta hacia abajo) -->
+                <div class="absolute -bottom-2 left-8 md:left-auto md:right-8 w-4 h-4 bg-black/90 border-r border-b border-[#82e256]/50 transform rotate-45"></div>
+              </div>
+            </h3>
+          </a>
         </div>
       </div>
 
@@ -433,7 +419,7 @@ const isVisible = true;
     <h2
       class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[12vw] md:text-[14vw] font-black text-white/25 whitespace-nowrap z-0 select-none pointer-events-none leading-none"
     >
-      WEB <br /> MODERNA
+      WEBSITES <br /> MODERNOS
     </h2>
 
     <div
@@ -474,39 +460,34 @@ const isVisible = true;
         </div>
       </div>
 
-      <!-- Descripción (Derecha, superpuesta a la izquierda) -->
+      <!-- Descripción con Tooltip -->
       <div
         class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-ml-[300px]"
       >
-        <div
-          class="backdrop-blur-md bg-black/40 p-8 rounded-3xl border border-white/10 shadow-2xl pointer-events-auto"
-        >
-          <h3
-            class="text-4xl md:text-5xl font-bold text-white leading-tight text-center md:text-left mb-6"
-          >
-            Desarrollo Web <br />
-            <span class="text-[#82e256]">Moderno & Rápido</span>
-          </h3>
-          <div class="flex flex-col gap-4">
-            <p
-              class="text-lg md:text-xl text-gray-100 font-medium leading-relaxed text-center md:text-left"
+        <!-- H3 con Mini Tooltip -->
+        <div class="tooltip-wrapper relative group w-full flex justify-center md:justify-start mt-48">
+          <a href="/servicios/web" class="block">
+            <h3
+              class="text-5xl md:text-6xl lg:text-7xl font-bold text-white text-center md:text-left px-6 py-3 cursor-pointer relative inline-block"
             >
-              Sitios web ultrarrápidos construidos con Astro y tecnologías de
-              vanguardia. Diseño premium, SEO optimizado y performance
-              inigualable.
-            </p>
-            <div class="flex justify-center md:justify-start mt-2">
-              <a
-                href="/servicios/web"
-                class="text-[#82e256] font-bold hover:text-white transition-colors duration-300 flex items-center gap-2 group text-lg"
-              >
-                VER PROYECTOS <span
-                  class="transform group-hover:translate-x-1 transition-transform"
-                  >→</span
-                >
-              </a>
-            </div>
-          </div>
+              Diseño y Desarrollo Web Moderno & Rápido + IA
+
+              <!-- Mini Tooltip (aparece arriba al hover) -->
+              <div class="tooltip-content absolute left-0 md:left-auto md:right-0 bottom-full mb-4 w-[90vw] md:w-[450px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:-translate-y-2 z-50 pointer-events-none">
+                <div class="backdrop-blur-xl bg-black/90 p-5 rounded-2xl border-2 border-[#82e256]/50 shadow-2xl">
+                  <!-- Contenido del Tooltip -->
+                  <p class="text-sm md:text-base text-white font-light leading-relaxed">
+                    Sitios web optimizados, responsive, construidos desde 0 con tecnologías de
+                    vanguardia. Diseño premium, animaciones Premium, SEO optimizado y performance
+                    inigualable todo para aumentar la experiencia y mejorar tus ventas.
+                  </p>
+                </div>
+
+                <!-- Flecha indicadora del tooltip (apunta hacia abajo) -->
+                <div class="absolute -bottom-2 left-8 md:left-auto md:right-8 w-4 h-4 bg-black/90 border-r border-b border-[#82e256]/50 transform rotate-45"></div>
+              </div>
+            </h3>
+          </a>
         </div>
       </div>
     </div>
@@ -521,44 +502,39 @@ const isVisible = true;
     <h2
       class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[12vw] md:text-[14vw] font-black text-white/25 whitespace-nowrap z-0 select-none pointer-events-none leading-none"
     >
-      APPS <br /> NATIVAS
+      APPS <br /> MOVILES
     </h2>
 
     <div
       class="flex flex-col md:flex-row items-center justify-center w-full max-w-7xl z-10"
     >
-      <!-- Descripción (Izquierda, superpuesta a la derecha) -->
+      <!-- Descripción con Tooltip -->
       <div
         class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-mr-[300px] order-2 md:order-1"
       >
-        <div
-          class="backdrop-blur-md bg-black/40 p-8 rounded-3xl border border-white/10 shadow-2xl pointer-events-auto"
-        >
-          <h3
-            class="text-4xl md:text-5xl font-bold text-white leading-tight text-center md:text-left mb-6"
-          >
-            Aplicaciones <br />
-            <span class="text-[#82e256]">Nativas & Cross-Platform</span>
-          </h3>
-          <div class="flex flex-col gap-4">
-            <p
-              class="text-lg md:text-xl text-gray-100 font-medium leading-relaxed text-center md:text-left"
+        <!-- H3 con Mini Tooltip -->
+        <div class="tooltip-wrapper relative group w-full flex justify-center md:justify-start mt-48">
+          <a href="/servicios/movil" class="block">
+            <h3
+              class="text-5xl md:text-6xl lg:text-7xl font-bold text-white text-center md:text-left px-6 py-3 cursor-pointer relative inline-block"
             >
-              Apps iOS y Android de alto rendimiento. Experiencias de usuario
-              fluidas, notificaciones push y funcionalidades nativas avanzadas.
-            </p>
-            <div class="flex justify-center md:justify-start mt-2">
-              <a
-                href="/servicios/movil"
-                class="text-[#82e256] font-bold hover:text-white transition-colors duration-300 flex items-center gap-2 group text-lg"
-              >
-                VER APPS <span
-                  class="transform group-hover:translate-x-1 transition-transform"
-                  >→</span
-                >
-              </a>
-            </div>
-          </div>
+              Aplicaciones Nativas & Cross-Platform
+
+              <!-- Mini Tooltip (aparece arriba al hover) -->
+              <div class="tooltip-content absolute left-0 md:left-auto md:right-0 bottom-full mb-4 w-[90vw] md:w-[450px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:-translate-y-2 z-50 pointer-events-none">
+                <div class="backdrop-blur-xl bg-black/90 p-5 rounded-2xl border-2 border-[#82e256]/50 shadow-2xl">
+                  <!-- Contenido del Tooltip -->
+                  <p class="text-sm md:text-base text-white font-light leading-relaxed">
+                    Apps de alto rendimiento en lenguajes nativos (Swift, Kotlin). Experiencias de usuario
+                    fluidas, notificaciones push, cross-platform (que funciona en múltiples plataformas) y funcionalidades nativas avanzadas.
+                  </p>
+                </div>
+
+                <!-- Flecha indicadora del tooltip (apunta hacia abajo) -->
+                <div class="absolute -bottom-2 left-8 md:left-auto md:right-8 w-4 h-4 bg-black/90 border-r border-b border-[#82e256]/50 transform rotate-45"></div>
+              </div>
+            </h3>
+          </a>
         </div>
       </div>
 
@@ -606,7 +582,7 @@ const isVisible = true;
   >
     <!-- Título Gigante de Fondo -->
     <h2
-      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[13vw] md:text-[12vw] font-black text-white/25 whitespace-nowrap z-0 select-none pointer-events-none leading-none"
+      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[13vw] md:text-[12vw] font-black text-white/25 whitespace-nowrap z-0 select-none pointer-events-none leading-none text-center"
     >
       ARQUITECTURA <br /> DE SOFTWARE
     </h2>
@@ -649,38 +625,33 @@ const isVisible = true;
         </div>
       </div>
 
-      <!-- Descripción (Derecha, superpuesta a la izquierda) -->
+      <!-- Descripción con Tooltip -->
       <div
         class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-ml-[300px]"
       >
-        <div
-          class="backdrop-blur-md bg-black/40 p-8 rounded-3xl border border-white/10 shadow-2xl pointer-events-auto"
-        >
-          <h3
-            class="text-4xl md:text-5xl font-bold text-white leading-tight text-center md:text-left mb-6"
-          >
-            Arquitectura <br />
-            <span class="text-[#82e256]">Escalable & Robusta</span>
-          </h3>
-          <div class="flex flex-col gap-4">
-            <p
-              class="text-lg md:text-xl text-gray-100 font-medium leading-relaxed text-center md:text-left"
+        <!-- H3 con Mini Tooltip -->
+        <div class="tooltip-wrapper relative group w-full flex justify-center md:justify-start mt-48">
+          <a href="/servicios/arquitectura" class="block">
+            <h3
+              class="text-5xl md:text-6xl lg:text-7xl font-bold text-white text-center md:text-left px-6 py-3 cursor-pointer relative inline-block"
             >
-              Diseñamos sistemas que crecen contigo. Microservicios, serverless
-              y cloud-native para garantizar disponibilidad y seguridad.
-            </p>
-            <div class="flex justify-center md:justify-start mt-2">
-              <a
-                href="/servicios/arquitectura"
-                class="text-[#82e256] font-bold hover:text-white transition-colors duration-300 flex items-center gap-2 group text-lg"
-              >
-                VER ARQUITECTURA <span
-                  class="transform group-hover:translate-x-1 transition-transform"
-                  >→</span
-                >
-              </a>
-            </div>
-          </div>
+              Arquitectura Escalable & Robusta
+
+              <!-- Mini Tooltip (aparece arriba al hover) -->
+              <div class="tooltip-content absolute left-0 md:left-auto md:right-0 bottom-full mb-4 w-[90vw] md:w-[450px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:-translate-y-2 z-50 pointer-events-none">
+                <div class="backdrop-blur-xl bg-black/90 p-5 rounded-2xl border-2 border-[#82e256]/50 shadow-2xl">
+                  <!-- Contenido del Tooltip -->
+                  <p class="text-sm md:text-base text-white font-light leading-relaxed">
+                    Diseñamos sistemas que crecen contigo. Microservicios, serverless
+                    y cloud-native para garantizar disponibilidad y seguridad.
+                  </p>
+                </div>
+
+                <!-- Flecha indicadora del tooltip (apunta hacia abajo) -->
+                <div class="absolute -bottom-2 left-8 md:left-auto md:right-8 w-4 h-4 bg-black/90 border-r border-b border-[#82e256]/50 transform rotate-45"></div>
+              </div>
+            </h3>
+          </a>
         </div>
       </div>
     </div>
@@ -701,38 +672,33 @@ const isVisible = true;
     <div
       class="flex flex-col md:flex-row items-center justify-center w-full max-w-7xl z-10"
     >
-      <!-- Descripción (Izquierda, superpuesta a la derecha) -->
+      <!-- Descripción con Tooltip -->
       <div
         class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-mr-[300px] order-2 md:order-1"
       >
-        <div
-          class="backdrop-blur-md bg-black/40 p-8 rounded-3xl border border-white/10 shadow-2xl pointer-events-auto"
-        >
-          <h3
-            class="text-4xl md:text-5xl font-bold text-white leading-tight text-center md:text-left mb-6"
-          >
-            Visión <br />
-            <span class="text-[#82e256]">Artificial</span>
-          </h3>
-          <div class="flex flex-col gap-4">
-            <p
-              class="text-lg md:text-xl text-gray-100 font-medium leading-relaxed text-center md:text-left"
+        <!-- H3 con Mini Tooltip -->
+        <div class="tooltip-wrapper relative group w-full flex justify-center md:justify-start mt-48">
+          <a href="/servicios/vision" class="block">
+            <h3
+              class="text-5xl md:text-6xl lg:text-7xl font-bold text-white text-center md:text-left px-6 py-3 cursor-pointer relative inline-block"
             >
-              Análisis de imágenes y video en tiempo real. Detección de objetos,
-              reconocimiento facial y control de calidad automatizado.
-            </p>
-            <div class="flex justify-center md:justify-start mt-2">
-              <a
-                href="/servicios/vision"
-                class="text-[#82e256] font-bold hover:text-white transition-colors duration-300 flex items-center gap-2 group text-lg"
-              >
-                VER SOLUCIONES <span
-                  class="transform group-hover:translate-x-1 transition-transform"
-                  >→</span
-                >
-              </a>
-            </div>
-          </div>
+              Visión Artificial
+
+              <!-- Mini Tooltip (aparece arriba al hover) -->
+              <div class="tooltip-content absolute left-0 md:left-auto md:right-0 bottom-full mb-4 w-[90vw] md:w-[450px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:-translate-y-2 z-50 pointer-events-none">
+                <div class="backdrop-blur-xl bg-black/90 p-5 rounded-2xl border-2 border-[#82e256]/50 shadow-2xl">
+                  <!-- Contenido del Tooltip -->
+                  <p class="text-sm md:text-base text-white font-light leading-relaxed">
+                    Análisis de imágenes y video en tiempo real. Detección de objetos,
+                    reconocimiento facial y control de calidad automatizado.
+                  </p>
+                </div>
+
+                <!-- Flecha indicadora del tooltip (apunta hacia abajo) -->
+                <div class="absolute -bottom-2 left-8 md:left-auto md:right-8 w-4 h-4 bg-black/90 border-r border-b border-[#82e256]/50 transform rotate-45"></div>
+              </div>
+            </h3>
+          </a>
         </div>
       </div>
 
@@ -5014,28 +4980,6 @@ La elección depende de tu caso de uso específico. Para APIs internas, JWT suel
     gap: 2rem !important;
   }
 
-  /* Mostrar botones pequeños con icono */
-  #personaje1 a[href*="/servicios"],
-  #personaje3 a[href*="/servicios"],
-  #personaje4 a[href*="/servicios"],
-  #personaje5 a[href*="/servicios"],
-  #personaje6 a[href*="/servicios"],
-  #personaje7 a[href*="/servicios"] {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 56px !important;
-    height: 56px !important;
-    border-radius: 50% !important;
-    background: linear-gradient(135deg, #82e256 0%, #5fd41c 100%) !important;
-    border: 2px solid rgba(255, 255, 255, 0.2) !important;
-    box-shadow: 0 8px 24px rgba(130, 226, 86, 0.4),
-                0 0 40px rgba(130, 226, 86, 0.2) !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    position: relative !important;
-    overflow: hidden !important;
-    font-size: 0 !important;
-  }
   /* Animación de pulso sutil */
   @keyframes pulse-glow {
     0%, 100% {
@@ -5058,6 +5002,42 @@ La elección depende de tu caso de uso específico. Para APIs internas, JWT suel
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+  }
+
+  /* ===== EXCEPCIONES PARA TOOLTIPS - TODOS LOS SERVICIOS ===== */
+
+  /* Mostrar el contenido del tooltip en todos los servicios */
+  #personaje1 .tooltip-content p,
+  #personaje3 .tooltip-content p,
+  #personaje4 .tooltip-content p,
+  #personaje5 .tooltip-content p,
+  #personaje6 .tooltip-content p,
+  #personaje7 .tooltip-content p {
+    display: block !important;
+  }
+
+  /* Mantener estilos del tooltip visible en todos los servicios */
+  #personaje1 .tooltip-content .backdrop-blur-xl,
+  #personaje3 .tooltip-content .backdrop-blur-xl,
+  #personaje4 .tooltip-content .backdrop-blur-xl,
+  #personaje5 .tooltip-content .backdrop-blur-xl,
+  #personaje6 .tooltip-content .backdrop-blur-xl,
+  #personaje7 .tooltip-content .backdrop-blur-xl {
+    background: rgba(0, 0, 0, 0.9) !important;
+    backdrop-filter: blur(24px) !important;
+    border: 2px solid rgba(130, 226, 86, 0.5) !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8) !important;
+    padding: 1.25rem !important;
+  }
+
+  /* Asegurar que el h3 wrapper sea visible en todos los servicios */
+  #personaje1 .tooltip-wrapper,
+  #personaje3 .tooltip-wrapper,
+  #personaje4 .tooltip-wrapper,
+  #personaje5 .tooltip-wrapper,
+  #personaje6 .tooltip-wrapper,
+  #personaje7 .tooltip-wrapper {
+    display: flex !important;
   }
 
 </style>
