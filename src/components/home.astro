@@ -127,7 +127,9 @@ const isVisible = true;
       class="w-8 h-6 md:w-12 md:h-9 object-cover cursor-pointer hover:scale-110 transition-transform shadow-lg rounded-sm"
     />
   </div>
+</main>
 
+<main class="bg-[#1a1a1a]">
   <style>
     /* Paleta 1: Agentes (Verde/Dorado/Bosque) */
     @keyframes cycle-agents {
@@ -245,6 +247,13 @@ const isVisible = true;
     }
   </style>
 
+  <!-- Título Principal de Servicios -->
+  <section class="relative w-full py-16 md:py-24 flex items-center justify-center overflow-hidden bg-gradient-to-b from-black/50 via-[#1a1a1a] to-black/50 border-y border-white/10">
+    <h1 class="text-6xl md:text-7xl lg:text-8xl font-black text-white/40 text-center select-none">
+      SERVICIOS
+    </h1>
+  </section>
+
   <!-- Sección 1: Agentes IA -->
   <section
     id="personaje1"
@@ -300,10 +309,10 @@ const isVisible = true;
         class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-ml-[300px]"
       >
         <!-- H3 con Mini Tooltip -->
-        <div class="tooltip-wrapper relative group w-full flex justify-center md:justify-start mt-48">
+        <div class="tooltip-wrapper relative group w-full flex justify-center md:justify-start mt-24 md:mt-32">
           <a href="/servicios/agentes-ia" class="block">
             <h3
-              class="text-5xl md:text-6xl lg:text-7xl font-bold text-white text-center md:text-left px-6 py-3 cursor-pointer relative inline-block"
+              class="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center md:text-left px-6 py-4 cursor-pointer relative inline-block leading-tight"
             >
               Agentes de inteligencia artificial y MCP's
 
@@ -347,10 +356,10 @@ const isVisible = true;
         class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-mr-[300px] order-2 md:order-1"
       >
         <!-- H3 con Mini Tooltip -->
-        <div class="tooltip-wrapper relative group w-full flex justify-center md:justify-start mt-48">
+        <div class="tooltip-wrapper relative group w-full flex justify-center md:justify-start mt-24 md:mt-32">
           <a href="/servicios/apps-ia" class="block">
             <h3
-              class="text-4xl md:text-5xl lg:text-6xl font-bold mt-16 text-white text-center md:text-left px-6 py-3 cursor-pointer relative inline-block"
+              class="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center md:text-left px-6 py-4 cursor-pointer relative inline-block leading-tight"
             >
               Apps con integraciones hechas a la medida + IA
 
@@ -465,10 +474,10 @@ const isVisible = true;
         class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-ml-[300px]"
       >
         <!-- H3 con Mini Tooltip -->
-        <div class="tooltip-wrapper relative group w-full flex justify-center md:justify-start mt-48">
+        <div class="tooltip-wrapper relative group w-full flex justify-center md:justify-start mt-24 md:mt-32">
           <a href="/servicios/web" class="block">
             <h3
-              class="text-5xl md:text-6xl lg:text-7xl font-bold text-white text-center md:text-left px-6 py-3 cursor-pointer relative inline-block"
+              class="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center md:text-left px-6 py-4 cursor-pointer relative inline-block leading-tight"
             >
               Diseño y Desarrollo Web Moderno & Rápido + IA
 
@@ -513,10 +522,10 @@ const isVisible = true;
         class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-mr-[300px] order-2 md:order-1"
       >
         <!-- H3 con Mini Tooltip -->
-        <div class="tooltip-wrapper relative group w-full flex justify-center md:justify-start mt-48">
+        <div class="tooltip-wrapper relative group w-full flex justify-center md:justify-start mt-24 md:mt-32">
           <a href="/servicios/movil" class="block">
             <h3
-              class="text-5xl md:text-6xl lg:text-7xl font-bold text-white text-center md:text-left px-6 py-3 cursor-pointer relative inline-block"
+              class="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center md:text-left px-6 py-4 cursor-pointer relative inline-block leading-tight"
             >
               Aplicaciones Nativas & Cross-Platform
 
@@ -630,10 +639,10 @@ const isVisible = true;
         class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-ml-[300px]"
       >
         <!-- H3 con Mini Tooltip -->
-        <div class="tooltip-wrapper relative group w-full flex justify-center md:justify-start mt-48">
+        <div class="tooltip-wrapper relative group w-full flex justify-center md:justify-start mt-24 md:mt-32">
           <a href="/servicios/arquitectura" class="block">
             <h3
-              class="text-5xl md:text-6xl lg:text-7xl font-bold text-white text-center md:text-left px-6 py-3 cursor-pointer relative inline-block"
+              class="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center md:text-left px-6 py-4 cursor-pointer relative inline-block leading-tight"
             >
               Arquitectura Escalable & Robusta
 
@@ -642,8 +651,8 @@ const isVisible = true;
                 <div class="backdrop-blur-xl bg-black/90 p-5 rounded-2xl border-2 border-[#82e256]/50 shadow-2xl">
                   <!-- Contenido del Tooltip -->
                   <p class="text-sm md:text-base text-white font-light leading-relaxed">
-                    Diseñamos sistemas que crecen contigo. Microservicios, serverless
-                    y cloud-native para garantizar disponibilidad y seguridad.
+                    Diseñamos sistemas escalables con arquitecturas pensadas para el futuro. Microservicios, serverless
+                    con miles de flujos de IA, eventos y cloud-native para garantizar disponibilidad y seguridad.
                   </p>
                 </div>
 
@@ -677,20 +686,21 @@ const isVisible = true;
         class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-mr-[300px] order-2 md:order-1"
       >
         <!-- H3 con Mini Tooltip -->
-        <div class="tooltip-wrapper relative group w-full flex justify-center md:justify-start mt-48">
+        <div class="tooltip-wrapper relative group w-full flex justify-center md:justify-start mt-24 md:mt-32">
           <a href="/servicios/vision" class="block">
             <h3
-              class="text-5xl md:text-6xl lg:text-7xl font-bold text-white text-center md:text-left px-6 py-3 cursor-pointer relative inline-block"
+              class="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center md:text-left px-6 py-4 cursor-pointer relative inline-block leading-tight"
             >
-              Visión Artificial
+              Visión por Computadora hecha a la medida. + IA
 
               <!-- Mini Tooltip (aparece arriba al hover) -->
               <div class="tooltip-content absolute left-0 md:left-auto md:right-0 bottom-full mb-4 w-[90vw] md:w-[450px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:-translate-y-2 z-50 pointer-events-none">
                 <div class="backdrop-blur-xl bg-black/90 p-5 rounded-2xl border-2 border-[#82e256]/50 shadow-2xl">
                   <!-- Contenido del Tooltip -->
                   <p class="text-sm md:text-base text-white font-light leading-relaxed">
-                    Análisis de imágenes y video en tiempo real. Detección de objetos,
-                    reconocimiento facial y control de calidad automatizado.
+                    Análisis de imágenes y video en tiempo real, Detección de objetos,
+                    reconocimiento facial y control de calidad automatizado, Tenemos muchos flujos listos para integrar a tus plataformas 
+                    que incluyen Deeplearning para sus procesos.
                   </p>
                 </div>
 
