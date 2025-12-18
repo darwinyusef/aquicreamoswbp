@@ -1,4 +1,6 @@
 ---
+import Chatbot from './Chatbot.astro';
+
 // FAQ Items - cada uno puede tener audio, video (YouTube Short) o ninguno
 const faqItems = [
   {
@@ -185,6 +187,20 @@ const faqItems = [
               <span>Consultar con IA</span>
             </button>
           </form>
+
+          <!-- Botón para chatbot conversacional -->
+          <div class="mt-6 pt-6 border-t border-white/10">
+            <p class="text-white/60 text-sm mb-3 text-center">O conversa con nuestro asistente</p>
+            <button
+              data-chatbot="consulta-ia"
+              class="w-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#82e256]/50 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-3"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+              <span>Chat Interactivo IA</span>
+            </button>
+          </div>
 
           <!-- Respuesta de IA -->
           <div id="ai-response" class="hidden mt-8 animate-fade-in">
@@ -875,3 +891,9 @@ const faqItems = [
     }
   });
 </script>
+
+<Chatbot
+  context="consulta-ia"
+  title="Asistente Técnico IA"
+  initialMessage="¡Hola! 💡 Soy tu asistente técnico. Puedo ayudarte con preguntas sobre arquitectura de software, desarrollo, DevOps, IA y más. ¿En qué puedo ayudarte?"
+/>

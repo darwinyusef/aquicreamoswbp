@@ -271,11 +271,18 @@ const isVisible = true;
 <!-- Sección de Mentoring y Cursos de Arquitectura -->
 <section
   id="contenido11"
-  class="w-full md:px-16 px-5 py-20 bg-gradient-to-br from-[#0d1a1a] via-[#1a1a1a] to-[#0d1a1a]"
+  class="relative w-full md:px-16 px-5 py-20 bg-[#00464e] bg-[url(/img/fondo.png)] bg-no-repeat bg-cover bg-center"
 >
-  <div class="max-w-7xl mx-auto">
-    <!-- Header -->
-    <div class="text-center mb-16">
+  <!-- Overlay con color base -->
+  <div class="absolute inset-0 bg-[#00464e]/50"></div>
+
+  <!-- Tramado pattern -->
+  <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=%2760%27 height=%2760%27 viewBox=%270 0 60 60%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cg fill=%27none%27 fill-rule=%27evenodd%27%3E%3Cg fill=%27%23ffffff%27 fill-opacity=%270.03%27%3E%3Cpath d=%27M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z%27/%3E%3C/g%3E%3C/g%3E%3C/svg%3E'); opacity: 0.5;"></div>
+
+  <div class="max-w-7xl mx-auto relative z-10">
+
+    <!-- Main Header -->
+    <div class="text-center mb-12">
       <div
         class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-2xl mb-6 shadow-xl"
       >
@@ -299,101 +306,12 @@ const isVisible = true;
         Mentoring y Cursos Especializados
       </h1>
       <p class="text-white/70 text-lg max-w-3xl mx-auto">
-        Eleva las habilidades de tu equipo con nuestros programas de mentoring y
-        cursos especializados en arquitectura de software
+        Eleva las habilidades de tu equipo con nuestros programas de mentoring y cursos especializados en arquitectura de software
       </p>
     </div>
 
-    <!-- Intro Section -->
-    <div
-      class="max-w-4xl mx-auto mb-16 p-1 bg-gradient-to-r from-[#82e256] via-[#6bc73d] to-[#04ADC0] rounded-2xl shadow-2xl"
-    >
-      <div
-        class="bg-gradient-to-br from-[#1a1a1a] to-[#232323] rounded-2xl p-8 md:p-12"
-      >
-        <div class="flex flex-col md:flex-row gap-8 items-center">
-          <div class="flex-shrink-0">
-            <div
-              class="w-24 h-24 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-2xl flex items-center justify-center shadow-xl"
-            >
-              <svg
-                class="w-12 h-12 text-black"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-                ></path>
-              </svg>
-            </div>
-          </div>
-          <div class="flex-1">
-            <h2 class="text-2xl md:text-3xl font-bold text-white mb-3">
-              ¿Por qué invertir en formación de tu equipo?
-            </h2>
-            <ul class="space-y-2 text-white/70">
-              <li class="flex items-start gap-3">
-                <svg
-                  class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span>Reduce costos de desarrollo con mejores prácticas</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg
-                  class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span>Crea sistemas más escalables y mantenibles</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg
-                  class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span
-                  >Acelera la entrega de proyectos con equipos mejor capacitados</span
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- Courses List - Modern Design -->
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-xs font-bold tracking-[0.3em] text-[#82e256] mb-16 uppercase">
-        Servicios de Ingeniería — 2025
-      </h2>
+    <div class="max-w-6xl mx-auto mb-16">
 
       <div class="flex flex-col border-t border-white/5">
         <!-- Item 1: Arquitectura Hexagonal -->
@@ -498,61 +416,87 @@ const isVisible = true;
       </div>
     </div>
 
-    <!-- CTA to External Platform -->
-    <div class="max-w-4xl mx-auto">
+    <!-- Benefits Section -->
+    <div class="max-w-4xl mx-auto mt-16">
       <div
         class="p-1 bg-gradient-to-r from-[#82e256] via-[#6bc73d] to-[#04ADC0] rounded-2xl shadow-2xl"
       >
         <div
-          class="bg-gradient-to-br from-[#1a1a1a] to-[#232323] rounded-2xl p-8 md:p-12 text-center"
+          class="bg-gradient-to-br from-[#1a1a1a] to-[#232323] rounded-2xl p-8 md:p-12"
         >
-          <div
-            class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-2xl mb-6 shadow-xl"
-          >
-            <svg
-              class="w-10 h-10 text-black"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-              ></path>
-            </svg>
+          <div class="flex flex-col md:flex-row gap-8 items-center">
+            <div class="flex-shrink-0">
+              <div
+                class="w-24 h-24 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-2xl flex items-center justify-center shadow-xl"
+              >
+                <svg
+                  class="w-12 h-12 text-black"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <div class="flex-1">
+              <h2 class="text-2xl md:text-3xl font-bold text-white mb-3">
+                ¿Por qué invertir en formación de tu equipo?
+              </h2>
+              <ul class="space-y-2 text-white/70">
+                <li class="flex items-start gap-3">
+                  <svg
+                    class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span>Reduce costos de desarrollo con mejores prácticas</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg
+                    class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span>Crea sistemas más escalables y mantenibles</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg
+                    class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span>Acelera la entrega de proyectos con equipos mejor capacitados</span>
+                </li>
+              </ul>
+            </div>
           </div>
-          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-            Accede a Todos los Cursos
-          </h2>
-          <p class="text-white/70 text-lg mb-8 max-w-2xl mx-auto">
-            Explora nuestro catálogo completo de cursos, inscríbete y comienza a
-            elevar las habilidades de tu equipo hoy mismo
-          </p>
-          <a
-            href="https://aquicreamos.tech"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#82e256] to-[#6bc73d] hover:from-[#6bc73d] hover:to-[#5ba62e] text-black font-bold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl group"
-          >
-            <span>Ir a Aquí Creamos Tech</span>
-            <svg
-              class="w-5 h-5 transform group-hover:translate-x-1 transition-transform"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-            </svg>
-          </a>
-          <p class="text-white/0 text-sm mt-4">
-            Descuentos especiales para equipos de 5+ personas
-          </p>
         </div>
       </div>
     </div>

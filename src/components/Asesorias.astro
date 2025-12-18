@@ -1,3 +1,6 @@
+---
+import Chatbot from './Chatbot.astro';
+---
 
 <!-- Sección de Asesorías en arquitectura de software -->
 <section
@@ -16,47 +19,52 @@
         </h1>
       </div>
       <p class="text-lg text-center mb-5 md:text-left">
-        Potencia tu proyecto con nuestra experiencia en diseño de sistemas
-        escalables, mantenibles y de alto rendimiento. Nuestro equipo de
-        arquitectos te guiará hacia las mejores prácticas y tecnologías.
+        Transformamos tu visión en soluciones tecnológicas robustas y escalables. Nuestro equipo de arquitectos expertos te acompañará en cada etapa del proceso, desde la conceptualización hasta la implementación, garantizando que tu proyecto cumpla con los más altos estándares de la industria.
       </p>
       <div class="flex flex-col items-center p-5">
         <h1 class="mb-5 font-bold text-2xl md:text-left">
-          ¿Por que elegir nuestra arquitectura?
+          ¿Por qué elegirnos para tu proyecto?
         </h1>
-        <ul class="text-start flex flex-col gap-2">
-          <li class="flex flex-row items-center gap-2">
+        <ul class="text-start flex flex-col gap-3">
+          <li class="flex flex-row items-start gap-3">
             <span
-              class="rounded-full bg-gradient-to-br from-[#00464e]/30 to-[#d4e256]/30 p-1 w-6 h-6 flex items-center justify-center text-[#d4e256] text-xs"
+              class="rounded-full bg-gradient-to-br from-[#00464e]/30 to-[#d4e256]/30 p-1 w-6 h-6 flex items-center justify-center text-[#d4e256] text-xs mt-0.5 flex-shrink-0"
               >✓</span
             >
-            Equipo con experiencia en proyectos de alta complejidad
+            <span class="text-white/90"><strong class="text-white">Experiencia probada:</strong> Más de 50 proyectos de alta complejidad entregados exitosamente en sectores como fintech, e-commerce, salud y educación</span>
           </li>
-          <li class="flex flex-row items-center gap-2">
+          <li class="flex flex-row items-start gap-3">
             <span
-              class="rounded-full bg-gradient-to-br from-[#00464e]/30 to-[#d4e256]/30 p-1 w-6 h-6 flex items-center justify-center text-[#d4e256] text-xs"
+              class="rounded-full bg-gradient-to-br from-[#00464e]/30 to-[#d4e256]/30 p-1 w-6 h-6 flex items-center justify-center text-[#d4e256] text-xs mt-0.5 flex-shrink-0"
               >✓</span
             >
-            Enfoque personalizado según tus necesidades específicas
+            <span class="text-white/90"><strong class="text-white">Metodología ágil y efectiva:</strong> Enfoque personalizado con entregas rápidas y ciclos de retroalimentación constantes</span>
           </li>
-          <li class="flex flex-row items-center gap-2">
+          <li class="flex flex-row items-start gap-3">
             <span
-              class="rounded-full bg-gradient-to-br from-[#00464e]/30 to-[#d4e256]/30 p-1 w-6 h-6 flex items-center justify-center text-[#d4e256] text-xs"
+              class="rounded-full bg-gradient-to-br from-[#00464e]/30 to-[#d4e256]/30 p-1 w-6 h-6 flex items-center justify-center text-[#d4e256] text-xs mt-0.5 flex-shrink-0"
               >✓</span
             >
-            Solución práctica y aplicable inmediatamente
+            <span class="text-white/90"><strong class="text-white">Resultados medibles:</strong> Implementaciones con reducción del 40% en costos operativos y 60% en tiempos de desarrollo</span>
           </li>
-          <li class="flex flex-row items-center gap-2">
+          <li class="flex flex-row items-start gap-3">
             <span
-              class="rounded-full bg-gradient-to-br from-[#00464e]/30 to-[#d4e256]/30 p-1 w-6 h-6 flex items-center justify-center text-[#d4e256] text-xs"
+              class="rounded-full bg-gradient-to-br from-[#00464e]/30 to-[#d4e256]/30 p-1 w-6 h-6 flex items-center justify-center text-[#d4e256] text-xs mt-0.5 flex-shrink-0"
               >✓</span
             >
-            Seguimiento post-asesoría para resolver dudas
+            <span class="text-white/90"><strong class="text-white">Soporte continuo:</strong> Acompañamiento post-implementación durante 30 días y documentación técnica completa</span>
+          </li>
+          <li class="flex flex-row items-start gap-3">
+            <span
+              class="rounded-full bg-gradient-to-br from-[#00464e]/30 to-[#d4e256]/30 p-1 w-6 h-6 flex items-center justify-center text-[#d4e256] text-xs mt-0.5 flex-shrink-0"
+              >✓</span
+            >
+            <span class="text-white/90"><strong class="text-white">Stack tecnológico moderno:</strong> Dominio de las últimas tecnologías: Cloud Native, IA/ML, Microservicios, DevOps y más</span>
           </li>
         </ul>
       </div>
       <div
-        class="flex flex-row items-center p-5 gap-5 border mb-10 border-gray-400/50 bg-gray-400/10 rounded-lg"
+        class="flex flex-row items-center p-5 gap-5 border mb-5 border-gray-400/50 bg-gray-400/10 rounded-lg"
       >
         <img src="/img/calendar.svg" alt="" class="w-16 h-16" />
         <div class="flex flex-col">
@@ -67,6 +75,17 @@
           </p>
         </div>
       </div>
+
+      <!-- Botón Chatbot -->
+      <button
+        data-chatbot="asesorias"
+        class="w-full mb-10 px-6 py-4 bg-gradient-to-r from-[#82e256] to-[#6bc73d] hover:from-[#6bc73d] hover:to-[#5ba62e] text-black font-bold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-3"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+        </svg>
+        <span>Consultar con Asistente IA</span>
+      </button>
     </div>
     <div
       class="flex flex-col items-center p-1 gap-5 bg-gradient-to-br from-[#82e256] via-[#6bc73d] to-[#00464e] rounded-2xl shadow-2xl"
@@ -718,48 +737,6 @@
             <!-- Opción 13 -->
             <label
               class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all duration-300 group"
-              title="Necesito obtener mentoring y learning para mi y mi equipo"
-            >
-              <input
-                type="radio"
-                name="advisory-type"
-                value="mentoring"
-                class="peer sr-only"
-              />
-              <div
-                class="w-5 h-5 rounded-full border-2 border-white/30 peer-checked:border-[#82e256] peer-checked:bg-[#82e256] transition-all duration-300 flex items-center justify-center flex-shrink-0"
-              >
-                <div
-                  class="w-2 h-2 bg-black rounded-full opacity-0 peer-checked:opacity-100"
-                >
-                </div>
-              </div>
-              <svg
-                class="w-6 h-6 text-[#82e256] flex-shrink-0"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                ></path>
-              </svg>
-              <span
-                class="text-white font-medium text-sm peer-checked:text-[#82e256] transition-colors text-left"
-                >Mentoring a la medida</span
-              >
-              <div
-                class="absolute inset-0 bg-[#82e256]/5 rounded-xl opacity-0 peer-checked:opacity-100 transition-opacity -z-10"
-              >
-              </div>
-            </label>
-
-            <!-- Opción 14 -->
-            <label
-              class="relative flex items-center gap-3 px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl cursor-pointer hover:border-[#82e256]/50 transition-all duration-300 group"
               title="Necesito orientación sobre qué es lo mejor para mi caso"
             >
               <input
@@ -819,7 +796,7 @@
                 d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
               ></path>
             </svg>
-            Cuéntanos sobre tu Proyecto
+            Cuéntanos sobre que necesitas
           </label>
           <textarea
             id="advisory-description"
@@ -864,3 +841,235 @@
     </div>
   </div>
 </section>
+
+<!-- Sección de Servicios que Ofrecemos -->
+<section class="w-full py-20 bg-gradient-to-b from-[#1a1a1a] to-[#0f0f0f]">
+  <div class="max-w-7xl mx-auto px-5 md:px-16">
+    <!-- Header de servicios -->
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-2xl mb-6 shadow-xl">
+        <svg class="w-10 h-10 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+        </svg>
+      </div>
+      <h2 class="text-4xl md:text-5xl font-black text-white mb-4 bg-gradient-to-r from-white via-white to-[#82e256] bg-clip-text text-transparent">
+        Servicios que Ofrecemos
+      </h2>
+      <p class="text-white/70 text-lg max-w-2xl mx-auto">
+        Soluciones especializadas diseñadas para llevar tu proyecto al siguiente nivel
+      </p>
+    </div>
+
+    <!-- Grid de servicios -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Servicio 1: Arquitectura Hexagonal -->
+      <div class="group bg-gradient-to-br from-black/40 to-black/20 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-[#82e256]/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#82e256]/10 hover:scale-105">
+        <div class="w-14 h-14 bg-gradient-to-br from-[#82e256]/20 to-[#6bc73d]/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+          <svg class="w-7 h-7 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h4a1 1 0 011 1v7a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM14 5a1 1 0 011-1h4a1 1 0 011 1v7a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM4 16a1 1 0 011-1h4a1 1 0 011 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-3zM14 16a1 1 0 011-1h4a1 1 0 011 1v3a1 1 0 01-1 1h-4a1 1 0 01-1-1v-3z"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-[#82e256] transition-colors">Arquitectura Hexagonal & Clean</h3>
+        <p class="text-white/70 text-sm mb-4 leading-relaxed">Diseño de sistemas desacoplados y mantenibles que separan la lógica de negocio de las implementaciones técnicas. Ideal para proyectos que requieren escalabilidad y facilidad de testing.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">Desacoplamiento</span>
+          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">Testeable</span>
+          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">Escalable</span>
+        </div>
+      </div>
+
+      <!-- Servicio 2: Microservicios -->
+      <div class="group bg-gradient-to-br from-black/40 to-black/20 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-[#82e256]/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#82e256]/10 hover:scale-105">
+        <div class="w-14 h-14 bg-gradient-to-br from-[#82e256]/20 to-[#6bc73d]/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+          <svg class="w-7 h-7 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-[#82e256] transition-colors">Microservicios & DDD</h3>
+        <p class="text-white/70 text-sm mb-4 leading-relaxed">Arquitecturas distribuidas con Domain-Driven Design para aplicaciones complejas. Servicios independientes que escalan de forma autónoma y facilitan el trabajo de equipos grandes.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">Distribuido</span>
+          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">Resiliente</span>
+          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">DDD</span>
+        </div>
+      </div>
+
+      <!-- Servicio 3: IA Generativa -->
+      <div class="group bg-gradient-to-br from-black/40 to-black/20 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-[#82e256]/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#82e256]/10 hover:scale-105">
+        <div class="w-14 h-14 bg-gradient-to-br from-[#82e256]/20 to-[#6bc73d]/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+          <svg class="w-7 h-7 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-[#82e256] transition-colors">IA Generativa & LLMs</h3>
+        <p class="text-white/70 text-sm mb-4 leading-relaxed">Integración de modelos de lenguaje grandes (GPT-4, Claude), RAG, embeddings y sistemas de generación de contenido. Chatbots inteligentes, asistentes virtuales y automatización con IA.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">LLMs</span>
+          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">RAG</span>
+          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">Chatbots</span>
+        </div>
+      </div>
+
+      <!-- Servicio 4: DevOps CI/CD -->
+      <div class="group bg-gradient-to-br from-black/40 to-black/20 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-[#82e256]/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#82e256]/10 hover:scale-105">
+        <div class="w-14 h-14 bg-gradient-to-br from-[#82e256]/20 to-[#6bc73d]/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+          <svg class="w-7 h-7 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-[#82e256] transition-colors">DevOps & CI/CD</h3>
+        <p class="text-white/70 text-sm mb-4 leading-relaxed">Pipelines de integración y despliegue continuo con Docker, Kubernetes, GitHub Actions. Automatización completa desde el commit hasta producción con monitoreo y rollback.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">Docker</span>
+          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">K8s</span>
+          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">Pipeline</span>
+        </div>
+      </div>
+
+      <!-- Servicio 5: Clean Code & SOLID -->
+      <div class="group bg-gradient-to-br from-black/40 to-black/20 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-[#82e256]/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#82e256]/10 hover:scale-105">
+        <div class="w-14 h-14 bg-gradient-to-br from-[#82e256]/20 to-[#6bc73d]/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+          <svg class="w-7 h-7 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-[#82e256] transition-colors">Clean Code & SOLID</h3>
+        <p class="text-white/70 text-sm mb-4 leading-relaxed">Refactorización de código legacy, implementación de principios SOLID, patrones de diseño y mejores prácticas. Código limpio, legible y fácil de mantener para tu equipo.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">SOLID</span>
+          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">Refactoring</span>
+          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">Patrones</span>
+        </div>
+      </div>
+
+      <!-- Servicio 6: Testing Avanzado -->
+      <div class="group bg-gradient-to-br from-black/40 to-black/20 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-[#82e256]/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#82e256]/10 hover:scale-105">
+        <div class="w-14 h-14 bg-gradient-to-br from-[#82e256]/20 to-[#6bc73d]/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+          <svg class="w-7 h-7 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-[#82e256] transition-colors">Testing Avanzado TDD/BDD</h3>
+        <p class="text-white/70 text-sm mb-4 leading-relaxed">Implementación de Test-Driven Development y Behavior-Driven Development. Suites de pruebas unitarias, integración, E2E y estrategias de testing automatizado completas.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">TDD</span>
+          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">BDD</span>
+          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">E2E</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Sección de Publicidad: Mentoring y Cursos Especializados -->
+<section class="w-full py-16 bg-gradient-to-br from-[#0f0f0f] via-[#1a1a1a] to-[#0f0f0f] border-y border-white/5">
+  <div class="max-w-6xl mx-auto px-5 md:px-16">
+    <div class="bg-gradient-to-br from-[#82e256]/10 via-[#6bc73d]/5 to-transparent rounded-3xl p-8 md:p-12 border border-[#82e256]/20 relative overflow-hidden">
+
+      <!-- Decoración de fondo -->
+      <div class="absolute top-0 right-0 w-64 h-64 bg-[#82e256]/5 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 left-0 w-48 h-48 bg-[#6bc73d]/5 rounded-full blur-3xl"></div>
+
+      <div class="relative z-10">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 bg-[#82e256]/20 border border-[#82e256]/30 rounded-full px-4 py-2 mb-6">
+          <svg class="w-4 h-4 text-[#82e256]" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+          </svg>
+          <span class="text-[#82e256] text-sm font-semibold">Formación Especializada</span>
+        </div>
+
+        <h2 class="text-3xl md:text-4xl font-black text-white mb-4">
+          ¿Tu equipo necesita capacitación?
+        </h2>
+        <p class="text-white/70 text-lg mb-8 max-w-2xl">
+          Llevamos la experiencia directamente a tu equipo con programas de mentoring personalizado y cursos especializados en las tecnologías más demandadas.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-6 mb-8">
+          <!-- Mentoring Personalizado -->
+          <div class="bg-black/30 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+            <div class="flex items-start gap-4 mb-4">
+              <div class="w-12 h-12 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-white mb-2">Mentoring Personalizado</h3>
+                <p class="text-white/60 text-sm mb-3">Acompañamiento 1:1 o para equipos con expertos en arquitectura, IA y DevOps</p>
+                <ul class="space-y-2 text-sm text-white/70">
+                  <li class="flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 bg-[#82e256] rounded-full"></span>
+                    Sesiones personalizadas según tus necesidades
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 bg-[#82e256] rounded-full"></span>
+                    Revisión de código en tiempo real
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 bg-[#82e256] rounded-full"></span>
+                    Roadmaps de crecimiento profesional
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cursos Especializados -->
+          <div class="bg-black/30 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+            <div class="flex items-start gap-4 mb-4">
+              <div class="w-12 h-12 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-white mb-2">Cursos Especializados</h3>
+                <p class="text-white/60 text-sm mb-3">Programas intensivos in-company o remotos con certificación</p>
+                <ul class="space-y-2 text-sm text-white/70">
+                  <li class="flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 bg-[#82e256] rounded-full"></span>
+                    Arquitectura de Software Avanzada
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 bg-[#82e256] rounded-full"></span>
+                    IA Generativa & LLMs en Producción
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 bg-[#82e256] rounded-full"></span>
+                    DevOps & Cloud Native
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="flex flex-col sm:flex-row gap-4 items-center justify-center">
+          <a href="#contenido10" class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#82e256] to-[#6bc73d] hover:from-[#6bc73d] hover:to-[#5ba62e] text-black font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+            <span>Agenda tu Sesión</span>
+          </a>
+          <button data-chatbot="asesorias" class="inline-flex items-center gap-3 px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#82e256]/50 text-white font-semibold rounded-xl transition-all duration-300">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <span>Consultar Detalles</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<Chatbot
+  context="asesorias"
+  title="Asistente de Asesorías"
+  initialMessage="¡Hola! 👋 Soy tu asistente virtual de asesorías. Puedo ayudarte a elegir el servicio más adecuado para tu proyecto. ¿En qué área necesitas asesoría?"
+/>
