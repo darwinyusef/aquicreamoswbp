@@ -1,0 +1,396 @@
+---
+// Componente de chat flotante global especializado en agendar citas
+---
+
+<!-- Botón flotante de chat -->
+<button
+  id="floating-chat-btn"
+  class="fixed bottom-6 right-6 z-[9998] w-16 h-16 bg-gradient-to-br from-[#82e256] to-[#6bc73d] hover:from-[#6bc73d] hover:to-[#5ba62e] rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 transform hover:scale-110 group"
+  aria-label="Abrir chat de asesorías"
+>
+  <svg class="w-7 h-7 text-black transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+  </svg>
+  <!-- Badge de notificación -->
+  <span class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center text-white text-xs font-bold animate-pulse">
+    1
+  </span>
+</button>
+
+<!-- Modal de chat flotante -->
+<div id="floating-chat-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[9999] hidden flex items-end md:items-center justify-center md:justify-end p-0 md:p-6">
+  <!-- Contenedor del chat -->
+  <div class="bg-[#1a1a1a] w-full md:w-[420px] h-full md:h-[600px] md:rounded-2xl flex flex-col shadow-2xl border border-white/10 md:mr-6 md:mb-6 animate-slide-up">
+
+    <!-- Header del chat -->
+    <div class="flex items-center justify-between p-4 border-b border-white/10 bg-gradient-to-r from-[#82e256]/10 to-[#6bc73d]/10">
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#82e256] to-[#6bc73d] flex items-center justify-center shadow-lg relative">
+          <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+          </svg>
+          <!-- Indicador online -->
+          <span class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-[#1a1a1a]"></span>
+        </div>
+        <div>
+          <h3 class="font-bold text-white">Asistente Virtual</h3>
+          <p class="text-xs text-[#82e256] flex items-center gap-1">
+            <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+            Disponible ahora
+          </p>
+        </div>
+      </div>
+      <button id="close-floating-chat" class="text-white/60 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-lg">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Área de mensajes -->
+    <div id="floating-chat-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-gradient-to-b from-[#1a1a1a] to-[#0f0f0f]">
+      <!-- Mensaje inicial del asistente -->
+      <div class="flex gap-3 animate-fade-in">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-[#82e256] to-[#6bc73d] flex items-center justify-center flex-shrink-0">
+          <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+          </svg>
+        </div>
+        <div class="flex-1">
+          <div class="bg-white/5 backdrop-blur-sm rounded-lg p-3 border border-white/10">
+            <p class="text-sm text-white/90">
+              ¡Hola! 👋 Soy el <strong class="text-[#82e256]">asistente virtual de Aquí Creamos</strong>.<br><br>
+              Puedo ayudarte con información sobre:<br><br>
+              🏢 Quiénes somos y qué hacemos<br>
+              💼 Nuestros servicios y experiencia<br>
+              📅 Agendar sesiones de asesoría<br>
+              💡 Preguntas técnicas generales<br>
+              📋 Procesos y metodología<br><br>
+              <em class="text-white/60">¿Qué te gustaría saber?</em>
+            </p>
+          </div>
+          <p class="text-xs text-white/40 mt-1">Justo ahora</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input de mensaje -->
+    <div class="p-4 border-t border-white/10 bg-[#1a1a1a]">
+      <form id="floating-chat-form" class="flex gap-2">
+        <input
+          type="text"
+          id="floating-chat-input"
+          placeholder="Escribe tu mensaje..."
+          class="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-[#82e256] focus:border-transparent backdrop-blur-sm"
+          autocomplete="off"
+        />
+        <button
+          type="submit"
+          class="bg-gradient-to-r from-[#82e256] to-[#6bc73d] hover:from-[#6bc73d] hover:to-[#5ba62e] text-black px-6 py-3 rounded-xl transition-all duration-300 flex items-center gap-2 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 flex-shrink-0"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+          </svg>
+        </button>
+      </form>
+      <p class="text-xs text-white/40 mt-2 text-center">
+        Respuestas generadas por IA • <a href="#" class="text-[#82e256] hover:underline">Privacidad</a>
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.3s ease-out;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-in;
+  }
+
+  /* Ocultar scrollbar pero mantener funcionalidad */
+  #floating-chat-messages::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  #floating-chat-messages::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  #floating-chat-messages::-webkit-scrollbar-thumb {
+    background: rgba(130, 226, 86, 0.3);
+    border-radius: 3px;
+  }
+
+  #floating-chat-messages::-webkit-scrollbar-thumb:hover {
+    background: rgba(130, 226, 86, 0.5);
+  }
+</style>
+
+<script>
+  // Historial de conversación global
+  let floatingConversationHistory: Array<{ role: string; content: string }> = [];
+
+  function addFloatingMessage(content: string, isUser: boolean) {
+    const messagesContainer = document.getElementById('floating-chat-messages');
+    if (!messagesContainer) return;
+
+    // Detectar trigger de agendamiento
+    const hasTrigger = content.includes('[AGENDAR_CITA_TRIGGER]');
+    const cleanContent = content.replace('[AGENDAR_CITA_TRIGGER]', '').trim();
+
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'flex gap-3 animate-fade-in';
+
+    if (isUser) {
+      messageDiv.innerHTML = `
+        <div class="flex-1"></div>
+        <div class="flex-1 max-w-[280px]">
+          <div class="bg-gradient-to-r from-[#82e256] to-[#6bc73d] rounded-lg p-3 ml-auto">
+            <p class="text-sm text-black font-medium">${cleanContent}</p>
+          </div>
+          <p class="text-xs text-white/40 mt-1 text-right">Justo ahora</p>
+        </div>
+        <div class="w-8 h-8 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center flex-shrink-0 border border-white/20">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+          </svg>
+        </div>
+      `;
+      floatingConversationHistory.push({ role: 'user', content: cleanContent });
+    } else {
+      messageDiv.innerHTML = `
+        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-[#82e256] to-[#6bc73d] flex items-center justify-center flex-shrink-0">
+          <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+          </svg>
+        </div>
+        <div class="flex-1">
+          <div class="bg-white/5 backdrop-blur-sm rounded-lg p-3 border border-white/10">
+            <div class="text-sm text-white/90 chatbot-response">${cleanContent}</div>
+          </div>
+          ${hasTrigger ? `
+            <button
+              class="schedule-appointment-btn mt-3 w-full px-4 py-3 bg-gradient-to-r from-[#82e256] to-[#6bc73d] hover:from-[#6bc73d] hover:to-[#5ba62e] text-black font-bold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+              <span>Agendar Mi Cita Ahora</span>
+            </button>
+          ` : ''}
+          <p class="text-xs text-white/40 mt-1">Justo ahora</p>
+        </div>
+      `;
+      floatingConversationHistory.push({ role: 'assistant', content: cleanContent });
+    }
+
+    messagesContainer.appendChild(messageDiv);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+    // Si hay trigger, agregar event listener al botón
+    if (hasTrigger && !isUser) {
+      setTimeout(() => {
+        const scheduleBtn = messageDiv.querySelector('.schedule-appointment-btn');
+        scheduleBtn?.addEventListener('click', handleChatAppointmentScheduling);
+      }, 100);
+    }
+  }
+
+  function addFloatingLoadingMessage() {
+    const messagesContainer = document.getElementById('floating-chat-messages');
+    if (!messagesContainer) return;
+
+    const loadingDiv = document.createElement('div');
+    loadingDiv.className = 'flex gap-3';
+    loadingDiv.id = 'floating-loading-message';
+    loadingDiv.innerHTML = `
+      <div class="w-8 h-8 rounded-full bg-gradient-to-br from-[#82e256] to-[#6bc73d] flex items-center justify-center flex-shrink-0">
+        <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+        </svg>
+      </div>
+      <div class="flex-1">
+        <div class="bg-white/5 backdrop-blur-sm rounded-lg p-3 border border-white/10">
+          <div class="flex gap-1">
+            <div class="w-2 h-2 bg-[#82e256] rounded-full animate-bounce"></div>
+            <div class="w-2 h-2 bg-[#82e256] rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+            <div class="w-2 h-2 bg-[#82e256] rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    messagesContainer.appendChild(loadingDiv);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  }
+
+  function removeFloatingLoadingMessage() {
+    const loadingMessage = document.getElementById('floating-loading-message');
+    if (loadingMessage) {
+      loadingMessage.remove();
+    }
+  }
+
+  function handleChatAppointmentScheduling() {
+    // Convertir historial a formato de texto
+    const conversationText = floatingConversationHistory
+      .map(msg => `${msg.role === 'user' ? 'Usuario' : 'Asistente'}: ${msg.content}`)
+      .join('\n\n');
+
+    // Solicitar información del usuario
+    const name = prompt('Por favor ingresa tu nombre completo:');
+    if (!name || name.trim().length === 0) {
+      alert('Nombre requerido para continuar');
+      return;
+    }
+
+    const email = prompt('Por favor ingresa tu correo electrónico:');
+    if (!email || !email.includes('@')) {
+      alert('Correo electrónico válido requerido');
+      return;
+    }
+
+    const phone = prompt('Por favor ingresa tu número de teléfono:');
+    if (!phone || phone.trim().length === 0) {
+      alert('Teléfono requerido para continuar');
+      return;
+    }
+
+    // Abrir modal con la conversación guardada
+    (window as any).openAppointmentModal(async (date: string, time: string) => {
+      try {
+        addFloatingMessage('⏳ Procesando tu cita...', false);
+
+        const response = await fetch('/api/send-appointment.json', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: name.trim(),
+            email: email.trim(),
+            phone: phone.trim(),
+            type: 'not_sure',
+            description: 'Cita agendada vía chat con asistente virtual',
+            date: date,
+            time: time,
+            chatConversation: conversationText
+          })
+        });
+
+        const result = await response.json();
+
+        if (!response.ok || !result.success) {
+          throw new Error(result.error || 'Error al agendar la cita');
+        }
+
+        addFloatingMessage(`✅ ¡Perfecto! Tu cita está agendada para el <strong>${date}</strong> a las <strong>${time}</strong>.<br><br>Recibirás un correo de confirmación con todos los detalles. ¡Nos vemos pronto! 🎉`, false);
+
+        // Limpiar historial después de agendar
+        setTimeout(() => {
+          floatingConversationHistory = [];
+        }, 2000);
+
+      } catch (error) {
+        console.error('Error al agendar cita:', error);
+        addFloatingMessage(`❌ Lo siento, hubo un error al agendar tu cita: ${error instanceof Error ? error.message : 'Error desconocido'}. Por favor intenta de nuevo.`, false);
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const floatingChatBtn = document.getElementById('floating-chat-btn');
+    const floatingChatModal = document.getElementById('floating-chat-modal');
+    const closeFloatingChat = document.getElementById('close-floating-chat');
+    const floatingChatForm = document.getElementById('floating-chat-form');
+    const floatingChatInput = document.getElementById('floating-chat-input') as HTMLInputElement;
+
+    // Abrir chat flotante
+    floatingChatBtn?.addEventListener('click', () => {
+      floatingChatModal?.classList.remove('hidden');
+      floatingChatInput?.focus();
+      // Remover badge de notificación
+      const badge = floatingChatBtn.querySelector('span');
+      if (badge) badge.style.display = 'none';
+    });
+
+    // Cerrar chat flotante
+    closeFloatingChat?.addEventListener('click', () => {
+      floatingChatModal?.classList.add('hidden');
+    });
+
+    // Cerrar al hacer clic fuera del chat
+    floatingChatModal?.addEventListener('click', (e) => {
+      if (e.target === floatingChatModal) {
+        floatingChatModal.classList.add('hidden');
+      }
+    });
+
+    // Cerrar con ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && floatingChatModal && !floatingChatModal.classList.contains('hidden')) {
+        floatingChatModal.classList.add('hidden');
+      }
+    });
+
+    // Manejar envío de mensajes
+    floatingChatForm?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const question = floatingChatInput.value.trim();
+      if (!question) return;
+
+      addFloatingMessage(question, true);
+      floatingChatInput.value = '';
+      addFloatingLoadingMessage();
+
+      try {
+        const response = await fetch('/api/chat-assistant.json', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            question: question,
+            conversationHistory: floatingConversationHistory,
+            context: 'global' // Contexto global sobre la empresa
+          }),
+        });
+
+        removeFloatingLoadingMessage();
+
+        if (response.ok) {
+          const data = await response.json();
+          addFloatingMessage(data.response || 'No pude procesar tu pregunta.', false);
+        } else {
+          addFloatingMessage('Lo siento, hubo un error. Por favor intenta de nuevo.', false);
+        }
+      } catch (error) {
+        removeFloatingLoadingMessage();
+        addFloatingMessage('Error de conexión. Verifica tu conexión a internet.', false);
+        console.error('Error:', error);
+      }
+    });
+  });
+</script>

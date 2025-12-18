@@ -1,5 +1,5 @@
 ---
-import Chatbot from './Chatbot.astro';
+// Sin imports adicionales
 ---
 
 <!-- Sección de Asesorías en arquitectura de software -->
@@ -76,16 +76,30 @@ import Chatbot from './Chatbot.astro';
         </div>
       </div>
 
-      <!-- Botón Chatbot -->
-      <button
-        data-chatbot="asesorias"
-        class="w-full mb-10 px-6 py-4 bg-gradient-to-r from-[#82e256] to-[#6bc73d] hover:from-[#6bc73d] hover:to-[#5ba62e] text-black font-bold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-3"
-      >
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-        </svg>
-        <span>Consultar con Asistente IA</span>
-      </button>
+      <!-- Botones de acción -->
+      <div class="flex flex-col gap-3 mb-10">
+        <!-- Botón para agendar cita directa -->
+        <button
+          id="direct-appointment-btn"
+          class="w-full px-6 py-4 bg-gradient-to-r from-[#82e256] to-[#6bc73d] hover:from-[#6bc73d] hover:to-[#5ba62e] text-black font-bold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-3"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+          </svg>
+          <span>Agendar Cita Rápida</span>
+        </button>
+
+        <!-- Botón para abrir chat flotante -->
+        <button
+          id="open-floating-chat-asesorias"
+          class="w-full px-6 py-4 bg-gradient-to-r from-white/10 to-white/5 hover:from-white/20 hover:to-white/10 border-2 border-[#82e256]/30 hover:border-[#82e256] text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+          </svg>
+          <span>¿Tienes dudas? Habla con nuestro asistente</span>
+        </button>
+      </div>
     </div>
     <div
       class="flex flex-col items-center p-1 gap-5 bg-gradient-to-br from-[#82e256] via-[#6bc73d] to-[#00464e] rounded-2xl shadow-2xl"
@@ -859,217 +873,421 @@ import Chatbot from './Chatbot.astro';
         Soluciones especializadas diseñadas para llevar tu proyecto al siguiente nivel
       </p>
     </div>
+   <!-- Courses List - Modern Design -->
+    <div class="max-w-6xl mx-auto mb-16">
 
-    <!-- Grid de servicios -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-      <!-- Servicio 1: Arquitectura Hexagonal -->
-      <div class="group bg-gradient-to-br from-black/40 to-black/20 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-[#82e256]/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#82e256]/10 hover:scale-105">
-        <div class="w-14 h-14 bg-gradient-to-br from-[#82e256]/20 to-[#6bc73d]/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-          <svg class="w-7 h-7 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h4a1 1 0 011 1v7a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM14 5a1 1 0 011-1h4a1 1 0 011 1v7a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM4 16a1 1 0 011-1h4a1 1 0 011 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-3zM14 16a1 1 0 011-1h4a1 1 0 011 1v3a1 1 0 01-1 1h-4a1 1 0 01-1-1v-3z"></path>
-          </svg>
-        </div>
-        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-[#82e256] transition-colors">Arquitectura Hexagonal & Clean</h3>
-        <p class="text-white/70 text-sm mb-4 leading-relaxed">Diseño de sistemas desacoplados y mantenibles que separan la lógica de negocio de las implementaciones técnicas. Ideal para proyectos que requieren escalabilidad y facilidad de testing.</p>
-        <div class="flex flex-wrap gap-2">
-          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">Desacoplamiento</span>
-          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">Testeable</span>
-          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">Escalable</span>
-        </div>
-      </div>
-
-      <!-- Servicio 2: Microservicios -->
-      <div class="group bg-gradient-to-br from-black/40 to-black/20 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-[#82e256]/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#82e256]/10 hover:scale-105">
-        <div class="w-14 h-14 bg-gradient-to-br from-[#82e256]/20 to-[#6bc73d]/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-          <svg class="w-7 h-7 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path>
-          </svg>
-        </div>
-        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-[#82e256] transition-colors">Microservicios & DDD</h3>
-        <p class="text-white/70 text-sm mb-4 leading-relaxed">Arquitecturas distribuidas con Domain-Driven Design para aplicaciones complejas. Servicios independientes que escalan de forma autónoma y facilitan el trabajo de equipos grandes.</p>
-        <div class="flex flex-wrap gap-2">
-          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">Distribuido</span>
-          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">Resiliente</span>
-          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">DDD</span>
-        </div>
-      </div>
-
-      <!-- Servicio 3: IA Generativa -->
-      <div class="group bg-gradient-to-br from-black/40 to-black/20 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-[#82e256]/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#82e256]/10 hover:scale-105">
-        <div class="w-14 h-14 bg-gradient-to-br from-[#82e256]/20 to-[#6bc73d]/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-          <svg class="w-7 h-7 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-          </svg>
-        </div>
-        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-[#82e256] transition-colors">IA Generativa & LLMs</h3>
-        <p class="text-white/70 text-sm mb-4 leading-relaxed">Integración de modelos de lenguaje grandes (GPT-4, Claude), RAG, embeddings y sistemas de generación de contenido. Chatbots inteligentes, asistentes virtuales y automatización con IA.</p>
-        <div class="flex flex-wrap gap-2">
-          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">LLMs</span>
-          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">RAG</span>
-          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">Chatbots</span>
-        </div>
-      </div>
-
-      <!-- Servicio 4: DevOps CI/CD -->
-      <div class="group bg-gradient-to-br from-black/40 to-black/20 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-[#82e256]/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#82e256]/10 hover:scale-105">
-        <div class="w-14 h-14 bg-gradient-to-br from-[#82e256]/20 to-[#6bc73d]/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-          <svg class="w-7 h-7 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-          </svg>
-        </div>
-        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-[#82e256] transition-colors">DevOps & CI/CD</h3>
-        <p class="text-white/70 text-sm mb-4 leading-relaxed">Pipelines de integración y despliegue continuo con Docker, Kubernetes, GitHub Actions. Automatización completa desde el commit hasta producción con monitoreo y rollback.</p>
-        <div class="flex flex-wrap gap-2">
-          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">Docker</span>
-          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">K8s</span>
-          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">Pipeline</span>
-        </div>
-      </div>
-
-      <!-- Servicio 5: Clean Code & SOLID -->
-      <div class="group bg-gradient-to-br from-black/40 to-black/20 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-[#82e256]/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#82e256]/10 hover:scale-105">
-        <div class="w-14 h-14 bg-gradient-to-br from-[#82e256]/20 to-[#6bc73d]/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-          <svg class="w-7 h-7 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-          </svg>
-        </div>
-        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-[#82e256] transition-colors">Clean Code & SOLID</h3>
-        <p class="text-white/70 text-sm mb-4 leading-relaxed">Refactorización de código legacy, implementación de principios SOLID, patrones de diseño y mejores prácticas. Código limpio, legible y fácil de mantener para tu equipo.</p>
-        <div class="flex flex-wrap gap-2">
-          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">SOLID</span>
-          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">Refactoring</span>
-          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">Patrones</span>
-        </div>
-      </div>
-
-      <!-- Servicio 6: Testing Avanzado -->
-      <div class="group bg-gradient-to-br from-black/40 to-black/20 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-[#82e256]/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#82e256]/10 hover:scale-105">
-        <div class="w-14 h-14 bg-gradient-to-br from-[#82e256]/20 to-[#6bc73d]/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-          <svg class="w-7 h-7 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
-          </svg>
-        </div>
-        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-[#82e256] transition-colors">Testing Avanzado TDD/BDD</h3>
-        <p class="text-white/70 text-sm mb-4 leading-relaxed">Implementación de Test-Driven Development y Behavior-Driven Development. Suites de pruebas unitarias, integración, E2E y estrategias de testing automatizado completas.</p>
-        <div class="flex flex-wrap gap-2">
-          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">TDD</span>
-          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">BDD</span>
-          <span class="text-xs px-3 py-1 bg-[#82e256]/10 text-[#82e256] rounded-full border border-[#82e256]/20">E2E</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- Sección de Publicidad: Mentoring y Cursos Especializados -->
-<section class="w-full py-16 bg-gradient-to-br from-[#0f0f0f] via-[#1a1a1a] to-[#0f0f0f] border-y border-white/5">
-  <div class="max-w-6xl mx-auto px-5 md:px-16">
-    <div class="bg-gradient-to-br from-[#82e256]/10 via-[#6bc73d]/5 to-transparent rounded-3xl p-8 md:p-12 border border-[#82e256]/20 relative overflow-hidden">
-
-      <!-- Decoración de fondo -->
-      <div class="absolute top-0 right-0 w-64 h-64 bg-[#82e256]/5 rounded-full blur-3xl"></div>
-      <div class="absolute bottom-0 left-0 w-48 h-48 bg-[#6bc73d]/5 rounded-full blur-3xl"></div>
-
-      <div class="relative z-10">
-        <!-- Badge -->
-        <div class="inline-flex items-center gap-2 bg-[#82e256]/20 border border-[#82e256]/30 rounded-full px-4 py-2 mb-6">
-          <svg class="w-4 h-4 text-[#82e256]" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-          </svg>
-          <span class="text-[#82e256] text-sm font-semibold">Formación Especializada</span>
-        </div>
-
-        <h2 class="text-3xl md:text-4xl font-black text-white mb-4">
-          ¿Tu equipo necesita capacitación?
-        </h2>
-        <p class="text-white/70 text-lg mb-8 max-w-2xl">
-          Llevamos la experiencia directamente a tu equipo con programas de mentoring personalizado y cursos especializados en las tecnologías más demandadas.
-        </p>
-
-        <div class="grid md:grid-cols-2 gap-6 mb-8">
-          <!-- Mentoring Personalizado -->
-          <div class="bg-black/30 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-            <div class="flex items-start gap-4 mb-4">
-              <div class="w-12 h-12 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-lg flex items-center justify-center flex-shrink-0">
-                <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                </svg>
-              </div>
-              <div>
-                <h3 class="text-xl font-bold text-white mb-2">Mentoring Personalizado</h3>
-                <p class="text-white/60 text-sm mb-3">Acompañamiento 1:1 o para equipos con expertos en arquitectura, IA y DevOps</p>
-                <ul class="space-y-2 text-sm text-white/70">
-                  <li class="flex items-center gap-2">
-                    <span class="w-1.5 h-1.5 bg-[#82e256] rounded-full"></span>
-                    Sesiones personalizadas según tus necesidades
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <span class="w-1.5 h-1.5 bg-[#82e256] rounded-full"></span>
-                    Revisión de código en tiempo real
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <span class="w-1.5 h-1.5 bg-[#82e256] rounded-full"></span>
-                    Roadmaps de crecimiento profesional
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Cursos Especializados -->
-          <div class="bg-black/30 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-            <div class="flex items-start gap-4 mb-4">
-              <div class="w-12 h-12 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-lg flex items-center justify-center flex-shrink-0">
-                <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                </svg>
-              </div>
-              <div>
-                <h3 class="text-xl font-bold text-white mb-2">Cursos Especializados</h3>
-                <p class="text-white/60 text-sm mb-3">Programas intensivos in-company o remotos con certificación</p>
-                <ul class="space-y-2 text-sm text-white/70">
-                  <li class="flex items-center gap-2">
-                    <span class="w-1.5 h-1.5 bg-[#82e256] rounded-full"></span>
-                    Arquitectura de Software Avanzada
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <span class="w-1.5 h-1.5 bg-[#82e256] rounded-full"></span>
-                    IA Generativa & LLMs en Producción
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <span class="w-1.5 h-1.5 bg-[#82e256] rounded-full"></span>
-                    DevOps & Cloud Native
-                  </li>
-                </ul>
-              </div>
-            </div>
+      <div class="flex flex-col border-t border-white/5">
+        <!-- Item 1: Arquitectura Hexagonal -->
+        <div class="list-item group cursor-none border-b border-white/5"
+          data-desc="Diseña aplicaciones desacopladas, testables y escalables con el patrón Ports & Adapters."
+          data-tag="8 HORAS • INTERMEDIO" data-color="#82e256">
+          <div class="flex items-center justify-between gap-4">
+            <h2 class="text-2xl md:text-4xl lg:text-5xl font-black outline-text uppercase italic">Arquitectura Hexagonal</h2>
+            <span class="text-white/20 group-hover:text-[#82e256] transition-colors text-lg md:text-xl font-light flex-shrink-0">01</span>
           </div>
         </div>
 
-        <!-- CTA -->
-        <div class="flex flex-col sm:flex-row gap-4 items-center justify-center">
-          <a href="#contenido10" class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#82e256] to-[#6bc73d] hover:from-[#6bc73d] hover:to-[#5ba62e] text-black font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-            </svg>
-            <span>Agenda tu Sesión</span>
-          </a>
-          <button data-chatbot="asesorias" class="inline-flex items-center gap-3 px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#82e256]/50 text-white font-semibold rounded-xl transition-all duration-300">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-            <span>Consultar Detalles</span>
-          </button>
+        <!-- Item 2: Microservicios & DDD -->
+        <div class="list-item cursor-none border-b border-white/5"
+          data-desc="Domina el diseño de sistemas distribuidos con DDD y patrones de microservicios avanzados."
+          data-tag="12 HORAS • AVANZADO" data-color="#04ADC0">
+          <div class="flex items-center justify-between gap-4">
+            <h2 class="text-2xl md:text-4xl lg:text-5xl font-black outline-text uppercase italic">Microservicios & DDD</h2>
+            <span class="text-white/20 group-hover:text-[#04ADC0] transition-colors text-lg md:text-xl font-light flex-shrink-0">02</span>
+          </div>
+        </div>
+
+        <!-- Item 3: IA Gen & LLMs -->
+        <div class="list-item group  cursor-none border-b border-white/5"
+          data-desc="IA Generativa para empresas. Implementa GPT-4, RAG y embeddings en entornos reales."
+          data-tag="14 HORAS • NUEVO" data-color="#82e256">
+          <div class="flex items-center justify-between gap-4">
+            <h2 class="text-2xl md:text-4xl lg:text-5xl font-black outline-text uppercase italic">IA Gen & LLMs</h2>
+            <span class="text-white/20 group-hover:text-[#82e256] transition-colors text-lg md:text-xl font-light flex-shrink-0">03</span>
+          </div>
+        </div>
+
+        <!-- Item 4: DevOps CI/CD -->
+        <div class="list-item group cursor-none border-b border-white/5"
+          data-desc="Automatiza deployments, pipelines y domina Docker, Kubernetes y herramientas cloud."
+          data-tag="10 HORAS • DEVOPS" data-color="#04ADC0">
+          <div class="flex items-center justify-between gap-4">
+            <h2 class="text-2xl md:text-4xl lg:text-5xl font-black outline-text uppercase italic">DevOps CI/CD</h2>
+            <span class="text-white/20 group-hover:text-[#04ADC0] transition-colors text-lg md:text-xl font-light flex-shrink-0">04</span>
+          </div>
+        </div>
+
+        <!-- Item 5: Clean Code & SOLID -->
+        <div class="list-item group cursor-none border-b border-white/5"
+          data-desc="Aprende principios de código limpio, SOLID y patrones de diseño para escribir software mantenible."
+          data-tag="8 HORAS • FUNDAMENTAL" data-color="#82e256">
+          <div class="flex items-center justify-between gap-4">
+            <h2 class="text-2xl md:text-4xl lg:text-5xl font-black outline-text uppercase italic">Clean Code & SOLID</h2>
+            <span class="text-white/20 group-hover:text-[#82e256] transition-colors text-lg md:text-xl font-light flex-shrink-0">05</span>
+          </div>
+        </div>
+
+        <!-- Item 6: Testing Avanzado -->
+        <div class="list-item group cursor-none border-b border-white/5"
+          data-desc="Unit testing, integration tests, TDD y BDD para garantizar calidad de software profesional."
+          data-tag="10 HORAS • INTERMEDIO" data-color="#04ADC0">
+          <div class="flex items-center justify-between gap-4">
+            <h2 class="text-2xl md:text-4xl lg:text-5xl font-black outline-text uppercase italic">Testing Avanzado</h2>
+            <span class="text-white/20 group-hover:text-[#04ADC0] transition-colors text-lg md:text-xl font-light flex-shrink-0">06</span>
+          </div>
+        </div>
+
+        <!-- Item 7: ML en Producción -->
+        <div class="list-item group cursor-none border-b border-white/5"
+          data-desc="Despliega modelos de Machine Learning en producción con MLOps, monitoreo y escalabilidad."
+          data-tag="16 HORAS • AVANZADO" data-color="#82e256">
+          <div class="flex items-center justify-between gap-4">
+            <h2 class="text-2xl md:text-4xl lg:text-5xl font-black outline-text uppercase italic">ML en Producción</h2>
+            <span class="text-white/20 group-hover:text-[#82e256] transition-colors text-lg md:text-xl font-light flex-shrink-0">07</span>
+          </div>
+        </div>
+
+        <!-- Item 8: Sistemas Agénticos -->
+        <div class="list-item group  cursor-none border-b border-white/5"
+          data-desc="Construye sistemas multi-agente con IA que colaboran y resuelven problemas complejos autónomamente."
+          data-tag="12 HORAS • NUEVO" data-color="#04ADC0">
+          <div class="flex items-center justify-between gap-4">
+            <h2 class="text-2xl md:text-4xl lg:text-5xl font-black outline-text uppercase italic">Sistemas Agénticos</h2>
+            <span class="text-white/20 group-hover:text-[#04ADC0] transition-colors text-lg md:text-xl font-light flex-shrink-0">08</span>
+          </div>
+        </div>
+
+        <!-- Item 9: Mentoring Personalizado -->
+        <div class="list-item group cursor-none border-b border-white/5"
+          data-desc="Sesiones 1-on-1 o en equipo. Adapta el contenido a tus necesidades específicas y acelera tu crecimiento."
+          data-tag="FLEXIBLE • PERSONALIZADO" data-color="#82e256">
+          <div class="flex items-center justify-between gap-4">
+            <h2 class="text-2xl md:text-4xl lg:text-5xl font-black outline-text uppercase italic">Mentoring Personalizado</h2>
+            <span class="text-white/20 group-hover:text-[#82e256] transition-colors text-lg md:text-xl font-light flex-shrink-0">09</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tooltip flotante -->
+      <div id="magic-tooltip" class="bg-white p-6 rounded-sm text-black shadow-2xl fixed pointer-events-none opacity-0" style="width: 320px; z-index: 100; transform: scale(0.8); transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);">
+        <span id="tooltip-tag" class="text-[10px] font-bold tracking-widest text-black/40 block mb-2 uppercase italic"></span>
+        <p id="tooltip-desc" class="text-lg leading-tight font-medium"></p>
+        <div class="mt-4 flex items-center gap-2">
+          <div id="tooltip-dot" class="w-3 h-3 rounded-full animate-pulse"></div>
+          <span class="text-[10px] font-bold">DISPONIBLE AHORA</span>
         </div>
       </div>
     </div>
+
   </div>
 </section>
 
-<Chatbot
-  context="asesorias"
-  title="Asistente de Asesorías"
-  initialMessage="¡Hola! 👋 Soy tu asistente virtual de asesorías. Puedo ayudarte a elegir el servicio más adecuado para tu proyecto. ¿En qué área necesitas asesoría?"
-/>
+
+<style>
+  /* Texto con stroke (contorno) para efecto moderno */
+  .outline-text {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+    color: transparent;
+    transition: all 0.4s ease;
+  }
+
+  .list-item:hover .outline-text {
+    -webkit-text-stroke: 1px rgba(130, 226, 86, 1);
+    color: white;
+  }
+</style>
+
+<script>
+  // Tooltip functionality for courses list
+  document.addEventListener('DOMContentLoaded', () => {
+    const tooltip = document.getElementById('magic-tooltip');
+    const tooltipDesc = document.getElementById('tooltip-desc');
+    const tooltipTag = document.getElementById('tooltip-tag');
+    const tooltipDot = document.getElementById('tooltip-dot');
+    const items = document.querySelectorAll('.list-item');
+
+    if (tooltip && tooltipDesc && tooltipTag && tooltipDot) {
+      document.addEventListener('mousemove', (e) => {
+        // Posicionamiento suave del tooltip
+        const x = e.clientX + 20;
+        const y = e.clientY + 20;
+        tooltip.style.left = `${x}px`;
+        tooltip.style.top = `${y}px`;
+      });
+
+      items.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+          const desc = item.getAttribute('data-desc');
+          const tag = item.getAttribute('data-tag');
+          const color = item.getAttribute('data-color');
+
+          tooltipDesc.innerText = desc;
+          tooltipTag.innerText = tag;
+          tooltipDot.style.backgroundColor = color;
+
+          tooltip.style.opacity = '1';
+          tooltip.style.transform = 'scale(1)';
+        });
+
+        item.addEventListener('mouseleave', () => {
+          tooltip.style.opacity = '0';
+          tooltip.style.transform = 'scale(0.8)';
+        });
+      });
+    }
+  });
+</script>
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // === MANEJO DEL FORMULARIO DE ASESORÍAS ===
+    const advisoryForm = document.getElementById('advisory-form') as HTMLFormElement;
+    const submitBtn = document.getElementById('advisory-submit-btn') as HTMLButtonElement;
+    const nameInput = document.getElementById('advisory-name') as HTMLInputElement;
+    const emailInput = document.getElementById('advisory-email') as HTMLInputElement;
+    const phoneInput = document.getElementById('advisory-phone') as HTMLInputElement;
+    const descriptionInput = document.getElementById('advisory-description') as HTMLTextAreaElement;
+    const radioButtons = document.querySelectorAll('input[name="advisory-type"]');
+
+    // Función para validar el formulario
+    function validateForm() {
+      const isNameValid = nameInput?.value.trim().length > 0;
+      const isEmailValid = emailInput?.value.trim().length > 0 && emailInput.value.includes('@');
+      const isPhoneValid = phoneInput?.value.trim().length > 0;
+      const isDescriptionValid = descriptionInput?.value.trim().length > 0;
+      const isTypeSelected = Array.from(radioButtons).some((radio: any) => radio.checked);
+
+      return isNameValid && isEmailValid && isPhoneValid && isDescriptionValid && isTypeSelected;
+    }
+
+    // Función para actualizar el estado del botón
+    function updateSubmitButton() {
+      const isValid = validateForm();
+
+      if (submitBtn) {
+        if (isValid) {
+          // Habilitar botón
+          submitBtn.disabled = false;
+          submitBtn.classList.remove('bg-gradient-to-r', 'from-white/20', 'to-white/10', 'text-white/0', 'cursor-not-allowed');
+          submitBtn.classList.add('bg-gradient-to-r', 'from-[#82e256]', 'to-[#6bc73d]', 'hover:from-[#6bc73d]', 'hover:to-[#5ba62e]', 'text-black', 'cursor-pointer', 'transform', 'hover:scale-105', 'shadow-lg', 'hover:shadow-xl');
+
+          // Cambiar icono y texto
+          submitBtn.innerHTML = `
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <span>Enviar Solicitud</span>
+          `;
+        } else {
+          // Deshabilitar botón
+          submitBtn.disabled = true;
+          submitBtn.classList.remove('bg-gradient-to-r', 'from-[#82e256]', 'to-[#6bc73d]', 'hover:from-[#6bc73d]', 'hover:to-[#5ba62e]', 'text-black', 'cursor-pointer', 'transform', 'hover:scale-105', 'shadow-lg', 'hover:shadow-xl');
+          submitBtn.classList.add('bg-gradient-to-r', 'from-white/20', 'to-white/10', 'text-white/50', 'cursor-not-allowed');
+
+          // Cambiar icono y texto
+          submitBtn.innerHTML = `
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+            </svg>
+            <span>Completa todos los campos</span>
+          `;
+        }
+      }
+    }
+
+    // Actualizar nota de privacidad
+    const privacyNote = document.querySelector('p.text-white\\/0') as HTMLElement;
+    if (privacyNote) {
+      privacyNote.classList.remove('text-white/0');
+      privacyNote.classList.add('text-white/60');
+    }
+
+    // Listeners para actualizar el botón
+    nameInput?.addEventListener('input', updateSubmitButton);
+    emailInput?.addEventListener('input', updateSubmitButton);
+    phoneInput?.addEventListener('input', updateSubmitButton);
+    descriptionInput?.addEventListener('input', updateSubmitButton);
+    radioButtons.forEach(radio => {
+      radio.addEventListener('change', updateSubmitButton);
+    });
+
+    // Manejar envío del formulario
+    advisoryForm?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      if (!validateForm()) {
+        alert('Por favor completa todos los campos del formulario');
+        return;
+      }
+
+      // Recopilar datos del formulario
+      const selectedType = Array.from(radioButtons).find((radio: any) => radio.checked) as HTMLInputElement;
+      const formData = {
+        name: nameInput.value.trim(),
+        email: emailInput.value.trim(),
+        phone: phoneInput.value.trim(),
+        type: selectedType?.value || '',
+        description: descriptionInput.value.trim()
+      };
+
+      // Abrir modal para seleccionar fecha y hora
+      (window as any).openAppointmentModal(async (date: string, time: string) => {
+        // Cambiar botón a estado de carga
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = `
+            <div class="w-5 h-5 border-2 border-black/30 border-t-black rounded-full animate-spin"></div>
+            <span>Enviando...</span>
+          `;
+        }
+
+        try {
+          // Enviar a la API
+          const response = await fetch('/api/send-appointment.json', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              ...formData,
+              date: date,
+              time: time
+            })
+          });
+
+          const result = await response.json();
+
+          if (!response.ok || !result.success) {
+            throw new Error(result.error || 'Error al enviar la solicitud');
+          }
+
+          // Mostrar mensaje de éxito
+          if (submitBtn) {
+            submitBtn.innerHTML = `
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>¡Solicitud Enviada!</span>
+            `;
+          }
+
+          // Limpiar formulario
+          setTimeout(() => {
+            advisoryForm.reset();
+            updateSubmitButton();
+            alert('¡Gracias! Tu solicitud ha sido enviada. Te contactaremos para confirmar tu cita.');
+          }, 1500);
+
+        } catch (error) {
+          console.error('Error al enviar formulario:', error);
+          alert(error instanceof Error ? error.message : 'Hubo un error al enviar tu solicitud. Por favor intenta de nuevo.');
+
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            updateSubmitButton();
+          }
+        }
+      });
+    });
+
+    // Inicializar estado del botón
+    updateSubmitButton();
+
+    // === BOTÓN PARA AGENDAR CITA DIRECTA ===
+    const directAppointmentBtn = document.getElementById('direct-appointment-btn');
+    directAppointmentBtn?.addEventListener('click', () => {
+      (window as any).openAppointmentModal(async (date: string, time: string) => {
+        // Mostrar prompt para información básica
+        const name = prompt('Por favor ingresa tu nombre completo:');
+        if (!name || name.trim().length === 0) {
+          alert('Nombre requerido para continuar');
+          return;
+        }
+
+        const email = prompt('Por favor ingresa tu correo electrónico:');
+        if (!email || !email.includes('@')) {
+          alert('Correo electrónico válido requerido');
+          return;
+        }
+
+        const phone = prompt('Por favor ingresa tu número de teléfono:');
+        if (!phone || phone.trim().length === 0) {
+          alert('Teléfono requerido para continuar');
+          return;
+        }
+
+        // Deshabilitar botón durante envío
+        if (directAppointmentBtn) {
+          directAppointmentBtn.innerHTML = `
+            <div class="w-6 h-6 border-2 border-black/30 border-t-black rounded-full animate-spin"></div>
+            <span>Enviando...</span>
+          `;
+          (directAppointmentBtn as HTMLButtonElement).disabled = true;
+        }
+
+        try {
+          const response = await fetch('/api/send-appointment.json', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              name: name.trim(),
+              email: email.trim(),
+              phone: phone.trim(),
+              type: 'not_sure',
+              description: 'Cita rápida agendada directamente',
+              date: date,
+              time: time
+            })
+          });
+
+          const result = await response.json();
+
+          if (!response.ok || !result.success) {
+            throw new Error(result.error || 'Error al agendar la cita');
+          }
+
+          alert(`¡Cita agendada exitosamente!\\nFecha: ${date}\\nHora: ${time}\\n\\nRecibirás un correo de confirmación.`);
+
+          // Restaurar botón
+          if (directAppointmentBtn) {
+            directAppointmentBtn.innerHTML = `
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+              <span>Agendar Cita Rápida</span>
+            `;
+            (directAppointmentBtn as HTMLButtonElement).disabled = false;
+          }
+
+        } catch (error) {
+          console.error('Error al agendar cita:', error);
+          alert(error instanceof Error ? error.message : 'Error al agendar la cita. Por favor intenta de nuevo.');
+
+          // Restaurar botón
+          if (directAppointmentBtn) {
+            directAppointmentBtn.innerHTML = `
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+              <span>Agendar Cita Rápida</span>
+            `;
+            (directAppointmentBtn as HTMLButtonElement).disabled = false;
+          }
+        }
+      });
+    });
+
+    // === BOTONES PARA ABRIR CHAT FLOTANTE ===
+    const openChatButtons = [
+      document.getElementById('open-floating-chat-asesorias'),
+      document.getElementById('open-floating-chat-mentoring')
+    ];
+
+    openChatButtons.forEach(btn => {
+      btn?.addEventListener('click', () => {
+        const floatingChatBtn = document.getElementById('floating-chat-btn');
+        floatingChatBtn?.click();
+      });
+    });
+  });
+</script>

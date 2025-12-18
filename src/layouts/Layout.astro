@@ -1,5 +1,6 @@
 ---
-
+import FloatingChat from '../components/FloatingChat.astro';
+import AppointmentModal from '../components/AppointmentModal.astro';
 ---
 
 <!doctype html>
@@ -27,5 +28,7 @@
 	</head>
 	<body class="text-white overflow-x-hidden">
 		<slot />
+		<FloatingChat />
+		<AppointmentModal />
 	</body>
 </html>

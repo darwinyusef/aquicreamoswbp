@@ -1,0 +1,415 @@
+---
+// Modal para seleccionar fecha y hora de cita
+---
+
+<!-- Modal de Agendamiento -->
+<div id="appointment-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[10000] hidden flex items-center justify-center p-4">
+  <div class="bg-[#1a1a1a] rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl border border-white/10 animate-slide-up">
+
+    <!-- Header -->
+    <div class="sticky top-0 bg-gradient-to-r from-[#82e256]/10 to-[#6bc73d]/10 backdrop-blur-md p-6 border-b border-white/10 z-10">
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+            <svg class="w-7 h-7 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+            Selecciona Fecha y Hora
+          </h2>
+          <p class="text-white/60 text-sm mt-1">Lunes a Viernes • 8:00-12:00 y 14:00-18:00</p>
+        </div>
+        <button id="close-appointment-modal" class="text-white/60 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-lg">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="p-6 space-y-6">
+
+      <!-- Selección de Fecha -->
+      <div>
+        <label class="text-white font-semibold mb-3 flex items-center gap-2">
+          <svg class="w-5 h-5 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+          </svg>
+          Selecciona una fecha
+        </label>
+        <input
+          type="date"
+          id="appointment-date"
+          class="w-full px-4 py-3 bg-black/30 border-2 border-white/10 rounded-xl text-white focus:outline-none focus:border-[#82e256] transition-all"
+          required
+        />
+        <p id="date-error" class="text-red-400 text-sm mt-2 hidden"></p>
+      </div>
+
+      <!-- Selección de Hora -->
+      <div>
+        <label class="text-white font-semibold mb-3 flex items-center gap-2">
+          <svg class="w-5 h-5 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          Selecciona una hora
+        </label>
+        <div id="time-slots-container" class="grid grid-cols-3 md:grid-cols-4 gap-2">
+          <!-- Los slots se generarán dinámicamente -->
+        </div>
+        <p id="time-error" class="text-red-400 text-sm mt-2 hidden"></p>
+      </div>
+
+      <!-- Resumen -->
+      <div id="appointment-summary" class="hidden bg-gradient-to-r from-[#82e256]/10 to-[#6bc73d]/10 border border-[#82e256]/30 rounded-xl p-4">
+        <h3 class="text-white font-semibold mb-2 flex items-center gap-2">
+          <svg class="w-5 h-5 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          Resumen de tu cita
+        </h3>
+        <p class="text-white/80">
+          <span class="text-[#82e256] font-semibold">Fecha:</span> <span id="summary-date">-</span>
+        </p>
+        <p class="text-white/80">
+          <span class="text-[#82e256] font-semibold">Hora:</span> <span id="summary-time">-</span>
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="sticky bottom-0 bg-[#1a1a1a] p-6 border-t border-white/10">
+      <div class="flex gap-3">
+        <button
+          id="cancel-appointment"
+          class="flex-1 px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-semibold rounded-xl transition-all"
+        >
+          Cancelar
+        </button>
+        <button
+          id="confirm-appointment"
+          disabled
+          class="flex-1 px-6 py-3 bg-gradient-to-r from-white/20 to-white/10 text-white/50 font-bold rounded-xl cursor-not-allowed transition-all"
+        >
+          Confirmar Cita
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.3s ease-out;
+  }
+
+  /* Custom scrollbar */
+  #appointment-modal > div {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(130, 226, 86, 0.3) transparent;
+  }
+
+  #appointment-modal > div::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  #appointment-modal > div::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  #appointment-modal > div::-webkit-scrollbar-thumb {
+    background: rgba(130, 226, 86, 0.3);
+    border-radius: 3px;
+  }
+
+  /* Time slot button */
+  .time-slot {
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+  }
+
+  .time-slot:hover:not(.disabled):not(.selected) {
+    background: rgba(130, 226, 86, 0.1);
+    border-color: rgba(130, 226, 86, 0.5);
+    transform: scale(1.05);
+  }
+
+  .time-slot.selected {
+    background: linear-gradient(135deg, #82e256, #6bc73d);
+    border-color: #82e256;
+    color: black;
+    transform: scale(1.05);
+  }
+
+  .time-slot.disabled {
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.3);
+    cursor: not-allowed;
+  }
+</style>
+
+<script>
+  import blockedDatesData from '../data/blocked-dates.json';
+
+  let selectedDate: string | null = null;
+  let selectedTime: string | null = null;
+  let appointmentCallback: ((date: string, time: string) => void) | null = null;
+
+  // Horarios disponibles
+  const morningSlots = ['08:00', '09:00', '10:00', '11:00', '12:00'];
+  const afternoonSlots = ['14:00', '15:00', '16:00', '17:00', '18:00'];
+  const allTimeSlots = [...morningSlots, ...afternoonSlots];
+
+  function isWeekend(dateString: string): boolean {
+    // Usar UTC para evitar problemas de zona horaria
+    const parts = dateString.split('-');
+    const year = parseInt(parts[0]);
+    const month = parseInt(parts[1]) - 1; // Mes es 0-indexed
+    const day = parseInt(parts[2]);
+    const date = new Date(year, month, day);
+    const dayOfWeek = date.getDay();
+    return dayOfWeek === 0 || dayOfWeek === 6; // 0 = Domingo, 6 = Sábado
+  }
+
+  function isDateBlocked(dateString: string): boolean {
+    return blockedDatesData.blockedDates.includes(dateString);
+  }
+
+  function isTimeBlocked(dateString: string, time: string): boolean {
+    const blockedTimes = blockedDatesData.blockedTimes[dateString as keyof typeof blockedDatesData.blockedTimes];
+    return blockedTimes ? blockedTimes.includes(time) : false;
+  }
+
+  function formatDateForDisplay(dateString: string): string {
+    // Usar UTC para evitar problemas de zona horaria
+    const parts = dateString.split('-');
+    const year = parseInt(parts[0]);
+    const month = parseInt(parts[1]) - 1;
+    const day = parseInt(parts[2]);
+    const date = new Date(year, month, day);
+    return date.toLocaleDateString('es-MX', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  }
+
+  function renderTimeSlots() {
+    const container = document.getElementById('time-slots-container');
+    if (!container || !selectedDate) return;
+
+    container.innerHTML = '';
+
+    allTimeSlots.forEach(time => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'time-slot';
+      button.textContent = time;
+      button.dataset.time = time;
+
+      // Verificar si está bloqueado
+      if (isTimeBlocked(selectedDate, time)) {
+        button.classList.add('disabled');
+        button.disabled = true;
+        button.title = 'No disponible';
+      } else {
+        button.addEventListener('click', () => selectTime(time));
+      }
+
+      container.appendChild(button);
+    });
+  }
+
+  function selectTime(time: string) {
+    selectedTime = time;
+
+    // Actualizar UI
+    document.querySelectorAll('.time-slot').forEach(btn => {
+      btn.classList.remove('selected');
+    });
+
+    const selectedBtn = document.querySelector(`.time-slot[data-time="${time}"]`);
+    selectedBtn?.classList.add('selected');
+
+    // Mostrar resumen
+    updateSummary();
+    enableConfirmButton();
+  }
+
+  function updateSummary() {
+    const summaryDiv = document.getElementById('appointment-summary');
+    const summaryDate = document.getElementById('summary-date');
+    const summaryTime = document.getElementById('summary-time');
+
+    if (summaryDiv && summaryDate && summaryTime && selectedDate && selectedTime) {
+      summaryDiv.classList.remove('hidden');
+      summaryDate.textContent = formatDateForDisplay(selectedDate);
+      summaryTime.textContent = selectedTime;
+    }
+  }
+
+  function enableConfirmButton() {
+    const confirmBtn = document.getElementById('confirm-appointment') as HTMLButtonElement;
+    if (confirmBtn && selectedDate && selectedTime) {
+      confirmBtn.disabled = false;
+      confirmBtn.classList.remove('bg-gradient-to-r', 'from-white/20', 'to-white/10', 'text-white/50', 'cursor-not-allowed');
+      confirmBtn.classList.add('bg-gradient-to-r', 'from-[#82e256]', 'to-[#6bc73d]', 'hover:from-[#6bc73d]', 'hover:to-[#5ba62e]', 'text-black', 'cursor-pointer', 'transform', 'hover:scale-105', 'shadow-lg');
+    }
+  }
+
+  function disableConfirmButton() {
+    const confirmBtn = document.getElementById('confirm-appointment') as HTMLButtonElement;
+    if (confirmBtn) {
+      confirmBtn.disabled = true;
+      confirmBtn.classList.remove('bg-gradient-to-r', 'from-[#82e256]', 'to-[#6bc73d]', 'hover:from-[#6bc73d]', 'hover:to-[#5ba62e]', 'text-black', 'cursor-pointer', 'transform', 'hover:scale-105', 'shadow-lg');
+      confirmBtn.classList.add('bg-gradient-to-r', 'from-white/20', 'to-white/10', 'text-white/50', 'cursor-not-allowed');
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('appointment-modal');
+    const dateInput = document.getElementById('appointment-date') as HTMLInputElement;
+    const closeBtn = document.getElementById('close-appointment-modal');
+    const cancelBtn = document.getElementById('cancel-appointment');
+    const confirmBtn = document.getElementById('confirm-appointment');
+    const dateError = document.getElementById('date-error');
+    const timeError = document.getElementById('time-error');
+
+    // Establecer fecha mínima (mañana)
+    if (dateInput) {
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      dateInput.min = tomorrow.toISOString().split('T')[0];
+
+      // Máximo 3 meses adelante
+      const maxDate = new Date();
+      maxDate.setMonth(maxDate.getMonth() + 3);
+      dateInput.max = maxDate.toISOString().split('T')[0];
+    }
+
+    // Manejar cambio de fecha
+    dateInput?.addEventListener('change', (e) => {
+      const target = e.target as HTMLInputElement;
+      const dateValue = target.value;
+
+      // Validar que la fecha esté completa (formato YYYY-MM-DD)
+      if (!dateValue || dateValue.length !== 10) {
+        return;
+      }
+
+      // Validar formato correcto
+      const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+      if (!dateRegex.test(dateValue)) {
+        return;
+      }
+
+      // Validar fin de semana
+      if (isWeekend(dateValue)) {
+        if (dateError) {
+          dateError.textContent = 'No disponible fines de semana. Por favor selecciona Lunes a Viernes.';
+          dateError.classList.remove('hidden');
+        }
+        // Usar setTimeout para evitar que se resetee durante la selección
+        setTimeout(() => {
+          target.value = '';
+          selectedDate = null;
+          selectedTime = null;
+          const container = document.getElementById('time-slots-container');
+          if (container) container.innerHTML = '<p class="col-span-full text-white/60 text-center py-4">Selecciona primero una fecha válida</p>';
+        }, 100);
+        return;
+      }
+
+      // Validar fecha bloqueada
+      if (isDateBlocked(dateValue)) {
+        if (dateError) {
+          dateError.textContent = 'Esta fecha no está disponible. Por favor selecciona otra.';
+          dateError.classList.remove('hidden');
+        }
+        // Usar setTimeout para evitar que se resetee durante la selección
+        setTimeout(() => {
+          target.value = '';
+          selectedDate = null;
+          selectedTime = null;
+          const container = document.getElementById('time-slots-container');
+          if (container) container.innerHTML = '<p class="col-span-full text-white/60 text-center py-4">Selecciona primero una fecha válida</p>';
+        }, 100);
+        return;
+      }
+
+      // Fecha válida
+      if (dateError) {
+        dateError.classList.add('hidden');
+      }
+
+      selectedDate = dateValue;
+      selectedTime = null;
+      renderTimeSlots();
+
+      const summaryDiv = document.getElementById('appointment-summary');
+      summaryDiv?.classList.add('hidden');
+      disableConfirmButton();
+    });
+
+    // Cerrar modal
+    closeBtn?.addEventListener('click', closeModal);
+    cancelBtn?.addEventListener('click', closeModal);
+
+    modal?.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    // Confirmar cita
+    confirmBtn?.addEventListener('click', () => {
+      if (selectedDate && selectedTime && appointmentCallback) {
+        appointmentCallback(selectedDate, selectedTime);
+        closeModal();
+      }
+    });
+
+    // Función global para abrir modal
+    (window as any).openAppointmentModal = (callback: (date: string, time: string) => void) => {
+      appointmentCallback = callback;
+      modal?.classList.remove('hidden');
+
+      // Reset
+      if (dateInput) dateInput.value = '';
+      selectedDate = null;
+      selectedTime = null;
+      const summaryDiv = document.getElementById('appointment-summary');
+      summaryDiv?.classList.add('hidden');
+      const container = document.getElementById('time-slots-container');
+      if (container) container.innerHTML = '<p class="col-span-full text-white/60 text-center py-4">Selecciona primero una fecha</p>';
+      disableConfirmButton();
+    };
+
+    function closeModal() {
+      modal?.classList.add('hidden');
+      appointmentCallback = null;
+    }
+  });
+</script>

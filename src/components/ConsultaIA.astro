@@ -1,6 +1,4 @@
 ---
-import Chatbot from './Chatbot.astro';
-
 // FAQ Items - cada uno puede tener audio, video (YouTube Short) o ninguno
 const faqItems = [
   {
@@ -192,11 +190,11 @@ const faqItems = [
           <div class="mt-6 pt-6 border-t border-white/10">
             <p class="text-white/60 text-sm mb-3 text-center">O conversa con nuestro asistente</p>
             <button
-              data-chatbot="consulta-ia"
+              id="open-floating-chat-consulta"
               class="w-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#82e256]/50 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-3"
             >
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
               </svg>
               <span>Chat Interactivo IA</span>
             </button>
@@ -613,6 +611,17 @@ const faqItems = [
 
   document.addEventListener('DOMContentLoaded', () => {
     // ═══════════════════════════════════════════════════════════════════
+    // BOTÓN PARA ABRIR CHAT FLOTANTE
+    // ═══════════════════════════════════════════════════════════════════
+    const openFloatingChatBtn = document.getElementById('open-floating-chat-consulta');
+    if (openFloatingChatBtn) {
+      openFloatingChatBtn.addEventListener('click', () => {
+        const floatingChatBtn = document.getElementById('floating-chat-btn');
+        floatingChatBtn?.click();
+      });
+    }
+
+    // ═══════════════════════════════════════════════════════════════════
     // FAQ ACCORDION
     // ═══════════════════════════════════════════════════════════════════
     const faqHeaders = document.querySelectorAll('.faq-header');
@@ -878,22 +887,37 @@ const faqItems = [
           responseDiv.classList.remove('hidden');
         }
 
-        // Simular respuesta de IA (aquí conectarías tu API real)
-        setTimeout(() => {
-          if (answerDiv) {
-            answerDiv.innerHTML = `
-              <p class="mb-4">Esta es una respuesta de ejemplo. En producción, aquí se mostraría la respuesta real de la IA basada en tu pregunta: "${question}"</p>
-              <p>Para implementar esto, puedes integrar APIs como OpenAI GPT, Claude de Anthropic, o Azure OpenAI Service.</p>
-            `;
+        // Llamar a la API real con RAG
+        try {
+          const response = await fetch('/api/chat-assistant.json', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              question: question,
+              conversationHistory: [], // Sin historial en este formulario
+              context: 'consulta-ia' // Contexto técnico
+            }),
+          });
+
+          if (response.ok) {
+            const data = await response.json();
+            if (answerDiv) {
+              answerDiv.innerHTML = data.response || 'No pude procesar tu pregunta.';
+            }
+          } else {
+            if (answerDiv) {
+              answerDiv.innerHTML = '<p class="text-red-400">Lo siento, hubo un error al procesar tu pregunta. Por favor intenta de nuevo.</p>';
+            }
           }
-        }, 2000);
+        } catch (error) {
+          console.error('Error:', error);
+          if (answerDiv) {
+            answerDiv.innerHTML = '<p class="text-red-400">Error de conexión. Por favor verifica tu conexión a internet.</p>';
+          }
+        }
       });
     }
   });
 </script>
-
-<Chatbot
-  context="consulta-ia"
-  title="Asistente Técnico IA"
-  initialMessage="¡Hola! 💡 Soy tu asistente técnico. Puedo ayudarte con preguntas sobre arquitectura de software, desarrollo, DevOps, IA y más. ¿En qué puedo ayudarte?"
-/>
