@@ -1,0 +1,131 @@
+<!-- Newsletter Sticky Reveal Section -->
+<div class="sticky-reveal-wrapper">
+  <section
+    class="newsletter-reveal-section relative z-20 min-h-screen flex items-center justify-center bg-[#1a1a1a] pt-20 pb-32"
+  >
+    <div class="max-w-4xl mx-auto w-full px-5 md:px-16">
+      <div
+        class="relative p-1 bg-gradient-to-r from-[#82e256] via-[#6bc73d] to-[#04ADC0] rounded-3xl shadow-2xl"
+      >
+        <div
+          class="bg-gradient-to-br from-[#1a1a1a] to-[#232323] rounded-3xl p-8 md:p-12"
+        >
+          <div class="text-center mb-8">
+            <div
+              class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-2xl mb-6 shadow-xl"
+            >
+              <svg
+                class="w-10 h-10 text-black"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76"
+                ></path>
+              </svg>
+            </div>
+            <h2
+              class="text-3xl md:text-4xl font-black text-white mb-4 bg-gradient-to-r from-white via-white to-[#82e256] bg-clip-text text-transparent"
+            >
+              Tu Éxito Digital Comienza Aquí
+            </h2>
+            <p class="text-white/70 text-lg mb-8">
+              Suscríbete a nuestro newsletter y recibe las últimas novedades,
+              consejos y recursos sobre desarrollo de software
+            </p>
+          </div>
+
+          <div class="flex flex-col md:flex-row gap-4 max-w-2xl mx-auto">
+            <div class="flex-1 relative group">
+              <div
+                class="absolute inset-y-0 left-4 flex items-center pointer-events-none"
+              >
+                <svg
+                  class="w-5 h-5 text-white/40 group-focus-within:text-[#82e256] transition-colors"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
+                  ></path>
+                </svg>
+              </div>
+              <input
+                type="email"
+                placeholder="tu@email.com"
+                class="w-full pl-12 pr-4 py-4 border-2 border-white/10 bg-black/30 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-[#82e256] focus:bg-black/50 transition-all duration-300 backdrop-blur-sm"
+              />
+            </div>
+            <button
+              class="px-8 py-4 bg-gradient-to-r from-[#82e256] to-[#6bc73d] hover:from-[#6bc73d] hover:to-[#5ba62e] text-black font-bold rounded-xl flex items-center justify-center gap-3 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-lg group relative overflow-hidden whitespace-nowrap"
+            >
+              <div
+                class="absolute inset-0 bg-white/20 translate-x-full group-hover:translate-x-0 transition-transform duration-300"
+              >
+              </div>
+              <svg
+                class="w-5 h-5 relative z-10"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+              </svg>
+              <span class="relative z-10">Suscribirse</span>
+            </button>
+          </div>
+
+          <p class="text-white/40 text-xs text-center mt-6">
+            No spam, solo contenido de valor. Puedes darte de baja en cualquier
+            momento.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+  /* Wrapper - Siempre por encima del footer */
+  .sticky-reveal-wrapper {
+    position: relative;
+    z-index: 20;
+  }
+
+  /* Sección Newsletter - Contenido principal que revela el footer */
+  .newsletter-reveal-section {
+    position: relative;
+    z-index: 20;
+    /* Siempre por encima del footer */
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+
+    /* Fondo que coincide con el resto del sitio */
+    background-color: #1a1a1a;
+  }
+
+  @media (max-width: 768px) {
+    .newsletter-reveal-section {
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+      padding: 20px 10px;
+    }
+  }
+</style>

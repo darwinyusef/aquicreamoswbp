@@ -1,0 +1,877 @@
+---
+// FAQ Items - cada uno puede tener audio, video (YouTube Short) o ninguno
+const faqItems = [
+  {
+    title: "¿Qué arquitectura debo usar?",
+    content: "La elección depende de escalabilidad, complejidad y equipo. Arquitecturas comunes: Hexagonal, Microservicios, Monolito Modular, Event-Driven.",
+    mediaType: "audio",
+    mediaSrc: "/audio/arquitectura.mp3"
+  },
+  {
+    title: "¿Cómo integrar IA en mi negocio?",
+    content: "Identifica procesos repetitivos. Casos: chatbots, análisis de sentimientos, recomendaciones, automatización de tareas.",
+    mediaType: "video",
+    mediaSrc: "https://www.youtube.com/embed/VIDEO_ID" // Reemplazar VIDEO_ID con el ID real del short
+  },
+  {
+    title: "React Native o nativo?",
+    content: "React Native: rápido, código compartido. Nativo: máximo rendimiento, APIs completas, interfaces personalizadas.",
+    mediaType: null,
+    mediaSrc: null
+  },
+  {
+    title: "¿Mejores prácticas de seguridad?",
+    content: "HTTPS, autenticación robusta (JWT, OAuth), validación de inputs, protección contra XSS y SQL injection, CSP headers.",
+    mediaType: "audio",
+    mediaSrc: "/audio/seguridad.mp3"
+  },
+  {
+    title: "¿Qué es CI/CD?",
+    content: "Automatiza testing y deployment. Beneficios: detecta errores temprano, reduce trabajo manual, mejora calidad.",
+    mediaType: "video",
+    mediaSrc: "https://www.youtube.com/embed/VIDEO_ID" // Reemplazar VIDEO_ID con el ID real del short
+  }
+];
+---
+
+<section id="contenido12" class="w-full py-20 bg-[#1a1a1a]">
+  <div class="max-w-7xl mx-auto px-5 md:px-16">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <div
+        class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-2xl mb-6 shadow-xl"
+      >
+        <svg
+          class="w-10 h-10 text-black"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+          ></path>
+        </svg>
+      </div>
+      <h1
+        class="text-4xl md:text-5xl font-black text-white mb-4 bg-gradient-to-r from-white via-white to-[#82e256] bg-clip-text text-transparent"
+      >
+        Consulta con IA
+      </h1>
+      <p class="text-white/70 text-lg max-w-2xl mx-auto">
+        Resuelve tus dudas tecnológicas con respuestas generadas por
+        inteligencia artificial. Usa nuestro FAQ o haz tu propia pregunta.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-12">
+      <!-- FAQ Section - Lado izquierdo con diseño big -->
+      <div class="faq-big-section">
+        <div class="flex items-center gap-3 mb-8">
+          <svg
+            class="w-6 h-6 text-[#82e256]"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            ></path>
+          </svg>
+          <h2 class="text-2xl font-bold text-white">Preguntas Frecuentes</h2>
+        </div>
+
+        <!-- FAQ Items -->
+        <div class="space-y-0">
+          {faqItems.map((item, index) => (
+            <div class="faq-item" data-index={index}>
+              <div class="faq-header">
+                <div class="faq-header-content">
+                  <h3 class="faq-title">{item.title}</h3>
+
+                  {/* Media Icons - Clickeable para abrir modal */}
+                  {item.mediaType && (
+                    <button
+                      class="media-badge-btn"
+                      data-media-type={item.mediaType}
+                      data-index={index}
+                      aria-label={`Reproducir ${item.mediaType === 'audio' ? 'audio' : 'video'}`}
+                    >
+                      {item.mediaType === 'audio' ? (
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"></path>
+                        </svg>
+                      ) : (
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"></path>
+                        </svg>
+                      )}
+                    </button>
+                  )}
+                </div>
+
+                <div class="faq-icon"></div>
+              </div>
+
+              <div class="faq-body">
+                <div class="faq-content">
+                  <p>{item.content}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Formulario - Lado derecho -->
+      <div class="space-y-6">
+        <div class="flex items-center gap-3 mb-6">
+          <svg
+            class="w-6 h-6 text-[#82e256]"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
+            ></path>
+          </svg>
+          <h2 class="text-2xl font-bold text-white">Tu Pregunta Personalizada</h2>
+        </div>
+
+        <div
+          class="bg-gradient-to-br from-black/40 to-black/20 backdrop-blur-sm rounded-2xl p-8 border border-white/10 sticky top-24"
+        >
+          <form class="space-y-6" id="ai-question-form">
+            <div>
+              <label
+                for="user-question"
+                class="block text-sm font-medium text-white/90 mb-3"
+              >
+                ¿Qué necesitas saber sobre tecnología?
+              </label>
+              <textarea
+                id="user-question"
+                rows="6"
+                class="w-full px-4 py-3 bg-black/30 border border-white/10 rounded-xl text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-[#82e256] focus:border-transparent resize-none"
+                placeholder="Ej: ¿Cómo puedo implementar autenticación JWT en mi API de Node.js?"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-gradient-to-r from-[#82e256] to-[#6bc73d] text-black font-bold py-4 px-6 rounded-xl hover:from-[#6bc73d] hover:to-[#5ab32c] transition-all duration-300 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl transform hover:scale-105"
+            >
+              <svg
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+              <span>Consultar con IA</span>
+            </button>
+          </form>
+
+          <!-- Respuesta de IA -->
+          <div id="ai-response" class="hidden mt-8 animate-fade-in">
+            <div class="flex items-center gap-2 mb-4">
+              <div
+                class="w-8 h-8 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-lg flex items-center justify-center"
+              >
+                <svg
+                  class="w-5 h-5 text-black"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                  ></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-bold text-[#82e256]">Respuesta de IA</h3>
+            </div>
+
+            <div
+              id="ai-answer"
+              class="bg-black/20 border border-[#82e256]/20 rounded-xl p-6 text-white/80 leading-relaxed"
+            >
+              <!-- La respuesta se insertará aquí -->
+            </div>
+
+            <div class="flex items-center gap-2 mt-4 text-xs text-white/40">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              <span
+                >Esta respuesta es generada por IA y debe ser verificada por un
+                profesional.</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- MODALES PARA AUDIO Y VIDEO -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+
+<!-- Modal de Audio -->
+<div id="audio-modal" class="media-modal hidden fixed inset-0 flex items-center justify-center" style="z-index: 999999;">
+  <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" data-modal-backdrop="audio"></div>
+  <div class="relative z-10 w-full max-w-lg p-4">
+    <!-- Botón de Cerrar Circular - Superior Izquierdo -->
+    <button class="close-modal absolute top-2 left-2 z-20 w-12 h-12 bg-gradient-to-br from-[#82e256] to-[#6bc73d] hover:from-[#6bc73d] hover:to-[#5ab32c] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110 border-2 border-white/20" data-modal="audio" aria-label="Cerrar audio">
+      <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+
+    <div class="bg-gradient-to-br from-black/80 to-black/60 backdrop-blur-xl rounded-2xl border-2 border-[#82e256]/30 shadow-2xl overflow-hidden">
+      <!-- Header -->
+      <div class="flex items-center justify-center p-6 border-b border-white/10 relative">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-lg flex items-center justify-center">
+            <svg class="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"></path>
+            </svg>
+          </div>
+          <div>
+            <h4 class="text-white font-bold text-lg" id="audio-modal-title">Audio</h4>
+            <p class="text-gray-400 text-xs">Escucha la respuesta completa</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Audio Player -->
+      <div class="p-6">
+        <div class="audio-player-modal">
+          <button class="play-btn-modal" id="audio-play-btn">
+            <svg class="play-icon-modal w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"></path>
+            </svg>
+            <svg class="pause-icon-modal w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+          <div class="audio-info-modal">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-sm text-white" id="audio-current-time">0:00</span>
+              <span class="text-sm text-gray-400" id="audio-duration">0:00</span>
+            </div>
+            <div class="audio-progress-modal">
+              <div class="audio-progress-bar-modal"></div>
+            </div>
+          </div>
+        </div>
+        <audio id="audio-element-modal"></audio>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de Video (YouTube Short) -->
+<div id="video-modal" class="media-modal hidden fixed inset-0 flex items-center justify-center" style="z-index: 999999;">
+  <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" data-modal-backdrop="video"></div>
+
+  <!-- Botón de Cerrar Circular - Superior Izquierdo -->
+  <button class="close-modal absolute top-6 left-6 z-20 w-14 h-14 bg-gradient-to-br from-[#82e256] to-[#6bc73d] hover:from-[#6bc73d] hover:to-[#5ab32c] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110 border-2 border-white/20" data-modal="video" aria-label="Cerrar video">
+    <svg class="w-7 h-7 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+  </button>
+
+  <div class="relative z-10 w-full h-full flex items-center justify-center p-4">
+    <div class="relative flex flex-col items-center gap-6 h-full justify-center max-w-2xl w-full">
+      <!-- Header -->
+      <div class="flex items-center justify-center w-full">
+        <div class="flex items-center gap-3 bg-black/60 backdrop-blur-xl px-6 py-3 rounded-xl border border-white/10">
+          <div class="w-10 h-10 bg-gradient-to-br from-red-500 to-red-600 rounded-lg flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"></path>
+            </svg>
+          </div>
+          <div>
+            <h4 class="text-white font-bold text-base" id="video-modal-title">Video</h4>
+            <p class="text-gray-400 text-xs" id="video-modal-description">Video explicativo</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video Container -->
+      <div class="video-container-modal flex-1 flex items-center justify-center" style="max-height: 90vh;">
+        <div class="relative rounded-xl overflow-hidden border-2 border-gray-700 hover:border-[#82e256] transition-all duration-300 shadow-2xl" style="height: 85vh;">
+          <iframe
+            id="video-iframe-modal"
+            class="transition-all duration-500"
+            style="width: calc(85vh * 9 / 16); height: 85vh;"
+            src=""
+            title="Video"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* FAQ Big Items */
+  .faq-item {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .faq-item:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .faq-header {
+    padding: 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .faq-header:hover {
+    padding-left: 8px;
+  }
+
+  .faq-header-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex: 1;
+  }
+
+  .faq-title {
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-weight: 500;
+    margin: 0;
+    color: #fff;
+    transition: color 0.3s ease;
+  }
+
+  .faq-item.is-open .faq-title {
+    color: #82e256;
+  }
+
+  /* Media Badge Button */
+  .media-badge-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: rgba(130, 226, 86, 0.1);
+    border: 1px solid rgba(130, 226, 86, 0.3);
+    border-radius: 50%;
+    color: #82e256;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .media-badge-btn:hover {
+    background: rgba(130, 226, 86, 0.2);
+    border-color: #82e256;
+    transform: scale(1.1);
+  }
+
+  /* Icono + */
+  .faq-icon {
+    width: 32px;
+    height: 32px;
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+  }
+
+  .faq-icon::before,
+  .faq-icon::after {
+    content: '';
+    position: absolute;
+    background-color: #82e256;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .faq-icon::before {
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    transform: translateY(-50%);
+  }
+
+  .faq-icon::after {
+    left: 50%;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    transform: translateX(-50%);
+  }
+
+  .faq-item.is-open .faq-icon {
+    transform: rotate(135deg);
+  }
+
+  /* Cuerpo del acordeón */
+  .faq-body {
+    max-height: 0;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+  }
+
+  .faq-item.is-open .faq-body {
+    max-height: 1000px;
+    opacity: 1;
+  }
+
+  .faq-content {
+    padding-bottom: 24px;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .faq-content p {
+    margin: 0;
+  }
+
+  /* Modal Styles */
+  .media-modal {
+    transition: opacity 0.3s ease;
+  }
+
+  /* Audio Player Modal */
+  .audio-player-modal {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: rgba(130, 226, 86, 0.05);
+    border: 1px solid rgba(130, 226, 86, 0.2);
+    border-radius: 12px;
+  }
+
+  .play-btn-modal {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #82e256, #6bc73d);
+    border: none;
+    color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(130, 226, 86, 0.3);
+  }
+
+  .play-btn-modal:hover {
+    background: linear-gradient(135deg, #6bc73d, #5ab32c);
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(130, 226, 86, 0.4);
+  }
+
+  .play-btn-modal.playing .play-icon-modal {
+    display: none;
+  }
+
+  .play-btn-modal.playing .pause-icon-modal {
+    display: block;
+  }
+
+  .audio-info-modal {
+    flex: 1;
+  }
+
+  .audio-progress-modal {
+    width: 100%;
+    height: 6px;
+    background: rgba(130, 226, 86, 0.2);
+    border-radius: 3px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .audio-progress-bar-modal {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #82e256, #6bc73d);
+    transition: width 0.1s linear;
+  }
+
+  /* Animación */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 991px) {
+    .faq-title {
+      font-size: 1.125rem;
+    }
+
+    .faq-header {
+      padding: 16px 0;
+    }
+  }
+</style>
+
+<script>
+  // FAQ Items data para modales
+  const faqItemsData = [
+    {
+      title: "¿Qué arquitectura debo usar?",
+      content: "La elección depende de escalabilidad, complejidad y equipo. Arquitecturas comunes: Hexagonal, Microservicios, Monolito Modular, Event-Driven.",
+      mediaType: "audio",
+      mediaSrc: "/audio/arquitectura.mp3"
+    },
+    {
+      title: "¿Cómo integrar IA en mi negocio?",
+      content: "Identifica procesos repetitivos. Casos: chatbots, análisis de sentimientos, recomendaciones, automatización de tareas.",
+      mediaType: "video",
+      mediaSrc: "https://www.youtube.com/embed/VIDEO_ID"
+    },
+    {
+      title: "React Native o nativo?",
+      content: "React Native: rápido, código compartido. Nativo: máximo rendimiento, APIs completas, interfaces personalizadas.",
+      mediaType: null,
+      mediaSrc: null
+    },
+    {
+      title: "¿Mejores prácticas de seguridad?",
+      content: "HTTPS, autenticación robusta (JWT, OAuth), validación de inputs, protección contra XSS y SQL injection, CSP headers.",
+      mediaType: "audio",
+      mediaSrc: "/audio/seguridad.mp3"
+    },
+    {
+      title: "¿Qué es CI/CD?",
+      content: "Automatiza testing y deployment. Beneficios: detecta errores temprano, reduce trabajo manual, mejora calidad.",
+      mediaType: "video",
+      mediaSrc: "https://www.youtube.com/embed/VIDEO_ID"
+    }
+  ];
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // ═══════════════════════════════════════════════════════════════════
+    // FAQ ACCORDION
+    // ═══════════════════════════════════════════════════════════════════
+    const faqHeaders = document.querySelectorAll('.faq-header');
+
+    faqHeaders.forEach(header => {
+      header.addEventListener('click', () => {
+        const currentItem = header.parentElement as HTMLElement;
+        const isOpen = currentItem.classList.contains('is-open');
+
+        // Cerrar todos
+        document.querySelectorAll('.faq-item').forEach(item => {
+          item.classList.remove('is-open');
+        });
+
+        if (!isOpen) {
+          currentItem.classList.add('is-open');
+        }
+      });
+    });
+
+    // ═══════════════════════════════════════════════════════════════════
+    // MODALES - Abrir al hacer clic en badges de media
+    // ═══════════════════════════════════════════════════════════════════
+    const mediaBadgeBtns = document.querySelectorAll('.media-badge-btn');
+
+    mediaBadgeBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const mediaType = btn.getAttribute('data-media-type');
+        const index = parseInt(btn.getAttribute('data-index') || '0');
+        const itemData = faqItemsData[index];
+
+        if (mediaType === 'audio') {
+          openAudioModal(itemData);
+        } else if (mediaType === 'video') {
+          openVideoModal(itemData);
+        }
+      });
+    });
+
+    // ═══════════════════════════════════════════════════════════════════
+    // AUDIO MODAL
+    // ═══════════════════════════════════════════════════════════════════
+    function openAudioModal(itemData) {
+      const modal = document.getElementById('audio-modal');
+      const audioElement = document.getElementById('audio-element-modal') as HTMLAudioElement;
+      const modalTitle = document.getElementById('audio-modal-title');
+      const playBtn = document.getElementById('audio-play-btn');
+      const progressBar = document.querySelector('.audio-progress-bar-modal') as HTMLElement;
+      const currentTimeEl = document.getElementById('audio-current-time');
+      const durationEl = document.getElementById('audio-duration');
+
+      if (modal && audioElement && itemData.mediaSrc) {
+        // Set title
+        if (modalTitle) modalTitle.textContent = itemData.title;
+
+        // Set audio source
+        audioElement.src = itemData.mediaSrc;
+
+        // Show modal
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+
+        // Reset player
+        audioElement.currentTime = 0;
+        playBtn?.classList.remove('playing');
+        if (progressBar) progressBar.style.width = '0%';
+
+        // Update duration when loaded
+        audioElement.addEventListener('loadedmetadata', () => {
+          if (durationEl) {
+            durationEl.textContent = formatTime(audioElement.duration);
+          }
+        });
+      }
+    }
+
+    function closeAudioModal() {
+      const modal = document.getElementById('audio-modal');
+      const audioElement = document.getElementById('audio-element-modal') as HTMLAudioElement;
+      const playBtn = document.getElementById('audio-play-btn');
+      const progressBar = document.querySelector('.audio-progress-bar-modal') as HTMLElement;
+
+      if (modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      }
+
+      if (audioElement) {
+        audioElement.pause();
+        audioElement.currentTime = 0;
+        audioElement.src = '';
+      }
+
+      playBtn?.classList.remove('playing');
+      if (progressBar) progressBar.style.width = '0%';
+    }
+
+    // Audio player controls
+    const audioPlayBtn = document.getElementById('audio-play-btn');
+    const audioElement = document.getElementById('audio-element-modal') as HTMLAudioElement;
+    const audioProgressBar = document.querySelector('.audio-progress-bar-modal') as HTMLElement;
+    const audioCurrentTime = document.getElementById('audio-current-time');
+
+    if (audioPlayBtn && audioElement) {
+      audioPlayBtn.addEventListener('click', () => {
+        if (audioElement.paused) {
+          audioElement.play();
+          audioPlayBtn.classList.add('playing');
+        } else {
+          audioElement.pause();
+          audioPlayBtn.classList.remove('playing');
+        }
+      });
+
+      // Update progress
+      audioElement.addEventListener('timeupdate', () => {
+        const progress = (audioElement.currentTime / audioElement.duration) * 100;
+        if (audioProgressBar) {
+          audioProgressBar.style.width = `${progress}%`;
+        }
+        if (audioCurrentTime) {
+          audioCurrentTime.textContent = formatTime(audioElement.currentTime);
+        }
+      });
+
+      // Reset on end
+      audioElement.addEventListener('ended', () => {
+        audioPlayBtn.classList.remove('playing');
+        if (audioProgressBar) audioProgressBar.style.width = '0%';
+        audioElement.currentTime = 0;
+      });
+
+      // Seek on click
+      const audioProgressContainer = document.querySelector('.audio-progress-modal');
+      if (audioProgressContainer) {
+        audioProgressContainer.addEventListener('click', (e) => {
+          const rect = audioProgressContainer.getBoundingClientRect();
+          const percent = (e.clientX - rect.left) / rect.width;
+          audioElement.currentTime = percent * audioElement.duration;
+        });
+      }
+    }
+
+    // ═══════════════════════════════════════════════════════════════════
+    // VIDEO MODAL
+    // ═══════════════════════════════════════════════════════════════════
+    function openVideoModal(itemData) {
+      const modal = document.getElementById('video-modal');
+      const videoIframe = document.getElementById('video-iframe-modal') as HTMLIFrameElement;
+      const modalTitle = document.getElementById('video-modal-title');
+      const modalDescription = document.getElementById('video-modal-description');
+
+      if (modal && videoIframe && itemData.mediaSrc) {
+        // Set title and description
+        if (modalTitle) modalTitle.textContent = itemData.title;
+        const shortContent = itemData.content.length > 60
+          ? itemData.content.substring(0, 60) + '...'
+          : itemData.content;
+        if (modalDescription) modalDescription.textContent = shortContent;
+
+        // Set video source (autoplay enabled)
+        const videoSrc = itemData.mediaSrc.includes('?')
+          ? `${itemData.mediaSrc}&autoplay=1&mute=1`
+          : `${itemData.mediaSrc}?autoplay=1&mute=1`;
+        videoIframe.src = videoSrc;
+
+        // Show modal
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeVideoModal() {
+      const modal = document.getElementById('video-modal');
+      const videoIframe = document.getElementById('video-iframe-modal') as HTMLIFrameElement;
+
+      if (modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      }
+
+      if (videoIframe) {
+        videoIframe.src = '';
+      }
+    }
+
+    // ═══════════════════════════════════════════════════════════════════
+    // CERRAR MODALES
+    // ═══════════════════════════════════════════════════════════════════
+    // Close buttons
+    document.querySelectorAll('.close-modal').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const modalType = btn.getAttribute('data-modal');
+        if (modalType === 'audio') {
+          closeAudioModal();
+        } else if (modalType === 'video') {
+          closeVideoModal();
+        }
+      });
+    });
+
+    // Close on backdrop click
+    document.querySelectorAll('[data-modal-backdrop]').forEach(backdrop => {
+      backdrop.addEventListener('click', () => {
+        const modalType = backdrop.getAttribute('data-modal-backdrop');
+        if (modalType === 'audio') {
+          closeAudioModal();
+        } else if (modalType === 'video') {
+          closeVideoModal();
+        }
+      });
+    });
+
+    // Close on ESC key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const audioModal = document.getElementById('audio-modal');
+        const videoModal = document.getElementById('video-modal');
+
+        if (audioModal && !audioModal.classList.contains('hidden')) {
+          closeAudioModal();
+        }
+        if (videoModal && !videoModal.classList.contains('hidden')) {
+          closeVideoModal();
+        }
+      }
+    });
+
+    // ═══════════════════════════════════════════════════════════════════
+    // HELPER FUNCTIONS
+    // ═══════════════════════════════════════════════════════════════════
+    function formatTime(seconds: number): string {
+      if (isNaN(seconds)) return '0:00';
+      const mins = Math.floor(seconds / 60);
+      const secs = Math.floor(seconds % 60);
+      return `${mins}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    // ═══════════════════════════════════════════════════════════════════
+    // FORMULARIO DE IA
+    // ═══════════════════════════════════════════════════════════════════
+    const form = document.getElementById('ai-question-form') as HTMLFormElement;
+    const responseDiv = document.getElementById('ai-response');
+    const answerDiv = document.getElementById('ai-answer');
+
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const question = (document.getElementById('user-question') as HTMLTextAreaElement).value;
+
+        if (!question.trim()) {
+          alert('Por favor escribe una pregunta');
+          return;
+        }
+
+        // Mostrar loading
+        if (answerDiv) {
+          answerDiv.innerHTML = '<div class="flex items-center gap-3"><div class="animate-spin rounded-full h-5 w-5 border-b-2 border-[#82e256]"></div><span>Consultando con IA...</span></div>';
+        }
+        if (responseDiv) {
+          responseDiv.classList.remove('hidden');
+        }
+
+        // Simular respuesta de IA (aquí conectarías tu API real)
+        setTimeout(() => {
+          if (answerDiv) {
+            answerDiv.innerHTML = `
+              <p class="mb-4">Esta es una respuesta de ejemplo. En producción, aquí se mostraría la respuesta real de la IA basada en tu pregunta: "${question}"</p>
+              <p>Para implementar esto, puedes integrar APIs como OpenAI GPT, Claude de Anthropic, o Azure OpenAI Service.</p>
+            `;
+          }
+        }, 2000);
+      });
+    }
+  });
+</script>

@@ -103,7 +103,7 @@
   <section
     id="personaje3"
     class="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden animate-apps"
-    data-bg="radial-gradient(circle at 50% 100%, #3b82f6 0%, #1e40af 50%, #0a0a0a 100%)"
+    data-bg="radial-gradient(circle at 50% 100%, #60a5fa 0%, #3b82f6 25%, #2563eb 45%, #1e40af 70%, #0a0a0a 100%)"
   >
     <!-- Título Gigante de Fondo -->
     <h2
@@ -198,7 +198,7 @@
   <section
     id="personaje4"
     class="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden animate-web"
-    data-bg="radial-gradient(circle at 50% 100%, #f59e0b 0%, #dc2626 50%, #0a0a0a 100%)"
+    data-bg="radial-gradient(circle at 50% 100%, #fbbf24 0%, #f59e0b 20%, #ef4444 40%, #dc2626 65%, #0a0a0a 100%)"
   >
     <!-- Título Gigante de Fondo -->
     <h2
@@ -293,7 +293,7 @@
   <section
     id="personaje5"
     class="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden animate-mobile"
-    data-bg="radial-gradient(circle at 50% 100%, #8b5cf6 0%, #5b21b6 50%, #0a0a0a 100%)"
+    data-bg="radial-gradient(circle at 50% 100%, #a78bfa 0%, #8b5cf6 25%, #7c3aed 45%, #5b21b6 70%, #0a0a0a 100%)"
   >
     <!-- Título Gigante de Fondo -->
     <h2
@@ -387,7 +387,7 @@
   <section
     id="personaje6"
     class="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden animate-arch"
-    data-bg="radial-gradient(circle at 50% 100%, #06b6d4 0%, #0e7490 50%, #0a0a0a 100%)"
+    data-bg="radial-gradient(circle at 50% 100%, #22d3ee 0%, #06b6d4 25%, #0891b2 45%, #0e7490 70%, #0a0a0a 100%)"
   >
     <!-- Título Gigante de Fondo -->
     <h2
@@ -481,7 +481,7 @@
   <section
     id="personaje7"
     class="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden animate-vision"
-    data-bg="radial-gradient(circle at 50% 100%, #ec4899 0%, #be185d 50%, #0a0a0a 100%)"
+    data-bg="radial-gradient(circle at 50% 100%, #f9a8d4 0%, #ec4899 25%, #db2777 45%, #be185d 70%, #0a0a0a 100%)"
   >
     <!-- Título Gigante de Fondo -->
     <h2
@@ -573,10 +573,6 @@
   </section>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════════════════ -->
-<!-- MODALES DE VIDEOS - SCOPE GLOBAL -->
-<!-- Estos modales están fuera de las secciones para respetar el z-index -->
-<!-- ═══════════════════════════════════════════════════════════════════ -->
 
 <!-- Modal Video Service 1 - Agentes IA -->
 <div id="videos-service1" class="service-videos-container hidden fixed inset-0 flex items-center justify-center" style="z-index: 999999;">
@@ -850,8 +846,8 @@
     const serviceSections = document.querySelectorAll('#personaje1, #personaje3, #personaje4, #personaje5, #personaje6, #personaje7');
 
     const observerOptions = {
-      // rootMargin hace que el cambio empiece antes de llegar al centro
-      rootMargin: '-20% 0% -20% 0%',
+      // rootMargin hace que el cambio sea más dramático cuando la sección está centrada
+      rootMargin: '-40% 0% -40% 0%',
       threshold: 0.1
     };
 
@@ -873,16 +869,80 @@
   });
 </script>
 
+
 <style is:global>
   /* ===== COLOR CHANGE WITH STICKY SCROLL ===== */
   :root {
     --bg-gradient-current: radial-gradient(circle at 50% 100%, #1a1a1a 0%, #0a0a0a 100%);
   }
 
-  /* Transición suave para el cambio de fondo del body */
+  /* Transición rápida y dramática para el cambio de fondo del body */
   body {
     background: var(--bg-gradient-current) !important;
-    transition: background 1.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transition: background 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+
+  /* ===== SCROLL-DRIVEN TEXT REVEAL - AQUICREAMOS ===== */
+
+  /* Espaciadores */
+  .spacer-top-aquicreamos {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .spacer-bottom-aquicreamos {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* El contenedor que define la duración del scroll */
+  .scroll-wrapper-aquicreamos {
+    height: 400vh;
+  }
+
+  .sticky-container-aquicreamos {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10vw;
+    overflow: hidden;
+  }
+
+  .text-reveal-aquicreamos {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-weight: 600;
+    line-height: 1.4;
+    text-align: left;
+    max-width: 900px;
+    color: #ffffff;
+    /* El blur final se aplica a todo el bloque */
+    transition: filter 0.5s ease;
+  }
+
+  /* Estilo de cada palabra antes de ser revelada */
+  .word-aquicreamos {
+    display: inline-block;
+    opacity: 0.1;
+    /* Casi invisible */
+    filter: blur(12px);
+    /* Muy desenfocada */
+    transform: translateY(10px);
+    transition: all 0.4s ease-out;
+    margin-right: 0.25em;
+  }
+
+  /* Clase que activaremos con JS */
+  .word-aquicreamos.active {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0px);
   }
 
   /* ===== NUEVA DISTRIBUCIÓN: TEXTOS GRANDES + IMÁGENES SIN DESCRIPCIÓN ===== */

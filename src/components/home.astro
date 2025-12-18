@@ -3,8 +3,11 @@ import Header from "./Header.astro";
 import Servicios from "./Servicios.astro";
 import Hablemos from "./Hablemos.astro";
 import Blog from "./Blog.astro";
+import ParallaxText from "./ParallaxText.astro";
 import Stack from "./Stack.astro";
 import Asesorias from "./Asesorias.astro";
+import ConsultaIA from "./ConsultaIA.astro";
+import NewsletterReveal from "./NewsletterReveal.astro";
 import Footer from "./Footer.astro";
 
 const isVisible = true;
@@ -260,6 +263,8 @@ const isVisible = true;
 
 <Blog />
 
+<ParallaxText />
+
 <Stack />
 <Asesorias />
 
@@ -384,647 +389,111 @@ const isVisible = true;
       </div>
     </div>
 
-    <!-- Courses Grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-      <!-- Course 1: Arquitectura Hexagonal -->
-      <div
-        class="group relative overflow-hidden rounded-2xl border-2 border-white/10 bg-gradient-to-br from-black/40 to-black/20 hover:border-[#82e256]/50 transition-all duration-300"
-      >
-        <div
-          class="absolute inset-0 bg-gradient-to-br from-[#82e256]/5 to-[#6bc73d]/5 opacity-0 group-hover:opacity-100 transition-opacity"
-        >
-        </div>
-        <div class="relative p-6">
-          <div class="flex items-start justify-between mb-4">
-            <div
-              class="w-12 h-12 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-xl flex items-center justify-center"
-            >
-              <svg
-                class="w-6 h-6 text-black"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-                ></path>
-              </svg>
-            </div>
-            <span
-              class="px-3 py-1 bg-[#82e256]/20 text-[#82e256] text-xs font-bold rounded-full"
-              >POPULAR</span
-            >
+    <!-- Courses List - Modern Design -->
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-xs font-bold tracking-[0.3em] text-[#82e256] mb-16 uppercase">
+        Servicios de Ingeniería — 2025
+      </h2>
+
+      <div class="flex flex-col border-t border-white/5">
+        <!-- Item 1: Arquitectura Hexagonal -->
+        <div class="list-item group cursor-none border-b border-white/5"
+          data-desc="Diseña aplicaciones desacopladas, testables y escalables con el patrón Ports & Adapters."
+          data-tag="8 HORAS • INTERMEDIO" data-color="#82e256">
+          <div class="flex items-center justify-between gap-4">
+            <h2 class="text-2xl md:text-4xl lg:text-5xl font-black outline-text uppercase italic">Arquitectura Hexagonal</h2>
+            <span class="text-white/20 group-hover:text-[#82e256] transition-colors text-lg md:text-xl font-light flex-shrink-0">01</span>
           </div>
-          <h3 class="text-xl font-bold text-white mb-2">
-            Arquitectura Hexagonal
-          </h3>
-          <p class="text-white/60 text-sm mb-4 leading-relaxed">
-            Aprende a diseñar aplicaciones desacopladas, testables y escalables
-            con el patrón Ports & Adapters
-          </p>
-          <div class="flex items-center gap-4 text-sm">
-            <span class="flex items-center gap-1 text-white/70">
-              <svg
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-              8 horas
-            </span>
-            <span class="flex items-center gap-1 text-white/70">
-              <svg
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-              Intermedio
-            </span>
+        </div>
+
+        <!-- Item 2: Microservicios & DDD -->
+        <div class="list-item cursor-none border-b border-white/5"
+          data-desc="Domina el diseño de sistemas distribuidos con DDD y patrones de microservicios avanzados."
+          data-tag="12 HORAS • AVANZADO" data-color="#04ADC0">
+          <div class="flex items-center justify-between gap-4">
+            <h2 class="text-2xl md:text-4xl lg:text-5xl font-black outline-text uppercase italic">Microservicios & DDD</h2>
+            <span class="text-white/20 group-hover:text-[#04ADC0] transition-colors text-lg md:text-xl font-light flex-shrink-0">02</span>
+          </div>
+        </div>
+
+        <!-- Item 3: IA Gen & LLMs -->
+        <div class="list-item group  cursor-none border-b border-white/5"
+          data-desc="IA Generativa para empresas. Implementa GPT-4, RAG y embeddings en entornos reales."
+          data-tag="14 HORAS • NUEVO" data-color="#82e256">
+          <div class="flex items-center justify-between gap-4">
+            <h2 class="text-2xl md:text-4xl lg:text-5xl font-black outline-text uppercase italic">IA Gen & LLMs</h2>
+            <span class="text-white/20 group-hover:text-[#82e256] transition-colors text-lg md:text-xl font-light flex-shrink-0">03</span>
+          </div>
+        </div>
+
+        <!-- Item 4: DevOps CI/CD -->
+        <div class="list-item group cursor-none border-b border-white/5"
+          data-desc="Automatiza deployments, pipelines y domina Docker, Kubernetes y herramientas cloud."
+          data-tag="10 HORAS • DEVOPS" data-color="#04ADC0">
+          <div class="flex items-center justify-between gap-4">
+            <h2 class="text-2xl md:text-4xl lg:text-5xl font-black outline-text uppercase italic">DevOps CI/CD</h2>
+            <span class="text-white/20 group-hover:text-[#04ADC0] transition-colors text-lg md:text-xl font-light flex-shrink-0">04</span>
+          </div>
+        </div>
+
+        <!-- Item 5: Clean Code & SOLID -->
+        <div class="list-item group cursor-none border-b border-white/5"
+          data-desc="Aprende principios de código limpio, SOLID y patrones de diseño para escribir software mantenible."
+          data-tag="8 HORAS • FUNDAMENTAL" data-color="#82e256">
+          <div class="flex items-center justify-between gap-4">
+            <h2 class="text-2xl md:text-4xl lg:text-5xl font-black outline-text uppercase italic">Clean Code & SOLID</h2>
+            <span class="text-white/20 group-hover:text-[#82e256] transition-colors text-lg md:text-xl font-light flex-shrink-0">05</span>
+          </div>
+        </div>
+
+        <!-- Item 6: Testing Avanzado -->
+        <div class="list-item group cursor-none border-b border-white/5"
+          data-desc="Unit testing, integration tests, TDD y BDD para garantizar calidad de software profesional."
+          data-tag="10 HORAS • INTERMEDIO" data-color="#04ADC0">
+          <div class="flex items-center justify-between gap-4">
+            <h2 class="text-2xl md:text-4xl lg:text-5xl font-black outline-text uppercase italic">Testing Avanzado</h2>
+            <span class="text-white/20 group-hover:text-[#04ADC0] transition-colors text-lg md:text-xl font-light flex-shrink-0">06</span>
+          </div>
+        </div>
+
+        <!-- Item 7: ML en Producción -->
+        <div class="list-item group cursor-none border-b border-white/5"
+          data-desc="Despliega modelos de Machine Learning en producción con MLOps, monitoreo y escalabilidad."
+          data-tag="16 HORAS • AVANZADO" data-color="#82e256">
+          <div class="flex items-center justify-between gap-4">
+            <h2 class="text-2xl md:text-4xl lg:text-5xl font-black outline-text uppercase italic">ML en Producción</h2>
+            <span class="text-white/20 group-hover:text-[#82e256] transition-colors text-lg md:text-xl font-light flex-shrink-0">07</span>
+          </div>
+        </div>
+
+        <!-- Item 8: Sistemas Agénticos -->
+        <div class="list-item group  cursor-none border-b border-white/5"
+          data-desc="Construye sistemas multi-agente con IA que colaboran y resuelven problemas complejos autónomamente."
+          data-tag="12 HORAS • NUEVO" data-color="#04ADC0">
+          <div class="flex items-center justify-between gap-4">
+            <h2 class="text-2xl md:text-4xl lg:text-5xl font-black outline-text uppercase italic">Sistemas Agénticos</h2>
+            <span class="text-white/20 group-hover:text-[#04ADC0] transition-colors text-lg md:text-xl font-light flex-shrink-0">08</span>
+          </div>
+        </div>
+
+        <!-- Item 9: Mentoring Personalizado -->
+        <div class="list-item group cursor-none border-b border-white/5"
+          data-desc="Sesiones 1-on-1 o en equipo. Adapta el contenido a tus necesidades específicas y acelera tu crecimiento."
+          data-tag="FLEXIBLE • PERSONALIZADO" data-color="#82e256">
+          <div class="flex items-center justify-between gap-4">
+            <h2 class="text-2xl md:text-4xl lg:text-5xl font-black outline-text uppercase italic">Mentoring Personalizado</h2>
+            <span class="text-white/20 group-hover:text-[#82e256] transition-colors text-lg md:text-xl font-light flex-shrink-0">09</span>
           </div>
         </div>
       </div>
 
-      <!-- Course 2: Microservicios -->
-      <div
-        class="group relative overflow-hidden rounded-2xl border-2 border-white/10 bg-gradient-to-br from-black/40 to-black/20 hover:border-[#82e256]/50 transition-all duration-300"
-      >
-        <div
-          class="absolute inset-0 bg-gradient-to-br from-[#82e256]/5 to-[#6bc73d]/5 opacity-0 group-hover:opacity-100 transition-opacity"
-        >
-        </div>
-        <div class="relative p-6">
-          <div class="flex items-start justify-between mb-4">
-            <div
-              class="w-12 h-12 bg-gradient-to-br from-[#04ADC0] to-[#00464e] rounded-xl flex items-center justify-center"
-            >
-              <svg
-                class="w-6 h-6 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"
-                ></path>
-              </svg>
-            </div>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2">
-            Microservicios y DDD
-          </h3>
-          <p class="text-white/60 text-sm mb-4 leading-relaxed">
-            Domina el diseño de sistemas distribuidos con Domain-Driven Design y
-            patrones de microservicios
-          </p>
-          <div class="flex items-center gap-4 text-sm">
-            <span class="flex items-center gap-1 text-white/70">
-              <svg
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-              12 horas
-            </span>
-            <span class="flex items-center gap-1 text-white/70">
-              <svg
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-              Avanzado
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Course 3: Clean Code -->
-      <div
-        class="group relative overflow-hidden rounded-2xl border-2 border-white/10 bg-gradient-to-br from-black/40 to-black/20 hover:border-[#82e256]/50 transition-all duration-300"
-      >
-        <div
-          class="absolute inset-0 bg-gradient-to-br from-[#82e256]/5 to-[#6bc73d]/5 opacity-0 group-hover:opacity-100 transition-opacity"
-        >
-        </div>
-        <div class="relative p-6">
-          <div class="flex items-start justify-between mb-4">
-            <div
-              class="w-12 h-12 bg-gradient-to-br from-[#6bc73d] to-[#5ba62e] rounded-xl flex items-center justify-center"
-            >
-              <svg
-                class="w-6 h-6 text-black"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-              </svg>
-            </div>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2">Clean Code & SOLID</h3>
-          <p class="text-white/60 text-sm mb-4 leading-relaxed">
-            Escribe código limpio, mantenible y profesional aplicando principios
-            SOLID y mejores prácticas
-          </p>
-          <div class="flex items-center gap-4 text-sm">
-            <span class="flex items-center gap-1 text-white/70">
-              <svg
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-              6 horas
-            </span>
-            <span class="flex items-center gap-1 text-white/70">
-              <svg
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-              Básico
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Course 4: Testing -->
-      <div
-        class="group relative overflow-hidden rounded-2xl border-2 border-white/10 bg-gradient-to-br from-black/40 to-black/20 hover:border-[#82e256]/50 transition-all duration-300"
-      >
-        <div
-          class="absolute inset-0 bg-gradient-to-br from-[#82e256]/5 to-[#6bc73d]/5 opacity-0 group-hover:opacity-100 transition-opacity"
-        >
-        </div>
-        <div class="relative p-6">
-          <div class="flex items-start justify-between mb-4">
-            <div
-              class="w-12 h-12 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-xl flex items-center justify-center"
-            >
-              <svg
-                class="w-6 h-6 text-black"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
-                ></path>
-              </svg>
-            </div>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2">Testing Avanzado</h3>
-          <p class="text-white/60 text-sm mb-4 leading-relaxed">
-            Domina TDD, testing unitario, de integración y E2E para garantizar
-            calidad en tus aplicaciones
-          </p>
-          <div class="flex items-center gap-4 text-sm">
-            <span class="flex items-center gap-1 text-white/70">
-              <svg
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-              8 horas
-            </span>
-            <span class="flex items-center gap-1 text-white/70">
-              <svg
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-              Intermedio
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Course 5: DevOps -->
-      <div
-        class="group relative overflow-hidden rounded-2xl border-2 border-white/10 bg-gradient-to-br from-black/40 to-black/20 hover:border-[#82e256]/50 transition-all duration-300"
-      >
-        <div
-          class="absolute inset-0 bg-gradient-to-br from-[#82e256]/5 to-[#6bc73d]/5 opacity-0 group-hover:opacity-100 transition-opacity"
-        >
-        </div>
-        <div class="relative p-6">
-          <div class="flex items-start justify-between mb-4">
-            <div
-              class="w-12 h-12 bg-gradient-to-br from-[#04ADC0] to-[#00464e] rounded-xl flex items-center justify-center"
-            >
-              <svg
-                class="w-6 h-6 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"
-                ></path>
-              </svg>
-            </div>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2">DevOps y CI/CD</h3>
-          <p class="text-white/60 text-sm mb-4 leading-relaxed">
-            Automatiza deployments, implementa pipelines y domina Docker,
-            Kubernetes y herramientas cloud
-          </p>
-          <div class="flex items-center gap-4 text-sm">
-            <span class="flex items-center gap-1 text-white/70">
-              <svg
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-              10 horas
-            </span>
-            <span class="flex items-center gap-1 text-white/70">
-              <svg
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-              Intermedio
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Course 6: Mentoring Personalizado -->
-      <div
-        class="group relative overflow-hidden rounded-2xl border-2 border-[#82e256]/30 bg-gradient-to-br from-[#82e256]/10 to-[#6bc73d]/10 hover:border-[#82e256] transition-all duration-300"
-      >
-        <div
-          class="absolute inset-0 bg-gradient-to-br from-[#82e256]/10 to-[#6bc73d]/10"
-        >
-        </div>
-        <div class="relative p-6">
-          <div class="flex items-start justify-between mb-4">
-            <div
-              class="w-12 h-12 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-xl flex items-center justify-center"
-            >
-              <svg
-                class="w-6 h-6 text-black"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                ></path>
-              </svg>
-            </div>
-            <span
-              class="px-3 py-1 bg-[#82e256] text-black text-xs font-bold rounded-full"
-              >PREMIUM</span
-            >
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2">
-            Mentoring Personalizado
-          </h3>
-          <p class="text-white/60 text-sm mb-4 leading-relaxed">
-            Sesiones privadas 1-on-1 o para tu equipo, enfocadas en resolver
-            problemas específicos de tu proyecto
-          </p>
-          <div class="flex items-center gap-4 text-sm">
-            <span class="flex items-center gap-1 text-white/70">
-              <svg
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-              Flexible
-            </span>
-            <span class="flex items-center gap-1 text-white/70">
-              <svg
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-              Todos niveles
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Course 7: IA Generativa para Empresas -->
-      <div
-        class="group relative overflow-hidden rounded-2xl border-2 border-white/10 bg-gradient-to-br from-black/40 to-black/20 hover:border-[#04ADC0]/50 transition-all duration-300"
-      >
-        <div
-          class="absolute inset-0 bg-gradient-to-br from-[#04ADC0]/5 to-[#00464e]/5 opacity-0 group-hover:opacity-100 transition-opacity"
-        >
-        </div>
-        <div class="relative p-6">
-          <div class="flex items-start justify-between mb-4">
-            <div
-              class="w-12 h-12 bg-gradient-to-br from-[#04ADC0] to-[#00464e] rounded-xl flex items-center justify-center"
-            >
-              <svg
-                class="w-6 h-6 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                ></path>
-              </svg>
-            </div>
-            <span
-              class="px-3 py-1 bg-[#04ADC0]/20 text-[#04ADC0] text-xs font-bold rounded-full"
-              >NUEVO</span
-            >
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2">
-            IA Generativa para Empresas
-          </h3>
-          <p class="text-white/60 text-sm mb-4 leading-relaxed">
-            Implementa GPT-4, Claude y LLMs en aplicaciones reales. Aprende RAG,
-            embeddings y fine-tuning
-          </p>
-          <div class="flex items-center gap-4 text-sm">
-            <span class="flex items-center gap-1 text-white/70">
-              <svg
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-              14 horas
-            </span>
-            <span class="flex items-center gap-1 text-white/70">
-              <svg
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-              Avanzado
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Course 8: Machine Learning en Producción -->
-      <div
-        class="group relative overflow-hidden rounded-2xl border-2 border-white/10 bg-gradient-to-br from-black/40 to-black/20 hover:border-[#04ADC0]/50 transition-all duration-300"
-      >
-        <div
-          class="absolute inset-0 bg-gradient-to-br from-[#04ADC0]/5 to-[#00464e]/5 opacity-0 group-hover:opacity-100 transition-opacity"
-        >
-        </div>
-        <div class="relative p-6">
-          <div class="flex items-start justify-between mb-4">
-            <div
-              class="w-12 h-12 bg-gradient-to-br from-[#04ADC0] to-[#00464e] rounded-xl flex items-center justify-center"
-            >
-              <svg
-                class="w-6 h-6 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                ></path>
-              </svg>
-            </div>
-            <span
-              class="px-3 py-1 bg-[#04ADC0]/20 text-[#04ADC0] text-xs font-bold rounded-full"
-              >NUEVO</span
-            >
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2">
-            Machine Learning en Producción
-          </h3>
-          <p class="text-white/60 text-sm mb-4 leading-relaxed">
-            MLOps, pipelines de entrenamiento, deployment de modelos y monitoreo
-            en sistemas reales
-          </p>
-          <div class="flex items-center gap-4 text-sm">
-            <span class="flex items-center gap-1 text-white/70">
-              <svg
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-              16 horas
-            </span>
-            <span class="flex items-center gap-1 text-white/70">
-              <svg
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-              Avanzado
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Course 9: Sistemas Agénticos y Multi-Agente -->
-      <div
-        class="group relative overflow-hidden rounded-2xl border-2 border-white/10 bg-gradient-to-br from-black/40 to-black/20 hover:border-[#04ADC0]/50 transition-all duration-300"
-      >
-        <div
-          class="absolute inset-0 bg-gradient-to-br from-[#04ADC0]/5 to-[#00464e]/5 opacity-0 group-hover:opacity-100 transition-opacity"
-        >
-        </div>
-        <div class="relative p-6">
-          <div class="flex items-start justify-between mb-4">
-            <div
-              class="w-12 h-12 bg-gradient-to-br from-[#04ADC0] to-[#00464e] rounded-xl flex items-center justify-center"
-            >
-              <svg
-                class="w-6 h-6 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-              </svg>
-            </div>
-            <span
-              class="px-3 py-1 bg-[#04ADC0]/20 text-[#04ADC0] text-xs font-bold rounded-full"
-              >NUEVO</span
-            >
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2">
-            Sistemas Agénticos y Multi-Agente
-          </h3>
-          <p class="text-white/60 text-sm mb-4 leading-relaxed">
-            Construye agentes autónomos con LangChain, CrewAI y AutoGPT.
-            Orquestación y coordinación de agentes
-          </p>
-          <div class="flex items-center gap-4 text-sm">
-            <span class="flex items-center gap-1 text-white/70">
-              <svg
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-              18 horas
-            </span>
-            <span class="flex items-center gap-1 text-white/70">
-              <svg
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-              Avanzado
-            </span>
-          </div>
+      <!-- Tooltip flotante -->
+      <div id="magic-tooltip" class="bg-white p-6 rounded-sm text-black shadow-2xl fixed pointer-events-none opacity-0" style="width: 320px; z-index: 100; transform: scale(0.8); transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);">
+        <span id="tooltip-tag" class="text-[10px] font-bold tracking-widest text-black/40 block mb-2 uppercase italic"></span>
+        <p id="tooltip-desc" class="text-lg leading-tight font-medium"></p>
+        <div class="mt-4 flex items-center gap-2">
+          <div id="tooltip-dot" class="w-3 h-3 rounded-full animate-pulse"></div>
+          <span class="text-[10px] font-bold">DISPONIBLE AHORA</span>
         </div>
       </div>
     </div>
@@ -1090,931 +559,63 @@ const isVisible = true;
   </div>
 </section>
 
-<!-- Sección de Preguntas con IA -->
-<section
-  id="contenido12"
-  class="w-full md:px-16 px-5 py-20 min-h-screen"
->
-  <div class="max-w-7xl mx-auto">
-    <!-- Header -->
-    <div class="text-center mb-16">
-      <div
-        class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-2xl mb-6 shadow-xl"
-      >
-        <svg
-          class="w-10 h-10 text-black"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-          ></path>
-        </svg>
-      </div>
-      <h1
-        class="text-4xl md:text-5xl font-black text-white mb-4 bg-gradient-to-r from-white via-white to-[#82e256] bg-clip-text text-transparent"
-      >
-        Consulta con IA
-      </h1>
-      <p class="text-white/70 text-lg max-w-2xl mx-auto">
-        Resuelve tus dudas tecnológicas con respuestas generadas por
-        inteligencia artificial. Usa nuestro FAQ o haz tu propia pregunta.
-      </p>
-    </div>
+<style>
+  /* Texto con stroke (contorno) para efecto moderno */
+  .outline-text {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+    color: transparent;
+    transition: all 0.4s ease;
+  }
 
-    <div class="grid lg:grid-cols-2 gap-8">
-      <!-- FAQ Section -->
-      <div class="space-y-4">
-        <div class="flex items-center gap-3 mb-6">
-          <svg
-            class="w-6 h-6 text-[#82e256]"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-            ></path>
-          </svg>
-          <h2 class="text-2xl font-bold text-white">Preguntas Frecuentes</h2>
-        </div>
+  .list-item:hover .outline-text {
+    -webkit-text-stroke: 1px rgba(130, 226, 86, 1);
+    color: white;
+  }
+</style>
 
-        <!-- Scrollable FAQ container -->
-        <div
-          class="space-y-3 max-h-[600px] overflow-y-auto pr-2 custom-scrollbar"
-        >
-          <!-- FAQ Item 1 -->
-          <div
-            class="faq-item border border-white/10 rounded-xl overflow-hidden bg-black/20 hover:border-[#82e256]/50 transition-all duration-300"
-          >
-            <button
-              class="faq-question w-full px-6 py-4 flex items-center justify-between text-left group"
-            >
-              <span
-                class="text-white font-semibold group-hover:text-[#82e256] transition-colors"
-                >¿Qué arquitectura debo usar en mi app?</span
-              >
-              <svg
-                class="w-5 h-5 text-[#82e256] transform transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div
-              class="faq-answer max-h-0 overflow-hidden transition-all duration-300"
-            >
-              <div class="px-6 pb-4 text-white/70 leading-relaxed">
-                La elección de arquitectura depende de varios factores como
-                escalabilidad, complejidad y equipo. Arquitecturas comunes
-                incluyen: Hexagonal (Ports & Adapters), Microservicios,
-                Monolítica modular, o Event-Driven. Considera empezar con una
-                arquitectura más simple y evolucionar según tus necesidades.
-              </div>
-            </div>
-          </div>
+<script>
+  // Tooltip functionality for courses list
+  document.addEventListener('DOMContentLoaded', () => {
+    const tooltip = document.getElementById('magic-tooltip');
+    const tooltipDesc = document.getElementById('tooltip-desc');
+    const tooltipTag = document.getElementById('tooltip-tag');
+    const tooltipDot = document.getElementById('tooltip-dot');
+    const items = document.querySelectorAll('.list-item');
 
-          <!-- FAQ Item 2 -->
-          <div
-            class="faq-item border border-white/10 rounded-xl overflow-hidden bg-black/20 hover:border-[#82e256]/50 transition-all duration-300"
-          >
-            <button
-              class="faq-question w-full px-6 py-4 flex items-center justify-between text-left group"
-            >
-              <span
-                class="text-white font-semibold group-hover:text-[#82e256] transition-colors"
-                >¿React Native o desarrollo nativo para mi app móvil?</span
-              >
-              <svg
-                class="w-5 h-5 text-[#82e256] transform transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div
-              class="faq-answer max-h-0 overflow-hidden transition-all duration-300"
-            >
-              <div class="px-6 pb-4 text-white/70 leading-relaxed">
-                React Native es ideal si: necesitas una solución rápida, quieres
-                compartir código entre iOS y Android, y tienes un equipo con
-                experiencia en JavaScript. Desarrollo nativo es mejor si:
-                necesitas máximo rendimiento, acceso completo a APIs nativas, o
-                interfaces muy personalizadas.
-              </div>
-            </div>
-          </div>
+    if (tooltip && tooltipDesc && tooltipTag && tooltipDot) {
+      document.addEventListener('mousemove', (e) => {
+        // Posicionamiento suave del tooltip
+        const x = e.clientX + 20;
+        const y = e.clientY + 20;
+        tooltip.style.left = `${x}px`;
+        tooltip.style.top = `${y}px`;
+      });
 
-          <!-- FAQ Item 3 -->
-          <div
-            class="faq-item border border-white/10 rounded-xl overflow-hidden bg-black/20 hover:border-[#82e256]/50 transition-all duration-300"
-          >
-            <button
-              class="faq-question w-full px-6 py-4 flex items-center justify-between text-left group"
-            >
-              <span
-                class="text-white font-semibold group-hover:text-[#82e256] transition-colors"
-                >¿Cómo integrar IA en mi negocio?</span
-              >
-              <svg
-                class="w-5 h-5 text-[#82e256] transform transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div
-              class="faq-answer max-h-0 overflow-hidden transition-all duration-300"
-            >
-              <div class="px-6 pb-4 text-white/70 leading-relaxed">
-                Comienza identificando procesos repetitivos que requieren
-                análisis de datos. Casos comunes: chatbots de atención al
-                cliente, análisis de sentimientos, recomendaciones
-                personalizadas, automatización de tareas. Usa APIs de OpenAI,
-                Anthropic o Azure AI para comenzar rápidamente.
-              </div>
-            </div>
-          </div>
+      items.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+          const desc = item.getAttribute('data-desc');
+          const tag = item.getAttribute('data-tag');
+          const color = item.getAttribute('data-color');
 
-          <!-- FAQ Item 4 -->
-          <div
-            class="faq-item border border-white/10 rounded-xl overflow-hidden bg-black/20 hover:border-[#82e256]/50 transition-all duration-300"
-          >
-            <button
-              class="faq-question w-full px-6 py-4 flex items-center justify-between text-left group"
-            >
-              <span
-                class="text-white font-semibold group-hover:text-[#82e256] transition-colors"
-                >¿Cuáles son las mejores prácticas de seguridad para mi web?</span
-              >
-              <svg
-                class="w-5 h-5 text-[#82e256] transform transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div
-              class="faq-answer max-h-0 overflow-hidden transition-all duration-300"
-            >
-              <div class="px-6 pb-4 text-white/70 leading-relaxed">
-                Implementa HTTPS, usa autenticación robusta (JWT, OAuth), valida
-                inputs del usuario, protege contra XSS y SQL injection, mantén
-                dependencias actualizadas, usa CSP headers, implementa rate
-                limiting, y realiza auditorías de seguridad periódicas.
-              </div>
-            </div>
-          </div>
+          tooltipDesc.innerText = desc;
+          tooltipTag.innerText = tag;
+          tooltipDot.style.backgroundColor = color;
 
-          <!-- FAQ Item 5 -->
-          <div
-            class="faq-item border border-white/10 rounded-xl overflow-hidden bg-black/20 hover:border-[#82e256]/50 transition-all duration-300"
-          >
-            <button
-              class="faq-question w-full px-6 py-4 flex items-center justify-between text-left group"
-            >
-              <span
-                class="text-white font-semibold group-hover:text-[#82e256] transition-colors"
-                >¿Cómo optimizar el rendimiento de mi aplicación web?</span
-              >
-              <svg
-                class="w-5 h-5 text-[#82e256] transform transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div
-              class="faq-answer max-h-0 overflow-hidden transition-all duration-300"
-            >
-              <div class="px-6 pb-4 text-white/70 leading-relaxed">
-                Usa lazy loading, optimiza imágenes (WebP, compresión),
-                implementa caching, minimiza JavaScript/CSS, usa CDN, implementa
-                code splitting, optimiza consultas a base de datos, y utiliza
-                Service Workers para PWA.
-              </div>
-            </div>
-          </div>
+          tooltip.style.opacity = '1';
+          tooltip.style.transform = 'scale(1)';
+        });
 
-          <!-- FAQ Item 6 -->
-          <div
-            class="faq-item border border-white/10 rounded-xl overflow-hidden bg-black/20 hover:border-[#82e256]/50 transition-all duration-300"
-          >
-            <button
-              class="faq-question w-full px-6 py-4 flex items-center justify-between text-left group"
-            >
-              <span
-                class="text-white font-semibold group-hover:text-[#82e256] transition-colors"
-                >¿SQL o NoSQL para mi proyecto?</span
-              >
-              <svg
-                class="w-5 h-5 text-[#82e256] transform transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div
-              class="faq-answer max-h-0 overflow-hidden transition-all duration-300"
-            >
-              <div class="px-6 pb-4 text-white/70 leading-relaxed">
-                Usa SQL (PostgreSQL, MySQL) si necesitas: relaciones complejas,
-                transacciones ACID, esquemas bien definidos, o reportes
-                complejos. Usa NoSQL (MongoDB, DynamoDB) si necesitas:
-                escalabilidad horizontal, esquemas flexibles, datos no
-                relacionales, o alta velocidad de escritura. Muchos proyectos
-                usan ambos (polyglot persistence).
-              </div>
-            </div>
-          </div>
+        item.addEventListener('mouseleave', () => {
+          tooltip.style.opacity = '0';
+          tooltip.style.transform = 'scale(0.8)';
+        });
+      });
+    }
+  });
+</script>
 
-          <!-- FAQ Item 7 -->
-          <div
-            class="faq-item border border-white/10 rounded-xl overflow-hidden bg-black/20 hover:border-[#82e256]/50 transition-all duration-300"
-          >
-            <button
-              class="faq-question w-full px-6 py-4 flex items-center justify-between text-left group"
-            >
-              <span
-                class="text-white font-semibold group-hover:text-[#82e256] transition-colors"
-                >¿Qué es CI/CD y por qué lo necesito?</span
-              >
-              <svg
-                class="w-5 h-5 text-[#82e256] transform transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div
-              class="faq-answer max-h-0 overflow-hidden transition-all duration-300"
-            >
-              <div class="px-6 pb-4 text-white/70 leading-relaxed">
-                CI/CD (Integración y Despliegue Continuos) automatiza el proceso
-                de testing y deployment. Beneficios: detecta errores temprano,
-                reduce trabajo manual, permite releases frecuentes, mejora
-                calidad del código. Herramientas populares: GitHub Actions,
-                GitLab CI, Jenkins, CircleCI. Es esencial para equipos modernos
-                y desarrollo ágil.
-              </div>
-            </div>
-          </div>
 
-          <!-- FAQ Item 8 -->
-          <div
-            class="faq-item border border-white/10 rounded-xl overflow-hidden bg-black/20 hover:border-[#82e256]/50 transition-all duration-300"
-          >
-            <button
-              class="faq-question w-full px-6 py-4 flex items-center justify-between text-left group"
-            >
-              <span
-                class="text-white font-semibold group-hover:text-[#82e256] transition-colors"
-                >¿Cuánto cuesta desarrollar una aplicación web?</span
-              >
-              <svg
-                class="w-5 h-5 text-[#82e256] transform transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div
-              class="faq-answer max-h-0 overflow-hidden transition-all duration-300"
-            >
-              <div class="px-6 pb-4 text-white/70 leading-relaxed">
-                El costo varía según complejidad: Landing page simple
-                ($500-$2,000), Web app con backend ($5,000-$15,000), Plataforma
-                compleja con IA ($15,000-$50,000+). Factores que afectan: número
-                de features, integraciones, diseño personalizado, y
-                mantenimiento. Te ofrecemos una consultoría gratuita para
-                estimar tu proyecto específico.
-              </div>
-            </div>
-          </div>
-
-          <!-- FAQ Item 9 -->
-          <div
-            class="faq-item border border-white/10 rounded-xl overflow-hidden bg-black/20 hover:border-[#82e256]/50 transition-all duration-300"
-          >
-            <button
-              class="faq-question w-full px-6 py-4 flex items-center justify-between text-left group"
-            >
-              <span
-                class="text-white font-semibold group-hover:text-[#82e256] transition-colors"
-                >¿Debería usar Docker y Kubernetes?</span
-              >
-              <svg
-                class="w-5 h-5 text-[#82e256] transform transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div
-              class="faq-answer max-h-0 overflow-hidden transition-all duration-300"
-            >
-              <div class="px-6 pb-4 text-white/70 leading-relaxed">
-                Docker: Sí, casi siempre. Facilita desarrollo, garantiza
-                consistencia entre ambientes, y simplifica deployments.
-                Kubernetes: Depende de tu escala. Úsalo si tienes: múltiples
-                microservicios, necesitas auto-scaling, alta disponibilidad
-                crítica, o equipos grandes. Para proyectos pequeños, Docker +
-                servicios managed (Heroku, Railway, Render) son suficientes.
-              </div>
-            </div>
-          </div>
-
-          <!-- FAQ Item 10 -->
-          <div
-            class="faq-item border border-white/10 rounded-xl overflow-hidden bg-black/20 hover:border-[#82e256]/50 transition-all duration-300"
-          >
-            <button
-              class="faq-question w-full px-6 py-4 flex items-center justify-between text-left group"
-            >
-              <span
-                class="text-white font-semibold group-hover:text-[#82e256] transition-colors"
-                >¿Qué framework frontend debo elegir?</span
-              >
-              <svg
-                class="w-5 h-5 text-[#82e256] transform transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div
-              class="faq-answer max-h-0 overflow-hidden transition-all duration-300"
-            >
-              <div class="px-6 pb-4 text-white/70 leading-relaxed">
-                React: Ecosistema masivo, flexibilidad total, gran comunidad.
-                Vue: Curva de aprendizaje suave, excelente documentación.
-                Svelte: Rendimiento superior, menos código. Next.js/Nuxt: Para
-                SEO y SSR. Astro: Para contenido estático ultra-rápido. La
-                elección depende de tus necesidades, equipo, y tipo de proyecto.
-                React es la opción más segura para la mayoría.
-              </div>
-            </div>
-          </div>
-
-          <!-- FAQ Item 11 -->
-          <div
-            class="faq-item border border-white/10 rounded-xl overflow-hidden bg-black/20 hover:border-[#82e256]/50 transition-all duration-300"
-          >
-            <button
-              class="faq-question w-full px-6 py-4 flex items-center justify-between text-left group"
-            >
-              <span
-                class="text-white font-semibold group-hover:text-[#82e256] transition-colors"
-                >¿Cómo escalar mi aplicación a miles de usuarios?</span
-              >
-              <svg
-                class="w-5 h-5 text-[#82e256] transform transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div
-              class="faq-answer max-h-0 overflow-hidden transition-all duration-300"
-            >
-              <div class="px-6 pb-4 text-white/70 leading-relaxed">
-                Estrategias clave: Implementa caching (Redis, CDN), usa load
-                balancers, optimiza queries de BD (índices, read replicas),
-                implementa rate limiting, usa message queues para procesamiento
-                asíncrono, monitorea performance (New Relic, DataDog), y escala
-                horizontalmente. Comienza con servicios managed en AWS, GCP o
-                Azure antes de infraestructura custom.
-              </div>
-            </div>
-          </div>
-
-          <!-- FAQ Item 12 -->
-          <div
-            class="faq-item border border-white/10 rounded-xl overflow-hidden bg-black/20 hover:border-[#82e256]/50 transition-all duration-300"
-          >
-            <button
-              class="faq-question w-full px-6 py-4 flex items-center justify-between text-left group"
-            >
-              <span
-                class="text-white font-semibold group-hover:text-[#82e256] transition-colors"
-                >¿Qué es un MVP y cuánto tarda en desarrollarse?</span
-              >
-              <svg
-                class="w-5 h-5 text-[#82e256] transform transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div
-              class="faq-answer max-h-0 overflow-hidden transition-all duration-300"
-            >
-              <div class="px-6 pb-4 text-white/70 leading-relaxed">
-                MVP (Producto Mínimo Viable) incluye solo las features
-                esenciales para validar tu idea. Tiempo típico: 4-12 semanas
-                dependiendo de complejidad. Ventajas: menor inversión inicial,
-                feedback temprano de usuarios reales, iteración rápida. Incluye:
-                autenticación básica, funcionalidad core, UI simple pero
-                funcional. Perfecto para startups y validación de mercado.
-              </div>
-            </div>
-          </div>
-
-          <!-- FAQ Item 13 -->
-          <div
-            class="faq-item border border-white/10 rounded-xl overflow-hidden bg-black/20 hover:border-[#82e256]/50 transition-all duration-300"
-          >
-            <button
-              class="faq-question w-full px-6 py-4 flex items-center justify-between text-left group"
-            >
-              <span
-                class="text-white font-semibold group-hover:text-[#82e256] transition-colors"
-                >¿Necesito una API REST o GraphQL?</span
-              >
-              <svg
-                class="w-5 h-5 text-[#82e256] transform transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div
-              class="faq-answer max-h-0 overflow-hidden transition-all duration-300"
-            >
-              <div class="px-6 pb-4 text-white/70 leading-relaxed">
-                REST: Más simple, ampliamente conocido, excelente para CRUD,
-                cacheable fácilmente. GraphQL: Evita over-fetching, una sola
-                petición para múltiples recursos, tipado fuerte, ideal para apps
-                complejas. Recomendación: Empieza con REST para la mayoría de
-                proyectos. Considera GraphQL si tienes: múltiples clientes con
-                necesidades diferentes, o relaciones de datos muy complejas.
-              </div>
-            </div>
-          </div>
-
-          <!-- FAQ Item 14 -->
-          <div
-            class="faq-item border border-white/10 rounded-xl overflow-hidden bg-black/20 hover:border-[#82e256]/50 transition-all duration-300"
-          >
-            <button
-              class="faq-question w-full px-6 py-4 flex items-center justify-between text-left group"
-            >
-              <span
-                class="text-white font-semibold group-hover:text-[#82e256] transition-colors"
-                >¿Cómo implementar pagos en mi aplicación?</span
-              >
-              <svg
-                class="w-5 h-5 text-[#82e256] transform transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div
-              class="faq-answer max-h-0 overflow-hidden transition-all duration-300"
-            >
-              <div class="px-6 pb-4 text-white/70 leading-relaxed">
-                Usa plataformas especializadas como Stripe (global, muy
-                completo), PayPal (reconocimiento mundial), Mercado Pago
-                (Latinoamérica). Nunca manejes datos de tarjetas directamente.
-                Implementa: webhooks para confirmaciones, manejo de errores,
-                recibos automáticos, y cumple PCI DSS. Stripe ofrece las mejores
-                APIs para desarrolladores y documentación excelente.
-              </div>
-            </div>
-          </div>
-
-          <!-- FAQ Item 15 -->
-          <div
-            class="faq-item border border-white/10 rounded-xl overflow-hidden bg-black/20 hover:border-[#82e256]/50 transition-all duration-300"
-          >
-            <button
-              class="faq-question w-full px-6 py-4 flex items-center justify-between text-left group"
-            >
-              <span
-                class="text-white font-semibold group-hover:text-[#82e256] transition-colors"
-                >¿Qué son los agentes de IA y cómo pueden ayudar a mi empresa?</span
-              >
-              <svg
-                class="w-5 h-5 text-[#82e256] transform transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div
-              class="faq-answer max-h-0 overflow-hidden transition-all duration-300"
-            >
-              <div class="px-6 pb-4 text-white/70 leading-relaxed">
-                Los agentes de IA son sistemas autónomos que pueden razonar,
-                tomar decisiones y ejecutar acciones. Casos de uso: atención al
-                cliente 24/7, análisis automático de datos, generación de
-                reportes, clasificación de leads, soporte técnico nivel 1.
-                Reducen costos operativos hasta 50%, mejoran tiempo de
-                respuesta, y escalan sin límites. Implementación típica: 2-4
-                semanas.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- AI Question Form -->
-      <div class="lg:sticky lg:top-24 h-fit">
-        <div
-          class="p-1 bg-gradient-to-r from-[#82e256] via-[#6bc73d] to-[#04ADC0] rounded-2xl shadow-2xl"
-        >
-          <div
-            class="bg-gradient-to-br from-[#1a1a1a] to-[#232323] rounded-2xl p-8"
-          >
-            <!-- Form Header -->
-            <div class="text-center mb-6 pb-6 border-b border-white/10">
-              <div
-                class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-2xl mb-4 shadow-lg"
-              >
-                <svg
-                  class="w-8 h-8 text-black"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
-                  ></path>
-                </svg>
-              </div>
-              <h2 class="text-2xl font-bold text-white mb-2">
-                Pregunta Personalizada
-              </h2>
-              <p class="text-white/70 text-sm">
-                Haz tu propia pregunta y obtén una respuesta de IA
-              </p>
-            </div>
-
-            <!-- Form -->
-            <form id="ai-question-form" class="space-y-6">
-              <div class="flex flex-col group">
-                <label
-                  class="text-white/90 text-sm font-semibold mb-2 flex items-center gap-2"
-                >
-                  <svg
-                    class="w-4 h-4 text-[#82e256]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
-                    ></path>
-                  </svg>
-                  Tu Pregunta
-                </label>
-                <textarea
-                  id="ai-question-input"
-                  rows="4"
-                  placeholder="Ej: ¿Cuál es la mejor forma de implementar autenticación en una API REST?"
-                  class="w-full px-4 py-3 border-2 border-white/10 bg-black/30 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-[#82e256] focus:bg-black/50 transition-all duration-300 backdrop-blur-sm resize-none"
-                  required></textarea>
-              </div>
-
-              <button
-                type="submit"
-                class="w-full px-6 py-4 bg-gradient-to-r from-[#82e256] to-[#6bc73d] hover:from-[#6bc73d] hover:to-[#5ba62e] text-black font-bold rounded-xl flex items-center justify-center gap-3 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-2xl shadow-lg group relative overflow-hidden"
-              >
-                <div
-                  class="absolute inset-0 bg-white/20 translate-x-full group-hover:translate-x-0 transition-transform duration-300"
-                >
-                </div>
-                <svg
-                  class="w-5 h-5 relative z-10"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                </svg>
-                <span class="relative z-10" id="submit-text"
-                  >Consultar a IA</span
-                >
-                <div class="relative z-10 hidden" id="loading-spinner">
-                  <svg
-                    class="animate-spin h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle
-                      class="opacity-25"
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="currentColor"
-                      stroke-width="4"></circle>
-                    <path
-                      class="opacity-75"
-                      fill="currentColor"
-                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                    ></path>
-                  </svg>
-                </div>
-              </button>
-            </form>
-
-            <!-- Response Area - Collapsible Format -->
-            <div
-              id="ai-response-container"
-              class="hidden mt-6 pt-6 border-t border-white/10 space-y-3"
-            >
-              <!-- Header -->
-              <div class="flex items-center gap-2 mb-2">
-                <svg
-                  class="w-5 h-5 text-[#82e256]"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-                <h3 class="text-lg font-bold text-white">Respuesta de IA</h3>
-              </div>
-
-              <!-- Respuesta Principal (Collapsible) -->
-              <div
-                class="ai-answer-item border border-white/10 rounded-xl overflow-hidden bg-black/20 hover:border-[#82e256]/50 transition-all duration-300"
-              >
-                <button
-                  class="ai-answer-header w-full px-6 py-4 flex items-center justify-between text-left group"
-                >
-                  <div class="flex items-center gap-3">
-                    <svg
-                      class="w-5 h-5 text-[#82e256]"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
-                      ></path>
-                    </svg>
-                    <span
-                      class="text-white font-semibold group-hover:text-[#82e256] transition-colors"
-                      >Respuesta Generada</span
-                    >
-                  </div>
-                  <svg
-                    class="w-5 h-5 text-[#82e256] transform transition-transform duration-300"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M19 9l-7 7-7-7"></path>
-                  </svg>
-                </button>
-                <div
-                  class="ai-answer-content max-h-0 overflow-hidden transition-all duration-300"
-                >
-                  <div
-                    id="ai-main-response"
-                    class="px-6 pb-4 text-white/8 leading-relaxed"
-                  >
-                    <!-- La respuesta principal se insertará aquí -->
-                  </div>
-                </div>
-              </div>
-
-              <!-- Fuentes RAG (Collapsible) -->
-              <div
-                class="ai-answer-item border border-white/10 rounded-xl overflow-hidden bg-black/20 hover:border-[#82e256]/50 transition-all duration-300"
-              >
-                <button
-                  class="ai-answer-header w-full px-6 py-4 flex items-center justify-between text-left group"
-                >
-                  <div class="flex items-center gap-3">
-                    <svg
-                      class="w-5 h-5 text-[#04ADC0]"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                      ></path>
-                    </svg>
-                    <span
-                      class="text-white font-semibold group-hover:text-[#04ADC0] transition-colors"
-                      >Fuentes y Referencias</span
-                    >
-                    <span
-                      id="sources-count"
-                      class="px-2 py-0.5 bg-[#04ADC0]/20 text-[#04ADC0] text-xs rounded-full font-bold hidden"
-                      >0</span
-                    >
-                  </div>
-                  <svg
-                    class="w-5 h-5 text-[#04ADC0] transform transition-transform duration-300"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M19 9l-7 7-7-7"></path>
-                  </svg>
-                </button>
-                <div
-                  class="ai-answer-content max-h-0 overflow-hidden transition-all duration-300"
-                >
-                  <div id="ai-sources" class="px-6 pb-4">
-                    <div class="space-y-3">
-                      <!-- Las fuentes RAG se insertarán aquí -->
-                      <p class="text-white/0 text-sm italic">
-                        No hay fuentes disponibles para esta respuesta.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Contexto Adicional (Collapsible) - Opcional -->
-              <div
-                class="ai-answer-item border border-white/10 rounded-xl overflow-hidden bg-black/20 hover:border-[#82e256]/50 transition-all duration-300 hidden"
-                id="context-section"
-              >
-                <button
-                  class="ai-answer-header w-full px-6 py-4 flex items-center justify-between text-left group"
-                >
-                  <div class="flex items-center gap-3">
-                    <svg
-                      class="w-5 h-5 text-[#6bc73d]"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                      ></path>
-                    </svg>
-                    <span
-                      class="text-white font-semibold group-hover:text-[#6bc73d] transition-colors"
-                      >Contexto y Detalles</span
-                    >
-                  </div>
-                  <svg
-                    class="w-5 h-5 text-[#6bc73d] transform transition-transform duration-300"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M19 9l-7 7-7-7"></path>
-                  </svg>
-                </button>
-                <div
-                  class="ai-answer-content max-h-0 overflow-hidden transition-all duration-300"
-                >
-                  <div
-                    id="ai-context"
-                    class="px-6 pb-4 text-white/70 leading-relaxed text-sm"
-                  >
-                    <!-- Contexto adicional se insertará aquí -->
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<ConsultaIA />
 
 <script is:inline>
   // Smooth scroll con offset para header fijo
@@ -2402,6 +1003,7 @@ La elección depende de tu caso de uso específico. Para APIs internas, JWT suel
   });
 </script>
 
+<NewsletterReveal />
 <Footer />
 
 

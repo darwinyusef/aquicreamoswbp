@@ -1,0 +1,106 @@
+<!-- Sección de Parallax Bidireccional -->
+<section class="parallax-banner-container" id="parallax-section">
+  <div class="banner-line top-text" id="text-top">
+    <h1>Innovación y Creatividad</h1>
+  </div>
+
+  <div class="divider-line"></div>
+
+  <div class="banner-line bottom-text" id="text-bottom">
+    <h1>Tecnología de Vanguardia</h1>
+  </div>
+</section>
+
+<style>
+  .parallax-banner-container {
+    padding: 100px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow: hidden;
+    background-color: #1a1a1a;
+  }
+
+  .banner-line {
+    display: block;
+    white-space: nowrap;
+    will-change: transform;
+  }
+
+  .banner-line h1 {
+    font-size: clamp(2.5rem, 8vw, 8rem);
+    margin: 0;
+    line-height: 0.9;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+
+  .divider-line {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      #82e256 20%,
+      #82e256 80%,
+      transparent 100%
+    );
+    margin: 20px 0;
+  }
+
+  .top-text {
+    color: #82e256;
+    transform: translate3d(-10%, 0, 0);
+  }
+
+  .bottom-text {
+    color: #00464e;
+    transform: translate3d(10%, 0, 0);
+  }
+
+  @media (max-width: 768px) {
+    .parallax-banner-container {
+      padding: 60px 0;
+    }
+
+    .banner-line h1 {
+      font-size: clamp(2.5rem, 10vw, 8rem);
+    }
+  }
+</style>
+
+<script>
+  const textTop = document.getElementById('text-top');
+  const textBottom = document.getElementById('text-bottom');
+  const section = document.getElementById('parallax-section');
+
+  function updateParallax() {
+    if (!textTop || !textBottom || !section) return;
+
+    const rect = section.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+
+    // Solo animamos si la sección está visible
+    if (rect.top < viewportHeight && rect.bottom > 0) {
+      // Calculamos cuánto ha avanzado la sección en pantalla (0 a 1)
+      const distance = viewportHeight - rect.top;
+      const percentage = distance / (viewportHeight + rect.height);
+
+      // Ajustamos el movimiento
+      const moveRight = (percentage * 400) - 200;
+      const moveLeft = (percentage * -400) + 200;
+
+      // Aplicamos transformaciones usando translate3d
+      textTop.style.transform = `translate3d(${moveRight}px, 0, 0)`;
+      textBottom.style.transform = `translate3d(${moveLeft}px, 0, 0)`;
+    }
+
+    requestAnimationFrame(updateParallax);
+  }
+
+  // Iniciamos el bucle de animación
+  document.addEventListener('DOMContentLoaded', () => {
+    requestAnimationFrame(updateParallax);
+  });
+</script>
