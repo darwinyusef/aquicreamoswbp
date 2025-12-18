@@ -869,27 +869,22 @@ La elección depende de tu caso de uso específico. Para APIs internas, JWT suel
           radio.addEventListener("change", validateAdvisoryForm);
         });
 
-      // Manejar submit
+      // COMENTADO: El manejo del submit ahora se hace en Asesorias.astro con el nuevo sistema de agendamiento
+      /*
       advisoryForm.addEventListener("submit", (e) => {
         e.preventDefault();
-
-        // Guardar datos en localStorage
         const formData = {
           name: advisoryName.value.trim(),
           email: advisoryEmail.value.trim(),
           phone: advisoryPhone.value.trim(),
-          advisoryType: document.querySelector(
-            'input[name="advisory-type"]:checked',
-          ).value,
+          advisoryType: document.querySelector('input[name="advisory-type"]:checked').value,
           description: advisoryDescription.value.trim(),
           timestamp: new Date().toISOString(),
         };
-
         localStorage.setItem("advisoryFormData", JSON.stringify(formData));
-
-        // Redirigir a la página de evaluación con ML
         window.location.href = "/primera-sesion";
       });
+      */
     }
   });
 </script>

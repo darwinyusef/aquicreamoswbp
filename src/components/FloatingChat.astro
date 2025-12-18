@@ -260,63 +260,31 @@
       .map(msg => `${msg.role === 'user' ? 'Usuario' : 'Asistente'}: ${msg.content}`)
       .join('\n\n');
 
-    // Solicitar información del usuario
-    const name = prompt('Por favor ingresa tu nombre completo:');
-    if (!name || name.trim().length === 0) {
-      alert('Nombre requerido para continuar');
-      return;
-    }
+    // Guardar conversación en localStorage para usarla en el formulario
+    localStorage.setItem('chatConversation', conversationText);
 
-    const email = prompt('Por favor ingresa tu correo electrónico:');
-    if (!email || !email.includes('@')) {
-      alert('Correo electrónico válido requerido');
-      return;
-    }
+    // Cerrar el chat
+    const floatingChatModal = document.getElementById('floating-chat-modal');
+    floatingChatModal?.classList.add('hidden');
 
-    const phone = prompt('Por favor ingresa tu número de teléfono:');
-    if (!phone || phone.trim().length === 0) {
-      alert('Teléfono requerido para continuar');
-      return;
-    }
+    // Scroll al formulario de asesorías
+    const advisoryForm = document.getElementById('advisory-form');
+    advisoryForm?.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-    // Abrir modal con la conversación guardada
-    (window as any).openAppointmentModal(async (date: string, time: string) => {
-      try {
-        addFloatingMessage('⏳ Procesando tu cita...', false);
+    // Resaltar el formulario
+    advisoryForm?.classList.add('ring-2', 'ring-[#82e256]', 'ring-offset-2', 'ring-offset-[#1a1a1a]');
+    setTimeout(() => {
+      advisoryForm?.classList.remove('ring-2', 'ring-[#82e256]', 'ring-offset-2', 'ring-offset-[#1a1a1a]');
+    }, 3000);
 
-        const response = await fetch('/api/send-appointment.json', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name: name.trim(),
-            email: email.trim(),
-            phone: phone.trim(),
-            type: 'not_sure',
-            description: 'Cita agendada vía chat con asistente virtual',
-            date: date,
-            time: time,
-            chatConversation: conversationText
-          })
-        });
+    // Mostrar mensaje
+    addFloatingMessage('👉 Por favor completa el formulario de asesoría para continuar con el agendamiento. Tu conversación será incluida en la solicitud.', false);
 
-        const result = await response.json();
-
-        if (!response.ok || !result.success) {
-          throw new Error(result.error || 'Error al agendar la cita');
-        }
-
-        addFloatingMessage(`✅ ¡Perfecto! Tu cita está agendada para el <strong>${date}</strong> a las <strong>${time}</strong>.<br><br>Recibirás un correo de confirmación con todos los detalles. ¡Nos vemos pronto! 🎉`, false);
-
-        // Limpiar historial después de agendar
-        setTimeout(() => {
-          floatingConversationHistory = [];
-        }, 2000);
-
-      } catch (error) {
-        console.error('Error al agendar cita:', error);
-        addFloatingMessage(`❌ Lo siento, hubo un error al agendar tu cita: ${error instanceof Error ? error.message : 'Error desconocido'}. Por favor intenta de nuevo.`, false);
-      }
-    });
+    // Enfocar el primer campo
+    const nameInput = document.getElementById('advisory-name') as HTMLInputElement;
+    setTimeout(() => {
+      nameInput?.focus();
+    }, 1000);
   }
 
   document.addEventListener('DOMContentLoaded', () => {

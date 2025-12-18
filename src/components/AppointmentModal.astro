@@ -3,8 +3,8 @@
 ---
 
 <!-- Modal de Agendamiento -->
-<div id="appointment-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[10000] hidden flex items-center justify-center p-4">
-  <div class="bg-[#1a1a1a] rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl border border-white/10 animate-slide-up">
+<div id="appointment-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[10000] hidden p-4" style="display: none;">
+  <div class="bg-[#1a1a1a] rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl border border-white/10 animate-slide-up mx-auto my-8">
 
     <!-- Header -->
     <div class="sticky top-0 bg-gradient-to-r from-[#82e256]/10 to-[#6bc73d]/10 backdrop-blur-md p-6 border-b border-white/10 z-10">
@@ -309,19 +309,18 @@
       dateInput.max = maxDate.toISOString().split('T')[0];
     }
 
-    // Manejar cambio de fecha
-    dateInput?.addEventListener('change', (e) => {
+    // Manejar cambio de fecha (sin validaciones que reseteen el input)
+    dateInput?.addEventListener('input', (e) => {
       const target = e.target as HTMLInputElement;
       const dateValue = target.value;
 
-      // Validar que la fecha esté completa (formato YYYY-MM-DD)
-      if (!dateValue || dateValue.length !== 10) {
-        return;
+      // Limpiar errores previos
+      if (dateError) {
+        dateError.classList.add('hidden');
       }
 
-      // Validar formato correcto
-      const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
-      if (!dateRegex.test(dateValue)) {
+      // Esperar a que la fecha esté completa
+      if (!dateValue || dateValue.length !== 10) {
         return;
       }
 
@@ -331,14 +330,11 @@
           dateError.textContent = 'No disponible fines de semana. Por favor selecciona Lunes a Viernes.';
           dateError.classList.remove('hidden');
         }
-        // Usar setTimeout para evitar que se resetee durante la selección
-        setTimeout(() => {
-          target.value = '';
-          selectedDate = null;
-          selectedTime = null;
-          const container = document.getElementById('time-slots-container');
-          if (container) container.innerHTML = '<p class="col-span-full text-white/60 text-center py-4">Selecciona primero una fecha válida</p>';
-        }, 100);
+        selectedDate = null;
+        selectedTime = null;
+        const container = document.getElementById('time-slots-container');
+        if (container) container.innerHTML = '<p class="col-span-full text-red-400/80 text-center py-4">⚠️ Selecciona un día entre Lunes y Viernes</p>';
+        disableConfirmButton();
         return;
       }
 
@@ -348,22 +344,15 @@
           dateError.textContent = 'Esta fecha no está disponible. Por favor selecciona otra.';
           dateError.classList.remove('hidden');
         }
-        // Usar setTimeout para evitar que se resetee durante la selección
-        setTimeout(() => {
-          target.value = '';
-          selectedDate = null;
-          selectedTime = null;
-          const container = document.getElementById('time-slots-container');
-          if (container) container.innerHTML = '<p class="col-span-full text-white/60 text-center py-4">Selecciona primero una fecha válida</p>';
-        }, 100);
+        selectedDate = null;
+        selectedTime = null;
+        const container = document.getElementById('time-slots-container');
+        if (container) container.innerHTML = '<p class="col-span-full text-red-400/80 text-center py-4">⚠️ Esta fecha no está disponible</p>';
+        disableConfirmButton();
         return;
       }
 
       // Fecha válida
-      if (dateError) {
-        dateError.classList.add('hidden');
-      }
-
       selectedDate = dateValue;
       selectedTime = null;
       renderTimeSlots();
@@ -394,7 +383,12 @@
     // Función global para abrir modal
     (window as any).openAppointmentModal = (callback: (date: string, time: string) => void) => {
       appointmentCallback = callback;
-      modal?.classList.remove('hidden');
+      if (modal) {
+        modal.style.display = 'flex';
+        modal.style.alignItems = 'center';
+        modal.style.justifyContent = 'center';
+        modal.classList.remove('hidden');
+      }
 
       // Reset
       if (dateInput) dateInput.value = '';
@@ -408,7 +402,10 @@
     };
 
     function closeModal() {
-      modal?.classList.add('hidden');
+      if (modal) {
+        modal.style.display = 'none';
+        modal.classList.add('hidden');
+      }
       appointmentCallback = null;
     }
   });

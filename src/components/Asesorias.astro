@@ -78,7 +78,7 @@
 
       <!-- Botones de acción -->
       <div class="flex flex-col gap-3 mb-10">
-        <!-- Botón para agendar cita directa -->
+        <!-- Botón para ir al formulario -->
         <button
           id="direct-appointment-btn"
           class="w-full px-6 py-4 bg-gradient-to-r from-[#82e256] to-[#6bc73d] hover:from-[#6bc73d] hover:to-[#5ba62e] text-black font-bold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-3"
@@ -86,7 +86,7 @@
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
           </svg>
-          <span>Agendar Cita Rápida</span>
+          <span>Agendar Cita</span>
         </button>
 
         <!-- Botón para abrir chat flotante -->
@@ -822,9 +822,9 @@
 
         <!-- Botón de envío (inicialmente deshabilitado) -->
         <button
-          type="submit"
+          type="button"
           id="advisory-submit-btn"
-          class="w-full px-6 py-4 bg-gradient-to-r from-white/20 to-white/10 text-white/0 font-bold rounded-xl flex items-center justify-center gap-3 transition-all duration-300 cursor-not-allowed"
+          class="w-full px-6 py-4 bg-gradient-to-r from-white/20 to-white/10 text-white/50 font-bold rounded-xl flex items-center justify-center gap-3 transition-all duration-300 cursor-not-allowed"
           disabled
         >
           <svg
@@ -1051,6 +1051,14 @@
     const descriptionInput = document.getElementById('advisory-description') as HTMLTextAreaElement;
     const radioButtons = document.querySelectorAll('input[name="advisory-type"]');
 
+    // IMPORTANTE: Prevenir cualquier submit del formulario
+    advisoryForm?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      console.log('⚠️ Submit del formulario bloqueado');
+      return false;
+    });
+
     // Función para validar el formulario
     function validateForm() {
       const isNameValid = nameInput?.value.trim().length > 0;
@@ -1113,14 +1121,20 @@
       radio.addEventListener('change', updateSubmitButton);
     });
 
-    // Manejar envío del formulario
-    advisoryForm?.addEventListener('submit', async (e) => {
+    // Manejar clic en el botón de envío
+    submitBtn?.addEventListener('click', async (e) => {
       e.preventDefault();
+      e.stopPropagation();
+
+      console.log('📋 Botón de envío clickeado');
 
       if (!validateForm()) {
+        console.log('❌ Validación falló');
         alert('Por favor completa todos los campos del formulario');
         return;
       }
+
+      console.log('✅ Validación pasó');
 
       // Recopilar datos del formulario
       const selectedType = Array.from(radioButtons).find((radio: any) => radio.checked) as HTMLInputElement;
@@ -1132,8 +1146,20 @@
         description: descriptionInput.value.trim()
       };
 
+      console.log('📦 Datos del formulario:', formData);
+
+      // Verificar que openAppointmentModal existe
+      if (typeof (window as any).openAppointmentModal !== 'function') {
+        console.error('❌ openAppointmentModal no está disponible');
+        alert('Error: El sistema de agendamiento no está listo. Por favor recarga la página.');
+        return;
+      }
+
+      console.log('🗓️ Abriendo modal de agendamiento...');
+
       // Abrir modal para seleccionar fecha y hora
       (window as any).openAppointmentModal(async (date: string, time: string) => {
+        console.log('📅 Fecha y hora seleccionadas:', date, time);
         // Cambiar botón a estado de carga
         if (submitBtn) {
           submitBtn.disabled = true;
@@ -1144,6 +1170,9 @@
         }
 
         try {
+          // Obtener conversación del chat si existe
+          const chatConversation = localStorage.getItem('chatConversation') || undefined;
+
           // Enviar a la API
           const response = await fetch('/api/send-appointment.json', {
             method: 'POST',
@@ -1151,7 +1180,8 @@
             body: JSON.stringify({
               ...formData,
               date: date,
-              time: time
+              time: time,
+              chatConversation: chatConversation
             })
           });
 
@@ -1161,22 +1191,35 @@
             throw new Error(result.error || 'Error al enviar la solicitud');
           }
 
+          // Limpiar conversación del chat
+          localStorage.removeItem('chatConversation');
+
+          // Guardar datos completos en localStorage para /primera-sesion
+          const fullFormData = {
+            ...formData,
+            date: date,
+            time: time,
+            timestamp: new Date().toISOString()
+          };
+          localStorage.setItem('advisoryFormData', JSON.stringify(fullFormData));
+
+          console.log('✅ Datos guardados en localStorage:', fullFormData);
+
           // Mostrar mensaje de éxito
           if (submitBtn) {
             submitBtn.innerHTML = `
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
-              <span>¡Solicitud Enviada!</span>
+              <span>¡Redirigiendo...</span>
             `;
           }
 
-          // Limpiar formulario
+          // Redirigir a la página de evaluación
           setTimeout(() => {
-            advisoryForm.reset();
-            updateSubmitButton();
-            alert('¡Gracias! Tu solicitud ha sido enviada. Te contactaremos para confirmar tu cita.');
-          }, 1500);
+            console.log('🔄 Redirigiendo a /primera-sesion');
+            window.location.href = '/primera-sesion';
+          }, 1000);
 
         } catch (error) {
           console.error('Error al enviar formulario:', error);
@@ -1196,85 +1239,17 @@
     // === BOTÓN PARA AGENDAR CITA DIRECTA ===
     const directAppointmentBtn = document.getElementById('direct-appointment-btn');
     directAppointmentBtn?.addEventListener('click', () => {
-      (window as any).openAppointmentModal(async (date: string, time: string) => {
-        // Mostrar prompt para información básica
-        const name = prompt('Por favor ingresa tu nombre completo:');
-        if (!name || name.trim().length === 0) {
-          alert('Nombre requerido para continuar');
-          return;
-        }
+      // Scroll suave hacia el formulario
+      advisoryForm?.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-        const email = prompt('Por favor ingresa tu correo electrónico:');
-        if (!email || !email.includes('@')) {
-          alert('Correo electrónico válido requerido');
-          return;
-        }
+      // Resaltar el formulario brevemente
+      advisoryForm?.classList.add('ring-2', 'ring-[#82e256]', 'ring-offset-2', 'ring-offset-[#1a1a1a]');
+      setTimeout(() => {
+        advisoryForm?.classList.remove('ring-2', 'ring-[#82e256]', 'ring-offset-2', 'ring-offset-[#1a1a1a]');
+      }, 2000);
 
-        const phone = prompt('Por favor ingresa tu número de teléfono:');
-        if (!phone || phone.trim().length === 0) {
-          alert('Teléfono requerido para continuar');
-          return;
-        }
-
-        // Deshabilitar botón durante envío
-        if (directAppointmentBtn) {
-          directAppointmentBtn.innerHTML = `
-            <div class="w-6 h-6 border-2 border-black/30 border-t-black rounded-full animate-spin"></div>
-            <span>Enviando...</span>
-          `;
-          (directAppointmentBtn as HTMLButtonElement).disabled = true;
-        }
-
-        try {
-          const response = await fetch('/api/send-appointment.json', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              name: name.trim(),
-              email: email.trim(),
-              phone: phone.trim(),
-              type: 'not_sure',
-              description: 'Cita rápida agendada directamente',
-              date: date,
-              time: time
-            })
-          });
-
-          const result = await response.json();
-
-          if (!response.ok || !result.success) {
-            throw new Error(result.error || 'Error al agendar la cita');
-          }
-
-          alert(`¡Cita agendada exitosamente!\\nFecha: ${date}\\nHora: ${time}\\n\\nRecibirás un correo de confirmación.`);
-
-          // Restaurar botón
-          if (directAppointmentBtn) {
-            directAppointmentBtn.innerHTML = `
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-              </svg>
-              <span>Agendar Cita Rápida</span>
-            `;
-            (directAppointmentBtn as HTMLButtonElement).disabled = false;
-          }
-
-        } catch (error) {
-          console.error('Error al agendar cita:', error);
-          alert(error instanceof Error ? error.message : 'Error al agendar la cita. Por favor intenta de nuevo.');
-
-          // Restaurar botón
-          if (directAppointmentBtn) {
-            directAppointmentBtn.innerHTML = `
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-              </svg>
-              <span>Agendar Cita Rápida</span>
-            `;
-            (directAppointmentBtn as HTMLButtonElement).disabled = false;
-          }
-        }
-      });
+      // Enfocar el primer campo
+      nameInput?.focus();
     });
 
     // === BOTONES PARA ABRIR CHAT FLOTANTE ===
