@@ -1,5 +1,6 @@
 ---
 import Layout from './Layout.astro';
+import Header from '../components/Header.astro';
 
 interface Props {
   title: string;
@@ -12,23 +13,9 @@ const { title, description, icon, gradient } = Astro.props;
 ---
 
 <Layout>
+  <Header currentPage="servicios" />
+
   <div class="min-h-screen bg-[#1a1a1a]">
-    <!-- Header -->
-    <header
-      class="bg-[#00464e] flex flex-row justify-between items-center p-3 w-full fixed top-0 left-0 z-50 shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
-    >
-      <a href="/">
-        <img src="/img/logoAquicreamos.png" class="h-7" alt="Logo Aquí Creamos" />
-      </a>
-      <nav class="hidden md:block">
-        <ul class="flex flex-row gap-6 items-center justify-center">
-          <li><a href="/#home" class="text-white hover:text-[#82e256] transition-colors">Inicio</a></li>
-          <li><a href="/servicios" class="text-[#82e256] font-semibold">Servicios</a></li>
-          <li><a href="/blog" class="text-white hover:text-[#82e256] transition-colors">Blog</a></li>
-          <li><a href="/#contenido10" class="text-white hover:text-[#82e256] transition-colors">Contacto</a></li>
-        </ul>
-      </nav>
-    </header>
 
     <!-- Hero Section con efecto parallax -->
     <section class={`relative pt-20 pb-16 md:py-24 ${gradient} overflow-hidden`}>

@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
 
 // Posts de ejemplo - en producción esto vendría de un CMS o archivos markdown
 const posts = [
@@ -86,26 +87,93 @@ const formatDate = (dateString: string) => {
 ---
 
 <Layout>
-  <!-- Header -->
-  <header
-    class="bg-[#00464e] flex flex-row justify-between items-center p-3 w-full fixed top-0 left-0 z-50 shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
-  >
-    <a href="/">
-      <img src="/img/logoAquicreamos.png" class="h-7" alt="Logo Aquí Creamos" />
-    </a>
-    <nav class="hidden md:block">
-      <ul class="flex flex-row gap-6 items-center justify-center">
-        <li><a href="/#home" class="text-white hover:text-[#82e256] transition-colors">Inicio</a></li>
-        <li><a href="/#contenido2" class="text-white hover:text-[#82e256] transition-colors">Servicios</a></li>
-        <li><a href="/blog" class="text-[#82e256] font-semibold">Blog</a></li>
-        <li><a href="/#contenido10" class="text-white hover:text-[#82e256] transition-colors">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
+  <Header currentPage="blog" />
 
   <!-- Main Content -->
   <section class="py-16 bg-[#1a1a1a] min-h-screen">
     <div class="container mx-auto px-4 md:px-16">
+
+      <!-- Hero Section -->
+      <div class="mb-16 text-center">
+        <div class="inline-flex items-center gap-3 mb-6">
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#82e256] to-[#6bc73d] flex items-center justify-center shadow-xl">
+            <svg class="w-9 h-9 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+            </svg>
+          </div>
+        </div>
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight">
+          Nuestro <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#82e256] to-[#6bc73d]">Blog</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+          Artículos sobre tecnología, IA, desarrollo web y arquitectura de software
+        </p>
+      </div>
+
+      <!-- Artículo Destacado -->
+      {posts.length > 0 && (
+        <div class="mb-16">
+          <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+            <span class="text-[#82e256]">★</span>
+            Artículo Destacado
+          </h2>
+          <article class="bg-gradient-to-br from-gray-800/80 to-gray-900/80 rounded-2xl overflow-hidden border-2 border-[#82e256]/30 hover:border-[#82e256] transition-all duration-300 group">
+            <div class="grid md:grid-cols-2 gap-0">
+              <div class="relative overflow-hidden aspect-video md:aspect-auto">
+                <img
+                  src={posts[0].image}
+                  alt={posts[0].title}
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div class="absolute top-4 right-4">
+                  <span class={`${categoryColors[posts[0].category] || categoryColors['General']} text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg`}>
+                    {posts[0].category}
+                  </span>
+                </div>
+              </div>
+              <div class="p-8 md:p-12 flex flex-col justify-center">
+                <div class="flex items-center gap-4 text-gray-400 text-sm mb-4">
+                  <span class="flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    {formatDate(posts[0].date)}
+                  </span>
+                  <span class="flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    {posts[0].readTime}
+                  </span>
+                </div>
+                <h3 class="text-3xl md:text-4xl font-bold text-white mb-4 group-hover:text-[#82e256] transition-colors">
+                  {posts[0].title}
+                </h3>
+                <p class="text-lg text-gray-300 mb-6 line-clamp-3">
+                  {posts[0].description}
+                </p>
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-gray-400">{posts[0].author}</span>
+                  <a
+                    href={`/blog/${posts[0].slug}`}
+                    class="inline-flex items-center gap-2 px-6 py-3 bg-[#82e256] text-black font-bold rounded-lg hover:bg-[#6bc73d] transition-all duration-300 transform hover:scale-105"
+                  >
+                    Leer más
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      )}
+
+      <!-- Título de todos los artículos -->
+      <h2 class="text-3xl font-bold text-white mb-8">
+        Todos los artículos
+      </h2>
 
       <!-- Grid de posts -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="posts-grid">
@@ -256,6 +324,7 @@ const formatDate = (dateString: string) => {
         }
       });
     });
+
   });
 </script>
 
