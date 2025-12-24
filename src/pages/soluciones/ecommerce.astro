@@ -1,0 +1,577 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+---
+
+<Layout title="Automatización IA para E-commerce - Aquí Creamos">
+  <Header />
+
+  <!-- Hero Section -->
+  <section class="pt-32 pb-20 bg-gradient-to-br from-[#00464e] via-[#006064] to-[#1a1a1a]">
+    <div class="container mx-auto px-4 md:px-16">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <!-- Left: Content -->
+          <div>
+            <div class="inline-block mb-4 px-4 py-2 bg-[#82e256]/20 border border-[#82e256] rounded-full">
+              <span class="text-[#82e256] font-bold text-sm">🛒 E-COMMERCE & RETAIL</span>
+            </div>
+
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
+              Recupera ventas perdidas con <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#82e256] to-[#04ADC0]">IA</span>
+            </h1>
+
+            <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+              Automatiza tu tienda online con inteligencia artificial: recupera carritos abandonados, personaliza experiencias y aumenta conversiones hasta un <strong class="text-[#82e256]">40%</strong>.
+            </p>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-3 gap-4 mb-8">
+              <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
+                <div class="text-3xl font-black text-[#82e256]">25-40%</div>
+                <div class="text-xs text-gray-300 mt-1">Aumento en conversiones</div>
+              </div>
+              <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
+                <div class="text-3xl font-black text-[#82e256]">70%</div>
+                <div class="text-xs text-gray-300 mt-1">Menos tiempo de respuesta</div>
+              </div>
+              <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
+                <div class="text-3xl font-black text-[#82e256]">24/7</div>
+                <div class="text-xs text-gray-300 mt-1">Atención automatizada</div>
+              </div>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4">
+              <button
+                id="open-lead-magnet"
+                class="px-8 py-4 bg-gradient-to-r from-[#82e256] to-[#6bc73d] text-black rounded-lg font-bold hover:shadow-[0_0_30px_rgba(130,226,86,0.5)] transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
+              >
+                📥 Descargar Guía Gratis
+              </button>
+              <a
+                href="/#contenido10"
+                class="px-8 py-4 bg-white/10 backdrop-blur border-2 border-[#82e256] text-white rounded-lg font-bold hover:bg-[#82e256] hover:text-black transition-all duration-300 flex items-center justify-center gap-2"
+              >
+                📅 Agendar Demo Gratis
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Image/Illustration -->
+          <div class="hidden md:block">
+            <div class="relative">
+              <div class="absolute inset-0 bg-gradient-to-r from-[#82e256] to-[#04ADC0] rounded-2xl blur-3xl opacity-20"></div>
+              <div class="relative bg-white/5 backdrop-blur border border-white/20 rounded-2xl p-8">
+                <div class="text-8xl mb-4 text-center">🛒</div>
+                <div class="space-y-3">
+                  <div class="flex items-center gap-3 bg-white/10 rounded-lg p-3">
+                    <div class="w-2 h-2 bg-[#82e256] rounded-full animate-pulse"></div>
+                    <span class="text-sm text-white">Carrito abandonado detectado</span>
+                  </div>
+                  <div class="flex items-center gap-3 bg-white/10 rounded-lg p-3">
+                    <div class="w-2 h-2 bg-[#82e256] rounded-full animate-pulse" style="animation-delay: 0.2s"></div>
+                    <span class="text-sm text-white">Email personalizado enviado</span>
+                  </div>
+                  <div class="flex items-center gap-3 bg-white/10 rounded-lg p-3">
+                    <div class="w-2 h-2 bg-[#82e256] rounded-full animate-pulse" style="animation-delay: 0.4s"></div>
+                    <span class="text-sm text-white">WhatsApp de seguimiento</span>
+                  </div>
+                  <div class="flex items-center gap-3 bg-[#82e256]/20 rounded-lg p-3 border border-[#82e256]">
+                    <div class="w-2 h-2 bg-[#82e256] rounded-full"></div>
+                    <span class="text-sm text-white font-bold">✅ Venta recuperada</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Section -->
+  <section class="py-16 bg-[#1a1a1a]">
+    <div class="container mx-auto px-4 md:px-16">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-black text-white mb-4">
+            ¿Tu tienda online pierde dinero sin que te des cuenta?
+          </h2>
+          <p class="text-xl text-gray-400">Estos problemas cuestan miles de dólares cada mes:</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-6">
+            <div class="text-4xl mb-3">😰</div>
+            <h3 class="text-xl font-bold text-white mb-2">Carritos Abandonados</h3>
+            <p class="text-gray-300">El <strong class="text-red-400">69.8%</strong> de los carritos se abandonan sin comprar</p>
+          </div>
+
+          <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-6">
+            <div class="text-4xl mb-3">⏰</div>
+            <h3 class="text-xl font-bold text-white mb-2">Respuestas Lentas</h3>
+            <p class="text-gray-300">Clientes esperan <strong class="text-red-400">horas</strong> para respuestas simples</p>
+          </div>
+
+          <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-6">
+            <div class="text-4xl mb-3">📧</div>
+            <h3 class="text-xl font-bold text-white mb-2">Marketing Manual</h3>
+            <p class="text-gray-300">Gastas <strong class="text-red-400">20+ horas/semana</strong> en emails y posts</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solutions Section -->
+  <section class="py-16 bg-gradient-to-b from-[#1a1a1a] to-[#00464e]">
+    <div class="container mx-auto px-4 md:px-16">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-black text-white mb-4">
+            Automatizaciones IA que transformarán tu E-commerce
+          </h2>
+          <p class="text-xl text-gray-300">Soluciones listas para implementar en tu tienda</p>
+        </div>
+
+        <!-- Workflows Grid -->
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Workflow 1 -->
+          <div class="bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-[#82e256] transition-all duration-300">
+            <div class="flex items-start justify-between mb-4">
+              <div class="text-5xl">🛒</div>
+              <span class="text-xs px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 font-semibold">
+                Intermedio
+              </span>
+            </div>
+
+            <h3 class="text-2xl font-bold text-white mb-3">Recuperación de Carritos Abandonados</h3>
+            <p class="text-gray-300 mb-4">
+              Estrategia multi-canal para recuperar ventas perdidas con emails personalizados por IA, SMS y WhatsApp.
+            </p>
+
+            <div class="mb-4">
+              <h4 class="text-sm font-semibold text-[#82e256] mb-2">Incluye:</h4>
+              <ul class="space-y-1">
+                <li class="text-sm text-gray-400 flex items-start">
+                  <span class="text-[#82e256] mr-2">✓</span>
+                  <span>Email personalizado con GPT-4 (1 hora después)</span>
+                </li>
+                <li class="text-sm text-gray-400 flex items-start">
+                  <span class="text-[#82e256] mr-2">✓</span>
+                  <span>SMS con urgencia (3 horas después)</span>
+                </li>
+                <li class="text-sm text-gray-400 flex items-start">
+                  <span class="text-[#82e256] mr-2">✓</span>
+                  <span>WhatsApp con video de productos (24 horas)</span>
+                </li>
+                <li class="text-sm text-gray-400 flex items-start">
+                  <span class="text-[#82e256] mr-2">✓</span>
+                  <span>Descuentos dinámicos según valor del carrito</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="border-t border-white/10 pt-4 mb-4">
+              <div class="flex justify-between items-center">
+                <div>
+                  <p class="text-xs text-gray-500">ROI Estimado</p>
+                  <p class="text-lg font-bold text-[#82e256]">25-40% más conversiones</p>
+                </div>
+                <div>
+                  <p class="text-xs text-gray-500">Tecnologías</p>
+                  <p class="text-sm text-gray-300">n8n, GPT-4, Twilio</p>
+                </div>
+              </div>
+            </div>
+
+            <a href="/#contenido10" class="block w-full py-3 bg-gradient-to-r from-[#00464e] to-[#006417] text-white rounded-lg hover:from-[#006417] hover:to-[#82e256] transition-all duration-300 font-semibold text-center">
+              Solicitar Demo →
+            </a>
+          </div>
+
+          <!-- Workflow 2 -->
+          <div class="bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-[#82e256] transition-all duration-300">
+            <div class="flex items-start justify-between mb-4">
+              <div class="text-5xl">💬</div>
+              <span class="text-xs px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 font-semibold">
+                Intermedio
+              </span>
+            </div>
+
+            <h3 class="text-2xl font-bold text-white mb-3">Chatbot WhatsApp con IA</h3>
+            <p class="text-gray-300 mb-4">
+              Asistente inteligente 24/7 para WhatsApp con memoria contextual y búsqueda en base de conocimiento.
+            </p>
+
+            <div class="mb-4">
+              <h4 class="text-sm font-semibold text-[#82e256] mb-2">Incluye:</h4>
+              <ul class="space-y-1">
+                <li class="text-sm text-gray-400 flex items-start">
+                  <span class="text-[#82e256] mr-2">✓</span>
+                  <span>Integración WhatsApp Business API</span>
+                </li>
+                <li class="text-sm text-gray-400 flex items-start">
+                  <span class="text-[#82e256] mr-2">✓</span>
+                  <span>Base de datos vectorial (Qdrant)</span>
+                </li>
+                <li class="text-sm text-gray-400 flex items-start">
+                  <span class="text-[#82e256] mr-2">✓</span>
+                  <span>Memoria de conversación por usuario</span>
+                </li>
+                <li class="text-sm text-gray-400 flex items-start">
+                  <span class="text-[#82e256] mr-2">✓</span>
+                  <span>Respuestas sobre productos, envíos, devoluciones</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="border-t border-white/10 pt-4 mb-4">
+              <div class="flex justify-between items-center">
+                <div>
+                  <p class="text-xs text-gray-500">ROI Estimado</p>
+                  <p class="text-lg font-bold text-[#82e256]">70% menos tiempo respuesta</p>
+                </div>
+                <div>
+                  <p class="text-xs text-gray-500">Tecnologías</p>
+                  <p class="text-sm text-gray-300">n8n, GPT-4, Qdrant</p>
+                </div>
+              </div>
+            </div>
+
+            <a href="/#contenido10" class="block w-full py-3 bg-gradient-to-r from-[#00464e] to-[#006417] text-white rounded-lg hover:from-[#006417] hover:to-[#82e256] transition-all duration-300 font-semibold text-center">
+              Solicitar Demo →
+            </a>
+          </div>
+
+          <!-- Workflow 3 -->
+          <div class="bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-[#82e256] transition-all duration-300">
+            <div class="flex items-start justify-between mb-4">
+              <div class="text-5xl">📱</div>
+              <span class="text-xs px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 font-semibold">
+                Intermedio
+              </span>
+            </div>
+
+            <h3 class="text-2xl font-bold text-white mb-3">Gestión de Redes Sociales Multi-plataforma</h3>
+            <p class="text-gray-300 mb-4">
+              Publica contenido simultáneamente en múltiples plataformas con contenido generado y optimizado por IA.
+            </p>
+
+            <div class="mb-4">
+              <h4 class="text-sm font-semibold text-[#82e256] mb-2">Incluye:</h4>
+              <ul class="space-y-1">
+                <li class="text-sm text-gray-400 flex items-start">
+                  <span class="text-[#82e256] mr-2">✓</span>
+                  <span>Publicación multi-canal (Instagram, Facebook, TikTok)</span>
+                </li>
+                <li class="text-sm text-gray-400 flex items-start">
+                  <span class="text-[#82e256] mr-2">✓</span>
+                  <span>Adaptación de contenido por red social</span>
+                </li>
+                <li class="text-sm text-gray-400 flex items-start">
+                  <span class="text-[#82e256] mr-2">✓</span>
+                  <span>Generación de hashtags con IA</span>
+                </li>
+                <li class="text-sm text-gray-400 flex items-start">
+                  <span class="text-[#82e256] mr-2">✓</span>
+                  <span>Programación de posts automática</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="border-t border-white/10 pt-4 mb-4">
+              <div class="flex justify-between items-center">
+                <div>
+                  <p class="text-xs text-gray-500">ROI Estimado</p>
+                  <p class="text-lg font-bold text-[#82e256]">70% ahorro de tiempo</p>
+                </div>
+                <div>
+                  <p class="text-xs text-gray-500">Tecnologías</p>
+                  <p class="text-sm text-gray-300">n8n, GPT-4, APIs</p>
+                </div>
+              </div>
+            </div>
+
+            <a href="/#contenido10" class="block w-full py-3 bg-gradient-to-r from-[#00464e] to-[#006417] text-white rounded-lg hover:from-[#006417] hover:to-[#82e256] transition-all duration-300 font-semibold text-center">
+              Solicitar Demo →
+            </a>
+          </div>
+
+          <!-- Workflow 4 -->
+          <div class="bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-[#82e256] transition-all duration-300">
+            <div class="flex items-start justify-between mb-4">
+              <div class="text-5xl">📧</div>
+              <span class="text-xs px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 font-semibold">
+                Intermedio
+              </span>
+            </div>
+
+            <h3 class="text-2xl font-bold text-white mb-3">Campañas de Email Marketing con IA</h3>
+            <p class="text-gray-300 mb-4">
+              Automatización completa de campañas de email con contenido generado por IA y segmentación inteligente.
+            </p>
+
+            <div class="mb-4">
+              <h4 class="text-sm font-semibold text-[#82e256] mb-2">Incluye:</h4>
+              <ul class="space-y-1">
+                <li class="text-sm text-gray-400 flex items-start">
+                  <span class="text-[#82e256] mr-2">✓</span>
+                  <span>Generación de contenido con IA</span>
+                </li>
+                <li class="text-sm text-gray-400 flex items-start">
+                  <span class="text-[#82e256] mr-2">✓</span>
+                  <span>Segmentación automática de audiencias</span>
+                </li>
+                <li class="text-sm text-gray-400 flex items-start">
+                  <span class="text-[#82e256] mr-2">✓</span>
+                  <span>Personalización por usuario</span>
+                </li>
+                <li class="text-sm text-gray-400 flex items-start">
+                  <span class="text-[#82e256] mr-2">✓</span>
+                  <span>A/B testing automático</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="border-t border-white/10 pt-4 mb-4">
+              <div class="flex justify-between items-center">
+                <div>
+                  <p class="text-xs text-gray-500">ROI Estimado</p>
+                  <p class="text-lg font-bold text-[#82e256]">35% mejora engagement</p>
+                </div>
+                <div>
+                  <p class="text-xs text-gray-500">Tecnologías</p>
+                  <p class="text-sm text-gray-300">n8n, GPT-4, SendGrid</p>
+                </div>
+              </div>
+            </div>
+
+            <a href="/#contenido10" class="block w-full py-3 bg-gradient-to-r from-[#00464e] to-[#006417] text-white rounded-lg hover:from-[#006417] hover:to-[#82e256] transition-all duration-300 font-semibold text-center">
+              Solicitar Demo →
+            </a>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="text-center mt-12">
+          <button
+            id="open-lead-magnet-2"
+            class="inline-block px-10 py-5 bg-gradient-to-r from-[#82e256] to-[#6bc73d] text-black rounded-lg font-bold text-lg hover:shadow-[0_0_40px_rgba(130,226,86,0.6)] transition-all duration-300 hover:scale-105"
+          >
+            📥 Descargar Guía: "10 Automatizaciones para E-commerce 2025"
+          </button>
+          <p class="text-gray-400 mt-3 text-sm">Gratis • Sin tarjeta • Descarga inmediata</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof -->
+  <section class="py-16 bg-[#1a1a1a]">
+    <div class="container mx-auto px-4 md:px-16">
+      <div class="max-w-6xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-black text-white mb-12">
+          Empresas que ya están automatizando con IA
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white/5 backdrop-blur border border-white/10 rounded-xl p-8">
+            <div class="text-5xl mb-4">🏪</div>
+            <p class="text-gray-300 italic mb-4">"Recuperamos el 35% de carritos abandonados con la automatización de WhatsApp + Email"</p>
+            <p class="text-[#82e256] font-bold">Tienda de Moda Online</p>
+            <p class="text-gray-500 text-sm">Colombia</p>
+          </div>
+
+          <div class="bg-white/5 backdrop-blur border border-white/10 rounded-xl p-8">
+            <div class="text-5xl mb-4">📦</div>
+            <p class="text-gray-300 italic mb-4">"El chatbot responde el 80% de las consultas automáticamente. Ahorramos $2000/mes en soporte"</p>
+            <p class="text-[#82e256] font-bold">Marketplace de Productos</p>
+            <p class="text-gray-500 text-sm">México</p>
+          </div>
+
+          <div class="bg-white/5 backdrop-blur border border-white/10 rounded-xl p-8">
+            <div class="text-5xl mb-4">🛍️</div>
+            <p class="text-gray-300 italic mb-4">"Las campañas de email con IA generan 3x más clicks que nuestras campañas manuales"</p>
+            <p class="text-[#82e256] font-bold">E-commerce de Electrónicos</p>
+            <p class="text-gray-500 text-sm">Argentina</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-20 bg-gradient-to-br from-[#00464e] to-[#006064]">
+    <div class="container mx-auto px-4 md:px-16">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-5xl font-black text-white mb-6">
+          ¿Listo para recuperar ventas perdidas?
+        </h2>
+        <p class="text-xl text-gray-200 mb-8">
+          Agenda una demo gratuita de 30 minutos y te mostramos cómo automatizar tu tienda con IA
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/#contenido10"
+            class="px-10 py-5 bg-gradient-to-r from-[#82e256] to-[#6bc73d] text-black rounded-lg font-bold text-lg hover:shadow-[0_0_40px_rgba(130,226,86,0.6)] transition-all duration-300 hover:scale-105"
+          >
+            📅 Agendar Demo Gratuita
+          </a>
+          <button
+            id="open-lead-magnet-3"
+            class="px-10 py-5 bg-white/10 backdrop-blur border-2 border-white text-white rounded-lg font-bold text-lg hover:bg-white hover:text-black transition-all duration-300"
+          >
+            📥 Descargar Guía Gratis
+          </button>
+        </div>
+
+        <p class="text-gray-300 mt-6">
+          ✅ Sin compromiso • ✅ Demo personalizada • ✅ ROI garantizado
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lead Magnet Modal -->
+  <div id="lead-magnet-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div class="bg-gradient-to-br from-[#1a1a1a] to-[#00464e] rounded-2xl max-w-md w-full p-8 border-2 border-[#82e256] relative">
+      <button id="close-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+
+      <div class="text-center mb-6">
+        <div class="text-6xl mb-4">📚</div>
+        <h3 class="text-2xl font-black text-white mb-2">
+          Guía Gratuita para E-commerce
+        </h3>
+        <p class="text-gray-300">
+          "10 Automatizaciones con IA que tu Tienda Online Necesita en 2025"
+        </p>
+      </div>
+
+      <form id="lead-form" class="space-y-4">
+        <div>
+          <label class="block text-sm font-semibold text-gray-300 mb-2">Nombre completo</label>
+          <input
+            type="text"
+            name="nombre"
+            required
+            class="w-full px-4 py-3 bg-white/10 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#82e256] text-white"
+            placeholder="Juan Pérez"
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-gray-300 mb-2">Email</label>
+          <input
+            type="email"
+            name="email"
+            required
+            class="w-full px-4 py-3 bg-white/10 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#82e256] text-white"
+            placeholder="juan@ejemplo.com"
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-gray-300 mb-2">Nombre de tu Tienda</label>
+          <input
+            type="text"
+            name="empresa"
+            required
+            class="w-full px-4 py-3 bg-white/10 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#82e256] text-white"
+            placeholder="Mi Tienda Online"
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-gray-300 mb-2">Plataforma E-commerce</label>
+          <select
+            name="plataforma"
+            class="w-full px-4 py-3 bg-white/10 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#82e256] text-white"
+          >
+            <option value="">Selecciona...</option>
+            <option value="shopify">Shopify</option>
+            <option value="woocommerce">WooCommerce</option>
+            <option value="vtex">VTEX</option>
+            <option value="magento">Magento</option>
+            <option value="tiendanube">TiendaNube</option>
+            <option value="otra">Otra</option>
+          </select>
+        </div>
+
+        <button
+          type="submit"
+          class="w-full px-8 py-4 bg-gradient-to-r from-[#82e256] to-[#6bc73d] text-black rounded-lg font-bold hover:shadow-[0_0_30px_rgba(130,226,86,0.5)] transition-all duration-300"
+        >
+          📥 Descargar Guía Ahora
+        </button>
+
+        <p class="text-xs text-gray-400 text-center">
+          Al descargar aceptas recibir emails con consejos sobre automatización. Puedes cancelar cuando quieras.
+        </p>
+      </form>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  // Modal functionality
+  const modal = document.getElementById('lead-magnet-modal');
+  const openButtons = [
+    document.getElementById('open-lead-magnet'),
+    document.getElementById('open-lead-magnet-2'),
+    document.getElementById('open-lead-magnet-3')
+  ];
+  const closeButton = document.getElementById('close-modal');
+  const leadForm = document.getElementById('lead-form');
+
+  openButtons.forEach(button => {
+    button?.addEventListener('click', () => {
+      modal?.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  closeButton?.addEventListener('click', () => {
+    modal?.classList.add('hidden');
+    document.body.style.overflow = 'auto';
+  });
+
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+  });
+
+  // Form submission
+  leadForm?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target as HTMLFormElement);
+    const data = {
+      nombre: formData.get('nombre'),
+      email: formData.get('email'),
+      empresa: formData.get('empresa'),
+      plataforma: formData.get('plataforma'),
+      industria: 'E-commerce',
+      leadMagnet: 'Guía 10 Automatizaciones E-commerce 2025',
+      timestamp: new Date().toISOString()
+    };
+
+    console.log('Lead capturado:', data);
+
+    // TODO: Aquí enviarías el lead a tu backend/webhook/n8n
+    // Por ahora solo mostramos un alert
+    alert('¡Gracias! Te hemos enviado la guía a tu email. Revisa tu bandeja de entrada.');
+
+    modal?.classList.add('hidden');
+    document.body.style.overflow = 'auto';
+    (e.target as HTMLFormElement).reset();
+  });
+</script>

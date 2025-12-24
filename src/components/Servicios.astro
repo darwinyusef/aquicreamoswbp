@@ -1,8 +1,31 @@
 <div> <!-- Título Principal de Servicios -->
-  <section class="relative w-full py-16 md:py-24 flex items-center justify-center overflow-hidden bg-gradient-to-b from-black/50 via-[#1a1a1a] to-black/50 border-y border-white/10">
-    <h1 class="text-6xl md:text-7xl lg:text-8xl font-black text-white/40 text-center select-none">
-      SERVICIOS
-    </h1>
+  <section id="contenido2" class="relative w-full py-16 md:py-20 flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-[#1a1a1a] via-[#0d1a1a] to-[#1a1a1a]">
+    <div class="container mx-auto px-4 text-center max-w-5xl">
+      <!-- Ícono decorativo -->
+      <div class="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-2xl mb-6 shadow-xl animate-pulse">
+        <svg class="w-9 h-9 md:w-11 md:h-11 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+        </svg>
+      </div>
+
+      <!-- Título con gradiente -->
+      <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
+        <span class="text-white">Nuestros </span>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#82e256] via-[#6bc73d] to-[#04ADC0]">Servicios</span>
+      </h2>
+
+      <!-- Descripción -->
+      <p class="text-lg md:text-xl lg:text-2xl text-gray-300 font-light max-w-3xl mx-auto leading-relaxed">
+        Soluciones de IA y desarrollo de software diseñadas para transformar tu negocio
+      </p>
+
+      <!-- Línea decorativa -->
+      <div class="mt-8 flex items-center justify-center gap-2">
+        <div class="h-px w-16 md:w-24 bg-gradient-to-r from-transparent to-[#82e256]"></div>
+        <div class="w-2 h-2 rounded-full bg-[#82e256]"></div>
+        <div class="h-px w-16 md:w-24 bg-gradient-to-l from-transparent to-[#82e256]"></div>
+      </div>
+    </div>
   </section>
 
   <!-- Sección 1: Agentes IA -->
@@ -13,7 +36,7 @@
   >
     <!-- Título Gigante de Fondo -->
     <h2
-      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[12vw] md:text-[14vw] font-black text-white/25 whitespace-nowrap z-0 select-none pointer-events-none"
+      class="scroll-reveal-title absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[12vw] md:text-[14vw] font-black text-white/25 whitespace-nowrap z-0 select-none pointer-events-none opacity-0 translate-y-20 transition-all duration-1000 ease-out"
     >
       AGENTES  + IA
     </h2>
@@ -61,7 +84,7 @@
         class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-ml-[300px]"
       >
         <!-- H3 con Mini Tooltip y Video Shorts -->
-        <div class="tooltip-wrapper relative group w-full flex flex-col items-center md:items-start mt-24 md:mt-32">
+        <div class="tooltip-wrapper relative group w-full flex flex-col items-center md:items-start mt-4 md:mt-6">
           <div class="flex items-center gap-4">
             <a href="/servicios/agentes-ia" class="block">
               <h3
@@ -107,7 +130,7 @@
   >
     <!-- Título Gigante de Fondo -->
     <h2
-      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[11vw] md:text-[12vw] font-black text-white/25 whitespace-nowrap z-0 select-none pointer-events-none"
+      class="scroll-reveal-title absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[11vw] md:text-[12vw] font-black text-white/25 whitespace-nowrap z-0 select-none pointer-events-none opacity-0 translate-y-20 transition-all duration-1000 ease-out"
     >
       APPS WEBS
     </h2>
@@ -120,7 +143,7 @@
         class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-mr-[300px] order-2 md:order-1"
       >
         <!-- H3 con Mini Tooltip y Video Shorts -->
-        <div class="tooltip-wrapper relative group w-full flex flex-col items-center md:items-start mt-24 md:mt-32">
+        <div class="tooltip-wrapper relative group w-full flex flex-col items-center md:items-start mt-4 md:mt-6">
           <div class="flex items-center gap-4">
             <a href="/servicios/apps-ia" class="block">
               <h3
@@ -202,7 +225,7 @@
   >
     <!-- Título Gigante de Fondo -->
     <h2
-      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[12vw] md:text-[14vw] font-black text-white/25 whitespace-nowrap z-0 select-none pointer-events-none leading-none"
+      class="scroll-reveal-title absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[12vw] md:text-[14vw] font-black text-white/25 whitespace-nowrap z-0 select-none pointer-events-none leading-none opacity-0 translate-y-20 transition-all duration-1000 ease-out"
     >
       WEBSITES <br /> MODERNOS
     </h2>
@@ -250,7 +273,7 @@
         class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-ml-[300px]"
       >
         <!-- H3 con Mini Tooltip y Video Shorts -->
-        <div class="tooltip-wrapper relative group w-full flex flex-col items-center md:items-start mt-24 md:mt-32">
+        <div class="tooltip-wrapper relative group w-full flex flex-col items-center md:items-start mt-4 md:mt-6">
           <div class="flex items-center gap-4">
             <a href="/servicios/web" class="block">
               <h3
@@ -297,7 +320,7 @@
   >
     <!-- Título Gigante de Fondo -->
     <h2
-      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[12vw] md:text-[14vw] font-black text-white/25 whitespace-nowrap z-0 select-none pointer-events-none leading-none"
+      class="scroll-reveal-title absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[12vw] md:text-[14vw] font-black text-white/25 whitespace-nowrap z-0 select-none pointer-events-none leading-none opacity-0 translate-y-20 transition-all duration-1000 ease-out"
     >
       APPS <br /> MOVILES
     </h2>
@@ -310,7 +333,7 @@
         class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-mr-[300px] order-2 md:order-1"
       >
         <!-- H3 con Mini Tooltip y Video Shorts -->
-        <div class="tooltip-wrapper relative group w-full flex flex-col items-center md:items-start mt-24 md:mt-32">
+        <div class="tooltip-wrapper relative group w-full flex flex-col items-center md:items-start mt-4 md:mt-6">
           <div class="flex items-center gap-4">
             <a href="/servicios/movil" class="block">
               <h3
@@ -391,7 +414,7 @@
   >
     <!-- Título Gigante de Fondo -->
     <h2
-      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[13vw] md:text-[12vw] font-black text-white/25 whitespace-nowrap z-0 select-none pointer-events-none leading-none text-center"
+      class="scroll-reveal-title absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[13vw] md:text-[12vw] font-black text-white/25 whitespace-nowrap z-0 select-none pointer-events-none leading-none text-center opacity-0 translate-y-20 transition-all duration-1000 ease-out"
     >
       ARQUITECTURA <br /> DE SOFTWARE
     </h2>
@@ -439,7 +462,7 @@
         class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-ml-[300px]"
       >
         <!-- H3 con Mini Tooltip y Video Shorts -->
-        <div class="tooltip-wrapper relative group w-full flex flex-col items-center md:items-start mt-24 md:mt-32">
+        <div class="tooltip-wrapper relative group w-full flex flex-col items-center md:items-start mt-4 md:mt-6">
           <div class="flex items-center gap-4">
             <a href="/servicios/arquitectura" class="block">
               <h3
@@ -485,7 +508,7 @@
   >
     <!-- Título Gigante de Fondo -->
     <h2
-      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[12vw] md:text-[14vw] font-black text-white/25 whitespace-nowrap z-0 select-none pointer-events-none text-center leading-none"
+      class="scroll-reveal-title absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[12vw] md:text-[14vw] font-black text-white/25 whitespace-nowrap z-0 select-none pointer-events-none text-center leading-none opacity-0 translate-y-20 transition-all duration-1000 ease-out"
     >
       VISIÓN <br /> ARTIFICIAL
     </h2>
@@ -498,7 +521,7 @@
         class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-mr-[300px] order-2 md:order-1"
       >
         <!-- H3 con Mini Tooltip y Video Shorts -->
-        <div class="tooltip-wrapper relative group w-full flex flex-col items-center md:items-start mt-24 md:mt-32">
+        <div class="tooltip-wrapper relative group w-full flex flex-col items-center md:items-start mt-4 md:mt-6">
           <div class="flex items-center gap-4">
             <a href="/servicios/vision" class="block">
               <h3
@@ -866,6 +889,29 @@
 
     // Observar todas las secciones de servicios
     serviceSections.forEach(section => sectionObserver.observe(section));
+
+    // ═══════════════════════════════════════════════════════════════════
+    // SCROLL REVEAL ANIMATION FOR BACKGROUND TITLES
+    // ═══════════════════════════════════════════════════════════════════
+    const revealTitles = document.querySelectorAll('.scroll-reveal-title');
+
+    const revealOptions = {
+      rootMargin: '0px 0px -10% 0px',
+      threshold: 0.3
+    };
+
+    const titleObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Remove hidden state classes to trigger reveal
+          entry.target.classList.remove('opacity-0', 'translate-y-20');
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+        }
+      });
+    }, revealOptions);
+
+    // Observe all title elements
+    revealTitles.forEach(title => titleObserver.observe(title));
   });
 </script>
 
@@ -951,8 +997,8 @@
   #personaje1, #personaje3, #personaje4, #personaje5, #personaje6, #personaje7 {
     position: relative !important;
     height: auto !important;
-    min-height: 100vh !important;
-    padding: 4rem 0 !important;
+    min-height: auto !important;
+    padding: 3rem 0 !important;
   }
 
   /* Contenedor principal - distribución simple lado a lado */
@@ -962,8 +1008,8 @@
   #personaje5 > div,
   #personaje6 > div,
   #personaje7 > div {
-    padding: 0 4rem !important;
-    gap: 4rem !important;
+    padding: 0 2rem !important;
+    gap: 2rem !important;
     max-width: 1600px !important;
     margin: 0 auto !important;
     align-items: center !important;

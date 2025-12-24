@@ -1,0 +1,1086 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+---
+
+<Layout>
+  <Header currentPage="aquicreamos" />
+
+  <!-- Hero Section -->
+  <section class="pt-32 pb-16 bg-gradient-to-br from-[#00464e] to-[#006064]">
+    <div class="container mx-auto px-4 md:px-16">
+      <div class="max-w-5xl mx-auto text-center">
+        <!-- Ícono decorativo -->
+        <div class="inline-flex items-center justify-center w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-2xl mb-8 shadow-xl animate-pulse">
+          <svg class="w-11 h-11 md:w-13 md:h-13 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+          </svg>
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
+          <span class="text-white">Aquí </span>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#82e256] via-[#6bc73d] to-[#04ADC0]">Creamos</span>
+        </h1>
+
+        <p class="text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-8">
+          Servicios profesionales de desarrollo y tecnología para impulsar tu negocio
+        </p>
+
+        <!-- Línea decorativa -->
+        <div class="flex items-center justify-center gap-2">
+          <div class="h-px w-16 md:w-24 bg-gradient-to-r from-transparent to-[#82e256]"></div>
+          <div class="w-2 h-2 rounded-full bg-[#82e256]"></div>
+          <div class="h-px w-16 md:w-24 bg-gradient-to-l from-transparent to-[#82e256]"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tabs: Servicios / Automatizaciones -->
+  <section class="py-6 bg-[#1a1a1a] border-b border-gray-800">
+    <div class="container mx-auto px-4 md:px-16">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex gap-4 justify-center">
+          <button
+            id="tab-servicios"
+            class="tab-button active px-8 py-3 rounded-lg font-bold text-lg transition-all"
+          >
+            📦 Servicios Profesionales
+          </button>
+          <button
+            id="tab-automatizaciones"
+            class="tab-button px-8 py-3 rounded-lg font-bold text-lg transition-all"
+          >
+            ⚡ Automatizaciones IA
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filtros y búsqueda -->
+  <section id="section-filtros" class="py-8 bg-[#1a1a1a] border-b border-gray-800">
+    <div class="container mx-auto px-4 md:px-16">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+          <!-- Búsqueda -->
+          <div class="w-full md:w-96">
+            <div class="relative">
+              <input
+                type="text"
+                id="search-input"
+                placeholder="Buscar servicios..."
+                class="w-full px-4 py-3 pl-12 bg-gray-800 text-white border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#82e256] transition-all"
+              />
+              <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Contador de resultados -->
+          <div class="text-gray-400">
+            <span id="results-count">0</span> servicios disponibles
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Grid de servicios -->
+  <section id="content-servicios" class="tab-content py-16 bg-[#1a1a1a] min-h-screen">
+    <div class="container mx-auto px-4 md:px-16">
+      <div class="max-w-7xl mx-auto">
+        <div
+          id="services-container"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          <!-- Los servicios se cargarán dinámicamente -->
+        </div>
+
+        <!-- Mensaje cuando no hay resultados -->
+        <div id="no-results" class="hidden text-center py-16">
+          <div class="text-gray-400 text-xl mb-4">No se encontraron servicios</div>
+          <button
+            id="clear-search"
+            class="text-[#82e256] hover:text-[#6bc73d] transition-colors"
+          >
+            Limpiar búsqueda
+          </button>
+        </div>
+
+        <!-- Loading state -->
+        <div id="loading" class="text-center py-16">
+          <div class="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#82e256]"></div>
+          <p class="text-gray-400 mt-4">Cargando servicios...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Grid de automatizaciones -->
+  <section id="content-automatizaciones" class="tab-content hidden py-16 bg-[#1a1a1a] min-h-screen">
+    <div class="container mx-auto px-4 md:px-16">
+      <div class="max-w-7xl mx-auto">
+        <div
+          id="workflows-container"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          <!-- Los workflows se cargarán dinámicamente -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal de IA para chat de servicios -->
+  <div id="ai-modal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div class="ai-modal-content bg-[#1a1a1a] rounded-3xl max-w-3xl w-full h-[85vh] flex flex-col border border-gray-800">
+      <!-- Header -->
+      <div class="bg-[#1a1a1a] border-b border-gray-800 p-6 flex items-center justify-between flex-shrink-0">
+        <div class="flex items-center gap-3">
+          <span class="text-5xl" id="ai-modal-emoji">🤖</span>
+          <div>
+            <h3 class="text-xl font-bold text-white" id="ai-modal-title">Asistente de IA</h3>
+            <p class="text-sm text-gray-400" id="ai-modal-subtitle">Pregúntame sobre este servicio</p>
+          </div>
+        </div>
+        <button id="close-ai-modal" class="text-gray-400 hover:text-white transition-colors">
+          <span class="material-symbols-outlined text-3xl">close</span>
+        </button>
+      </div>
+
+      <!-- Chat Messages Area -->
+      <div id="chat-messages" class="flex-1 overflow-y-auto p-6 space-y-4">
+        <!-- Messages will be added here dynamically -->
+      </div>
+
+      <!-- Input Area -->
+      <div class="border-t border-gray-800 p-4 bg-[#1a1a1a] flex-shrink-0">
+        <form id="chat-form" class="flex gap-3">
+          <input
+            type="text"
+            id="chat-input"
+            placeholder="Escribe tu pregunta..."
+            class="flex-1 px-4 py-3 bg-gray-900 border border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#82e256] text-white"
+            autocomplete="off"
+          />
+          <button
+            type="submit"
+            id="send-btn"
+            class="px-6 py-3 bg-gradient-to-r from-[#82e256] to-[#6bc73d] text-black rounded-xl font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105 active:scale-95 flex items-center gap-2"
+          >
+            <span class="material-symbols-outlined">send</span>
+            <span class="hidden sm:inline">Enviar</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  let allServices: any[] = [];
+
+  // Cargar servicios desde el JSON
+  async function loadServices() {
+    try {
+      const response = await fetch('/services.json');
+      allServices = await response.json();
+      renderServices(allServices);
+      updateResultsCount(allServices.length);
+    } catch (error) {
+      console.error('Error loading services:', error);
+      const container = document.getElementById('services-container');
+      if (container) {
+        container.innerHTML = `
+          <div class="col-span-full text-center py-16">
+            <p class="text-red-500 text-xl">Error al cargar los servicios</p>
+          </div>
+        `;
+      }
+    } finally {
+      const loading = document.getElementById('loading');
+      if (loading) loading.classList.add('hidden');
+    }
+  }
+
+  // Renderizar servicios
+  function renderServices(services: any[]) {
+    const container = document.getElementById('services-container');
+    const noResults = document.getElementById('no-results');
+
+    if (!container) return;
+
+    if (services.length === 0) {
+      container.innerHTML = '';
+      noResults?.classList.remove('hidden');
+      return;
+    }
+
+    noResults?.classList.add('hidden');
+
+    container.innerHTML = services
+      .map(
+        (service) => `
+      <article class="group bg-gray-800/50 rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300 border border-gray-700 hover:border-[#82e256]">
+        <!-- Header con icono -->
+        <div class="relative bg-gradient-to-br from-[#00464e] to-[#006064] p-6 text-center">
+          <div class="text-5xl mb-3">
+            <span class="material-symbols-outlined text-[#82e256]" style="font-size: 3rem;">${getIconName(service.icon)}</span>
+          </div>
+          <div class="text-xs font-semibold text-white/80 bg-black/30 px-3 py-1 rounded-full inline-block">
+            Servicio Profesional
+          </div>
+        </div>
+
+        <!-- Contenido -->
+        <div class="p-6">
+          <h3 class="text-lg font-bold text-white mb-3 line-clamp-2 group-hover:text-[#82e256] transition-colors">
+            ${service.name}
+          </h3>
+
+          <p class="text-gray-300 text-sm mb-4 line-clamp-3">
+            ${service.description}
+          </p>
+
+          <!-- Botones de acción -->
+          <div class="flex gap-2 pt-3 border-t border-gray-700">
+            <button
+              class="service-btn flex-1 text-xs font-semibold text-white bg-[#82e256] hover:bg-[#6bc73d] px-3 py-1.5 rounded-md transition-all hover:scale-105 flex items-center justify-center gap-1.5"
+              data-service-id="${service.id}"
+            >
+              <span class="material-symbols-outlined" style="font-size: 14px;">chat</span>
+              Consultar IA
+            </button>
+            <a
+              href="/#contenido10"
+              class="flex-1 text-xs font-semibold text-[#82e256] border border-[#82e256] hover:bg-[#82e256] hover:text-black px-3 py-1.5 rounded-md transition-all hover:scale-105 flex items-center justify-center gap-1.5"
+            >
+              <span class="material-symbols-outlined" style="font-size: 14px;">calendar_month</span>
+              Agendar
+            </a>
+          </div>
+        </div>
+      </article>
+    `
+      )
+      .join('');
+
+    // Agregar event listeners a los botones
+    document.querySelectorAll('.service-btn').forEach((btn) => {
+      btn.addEventListener('click', function () {
+        const serviceId = this.getAttribute('data-service-id');
+        const service = services.find((s) => s.id == serviceId);
+        if (service) {
+          showServiceModal(service);
+        }
+      });
+    });
+  }
+
+  // Mapear iconos de string a nombres de material symbols
+  function getIconName(icon: string): string {
+    const iconMap: Record<string, string> = {
+      layers: 'layers',
+      server: 'dns',
+      cpu: 'memory',
+      eye: 'visibility',
+      code2: 'code',
+      zap: 'bolt',
+      database: 'database',
+      docker: 'view_in_ar',
+      box: 'inventory_2',
+      robot: 'smart_toy',
+      wifi: 'wifi',
+      broadcast: 'podcasts',
+      smartphone: 'smartphone',
+      users: 'group',
+      activity: 'monitoring',
+      gauge: 'speed',
+      shield: 'shield',
+      table: 'table_chart',
+      checkcircle: 'check_circle',
+      scan: 'qr_code_scanner',
+      linechart: 'show_chart',
+      bell: 'notifications',
+      folder: 'folder',
+      lock: 'lock',
+      barchart2: 'bar_chart',
+      creditcard: 'credit_card',
+      repeat: 'autorenew',
+      layers2: 'layers',
+      rocket: 'rocket_launch',
+      sparkles: 'auto_awesome',
+      cloud: 'cloud',
+      api: 'api',
+    };
+    return iconMap[icon] || 'settings';
+  }
+
+  // Estado del chat
+  let conversationHistory: any[] = [];
+  let currentService: any = null;
+
+  // Mostrar modal de servicio
+  function showServiceModal(service: any) {
+    currentService = service;
+    conversationHistory = [];
+
+    // Actualizar título del modal
+    const modalTitle = document.getElementById('ai-modal-title');
+    const modalSubtitle = document.getElementById('ai-modal-subtitle');
+
+    if (modalTitle) modalTitle.textContent = service.name;
+    if (modalSubtitle) modalSubtitle.textContent = 'Pregúntame sobre este servicio';
+
+    // Limpiar mensajes anteriores
+    const chatMessages = document.getElementById('chat-messages');
+    if (chatMessages) {
+      chatMessages.innerHTML = `
+        <div class="message-ai flex gap-3">
+          <div class="flex-shrink-0">
+            <span class="text-3xl">🤖</span>
+          </div>
+          <div class="flex-1 bg-gray-800 rounded-2xl p-4">
+            <p class="text-white">¡Hola! 👋 Soy una IA Tecnica virtual. Preguntame lo que quieras puedo ayudarte con información sobre <strong class="text-[#82e256]">${service.name}</strong>.</p>
+            <p class="text-white mt-2">${service.description}</p>
+            <p class="text-gray-400 text-sm mt-3">ó prefieres agendar una</p>
+            <a href="/#contenido10" class="inline-flex items-center gap-2 mt-4 px-4 py-2 text-purple-400 font-semibold rounded-lg transition-all">
+              <span class="material-symbols-outlined text-sm">calendar_month</span>
+               asesoría personalizada
+            </a>
+             <p class="text-gray-400 text-sm mt-3">PREGUNTAME Y TE ASESORO</p>
+          </div>
+        </div>
+      `;
+    }
+
+    // Mostrar modal
+    const modal = document.getElementById('ai-modal');
+    if (modal) {
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Focus en el input
+    setTimeout(() => {
+      const chatInput = document.getElementById('chat-input') as HTMLInputElement;
+      chatInput?.focus();
+    }, 100);
+  }
+
+  // Cerrar modal
+  function closeModal() {
+    const modal = document.getElementById('ai-modal');
+    if (modal) {
+      modal.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+    currentService = null;
+    conversationHistory = [];
+  }
+
+  // Agregar mensaje al chat
+  function addMessage(content: string, isUser: boolean) {
+    const chatMessages = document.getElementById('chat-messages');
+    if (!chatMessages) return;
+
+    const messageDiv = document.createElement('div');
+    messageDiv.className = isUser ? 'message-user flex gap-3 justify-end' : 'message-ai flex gap-3';
+
+    if (isUser) {
+      messageDiv.innerHTML = `
+        <div class="flex-1 bg-gradient-to-r from-[#82e256] to-[#6bc73d] rounded-2xl p-4 max-w-[80%]">
+          <p class="text-black">${content}</p>
+        </div>
+        <div class="flex-shrink-0">
+          <span class="text-3xl">👤</span>
+        </div>
+      `;
+    } else {
+      messageDiv.innerHTML = `
+        <div class="flex-shrink-0">
+          <span class="text-3xl">🤖</span>
+        </div>
+        <div class="flex-1 bg-gray-800 rounded-2xl p-4 max-w-[80%]">
+          <div class="text-white">${content}</div>
+        </div>
+      `;
+    }
+
+    chatMessages.appendChild(messageDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  // Enviar mensaje a la API
+  async function sendMessage(question: string) {
+    if (!question.trim() || !currentService) return;
+
+    // Agregar mensaje del usuario
+    addMessage(question, true);
+    conversationHistory.push({ role: 'user', content: question });
+
+    // Mostrar indicador de carga
+    const chatMessages = document.getElementById('chat-messages');
+    const loadingDiv = document.createElement('div');
+    loadingDiv.className = 'message-ai flex gap-3';
+    loadingDiv.id = 'loading-message';
+    loadingDiv.innerHTML = `
+      <div class="flex-shrink-0">
+        <span class="text-3xl">🤖</span>
+      </div>
+      <div class="flex-1 bg-gray-800 rounded-2xl p-4">
+        <div class="flex items-center gap-2">
+          <div class="animate-pulse">Pensando</div>
+          <div class="flex gap-1">
+            <div class="w-2 h-2 bg-[#82e256] rounded-full animate-bounce" style="animation-delay: 0ms"></div>
+            <div class="w-2 h-2 bg-[#82e256] rounded-full animate-bounce" style="animation-delay: 150ms"></div>
+            <div class="w-2 h-2 bg-[#82e256] rounded-full animate-bounce" style="animation-delay: 300ms"></div>
+          </div>
+        </div>
+      </div>
+    `;
+    chatMessages?.appendChild(loadingDiv);
+    chatMessages!.scrollTop = chatMessages!.scrollHeight;
+
+    try {
+      const response = await fetch('/api/chat-assistant.json', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          question,
+          conversationHistory,
+          serviceContext: {
+            serviceName: currentService.name,
+            serviceDescription: currentService.description
+          }
+        }),
+      });
+
+      const data = await response.json();
+
+      // Eliminar indicador de carga
+      loadingDiv.remove();
+
+      if (data.success && data.response) {
+        addMessage(data.response, false);
+        conversationHistory.push({ role: 'assistant', content: data.response });
+      } else {
+        addMessage('Lo siento, hubo un error al procesar tu pregunta. Por favor, intenta de nuevo.', false);
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+      loadingDiv.remove();
+      addMessage('Lo siento, hubo un error de conexión. Por favor, verifica tu conexión e intenta de nuevo.', false);
+    }
+  }
+
+  // Actualizar contador de resultados
+  function updateResultsCount(count: number) {
+    const counter = document.getElementById('results-count');
+    if (counter) {
+      counter.textContent = count.toString();
+    }
+  }
+
+  // Búsqueda
+  const searchInput = document.getElementById('search-input') as HTMLInputElement;
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      const query = (e.target as HTMLInputElement).value.toLowerCase();
+      const filtered = allServices.filter(
+        (service) =>
+          service.name.toLowerCase().includes(query) ||
+          service.description.toLowerCase().includes(query)
+      );
+      renderServices(filtered);
+      updateResultsCount(filtered.length);
+    });
+  }
+
+  // Limpiar búsqueda
+  const clearBtn = document.getElementById('clear-search');
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      if (searchInput) searchInput.value = '';
+      renderServices(allServices);
+      updateResultsCount(allServices.length);
+    });
+  }
+
+  // Event listeners para el modal
+  const closeModalBtn = document.getElementById('close-ai-modal');
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener('click', closeModal);
+  }
+
+  // Cerrar modal al hacer clic fuera de él
+  const aiModal = document.getElementById('ai-modal');
+  if (aiModal) {
+    aiModal.addEventListener('click', (e) => {
+      if (e.target === aiModal) {
+        closeModal();
+      }
+    });
+  }
+
+  // Event listener para el formulario de chat
+  const chatForm = document.getElementById('chat-form');
+  if (chatForm) {
+    chatForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const chatInput = document.getElementById('chat-input') as HTMLInputElement;
+      if (chatInput && chatInput.value.trim()) {
+        const question = chatInput.value.trim();
+        chatInput.value = '';
+        await sendMessage(question);
+      }
+    });
+  }
+
+  // Cargar servicios al iniciar
+  loadServices();
+
+  // ===== TABS LOGIC =====
+  const tabServiciosBtn = document.getElementById('tab-servicios');
+  const tabAutomatizacionesBtn = document.getElementById('tab-automatizaciones');
+  const contentServicios = document.getElementById('content-servicios');
+  const contentAutomatizaciones = document.getElementById('content-automatizaciones');
+  const sectionFiltros = document.getElementById('section-filtros');
+
+  function switchTab(tab: 'servicios' | 'automatizaciones') {
+    if (tab === 'servicios') {
+      // Activar tab servicios
+      tabServiciosBtn?.classList.add('active', 'bg-[#82e256]', 'text-black');
+      tabServiciosBtn?.classList.remove('bg-white/10', 'text-white');
+      tabAutomatizacionesBtn?.classList.remove('active', 'bg-[#82e256]', 'text-black');
+      tabAutomatizacionesBtn?.classList.add('bg-white/10', 'text-white');
+
+      // Mostrar contenido servicios
+      contentServicios?.classList.remove('hidden');
+      contentAutomatizaciones?.classList.add('hidden');
+      sectionFiltros?.classList.remove('hidden');
+    } else {
+      // Activar tab automatizaciones
+      tabAutomatizacionesBtn?.classList.add('active', 'bg-[#82e256]', 'text-black');
+      tabAutomatizacionesBtn?.classList.remove('bg-white/10', 'text-white');
+      tabServiciosBtn?.classList.remove('active', 'bg-[#82e256]', 'text-black');
+      tabServiciosBtn?.classList.add('bg-white/10', 'text-white');
+
+      // Mostrar contenido automatizaciones
+      contentAutomatizaciones?.classList.remove('hidden');
+      contentServicios?.classList.add('hidden');
+      sectionFiltros?.classList.add('hidden');
+
+      // Renderizar workflows si aún no se han cargado
+      if (!workflowsLoaded) {
+        renderWorkflows();
+        workflowsLoaded = true;
+      }
+    }
+  }
+
+  tabServiciosBtn?.addEventListener('click', () => switchTab('servicios'));
+  tabAutomatizacionesBtn?.addEventListener('click', () => switchTab('automatizaciones'));
+
+  // ===== WORKFLOWS DATA & LOGIC =====
+  let workflowsLoaded = false;
+
+  const workflows = [
+    {
+      id: 1,
+      title: "Chatbot WhatsApp con IA y RAG",
+      description: "Asistente inteligente 24/7 para WhatsApp con memoria contextual y búsqueda en base de conocimiento vectorial. Responde preguntas de clientes usando documentación empresarial.",
+      icon: "💬",
+      category: "Atención al Cliente",
+      features: ["Integración WhatsApp Business API", "Base de datos vectorial (Qdrant)", "Memoria de conversación por usuario", "Respuestas personalizadas con GPT-4", "Búsqueda semántica en documentos"],
+      tech: ["n8n", "OpenAI GPT-4", "Qdrant", "WhatsApp API"],
+      roi: "Reducción 70% en tiempo de respuesta",
+      difficulty: "Intermedio"
+    },
+    {
+      id: 2,
+      title: "Agente IA con Herramientas y Memoria",
+      description: "Agente conversacional con capacidades extendidas: consulta clima, búsqueda web, cálculos matemáticos y memoria persistente de sesiones.",
+      icon: "🤖",
+      category: "Asistentes Virtuales",
+      features: ["Herramienta de clima en tiempo real", "Búsqueda web con SerpAPI", "Calculadora matemática avanzada", "Memoria de conversación (15 mensajes)", "Guardado en base de datos PostgreSQL"],
+      tech: ["n8n", "OpenAI GPT-4", "SerpAPI", "PostgreSQL"],
+      roi: "Automatización de consultas repetitivas",
+      difficulty: "Avanzado"
+    },
+    {
+      id: 3,
+      title: "Soporte al Cliente Automatizado",
+      description: "Sistema completo de atención al cliente con análisis de sentimiento, priorización automática, búsqueda en base de conocimiento y respuestas personalizadas por IA.",
+      icon: "🎯",
+      category: "Atención al Cliente",
+      features: ["Análisis de sentimiento con IA", "Priorización automática de tickets", "Consulta historial y perfil del cliente", "Base de conocimiento vectorial", "Alertas a equipo si sentimiento negativo", "Notificaciones multi-canal (Email, Slack)"],
+      tech: ["n8n", "OpenAI GPT-4", "Qdrant", "PostgreSQL", "Gmail", "Slack"],
+      roi: "80% reducción de carga manual",
+      difficulty: "Avanzado"
+    },
+    {
+      id: 4,
+      title: "Recuperación de Carritos Abandonados",
+      description: "Estrategia multi-canal para recuperar ventas perdidas con emails personalizados por IA, SMS y WhatsApp. Descuentos inteligentes basados en valor del carrito.",
+      icon: "🛒",
+      category: "E-commerce",
+      features: ["Email personalizado con GPT-4 (1 hora)", "SMS con urgencia (3 horas)", "WhatsApp con video de productos (24 horas)", "Descuentos dinámicos según valor", "Códigos únicos con expiración", "Tracking completo de envíos"],
+      tech: ["n8n", "OpenAI GPT-4", "Gmail", "Twilio", "WhatsApp", "PostgreSQL"],
+      roi: "25-40% aumento en conversiones",
+      difficulty: "Intermedio"
+    },
+    {
+      id: 5,
+      title: "Gestión Inteligente de Documentos",
+      description: "Sistema RAG completo para upload, procesamiento y consulta de documentos empresariales con IA.",
+      icon: "📄",
+      category: "Gestión Documental",
+      features: ["Upload y procesamiento automático", "Extracción de texto con OCR", "Indexación en base vectorial", "Sistema de preguntas y respuestas", "Búsqueda semántica avanzada"],
+      tech: ["n8n", "OpenAI Embeddings", "Qdrant", "LangChain"],
+      roi: "90% reducción en búsqueda manual",
+      difficulty: "Avanzado"
+    },
+    {
+      id: 6,
+      title: "Campañas de Email Marketing con IA",
+      description: "Automatización completa de campañas de email con contenido generado por IA, segmentación inteligente y seguimiento de métricas.",
+      icon: "📧",
+      category: "Marketing",
+      features: ["Generación de contenido con IA", "Segmentación de audiencias", "Personalización por usuario", "A/B testing automático", "Análisis de tasas de apertura/clics"],
+      tech: ["n8n", "OpenAI GPT-4", "Gmail/SendGrid", "PostgreSQL"],
+      roi: "35% mejora en engagement",
+      difficulty: "Intermedio"
+    },
+    {
+      id: 7,
+      title: "Lead Generation en LinkedIn",
+      description: "Automatización de prospección en LinkedIn con mensajes personalizados generados por IA y seguimiento automático.",
+      icon: "🔗",
+      category: "Ventas",
+      features: ["Búsqueda automática de prospectos", "Mensajes personalizados con IA", "Seguimiento de interacciones", "Calificación de leads", "Integración con CRM"],
+      tech: ["n8n", "LinkedIn API", "OpenAI GPT-4", "PostgreSQL"],
+      roi: "3x aumento en leads calificados",
+      difficulty: "Avanzado"
+    },
+    {
+      id: 8,
+      title: "Automatización de Propuestas Upwork",
+      description: "Sistema que detecta proyectos relevantes en Upwork y genera propuestas personalizadas usando IA basándose en tu perfil.",
+      icon: "💼",
+      category: "Freelancing",
+      features: ["Scraping de proyectos Upwork", "Filtrado por keywords y presupuesto", "Generación de propuestas con IA", "Personalización basada en portfolio", "Envío automático (opcional)"],
+      tech: ["n8n", "Upwork API", "OpenAI GPT-4", "Web Scraping"],
+      roi: "5x más propuestas enviadas",
+      difficulty: "Intermedio"
+    },
+    {
+      id: 9,
+      title: "Gestión de Redes Sociales Multi-plataforma",
+      description: "Publica contenido simultáneamente en múltiples plataformas con contenido generado y optimizado por IA para cada red social.",
+      icon: "📱",
+      category: "Marketing",
+      features: ["Publicación multi-canal (Twitter, LinkedIn, Instagram)", "Adaptación de contenido por red social", "Generación de hashtags con IA", "Programación de posts", "Análisis de engagement"],
+      tech: ["n8n", "OpenAI GPT-4", "Twitter API", "LinkedIn API", "Instagram API"],
+      roi: "70% ahorro de tiempo",
+      difficulty: "Intermedio"
+    },
+    {
+      id: 10,
+      title: "Sincronización CRM Multi-plataforma",
+      description: "Mantén sincronizados datos de clientes entre múltiples CRMs y bases de datos en tiempo real con validación de IA.",
+      icon: "🔄",
+      category: "Integración",
+      features: ["Sync bidireccional entre CRMs", "Detección de duplicados con IA", "Enriquecimiento de datos", "Validación automática de información", "Logs de cambios"],
+      tech: ["n8n", "Salesforce", "HubSpot", "PostgreSQL", "OpenAI"],
+      roi: "95% reducción en errores de datos",
+      difficulty: "Avanzado"
+    },
+    {
+      id: 11,
+      title: "Web Scraping y Enriquecimiento de Datos",
+      description: "Extrae datos de sitios web y enriquécelos con IA para obtener insights, clasificaciones y análisis de mercado.",
+      icon: "🕷️",
+      category: "Data Intelligence",
+      features: ["Scraping automático programado", "Limpieza de datos con IA", "Clasificación y categorización", "Detección de cambios", "Análisis de tendencias"],
+      tech: ["n8n", "Cheerio/Puppeteer", "OpenAI GPT-4", "PostgreSQL"],
+      roi: "Ahorro de 20h/semana en investigación",
+      difficulty: "Avanzado"
+    },
+    {
+      id: 12,
+      title: "Creación de Contenido con IA",
+      description: "Generación masiva de contenido optimizado SEO: blogs, posts sociales, scripts de video, newsletters y más.",
+      icon: "✍️",
+      category: "Marketing",
+      features: ["Generación de artículos largos", "Optimización SEO automática", "Creación de meta descriptions", "Generación de imágenes con DALL-E", "Publicación automática en CMS"],
+      tech: ["n8n", "OpenAI GPT-4", "DALL-E", "WordPress API"],
+      roi: "10x velocidad de producción",
+      difficulty: "Intermedio"
+    },
+    {
+      id: 13,
+      title: "Notificaciones Inteligentes Multi-Canal",
+      description: "Sistema centralizado de notificaciones que selecciona el canal óptimo (Email, SMS, WhatsApp, Slack) según urgencia y preferencias.",
+      icon: "🔔",
+      category: "Comunicación",
+      features: ["Enrutamiento inteligente por urgencia", "Preferencias personalizadas por usuario", "Fallback automático entre canales", "Consolidación de notificaciones", "Analytics de entrega"],
+      tech: ["n8n", "Twilio", "WhatsApp", "Gmail", "Slack", "OpenAI"],
+      roi: "40% mejor tasa de respuesta",
+      difficulty: "Avanzado"
+    },
+    {
+      id: 14,
+      title: "Onboarding Automatizado de Empleados",
+      description: "Automatiza todo el proceso de incorporación: creación de cuentas, asignación de equipos, capacitaciones, documentación y seguimiento personalizado del nuevo empleado.",
+      icon: "👋",
+      category: "Talento Humano",
+      features: ["Creación automática de cuentas (Email, Slack, CRM)", "Envío de documentación y contratos", "Programación de capacitaciones", "Checklist interactivo de onboarding", "Seguimiento a 30/60/90 días", "Encuestas de satisfacción automatizadas"],
+      tech: ["n8n", "Google Workspace", "Slack", "BambooHR", "DocuSign", "OpenAI"],
+      roi: "85% reducción tiempo administrativo",
+      difficulty: "Intermedio"
+    },
+    {
+      id: 15,
+      title: "Reclutamiento Inteligente con IA",
+      description: "Sistema de ATS (Applicant Tracking System) potenciado con IA que filtra CVs, agenda entrevistas, evalúa candidatos y genera reportes de selección.",
+      icon: "🎯",
+      category: "Talento Humano",
+      features: ["Parsing de CVs con IA", "Scoring automático de candidatos", "Detección de habilidades y experiencia", "Programación inteligente de entrevistas", "Generación de preguntas personalizadas", "Resúmenes de candidatos con GPT-4"],
+      tech: ["n8n", "OpenAI GPT-4", "Calendly", "LinkedIn API", "PostgreSQL"],
+      roi: "60% reducción tiempo de selección",
+      difficulty: "Avanzado"
+    },
+    {
+      id: 16,
+      title: "Evaluaciones de Desempeño Automatizadas",
+      description: "Recolecta feedback 360°, analiza desempeño con IA, genera reportes personalizados y programa reuniones de retroalimentación automáticamente.",
+      icon: "📊",
+      category: "Talento Humano",
+      features: ["Envío automático de encuestas 360°", "Análisis de sentimiento en comentarios", "Generación de reportes personalizados", "Identificación de fortalezas/áreas de mejora", "Recomendaciones de desarrollo con IA", "Dashboard de métricas de equipo"],
+      tech: ["n8n", "OpenAI GPT-4", "Google Forms", "Tableau", "PostgreSQL"],
+      roi: "70% ahorro en tiempo de HR",
+      difficulty: "Intermedio"
+    },
+    {
+      id: 17,
+      title: "Gestión de Vacaciones y Ausencias",
+      description: "Automatiza solicitudes, aprobaciones, detección de conflictos de cobertura y actualización de calendarios compartidos con notificaciones inteligentes.",
+      icon: "🏖️",
+      category: "Talento Humano",
+      features: ["Solicitud y aprobación vía chat/email", "Validación de disponibilidad de equipo", "Detección de conflictos con IA", "Actualización automática de calendarios", "Cálculo de días disponibles", "Notificaciones a stakeholders"],
+      tech: ["n8n", "Google Calendar", "Slack", "PostgreSQL", "OpenAI"],
+      roi: "50% reducción aprobaciones manuales",
+      difficulty: "Básico"
+    },
+    {
+      id: 18,
+      title: "Encuestas de Clima Laboral con Análisis IA",
+      description: "Encuestas periódicas automatizadas con análisis de sentimiento, detección de tendencias y alertas tempranas de problemas organizacionales.",
+      icon: "🌡️",
+      category: "Talento Humano",
+      features: ["Envío programado de encuestas", "Análisis de sentimiento por departamento", "Detección de riesgos de rotación", "Identificación de temas recurrentes", "Generación de planes de acción con IA", "Benchmarking histórico"],
+      tech: ["n8n", "OpenAI GPT-4", "Typeform", "Slack", "PostgreSQL"],
+      roi: "30% reducción en rotación",
+      difficulty: "Intermedio"
+    },
+    {
+      id: 19,
+      title: "Capacitación Personalizada con IA",
+      description: "Recomienda cursos y contenido de capacitación basado en gaps de habilidades, objetivos de carrera y análisis de desempeño usando IA.",
+      icon: "🎓",
+      category: "Talento Humano",
+      features: ["Análisis de skill gaps con IA", "Recomendaciones personalizadas de cursos", "Programación automática de capacitaciones", "Seguimiento de progreso", "Certificaciones automáticas", "Rutas de aprendizaje adaptativas"],
+      tech: ["n8n", "OpenAI GPT-4", "Udemy API", "LinkedIn Learning", "PostgreSQL"],
+      roi: "3x aumento en capacitaciones completadas",
+      difficulty: "Avanzado"
+    },
+    {
+      id: 20,
+      title: "Inspección de Calidad con Computer Vision",
+      description: "Sistema automatizado de control de calidad visual usando IA para detectar defectos en productos, generar reportes y alertar sobre anomalías.",
+      icon: "🔍",
+      category: "Calidad",
+      features: ["Detección de defectos con Computer Vision", "Clasificación automática de severidad", "Generación de reportes de no conformidad", "Alertas en tiempo real a supervisores", "Análisis de tendencias de defectos", "Dashboard de métricas de calidad"],
+      tech: ["n8n", "OpenAI Vision", "TensorFlow", "PostgreSQL", "Slack"],
+      roi: "95% precisión en detección",
+      difficulty: "Avanzado"
+    },
+    {
+      id: 21,
+      title: "Gestión de No Conformidades (NCR)",
+      description: "Automatiza el ciclo completo de no conformidades: registro, asignación, seguimiento, análisis de causa raíz con IA y cierre de acciones correctivas.",
+      icon: "⚠️",
+      category: "Calidad",
+      features: ["Registro automático desde múltiples fuentes", "Clasificación y priorización con IA", "Asignación inteligente de responsables", "Análisis de causa raíz con GPT-4", "Seguimiento de acciones correctivas", "Reportes de tendencias y KPIs"],
+      tech: ["n8n", "OpenAI GPT-4", "Jira", "PostgreSQL", "Slack"],
+      roi: "65% reducción tiempo de cierre",
+      difficulty: "Intermedio"
+    },
+    {
+      id: 22,
+      title: "Auditorías Internas Automatizadas",
+      description: "Programación, ejecución y seguimiento de auditorías con checklists inteligentes, generación de hallazgos y planes de acción automáticos.",
+      icon: "✅",
+      category: "Calidad",
+      features: ["Programación automática de auditorías", "Checklists inteligentes por proceso", "Captura de evidencias (fotos, documentos)", "Generación automática de hallazgos", "Planes de acción con IA", "Seguimiento hasta cierre"],
+      tech: ["n8n", "OpenAI GPT-4", "Google Drive", "PostgreSQL", "Teams"],
+      roi: "80% ahorro tiempo preparación",
+      difficulty: "Intermedio"
+    },
+    {
+      id: 23,
+      title: "Control de Documentación ISO",
+      description: "Gestión automática de documentos normativos: control de versiones, notificaciones de revisión, aprobaciones y distribución controlada.",
+      icon: "📋",
+      category: "Calidad",
+      features: ["Control de versiones automático", "Workflow de aprobaciones", "Notificaciones de documentos obsoletos", "Distribución controlada por roles", "Registro de capacitación en documentos", "Auditoría completa de cambios"],
+      tech: ["n8n", "SharePoint", "DocuSign", "PostgreSQL", "Email"],
+      roi: "90% reducción documentos obsoletos",
+      difficulty: "Básico"
+    },
+    {
+      id: 24,
+      title: "Análisis de Quejas de Clientes con IA",
+      description: "Analiza quejas y reclamos usando NLP, clasifica por tipo, detecta patrones recurrentes y genera acciones preventivas automáticamente.",
+      icon: "📞",
+      category: "Calidad",
+      features: ["Clasificación automática de quejas", "Análisis de sentimiento y urgencia", "Detección de problemas recurrentes", "Generación de informes ejecutivos", "Recomendaciones de mejora con IA", "Alertas de tendencias negativas"],
+      tech: ["n8n", "OpenAI GPT-4", "Zendesk", "PostgreSQL", "Tableau"],
+      roi: "55% mejora en tiempo de respuesta",
+      difficulty: "Avanzado"
+    },
+    {
+      id: 25,
+      title: "Calibración de Equipos e Instrumentos",
+      description: "Automatiza el programa de calibración: recordatorios, programación, registro de resultados y alertas de equipos fuera de especificación.",
+      icon: "🔧",
+      category: "Calidad",
+      features: ["Calendario automático de calibraciones", "Notificaciones previas a vencimiento", "Registro digital de certificados", "Alertas de equipos no conformes", "Trazabilidad completa", "Dashboard de estado de instrumentos"],
+      tech: ["n8n", "Google Calendar", "PostgreSQL", "Email", "Slack"],
+      roi: "100% cumplimiento de calibraciones",
+      difficulty: "Básico"
+    },
+    {
+      id: 26,
+      title: "Conciliación Bancaria Automatizada",
+      description: "Importa extractos bancarios, concilia automáticamente con registros contables, detecta discrepancias y genera reportes de conciliación.",
+      icon: "🏦",
+      category: "Financiera",
+      features: ["Import automático de extractos bancarios", "Matching inteligente con contabilidad", "Detección de discrepancias con IA", "Clasificación de transacciones", "Reportes de conciliación automáticos", "Alertas de partidas sin conciliar"],
+      tech: ["n8n", "OpenAI GPT-4", "Plaid", "QuickBooks", "PostgreSQL"],
+      roi: "90% reducción tiempo conciliación",
+      difficulty: "Avanzado"
+    },
+    {
+      id: 27,
+      title: "Gestión de Facturas y Cuentas por Pagar",
+      description: "OCR de facturas, validación automática, workflow de aprobaciones, programación de pagos y alertas de vencimientos.",
+      icon: "💳",
+      category: "Financiera",
+      features: ["OCR extracción de datos de facturas", "Validación contra órdenes de compra", "Workflow de aprobaciones por monto", "Detección de facturas duplicadas", "Programación de pagos", "Dashboard de aging de cuentas"],
+      tech: ["n8n", "OpenAI Vision", "DocuSign", "QuickBooks", "PostgreSQL"],
+      roi: "75% reducción procesamiento manual",
+      difficulty: "Intermedio"
+    },
+    {
+      id: 28,
+      title: "Cobranza Inteligente Automatizada",
+      description: "Seguimiento automático de cuentas por cobrar con mensajes personalizados, escalación inteligente y predicción de riesgo de morosidad.",
+      icon: "💰",
+      category: "Financiera",
+      features: ["Recordatorios automáticos escalonados", "Mensajes personalizados con IA", "Predicción de riesgo de mora", "Escalación automática por antigüedad", "Reportes de cartera vencida", "Integración con WhatsApp/Email/SMS"],
+      tech: ["n8n", "OpenAI GPT-4", "Twilio", "WhatsApp", "PostgreSQL"],
+      roi: "40% mejora en recuperación de cartera",
+      difficulty: "Intermedio"
+    },
+    {
+      id: 29,
+      title: "Reportes Financieros Automatizados",
+      description: "Genera reportes financieros (P&L, Balance, Cash Flow) automáticamente con análisis inteligente, insights y visualizaciones.",
+      icon: "📈",
+      category: "Financiera",
+      features: ["Generación automática de estados financieros", "Análisis de variaciones con IA", "Detección de anomalías financieras", "Insights y recomendaciones", "Visualizaciones interactivas", "Distribución programada a stakeholders"],
+      tech: ["n8n", "OpenAI GPT-4", "QuickBooks", "Power BI", "PostgreSQL"],
+      roi: "95% ahorro tiempo en reporteo",
+      difficulty: "Avanzado"
+    },
+    {
+      id: 30,
+      title: "Detección de Fraude Financiero",
+      description: "Monitorea transacciones en tiempo real, detecta patrones sospechosos con ML, alerta sobre posibles fraudes y genera casos de investigación.",
+      icon: "🚨",
+      category: "Financiera",
+      features: ["Monitoreo en tiempo real de transacciones", "Detección de patrones anómalos con ML", "Scoring de riesgo por transacción", "Alertas automáticas a equipo de seguridad", "Creación de casos de investigación", "Dashboard de riesgos"],
+      tech: ["n8n", "OpenAI", "TensorFlow", "PostgreSQL", "Slack"],
+      roi: "85% detección temprana de fraudes",
+      difficulty: "Avanzado"
+    },
+    {
+      id: 31,
+      title: "Presupuesto y Forecast con IA",
+      description: "Genera presupuestos automáticos basados en históricos, tendencias y variables externas. Forecasting inteligente con modelos predictivos.",
+      icon: "🎯",
+      category: "Financiera",
+      features: ["Análisis de tendencias históricas", "Forecasting con modelos ML", "Simulaciones de escenarios", "Ajustes automáticos por estacionalidad", "Comparación budget vs actual", "Alertas de desviaciones significativas"],
+      tech: ["n8n", "OpenAI GPT-4", "Prophet", "PostgreSQL", "Excel API"],
+      roi: "30% mejora en precisión de forecast",
+      difficulty: "Avanzado"
+    },
+    {
+      id: 32,
+      title: "Optimización de Stock con IA",
+      description: "Predicción de demanda con ML, cálculo automático de puntos de reorden, alertas de stock bajo y optimización de niveles de inventario.",
+      icon: "📦",
+      category: "Inventarios",
+      features: ["Predicción de demanda con ML", "Cálculo dinámico de punto de reorden", "Alertas de stock bajo/alto", "Optimización de niveles por SKU", "Análisis de rotación de inventario", "Recomendaciones de compra inteligentes"],
+      tech: ["n8n", "OpenAI", "Prophet", "PostgreSQL", "Slack"],
+      roi: "45% reducción en quiebres de stock",
+      difficulty: "Avanzado"
+    },
+    {
+      id: 33,
+      title: "Gestión de Órdenes de Compra Automatizada",
+      description: "Genera órdenes de compra automáticamente basadas en niveles de inventario, envía a proveedores y hace seguimiento hasta recepción.",
+      icon: "🛍️",
+      category: "Inventarios",
+      features: ["Generación automática de OC", "Selección inteligente de proveedores", "Envío automático de órdenes", "Seguimiento de entregas", "Alertas de retrasos", "Registro de recepciones"],
+      tech: ["n8n", "OpenAI GPT-4", "Email", "PostgreSQL", "SAP API"],
+      roi: "70% reducción tiempo de compras",
+      difficulty: "Intermedio"
+    },
+    {
+      id: 34,
+      title: "Control de Inventario con IoT y IA",
+      description: "Integración con sensores IoT para monitoreo en tiempo real, detección de anomalías y conteo automático con computer vision.",
+      icon: "📡",
+      category: "Inventarios",
+      features: ["Integración con sensores IoT/RFID", "Monitoreo en tiempo real", "Conteo visual con Computer Vision", "Detección de faltantes automática", "Alertas de movimientos no autorizados", "Dashboard de ocupación de almacén"],
+      tech: ["n8n", "IoT Sensors", "OpenAI Vision", "PostgreSQL", "MQTT"],
+      roi: "98% precisión en inventario",
+      difficulty: "Avanzado"
+    },
+    {
+      id: 35,
+      title: "Trazabilidad de Lotes y Productos",
+      description: "Seguimiento completo desde recepción hasta entrega con blockchain, alertas de vencimientos y recalls automáticos.",
+      icon: "🔗",
+      category: "Inventarios",
+      features: ["Registro inmutable con blockchain", "Trazabilidad end-to-end", "Alertas de productos próximos a vencer", "Gestión de recalls automática", "Reportes de trazabilidad para auditorías", "Integración con proveedores"],
+      tech: ["n8n", "Blockchain", "PostgreSQL", "Email", "SMS"],
+      roi: "100% trazabilidad regulatoria",
+      difficulty: "Avanzado"
+    },
+    {
+      id: 36,
+      title: "Inventario Cíclico Automatizado",
+      description: "Programa conteos cíclicos basados en criticidad ABC, asigna tareas, registra conteos y ajusta automáticamente discrepancias menores.",
+      icon: "🔄",
+      category: "Inventarios",
+      features: ["Programación inteligente por clasificación ABC", "Asignación automática de conteos", "App móvil para registro", "Ajuste automático de diferencias menores", "Análisis de causas de discrepancias", "Dashboard de precisión de inventario"],
+      tech: ["n8n", "Mobile App", "PostgreSQL", "OpenAI GPT-4", "Slack"],
+      roi: "85% mejora en precisión",
+      difficulty: "Intermedio"
+    },
+    {
+      id: 37,
+      title: "Picking y Packing Inteligente",
+      description: "Optimiza rutas de picking con IA, genera listas inteligentes, valida con computer vision y automatiza etiquetado de envíos.",
+      icon: "📋",
+      category: "Inventarios",
+      features: ["Optimización de rutas de picking con IA", "Agrupación inteligente de pedidos", "Validación visual de productos", "Generación automática de etiquetas", "Integración con carriers", "Seguimiento de productividad"],
+      tech: ["n8n", "OpenAI", "Computer Vision", "Shippo API", "PostgreSQL"],
+      roi: "50% aumento en productividad",
+      difficulty: "Avanzado"
+    }
+  ];
+
+  function renderWorkflows() {
+    const container = document.getElementById('workflows-container');
+    if (!container) return;
+
+    container.innerHTML = workflows.map((workflow, index) => `
+      <div class="workflow-card bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-[#82e256] transition-all duration-300 hover:shadow-[0_0_30px_rgba(130,226,86,0.3)]">
+        <div class="flex items-start justify-between mb-4">
+          <div class="text-5xl">${workflow.icon}</div>
+          <span class="text-xs px-3 py-1 rounded-full bg-[#82e256]/20 text-[#82e256] font-semibold">
+            ${workflow.category}
+          </span>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-3">${workflow.title}</h3>
+        <p class="text-gray-300 mb-4 leading-relaxed">${workflow.description}</p>
+        <div class="mb-4">
+          <h4 class="text-sm font-semibold text-[#82e256] mb-2">Características:</h4>
+          <ul class="space-y-1">
+            ${workflow.features.map(feature => `
+              <li class="text-sm text-gray-400 flex items-start">
+                <span class="text-[#82e256] mr-2">✓</span>
+                <span>${feature}</span>
+              </li>
+            `).join('')}
+          </ul>
+        </div>
+        <div class="mb-4">
+          <h4 class="text-sm font-semibold text-[#82e256] mb-2">Tecnologías:</h4>
+          <div class="flex flex-wrap gap-2">
+            ${workflow.tech.map(tech => `
+              <span class="text-xs px-2 py-1 bg-white/10 rounded text-gray-300">${tech}</span>
+            `).join('')}
+          </div>
+        </div>
+        <div class="border-t border-white/10 pt-4 mt-4 flex justify-between items-center">
+          <div>
+            <p class="text-xs text-gray-500 mb-1">ROI Estimado</p>
+            <p class="text-sm font-semibold text-[#82e256]">${workflow.roi}</p>
+          </div>
+          <div class="text-right">
+            <p class="text-xs text-gray-500 mb-1">Dificultad</p>
+            <p class="text-sm font-semibold ${
+              workflow.difficulty === 'Avanzado' ? 'text-red-400' :
+              workflow.difficulty === 'Intermedio' ? 'text-yellow-400' :
+              'text-green-400'
+            }">${workflow.difficulty}</p>
+          </div>
+        </div>
+        <a href="/#contenido10" class="mt-4 block w-full py-3 bg-gradient-to-r from-[#00464e] to-[#006417] text-white rounded-lg hover:from-[#006417] hover:to-[#82e256] transition-all duration-300 font-semibold text-center">
+          Implementar Flujo
+        </a>
+      </div>
+    `).join('');
+  }
+</script>
+
+<style>
+  .tab-button {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+
+  .tab-button.active {
+    background: #82e256;
+    color: black;
+  }
+
+  .tab-button:hover {
+    transform: scale(1.05);
+  }
+</style>
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
