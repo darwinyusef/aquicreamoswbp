@@ -48,15 +48,52 @@ const servicios = [
     gradient: 'from-[#006417] to-[#d4e256]',
     category: 'IA',
     featured: true
+  },
+  {
+    slug: 'arquitectura',
+    title: 'Arquitectura TOGAF 2026 + Scrum',
+    description: 'Arquitectura empresarial de última generación combinando TOGAF 2026 con metodologías ágiles Scrum. Transformación digital iterativa, modernización de sistemas y roadmaps adaptativos.',
+    icon: '🏗️',
+    gradient: 'from-[#04ADC0] to-[#00464e]',
+    category: 'Profesional',
+    featured: true
+  },
+  {
+    slug: 'desarrollo-fullstack',
+    title: 'Desarrollo Full-Stack',
+    description: 'Soluciones completas con React, Node.js, Python y tecnologías modernas. Desde MVPs hasta plataformas empresariales escalables con arquitecturas cloud-native.',
+    icon: '💻',
+    gradient: 'from-[#82e256] to-[#04ADC0]',
+    category: 'Profesional',
+    featured: true
+  },
+  {
+    slug: 'ia-machine-learning',
+    title: 'IA & Machine Learning en Producción',
+    description: 'MLOps, modelos predictivos, procesamiento de lenguaje natural y agentes autónomos. Llevamos la IA del laboratorio a producción con ROI medible.',
+    icon: '🤖',
+    gradient: 'from-[#d4e256] to-[#82e256]',
+    category: 'Profesional',
+    featured: false
+  },
+  {
+    slug: 'devops-infraestructura',
+    title: 'DevOps & Infraestructura Cloud',
+    description: 'CI/CD, contenedores, Kubernetes, serverless y automatización de infraestructura. Reduce costos hasta 40% y despliega 10x más rápido con AWS, Azure o GCP.',
+    icon: '⚙️',
+    gradient: 'from-[#00464e] to-[#006417]',
+    category: 'Profesional',
+    featured: false
   }
 ];
 
-const categories = ['Todos', 'IA', 'Web', 'Mobile'];
+const categories = ['Todos', 'IA', 'Web', 'Mobile', 'Profesional'];
 
 const categoryColors: Record<string, string> = {
   'IA': 'bg-purple-600',
   'Web': 'bg-blue-600',
   'Mobile': 'bg-green-600',
+  'Profesional': 'bg-cyan-600',
 };
 ---
 

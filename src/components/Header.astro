@@ -1,6 +1,6 @@
 ---
 interface Props {
-  currentPage?: "home" | "servicios" | "blog" | "podcast" | "aquicreamos" | "contacto";
+  currentPage?: "home" | "servicios" | "soluciones" | "blog" | "podcast" | "aquicreamos" | "contacto";
 }
 
 const { currentPage = "home" } = Astro.props;
@@ -39,6 +39,14 @@ const { currentPage = "home" } = Astro.props;
             class={`transition-colors ${currentPage === "servicios" ? "text-[#82e256] font-semibold" : "text-white hover:text-[#82e256]"}`}
           >
             Servicios
+          </a>
+        </li>
+        <li>
+          <a
+            href="/soluciones"
+            class={`transition-colors ${currentPage === "soluciones" ? "text-[#82e256] font-semibold" : "text-white hover:text-[#82e256]"}`}
+          >
+            Soluciones
           </a>
         </li>
         <li>
@@ -110,6 +118,12 @@ const { currentPage = "home" } = Astro.props;
       class="text-white hover:text-[#82e256] transition-colors py-2 border-b border-white/10"
     >
       Servicios
+    </a>
+    <a
+      href="/soluciones"
+      class="text-white hover:text-[#82e256] transition-colors py-2 border-b border-white/10"
+    >
+      Soluciones
     </a>
     <a
       href="/#contenido7"

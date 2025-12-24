@@ -69,7 +69,7 @@ import Header from '../components/Header.astro';
               <input
                 type="text"
                 id="search-input"
-                placeholder="Buscar servicios..."
+                placeholder="Buscar servicios o automatizaciones..."
                 class="w-full px-4 py-3 pl-12 bg-gray-800 text-white border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#82e256] transition-all"
               />
               <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -80,7 +80,7 @@ import Header from '../components/Header.astro';
 
           <!-- Contador de resultados -->
           <div class="text-gray-400">
-            <span id="results-count">0</span> servicios disponibles
+            <span id="results-count">0</span> <span id="results-type">resultados</span> disponibles
           </div>
         </div>
       </div>
@@ -187,7 +187,7 @@ import Header from '../components/Header.astro';
       const response = await fetch('/services.json');
       allServices = await response.json();
       renderServices(allServices);
-      updateResultsCount(allServices.length);
+      updateResultsCount(allServices.length, 'servicios');
     } catch (error) {
       console.error('Error loading services:', error);
       const container = document.getElementById('services-container');
@@ -478,25 +478,57 @@ import Header from '../components/Header.astro';
   }
 
   // Actualizar contador de resultados
-  function updateResultsCount(count: number) {
+  function updateResultsCount(count: number, type: 'servicios' | 'automatizaciones') {
     const counter = document.getElementById('results-count');
+    const typeLabel = document.getElementById('results-type');
     if (counter) {
       counter.textContent = count.toString();
     }
+    if (typeLabel) {
+      typeLabel.textContent = type === 'servicios' ? 'servicios' : 'automatizaciones';
+    }
   }
+
+  // Filtrar servicios
+  function filterServices(query: string) {
+    if (!query) return allServices;
+    return allServices.filter(
+      (service) =>
+        service.name.toLowerCase().includes(query) ||
+        service.description.toLowerCase().includes(query)
+    );
+  }
+
+  // Filtrar workflows
+  function filterWorkflows(query: string) {
+    if (!query) return workflows;
+    return workflows.filter(
+      (workflow) =>
+        workflow.title.toLowerCase().includes(query) ||
+        workflow.description.toLowerCase().includes(query) ||
+        workflow.category.toLowerCase().includes(query) ||
+        workflow.features.some((f: string) => f.toLowerCase().includes(query))
+    );
+  }
+
+  // Variable para rastrear el tab actual
+  let currentTab: 'servicios' | 'automatizaciones' = 'servicios';
 
   // Búsqueda
   const searchInput = document.getElementById('search-input') as HTMLInputElement;
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
       const query = (e.target as HTMLInputElement).value.toLowerCase();
-      const filtered = allServices.filter(
-        (service) =>
-          service.name.toLowerCase().includes(query) ||
-          service.description.toLowerCase().includes(query)
-      );
-      renderServices(filtered);
-      updateResultsCount(filtered.length);
+
+      if (currentTab === 'servicios') {
+        const filtered = filterServices(query);
+        renderServices(filtered);
+        updateResultsCount(filtered.length, 'servicios');
+      } else {
+        const filtered = filterWorkflows(query);
+        renderWorkflows(filtered);
+        updateResultsCount(filtered.length, 'automatizaciones');
+      }
     });
   }
 
@@ -505,8 +537,14 @@ import Header from '../components/Header.astro';
   if (clearBtn) {
     clearBtn.addEventListener('click', () => {
       if (searchInput) searchInput.value = '';
-      renderServices(allServices);
-      updateResultsCount(allServices.length);
+
+      if (currentTab === 'servicios') {
+        renderServices(allServices);
+        updateResultsCount(allServices.length, 'servicios');
+      } else {
+        renderWorkflows(workflows);
+        updateResultsCount(workflows.length, 'automatizaciones');
+      }
     });
   }
 
@@ -551,6 +589,8 @@ import Header from '../components/Header.astro';
   const sectionFiltros = document.getElementById('section-filtros');
 
   function switchTab(tab: 'servicios' | 'automatizaciones') {
+    currentTab = tab;
+
     if (tab === 'servicios') {
       // Activar tab servicios
       tabServiciosBtn?.classList.add('active', 'bg-[#82e256]', 'text-black');
@@ -562,6 +602,11 @@ import Header from '../components/Header.astro';
       contentServicios?.classList.remove('hidden');
       contentAutomatizaciones?.classList.add('hidden');
       sectionFiltros?.classList.remove('hidden');
+
+      // Actualizar contador
+      const query = searchInput?.value.toLowerCase() || '';
+      const filtered = filterServices(query);
+      updateResultsCount(filtered.length, 'servicios');
     } else {
       // Activar tab automatizaciones
       tabAutomatizacionesBtn?.classList.add('active', 'bg-[#82e256]', 'text-black');
@@ -572,13 +617,18 @@ import Header from '../components/Header.astro';
       // Mostrar contenido automatizaciones
       contentAutomatizaciones?.classList.remove('hidden');
       contentServicios?.classList.add('hidden');
-      sectionFiltros?.classList.add('hidden');
+      sectionFiltros?.classList.remove('hidden');
 
       // Renderizar workflows si aún no se han cargado
       if (!workflowsLoaded) {
-        renderWorkflows();
+        renderWorkflows(workflows);
         workflowsLoaded = true;
       }
+
+      // Actualizar contador
+      const query = searchInput?.value.toLowerCase() || '';
+      const filtered = filterWorkflows(query);
+      updateResultsCount(filtered.length, 'automatizaciones');
     }
   }
 
@@ -687,17 +737,6 @@ import Header from '../components/Header.astro';
       tech: ["n8n", "OpenAI GPT-4", "Twitter API", "LinkedIn API", "Instagram API"],
       roi: "70% ahorro de tiempo",
       difficulty: "Intermedio"
-    },
-    {
-      id: 10,
-      title: "Sincronización CRM Multi-plataforma",
-      description: "Mantén sincronizados datos de clientes entre múltiples CRMs y bases de datos en tiempo real con validación de IA.",
-      icon: "🔄",
-      category: "Integración",
-      features: ["Sync bidireccional entre CRMs", "Detección de duplicados con IA", "Enriquecimiento de datos", "Validación automática de información", "Logs de cambios"],
-      tech: ["n8n", "Salesforce", "HubSpot", "PostgreSQL", "OpenAI"],
-      roi: "95% reducción en errores de datos",
-      difficulty: "Avanzado"
     },
     {
       id: 11,
@@ -854,17 +893,6 @@ import Header from '../components/Header.astro';
       difficulty: "Avanzado"
     },
     {
-      id: 25,
-      title: "Calibración de Equipos e Instrumentos",
-      description: "Automatiza el programa de calibración: recordatorios, programación, registro de resultados y alertas de equipos fuera de especificación.",
-      icon: "🔧",
-      category: "Calidad",
-      features: ["Calendario automático de calibraciones", "Notificaciones previas a vencimiento", "Registro digital de certificados", "Alertas de equipos no conformes", "Trazabilidad completa", "Dashboard de estado de instrumentos"],
-      tech: ["n8n", "Google Calendar", "PostgreSQL", "Email", "Slack"],
-      roi: "100% cumplimiento de calibraciones",
-      difficulty: "Básico"
-    },
-    {
       id: 26,
       title: "Conciliación Bancaria Automatizada",
       description: "Importa extractos bancarios, concilia automáticamente con registros contables, detecta discrepancias y genera reportes de conciliación.",
@@ -953,28 +981,6 @@ import Header from '../components/Header.astro';
       difficulty: "Intermedio"
     },
     {
-      id: 34,
-      title: "Control de Inventario con IoT y IA",
-      description: "Integración con sensores IoT para monitoreo en tiempo real, detección de anomalías y conteo automático con computer vision.",
-      icon: "📡",
-      category: "Inventarios",
-      features: ["Integración con sensores IoT/RFID", "Monitoreo en tiempo real", "Conteo visual con Computer Vision", "Detección de faltantes automática", "Alertas de movimientos no autorizados", "Dashboard de ocupación de almacén"],
-      tech: ["n8n", "IoT Sensors", "OpenAI Vision", "PostgreSQL", "MQTT"],
-      roi: "98% precisión en inventario",
-      difficulty: "Avanzado"
-    },
-    {
-      id: 35,
-      title: "Trazabilidad de Lotes y Productos",
-      description: "Seguimiento completo desde recepción hasta entrega con blockchain, alertas de vencimientos y recalls automáticos.",
-      icon: "🔗",
-      category: "Inventarios",
-      features: ["Registro inmutable con blockchain", "Trazabilidad end-to-end", "Alertas de productos próximos a vencer", "Gestión de recalls automática", "Reportes de trazabilidad para auditorías", "Integración con proveedores"],
-      tech: ["n8n", "Blockchain", "PostgreSQL", "Email", "SMS"],
-      roi: "100% trazabilidad regulatoria",
-      difficulty: "Avanzado"
-    },
-    {
       id: 36,
       title: "Inventario Cíclico Automatizado",
       description: "Programa conteos cíclicos basados en criticidad ABC, asigna tareas, registra conteos y ajusta automáticamente discrepancias menores.",
@@ -998,11 +1004,26 @@ import Header from '../components/Header.astro';
     }
   ];
 
-  function renderWorkflows() {
+  function renderWorkflows(workflowsToRender: any[]) {
     const container = document.getElementById('workflows-container');
     if (!container) return;
 
-    container.innerHTML = workflows.map((workflow, index) => `
+    if (workflowsToRender.length === 0) {
+      container.innerHTML = `
+        <div class="col-span-full text-center py-16">
+          <div class="text-gray-400 text-xl mb-4">No se encontraron automatizaciones</div>
+          <button
+            onclick="document.getElementById('search-input').value = ''; document.getElementById('search-input').dispatchEvent(new Event('input'));"
+            class="text-[#82e256] hover:text-[#6bc73d] transition-colors"
+          >
+            Limpiar búsqueda
+          </button>
+        </div>
+      `;
+      return;
+    }
+
+    container.innerHTML = workflowsToRender.map((workflow, index) => `
       <div class="workflow-card bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-[#82e256] transition-all duration-300 hover:shadow-[0_0_30px_rgba(130,226,86,0.3)]">
         <div class="flex items-start justify-between mb-4">
           <div class="text-5xl">${workflow.icon}</div>
