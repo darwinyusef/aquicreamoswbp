@@ -1,6 +1,5 @@
 ---
 import Header from "./Header.astro";
-import SolucionesLeadMagnets from "./SolucionesLeadMagnets.astro";
 import Servicios from "./Servicios.astro";
 import Hablemos from "./Hablemos.astro";
 import Blog from "./Blog.astro";
@@ -34,7 +33,7 @@ const isVisible = true;
       >
         <div class="text-center lg:text-left">
           <h1
-            class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black font-heading leading-tight"
+            class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight"
           >
             <span class="text-white drop-shadow-lg">INGENIERÍA DE IA</span>
             <br />
@@ -116,8 +115,7 @@ const isVisible = true;
   </div>
 </section>
 
-<!-- Sección de 9 Soluciones con Lead Magnets -->
-<SolucionesLeadMagnets />
+
 
 <main>
   <!-- Banderas flotantes (visible en todas las resoluciones) -->
@@ -305,7 +303,7 @@ const isVisible = true;
         </svg>
       </div>
       <h1
-        class="text-4xl md:text-5xl font-black text-white mb-4 bg-gradient-to-r from-white via-white to-[#82e256] bg-clip-text text-transparent"
+        class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight bg-gradient-to-r from-white via-white to-[#82e256] bg-clip-text text-transparent"
       >
         Mentoring y Cursos Especializados para ti o tu empresa?
       </h1>
@@ -331,12 +329,17 @@ const isVisible = true;
           <span class="text-[#82e256] text-sm font-semibold">Formación Especializada</span>
         </div>
 
-        <h2 class="text-3xl md:text-4xl font-black text-white mb-4">
+        <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight text-white">
           ¿Tu equipo necesita capacitación?
         </h2>
         <p class="text-white/70 text-lg mb-8 max-w-2xl">
           Llevamos la experiencia directamente a tu equipo con programas de mentoring personalizado y cursos especializados en las tecnologías más demandadas.
         </p>
+
+        <!-- Imagen contextual -->
+        <div class="my-8 flex justify-center">
+          <img src="/img/personaje3.png" alt="Capacitación de equipos" class="h-auto max-w-2xl rounded-2xl" />
+        </div>
 
         <div class="grid md:grid-cols-2 gap-6 mb-8">
           <!-- Mentoring Personalizado -->
@@ -432,26 +435,10 @@ const isVisible = true;
         >
           <div class="flex flex-col md:flex-row gap-8 items-center">
             <div class="flex-shrink-0">
-              <div
-                class="w-24 h-24 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-2xl flex items-center justify-center shadow-xl"
-              >
-                <svg
-                  class="w-12 h-12 text-black"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                  ></path>
-                </svg>
-              </div>
+              <img src="/img/personaje1pc.png" alt="Formación de equipos" class="h-48 w-48 object-cover rounded-2xl" />
             </div>
             <div class="flex-1">
-              <h2 class="text-2xl md:text-3xl font-bold text-white mb-3">
+              <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight text-white">
                 ¿Por qué invertir en formación de tu equipo?
               </h2>
               <ul class="space-y-2 text-white/70">

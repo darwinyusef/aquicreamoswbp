@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
+import ServiciosGrid from '../../components/ServiciosGrid.astro';
 ---
 
 <Layout title="Automatización IA para E-commerce - Aquí Creamos">
@@ -53,36 +54,19 @@ import Header from '../../components/Header.astro';
                 href="/#contenido10"
                 class="px-8 py-4 bg-white/10 backdrop-blur border-2 border-[#82e256] text-white rounded-lg font-bold hover:bg-[#82e256] hover:text-black transition-all duration-300 flex items-center justify-center gap-2"
               >
-                📅 Agendar Demo Gratis
+                📅 Agendar Asesoría Gratis
               </a>
             </div>
           </div>
 
-          <!-- Right: Image/Illustration -->
+          <!-- Right: Image -->
           <div class="hidden md:block">
             <div class="relative">
               <div class="absolute inset-0 bg-gradient-to-r from-[#82e256] to-[#04ADC0] rounded-2xl blur-3xl opacity-20"></div>
-              <div class="relative bg-white/5 backdrop-blur border border-white/20 rounded-2xl p-8">
-                <div class="text-8xl mb-4 text-center">🛒</div>
-                <div class="space-y-3">
-                  <div class="flex items-center gap-3 bg-white/10 rounded-lg p-3">
-                    <div class="w-2 h-2 bg-[#82e256] rounded-full animate-pulse"></div>
-                    <span class="text-sm text-white">Carrito abandonado detectado</span>
-                  </div>
-                  <div class="flex items-center gap-3 bg-white/10 rounded-lg p-3">
-                    <div class="w-2 h-2 bg-[#82e256] rounded-full animate-pulse" style="animation-delay: 0.2s"></div>
-                    <span class="text-sm text-white">Email personalizado enviado</span>
-                  </div>
-                  <div class="flex items-center gap-3 bg-white/10 rounded-lg p-3">
-                    <div class="w-2 h-2 bg-[#82e256] rounded-full animate-pulse" style="animation-delay: 0.4s"></div>
-                    <span class="text-sm text-white">WhatsApp de seguimiento</span>
-                  </div>
-                  <div class="flex items-center gap-3 bg-[#82e256]/20 rounded-lg p-3 border border-[#82e256]">
-                    <div class="w-2 h-2 bg-[#82e256] rounded-full"></div>
-                    <span class="text-sm text-white font-bold">✅ Venta recuperada</span>
-                  </div>
-                </div>
+              <div class="relative rounded-2xl overflow-hidden">
+                <img src="/img/personaje1.png" alt="E-commerce automatizado" class="h-auto max-w-md mx-auto" />
               </div>
+              <p class="text-center text-gray-400 text-sm italic mt-4">Automatiza tu tienda online con IA</p>
             </div>
           </div>
         </div>
@@ -123,6 +107,87 @@ import Header from '../../components/Header.astro';
       </div>
     </div>
   </section>
+
+  <!-- Sticky Stack Section -->
+  <div class="stack-container">
+    <section class="sticky-section">
+      <div class="content-grid">
+        <div class="text-side">
+          <span class="label">Carritos</span>
+          <h2>Recuperación<br>Automática.</h2>
+          <p class="desc">Secuencias multi-canal con emails, SMS y WhatsApp personalizados por IA para recuperar ventas perdidas.</p>
+        </div>
+        <div class="image-side">
+          <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1200" alt="Cart Recovery">
+        </div>
+      </div>
+    </section>
+
+    <section class="sticky-section">
+      <div class="content-grid reversed">
+        <div class="text-side">
+          <span class="label">Chatbot</span>
+          <h2>WhatsApp<br>Inteligente.</h2>
+          <p class="desc">Asistente 24/7 con IA que responde consultas, recomienda productos y procesa órdenes automáticamente.</p>
+        </div>
+        <div class="image-side">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200" alt="WhatsApp Chatbot">
+        </div>
+      </div>
+    </section>
+
+    <section class="sticky-section">
+      <div class="content-grid">
+        <div class="text-side">
+          <span class="label">Email Marketing</span>
+          <h2>Campañas<br>con IA.</h2>
+          <p class="desc">Segmentación inteligente, contenido generado por IA y optimización automática de envíos y conversiones.</p>
+        </div>
+        <div class="image-side">
+          <img src="https://images.unsplash.com/photo-1451187530220-4e2bd78f7ad6?q=80&w=1200" alt="Email Marketing">
+        </div>
+      </div>
+    </section>
+
+    <section class="sticky-section">
+      <div class="content-grid reversed">
+        <div class="text-side">
+          <span class="label">Redes Sociales</span>
+          <h2>Publicación<br>Automática.</h2>
+          <p class="desc">Contenido adaptado por red social, publicación multi-canal y análisis de engagement con machine learning.</p>
+        </div>
+        <div class="image-side">
+          <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?q=80&w=1200" alt="Social Media">
+        </div>
+      </div>
+    </section>
+
+    <section class="sticky-section">
+      <div class="content-grid">
+        <div class="text-side">
+          <span class="label">Personalización</span>
+          <h2>Experiencia<br>Única.</h2>
+          <p class="desc">Recomendaciones de productos, precios dinámicos y contenido personalizado basado en comportamiento del usuario.</p>
+        </div>
+        <div class="image-side">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200" alt="Personalization">
+        </div>
+      </div>
+    </section>
+
+    <section class="sticky-section">
+      <div class="content-grid reversed">
+        <div class="text-side">
+          <span class="label">Analytics</span>
+          <h2>Insights<br>Accionables.</h2>
+          <p class="desc">Dashboards en tiempo real, predicción de ventas y análisis de comportamiento con inteligencia artificial.</p>
+        </div>
+        <div class="image-side">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200" alt="E-commerce Analytics">
+        </div>
+      </div>
+    </section>
+  </div>
 
   <!-- Solutions Section -->
   <section class="py-16 bg-gradient-to-b from-[#1a1a1a] to-[#00464e]">
@@ -187,7 +252,7 @@ import Header from '../../components/Header.astro';
             </div>
 
             <a href="/#contenido10" class="block w-full py-3 bg-gradient-to-r from-[#00464e] to-[#006417] text-white rounded-lg hover:from-[#006417] hover:to-[#82e256] transition-all duration-300 font-semibold text-center">
-              Solicitar Demo →
+              Solicitar Asesoria→
             </a>
           </div>
 
@@ -241,7 +306,7 @@ import Header from '../../components/Header.astro';
             </div>
 
             <a href="/#contenido10" class="block w-full py-3 bg-gradient-to-r from-[#00464e] to-[#006417] text-white rounded-lg hover:from-[#006417] hover:to-[#82e256] transition-all duration-300 font-semibold text-center">
-              Solicitar Demo →
+              Solicitar Asesoria→
             </a>
           </div>
 
@@ -295,7 +360,7 @@ import Header from '../../components/Header.astro';
             </div>
 
             <a href="/#contenido10" class="block w-full py-3 bg-gradient-to-r from-[#00464e] to-[#006417] text-white rounded-lg hover:from-[#006417] hover:to-[#82e256] transition-all duration-300 font-semibold text-center">
-              Solicitar Demo →
+              Solicitar Asesoria→
             </a>
           </div>
 
@@ -349,7 +414,7 @@ import Header from '../../components/Header.astro';
             </div>
 
             <a href="/#contenido10" class="block w-full py-3 bg-gradient-to-r from-[#00464e] to-[#006417] text-white rounded-lg hover:from-[#006417] hover:to-[#82e256] transition-all duration-300 font-semibold text-center">
-              Solicitar Demo →
+              Solicitar Asesoria→
             </a>
           </div>
         </div>
@@ -410,7 +475,7 @@ import Header from '../../components/Header.astro';
           ¿Listo para recuperar ventas perdidas?
         </h2>
         <p class="text-xl text-gray-200 mb-8">
-          Agenda una demo gratuita de 30 minutos y te mostramos cómo automatizar tu tienda con IA
+          Agenda una Asesoriagratuita de 30 minutos y te mostramos cómo automatizar tu tienda con IA
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -418,7 +483,7 @@ import Header from '../../components/Header.astro';
             href="/#contenido10"
             class="px-10 py-5 bg-gradient-to-r from-[#82e256] to-[#6bc73d] text-black rounded-lg font-bold text-lg hover:shadow-[0_0_40px_rgba(130,226,86,0.6)] transition-all duration-300 hover:scale-105"
           >
-            📅 Agendar Demo Gratuita
+            📅 Agendar Asesoría Gratuita
           </a>
           <button
             id="open-lead-magnet-3"
@@ -429,7 +494,7 @@ import Header from '../../components/Header.astro';
         </div>
 
         <p class="text-gray-300 mt-6">
-          ✅ Sin compromiso • ✅ Demo personalizada • ✅ ROI garantizado
+          ✅ Sin compromiso  • ✅ ROI garantizado
         </p>
       </div>
     </div>
@@ -517,6 +582,9 @@ import Header from '../../components/Header.astro';
       </form>
     </div>
   </div>
+
+  <!-- Servicios Profesionales -->
+  <ServiciosGrid />
 </Layout>
 
 <script>
@@ -573,5 +641,56 @@ import Header from '../../components/Header.astro';
     modal?.classList.add('hidden');
     document.body.style.overflow = 'auto';
     (e.target as HTMLFormElement).reset();
+  });
+</script>
+
+<style>
+  .stack-container { display: flex; flex-direction: column; }
+  .sticky-section { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #0e0e0e; transition: transform 0.1s linear, filter 0.1s linear; will-change: transform, filter; }
+  .sticky-section:nth-child(1) { background-color: #0e0e0e; }
+  .sticky-section:nth-child(2) { background-color: #161616; }
+  .sticky-section:nth-child(3) { background-color: #1d1d1d; }
+  .sticky-section:nth-child(4) { background-color: #0e0e0e; }
+  .sticky-section:nth-child(5) { background-color: #161616; }
+  .sticky-section:nth-child(6) { background-color: #1d1d1d; }
+  .content-grid { display: grid; grid-template-columns: 1fr 1fr; width: 90%; max-width: 1300px; gap: 60px; align-items: center; }
+  .text-side { display: flex; flex-direction: column; padding: 20px; }
+  .label { font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: #82e256; margin-bottom: 10px; }
+  .sticky-section h2 { font-size: clamp(2.5rem, 6vw, 5.5rem); line-height: 0.95; margin: 0; font-weight: 900; text-transform: uppercase; color: #fff; }
+  p.desc { font-size: 1.2rem; margin-top: 30px; opacity: 0.7; max-width: 450px; line-height: 1.5; color: #fff; }
+  .image-side { width: 100%; height: 65vh; border-radius: 15px; overflow: hidden; position: relative; }
+  .image-side img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .reversed .text-side { order: 2; }
+  .reversed .image-side { order: 1; }
+  @media (max-width: 900px) {
+    .content-grid { grid-template-columns: 1fr; text-align: center; }
+    .image-side { height: 35vh; order: -1 !important; }
+    .text-side { align-items: center; padding: 0; }
+    p.desc { margin-top: 15px; }
+  }
+</style>
+
+<script>
+  const stickySection = document.querySelectorAll('.sticky-section');
+  window.addEventListener('scroll', () => {
+    const viewportHeight = window.innerHeight;
+    stickySection.forEach((section, index) => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= 0) {
+        const nextSection = stickySection[index + 1];
+        if (nextSection) {
+          const nextRect = nextSection.getBoundingClientRect();
+          let progress = 1 - (nextRect.top / viewportHeight);
+          progress = Math.max(0, Math.min(1, progress));
+          const scale = 1 - (progress * 0.1);
+          const brightness = 1 - (progress * 0.6);
+          (section as HTMLElement).style.transform = `scale(${scale})`;
+          (section as HTMLElement).style.filter = `brightness(${brightness})`;
+        }
+      } else {
+        (section as HTMLElement).style.transform = `scale(1)`;
+        (section as HTMLElement).style.filter = `brightness(1)`;
+      }
+    });
   });
 </script>

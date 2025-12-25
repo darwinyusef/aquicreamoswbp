@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
+import ServiciosGrid from '../../components/ServiciosGrid.astro';
 ---
 
 <Layout title="Marketing y Ventas con IA - Aquí Creamos">
@@ -42,7 +43,7 @@ import Header from '../../components/Header.astro';
 
             <div class="flex flex-col sm:flex-row gap-4">
               <a href="/#contenido10" class="px-8 py-4 bg-gradient-to-r from-[#82e256] to-[#6bc73d] text-black rounded-lg font-bold hover:shadow-[0_0_30px_rgba(130,226,86,0.5)] transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2">
-                📅 Agendar Demo Gratis
+                📅 Agendar Asesoría Gratis
               </a>
             </div>
           </div>
@@ -50,33 +51,97 @@ import Header from '../../components/Header.astro';
           <div class="hidden md:block">
             <div class="relative">
               <div class="absolute inset-0 bg-gradient-to-r from-[#82e256] to-[#04ADC0] rounded-2xl blur-3xl opacity-20"></div>
-              <div class="relative bg-white/5 backdrop-blur border border-white/20 rounded-2xl p-8">
-                <div class="text-8xl mb-4 text-center">📊</div>
-                <div class="space-y-3">
-                  <div class="flex items-center gap-3 bg-white/10 rounded-lg p-3">
-                    <div class="w-2 h-2 bg-[#82e256] rounded-full animate-pulse"></div>
-                    <span class="text-sm text-white">Lead capturado</span>
-                  </div>
-                  <div class="flex items-center gap-3 bg-white/10 rounded-lg p-3">
-                    <div class="w-2 h-2 bg-[#82e256] rounded-full animate-pulse" style="animation-delay: 0.2s"></div>
-                    <span class="text-sm text-white">IA califica automáticamente</span>
-                  </div>
-                  <div class="flex items-center gap-3 bg-white/10 rounded-lg p-3">
-                    <div class="w-2 h-2 bg-[#82e256] rounded-full animate-pulse" style="animation-delay: 0.4s"></div>
-                    <span class="text-sm text-white">Email personalizado enviado</span>
-                  </div>
-                  <div class="flex items-center gap-3 bg-[#82e256]/20 rounded-lg p-3 border border-[#82e256]">
-                    <div class="w-2 h-2 bg-[#82e256] rounded-full"></div>
-                    <span class="text-sm text-white font-bold">✅ Lead convertido</span>
-                  </div>
-                </div>
+              <div class="relative rounded-2xl overflow-hidden">
+                <img src="/img/personaje4.png" alt="Marketing y ventas automatizado" class="h-auto max-w-md mx-auto" />
               </div>
+              <p class="text-center text-gray-400 text-sm italic mt-4">Automatiza tus campañas y ventas con IA</p>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Sticky Stack Section -->
+  <div class="stack-container">
+    <section class="sticky-section">
+      <div class="content-grid">
+        <div class="text-side">
+          <span class="label">Generación</span>
+          <h2>Leads<br>Automáticos.</h2>
+          <p class="desc">Captura y califica leads en LinkedIn, Twitter y otras plataformas con mensajes personalizados por IA.</p>
+        </div>
+        <div class="image-side">
+          <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1200" alt="Lead Generation">
+        </div>
+      </div>
+    </section>
+
+    <section class="sticky-section">
+      <div class="content-grid reversed">
+        <div class="text-side">
+          <span class="label">Contenido</span>
+          <h2>Crea con<br>IA.</h2>
+          <p class="desc">Genera blogs, posts de redes sociales, newsletters y copy publicitario optimizado para conversión.</p>
+        </div>
+        <div class="image-side">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200" alt="Content Creation">
+        </div>
+      </div>
+    </section>
+
+    <section class="sticky-section">
+      <div class="content-grid">
+        <div class="text-side">
+          <span class="label">Email Marketing</span>
+          <h2>Campañas<br>Inteligentes.</h2>
+          <p class="desc">Segmentación automática, personalización y A/B testing con contenido generado por IA.</p>
+        </div>
+        <div class="image-side">
+          <img src="https://images.unsplash.com/photo-1451187530220-4e2bd78f7ad6?q=80&w=1200" alt="Email Marketing">
+        </div>
+      </div>
+    </section>
+
+    <section class="sticky-section">
+      <div class="content-grid reversed">
+        <div class="text-side">
+          <span class="label">Redes Sociales</span>
+          <h2>Multi-<br>Plataforma.</h2>
+          <p class="desc">Publica simultáneamente en todas tus redes sociales con contenido adaptado automáticamente.</p>
+        </div>
+        <div class="image-side">
+          <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?q=80&w=1200" alt="Social Media">
+        </div>
+      </div>
+    </section>
+
+    <section class="sticky-section">
+      <div class="content-grid">
+        <div class="text-side">
+          <span class="label">Analytics</span>
+          <h2>Datos que<br>Convierten.</h2>
+          <p class="desc">Análisis predictivo de ventas, identificación de oportunidades y forecasting con machine learning.</p>
+        </div>
+        <div class="image-side">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200" alt="Analytics">
+        </div>
+      </div>
+    </section>
+
+    <section class="sticky-section">
+      <div class="content-grid reversed">
+        <div class="text-side">
+          <span class="label">Automatización</span>
+          <h2>Marketing<br>en Piloto.</h2>
+          <p class="desc">Workflows completos que nutren leads, recuperan ventas perdidas y retienen clientes automáticamente.</p>
+        </div>
+        <div class="image-side">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200" alt="Marketing Automation">
+        </div>
+      </div>
+    </section>
+  </div>
 
   <!-- Solutions Section -->
   <section class="py-16 bg-gradient-to-b from-[#1a1a1a] to-[#00464e]">
@@ -134,7 +199,7 @@ import Header from '../../components/Header.astro';
               </div>
             </div>
             <a href="/#contenido10" class="block w-full py-3 bg-gradient-to-r from-[#00464e] to-[#006417] text-white rounded-lg hover:from-[#006417] hover:to-[#82e256] transition-all duration-300 font-semibold text-center">
-              Solicitar Demo →
+              Solicitar Asesoria→
             </a>
           </div>
 
@@ -182,7 +247,7 @@ import Header from '../../components/Header.astro';
               </div>
             </div>
             <a href="/#contenido10" class="block w-full py-3 bg-gradient-to-r from-[#00464e] to-[#006417] text-white rounded-lg hover:from-[#006417] hover:to-[#82e256] transition-all duration-300 font-semibold text-center">
-              Solicitar Demo →
+              Solicitar Asesoria→
             </a>
           </div>
 
@@ -230,7 +295,7 @@ import Header from '../../components/Header.astro';
               </div>
             </div>
             <a href="/#contenido10" class="block w-full py-3 bg-gradient-to-r from-[#00464e] to-[#006417] text-white rounded-lg hover:from-[#006417] hover:to-[#82e256] transition-all duration-300 font-semibold text-center">
-              Solicitar Demo →
+              Solicitar Asesoria→
             </a>
           </div>
 
@@ -278,7 +343,7 @@ import Header from '../../components/Header.astro';
               </div>
             </div>
             <a href="/#contenido10" class="block w-full py-3 bg-gradient-to-r from-[#00464e] to-[#006417] text-white rounded-lg hover:from-[#006417] hover:to-[#82e256] transition-all duration-300 font-semibold text-center">
-              Solicitar Demo →
+              Solicitar Asesoria→
             </a>
           </div>
         </div>
@@ -294,16 +359,70 @@ import Header from '../../components/Header.astro';
           ¿Listo para multiplicar tus ventas con IA?
         </h2>
         <p class="text-xl text-gray-200 mb-8">
-          Agenda una demo y descubre cómo automatizar tu marketing y ventas
+          Agenda una Asesoriay descubre cómo automatizar tu marketing y ventas
         </p>
 
         <a
           href="/#contenido10"
           class="inline-block px-10 py-5 bg-gradient-to-r from-[#82e256] to-[#6bc73d] text-black rounded-lg font-bold text-lg hover:shadow-[0_0_40px_rgba(130,226,86,0.6)] transition-all duration-300 hover:scale-105"
         >
-          📅 Agendar Demo Gratuita
+          📅 Agendar Asesoría Gratuita
         </a>
       </div>
     </div>
   </section>
+
+  <!-- Servicios Profesionales -->
+  <ServiciosGrid />
 </Layout>
+
+<style>
+  .stack-container { display: flex; flex-direction: column; }
+  .sticky-section { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #0e0e0e; transition: transform 0.1s linear, filter 0.1s linear; will-change: transform, filter; }
+  .sticky-section:nth-child(1) { background-color: #0e0e0e; }
+  .sticky-section:nth-child(2) { background-color: #161616; }
+  .sticky-section:nth-child(3) { background-color: #1d1d1d; }
+  .sticky-section:nth-child(4) { background-color: #0e0e0e; }
+  .sticky-section:nth-child(5) { background-color: #161616; }
+  .sticky-section:nth-child(6) { background-color: #1d1d1d; }
+  .content-grid { display: grid; grid-template-columns: 1fr 1fr; width: 90%; max-width: 1300px; gap: 60px; align-items: center; }
+  .text-side { display: flex; flex-direction: column; padding: 20px; }
+  .label { font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: #82e256; margin-bottom: 10px; }
+  .sticky-section h2 { font-size: clamp(2.5rem, 6vw, 5.5rem); line-height: 0.95; margin: 0; font-weight: 900; text-transform: uppercase; color: #fff; }
+  p.desc { font-size: 1.2rem; margin-top: 30px; opacity: 0.7; max-width: 450px; line-height: 1.5; color: #fff; }
+  .image-side { width: 100%; height: 65vh; border-radius: 15px; overflow: hidden; position: relative; }
+  .image-side img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .reversed .text-side { order: 2; }
+  .reversed .image-side { order: 1; }
+  @media (max-width: 900px) {
+    .content-grid { grid-template-columns: 1fr; text-align: center; }
+    .image-side { height: 35vh; order: -1 !important; }
+    .text-side { align-items: center; padding: 0; }
+    p.desc { margin-top: 15px; }
+  }
+</style>
+
+<script>
+  const sections = document.querySelectorAll('.sticky-section');
+  window.addEventListener('scroll', () => {
+    const viewportHeight = window.innerHeight;
+    sections.forEach((section, index) => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= 0) {
+        const nextSection = sections[index + 1];
+        if (nextSection) {
+          const nextRect = nextSection.getBoundingClientRect();
+          let progress = 1 - (nextRect.top / viewportHeight);
+          progress = Math.max(0, Math.min(1, progress));
+          const scale = 1 - (progress * 0.1);
+          const brightness = 1 - (progress * 0.6);
+          (section as HTMLElement).style.transform = `scale(${scale})`;
+          (section as HTMLElement).style.filter = `brightness(${brightness})`;
+        }
+      } else {
+        (section as HTMLElement).style.transform = `scale(1)`;
+        (section as HTMLElement).style.filter = `brightness(1)`;
+      }
+    });
+  });
+</script>

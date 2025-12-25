@@ -1,6 +1,6 @@
 ---
 interface Props {
-  currentPage?: "home" | "servicios" | "soluciones" | "blog" | "podcast" | "aquicreamos" | "contacto";
+  currentPage?: "home" | "servicios" | "soluciones" | "blog" | "podcast" | "contacto";
 }
 
 const { currentPage = "home" } = Astro.props;
@@ -35,8 +35,8 @@ const { currentPage = "home" } = Astro.props;
         </li>
         <li>
           <a
-            href="/servicios"
-            class={`transition-colors ${currentPage === "servicios" ? "text-[#82e256] font-semibold" : "text-white hover:text-[#82e256]"}`}
+            href="/#contenido2"
+            class="text-white hover:text-[#82e256] transition-colors"
           >
             Servicios
           </a>
@@ -75,14 +75,6 @@ const { currentPage = "home" } = Astro.props;
         </li>
         <li>
           <a
-            href="/aquicreamos"
-            class={`transition-colors ${currentPage === "aquicreamos" ? "text-[#82e256] font-semibold" : "text-white hover:text-[#82e256]"}`}
-          >
-            Aquí Creamos
-          </a>
-        </li>
-        <li>
-          <a
             href="/#contenido9"
             class="text-white hover:text-[#82e256] transition-colors"
           >
@@ -114,7 +106,7 @@ const { currentPage = "home" } = Astro.props;
       Inicio
     </a>
     <a
-      href="/servicios"
+      href="/#contenido2"
       class="text-white hover:text-[#82e256] transition-colors py-2 border-b border-white/10"
     >
       Servicios
@@ -142,12 +134,6 @@ const { currentPage = "home" } = Astro.props;
       class="text-white hover:text-[#82e256] transition-colors py-2 border-b border-white/10"
     >
       Podcast
-    </a>
-    <a
-      href="/aquicreamos"
-      class="text-white hover:text-[#82e256] transition-colors py-2 border-b border-white/10"
-    >
-      Aquí Creamos
     </a>
     <a
       href="/#contenido9"

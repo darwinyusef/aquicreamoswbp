@@ -1,0 +1,123 @@
+---
+// Componente de grid de servicios para usar en landing pages
+const servicios = [
+  {
+    icon: '🤖',
+    title: 'Agentes Cognitivos Empresariales con IA',
+    category: 'IA',
+    description: 'Transforma tu operación con empleados digitales que trabajan 24/7. Atienden clientes, cualifican leads y ejecutan flujos de trabajo complejos.',
+    slug: 'agentes-ia',
+    gradient: 'from-[#00464e] to-[#d4e256]'
+  },
+  {
+    icon: '🧠',
+    title: 'Desarrollo de Aplicaciones con IA',
+    category: 'IA',
+    description: 'Aplicaciones inteligentes que entienden, predicen y personalizan. Integra búsqueda semántica, generación de contenido y recomendaciones avanzadas.',
+    slug: 'aplicaciones-ia',
+    gradient: 'from-[#d4e256] to-[#00464e]'
+  },
+  {
+    icon: '🌐',
+    title: 'Desarrollo Web Moderno',
+    category: 'Web',
+    description: 'Sitios web rápidos, escalables y preparados para el futuro. Optimizados para conversión, SEO y experiencia de usuario excepcional.',
+    slug: 'desarrollo-web',
+    gradient: 'from-[#006417] to-[#00464e]'
+  },
+  {
+    icon: '📱',
+    title: 'Desarrollo de Aplicaciones Móviles',
+    category: 'Mobile',
+    description: 'Apps nativas e híbridas de clase mundial para iOS y Android. Desde MVPs hasta aplicaciones empresariales complejas.',
+    slug: 'apps-moviles',
+    gradient: 'from-[#d4e256] to-[#006417]'
+  },
+  {
+    icon: '👁️',
+    title: 'Computer Vision e IA Visual',
+    category: 'IA',
+    description: 'Sistemas inteligentes que ven, analizan y actúan. Detección de objetos, reconocimiento facial, OCR y análisis de video en tiempo real.',
+    slug: 'computer-vision',
+    gradient: 'from-[#006417] to-[#d4e256]'
+  },
+  {
+    icon: '🏗️',
+    title: 'Arquitectura TOGAF 2026 + Scrum',
+    category: 'Profesional',
+    description: 'Arquitectura empresarial de última generación combinando TOGAF 2026 con metodologías ágiles Scrum. Transformación digital iterativa, modernización de sistemas y roadmaps adaptativos.',
+    slug: 'arquitectura',
+    gradient: 'from-[#04ADC0] to-[#00464e]'
+  },
+  {
+    icon: '💻',
+    title: 'Desarrollo Full-Stack',
+    category: 'Profesional',
+    description: 'Soluciones completas con React, Node.js, Python y tecnologías modernas. Desde MVPs hasta plataformas empresariales escalables con arquitecturas cloud-native.',
+    slug: 'desarrollo-fullstack',
+    gradient: 'from-[#82e256] to-[#04ADC0]'
+  },
+  {
+    icon: '🤖',
+    title: 'IA & Machine Learning en Producción',
+    category: 'Profesional',
+    description: 'MLOps, modelos predictivos, procesamiento de lenguaje natural y agentes autónomos. Llevamos la IA del laboratorio a producción con ROI medible.',
+    slug: 'ia-machine-learning',
+    gradient: 'from-[#d4e256] to-[#82e256]'
+  },
+  {
+    icon: '⚙️',
+    title: 'DevOps & Infraestructura Cloud',
+    category: 'Profesional',
+    description: 'CI/CD, contenedores, Kubernetes, serverless y automatización de infraestructura. Reduce costos hasta 40% y despliega 10x más rápido con AWS, Azure o GCP.',
+    slug: 'devops-infraestructura',
+    gradient: 'from-[#00464e] to-[#006417]'
+  }
+];
+
+const categoryColors: Record<string, string> = {
+  'IA': 'bg-purple-600',
+  'Web': 'bg-blue-600',
+  'Mobile': 'bg-green-600',
+  'Profesional': 'bg-cyan-600'
+};
+---
+
+<!-- Servicios Profesionales Section -->
+<section class="py-20 bg-gradient-to-b from-[#1a1a1a] to-[#00464e]">
+  <div class="container mx-auto px-4 md:px-16">
+    <div class="max-w-7xl mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <div class="inline-block px-4 py-2 bg-[#04ADC0]/20 border border-[#04ADC0] rounded-full mb-4">
+          <span class="text-[#04ADC0] font-bold text-sm">💻 SERVICIOS PROFESIONALES</span>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-black text-white mb-4">
+          Más soluciones tecnológicas para tu negocio
+        </h2>
+        <p class="text-gray-400 text-lg">Desarrollo de software, IA y arquitectura empresarial</p>
+      </div>
+
+      <!-- Grid de Servicios -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {servicios.map((servicio) => {
+          return (
+            <a
+              href={`/servicios/${servicio.slug}`}
+              class="group bg-white/5 backdrop-blur border border-white/10 rounded-lg p-4 hover:border-[#82e256] transition-all duration-300 hover:shadow-[0_0_20px_rgba(130,226,86,0.3)] flex items-center justify-between"
+            >
+              <h3 class="text-base font-semibold text-white group-hover:text-[#82e256] transition-colors flex-1">
+                {servicio.title}
+              </h3>
+
+              <svg class="w-5 h-5 text-gray-400 group-hover:text-[#82e256] transition-colors flex-shrink-0 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+</section>
+

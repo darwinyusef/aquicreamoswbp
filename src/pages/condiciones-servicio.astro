@@ -1,0 +1,449 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+---
+
+<Layout>
+  <Header />
+
+  <!-- Contenedor principal -->
+  <main class="min-h-screen bg-[#1a1a1a] pt-24 pb-16">
+    <div class="container mx-auto px-4 md:px-16 max-w-4xl">
+
+      <!-- Logo -->
+      <div class="flex justify-center mb-12">
+        <a href="/">
+          <img
+            src="/img/logoAquicreamos.png"
+            class="h-16 md:h-20"
+            alt="Logo Aquí Creamos"
+          />
+        </a>
+      </div>
+
+      <!-- Título principal -->
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-black mb-8 leading-tight text-center bg-gradient-to-r from-white via-white to-[#82e256] bg-clip-text text-transparent">
+        Condiciones de Servicio
+      </h1>
+
+      <!-- Fecha de actualización -->
+      <p class="text-gray-400 text-center mb-12">
+        Última actualización: Diciembre 2025
+      </p>
+
+      <!-- Contenido -->
+      <div class="prose prose-invert prose-lg max-w-none">
+
+        <!-- Introducción -->
+        <section class="mb-10">
+          <p class="text-gray-300 leading-relaxed mb-4">
+            Las presentes Condiciones de Servicio regulan la prestación de servicios profesionales de desarrollo de software e inteligencia artificial por parte de <strong class="text-white">Aquí Creamos</strong>. Al contratar nuestros servicios, aceptas quedar vinculado por estas condiciones.
+          </p>
+        </section>
+
+        <!-- 1. Alcance de los Servicios -->
+        <section class="mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            1. Alcance de los Servicios
+          </h2>
+          <p class="text-gray-300 leading-relaxed mb-4">
+            <strong class="text-white">Aquí Creamos</strong> ofrece servicios profesionales que incluyen, pero no se limitan a:
+          </p>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-4">
+              <h3 class="text-white font-bold mb-2">💡 Desarrollo de Software</h3>
+              <ul class="list-disc list-inside text-gray-300 text-sm space-y-1 ml-2">
+                <li>Aplicaciones web personalizadas</li>
+                <li>Aplicaciones móviles (iOS/Android)</li>
+                <li>Software empresarial a medida</li>
+                <li>APIs y microservicios</li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-4">
+              <h3 class="text-white font-bold mb-2">🤖 Inteligencia Artificial</h3>
+              <ul class="list-disc list-inside text-gray-300 text-sm space-y-1 ml-2">
+                <li>Modelos de Machine Learning</li>
+                <li>Procesamiento de lenguaje natural</li>
+                <li>Computer vision</li>
+                <li>Agentes cognitivos empresariales</li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-4">
+              <h3 class="text-white font-bold mb-2">🏗️ Arquitectura & Consultoría</h3>
+              <ul class="list-disc list-inside text-gray-300 text-sm space-y-1 ml-2">
+                <li>Arquitectura empresarial (TOGAF)</li>
+                <li>Auditorías técnicas</li>
+                <li>Diseño de sistemas escalables</li>
+                <li>Estrategia tecnológica</li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-4">
+              <h3 class="text-white font-bold mb-2">📚 Formación & Mentoring</h3>
+              <ul class="list-disc list-inside text-gray-300 text-sm space-y-1 ml-2">
+                <li>Capacitación de equipos</li>
+                <li>Cursos especializados</li>
+                <li>Mentoring técnico</li>
+                <li>Workshops personalizados</li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="text-gray-300 leading-relaxed mt-4">
+            El alcance específico de cada proyecto se definirá en un documento de alcance (SOW - Statement of Work) o contrato individual.
+          </p>
+        </section>
+
+        <!-- 2. Proceso de Contratación -->
+        <section class="mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            2. Proceso de Contratación
+          </h2>
+
+          <div class="space-y-4">
+            <div class="flex gap-4 items-start">
+              <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-lg flex items-center justify-center text-black font-bold">1</div>
+              <div>
+                <h3 class="text-white font-bold mb-1">Consulta Inicial</h3>
+                <p class="text-gray-300 text-sm">El cliente contacta con nosotros explicando sus necesidades y objetivos del proyecto.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4 items-start">
+              <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-lg flex items-center justify-center text-black font-bold">2</div>
+              <div>
+                <h3 class="text-white font-bold mb-1">Análisis de Requisitos</h3>
+                <p class="text-gray-300 text-sm">Realizamos reuniones de discovery para comprender en profundidad los requisitos técnicos y de negocio.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4 items-start">
+              <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-lg flex items-center justify-center text-black font-bold">3</div>
+              <div>
+                <h3 class="text-white font-bold mb-1">Propuesta Técnica y Económica</h3>
+                <p class="text-gray-300 text-sm">Entregamos una propuesta detallada con alcance, cronograma, entregables y presupuesto.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4 items-start">
+              <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-lg flex items-center justify-center text-black font-bold">4</div>
+              <div>
+                <h3 class="text-white font-bold mb-1">Formalización del Contrato</h3>
+                <p class="text-gray-300 text-sm">Ambas partes firman el contrato de servicios y el cliente realiza el pago inicial acordado.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4 items-start">
+              <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-lg flex items-center justify-center text-black font-bold">5</div>
+              <div>
+                <h3 class="text-white font-bold mb-1">Ejecución del Proyecto</h3>
+                <p class="text-gray-300 text-sm">Iniciamos el desarrollo con comunicación continua y entregas incrementales según la metodología acordada.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4 items-start">
+              <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-lg flex items-center justify-center text-black font-bold">6</div>
+              <div>
+                <h3 class="text-white font-bold mb-1">Entrega y Cierre</h3>
+                <p class="text-gray-300 text-sm">Entregamos el proyecto completo, documentación, capacitación y soporte post-entrega.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. Obligaciones del Cliente -->
+        <section class="mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            3. Obligaciones del Cliente
+          </h2>
+          <p class="text-gray-300 leading-relaxed mb-4">
+            Para la correcta ejecución del proyecto, el cliente se compromete a:
+          </p>
+          <ul class="list-disc list-inside text-gray-300 space-y-2 ml-4">
+            <li>Proporcionar información completa, veraz y actualizada sobre los requisitos del proyecto.</li>
+            <li>Designar un interlocutor principal con capacidad de decisión para el proyecto.</li>
+            <li>Facilitar acceso a sistemas, documentación y recursos necesarios para el desarrollo.</li>
+            <li>Responder a consultas y aprobar entregables en los plazos establecidos.</li>
+            <li>Realizar los pagos según el calendario acordado.</li>
+            <li>Proporcionar feedback constructivo y oportuno durante las fases del proyecto.</li>
+            <li>Cumplir con los acuerdos de confidencialidad y uso de información.</li>
+          </ul>
+          <p class="text-gray-300 leading-relaxed mt-4">
+            El incumplimiento de estas obligaciones puede resultar en retrasos del proyecto o ajustes en el cronograma y presupuesto.
+          </p>
+        </section>
+
+        <!-- 4. Obligaciones de Aquí Creamos -->
+        <section class="mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            4. Obligaciones de Aquí Creamos
+          </h2>
+          <p class="text-gray-300 leading-relaxed mb-4">
+            Nos comprometemos a:
+          </p>
+          <ul class="list-disc list-inside text-gray-300 space-y-2 ml-4">
+            <li>Ejecutar el proyecto con profesionalismo y según las mejores prácticas de la industria.</li>
+            <li>Asignar personal cualificado y con la experiencia adecuada para el proyecto.</li>
+            <li>Mantener comunicación regular sobre el progreso del proyecto.</li>
+            <li>Entregar los productos/servicios según las especificaciones acordadas.</li>
+            <li>Cumplir con los plazos establecidos salvo causas de fuerza mayor o retrasos atribuibles al cliente.</li>
+            <li>Mantener la confidencialidad de toda la información del proyecto.</li>
+            <li>Proporcionar documentación técnica adecuada.</li>
+            <li>Ofrecer soporte post-entrega según lo acordado en el contrato.</li>
+          </ul>
+        </section>
+
+        <!-- 5. Plazos y Entregables -->
+        <section class="mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            5. Plazos y Entregables
+          </h2>
+          <p class="text-gray-300 leading-relaxed mb-4">
+            Los plazos de entrega se establecen en el cronograma del proyecto y están sujetos a:
+          </p>
+          <ul class="list-disc list-inside text-gray-300 space-y-2 ml-4">
+            <li><strong class="text-white">Aprobaciones oportunas:</strong> El cliente debe aprobar entregables en máximo 5 días hábiles salvo acuerdo diferente.</li>
+            <li><strong class="text-white">Cambios de alcance:</strong> Cualquier modificación puede afectar plazos y presupuesto.</li>
+            <li><strong class="text-white">Información completa:</strong> Los plazos asumen que el cliente proporciona toda la información necesaria a tiempo.</li>
+            <li><strong class="text-white">Dependencias externas:</strong> Integraciones con sistemas de terceros pueden afectar el cronograma.</li>
+          </ul>
+          <p class="text-gray-300 leading-relaxed mt-4">
+            Cada entregable incluirá documentación técnica apropiada y será presentado formalmente al cliente para su revisión y aprobación.
+          </p>
+        </section>
+
+        <!-- 6. Facturación y Pagos -->
+        <section class="mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            6. Facturación y Pagos
+          </h2>
+
+          <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-6 mb-4">
+            <h3 class="text-lg font-bold text-white mb-3">Estructura de Pagos</h3>
+            <p class="text-gray-300 mb-3">Los proyectos típicamente siguen esta estructura de pagos:</p>
+            <ul class="list-disc list-inside text-gray-300 space-y-1 ml-4">
+              <li><strong class="text-white">Anticipo:</strong> 30-50% al firmar el contrato</li>
+              <li><strong class="text-white">Hitos intermedios:</strong> Pagos según entregables completados</li>
+              <li><strong class="text-white">Pago final:</strong> 20-30% al completar y entregar el proyecto</li>
+            </ul>
+          </div>
+
+          <div class="space-y-3">
+            <p class="text-gray-300 leading-relaxed">
+              <strong class="text-white">Condiciones de pago:</strong>
+            </p>
+            <ul class="list-disc list-inside text-gray-300 space-y-2 ml-4">
+              <li>Las facturas deben pagarse dentro de 15 días desde su emisión salvo otro acuerdo.</li>
+              <li>Los pagos atrasados generan intereses moratorios según la legislación vigente.</li>
+              <li>El retraso superior a 30 días faculta a suspender el proyecto hasta regularizar pagos.</li>
+              <li>Los precios no incluyen impuestos (IVA u otros) salvo indicación expresa.</li>
+              <li>Aceptamos transferencias bancarias, tarjetas de crédito y otros medios acordados.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- 7. Cambios y Gestión del Alcance -->
+        <section class="mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            7. Cambios y Gestión del Alcance
+          </h2>
+          <p class="text-gray-300 leading-relaxed mb-4">
+            Entendemos que los proyectos pueden evolucionar. Para gestionar cambios:
+          </p>
+          <ul class="list-disc list-inside text-gray-300 space-y-2 ml-4">
+            <li><strong class="text-white">Solicitud formal:</strong> Todos los cambios deben solicitarse por escrito.</li>
+            <li><strong class="text-white">Análisis de impacto:</strong> Evaluamos el impacto en tiempo, costo y recursos.</li>
+            <li><strong class="text-white">Aprobación:</strong> El cliente debe aprobar el ajuste de presupuesto y cronograma.</li>
+            <li><strong class="text-white">Documentación:</strong> Los cambios se documentan en addendas al contrato.</li>
+            <li><strong class="text-white">Implementación:</strong> Solo se implementan cambios formalmente aprobados.</li>
+          </ul>
+          <p class="text-gray-300 leading-relaxed mt-4">
+            Los cambios menores dentro del alcance original se gestionan sin costo adicional. Los cambios significativos pueden requerir ajustes en el presupuesto.
+          </p>
+        </section>
+
+        <!-- 8. Garantías -->
+        <section class="mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            8. Garantías
+          </h2>
+
+          <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-6 mb-4">
+            <h3 class="text-lg font-bold text-white mb-3">Período de Garantía</h3>
+            <p class="text-gray-300 mb-3">
+              Ofrecemos un período de garantía estándar de <strong class="text-white">90 días</strong> desde la entrega final que cubre:
+            </p>
+            <ul class="list-disc list-inside text-gray-300 space-y-1 ml-4">
+              <li>Corrección de errores de programación (bugs)</li>
+              <li>Problemas de funcionalidad según especificaciones</li>
+              <li>Defectos de rendimiento críticos</li>
+            </ul>
+          </div>
+
+          <p class="text-gray-300 leading-relaxed mb-4">
+            <strong class="text-white">La garantía NO cubre:</strong>
+          </p>
+          <ul class="list-disc list-inside text-gray-300 space-y-2 ml-4">
+            <li>Problemas causados por modificaciones realizadas por terceros.</li>
+            <li>Uso indebido del software o hardware inadecuado.</li>
+            <li>Fallos de servicios de terceros (APIs, hosting, etc.).</li>
+            <li>Nuevas funcionalidades o mejoras no incluidas en el alcance original.</li>
+            <li>Problemas causados por falta de mantenimiento o actualizaciones del sistema.</li>
+          </ul>
+        </section>
+
+        <!-- 9. Soporte y Mantenimiento -->
+        <section class="mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            9. Soporte y Mantenimiento
+          </h2>
+          <p class="text-gray-300 leading-relaxed mb-4">
+            Ofrecemos diferentes niveles de soporte post-entrega:
+          </p>
+
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-4">
+              <h3 class="text-white font-bold mb-2">📧 Básico</h3>
+              <p class="text-gray-300 text-sm mb-2">Incluido en garantía</p>
+              <ul class="list-disc list-inside text-gray-300 text-sm space-y-1 ml-2">
+                <li>Soporte por email</li>
+                <li>Respuesta en 48h</li>
+                <li>Corrección de bugs</li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-4">
+              <h3 class="text-white font-bold mb-2">⚡ Estándar</h3>
+              <p class="text-gray-300 text-sm mb-2">Plan mensual</p>
+              <ul class="list-disc list-inside text-gray-300 text-sm space-y-1 ml-2">
+                <li>Soporte prioritario</li>
+                <li>Respuesta en 24h</li>
+                <li>Actualizaciones menores</li>
+                <li>Monitoreo básico</li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-4">
+              <h3 class="text-white font-bold mb-2">🚀 Premium</h3>
+              <p class="text-gray-300 text-sm mb-2">Plan personalizado</p>
+              <ul class="list-disc list-inside text-gray-300 text-sm space-y-1 ml-2">
+                <li>Soporte 24/7</li>
+                <li>Respuesta inmediata</li>
+                <li>SLA garantizado</li>
+                <li>Desarrollo continuo</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- 10. Cancelación y Terminación -->
+        <section class="mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            10. Cancelación y Terminación
+          </h2>
+
+          <div class="space-y-4">
+            <div>
+              <h3 class="text-lg font-bold text-white mb-2">Cancelación por el Cliente</h3>
+              <p class="text-gray-300 mb-2">El cliente puede cancelar el proyecto con las siguientes condiciones:</p>
+              <ul class="list-disc list-inside text-gray-300 space-y-1 ml-4">
+                <li>Notificación por escrito con 15 días de antelación.</li>
+                <li>Pago del trabajo completado hasta la fecha de cancelación.</li>
+                <li>Los anticipos y pagos realizados no son reembolsables.</li>
+                <li>Entrega de todo el trabajo completado en el estado actual.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-bold text-white mb-2">Terminación por Incumplimiento</h3>
+              <p class="text-gray-300 mb-2">Cualquiera de las partes puede terminar el contrato si:</p>
+              <ul class="list-disc list-inside text-gray-300 space-y-1 ml-4">
+                <li>La otra parte incumple gravemente sus obligaciones.</li>
+                <li>No se subsana el incumplimiento en 15 días tras notificación.</li>
+                <li>Se produce insolvencia o concurso de acreedores.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- 11. Limitación de Responsabilidad -->
+        <section class="mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            11. Limitación de Responsabilidad
+          </h2>
+          <p class="text-gray-300 leading-relaxed mb-4">
+            En la máxima medida permitida por la ley:
+          </p>
+          <ul class="list-disc list-inside text-gray-300 space-y-2 ml-4">
+            <li>Nuestra responsabilidad total está limitada al monto pagado por el servicio específico.</li>
+            <li>No somos responsables de daños indirectos, lucro cesante o pérdida de datos.</li>
+            <li>No garantizamos resultados comerciales específicos (ventas, conversiones, etc.).</li>
+            <li>No somos responsables por servicios, APIs o plataformas de terceros.</li>
+            <li>El cliente es responsable del cumplimiento regulatorio de su sector.</li>
+          </ul>
+        </section>
+
+        <!-- 12. Contacto -->
+        <section class="mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            12. Contacto
+          </h2>
+          <p class="text-gray-300 leading-relaxed mb-4">
+            Para consultas sobre estas Condiciones de Servicio:
+          </p>
+          <div class="bg-gray-800/50 border border-gray-700 rounded-xl p-6">
+            <p class="text-white mb-2"><strong>Aquí Creamos</strong></p>
+            <p class="text-gray-300 mb-1">
+              <strong class="text-white">Email:</strong> <a href="mailto:contratos@aquicreamos.com" class="text-[#82e256] hover:underline">contratos@aquicreamos.com</a>
+            </p>
+            <p class="text-gray-300 mb-1">
+              <strong class="text-white">Teléfono:</strong> <a href="tel:+123456789" class="text-[#82e256] hover:underline">+1 (234) 567-89</a>
+            </p>
+            <p class="text-gray-300">
+              <strong class="text-white">Dirección:</strong> [Dirección de la empresa]
+            </p>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Botón de regreso -->
+      <div class="mt-12 flex justify-center">
+        <a
+          href="/"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#82e256] to-[#6bc73d] hover:from-[#6bc73d] hover:to-[#5ba62e] text-black font-bold rounded-lg transition-all duration-300 transform hover:scale-105"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+          </svg>
+          Volver al inicio
+        </a>
+      </div>
+
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .prose {
+    color: #d1d5db;
+  }
+
+  .prose strong {
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  .prose ul {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .prose li {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+</style>

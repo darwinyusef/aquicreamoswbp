@@ -1,0 +1,418 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+---
+
+<Layout>
+  <Header />
+
+  <!-- Contenedor principal -->
+  <main class="min-h-screen bg-[#1a1a1a] pt-24 pb-16">
+    <div class="container mx-auto px-4 md:px-16 max-w-4xl">
+
+      <!-- Logo -->
+      <div class="flex justify-center mb-12">
+        <a href="/">
+          <img
+            src="/img/logoAquicreamos.png"
+            class="h-16 md:h-20"
+            alt="Logo Aquí Creamos"
+          />
+        </a>
+      </div>
+
+      <!-- Título principal -->
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-black mb-8 leading-tight text-center bg-gradient-to-r from-white via-white to-[#82e256] bg-clip-text text-transparent">
+        Política de Cookies
+      </h1>
+
+      <!-- Fecha de actualización -->
+      <p class="text-gray-400 text-center mb-12">
+        Última actualización: Diciembre 2025
+      </p>
+
+      <!-- Contenido -->
+      <div class="prose prose-invert prose-lg max-w-none">
+
+        <!-- Introducción -->
+        <section class="mb-10">
+          <p class="text-gray-300 leading-relaxed mb-4">
+            En <strong class="text-white">Aquí Creamos</strong> utilizamos cookies y tecnologías similares para mejorar tu experiencia de navegación, analizar el tráfico web y personalizar contenidos. Esta política explica qué son las cookies, cómo las utilizamos y cómo puedes gestionarlas.
+          </p>
+        </section>
+
+        <!-- 1. ¿Qué son las Cookies? -->
+        <section class="mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            1. ¿Qué son las Cookies?
+          </h2>
+          <p class="text-gray-300 leading-relaxed mb-4">
+            Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo (ordenador, tablet, smartphone) cuando visitas un sitio web. Permiten que el sitio recuerde tus acciones y preferencias durante un período de tiempo.
+          </p>
+          <p class="text-gray-300 leading-relaxed">
+            Las cookies pueden almacenar información como: preferencias de idioma, contenido del carrito de compras, datos de sesión, estadísticas de navegación, entre otros.
+          </p>
+        </section>
+
+        <!-- 2. Tipos de Cookies que Utilizamos -->
+        <section class="mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            2. Tipos de Cookies que Utilizamos
+          </h2>
+
+          <div class="space-y-6">
+            <!-- Cookies Técnicas -->
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-6">
+              <h3 class="text-xl font-bold text-white mb-3">🔧 Cookies Técnicas (Necesarias)</h3>
+              <p class="text-gray-300 mb-3">
+                Son esenciales para el funcionamiento del sitio web. Permiten la navegación y uso de funciones básicas.
+              </p>
+              <div class="bg-gray-900/50 rounded p-3 text-sm">
+                <p class="text-gray-400 mb-1"><strong class="text-white">Ejemplos:</strong></p>
+                <ul class="list-disc list-inside text-gray-300 space-y-1 ml-2">
+                  <li>Cookies de sesión de usuario</li>
+                  <li>Cookies de seguridad y autenticación</li>
+                  <li>Cookies de preferencias de idioma</li>
+                </ul>
+                <p class="text-gray-400 mt-2"><strong class="text-white">Duración:</strong> Sesión o hasta 1 año</p>
+                <p class="text-gray-400"><strong class="text-white">Requiere consentimiento:</strong> No (estrictamente necesarias)</p>
+              </div>
+            </div>
+
+            <!-- Cookies Analíticas -->
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-6">
+              <h3 class="text-xl font-bold text-white mb-3">📊 Cookies Analíticas</h3>
+              <p class="text-gray-300 mb-3">
+                Nos permiten analizar cómo los usuarios interactúan con el sitio web para mejorar su funcionamiento.
+              </p>
+              <div class="bg-gray-900/50 rounded p-3 text-sm">
+                <p class="text-gray-400 mb-1"><strong class="text-white">Proveedor:</strong> Google Analytics</p>
+                <p class="text-gray-400 mb-2"><strong class="text-white">Cookies utilizadas:</strong></p>
+                <ul class="list-disc list-inside text-gray-300 space-y-1 ml-2">
+                  <li><code class="text-[#82e256]">_ga</code> - Identificador único de usuario</li>
+                  <li><code class="text-[#82e256]">_gid</code> - Distinguir usuarios</li>
+                  <li><code class="text-[#82e256]">_gat</code> - Limitar tasa de solicitudes</li>
+                </ul>
+                <p class="text-gray-400 mt-2"><strong class="text-white">Finalidad:</strong> Estadísticas de uso, páginas más visitadas, tiempo de permanencia</p>
+                <p class="text-gray-400"><strong class="text-white">Duración:</strong> Desde 1 minuto hasta 2 años</p>
+                <p class="text-gray-400"><strong class="text-white">Requiere consentimiento:</strong> Sí</p>
+              </div>
+            </div>
+
+            <!-- Cookies de Funcionalidad -->
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-6">
+              <h3 class="text-xl font-bold text-white mb-3">⚙️ Cookies de Funcionalidad</h3>
+              <p class="text-gray-300 mb-3">
+                Permiten recordar tus preferencias para ofrecer una experiencia más personalizada.
+              </p>
+              <div class="bg-gray-900/50 rounded p-3 text-sm">
+                <p class="text-gray-400 mb-1"><strong class="text-white">Ejemplos:</strong></p>
+                <ul class="list-disc list-inside text-gray-300 space-y-1 ml-2">
+                  <li>Preferencias de visualización (modo oscuro/claro)</li>
+                  <li>Configuración de región/idioma</li>
+                  <li>Contenido personalizado según intereses</li>
+                </ul>
+                <p class="text-gray-400 mt-2"><strong class="text-white">Duración:</strong> Hasta 1 año</p>
+                <p class="text-gray-400"><strong class="text-white">Requiere consentimiento:</strong> Sí</p>
+              </div>
+            </div>
+
+            <!-- Cookies de Marketing -->
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-6">
+              <h3 class="text-xl font-bold text-white mb-3">📢 Cookies de Marketing y Publicidad</h3>
+              <p class="text-gray-300 mb-3">
+                Utilizadas para mostrar anuncios relevantes y medir la efectividad de campañas publicitarias.
+              </p>
+              <div class="bg-gray-900/50 rounded p-3 text-sm">
+                <p class="text-gray-400 mb-1"><strong class="text-white">Proveedores:</strong> Google Ads, Facebook Pixel, LinkedIn Insight</p>
+                <p class="text-gray-400 mb-2"><strong class="text-white">Finalidad:</strong></p>
+                <ul class="list-disc list-inside text-gray-300 space-y-1 ml-2">
+                  <li>Remarketing y retargeting</li>
+                  <li>Medición de conversiones</li>
+                  <li>Segmentación de audiencias</li>
+                </ul>
+                <p class="text-gray-400 mt-2"><strong class="text-white">Duración:</strong> Hasta 24 meses</p>
+                <p class="text-gray-400"><strong class="text-white">Requiere consentimiento:</strong> Sí</p>
+              </div>
+            </div>
+
+            <!-- Cookies de Redes Sociales -->
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-6">
+              <h3 class="text-xl font-bold text-white mb-3">🌐 Cookies de Redes Sociales</h3>
+              <p class="text-gray-300 mb-3">
+                Permiten compartir contenido en redes sociales y mostrar contenido integrado.
+              </p>
+              <div class="bg-gray-900/50 rounded p-3 text-sm">
+                <p class="text-gray-400 mb-1"><strong class="text-white">Plataformas:</strong> Facebook, Twitter, LinkedIn, YouTube</p>
+                <p class="text-gray-400 mb-2"><strong class="text-white">Finalidad:</strong></p>
+                <ul class="list-disc list-inside text-gray-300 space-y-1 ml-2">
+                  <li>Botones de compartir en redes sociales</li>
+                  <li>Widgets y plugins sociales</li>
+                  <li>Videos embebidos</li>
+                </ul>
+                <p class="text-gray-400 mt-2"><strong class="text-white">Duración:</strong> Variable según la plataforma</p>
+                <p class="text-gray-400"><strong class="text-white">Requiere consentimiento:</strong> Sí</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. Finalidad de las Cookies -->
+        <section class="mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            3. Finalidad de las Cookies
+          </h2>
+          <p class="text-gray-300 leading-relaxed mb-4">
+            Utilizamos cookies para los siguientes propósitos:
+          </p>
+          <ul class="list-disc list-inside text-gray-300 space-y-2 ml-4">
+            <li><strong class="text-white">Funcionamiento del sitio:</strong> Garantizar que el sitio funcione correctamente.</li>
+            <li><strong class="text-white">Seguridad:</strong> Prevenir fraudes y proteger tu seguridad.</li>
+            <li><strong class="text-white">Preferencias:</strong> Recordar tus configuraciones y preferencias.</li>
+            <li><strong class="text-white">Análisis:</strong> Entender cómo usas el sitio para mejorarlo.</li>
+            <li><strong class="text-white">Personalización:</strong> Mostrar contenido relevante para ti.</li>
+            <li><strong class="text-white">Publicidad:</strong> Mostrar anuncios relevantes basados en tus intereses.</li>
+            <li><strong class="text-white">Redes sociales:</strong> Permitir compartir contenido fácilmente.</li>
+          </ul>
+        </section>
+
+        <!-- 4. Cookies de Terceros -->
+        <section class="mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            4. Cookies de Terceros
+          </h2>
+          <p class="text-gray-300 leading-relaxed mb-4">
+            Algunos servicios externos utilizados en nuestro sitio instalan sus propias cookies:
+          </p>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm text-gray-300 border border-gray-700">
+              <thead class="bg-gray-800 text-white">
+                <tr>
+                  <th class="border border-gray-700 px-4 py-2 text-left">Servicio</th>
+                  <th class="border border-gray-700 px-4 py-2 text-left">Proveedor</th>
+                  <th class="border border-gray-700 px-4 py-2 text-left">Finalidad</th>
+                  <th class="border border-gray-700 px-4 py-2 text-left">Más información</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="border border-gray-700 px-4 py-2">Google Analytics</td>
+                  <td class="border border-gray-700 px-4 py-2">Google LLC</td>
+                  <td class="border border-gray-700 px-4 py-2">Estadísticas web</td>
+                  <td class="border border-gray-700 px-4 py-2">
+                    <a href="https://policies.google.com/privacy" class="text-[#82e256] hover:underline" target="_blank" rel="noopener">Política</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="border border-gray-700 px-4 py-2">Google Ads</td>
+                  <td class="border border-gray-700 px-4 py-2">Google LLC</td>
+                  <td class="border border-gray-700 px-4 py-2">Publicidad</td>
+                  <td class="border border-gray-700 px-4 py-2">
+                    <a href="https://policies.google.com/technologies/ads" class="text-[#82e256] hover:underline" target="_blank" rel="noopener">Política</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="border border-gray-700 px-4 py-2">Facebook Pixel</td>
+                  <td class="border border-gray-700 px-4 py-2">Meta Platforms</td>
+                  <td class="border border-gray-700 px-4 py-2">Marketing</td>
+                  <td class="border border-gray-700 px-4 py-2">
+                    <a href="https://www.facebook.com/privacy" class="text-[#82e256] hover:underline" target="_blank" rel="noopener">Política</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="border border-gray-700 px-4 py-2">LinkedIn Insight</td>
+                  <td class="border border-gray-700 px-4 py-2">LinkedIn Corp</td>
+                  <td class="border border-gray-700 px-4 py-2">Análisis B2B</td>
+                  <td class="border border-gray-700 px-4 py-2">
+                    <a href="https://www.linkedin.com/legal/privacy-policy" class="text-[#82e256] hover:underline" target="_blank" rel="noopener">Política</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 5. Cómo Gestionar las Cookies -->
+        <section class="mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            5. Cómo Gestionar las Cookies
+          </h2>
+
+          <div class="mb-6">
+            <h3 class="text-lg font-bold text-white mb-3">Panel de Consentimiento</h3>
+            <p class="text-gray-300 leading-relaxed mb-3">
+              Cuando visitas nuestro sitio por primera vez, aparece un panel de consentimiento donde puedes:
+            </p>
+            <ul class="list-disc list-inside text-gray-300 space-y-1 ml-4">
+              <li>Aceptar todas las cookies</li>
+              <li>Rechazar cookies no esenciales</li>
+              <li>Personalizar qué categorías de cookies deseas aceptar</li>
+            </ul>
+          </div>
+
+          <div class="mb-6">
+            <h3 class="text-lg font-bold text-white mb-3">Configuración del Navegador</h3>
+            <p class="text-gray-300 leading-relaxed mb-4">
+              Puedes configurar tu navegador para bloquear o eliminar cookies:
+            </p>
+
+            <div class="space-y-3">
+              <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-4">
+                <p class="text-white font-semibold mb-1">Google Chrome</p>
+                <p class="text-gray-300 text-sm">Configuración → Privacidad y seguridad → Cookies y otros datos de sitios</p>
+              </div>
+              <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-4">
+                <p class="text-white font-semibold mb-1">Mozilla Firefox</p>
+                <p class="text-gray-300 text-sm">Preferencias → Privacidad y seguridad → Cookies y datos de sitios</p>
+              </div>
+              <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-4">
+                <p class="text-white font-semibold mb-1">Safari</p>
+                <p class="text-gray-300 text-sm">Preferencias → Privacidad → Gestionar datos de sitios web</p>
+              </div>
+              <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-4">
+                <p class="text-white font-semibold mb-1">Microsoft Edge</p>
+                <p class="text-gray-300 text-sm">Configuración → Privacidad, búsqueda y servicios → Cookies y datos del sitio</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-yellow-900/20 border border-yellow-700/50 rounded-lg p-4">
+            <p class="text-yellow-200">
+              <strong>⚠️ Nota importante:</strong> Bloquear todas las cookies puede afectar la funcionalidad del sitio web y tu experiencia de usuario.
+            </p>
+          </div>
+        </section>
+
+        <!-- 6. Herramientas de Exclusión Voluntaria -->
+        <section class="mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            6. Herramientas de Exclusión Voluntaria
+          </h2>
+          <p class="text-gray-300 leading-relaxed mb-4">
+            Puedes optar por no participar en el seguimiento de algunas plataformas:
+          </p>
+          <ul class="list-disc list-inside text-gray-300 space-y-2 ml-4">
+            <li>
+              <strong class="text-white">Google Analytics:</strong>
+              <a href="https://tools.google.com/dlpage/gaoptout" class="text-[#82e256] hover:underline" target="_blank" rel="noopener">
+                Complemento de inhabilitación para navegadores
+              </a>
+            </li>
+            <li>
+              <strong class="text-white">Publicidad personalizada:</strong>
+              <a href="https://www.youronlinechoices.com/" class="text-[#82e256] hover:underline" target="_blank" rel="noopener">
+                Your Online Choices
+              </a>
+            </li>
+            <li>
+              <strong class="text-white">Network Advertising Initiative:</strong>
+              <a href="https://optout.networkadvertising.org/" class="text-[#82e256] hover:underline" target="_blank" rel="noopener">
+                NAI Opt-Out
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <!-- 7. Cookies en Dispositivos Móviles -->
+        <section class="mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            7. Cookies en Dispositivos Móviles
+          </h2>
+          <p class="text-gray-300 leading-relaxed mb-4">
+            Los dispositivos móviles también permiten gestionar cookies:
+          </p>
+          <ul class="list-disc list-inside text-gray-300 space-y-2 ml-4">
+            <li><strong class="text-white">iOS (Safari):</strong> Ajustes → Safari → Privacidad y seguridad</li>
+            <li><strong class="text-white">Android (Chrome):</strong> Chrome → Configuración → Configuración del sitio → Cookies</li>
+          </ul>
+          <p class="text-gray-300 leading-relaxed mt-4">
+            Además, puedes gestionar el identificador publicitario:
+          </p>
+          <ul class="list-disc list-inside text-gray-300 space-y-2 ml-4">
+            <li><strong class="text-white">iOS:</strong> Ajustes → Privacidad → Publicidad → Restablecer identificador de publicidad</li>
+            <li><strong class="text-white">Android:</strong> Ajustes → Google → Anuncios → Restablecer ID de publicidad</li>
+          </ul>
+        </section>
+
+        <!-- 8. Actualización de la Política -->
+        <section class="mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            8. Actualización de la Política
+          </h2>
+          <p class="text-gray-300 leading-relaxed">
+            Podemos actualizar esta Política de Cookies periódicamente para reflejar cambios en las cookies que utilizamos o por razones operativas, legales o regulatorias. Revisa esta página regularmente para estar informado sobre nuestro uso de cookies.
+          </p>
+        </section>
+
+        <!-- 9. Más Información -->
+        <section class="mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            9. Más Información
+          </h2>
+          <p class="text-gray-300 leading-relaxed mb-4">
+            Para más información sobre cómo tratamos tus datos personales, consulta nuestra <a href="/politica-privacidad" class="text-[#82e256] hover:underline">Política de Privacidad</a>.
+          </p>
+          <p class="text-gray-300 leading-relaxed mb-4">
+            Si tienes preguntas sobre nuestra Política de Cookies:
+          </p>
+          <div class="bg-gray-800/50 border border-gray-700 rounded-xl p-6">
+            <p class="text-white mb-2"><strong>Aquí Creamos</strong></p>
+            <p class="text-gray-300 mb-1">
+              <strong class="text-white">Email:</strong> <a href="mailto:cookies@aquicreamos.com" class="text-[#82e256] hover:underline">cookies@aquicreamos.com</a>
+            </p>
+            <p class="text-gray-300 mb-1">
+              <strong class="text-white">Teléfono:</strong> <a href="tel:+123456789" class="text-[#82e256] hover:underline">+1 (234) 567-89</a>
+            </p>
+            <p class="text-gray-300">
+              <strong class="text-white">Dirección:</strong> [Dirección de la empresa]
+            </p>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Botón de regreso -->
+      <div class="mt-12 flex justify-center">
+        <a
+          href="/"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#82e256] to-[#6bc73d] hover:from-[#6bc73d] hover:to-[#5ba62e] text-black font-bold rounded-lg transition-all duration-300 transform hover:scale-105"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+          </svg>
+          Volver al inicio
+        </a>
+      </div>
+
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .prose {
+    color: #d1d5db;
+  }
+
+  .prose strong {
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  .prose ul {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .prose li {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .prose code {
+    background-color: rgba(130, 226, 86, 0.1);
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+  }
+</style>

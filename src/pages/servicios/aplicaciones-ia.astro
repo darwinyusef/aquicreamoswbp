@@ -17,8 +17,11 @@ import ServiceLayout from '../../layouts/ServiceLayout.astro';
   </div>
 
   <!-- Imagen hero -->
-  <div class="my-16 rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-[#00464e]/20 to-[#006064]/20 p-8">
-    <img src="/img/personaje1.png" alt="Aplicación con IA" class="w-full h-auto max-w-3xl mx-auto" />
+  <div class="my-16">
+    <div class="rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-[#00464e]/20 to-[#006064]/20 p-8 flex justify-center mb-4">
+      <img src="/img/personaje1.png" alt="Aplicación con IA" class="h-auto max-w-2xl" />
+    </div>
+    <p class="text-center text-gray-400 text-sm italic">Aplicaciones inteligentes que transforman experiencias</p>
   </div>
 
   <!-- Superpoderes que agregamos -->
@@ -74,6 +77,14 @@ import ServiceLayout from '../../layouts/ServiceLayout.astro';
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- Imagen contextual -->
+  <div class="my-16">
+    <div class="rounded-2xl overflow-hidden shadow-2xl flex justify-center mb-4">
+      <img src="/img/personaje4.png" alt="Desarrollo de aplicaciones con IA" class="h-auto max-w-2xl" />
+    </div>
+    <p class="text-center text-gray-400 text-sm italic">Innovación tecnológica al servicio de tus ideas</p>
   </div>
 
   <!-- Caso de éxito E-commerce -->
@@ -151,6 +162,14 @@ import ServiceLayout from '../../layouts/ServiceLayout.astro';
     </div>
   </div>
 
+  <!-- Imagen tecnología -->
+  <div class="my-16">
+    <div class="rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-[#d4e256]/10 to-[#00464e]/20 p-8 flex justify-center mb-4">
+      <img src="/img/personaje1pc.png" alt="Stack tecnológico" class="h-auto max-w-2xl" />
+    </div>
+    <p class="text-center text-gray-400 text-sm italic">Stack tecnológico de última generación</p>
+  </div>
+
   <!-- Stack Tecnológico -->
   <div class="mb-20">
     <h2>Stack de Vanguardia</h2>
@@ -196,100 +215,6 @@ import ServiceLayout from '../../layouts/ServiceLayout.astro';
           <p>• TypeScript everywhere</p>
           <p>• CI/CD automatizado</p>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Precios -->
-  <div class="mb-20">
-    <h2>Inversión por Fase</h2>
-
-    <div class="grid md:grid-cols-3 gap-6 mt-8">
-      <!-- MVP -->
-      <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-8 rounded-2xl border-2 border-gray-700 hover:border-[#82e256] transition-all duration-300">
-        <div class="text-center mb-6">
-          <h3 class="text-2xl font-bold text-white mb-2">MVP Funcional</h3>
-          <div class="text-4xl font-bold text-[#82e256] mb-2">$15K+</div>
-          <p class="text-gray-400">proyecto completo</p>
-        </div>
-        <div class="space-y-3 mb-6">
-          <div class="flex items-start gap-2">
-            <span class="text-[#82e256] mt-1">✓</span>
-            <span class="text-gray-300">1-2 funcionalidades IA</span>
-          </div>
-          <div class="flex items-start gap-2">
-            <span class="text-[#82e256] mt-1">✓</span>
-            <span class="text-gray-300">Integración básica</span>
-          </div>
-          <div class="flex items-start gap-2">
-            <span class="text-[#82e256] mt-1">✓</span>
-            <span class="text-gray-300">Deploy en cloud</span>
-          </div>
-          <div class="flex items-start gap-2">
-            <span class="text-[#82e256] mt-1">✓</span>
-            <span class="text-gray-300">2 meses soporte</span>
-          </div>
-        </div>
-        <p class="text-sm text-gray-400 text-center">Valida tu idea rápido</p>
-      </div>
-
-      <!-- App Completa -->
-      <div class="bg-gradient-to-br from-[#82e256]/20 to-[#006064]/20 p-8 rounded-2xl border-2 border-[#82e256] relative transform scale-105 shadow-2xl">
-        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#82e256] text-black px-4 py-1 rounded-full text-sm font-bold">
-          Recomendado
-        </div>
-        <div class="text-center mb-6">
-          <h3 class="text-2xl font-bold text-white mb-2">App Completa</h3>
-          <div class="text-4xl font-bold text-[#82e256] mb-2">$40K+</div>
-          <p class="text-gray-400">proyecto completo</p>
-        </div>
-        <div class="space-y-3 mb-6">
-          <div class="flex items-start gap-2">
-            <span class="text-[#82e256] mt-1">✓</span>
-            <span class="text-gray-300">5+ funcionalidades IA</span>
-          </div>
-          <div class="flex items-start gap-2">
-            <span class="text-[#82e256] mt-1">✓</span>
-            <span class="text-gray-300">Integraciones complejas</span>
-          </div>
-          <div class="flex items-start gap-2">
-            <span class="text-[#82e256] mt-1">✓</span>
-            <span class="text-gray-300">Optimización costos IA</span>
-          </div>
-          <div class="flex items-start gap-2">
-            <span class="text-[#82e256] mt-1">✓</span>
-            <span class="text-gray-300">6 meses soporte</span>
-          </div>
-        </div>
-        <p class="text-sm text-gray-400 text-center">Producto listo para escalar</p>
-      </div>
-
-      <!-- Enterprise -->
-      <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-8 rounded-2xl border-2 border-gray-700 hover:border-[#82e256] transition-all duration-300">
-        <div class="text-center mb-6">
-          <h3 class="text-2xl font-bold text-white mb-2">Enterprise</h3>
-          <div class="text-4xl font-bold text-[#82e256] mb-2">Custom</div>
-          <p class="text-gray-400">a medida</p>
-        </div>
-        <div class="space-y-3 mb-6">
-          <div class="flex items-start gap-2">
-            <span class="text-[#82e256] mt-1">✓</span>
-            <span class="text-gray-300">Arquitectura escalable</span>
-          </div>
-          <div class="flex items-start gap-2">
-            <span class="text-[#82e256] mt-1">✓</span>
-            <span class="text-gray-300">Fine-tuning modelos</span>
-          </div>
-          <div class="flex items-start gap-2">
-            <span class="text-[#82e256] mt-1">✓</span>
-            <span class="text-gray-300">Infraestructura dedicada</span>
-          </div>
-          <div class="flex items-start gap-2">
-            <span class="text-[#82e256] mt-1">✓</span>
-            <span class="text-gray-300">Soporte 24/7</span>
-          </div>
-        </div>
-        <p class="text-sm text-gray-400 text-center">Para empresas grandes</p>
       </div>
     </div>
   </div>

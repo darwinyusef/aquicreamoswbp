@@ -17,8 +17,11 @@ import ServiceLayout from '../../layouts/ServiceLayout.astro';
   </div>
 
   <!-- Imagen conceptual -->
-  <div class="my-16 rounded-2xl overflow-hidden shadow-2xl">
-    <img src="/img/robot.png" alt="Agente de IA trabajando" class="w-full h-auto" />
+  <div class="my-16">
+    <div class="rounded-2xl overflow-hidden shadow-2xl flex justify-center mb-4">
+      <img src="/img/robot.png" alt="Agente de IA trabajando" class="h-auto max-w-2xl" />
+    </div>
+    <p class="text-center text-gray-400 text-sm italic">Agentes de IA que trabajan incansablemente por tu negocio</p>
   </div>
 
   <!-- Qué pueden hacer - Grid visual -->
@@ -122,6 +125,14 @@ import ServiceLayout from '../../layouts/ServiceLayout.astro';
     </div>
   </div>
 
+  <!-- Imagen contextual - Equipo trabajando -->
+  <div class="my-16">
+    <div class="rounded-2xl overflow-hidden shadow-2xl flex justify-center mb-4">
+      <img src="/img/personaje2.png" alt="Equipo trabajando con IA" class="h-auto max-w-2xl" />
+    </div>
+    <p class="text-center text-gray-400 text-sm italic">Tu equipo potenciado con inteligencia artificial</p>
+  </div>
+
   <!-- Caso de éxito destacado -->
   <div class="mb-20 bg-gradient-to-br from-[#00464e]/20 to-[#006064]/20 p-10 rounded-2xl border border-[#82e256]/30">
     <div class="flex items-start gap-4 mb-6">
@@ -150,6 +161,14 @@ import ServiceLayout from '../../layouts/ServiceLayout.astro';
     <p class="text-gray-300 italic">
       "Implementamos un asistente IA que resuelve dudas 24/7, genera ejercicios personalizados y detecta cuando un estudiante necesita ayuda humana. Los tutores ahora se enfocan en casos complejos mientras la IA maneja consultas básicas perfectamente."
     </p>
+  </div>
+
+  <!-- Imagen tecnología - Espacio para imagen personalizada -->
+  <div class="my-16">
+    <div class="rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-[#00464e]/20 to-[#006064]/20 p-8 flex justify-center mb-4">
+      <img src="/img/personaje3.png" alt="Tecnología de vanguardia" class="h-auto max-w-2xl" />
+    </div>
+    <p class="text-center text-gray-400 text-sm italic">Tecnología que impulsa la transformación digital</p>
   </div>
 
   <!-- Stack tecnológico visual -->
@@ -197,100 +216,6 @@ import ServiceLayout from '../../layouts/ServiceLayout.astro';
             <p class="text-sm text-gray-400">Monitoreo completo con LangSmith</p>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Precios en tabla visual -->
-  <div class="mb-20">
-    <h2>Inversión Transparente</h2>
-
-    <div class="grid md:grid-cols-3 gap-6 mt-8">
-      <!-- Plan Starter -->
-      <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-8 rounded-2xl border-2 border-gray-700 hover:border-[#82e256] transition-all duration-300">
-        <div class="text-center mb-6">
-          <h3 class="text-2xl font-bold text-white mb-2">Starter</h3>
-          <div class="text-4xl font-bold text-[#82e256] mb-2">$2,500</div>
-          <p class="text-gray-400">por mes</p>
-        </div>
-        <div class="space-y-3 mb-6">
-          <div class="flex items-start gap-2">
-            <span class="text-[#82e256] mt-1">✓</span>
-            <span class="text-gray-300">1 agente especializado</span>
-          </div>
-          <div class="flex items-start gap-2">
-            <span class="text-[#82e256] mt-1">✓</span>
-            <span class="text-gray-300">10K interacciones/mes</span>
-          </div>
-          <div class="flex items-start gap-2">
-            <span class="text-[#82e256] mt-1">✓</span>
-            <span class="text-gray-300">2 integraciones</span>
-          </div>
-          <div class="flex items-start gap-2">
-            <span class="text-[#82e256] mt-1">✓</span>
-            <span class="text-gray-300">Soporte por email</span>
-          </div>
-        </div>
-        <p class="text-sm text-gray-400 text-center">Ideal para startups</p>
-      </div>
-
-      <!-- Plan Business -->
-      <div class="bg-gradient-to-br from-[#82e256]/20 to-[#006064]/20 p-8 rounded-2xl border-2 border-[#82e256] relative transform scale-105 shadow-2xl">
-        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#82e256] text-black px-4 py-1 rounded-full text-sm font-bold">
-          Más Popular
-        </div>
-        <div class="text-center mb-6">
-          <h3 class="text-2xl font-bold text-white mb-2">Business</h3>
-          <div class="text-4xl font-bold text-[#82e256] mb-2">$6,500</div>
-          <p class="text-gray-400">por mes</p>
-        </div>
-        <div class="space-y-3 mb-6">
-          <div class="flex items-start gap-2">
-            <span class="text-[#82e256] mt-1">✓</span>
-            <span class="text-gray-300">Hasta 3 agentes</span>
-          </div>
-          <div class="flex items-start gap-2">
-            <span class="text-[#82e256] mt-1">✓</span>
-            <span class="text-gray-300">50K interacciones/mes</span>
-          </div>
-          <div class="flex items-start gap-2">
-            <span class="text-[#82e256] mt-1">✓</span>
-            <span class="text-gray-300">Integraciones ilimitadas</span>
-          </div>
-          <div class="flex items-start gap-2">
-            <span class="text-[#82e256] mt-1">✓</span>
-            <span class="text-gray-300">Soporte prioritario</span>
-          </div>
-        </div>
-        <p class="text-sm text-gray-400 text-center">Ideal para PYMEs</p>
-      </div>
-
-      <!-- Plan Enterprise -->
-      <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-8 rounded-2xl border-2 border-gray-700 hover:border-[#82e256] transition-all duration-300">
-        <div class="text-center mb-6">
-          <h3 class="text-2xl font-bold text-white mb-2">Enterprise</h3>
-          <div class="text-4xl font-bold text-[#82e256] mb-2">Custom</div>
-          <p class="text-gray-400">a medida</p>
-        </div>
-        <div class="space-y-3 mb-6">
-          <div class="flex items-start gap-2">
-            <span class="text-[#82e256] mt-1">✓</span>
-            <span class="text-gray-300">Agentes ilimitados</span>
-          </div>
-          <div class="flex items-start gap-2">
-            <span class="text-[#82e256] mt-1">✓</span>
-            <span class="text-gray-300">Volumen personalizado</span>
-          </div>
-          <div class="flex items-start gap-2">
-            <span class="text-[#82e256] mt-1">✓</span>
-            <span class="text-gray-300">Infraestructura dedicada</span>
-          </div>
-          <div class="flex items-start gap-2">
-            <span class="text-[#82e256] mt-1">✓</span>
-            <span class="text-gray-300">Account Manager</span>
-          </div>
-        </div>
-        <p class="text-sm text-gray-400 text-center">Ideal para empresas</p>
       </div>
     </div>
   </div>
