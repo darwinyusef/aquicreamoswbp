@@ -8,9 +8,9 @@
   class="w-full md:px-16 px-5 py-4 min-h-screen flex flex-col items-center justify-center bg-[#1a1a1a]"
 >
   <div
-    class="flex flex-col items-center px-5 py-4 h-full text-center md:grid md:grid-cols-2 md:gap-10"
+    class="flex flex-col items-center px-5 py-16 h-full text-center md:grid md:grid-cols-2 md:gap-10"
   >
-    <div>
+    <div class="py-8">
       <div class="sticky-title">
         <h1
           class="text-4xl bg-gradient-to-br from-[#00464e] to-[#d4e256] bg-clip-text text-transparent md:text-5xl md:text-left font-bold mb-5"
@@ -113,25 +113,9 @@
         class="flex flex-col items-start w-full p-8 gap-6 bg-gradient-to-br from-[#1a1a1a] via-[#232323] to-[#1a1a1a] rounded-2xl"
       >
         <!-- Header del formulario -->
-        <div class="w-full text-center pb-4 border-b border-white/10">
-          <div
-            class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-2xl mb-4 shadow-lg"
-          >
-            <svg
-              class="w-8 h-8 text-black"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-              ></path>
-            </svg>
-          </div>
-          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight text-white">
+        <div class="w-full text-center pb-4 border-b border-white/10 py-6">
+      
+          <h1 class="text-4xl font-black mb-6 leading-tight text-white">
             Agendar Sesión de Asesoría
           </h1>
           <p class="text-white/70 text-sm">
@@ -864,23 +848,14 @@
 <section class="w-full py-20 bg-gradient-to-b from-[#1a1a1a] to-[#0f0f0f]">
   <div class="max-w-7xl mx-auto px-5 md:px-16">
     <!-- Header de servicios -->
-    <div class="text-center mb-16">
-      <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-2xl mb-6 shadow-xl">
-        <svg class="w-10 h-10 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-        </svg>
-      </div>
+    <div class="text-center mb-16 pt-5">
+     
       <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight bg-gradient-to-r from-white via-white to-[#82e256] bg-clip-text text-transparent">
         Servicios que Ofrecemos
       </h2>
       <p class="text-white/70 text-lg max-w-2xl mx-auto mb-8">
         Soluciones especializadas diseñadas para llevar tu proyecto al siguiente nivel
       </p>
-
-      <!-- Imagen contextual -->
-      <div class="flex justify-center mb-12">
-        <img src="/img/personaje4.png" alt="Servicios especializados" class="h-auto max-w-2xl rounded-2xl" />
-      </div>
     </div>
    <!-- Courses List - Modern Design -->
     <div class="max-w-6xl mx-auto mb-16">
@@ -995,13 +970,13 @@
 <style>
   /* Texto con stroke (contorno) para efecto moderno */
   .outline-text {
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.8);
     color: transparent;
     transition: all 0.4s ease;
   }
 
   .list-item:hover .outline-text {
-    -webkit-text-stroke: 1px rgba(130, 226, 86, 1);
+    -webkit-text-stroke: 1px rgb(210, 3, 34);
     color: white;
   }
 </style>
@@ -1040,7 +1015,7 @@
 
         item.addEventListener('mouseleave', () => {
           tooltip.style.opacity = '0';
-          tooltip.style.transform = 'scale(0.8)';
+          tooltip.style.transform = 'scale(1.4)';
         });
       });
     }
