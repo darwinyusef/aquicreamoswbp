@@ -1,615 +1,737 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+// Todos los servicios disponibles
+const todosLosServicios = [
+  { slug: 'agentes-ia', title: 'Agentes Cognitivos', icon: '🤖' },
+  { slug: 'aplicaciones-ia', title: 'Aplicaciones con IA', icon: '🧠' },
+  { slug: 'desarrollo-web', title: 'Desarrollo Web', icon: '🌐' },
+  { slug: 'apps-moviles', title: 'Apps Móviles', icon: '📱' },
+  { slug: 'computer-vision', title: 'Computer Vision', icon: '👁️' },
+  { slug: 'desarrollo-fullstack', title: 'Desarrollo Full-Stack', icon: '💻' },
+  { slug: 'ia-machine-learning', title: 'IA & Machine Learning', icon: '🤖' },
+  { slug: 'devops-infraestructura', title: 'DevOps & Cloud', icon: '⚙️' }
+];
+
+// Secciones del menú interno
+const secciones = [
+  { id: 'intro', title: 'Introducción' },
+  { id: 'togaf-scrum', title: 'TOGAF 2026 + Scrum' },
+  { id: 'patrones', title: 'Patrones de Arquitectura' },
+  { id: 'servicios', title: 'Servicios' },
+  { id: 'casos-exito', title: 'Casos de Éxito' },
+  { id: 'stack', title: 'Stack Tecnológico' }
+];
 ---
 
 <Layout>
+  <Header currentPage="servicios" />
+
   <div class="min-h-screen bg-[#1a1a1a]">
-    <!-- Header -->
-    <header
-      class="bg-[#00464e] flex flex-row justify-between items-center p-3 w-full fixed top-0 left-0 z-50 shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
-    >
-      <a href="/">
-        <img src="/img/logoAquicreamos.png" class="h-7" alt="Logo Aquí Creamos" />
-      </a>
-      <nav class="hidden md:block">
-        <ul class="flex flex-row gap-6 items-center justify-center">
-          <li><a href="/#home" class="text-white hover:text-[#82e256] transition-colors">Inicio</a></li>
-          <li><a href="/servicios" class="text-[#82e256] font-semibold">Servicios</a></li>
-          <li><a href="/blog" class="text-white hover:text-[#82e256] transition-colors">Blog</a></li>
-          <li><a href="/#contenido10" class="text-white hover:text-[#82e256] transition-colors">Contacto</a></li>
-        </ul>
-      </nav>
-    </header>
-
     <!-- Hero Section -->
-    <section class="relative pt-20 pb-16 md:py-24 bg-gradient-to-br from-[#00464e] to-[#006417] overflow-hidden">
-      <div class="absolute inset-0 opacity-10">
-        <div class="absolute top-10 left-10 w-72 h-72 bg-white rounded-full blur-3xl"></div>
-        <div class="absolute bottom-10 right-10 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-      </div>
+    <section class="relative flex items-center justify-center bg-hero-pattern bg-repeat w-full min-h-screen bg-[url(/img/fondo.png)] bg-no-repeat bg-cover bg-center">
+      <div class="absolute inset-0 bg-gradient-to-b from-black/50 to-[#1a1a1a] z-10"></div>
 
-      <div class="container mx-auto px-4 md:px-16 relative z-10">
-        <div class="max-w-5xl mx-auto">
-          <div class="flex justify-center mb-8">
-            <div class="text-8xl md:text-9xl animate-bounce-slow bg-white/10 backdrop-blur-sm rounded-3xl p-6 shadow-2xl">
-              🏗️
+      <div class="container mx-auto px-4 py-20 md:py-24 relative z-20">
+        <div class="max-w-7xl mx-auto">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div class="text-center lg:text-left">
+              <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
+                <span class="text-white drop-shadow-lg">ARQUITECTURA TOGAF 2026</span>
+                <br />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#82e256] to-[#04ADC0] drop-shadow-lg">
+                  + SCRUM
+                </span>
+              </h1>
+              <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 font-light max-w-2xl mt-4 md:mt-6 lg:mt-8 mx-auto lg:mx-0 text-center lg:text-left drop-shadow-md">
+                <span class="text-2xl">ARQUITECTURA EMPRESARIAL</span> de última generación combinando frameworks probados con metodologías ágiles.
+              </p>
+            </div>
+
+            <div class="relative w-full h-[400px] sm:h-[500px] lg:h-[600px] hidden lg:block">
+              <img
+                src="/img/personaje1.png"
+                class="absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-100"
+                alt="Arquitectura TOGAF"
+              />
             </div>
           </div>
-
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-center leading-tight">
-            Arquitectura TOGAF 2026 + Scrum
-          </h1>
-
-          <p class="text-xl md:text-2xl text-white/95 text-center max-w-3xl mx-auto leading-relaxed">
-            Arquitectura empresarial de última generación con metodologías ágiles integradas
-          </p>
         </div>
-      </div>
-
-      <div class="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full">
-          <path d="M0 0L60 10C120 20 240 40 360 46.7C480 53 600 47 720 43.3C840 40 960 40 1080 46.7C1200 53 1320 67 1380 73.3L1440 80V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V0Z" fill="#1a1a1a"/>
-        </svg>
       </div>
     </section>
 
-    <!-- Content Section con Sidebar -->
+    <!-- Content con Sidebar -->
     <section class="py-16 md:py-24 bg-[#1a1a1a]">
       <div class="container mx-auto px-4 md:px-16">
         <div class="max-w-7xl mx-auto">
-          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <!-- Contenido Principal -->
-            <div class="lg:col-span-2 space-y-8">
-    <h2>TOGAF 2026: Arquitectura Empresarial Ágil</h2>
+          <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
 
-    <p>Combinamos el <strong>framework TOGAF 2026</strong> (The Open Group Architecture Framework) con <strong>Scrum</strong> para crear arquitecturas empresariales que evolucionan con tu negocio.</p>
-
-    <p>No hay nada más costoso que <strong>rediseñar toda tu plataforma</strong> porque la arquitectura inicial no aguantó el crecimiento ni los cambios del mercado.</p>
-
-    <p>Nuestra metodología híbrida te permite:</p>
-    <ul>
-      <li><strong>Iteraciones cortas</strong> con Scrum (sprints de 2 semanas) dentro del ADM de TOGAF</li>
-      <li><strong>Roadmaps adaptativos</strong> que se ajustan a cambios del negocio cada trimestre</li>
-      <li><strong>Arquitectura modular</strong> que escala de 100 a 1 millón de usuarios sin rediseño</li>
-      <li><strong>Documentación viva</strong> que se actualiza continuamente, no documentos obsoletos</li>
-      <li><strong>Governance ágil</strong> con revisiones arquitectónicas en cada sprint</li>
-    </ul>
-
-    <hr />
-
-    <h2>Framework TOGAF 2026 + Scrum Integrado</h2>
-
-    <h3><strong>Architecture Development Method (ADM) con Sprints</strong></h3>
-
-    <p><strong>¿Cómo lo hacemos?</strong></p>
-    <p>Ejecutamos cada fase del ADM de TOGAF en <strong>sprints iterativos</strong>:</p>
-
-    <ul>
-      <li><strong>Sprint 1-2:</strong> Visión de Arquitectura (fase A) - Objetivos, stakeholders y alcance inicial</li>
-      <li><strong>Sprint 3-4:</strong> Arquitectura de Negocio (fase B) - Procesos, capacidades y modelo operativo</li>
-      <li><strong>Sprint 5-6:</strong> Arquitectura de Sistemas (fase C) - Aplicaciones, datos e integraciones</li>
-      <li><strong>Sprint 7-8:</strong> Arquitectura Tecnológica (fase D) - Infraestructura, cloud y seguridad</li>
-      <li><strong>Sprint 9+:</strong> Implementación iterativa con retrospectivas continuas</li>
-    </ul>
-
-    <p><strong>Beneficios de la combinación:</strong></p>
-    <ul>
-      <li>Feedback rápido del negocio cada 2 semanas</li>
-      <li>Pivoteo ágil cuando cambian prioridades</li>
-      <li>ROI visible desde el primer trimestre</li>
-      <li>Equipos empoderados con autonomía en sprints</li>
-    </ul>
-
-    <hr />
-
-    <h2>Patrones de arquitectura empresarial</h2>
-
-    <h3><strong>Arquitectura Hexagonal (Ports & Adapters)</strong></h3>
-
-    <p><strong>¿Para qué sirve?</strong></p>
-    <p>Tu lógica de negocio <strong>no depende de frameworks ni databases</strong>. Puedes cambiar de Express a Fastify, de MySQL a PostgreSQL, sin tocar el core.</p>
-
-    <p><strong>Ideal para:</strong></p>
-    <ul>
-      <li>Startups que pivotean frecuentemente</li>
-      <li>Productos con múltiples integraciones</li>
-      <li>Equipos que quieren testear fácil</li>
-    </ul>
-
-    <p><strong>Ejemplo:</strong></p>
-    <p>[API REST] ← [Casos de Uso] → [PostgreSQL]</p>
-    <p>↓ ↓</p>
-    <p>[gRPC] [MongoDB]</p>
-
-    <hr />
-
-    <h3><strong>Clean Architecture / Onion Architecture</strong></h3>
-
-    <p><strong>¿Para qué sirve?</strong></p>
-    <p>Código organizado en capas con <strong>dependencias en una sola dirección</strong>. El core del negocio está en el centro, protegido de cambios externos.</p>
-
-    <p><strong>Ideal para:</strong></p>
-    <ul>
-      <li>Proyectos enterprise complejos</li>
-      <li>Equipos grandes (10+ devs)</li>
-      <li>Sistemas que vivirán 5+ años</li>
-    </ul>
-
-    <p><strong>Capas:</strong></p>
-    <ul>
-      <li><strong>Entities:</strong> Reglas de negocio</li>
-      <li><strong>Use Cases:</strong> Lógica de aplicación</li>
-      <li><strong>Interface Adapters:</strong> Controllers, presenters</li>
-      <li><strong>Frameworks & Drivers:</strong> UI, DB, APIs externas</li>
-    </ul>
-
-    <hr />
-
-    <h3><strong>Microservicios</strong></h3>
-
-    <p><strong>¿Para qué sirve?</strong></p>
-    <p>Divide tu aplicación en servicios pequeños e independientes. Cada uno puede:</p>
-    <ul>
-      <li>Deployarse por separado</li>
-      <li>Escalar solo lo que necesita</li>
-      <li>Usar tecnologías diferentes</li>
-    </ul>
-
-    <p><strong>Ideal para:</strong></p>
-    <ul>
-      <li>Plataformas con múltiples funcionalidades</li>
-      <li>Equipos distribuidos</li>
-      <li>SaaS que cobra por módulos</li>
-    </ul>
-
-    <p><strong>Ejemplo:</strong></p>
-    <ul>
-      <li>Servicio de Auth (Node.js)</li>
-      <li>Servicio de Pagos (Python)</li>
-      <li>Servicio de Notificaciones (Go)</li>
-      <li>Servicio de Analytics (Rust)</li>
-    </ul>
-
-    <hr />
-
-    <h3><strong>Event-Driven Architecture</strong></h3>
-
-    <p><strong>¿Para qué sirve?</strong></p>
-    <p>Los servicios se comunican mediante <strong>eventos asíncronos</strong>. Si un servicio cae, los eventos se encolan y procesan después.</p>
-
-    <p><strong>Ideal para:</strong></p>
-    <ul>
-      <li>Sistemas con alto volumen de transacciones</li>
-      <li>Workflows complejos (e-commerce, fintech)</li>
-      <li>Apps que necesitan audit logs</li>
-    </ul>
-
-    <p><strong>Tecnologías:</strong></p>
-    <ul>
-      <li>RabbitMQ, Kafka, AWS SQS</li>
-      <li>Event Sourcing + CQRS</li>
-    </ul>
-
-    <hr />
-
-    <h3><strong>CQRS (Command Query Responsibility Segregation)</strong></h3>
-
-    <p><strong>¿Para qué sirve?</strong></p>
-    <p>Separa las operaciones de <strong>escritura</strong> (commands) de las de <strong>lectura</strong> (queries). Cada una puede optimizarse independientemente.</p>
-
-    <p><strong>Ideal para:</strong></p>
-    <ul>
-      <li>Apps con millones de lecturas, pocas escrituras</li>
-      <li>Dashboards con analíticas complejas</li>
-      <li>E-commerce de alto tráfico</li>
-    </ul>
-
-    <p><strong>Ejemplo:</strong></p>
-    <ul>
-      <li><strong>Write:</strong> PostgreSQL relacional</li>
-      <li><strong>Read:</strong> Elasticsearch para búsquedas rápidas</li>
-    </ul>
-
-    <hr />
-
-    <h2>Servicios que ofrecemos</h2>
-
-    <h3>🔍 <strong>Auditoría de Arquitectura Actual</strong></h3>
-
-    <p>Te decimos <strong>qué está mal</strong> y <strong>cómo arreglarlo</strong>:</p>
-    <ul>
-      <li>Code smells y deuda técnica</li>
-      <li>Cuellos de botella de performance</li>
-      <li>Problemas de escalabilidad</li>
-      <li>Riesgos de seguridad</li>
-    </ul>
-
-    <p><strong>Entregable:</strong> Reporte completo con plan de acción priorizado</p>
-
-    <p><strong>Tiempo:</strong> 1-2 semanas</p>
-
-    <hr />
-
-    <h3>🏗️ <strong>Diseño de Arquitectura desde Cero</strong></h3>
-
-    <p>Diseñamos la arquitectura completa antes de escribir código:</p>
-    <ul>
-      <li>Diagramas C4 (Context, Containers, Components, Code)</li>
-      <li>Selección de tecnologías</li>
-      <li>Estimación de infraestructura</li>
-      <li>Plan de escalamiento</li>
-    </ul>
-
-    <p><strong>Entregable:</strong> Documentación técnica completa + arquitectura visual</p>
-
-    <p><strong>Tiempo:</strong> 3-6 semanas</p>
-
-    <hr />
-
-    <h3>🔄 <strong>Migración/Refactoring</strong></h3>
-
-    <p>Tu sistema actual funciona pero <strong>no escala</strong>. Lo migramos sin downtime:</p>
-    <ul>
-      <li>Monolito → Microservicios</li>
-      <li>Arquitectura spaghetti → Clean Architecture</li>
-      <li>Base de datos legacy → Solución moderna</li>
-    </ul>
-
-    <p><strong>Estrategia:</strong> Strangler Fig Pattern (migración progresiva)</p>
-
-    <p><strong>Tiempo:</strong> 2-6 meses</p>
-
-    <hr />
-
-    <h3>📊 <strong>Observabilidad y Monitoreo</strong></h3>
-
-    <p>No puedes arreglar lo que no puedes medir:</p>
-    <ul>
-      <li>Logging centralizado (ELK, Loki)</li>
-      <li>Métricas (Prometheus, Grafana)</li>
-      <li>Tracing distribuido (Jaeger, Zipkin)</li>
-      <li>Alertas inteligentes (PagerDuty)</li>
-    </ul>
-
-    <p><strong>Tiempo:</strong> 2-4 semanas</p>
-
-    <hr />
-
-    <h3>🚀 <strong>CI/CD y DevOps</strong></h3>
-
-    <p>Deploy rápido y seguro:</p>
-    <ul>
-      <li>Pipelines automatizados (GitHub Actions, GitLab CI)</li>
-      <li>Infrastructure as Code (Terraform, Pulumi)</li>
-      <li>Blue-Green deployments</li>
-      <li>Rollback automático si algo falla</li>
-    </ul>
-
-    <p><strong>Tiempo:</strong> 3-6 semanas</p>
-
-    <hr class="my-8" />
-
-    <!-- Imagen contextual -->
-    <div class="my-16">
-      <div class="rounded-2xl overflow-hidden shadow-2xl flex justify-center mb-4">
-        <img src="/img/personaje1.png" alt="Arquitectura empresarial" class="h-auto max-w-2xl" />
-      </div>
-      <p class="text-center text-gray-400 text-sm italic">Arquitecturas que escalan con tu negocio</p>
-    </div>
-
-    <h2>Casos de éxito</h2>
-
-    <h3>📈 <strong>Migración de Monolito a Microservicios</strong></h3>
-
-    <p><strong>Cliente:</strong> Fintech con 500K usuarios</p>
-
-    <p><strong>Problema:</strong></p>
-    <ul>
-      <li>Deploys tomaban 2 horas</li>
-      <li>Bug en un módulo tiraba todo abajo</li>
-      <li>Imposible escalar solo lo necesario</li>
-    </ul>
-
-    <p><strong>Solución:</strong></p>
-    <ul>
-      <li>Extrajimos 6 microservicios críticos</li>
-      <li>Implementamos API Gateway</li>
-      <li>Tracing distribuido con Jaeger</li>
-      <li>Kubernetes para orquestación</li>
-    </ul>
-
-    <p><strong>Resultado:</strong></p>
-    <ul>
-      <li>Deploys en 15 minutos</li>
-      <li>Uptime de 99.95% a 99.99%</li>
-      <li>Costos de infra reducidos 40%</li>
-    </ul>
-
-    <hr />
-
-    <h3>🏥 <strong>Arquitectura para Healthcare</strong></h3>
-
-    <p><strong>Cliente:</strong> Startup de telemedicina</p>
-
-    <p><strong>Requerimientos:</strong></p>
-    <ul>
-      <li>HIPAA compliant</li>
-      <li>Encriptación end-to-end</li>
-      <li>Audit logs inmutables</li>
-      <li>Alta disponibilidad (vidas en riesgo)</li>
-    </ul>
-
-    <p><strong>Solución:</strong></p>
-    <ul>
-      <li>Event Sourcing para audit trail</li>
-      <li>CQRS para queries rápidas</li>
-      <li>Multi-region deployment</li>
-      <li>Disaster recovery automático</li>
-    </ul>
-
-    <p><strong>Resultado:</strong> Certificación HIPAA lograda, 0 incidentes en 2 años</p>
-
-    <hr />
-
-    <!-- Imagen tecnología -->
-    <div class="my-16">
-      <div class="rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-[#04ADC0]/10 to-[#00464e]/20 p-8 flex justify-center mb-4">
-        <img src="/img/personaje2.png" alt="Stack tecnológico" class="h-auto max-w-2xl" />
-      </div>
-      <p class="text-center text-gray-400 text-sm italic">Fundamentos sólidos para soluciones empresariales</p>
-    </div>
-
-    <h2>Stack de tecnologías</h2>
-
-    <p><strong>Backend:</strong></p>
-    <ul>
-      <li>Node.js / TypeScript</li>
-      <li>Python / FastAPI</li>
-      <li>Go (para servicios de alto performance)</li>
-      <li>Rust (para servicios críticos)</li>
-    </ul>
-
-    <p><strong>Bases de datos:</strong></p>
-    <ul>
-      <li>PostgreSQL (relacional)</li>
-      <li>MongoDB (documentos)</li>
-      <li>Redis (caché y sesiones)</li>
-      <li>Elasticsearch (búsqueda)</li>
-    </ul>
-
-    <p><strong>Mensajería:</strong></p>
-    <ul>
-      <li>RabbitMQ (tareas asíncronas)</li>
-      <li>Apache Kafka (streaming)</li>
-      <li>AWS SQS/SNS (managed queues)</li>
-    </ul>
-
-    <p><strong>Infraestructura:</strong></p>
-    <ul>
-      <li>Docker + Kubernetes</li>
-      <li>AWS / GCP / Azure</li>
-      <li>Terraform (IaC)</li>
-      <li>Nginx / Traefik (reverse proxy)</li>
-    </ul>
-
-    <p><strong>Observabilidad:</strong></p>
-    <ul>
-      <li>Prometheus + Grafana (métricas)</li>
-      <li>ELK Stack (logs)</li>
-      <li>Jaeger (tracing)</li>
-      <li>Sentry (error tracking)</li>
-    </ul>
-
-            </div>
-
-            <!-- Sidebar -->
+            <!-- Sidebar Menu -->
             <div class="lg:col-span-1">
-              <div class="sticky top-24 space-y-6">
-                <!-- Info Card -->
-                <div class="bg-gradient-to-br from-[#00464e] to-[#006417] rounded-xl p-6 shadow-2xl">
-                  <h3 class="text-2xl font-bold text-white mb-4">
-                    Potencia tu proyecto con nuestra experiencia
+              <div class="sticky top-24 space-y-4">
+                <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 border border-gray-700">
+                  <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    Contenido
                   </h3>
-                  <p class="text-white/90 mb-6 text-sm leading-relaxed">
-                    Potencia tu proyecto con nuestra experiencia en diseño de sistemas escalables, mantenibles y de alto rendimiento. Nuestro equipo de arquitectos te guiará hacia las mejores prácticas y tecnologías.
-                  </p>
-
-                  <h4 class="text-lg font-bold text-white mb-4">
-                    ¿Por qué elegir nuestra arquitectura?
-                  </h4>
-
-                  <ul class="space-y-3 mb-6">
-                    <li class="flex items-start gap-2 text-white/90 text-sm">
-                      <span class="text-[#82e256] text-xl flex-shrink-0">✓</span>
-                      <span>Equipo con experiencia en proyectos de alta complejidad</span>
-                    </li>
-                    <li class="flex items-start gap-2 text-white/90 text-sm">
-                      <span class="text-[#82e256] text-xl flex-shrink-0">✓</span>
-                      <span>Enfoque personalizado según tus necesidades específicas</span>
-                    </li>
-                    <li class="flex items-start gap-2 text-white/90 text-sm">
-                      <span class="text-[#82e256] text-xl flex-shrink-0">✓</span>
-                      <span>Solución práctica y aplicable inmediatamente</span>
-                    </li>
-                    <li class="flex items-start gap-2 text-white/90 text-sm">
-                      <span class="text-[#82e256] text-xl flex-shrink-0">✓</span>
-                      <span>Seguimiento post-asesoría para resolver dudas</span>
-                    </li>
-                  </ul>
+                  <nav class="space-y-2">
+                    {secciones.map((seccion) => (
+                      <a
+                        href={`#${seccion.id}`}
+                        class="block px-4 py-2 text-gray-400 hover:text-[#82e256] hover:bg-white/5 rounded-lg transition-all text-sm"
+                      >
+                        {seccion.title}
+                      </a>
+                    ))}
+                  </nav>
                 </div>
 
-                <!-- Form Card -->
-                <div class="bg-gray-800/50 rounded-xl p-6 shadow-xl border border-gray-700">
-                  <h3 class="text-xl font-bold text-white mb-4">
-                    Solicita tu consultoría
+                <!-- CTA Card -->
+                <div class="bg-gradient-to-br from-[#04ADC0] to-[#00464e] rounded-xl p-6 shadow-2xl">
+                  <h3 class="text-xl font-bold text-white mb-3">
+                    ¿Necesitas arquitectura?
                   </h3>
-
-                  <form class="space-y-4" action="#" method="POST">
-                    <div>
-                      <label for="nombre" class="block text-sm font-medium text-gray-300 mb-2">
-                        Nombre completo *
-                      </label>
-                      <input
-                        type="text"
-                        id="nombre"
-                        name="nombre"
-                        required
-                        class="w-full px-4 py-2 bg-gray-900 border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#82e256] focus:border-transparent"
-                        placeholder="Tu nombre"
-                      />
-                    </div>
-
-                    <div>
-                      <label for="telefono" class="block text-sm font-medium text-gray-300 mb-2">
-                        Teléfono *
-                      </label>
-                      <input
-                        type="tel"
-                        id="telefono"
-                        name="telefono"
-                        required
-                        class="w-full px-4 py-2 bg-gray-900 border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#82e256] focus:border-transparent"
-                        placeholder="+52 123 456 7890"
-                      />
-                    </div>
-
-                    <div>
-                      <label for="correo" class="block text-sm font-medium text-gray-300 mb-2">
-                        Correo electrónico *
-                      </label>
-                      <input
-                        type="email"
-                        id="correo"
-                        name="correo"
-                        required
-                        class="w-full px-4 py-2 bg-gray-900 border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#82e256] focus:border-transparent"
-                        placeholder="tu@email.com"
-                      />
-                    </div>
-
-                    <div>
-                      <label for="mensaje" class="block text-sm font-medium text-gray-300 mb-2">
-                        Cuéntanos sobre que necesitas 
-                      </label>
-                      <textarea
-                        id="mensaje"
-                        name="mensaje"
-                        rows="4"
-                        class="w-full px-4 py-2 bg-gray-900 border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#82e256] focus:border-transparent resize-none"
-                        placeholder="Describe brevemente tu proyecto..."
-                      ></textarea>
-                    </div>
-
-                    <button
-                      type="submit"
-                      class="w-full px-6 py-3 bg-[#82e256] text-black font-bold rounded-lg hover:bg-[#6bc73d] transition-all duration-300 transform hover:scale-105 shadow-lg"
-                    >
-                      Enviar solicitud
-                    </button>
-
-                    <p class="text-xs text-gray-400 text-center">
-                      Te responderemos en menos de 24 horas
-                    </p>
-                  </form>
+                  <p class="text-white/90 mb-4 text-sm">
+                    Agenda una sesión gratuita de 30 minutos
+                  </p>
+                  <a
+                    href="/#contenido10"
+                    class="block w-full text-center px-6 py-3 bg-[#82e256] text-black font-bold rounded-lg hover:bg-[#6bc73d] transition-all duration-300 transform hover:scale-105"
+                  >
+                    Agendar Ahora
+                  </a>
                 </div>
               </div>
             </div>
+
+            <!-- Main Content -->
+            <div class="lg:col-span-3 space-y-12">
+
+              <!-- Intro -->
+              <div id="intro">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">TOGAF 2026: Arquitectura Empresarial Ágil</h2>
+
+                <p class="text-gray-300 text-lg mb-4">
+                  Combinamos el <strong class="text-[#82e256]">framework TOGAF 2026</strong> (The Open Group Architecture Framework) con <strong class="text-[#82e256]">Scrum</strong> para crear arquitecturas empresariales que evolucionan con tu negocio.
+                </p>
+
+                <p class="text-gray-300 text-lg mb-4">
+                  No hay nada más costoso que <strong class="text-[#82e256]">rediseñar toda tu plataforma</strong> porque la arquitectura inicial no aguantó el crecimiento ni los cambios del mercado.
+                </p>
+
+                <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 mt-6">
+                  <h3 class="text-xl font-bold text-white mb-4">Nuestra metodología híbrida te permite:</h3>
+                  <ul class="space-y-3">
+                    <li class="flex items-start gap-3 text-gray-300">
+                      <span class="text-[#82e256] text-xl flex-shrink-0">✓</span>
+                      <span><strong class="text-white">Iteraciones cortas</strong> con Scrum (sprints de 2 semanas) dentro del ADM de TOGAF</span>
+                    </li>
+                    <li class="flex items-start gap-3 text-gray-300">
+                      <span class="text-[#82e256] text-xl flex-shrink-0">✓</span>
+                      <span><strong class="text-white">Roadmaps adaptativos</strong> que se ajustan a cambios del negocio cada trimestre</span>
+                    </li>
+                    <li class="flex items-start gap-3 text-gray-300">
+                      <span class="text-[#82e256] text-xl flex-shrink-0">✓</span>
+                      <span><strong class="text-white">Arquitectura modular</strong> que escala de 100 a 1 millón de usuarios sin rediseño</span>
+                    </li>
+                    <li class="flex items-start gap-3 text-gray-300">
+                      <span class="text-[#82e256] text-xl flex-shrink-0">✓</span>
+                      <span><strong class="text-white">Documentación viva</strong> que se actualiza continuamente, no documentos obsoletos</span>
+                    </li>
+                    <li class="flex items-start gap-3 text-gray-300">
+                      <span class="text-[#82e256] text-xl flex-shrink-0">✓</span>
+                      <span><strong class="text-white">Governance ágil</strong> con revisiones arquitectónicas en cada sprint</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <hr class="border-gray-800" />
+
+              <!-- TOGAF + Scrum -->
+              <div id="togaf-scrum">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">Framework TOGAF 2026 + Scrum Integrado</h2>
+
+                <h3 class="text-2xl font-bold text-white mb-4">Architecture Development Method (ADM) con Sprints</h3>
+
+                <p class="text-gray-300 text-lg mb-4">
+                  <strong class="text-white">¿Cómo lo hacemos?</strong><br/>
+                  Ejecutamos cada fase del ADM de TOGAF en <strong class="text-[#82e256]">sprints iterativos</strong>:
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-4 mb-6">
+                  <div class="bg-gradient-to-br from-blue-900/20 to-blue-800/20 p-6 rounded-xl border border-blue-500/30">
+                    <div class="flex items-center gap-3 mb-3">
+                      <div class="w-12 h-12 bg-[#82e256] rounded-full flex items-center justify-center text-black font-bold text-lg">1-2</div>
+                      <div>
+                        <h4 class="text-white font-bold">Visión de Arquitectura</h4>
+                        <p class="text-gray-400 text-sm">Fase A</p>
+                      </div>
+                    </div>
+                    <p class="text-gray-300 text-sm">Objetivos, stakeholders y alcance inicial</p>
+                  </div>
+
+                  <div class="bg-gradient-to-br from-green-900/20 to-green-800/20 p-6 rounded-xl border border-green-500/30">
+                    <div class="flex items-center gap-3 mb-3">
+                      <div class="w-12 h-12 bg-[#82e256] rounded-full flex items-center justify-center text-black font-bold text-lg">3-4</div>
+                      <div>
+                        <h4 class="text-white font-bold">Arquitectura de Negocio</h4>
+                        <p class="text-gray-400 text-sm">Fase B</p>
+                      </div>
+                    </div>
+                    <p class="text-gray-300 text-sm">Procesos, capacidades y modelo operativo</p>
+                  </div>
+
+                  <div class="bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-6 rounded-xl border border-purple-500/30">
+                    <div class="flex items-center gap-3 mb-3">
+                      <div class="w-12 h-12 bg-[#82e256] rounded-full flex items-center justify-center text-black font-bold text-lg">5-6</div>
+                      <div>
+                        <h4 class="text-white font-bold">Arquitectura de Sistemas</h4>
+                        <p class="text-gray-400 text-sm">Fase C</p>
+                      </div>
+                    </div>
+                    <p class="text-gray-300 text-sm">Aplicaciones, datos e integraciones</p>
+                  </div>
+
+                  <div class="bg-gradient-to-br from-orange-900/20 to-orange-800/20 p-6 rounded-xl border border-orange-500/30">
+                    <div class="flex items-center gap-3 mb-3">
+                      <div class="w-12 h-12 bg-[#82e256] rounded-full flex items-center justify-center text-black font-bold text-lg">7-8</div>
+                      <div>
+                        <h4 class="text-white font-bold">Arquitectura Tecnológica</h4>
+                        <p class="text-gray-400 text-sm">Fase D</p>
+                      </div>
+                    </div>
+                    <p class="text-gray-300 text-sm">Infraestructura, cloud y seguridad</p>
+                  </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-cyan-900/20 to-cyan-800/20 p-6 rounded-xl border border-cyan-500/30">
+                  <h4 class="text-white font-bold mb-3">Beneficios de la combinación:</h4>
+                  <ul class="grid md:grid-cols-2 gap-3">
+                    <li class="flex items-start gap-2 text-gray-300 text-sm">
+                      <span class="text-[#82e256]">→</span>
+                      <span>Feedback rápido del negocio cada 2 semanas</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-gray-300 text-sm">
+                      <span class="text-[#82e256]">→</span>
+                      <span>Pivoteo ágil cuando cambian prioridades</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-gray-300 text-sm">
+                      <span class="text-[#82e256]">→</span>
+                      <span>ROI visible desde el primer trimestre</span>
+                    </li>
+                    <li class="flex items-start gap-2 text-gray-300 text-sm">
+                      <span class="text-[#82e256]">→</span>
+                      <span>Equipos empoderados con autonomía en sprints</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <hr class="border-gray-800" />
+
+              <!-- Patrones -->
+              <div id="patrones">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">Patrones de Arquitectura Empresarial</h2>
+
+                <div class="space-y-8">
+                  <!-- Hexagonal -->
+                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700">
+                    <h3 class="text-2xl font-bold text-white mb-3">🔷 Arquitectura Hexagonal (Ports & Adapters)</h3>
+                    <p class="text-gray-300 mb-4">
+                      Tu lógica de negocio <strong class="text-white">no depende de frameworks ni databases</strong>. Puedes cambiar de Express a Fastify, de MySQL a PostgreSQL, sin tocar el core.
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <h4 class="text-white font-semibold mb-2 text-sm">✅ Ideal para:</h4>
+                        <ul class="text-gray-400 text-sm space-y-1">
+                          <li>• Startups que pivotean frecuentemente</li>
+                          <li>• Productos con múltiples integraciones</li>
+                          <li>• Equipos que quieren testear fácil</li>
+                        </ul>
+                      </div>
+                      <div class="bg-black/30 p-4 rounded-lg font-mono text-xs text-gray-300">
+                        <div>[API REST] ← [Casos de Uso] → [PostgreSQL]</div>
+                        <div class="text-[#82e256] my-1">↓ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ↓</div>
+                        <div>[gRPC] &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[MongoDB]</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Clean Architecture -->
+                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700">
+                    <h3 class="text-2xl font-bold text-white mb-3">🎯 Clean Architecture / Onion Architecture</h3>
+                    <p class="text-gray-300 mb-4">
+                      Código organizado en capas con <strong class="text-white">dependencias en una sola dirección</strong>. El core del negocio está en el centro, protegido de cambios externos.
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <h4 class="text-white font-semibold mb-2 text-sm">✅ Ideal para:</h4>
+                        <ul class="text-gray-400 text-sm space-y-1">
+                          <li>• Proyectos enterprise complejos</li>
+                          <li>• Equipos grandes (10+ devs)</li>
+                          <li>• Sistemas que vivirán 5+ años</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 class="text-white font-semibold mb-2 text-sm">Capas:</h4>
+                        <ul class="text-gray-400 text-sm space-y-1">
+                          <li>• <strong class="text-[#82e256]">Entities:</strong> Reglas de negocio</li>
+                          <li>• <strong class="text-[#82e256]">Use Cases:</strong> Lógica de aplicación</li>
+                          <li>• <strong class="text-[#82e256]">Adapters:</strong> Controllers, presenters</li>
+                          <li>• <strong class="text-[#82e256]">Drivers:</strong> UI, DB, APIs externas</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Microservicios -->
+                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700">
+                    <h3 class="text-2xl font-bold text-white mb-3">⚡ Microservicios</h3>
+                    <p class="text-gray-300 mb-4">
+                      Divide tu aplicación en servicios pequeños e independientes. Cada uno puede deployarse por separado, escalar solo lo que necesita y usar tecnologías diferentes.
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <h4 class="text-white font-semibold mb-2 text-sm">✅ Ideal para:</h4>
+                        <ul class="text-gray-400 text-sm space-y-1">
+                          <li>• Plataformas con múltiples funcionalidades</li>
+                          <li>• Equipos distribuidos</li>
+                          <li>• SaaS que cobra por módulos</li>
+                        </ul>
+                      </div>
+                      <div class="bg-black/30 p-4 rounded-lg text-xs text-gray-300">
+                        <div class="space-y-1">
+                          <div>🔐 Servicio Auth (Node.js)</div>
+                          <div>💳 Servicio Pagos (Python)</div>
+                          <div>📧 Servicio Notificaciones (Go)</div>
+                          <div>📊 Servicio Analytics (Rust)</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Event-Driven -->
+                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700">
+                    <h3 class="text-2xl font-bold text-white mb-3">🔄 Event-Driven Architecture</h3>
+                    <p class="text-gray-300 mb-4">
+                      Los servicios se comunican mediante <strong class="text-white">eventos asíncronos</strong>. Si un servicio cae, los eventos se encolan y procesan después.
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <h4 class="text-white font-semibold mb-2 text-sm">✅ Ideal para:</h4>
+                        <ul class="text-gray-400 text-sm space-y-1">
+                          <li>• Sistemas con alto volumen de transacciones</li>
+                          <li>• Workflows complejos (e-commerce, fintech)</li>
+                          <li>• Apps que necesitan audit logs</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 class="text-white font-semibold mb-2 text-sm">Tecnologías:</h4>
+                        <ul class="text-gray-400 text-sm space-y-1">
+                          <li>• RabbitMQ, Kafka, AWS SQS</li>
+                          <li>• Event Sourcing + CQRS</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- CQRS -->
+                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700">
+                    <h3 class="text-2xl font-bold text-white mb-3">📊 CQRS (Command Query Responsibility Segregation)</h3>
+                    <p class="text-gray-300 mb-4">
+                      Separa las operaciones de <strong class="text-white">escritura</strong> (commands) de las de <strong class="text-white">lectura</strong> (queries). Cada una puede optimizarse independientemente.
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <h4 class="text-white font-semibold mb-2 text-sm">✅ Ideal para:</h4>
+                        <ul class="text-gray-400 text-sm space-y-1">
+                          <li>• Apps con millones de lecturas, pocas escrituras</li>
+                          <li>• Dashboards con analíticas complejas</li>
+                          <li>• E-commerce de alto tráfico</li>
+                        </ul>
+                      </div>
+                      <div class="bg-black/30 p-4 rounded-lg text-xs text-gray-300">
+                        <div class="space-y-2">
+                          <div><strong class="text-[#82e256]">Write:</strong> PostgreSQL relacional</div>
+                          <div><strong class="text-[#82e256]">Read:</strong> Elasticsearch para búsquedas rápidas</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="border-gray-800" />
+
+              <!-- Servicios -->
+              <div id="servicios">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">Servicios que Ofrecemos</h2>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                  <!-- Auditoría -->
+                  <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256] transition-all">
+                    <div class="text-4xl mb-4">🔍</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Auditoría de Arquitectura Actual</h3>
+                    <p class="text-gray-300 mb-4 text-sm">Te decimos <strong class="text-white">qué está mal</strong> y <strong class="text-white">cómo arreglarlo</strong></p>
+                    <ul class="text-gray-400 text-sm space-y-2 mb-4">
+                      <li>• Code smells y deuda técnica</li>
+                      <li>• Cuellos de botella de performance</li>
+                      <li>• Problemas de escalabilidad</li>
+                      <li>• Riesgos de seguridad</li>
+                    </ul>
+                    <div class="flex justify-between items-center text-sm">
+                      <span class="text-[#82e256] font-semibold">📄 Reporte completo</span>
+                      <span class="text-gray-500">⏱️ 1-2 semanas</span>
+                    </div>
+                  </div>
+
+                  <!-- Diseño desde cero -->
+                  <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256] transition-all">
+                    <div class="text-4xl mb-4">🏗️</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Diseño de Arquitectura desde Cero</h3>
+                    <p class="text-gray-300 mb-4 text-sm">Diseñamos la arquitectura completa antes de escribir código</p>
+                    <ul class="text-gray-400 text-sm space-y-2 mb-4">
+                      <li>• Diagramas C4 (Context, Containers, Components)</li>
+                      <li>• Selección de tecnologías</li>
+                      <li>• Estimación de infraestructura</li>
+                      <li>• Plan de escalamiento</li>
+                    </ul>
+                    <div class="flex justify-between items-center text-sm">
+                      <span class="text-[#82e256] font-semibold">📐 Documentación completa</span>
+                      <span class="text-gray-500">⏱️ 3-6 semanas</span>
+                    </div>
+                  </div>
+
+                  <!-- Migración -->
+                  <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256] transition-all">
+                    <div class="text-4xl mb-4">🔄</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Migración / Refactoring</h3>
+                    <p class="text-gray-300 mb-4 text-sm">Tu sistema funciona pero no escala. Lo migramos sin downtime</p>
+                    <ul class="text-gray-400 text-sm space-y-2 mb-4">
+                      <li>• Monolito → Microservicios</li>
+                      <li>• Arquitectura spaghetti → Clean Architecture</li>
+                      <li>• Base de datos legacy → Solución moderna</li>
+                    </ul>
+                    <div class="flex justify-between items-center text-sm">
+                      <span class="text-[#82e256] font-semibold">🎯 Strangler Fig Pattern</span>
+                      <span class="text-gray-500">⏱️ 2-6 meses</span>
+                    </div>
+                  </div>
+
+                  <!-- Observabilidad -->
+                  <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256] transition-all">
+                    <div class="text-4xl mb-4">📊</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Observabilidad y Monitoreo</h3>
+                    <p class="text-gray-300 mb-4 text-sm">No puedes arreglar lo que no puedes medir</p>
+                    <ul class="text-gray-400 text-sm space-y-2 mb-4">
+                      <li>• Logging centralizado (ELK, Loki)</li>
+                      <li>• Métricas (Prometheus, Grafana)</li>
+                      <li>• Tracing distribuido (Jaeger, Zipkin)</li>
+                      <li>• Alertas inteligentes (PagerDuty)</li>
+                    </ul>
+                    <div class="flex justify-between items-center text-sm">
+                      <span class="text-[#82e256] font-semibold">📈 Dashboards en vivo</span>
+                      <span class="text-gray-500">⏱️ 2-4 semanas</span>
+                    </div>
+                  </div>
+
+                  <!-- CI/CD -->
+                  <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256] transition-all md:col-span-2">
+                    <div class="text-4xl mb-4">🚀</div>
+                    <h3 class="text-xl font-bold text-white mb-3">CI/CD y DevOps</h3>
+                    <p class="text-gray-300 mb-4 text-sm">Deploy rápido y seguro</p>
+                    <div class="grid md:grid-cols-2 gap-4">
+                      <ul class="text-gray-400 text-sm space-y-2">
+                        <li>• Pipelines automatizados (GitHub Actions, GitLab CI)</li>
+                        <li>• Infrastructure as Code (Terraform, Pulumi)</li>
+                      </ul>
+                      <ul class="text-gray-400 text-sm space-y-2">
+                        <li>• Blue-Green deployments</li>
+                        <li>• Rollback automático si algo falla</li>
+                      </ul>
+                    </div>
+                    <div class="flex justify-between items-center text-sm mt-4">
+                      <span class="text-[#82e256] font-semibold">⚡ Deploys en minutos</span>
+                      <span class="text-gray-500">⏱️ 3-6 semanas</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="border-gray-800" />
+
+              <!-- Casos de Éxito -->
+              <div id="casos-exito">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">Casos de Éxito</h2>
+
+                <div class="space-y-6">
+                  <!-- Caso 1 -->
+                  <div class="bg-gradient-to-br from-blue-900/10 to-blue-800/10 p-8 rounded-xl border border-blue-500/30">
+                    <div class="flex items-center gap-3 mb-4">
+                      <div class="text-4xl">📈</div>
+                      <div>
+                        <h3 class="text-2xl font-bold text-white">Migración de Monolito a Microservicios</h3>
+                        <p class="text-gray-400">Fintech con 500K usuarios</p>
+                      </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                      <div>
+                        <h4 class="text-white font-semibold mb-3">❌ Problema:</h4>
+                        <ul class="text-gray-400 text-sm space-y-2">
+                          <li>• Deploys tomaban 2 horas</li>
+                          <li>• Bug en un módulo tiraba todo abajo</li>
+                          <li>• Imposible escalar solo lo necesario</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 class="text-white font-semibold mb-3">✅ Solución:</h4>
+                        <ul class="text-gray-400 text-sm space-y-2">
+                          <li>• Extrajimos 6 microservicios críticos</li>
+                          <li>• Implementamos API Gateway</li>
+                          <li>• Tracing distribuido con Jaeger</li>
+                          <li>• Kubernetes para orquestación</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-4">
+                      <div class="bg-black/30 p-4 rounded-lg text-center">
+                        <div class="text-3xl font-bold text-[#82e256]">15 min</div>
+                        <p class="text-gray-400 text-sm">Deploys (antes 2h)</p>
+                      </div>
+                      <div class="bg-black/30 p-4 rounded-lg text-center">
+                        <div class="text-3xl font-bold text-[#82e256]">99.99%</div>
+                        <p class="text-gray-400 text-sm">Uptime (antes 99.95%)</p>
+                      </div>
+                      <div class="bg-black/30 p-4 rounded-lg text-center">
+                        <div class="text-3xl font-bold text-[#82e256]">-40%</div>
+                        <p class="text-gray-400 text-sm">Costos de infra</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Caso 2 -->
+                  <div class="bg-gradient-to-br from-green-900/10 to-green-800/10 p-8 rounded-xl border border-green-500/30">
+                    <div class="flex items-center gap-3 mb-4">
+                      <div class="text-4xl">🏥</div>
+                      <div>
+                        <h3 class="text-2xl font-bold text-white">Arquitectura para Healthcare</h3>
+                        <p class="text-gray-400">Startup de telemedicina</p>
+                      </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                      <div>
+                        <h4 class="text-white font-semibold mb-3">🎯 Requerimientos:</h4>
+                        <ul class="text-gray-400 text-sm space-y-2">
+                          <li>• HIPAA compliant</li>
+                          <li>• Encriptación end-to-end</li>
+                          <li>• Audit logs inmutables</li>
+                          <li>• Alta disponibilidad (vidas en riesgo)</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 class="text-white font-semibold mb-3">⚡ Solución:</h4>
+                        <ul class="text-gray-400 text-sm space-y-2">
+                          <li>• Event Sourcing para audit trail</li>
+                          <li>• CQRS para queries rápidas</li>
+                          <li>• Multi-region deployment</li>
+                          <li>• Disaster recovery automático</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="bg-black/30 p-4 rounded-lg text-center">
+                      <div class="text-2xl font-bold text-[#82e256] mb-2">🏆 Certificación HIPAA lograda</div>
+                      <p class="text-gray-400 text-sm">0 incidentes de seguridad en 2 años</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="border-gray-800" />
+
+              <!-- Stack -->
+              <div id="stack">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">Stack de Tecnologías</h2>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700">
+                    <h3 class="text-white font-bold mb-4 flex items-center gap-2">
+                      <span class="text-2xl">⚙️</span> Backend
+                    </h3>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                      <li>• Node.js / TypeScript</li>
+                      <li>• Python / FastAPI</li>
+                      <li>• Go (alto performance)</li>
+                      <li>• Rust (servicios críticos)</li>
+                    </ul>
+                  </div>
+
+                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700">
+                    <h3 class="text-white font-bold mb-4 flex items-center gap-2">
+                      <span class="text-2xl">🗄️</span> Bases de datos
+                    </h3>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                      <li>• PostgreSQL (relacional)</li>
+                      <li>• MongoDB (documentos)</li>
+                      <li>• Redis (caché y sesiones)</li>
+                      <li>• Elasticsearch (búsqueda)</li>
+                    </ul>
+                  </div>
+
+                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700">
+                    <h3 class="text-white font-bold mb-4 flex items-center gap-2">
+                      <span class="text-2xl">📬</span> Mensajería
+                    </h3>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                      <li>• RabbitMQ (tareas asíncronas)</li>
+                      <li>• Apache Kafka (streaming)</li>
+                      <li>• AWS SQS/SNS (managed queues)</li>
+                    </ul>
+                  </div>
+
+                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700">
+                    <h3 class="text-white font-bold mb-4 flex items-center gap-2">
+                      <span class="text-2xl">☁️</span> Infraestructura
+                    </h3>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                      <li>• Docker + Kubernetes</li>
+                      <li>• AWS / GCP / Azure</li>
+                      <li>• Terraform (IaC)</li>
+                      <li>• Nginx / Traefik</li>
+                    </ul>
+                  </div>
+
+                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700">
+                    <h3 class="text-white font-bold mb-4 flex items-center gap-2">
+                      <span class="text-2xl">📊</span> Observabilidad
+                    </h3>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                      <li>• Prometheus + Grafana</li>
+                      <li>• ELK Stack (logs)</li>
+                      <li>• Jaeger (tracing)</li>
+                      <li>• Sentry (error tracking)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CTA Final -->
+              <div class="bg-gradient-to-br from-[#04ADC0] to-[#00464e] p-8 md:p-12 rounded-2xl text-center mt-12">
+                <h3 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                  ¿Listo para arquitectura de clase mundial?
+                </h3>
+                <p class="text-xl text-white/90 mb-8">
+                  Agenda una consultoría gratuita de 30 minutos
+                </p>
+                <a
+                  href="/#contenido10"
+                  class="inline-flex items-center gap-2 px-10 py-5 bg-[#82e256] text-black font-bold rounded-xl hover:bg-[#6bc73d] transition-all duration-300 transform hover:scale-105 shadow-2xl text-lg"
+                >
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                  </svg>
+                  Solicitar Consultoría Gratuita
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Más Servicios -->
+    <section class="py-20 bg-gradient-to-b from-[#1a1a1a] to-[#0a0a0a]">
+      <div class="container mx-auto px-4 md:px-16">
+        <div class="max-w-7xl mx-auto">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+              Otros Servicios Tecnológicos
+            </h2>
+            <p class="text-gray-400 text-lg">
+              Soluciones complementarias para tu estrategia tecnológica
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {todosLosServicios.map((servicio) => (
+              <a
+                href={`/servicios/${servicio.slug}`}
+                class="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256] transition-all duration-300 hover:transform hover:scale-105"
+              >
+                <div class="text-4xl mb-3">{servicio.icon}</div>
+                <h3 class="text-lg font-bold text-white group-hover:text-[#82e256] transition-colors">
+                  {servicio.title}
+                </h3>
+                <div class="flex items-center gap-2 text-gray-400 text-sm mt-4">
+                  <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                  <span>Ver más</span>
+                </div>
+              </a>
+            ))}
+          </div>
+
+          <div class="mt-12 text-center">
+            <a
+              href="/servicios"
+              class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#82e256] to-[#6bc73d] hover:from-[#6bc73d] hover:to-[#5ba62e] text-black font-bold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+              </svg>
+              Ver Todos los Servicios
+            </a>
           </div>
         </div>
       </div>
     </section>
   </div>
+
+  <!-- Footer -->
+  <Footer />
 </Layout>
 
 <style>
-  @keyframes bounce-slow {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
+  /* Smooth scroll */
+  html {
+    scroll-behavior: smooth;
   }
 
-  .animate-bounce-slow {
-    animation: bounce-slow 3s ease-in-out infinite;
-  }
-
+  /* Estilos globales mejorados */
   h2 {
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
-    font-size: 2.25rem;
-    font-weight: 700;
-    color: #82e256;
-    line-height: 1.2;
-    position: relative;
-    padding-bottom: 0.75rem;
-  }
-
-  h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 60px;
-    height: 4px;
-    background: linear-gradient(to right, #82e256, transparent);
-    border-radius: 2px;
-  }
-
-  h3 {
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
-    font-size: 1.75rem;
-    font-weight: 600;
-    color: #82e256;
-  }
-
-  h4 {
-    margin-top: 2rem;
-    margin-bottom: 0.75rem;
-    font-size: 1.35rem;
-    font-weight: 600;
-    color: #88b43c;
-  }
-
-  p {
-    margin-bottom: 1.5rem;
-    line-height: 1.8;
-    font-size: 1.125rem;
-    color: #e5e5e5;
-  }
-
-  ul, ol {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-    padding-left: 1.5rem;
-    background: rgba(255, 255, 255, 0.02);
-    padding: 1.5rem;
-    border-radius: 0.5rem;
-    border-left: 4px solid #82e256;
-  }
-
-  li {
-    margin-bottom: 0.75rem;
-    line-height: 1.8;
-    color: #d1d5db;
-  }
-
-  li::marker {
-    color: #82e256;
-    font-weight: bold;
-  }
-
-  strong {
-    color: #82e256;
-    font-weight: 700;
-  }
-
-  hr {
-    margin: 3rem 0;
-    border: none;
-    height: 2px;
-    background: linear-gradient(to right, transparent, #82e256, transparent);
+    scroll-margin-top: 100px;
   }
 </style>
+
+<script>
+  // Smooth scroll para el menú interno
+  document.addEventListener('DOMContentLoaded', () => {
+    const links = document.querySelectorAll('a[href^="#"]');
+
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href && href !== '#') {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }
+      });
+    });
+  });
+</script>

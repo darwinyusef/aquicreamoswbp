@@ -1,398 +1,605 @@
 ---
-import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+// Todos los servicios disponibles (excluyendo el actual)
+const todosLosServicios = [
+  { slug: 'agentes-ia', title: 'Agentes Cognitivos', icon: '🤖' },
+  { slug: 'aplicaciones-ia', title: 'Aplicaciones con IA', icon: '🧠' },
+  { slug: 'desarrollo-web', title: 'Desarrollo Web', icon: '🌐' },
+  { slug: 'computer-vision', title: 'Computer Vision', icon: '👁️' },
+  { slug: 'arquitectura', title: 'Arquitectura TOGAF 2026', icon: '🏗️' },
+  { slug: 'desarrollo-fullstack', title: 'Desarrollo Full-Stack', icon: '💻' },
+  { slug: 'ia-machine-learning', title: 'IA & Machine Learning', icon: '🤖' },
+  { slug: 'devops-infraestructura', title: 'DevOps & Cloud', icon: '⚙️' }
+];
+
+// Secciones del menú interno
+const secciones = [
+  { id: 'intro', title: 'Introducción' },
+  { id: 'nativa-hibrida', title: 'Nativa vs Híbrida' },
+  { id: 'features', title: 'Features' },
+  { id: 'casos-exito', title: 'Casos de Éxito' },
+  { id: 'proceso', title: 'Proceso' },
+  { id: 'stack', title: 'Stack Tecnológico' }
+];
 ---
 
-<ServiceLayout
-  title="Desarrollo de Aplicaciones Móviles"
-  description="Apps nativas e híbridas de clase mundial"
-  icon="📱"
-  gradient="bg-gradient-to-br from-[#d4e256] to-[#006417]"
->
-  <div class="space-y-16">
-    <!-- Intro -->
-    <div class="text-center max-w-3xl mx-auto">
-      <p class="text-xl text-gray-300">Desarrollamos aplicaciones móviles <strong class="text-[#82e256]">rápidas, seguras y escalables</strong> para iOS y Android. Ya sea nativa o híbrida, nuestra prioridad es una <strong class="text-[#82e256]">experiencia de usuario excepcional</strong>.</p>
-      <p class="text-lg text-gray-400 mt-4">Tu app será tan buena (o mejor) que Instagram, Uber o WhatsApp.</p>
-    </div>
+<Layout>
+  <Header currentPage="servicios" />
 
-    <!-- Nativa vs Híbrida -->
-    <section>
-      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 text-center">¿Nativa o Híbrida? Te Ayudamos a Decidir</h2>
-      <p class="text-gray-300 mb-12 text-lg text-center">Elegimos la mejor tecnología según tus necesidades</p>
+  <div class="min-h-screen bg-[#1a1a1a]">
+    <!-- Hero Section -->
+    <section class="relative flex items-center justify-center bg-hero-pattern bg-repeat w-full min-h-screen bg-[url(/img/fondo.png)] bg-no-repeat bg-cover bg-center">
+      <div class="absolute inset-0 bg-gradient-to-b from-black/50 to-[#1a1a1a] z-10"></div>
 
-      <div class="grid md:grid-cols-2 gap-8">
-        <!-- Desarrollo Nativo -->
-        <div class="bg-gradient-to-br from-blue-900/20 to-blue-800/20 p-8 rounded-2xl border border-blue-500/30">
-          <div class="text-5xl mb-4 text-center">⚡</div>
-          <h3 class="text-2xl font-bold text-white mb-4 text-center">Desarrollo Nativo</h3>
-          <p class="text-gray-400 mb-4 text-center">Swift para iOS • Kotlin para Android</p>
-
-          <div class="space-y-4">
-            <div class="bg-blue-500/10 p-4 rounded-lg">
-              <p class="text-white font-semibold mb-2">✓ Ideal para:</p>
-              <p class="text-gray-300 text-sm">Apps que requieren máxima performance (juegos, edición de video), uso intensivo de hardware (AR, sensores) o experiencia 100% nativa.</p>
+      <div class="container mx-auto px-4 py-20 md:py-24 relative z-20">
+        <div class="max-w-7xl mx-auto">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div class="text-center lg:text-left">
+              <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
+                <span class="text-white drop-shadow-lg">APLICACIONES MÓVILES</span>
+                <br />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#82e256] to-[#04ADC0] drop-shadow-lg">
+                  DE CLASE MUNDIAL
+                </span>
+              </h1>
+              <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 font-light max-w-2xl mt-4 md:mt-6 lg:mt-8 mx-auto lg:mx-0 text-center lg:text-left drop-shadow-md">
+                <span class="text-2xl">APPS NATIVAS E HÍBRIDAS</span> rápidas, seguras y escalables para iOS y Android.
+              </p>
             </div>
 
-            <div class="bg-green-500/10 p-4 rounded-lg">
-              <p class="text-white font-semibold mb-2">Ventajas:</p>
-              <p class="text-gray-300 text-sm">Velocidad extrema, acceso completo a APIs del sistema, mejor UX</p>
-            </div>
-
-            <div class="bg-red-500/10 p-4 rounded-lg">
-              <p class="text-white font-semibold mb-2">Consideración:</p>
-              <p class="text-gray-300 text-sm">Costo y tiempo 2x (una app por plataforma)</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Desarrollo Híbrido -->
-        <div class="bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-8 rounded-2xl border border-purple-500/30">
-          <div class="text-5xl mb-4 text-center">🚀</div>
-          <h3 class="text-2xl font-bold text-white mb-4 text-center">Desarrollo Híbrido</h3>
-          <p class="text-gray-400 mb-4 text-center">Flutter • React Native</p>
-
-          <div class="space-y-4">
-            <div class="bg-purple-500/10 p-4 rounded-lg">
-              <p class="text-white font-semibold mb-2">✓ Ideal para:</p>
-              <p class="text-gray-300 text-sm">Apps CRUD (formularios, listas, chat), lanzamiento simultáneo iOS + Android, time-to-market rápido.</p>
-            </div>
-
-            <div class="bg-green-500/10 p-4 rounded-lg">
-              <p class="text-white font-semibold mb-2">Ventajas:</p>
-              <p class="text-gray-300 text-sm">1 código = 2 plataformas, desarrollo 40-60% más rápido, menor costo de mantenimiento</p>
-            </div>
-
-            <div class="bg-yellow-500/10 p-4 rounded-lg">
-              <p class="text-white font-semibold mb-2">Consideración:</p>
-              <p class="text-gray-300 text-sm">Leves limitaciones en features muy específicas</p>
+            <div class="relative w-full h-[400px] sm:h-[500px] lg:h-[600px] hidden lg:block">
+              <img
+                src="/img/personaje3.png"
+                class="absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-100"
+                alt="Aplicaciones Móviles"
+              />
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Features Principales -->
-    <section>
-      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Features que Implementamos</h2>
-      <p class="text-gray-300 mb-12 text-lg">Funcionalidades modernas para apps de clase mundial</p>
+    <!-- Content con Sidebar -->
+    <section class="py-16 md:py-24 bg-[#1a1a1a]">
+      <div class="container mx-auto px-4 md:px-16">
+        <div class="max-w-7xl mx-auto">
+          <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Autenticación -->
-        <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all">
-          <div class="text-5xl mb-4">🔐</div>
-          <h3 class="text-xl font-bold text-white mb-3">Autenticación Segura</h3>
-          <p class="text-gray-400 mb-4">Login social, biometría (FaceID, TouchID), verificación SMS/Email, JWT, encriptación end-to-end.</p>
-        </div>
+            <!-- Sidebar Menu -->
+            <div class="lg:col-span-1">
+              <div class="sticky top-24 space-y-4">
+                <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 border border-gray-700">
+                  <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    Contenido
+                  </h3>
+                  <nav class="space-y-2">
+                    {secciones.map((seccion) => (
+                      <a
+                        href={`#${seccion.id}`}
+                        class="block px-4 py-2 text-gray-400 hover:text-[#82e256] hover:bg-white/5 rounded-lg transition-all text-sm"
+                      >
+                        {seccion.title}
+                      </a>
+                    ))}
+                  </nav>
+                </div>
 
-        <!-- Offline -->
-        <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all">
-          <div class="text-5xl mb-4">📡</div>
-          <h3 class="text-xl font-bold text-white mb-3">Modo Offline</h3>
-          <p class="text-gray-400 mb-4">Tu app funciona sin internet. BD local, queue de acciones, sincronización automática al reconectar.</p>
-        </div>
+                <!-- CTA Card -->
+                <div class="bg-gradient-to-br from-[#d4e256] to-[#006417] rounded-xl p-6 shadow-2xl">
+                  <h3 class="text-xl font-bold text-white mb-3">
+                    ¿Listo para tu app?
+                  </h3>
+                  <p class="text-white/90 mb-4 text-sm">
+                    Consultoría gratuita y asesoría técnica
+                  </p>
+                  <a
+                    href="/#contenido10"
+                    class="block w-full text-center px-6 py-3 bg-black text-[#82e256] font-bold rounded-lg hover:bg-gray-900 transition-all duration-300 transform hover:scale-105"
+                  >
+                    Agendar Ahora
+                  </a>
+                </div>
+              </div>
+            </div>
 
-        <!-- Push Notifications -->
-        <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all">
-          <div class="text-5xl mb-4">🔔</div>
-          <h3 class="text-xl font-bold text-white mb-3">Push Notifications</h3>
-          <p class="text-gray-400 mb-4">Notificaciones personalizadas, segmentación de usuarios, deep linking, A/B testing de mensajes.</p>
-        </div>
+            <!-- Main Content -->
+            <div class="lg:col-span-3 space-y-12">
 
-        <!-- Geolocalización -->
-        <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all">
-          <div class="text-5xl mb-4">📍</div>
-          <h3 class="text-xl font-bold text-white mb-3">Geolocalización</h3>
-          <p class="text-gray-400 mb-4">Tracking en background, geofencing, mapas interactivos, rutas optimizadas, historial de ubicaciones.</p>
-        </div>
+              <!-- Intro -->
+              <div id="intro">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">Apps Rápidas, Seguras y Escalables</h2>
 
-        <!-- Chat -->
-        <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all">
-          <div class="text-5xl mb-4">💬</div>
-          <h3 class="text-xl font-bold text-white mb-3">Chat en Tiempo Real</h3>
-          <p class="text-gray-400 mb-4">Mensajería 1-1 y grupal, indicadores "escribiendo...", multimedia, backend escalable con Firebase.</p>
-        </div>
+                <p class="text-gray-300 text-lg mb-4">
+                  Desarrollamos aplicaciones móviles <strong class="text-white">rápidas, seguras y escalables</strong> para iOS y Android. Ya sea nativa o híbrida, nuestra prioridad es una <strong class="text-white">experiencia de usuario excepcional</strong>. Tu app será tan buena (o mejor) que Instagram, Uber o WhatsApp.
+                </p>
 
-        <!-- Pagos -->
-        <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all">
-          <div class="text-5xl mb-4">💳</div>
-          <h3 class="text-xl font-bold text-white mb-3">Pagos Integrados</h3>
-          <p class="text-gray-400 mb-4">Stripe, PayPal, Mercado Pago, Apple/Google Pay, subscripciones recurrentes, facturación automática.</p>
+                <div class="my-8">
+                  <div class="rounded-2xl overflow-hidden shadow-2xl flex justify-center mb-4">
+                    <img src="/img/personaje3.png" alt="Desarrollo de aplicaciones móviles" class="h-auto max-w-2xl" />
+                  </div>
+                  <p class="text-center text-gray-400 text-sm italic">Apps móviles que conectan con tus usuarios</p>
+                </div>
+              </div>
+
+              <hr class="border-gray-800" />
+
+              <!-- Nativa vs Híbrida -->
+              <div id="nativa-hibrida">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">¿Nativa o Híbrida? Te Ayudamos a Decidir</h2>
+                <p class="text-gray-300 mb-8 text-lg">Elegimos la mejor tecnología según tus necesidades</p>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                  <!-- Desarrollo Nativo -->
+                  <div class="bg-gradient-to-br from-blue-900/20 to-blue-800/20 p-8 rounded-2xl border border-blue-500/30">
+                    <div class="text-5xl mb-4 text-center">⚡</div>
+                    <h3 class="text-2xl font-bold text-white mb-4 text-center">Desarrollo Nativo</h3>
+                    <p class="text-gray-400 mb-4 text-center">Swift para iOS • Kotlin para Android</p>
+
+                    <div class="space-y-4">
+                      <div class="bg-blue-500/10 p-4 rounded-lg">
+                        <p class="text-white font-semibold mb-2">✓ Ideal para:</p>
+                        <p class="text-gray-300 text-sm">Apps que requieren máxima performance (juegos, edición de video), uso intensivo de hardware (AR, sensores) o experiencia 100% nativa.</p>
+                      </div>
+
+                      <div class="bg-green-500/10 p-4 rounded-lg">
+                        <p class="text-white font-semibold mb-2">Ventajas:</p>
+                        <p class="text-gray-300 text-sm">Velocidad extrema, acceso completo a APIs del sistema, mejor UX</p>
+                      </div>
+
+                      <div class="bg-red-500/10 p-4 rounded-lg">
+                        <p class="text-white font-semibold mb-2">Consideración:</p>
+                        <p class="text-gray-300 text-sm">Costo y tiempo 2x (una app por plataforma)</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Desarrollo Híbrido -->
+                  <div class="bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-8 rounded-2xl border border-purple-500/30">
+                    <div class="text-5xl mb-4 text-center">🚀</div>
+                    <h3 class="text-2xl font-bold text-white mb-4 text-center">Desarrollo Híbrido</h3>
+                    <p class="text-gray-400 mb-4 text-center">Flutter • React Native</p>
+
+                    <div class="space-y-4">
+                      <div class="bg-purple-500/10 p-4 rounded-lg">
+                        <p class="text-white font-semibold mb-2">✓ Ideal para:</p>
+                        <p class="text-gray-300 text-sm">Apps CRUD (formularios, listas, chat), lanzamiento simultáneo iOS + Android, time-to-market rápido.</p>
+                      </div>
+
+                      <div class="bg-green-500/10 p-4 rounded-lg">
+                        <p class="text-white font-semibold mb-2">Ventajas:</p>
+                        <p class="text-gray-300 text-sm">1 código = 2 plataformas, desarrollo 40-60% más rápido, menor costo de mantenimiento</p>
+                      </div>
+
+                      <div class="bg-yellow-500/10 p-4 rounded-lg">
+                        <p class="text-white font-semibold mb-2">Consideración:</p>
+                        <p class="text-gray-300 text-sm">Leves limitaciones en features muy específicas</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="border-gray-800" />
+
+              <!-- Features -->
+              <div id="features">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">Features que Implementamos</h2>
+                <p class="text-gray-300 mb-8 text-lg">Funcionalidades modernas para apps de clase mundial</p>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <!-- Autenticación -->
+                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                    <div class="text-5xl mb-4">🔐</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Autenticación Segura</h3>
+                    <p class="text-gray-400 mb-4">Login social, biometría (FaceID, TouchID), verificación SMS/Email, JWT, encriptación end-to-end.</p>
+                  </div>
+
+                  <!-- Offline -->
+                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                    <div class="text-5xl mb-4">📡</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Modo Offline</h3>
+                    <p class="text-gray-400 mb-4">Tu app funciona sin internet. BD local, queue de acciones, sincronización automática al reconectar.</p>
+                  </div>
+
+                  <!-- Push Notifications -->
+                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                    <div class="text-5xl mb-4">🔔</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Push Notifications</h3>
+                    <p class="text-gray-400 mb-4">Notificaciones personalizadas, segmentación de usuarios, deep linking, A/B testing de mensajes.</p>
+                  </div>
+
+                  <!-- Geolocalización -->
+                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                    <div class="text-5xl mb-4">📍</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Geolocalización</h3>
+                    <p class="text-gray-400 mb-4">Tracking en background, geofencing, mapas interactivos, rutas optimizadas, historial de ubicaciones.</p>
+                  </div>
+
+                  <!-- Chat -->
+                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                    <div class="text-5xl mb-4">💬</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Chat en Tiempo Real</h3>
+                    <p class="text-gray-400 mb-4">Mensajería 1-1 y grupal, indicadores "escribiendo...", multimedia, backend escalable con Firebase.</p>
+                  </div>
+
+                  <!-- Pagos -->
+                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                    <div class="text-5xl mb-4">💳</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Pagos Integrados</h3>
+                    <p class="text-gray-400 mb-4">Stripe, PayPal, Mercado Pago, Apple/Google Pay, subscripciones recurrentes, facturación automática.</p>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="border-gray-800" />
+
+              <!-- Casos de Éxito -->
+              <div id="casos-exito">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">Casos de Éxito</h2>
+
+                <div class="bg-gradient-to-br from-[#d4e256]/10 to-[#006417]/10 p-10 rounded-2xl border border-[#82e256]/20 mb-8">
+                  <div class="flex items-start gap-4 mb-6">
+                    <div class="text-6xl">🏆</div>
+                    <div>
+                      <h3 class="text-3xl font-bold text-white mb-2">App de Logística</h3>
+                      <p class="text-gray-400">Empresa de courier con 200 repartidores</p>
+                    </div>
+                  </div>
+
+                  <p class="text-gray-300 mb-6">
+                    Desarrollamos app nativa Android (Kotlin) con tracking GPS en background, modo offline con sincronización, escaneo de QR y firma digital en entregas.
+                  </p>
+
+                  <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-gradient-to-br from-[#82e256]/10 to-transparent p-6 rounded-xl border border-[#82e256]/30 text-center">
+                      <div class="text-4xl font-bold text-[#82e256] mb-2">+35%</div>
+                      <p class="text-white font-semibold">Eficiencia aumentada</p>
+                      <p class="text-gray-400 text-sm mt-1">Más entregas por día</p>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-[#82e256]/10 to-transparent p-6 rounded-xl border border-[#82e256]/30 text-center">
+                      <div class="text-4xl font-bold text-[#82e256] mb-2">-80%</div>
+                      <p class="text-white font-semibold">Errores de entrega</p>
+                      <p class="text-gray-400 text-sm mt-1">Reducción drástica</p>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-[#82e256]/10 to-transparent p-6 rounded-xl border border-[#82e256]/30 text-center">
+                      <div class="text-4xl font-bold text-[#82e256] mb-2">100%</div>
+                      <p class="text-white font-semibold">Funciona offline</p>
+                      <p class="text-gray-400 text-sm mt-1">Sin pérdida de datos</p>
+                    </div>
+                  </div>
+                </div>
+
+                <h3 class="text-2xl font-bold text-white mb-6">Más Casos de Éxito</h3>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                  <!-- Fitness App -->
+                  <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-8 rounded-2xl border border-gray-700">
+                    <div class="flex items-center gap-3 mb-4">
+                      <div class="text-4xl">💪</div>
+                      <h3 class="text-2xl font-bold text-white">App de Fitness con IA</h3>
+                    </div>
+                    <p class="text-gray-400 mb-4">Flutter (iOS + Android) con integración Apple Health/Google Fit, recomendaciones personalizadas con IA y social features.</p>
+                    <div class="flex gap-4">
+                      <div class="bg-[#82e256]/10 px-4 py-2 rounded-lg">
+                        <p class="text-[#82e256] font-bold">50K descargas</p>
+                        <p class="text-gray-400 text-xs">En 6 meses</p>
+                      </div>
+                      <div class="bg-[#82e256]/10 px-4 py-2 rounded-lg">
+                        <p class="text-[#82e256] font-bold">40% retención</p>
+                        <p class="text-gray-400 text-xs">Usuarios activos</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Real Estate AR -->
+                  <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-8 rounded-2xl border border-gray-700">
+                    <div class="flex items-center gap-3 mb-4">
+                      <div class="text-4xl">🏠</div>
+                      <h3 class="text-2xl font-bold text-white">Real Estate con AR</h3>
+                    </div>
+                    <p class="text-gray-400 mb-4">App nativa iOS (Swift) con Realidad Aumentada (ARKit), tour virtual 360°, filtros avanzados y chat con agentes.</p>
+                    <div class="flex gap-4">
+                      <div class="bg-[#82e256]/10 px-4 py-2 rounded-lg">
+                        <p class="text-[#82e256] font-bold">+25% ventas</p>
+                        <p class="text-gray-400 text-xs">Incremento anual</p>
+                      </div>
+                      <div class="bg-[#82e256]/10 px-4 py-2 rounded-lg">
+                        <p class="text-[#82e256] font-bold">-40% tiempo</p>
+                        <p class="text-gray-400 text-xs">Cierre de ventas</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="border-gray-800" />
+
+              <!-- Proceso -->
+              <div id="proceso">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">Nuestro Proceso de Desarrollo</h2>
+                <p class="text-gray-300 mb-12 text-lg">De la idea a la App Store/Play Store en 5 fases</p>
+
+                <div class="relative">
+                  <!-- Línea vertical -->
+                  <div class="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-[#82e256] to-transparent hidden md:block"></div>
+
+                  <div class="space-y-8">
+                    <!-- Fase 1 -->
+                    <div class="flex gap-6 items-start">
+                      <div class="bg-[#82e256] text-black font-bold rounded-full w-16 h-16 flex-shrink-0 flex items-center justify-center text-xl relative z-10">
+                        1
+                      </div>
+                      <div class="flex-1 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700">
+                        <h3 class="text-xl font-bold text-white mb-2">Discovery (2 semanas)</h3>
+                        <p class="text-gray-300">Análisis de mercado, definición de user stories, wireframes y elección de stack técnico ideal para tu proyecto.</p>
+                      </div>
+                    </div>
+
+                    <!-- Fase 2 -->
+                    <div class="flex gap-6 items-start">
+                      <div class="bg-[#82e256] text-black font-bold rounded-full w-16 h-16 flex-shrink-0 flex items-center justify-center text-xl relative z-10">
+                        2
+                      </div>
+                      <div class="flex-1 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700">
+                        <h3 class="text-xl font-bold text-white mb-2">Diseño UI/UX (3 semanas)</h3>
+                        <p class="text-gray-300">Diseño completo en Figma, design system, prototipos interactivos y aprobación antes de programar una línea de código.</p>
+                      </div>
+                    </div>
+
+                    <!-- Fase 3 -->
+                    <div class="flex gap-6 items-start">
+                      <div class="bg-[#82e256] text-black font-bold rounded-full w-16 h-16 flex-shrink-0 flex items-center justify-center text-xl relative z-10">
+                        3
+                      </div>
+                      <div class="flex-1 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700">
+                        <h3 class="text-xl font-bold text-white mb-2">Desarrollo MVP (8-12 semanas)</h3>
+                        <p class="text-gray-300">Sprints de 2 semanas, features core implementadas, testing continuo y demos semanales para tu feedback.</p>
+                      </div>
+                    </div>
+
+                    <!-- Fase 4 -->
+                    <div class="flex gap-6 items-start">
+                      <div class="bg-[#82e256] text-black font-bold rounded-full w-16 h-16 flex-shrink-0 flex items-center justify-center text-xl relative z-10">
+                        4
+                      </div>
+                      <div class="flex-1 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700">
+                        <h3 class="text-xl font-bold text-white mb-2">Testing & Launch (2 semanas)</h3>
+                        <p class="text-gray-300">Beta con usuarios reales, bug fixing, optimización de performance y submit a App Store + Play Store.</p>
+                      </div>
+                    </div>
+
+                    <!-- Fase 5 -->
+                    <div class="flex gap-6 items-start">
+                      <div class="bg-[#82e256] text-black font-bold rounded-full w-16 h-16 flex-shrink-0 flex items-center justify-center text-xl relative z-10">
+                        5
+                      </div>
+                      <div class="flex-1 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700">
+                        <h3 class="text-xl font-bold text-white mb-2">Post-Lanzamiento</h3>
+                        <p class="text-gray-300">Monitoreo de crashlytics, análisis de feedback de usuarios, iteraciones rápidas y actualizaciones regulares.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="border-gray-800" />
+
+              <!-- Stack Tecnológico -->
+              <div id="stack">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">Stack Tecnológico</h2>
+                <p class="text-gray-300 mb-8 text-lg">Las mejores tecnologías para cada plataforma</p>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  <!-- iOS Nativo -->
+                  <div class="bg-gradient-to-br from-blue-900/20 to-blue-800/20 p-6 rounded-xl border border-blue-500/30">
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                      <span>🍎</span> iOS Nativo
+                    </h3>
+                    <div class="space-y-2 text-gray-300">
+                      <p><strong class="text-white">Swift + SwiftUI</strong></p>
+                      <p><strong class="text-white">Combine</strong> - Reactive</p>
+                      <p><strong class="text-white">CoreData/Realm</strong> - DB</p>
+                      <p><strong class="text-white">Alamofire</strong> - Network</p>
+                    </div>
+                  </div>
+
+                  <!-- Android Nativo -->
+                  <div class="bg-gradient-to-br from-green-900/20 to-green-800/20 p-6 rounded-xl border border-green-500/30">
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                      <span>🤖</span> Android Nativo
+                    </h3>
+                    <div class="space-y-2 text-gray-300">
+                      <p><strong class="text-white">Kotlin + Compose</strong></p>
+                      <p><strong class="text-white">Coroutines/Flow</strong></p>
+                      <p><strong class="text-white">Room Database</strong></p>
+                      <p><strong class="text-white">Retrofit</strong> - Network</p>
+                    </div>
+                  </div>
+
+                  <!-- Flutter -->
+                  <div class="bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-6 rounded-xl border border-purple-500/30">
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                      <span>🦋</span> Flutter
+                    </h3>
+                    <div class="space-y-2 text-gray-300">
+                      <p><strong class="text-white">Dart Language</strong></p>
+                      <p><strong class="text-white">Provider/Riverpod</strong></p>
+                      <p><strong class="text-white">Dio</strong> - Network</p>
+                      <p><strong class="text-white">Hive/Drift</strong> - DB</p>
+                    </div>
+                  </div>
+
+                  <!-- React Native -->
+                  <div class="bg-gradient-to-br from-cyan-900/20 to-cyan-800/20 p-6 rounded-xl border border-cyan-500/30">
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                      <span>⚛️</span> React Native
+                    </h3>
+                    <div class="space-y-2 text-gray-300">
+                      <p><strong class="text-white">TypeScript</strong></p>
+                      <p><strong class="text-white">Redux Toolkit</strong></p>
+                      <p><strong class="text-white">Axios</strong> - Network</p>
+                      <p><strong class="text-white">AsyncStorage</strong> - DB</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="my-8">
+                  <div class="rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-[#d4e256]/10 to-[#006417]/10 p-8 flex justify-center mb-4">
+                    <img src="/img/personaje4.png" alt="Tecnología móvil" class="h-auto max-w-2xl" />
+                  </div>
+                  <p class="text-center text-gray-400 text-sm italic">Plataformas móviles de clase mundial</p>
+                </div>
+
+                <h3 class="text-2xl font-bold text-white mb-6 mt-12 text-center">Por Qué Elegirnos</h3>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center">
+                    <div class="text-4xl mb-3">⚡</div>
+                    <h3 class="text-lg font-bold text-white mb-2">Performance Garantizado</h3>
+                    <p class="text-gray-400 text-sm">Carga <2s, scroll a 60fps o seguimos optimizando</p>
+                  </div>
+
+                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center">
+                    <div class="text-4xl mb-3">✅</div>
+                    <h3 class="text-lg font-bold text-white mb-2">Aprobación en Tiendas</h3>
+                    <p class="text-gray-400 text-sm">Garantizamos que tu app sea aprobada en App Store y Play Store</p>
+                  </div>
+
+                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center">
+                    <div class="text-4xl mb-3">📱</div>
+                    <h3 class="text-lg font-bold text-white mb-2">Testing en Dispositivos Reales</h3>
+                    <p class="text-gray-400 text-sm">Probamos en 15+ dispositivos reales antes de lanzar</p>
+                  </div>
+
+                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center">
+                    <div class="text-4xl mb-3">🔒</div>
+                    <h3 class="text-lg font-bold text-white mb-2">Código Fuente Incluido</h3>
+                    <p class="text-gray-400 text-sm">Repository completo en GitHub con documentación técnica</p>
+                  </div>
+                </div>
+
+                <div class="flex justify-center my-12">
+                  <img src="/img/personaje2.png" alt="Desarrollo de Apps Móviles" class="max-w-md w-full rounded-2xl shadow-2xl" />
+                </div>
+              </div>
+
+              <!-- CTA Final -->
+              <div class="bg-gradient-to-br from-[#d4e256] to-[#006417] p-8 md:p-12 rounded-2xl text-center mt-12">
+                <h3 class="text-3xl md:text-4xl font-bold text-black mb-4">
+                  ¿Listo para lanzar tu app?
+                </h3>
+                <p class="text-xl text-black/80 mb-8">
+                  Agenda una consultoría gratuita y te ayudamos a elegir el mejor enfoque
+                </p>
+                <a
+                  href="/#contenido10"
+                  class="inline-flex items-center gap-2 px-10 py-5 bg-black text-[#82e256] font-bold rounded-xl hover:bg-gray-900 transition-all duration-300 transform hover:scale-105 shadow-2xl text-lg"
+                >
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                  </svg>
+                  Agendar Consultoría Gratuita
+                </a>
+              </div>
+
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Imagen contextual -->
-    <div class="my-16">
-      <div class="rounded-2xl overflow-hidden shadow-2xl flex justify-center mb-4">
-        <img src="/img/personaje3.png" alt="Desarrollo de aplicaciones móviles" class="h-auto max-w-2xl" />
-      </div>
-      <p class="text-center text-gray-400 text-sm italic">Apps móviles que conectan con tus usuarios</p>
-    </div>
-
-    <!-- Caso de Éxito Destacado -->
-    <section class="bg-gradient-to-br from-[#d4e256]/10 to-[#006417]/10 p-8 md:p-12 rounded-2xl border border-[#82e256]/20">
-      <div class="flex items-center gap-3 mb-6">
-        <div class="text-4xl">🏆</div>
-        <h2 class="text-3xl md:text-4xl font-bold text-white">Caso de Éxito: App de Logística</h2>
-      </div>
-
-      <p class="text-gray-300 mb-4 text-lg">
-        <strong>Cliente:</strong> Empresa de courier con 200 repartidores
-      </p>
-
-      <p class="text-gray-300 mb-8">
-        Desarrollamos app nativa Android (Kotlin) con tracking GPS en background, modo offline con sincronización, escaneo de QR y firma digital en entregas.
-      </p>
-
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-gradient-to-br from-[#82e256]/10 to-transparent p-6 rounded-xl border border-[#82e256]/30">
-          <div class="text-4xl font-bold text-[#82e256] mb-2">+35%</div>
-          <p class="text-white font-semibold">Eficiencia aumentada</p>
-          <p class="text-gray-400 text-sm mt-1">Más entregas por día</p>
-        </div>
-
-        <div class="bg-gradient-to-br from-[#82e256]/10 to-transparent p-6 rounded-xl border border-[#82e256]/30">
-          <div class="text-4xl font-bold text-[#82e256] mb-2">-80%</div>
-          <p class="text-white font-semibold">Errores de entrega</p>
-          <p class="text-gray-400 text-sm mt-1">Reducción drástica</p>
-        </div>
-
-        <div class="bg-gradient-to-br from-[#82e256]/10 to-transparent p-6 rounded-xl border border-[#82e256]/30">
-          <div class="text-4xl font-bold text-[#82e256] mb-2">100%</div>
-          <p class="text-white font-semibold">Funciona offline</p>
-          <p class="text-gray-400 text-sm mt-1">Sin pérdida de datos</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Más Casos de Éxito -->
-    <section>
-      <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Más Casos de Éxito</h2>
-
-      <div class="grid md:grid-cols-2 gap-8">
-        <!-- Fitness App -->
-        <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-8 rounded-2xl border border-gray-700">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="text-4xl">💪</div>
-            <h3 class="text-2xl font-bold text-white">App de Fitness con IA</h3>
+    <!-- Más Servicios -->
+    <section class="py-20 bg-gradient-to-b from-[#1a1a1a] to-[#0a0a0a]">
+      <div class="container mx-auto px-4 md:px-16">
+        <div class="max-w-7xl mx-auto">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+              Otros Servicios Tecnológicos
+            </h2>
+            <p class="text-gray-400 text-lg">
+              Soluciones complementarias para tu estrategia tecnológica
+            </p>
           </div>
-          <p class="text-gray-400 mb-4">Flutter (iOS + Android) con integración Apple Health/Google Fit, recomendaciones personalizadas con IA y social features.</p>
-          <div class="flex gap-4">
-            <div class="bg-[#82e256]/10 px-4 py-2 rounded-lg">
-              <p class="text-[#82e256] font-bold">50K descargas</p>
-              <p class="text-gray-400 text-xs">En 6 meses</p>
-            </div>
-            <div class="bg-[#82e256]/10 px-4 py-2 rounded-lg">
-              <p class="text-[#82e256] font-bold">40% retención</p>
-              <p class="text-gray-400 text-xs">Usuarios activos</p>
-            </div>
-          </div>
-        </div>
 
-        <!-- Real Estate AR -->
-        <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-8 rounded-2xl border border-gray-700">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="text-4xl">🏠</div>
-            <h3 class="text-2xl font-bold text-white">Real Estate con AR</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {todosLosServicios.map((servicio) => (
+              <a
+                href={`/servicios/${servicio.slug}`}
+                class="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256] transition-all duration-300 hover:transform hover:scale-105"
+              >
+                <div class="text-4xl mb-3">{servicio.icon}</div>
+                <h3 class="text-lg font-bold text-white group-hover:text-[#82e256] transition-colors">
+                  {servicio.title}
+                </h3>
+                <div class="flex items-center gap-2 text-gray-400 text-sm mt-4">
+                  <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                  <span>Ver más</span>
+                </div>
+              </a>
+            ))}
           </div>
-          <p class="text-gray-400 mb-4">App nativa iOS (Swift) con Realidad Aumentada (ARKit), tour virtual 360°, filtros avanzados y chat con agentes.</p>
-          <div class="flex gap-4">
-            <div class="bg-[#82e256]/10 px-4 py-2 rounded-lg">
-              <p class="text-[#82e256] font-bold">+25% ventas</p>
-              <p class="text-gray-400 text-xs">Incremento anual</p>
-            </div>
-            <div class="bg-[#82e256]/10 px-4 py-2 rounded-lg">
-              <p class="text-[#82e256] font-bold">-40% tiempo</p>
-              <p class="text-gray-400 text-xs">Cierre de ventas</p>
-            </div>
+
+          <div class="mt-12 text-center">
+            <a
+              href="/servicios"
+              class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#82e256] to-[#6bc73d] hover:from-[#6bc73d] hover:to-[#5ba62e] text-black font-bold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+              </svg>
+              Ver Todos los Servicios
+            </a>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- Proceso de Desarrollo -->
-    <section>
-      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Nuestro Proceso de Desarrollo</h2>
-      <p class="text-gray-300 mb-12 text-lg">De la idea a la App Store/Play Store en 5 fases</p>
-
-      <div class="relative">
-        <!-- Línea vertical -->
-        <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#82e256] to-[#006417] hidden md:block"></div>
-
-        <div class="space-y-8">
-          <!-- Fase 1 -->
-          <div class="flex gap-6 items-start">
-            <div class="bg-[#82e256] text-black font-bold rounded-full w-16 h-16 flex-shrink-0 flex items-center justify-center text-xl md:relative md:z-10">
-              1
-            </div>
-            <div class="flex-1 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700">
-              <h3 class="text-xl font-bold text-white mb-2">Discovery (2 semanas)</h3>
-              <p class="text-gray-300">Análisis de mercado, definición de user stories, wireframes y elección de stack técnico ideal para tu proyecto.</p>
-            </div>
-          </div>
-
-          <!-- Fase 2 -->
-          <div class="flex gap-6 items-start">
-            <div class="bg-[#82e256] text-black font-bold rounded-full w-16 h-16 flex-shrink-0 flex items-center justify-center text-xl md:relative md:z-10">
-              2
-            </div>
-            <div class="flex-1 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700">
-              <h3 class="text-xl font-bold text-white mb-2">Diseño UI/UX (3 semanas)</h3>
-              <p class="text-gray-300">Diseño completo en Figma, design system, prototipos interactivos y aprobación antes de programar una línea de código.</p>
-            </div>
-          </div>
-
-          <!-- Fase 3 -->
-          <div class="flex gap-6 items-start">
-            <div class="bg-[#82e256] text-black font-bold rounded-full w-16 h-16 flex-shrink-0 flex items-center justify-center text-xl md:relative md:z-10">
-              3
-            </div>
-            <div class="flex-1 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700">
-              <h3 class="text-xl font-bold text-white mb-2">Desarrollo MVP (8-12 semanas)</h3>
-              <p class="text-gray-300">Sprints de 2 semanas, features core implementadas, testing continuo y demos semanales para tu feedback.</p>
-            </div>
-          </div>
-
-          <!-- Fase 4 -->
-          <div class="flex gap-6 items-start">
-            <div class="bg-[#82e256] text-black font-bold rounded-full w-16 h-16 flex-shrink-0 flex items-center justify-center text-xl md:relative md:z-10">
-              4
-            </div>
-            <div class="flex-1 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700">
-              <h3 class="text-xl font-bold text-white mb-2">Testing & Launch (2 semanas)</h3>
-              <p class="text-gray-300">Beta con usuarios reales, bug fixing, optimización de performance y submit a App Store + Play Store.</p>
-            </div>
-          </div>
-
-          <!-- Fase 5 -->
-          <div class="flex gap-6 items-start">
-            <div class="bg-[#82e256] text-black font-bold rounded-full w-16 h-16 flex-shrink-0 flex items-center justify-center text-xl md:relative md:z-10">
-              5
-            </div>
-            <div class="flex-1 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700">
-              <h3 class="text-xl font-bold text-white mb-2">Post-Lanzamiento</h3>
-              <p class="text-gray-300">Monitoreo de crashlytics, análisis de feedback de usuarios, iteraciones rápidas y actualizaciones regulares.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Imagen tecnología -->
-    <div class="my-16">
-      <div class="rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-[#d4e256]/10 to-[#006417]/10 p-8 flex justify-center mb-4">
-        <img src="/img/personaje4.png" alt="Tecnología móvil" class="h-auto max-w-2xl" />
-      </div>
-      <p class="text-center text-gray-400 text-sm italic">Plataformas móviles de clase mundial</p>
-    </div>
-
-    <!-- Stack Tecnológico -->
-    <section>
-      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Stack Tecnológico</h2>
-      <p class="text-gray-300 mb-12 text-lg">Las mejores tecnologías para cada plataforma</p>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- iOS Nativo -->
-        <div class="bg-gradient-to-br from-blue-900/20 to-blue-800/20 p-6 rounded-xl border border-blue-500/30">
-          <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
-            <span>🍎</span> iOS Nativo
-          </h3>
-          <div class="space-y-2 text-gray-300">
-            <p><strong class="text-white">Swift + SwiftUI</strong></p>
-            <p><strong class="text-white">Combine</strong> - Reactive</p>
-            <p><strong class="text-white">CoreData/Realm</strong> - DB</p>
-            <p><strong class="text-white">Alamofire</strong> - Network</p>
-          </div>
-        </div>
-
-        <!-- Android Nativo -->
-        <div class="bg-gradient-to-br from-green-900/20 to-green-800/20 p-6 rounded-xl border border-green-500/30">
-          <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
-            <span>🤖</span> Android Nativo
-          </h3>
-          <div class="space-y-2 text-gray-300">
-            <p><strong class="text-white">Kotlin + Compose</strong></p>
-            <p><strong class="text-white">Coroutines/Flow</strong></p>
-            <p><strong class="text-white">Room Database</strong></p>
-            <p><strong class="text-white">Retrofit</strong> - Network</p>
-          </div>
-        </div>
-
-        <!-- Flutter -->
-        <div class="bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-6 rounded-xl border border-purple-500/30">
-          <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
-            <span>🦋</span> Flutter
-          </h3>
-          <div class="space-y-2 text-gray-300">
-            <p><strong class="text-white">Dart Language</strong></p>
-            <p><strong class="text-white">Provider/Riverpod</strong></p>
-            <p><strong class="text-white">Dio</strong> - Network</p>
-            <p><strong class="text-white">Hive/Drift</strong> - DB</p>
-          </div>
-        </div>
-
-        <!-- React Native -->
-        <div class="bg-gradient-to-br from-cyan-900/20 to-cyan-800/20 p-6 rounded-xl border border-cyan-500/30">
-          <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
-            <span>⚛️</span> React Native
-          </h3>
-          <div class="space-y-2 text-gray-300">
-            <p><strong class="text-white">TypeScript</strong></p>
-            <p><strong class="text-white">Redux Toolkit</strong></p>
-            <p><strong class="text-white">Axios</strong> - Network</p>
-            <p><strong class="text-white">AsyncStorage</strong> - DB</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Imagen de apoyo -->
-    <div class="flex justify-center my-12">
-      <img src="/img/personaje2.png" alt="Desarrollo de Apps Móviles" class="max-w-md w-full rounded-2xl shadow-2xl" />
-    </div>
-
-    <!-- Por qué elegirnos -->
-    <section>
-      <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Por Qué Elegirnos</h2>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center">
-          <div class="text-4xl mb-3">⚡</div>
-          <h3 class="text-lg font-bold text-white mb-2">Performance Garantizado</h3>
-          <p class="text-gray-400 text-sm">Carga &lt;2s, scroll a 60fps o seguimos optimizando</p>
-        </div>
-
-        <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center">
-          <div class="text-4xl mb-3">✅</div>
-          <h3 class="text-lg font-bold text-white mb-2">Aprobación en Tiendas</h3>
-          <p class="text-gray-400 text-sm">Garantizamos que tu app sea aprobada en App Store y Play Store</p>
-        </div>
-
-        <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center">
-          <div class="text-4xl mb-3">📱</div>
-          <h3 class="text-lg font-bold text-white mb-2">Testing en Dispositivos Reales</h3>
-          <p class="text-gray-400 text-sm">Probamos en 15+ dispositivos reales antes de lanzar</p>
-        </div>
-
-        <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center">
-          <div class="text-4xl mb-3">🔒</div>
-          <h3 class="text-lg font-bold text-white mb-2">Código Fuente Incluido</h3>
-          <p class="text-gray-400 text-sm">Repository completo en GitHub con documentación técnica</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA Final -->
-    <section class="bg-gradient-to-br from-[#d4e256] to-[#006417] p-8 md:p-12 rounded-2xl text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">¿Listo para lanzar tu app?</h2>
-      <p class="text-xl text-black/80 mb-8">Agenda una consultoría gratuita y te ayudamos a elegir el mejor enfoque</p>
-      <a
-        href="/#contenido10"
-        class="inline-block px-8 py-4 bg-black text-[#82e256] font-bold rounded-lg hover:bg-gray-900 transition-all duration-300 transform hover:scale-105 text-lg"
-      >
-        Agendar Consultoría Gratuita
-      </a>
-    </section>
-
   </div>
-</ServiceLayout>
+
+  <!-- Footer -->
+  <Footer />
+</Layout>
+
+<style>
+  /* Smooth scroll */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Estilos globales mejorados */
+  h2 {
+    scroll-margin-top: 100px;
+  }
+</style>
+
+<script>
+  // Smooth scroll para el menú interno
+  document.addEventListener('DOMContentLoaded', () => {
+    const links = document.querySelectorAll('a[href^="#"]');
+
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href && href !== '#') {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }
+      });
+    });
+  });
+</script>

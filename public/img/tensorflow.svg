@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 64">
+  <g>
+    <defs>
+      <path id="SVGID_1_" d="M47.5 17.6L25 4.8v52.6l9-5.2V37.4l6.8 3.9-.1-10.1-6.7-3.9v-5.9l13.5 7.9z"></path>
+    </defs>
+    <clipPath id="SVGID_2_">
+      <use href="#SVGID_1_"></use>
+    </clipPath>
+    <g clip-path="url(#SVGID_2_)">
+      <linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="-1.6" y1="31" x2="53.6" y2="31">
+        <stop offset="0" stop-color="#ff6f00"></stop>
+        <stop offset="1" stop-color="#ffa800"></stop>
+      </linearGradient>
+      <rect x="-1.6" y="4.6" width="55.2" height="52.9" fill="url(#SVGID_3_)"></rect>
+    </g>
+  </g>
+
+  <g>
+    <defs>
+      <path id="SVGID_4_" d="M.5 17.6L23 4.8v52.6l-9-5.2V21.4L.5 29.3z"></path>
+    </defs>
+    <clipPath id="SVGID_5_">
+      <use href="#SVGID_4_"></use>
+    </clipPath>
+    <g clip-path="url(#SVGID_5_)">
+      <linearGradient id="SVGID_6_" gradientUnits="userSpaceOnUse" x1="-1.9" y1="31" x2="53.3" y2="31">
+        <stop offset="0" stop-color="#ff6f00"></stop>
+        <stop offset="1" stop-color="#ffa800"></stop>
+      </linearGradient>
+      <rect x="-1.9" y="4.6" width="55.2" height="52.9" fill="url(#SVGID_6_)"></rect>
+    </g>
+  </g>
+</svg>

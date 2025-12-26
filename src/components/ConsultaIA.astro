@@ -2,34 +2,40 @@
 // FAQ Items - cada uno puede tener audio, video (YouTube Short) o ninguno
 const faqItems = [
   {
-    title: "¿Qué arquitectura debo usar?",
-    content: "La elección depende de escalabilidad, complejidad y equipo. Arquitecturas comunes: Hexagonal, Microservicios, Monolito Modular, Event-Driven.",
-    mediaType: "audio",
-    mediaSrc: "/audio/arquitectura.mp3"
-  },
-  {
-    title: "¿Cómo integrar IA en mi negocio?",
-    content: "Identifica procesos repetitivos. Casos: chatbots, análisis de sentimientos, recomendaciones, automatización de tareas.",
-    mediaType: "video",
-    mediaSrc: "https://www.youtube.com/embed/VIDEO_ID" // Reemplazar VIDEO_ID con el ID real del short
-  },
-  {
-    title: "React Native o nativo?",
-    content: "React Native: rápido, código compartido. Nativo: máximo rendimiento, APIs completas, interfaces personalizadas.",
+    title: "¿Cómo pueden contratar nuestros servicios?",
+    content: "El proceso es simple: 1) Contacto inicial (formulario o email), 2) Discovery call (30-60 min para entender tus necesidades), 3) Propuesta personalizada (enviada en 2-3 días), 4) Reunión de clarificación, 5) Firma de contrato, 6) Inicio del proyecto. Tiempo total: 1-2 semanas. Podemos firmar",
     mediaType: null,
     mediaSrc: null
   },
   {
-    title: "¿Mejores prácticas de seguridad?",
-    content: "HTTPS, autenticación robusta (JWT, OAuth), validación de inputs, protección contra XSS y SQL injection, CSP headers.",
-    mediaType: "audio",
-    mediaSrc: "/audio/seguridad.mp3"
+    title: "¿Cómo implementamos un proyecto?",
+    content: "Seguimos metodología ágil en 4 fases: 1) Planificación (1-2 semanas): requisitos, arquitectura, backlog. 2) Desarrollo Iterativo (sprints de 2 semanas): desarrollo incremental, revisiones semanales, demos. 3) Testing y Refinamiento: integración, UAT, optimización. 4) Despliegue: producción, capacitación, documentación. Comunicación: reportes semanales y acceso a herramientas de gestión.",
+    mediaType: "video",
+    mediaSrc: "https://www.youtube.com/embed/VIDEO_ID"
   },
   {
-    title: "¿Qué es CI/CD?",
-    content: "Automatiza testing y deployment. Beneficios: detecta errores temprano, reduce trabajo manual, mejora calidad.",
+    title: "¿Cómo integrar IA en mi negocio?",
+    content: "Proceso estratégico en 4 pasos: 1) Identificación de Oportunidades (analizar procesos para mayor ROI), 2) Evaluación de Datos (revisar calidad y disponibilidad), 3) Proyecto Piloto (caso de uso específico y medible), 4) Escalamiento. Casos comunes: chatbots 24/7, cualificación de leads, automatización administrativa, predicción de demanda, personalización. Resultados en 4-8 semanas.",
     mediaType: "video",
-    mediaSrc: "https://www.youtube.com/embed/VIDEO_ID" // Reemplazar VIDEO_ID con el ID real del short
+    mediaSrc: "https://www.youtube.com/embed/VIDEO_ID"
+  },
+  {
+    title: "¿Qué pasará en la asesoría?",
+    content: "Sesión de 60 minutos: 10' conocernos y contexto, 15' profundizar en el problema, 20' propuesta de solución con referencias, 10' hoja de ruta inicial y estimación, 5' Q&A y próximos pasos. Recibirás: resumen por email, recomendaciones técnicas, recursos relevantes, y propuesta formal (si decides continuar). 100% gratuita, sin compromiso.",
+    mediaType: "audio",
+    mediaSrc: "/audio/asesoria.mp3"
+  },
+  {
+    title: "¿Qué arquitectura debo usar en mi proyecto?",
+    content: "Depende de tus necesidades: Monolito Modular (MVPs, equipos pequeños, presupuesto limitado), Microservicios (apps empresariales complejas, equipos distribuidos, alta escalabilidad), Serverless (tráfico variable, event-driven, optimización de costos), Híbrida (migración gradual, necesidades mixtas). Aplicamos TOGAF 2026 considerando arquitectura de negocio, aplicaciones, datos y tecnología. En la consultoría analizamos tu caso específico.",
+    mediaType: "audio",
+    mediaSrc: "/audio/arquitectura.mp3"
+  },
+  {
+    title: "¿La IA resuelve todos mis problemas?",
+    content: "No. La IA NO es solución si: procesos caóticos (automatizarás el caos), datos de baja calidad ('garbage in, garbage out'), problemas organizacionales (resistencia al cambio), expectativas de resultados instantáneos, o sin presupuesto para mantenimiento. La IA SÍ es solución para: tareas repetitivas a escala, personalización masiva, análisis de grandes volúmenes, disponibilidad 24/7, predicciones basadas en datos. Te diremos la verdad y recomendaremos alternativas si la IA no es lo mejor para ti.",
+    mediaType: null,
+    mediaSrc: null
   }
 ];
 ---
@@ -193,9 +199,7 @@ const faqItems = [
               id="open-floating-chat-consulta"
               class="w-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#82e256]/50 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-3"
             >
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
-              </svg>
+              <img src="/img/ia.svg" style="filter: contrast(0) brightness(1) grayscale(0);" alt="Chat" class="w-5 h-5" />
               <span>Chat Interactivo IA</span>
             </button>
           </div>
@@ -373,6 +377,7 @@ const faqItems = [
     align-items: center;
     cursor: pointer;
     transition: all 0.3s ease;
+    gap: 30px;
   }
 
   .faq-header:hover {
@@ -578,34 +583,40 @@ const faqItems = [
   // FAQ Items data para modales
   const faqItemsData = [
     {
-      title: "¿Qué arquitectura debo usar?",
-      content: "La elección depende de escalabilidad, complejidad y equipo. Arquitecturas comunes: Hexagonal, Microservicios, Monolito Modular, Event-Driven.",
-      mediaType: "audio",
-      mediaSrc: "/audio/arquitectura.mp3"
-    },
-    {
-      title: "¿Cómo integrar IA en mi negocio?",
-      content: "Identifica procesos repetitivos. Casos: chatbots, análisis de sentimientos, recomendaciones, automatización de tareas.",
-      mediaType: "video",
-      mediaSrc: "https://www.youtube.com/embed/VIDEO_ID"
-    },
-    {
-      title: "React Native o nativo?",
-      content: "React Native: rápido, código compartido. Nativo: máximo rendimiento, APIs completas, interfaces personalizadas.",
+      title: "¿Cómo pueden contratar nuestros servicios?",
+      content: "El proceso es simple: 1) Contacto inicial (formulario o email), 2) Discovery call (30-60 min para entender tus necesidades), 3) Propuesta personalizada (enviada en 2-3 días), 4) Reunión de clarificación, 5) Firma de contrato, 6) Inicio del proyecto. Tiempo total: 1-2 semanas.",
       mediaType: null,
       mediaSrc: null
     },
     {
-      title: "¿Mejores prácticas de seguridad?",
-      content: "HTTPS, autenticación robusta (JWT, OAuth), validación de inputs, protección contra XSS y SQL injection, CSP headers.",
-      mediaType: "audio",
-      mediaSrc: "/audio/seguridad.mp3"
-    },
-    {
-      title: "¿Qué es CI/CD?",
-      content: "Automatiza testing y deployment. Beneficios: detecta errores temprano, reduce trabajo manual, mejora calidad.",
+      title: "¿Cómo implementamos un proyecto?",
+      content: "Seguimos metodología ágil en 4 fases: 1) Planificación (1-2 semanas): requisitos, arquitectura, backlog. 2) Desarrollo Iterativo (sprints de 2 semanas): desarrollo incremental, revisiones semanales, demos. 3) Testing y Refinamiento: integración, UAT, optimización. 4) Despliegue: producción, capacitación, documentación. Comunicación: reportes semanales y acceso a herramientas de gestión.",
       mediaType: "video",
       mediaSrc: "https://www.youtube.com/embed/VIDEO_ID"
+    },
+    {
+      title: "¿Cómo integrar IA en mi negocio?",
+      content: "Proceso estratégico en 4 pasos: 1) Identificación de Oportunidades (analizar procesos para mayor ROI), 2) Evaluación de Datos (revisar calidad y disponibilidad), 3) Proyecto Piloto (caso de uso específico y medible), 4) Escalamiento. Casos comunes: chatbots 24/7, cualificación de leads, automatización administrativa, predicción de demanda, personalización. Resultados en 4-8 semanas.",
+      mediaType: "video",
+      mediaSrc: "https://www.youtube.com/embed/VIDEO_ID"
+    },
+    {
+      title: "¿Qué pasará en la asesoría?",
+      content: "Sesión de 60 minutos: 10' conocernos y contexto, 15' profundizar en el problema, 20' propuesta de solución con referencias, 10' hoja de ruta inicial y estimación, 5' Q&A y próximos pasos. Recibirás: resumen por email, recomendaciones técnicas, recursos relevantes, y propuesta formal (si decides continuar). 100% gratuita, sin compromiso.",
+      mediaType: "audio",
+      mediaSrc: "/audio/asesoria.mp3"
+    },
+    {
+      title: "¿Qué arquitectura debo usar en mi proyecto?",
+      content: "Depende de tus necesidades: Monolito Modular (MVPs, equipos pequeños, presupuesto limitado), Microservicios (apps empresariales complejas, equipos distribuidos, alta escalabilidad), Serverless (tráfico variable, event-driven, optimización de costos), Híbrida (migración gradual, necesidades mixtas). Aplicamos TOGAF 2026 considerando arquitectura de negocio, aplicaciones, datos y tecnología. En la consultoría analizamos tu caso específico.",
+      mediaType: "audio",
+      mediaSrc: "/audio/arquitectura.mp3"
+    },
+    {
+      title: "¿La IA resuelve todos mis problemas?",
+      content: "No. La IA NO es solución si: procesos caóticos (automatizarás el caos), datos de baja calidad ('garbage in, garbage out'), problemas organizacionales (resistencia al cambio), expectativas de resultados instantáneos, o sin presupuesto para mantenimiento. La IA SÍ es solución para: tareas repetitivas a escala, personalización masiva, análisis de grandes volúmenes, disponibilidad 24/7, predicciones basadas en datos. Te diremos la verdad y recomendaremos alternativas si la IA no es lo mejor para ti.",
+      mediaType: null,
+      mediaSrc: null
     }
   ];
 

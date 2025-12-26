@@ -1,14 +1,13 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
-import SolucionesLeadMagnets from '../../components/SolucionesLeadMagnets.astro';
 ---
 
 <Layout title="Soluciones - Aquí Creamos">
   <Header />
 
   <!-- Hero Section -->
-  <section class="pt-32 pb-20 bg-gradient-to-br from-[#00464e] via-[#006064] to-[#1a1a1a]">
+  <section class="pt-32 pb-20 bg-gradient-to-br from-[#00464e] via-[#006064] to-[#1a1a1a] relative">
     <div class="container mx-auto px-4 md:px-16">
       <div class="max-w-6xl mx-auto text-center">
         <h1 class="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
@@ -38,104 +37,191 @@ import SolucionesLeadMagnets from '../../components/SolucionesLeadMagnets.astro'
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- E-commerce -->
-          <a href="/soluciones/ecommerce" class="group bg-white/5 backdrop-blur border border-white/10 rounded-xl p-8 hover:border-[#82e256] transition-all duration-300 hover:shadow-[0_0_30px_rgba(130,226,86,0.3)] hover:scale-105">
-            <div class="text-6xl mb-4">🛒</div>
-            <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-[#82e256] transition-colors">E-commerce Inteligente</h3>
-            <p class="text-gray-300 mb-4">Automatiza ventas, recuperación de carritos, atención al cliente y análisis de comportamiento con IA.</p>
-            <div class="flex items-center text-[#82e256] font-semibold">
-              Ver soluciones →
-            </div>
-          </a>
+          <div class="group bg-white/5 backdrop-blur border border-white/10 rounded-xl p-8 hover:border-[#82e256] transition-all duration-300 hover:shadow-[0_0_30px_rgba(130,226,86,0.3)] relative">
+            <!-- Botón de descarga en esquina superior derecha -->
+            <button
+              class="download-card-btn absolute top-4 right-4 p-2 bg-gradient-to-r from-[#82e256] to-[#6bc73d] rounded-lg hover:shadow-[0_0_20px_rgba(130,226,86,0.6)] transition-all hover:scale-110 z-10"
+              data-solucion="ecommerce"
+              title="Descargar guía gratuita"
+            >
+              <img src="/img/download.svg" alt="Descargar" class="w-5 h-5 download-icon" />
+            </button>
+
+            <a href="/soluciones/ecommerce" class="block">
+              <div class="text-6xl mb-4">🛒</div>
+              <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-[#82e256] transition-colors">E-commerce Inteligente</h3>
+              <p class="text-gray-300 mb-4">Automatiza ventas, recuperación de carritos, atención al cliente y análisis de comportamiento con IA.</p>
+              <div class="flex items-center text-[#82e256] font-semibold">
+                Ver soluciones →
+              </div>
+            </a>
+          </div>
 
           <!-- Recursos Humanos -->
-          <a href="/soluciones/recursos-humanos" class="group bg-white/5 backdrop-blur border border-white/10 rounded-xl p-8 hover:border-[#82e256] transition-all duration-300 hover:shadow-[0_0_30px_rgba(130,226,86,0.3)] hover:scale-105">
-            <div class="text-6xl mb-4">👥</div>
-            <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-[#82e256] transition-colors">Recursos Humanos</h3>
-            <p class="text-gray-300 mb-4">Automatiza reclutamiento, onboarding, evaluaciones y gestión de talento con inteligencia artificial.</p>
-            <div class="flex items-center text-[#82e256] font-semibold">
-              Ver soluciones →
-            </div>
-          </a>
+          <div class="group bg-white/5 backdrop-blur border border-white/10 rounded-xl p-8 hover:border-[#82e256] transition-all duration-300 hover:shadow-[0_0_30px_rgba(130,226,86,0.3)] relative">
+            <button
+              class="download-card-btn absolute top-4 right-4 p-2 bg-gradient-to-r from-[#82e256] to-[#6bc73d] rounded-lg hover:shadow-[0_0_20px_rgba(130,226,86,0.6)] transition-all hover:scale-110 z-10"
+              data-solucion="recursos-humanos"
+              title="Descargar guía gratuita"
+            >
+              <img src="/img/download.svg" alt="Descargar" class="w-5 h-5 download-icon" />
+            </button>
+
+            <a href="/soluciones/recursos-humanos" class="block">
+              <div class="text-6xl mb-4">👥</div>
+              <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-[#82e256] transition-colors">Recursos Humanos</h3>
+              <p class="text-gray-300 mb-4">Automatiza reclutamiento, onboarding, evaluaciones y gestión de talento con inteligencia artificial.</p>
+              <div class="flex items-center text-[#82e256] font-semibold">
+                Ver soluciones →
+              </div>
+            </a>
+          </div>
 
           <!-- Atención al Cliente -->
-          <a href="/soluciones/atencion-cliente" class="group bg-white/5 backdrop-blur border border-white/10 rounded-xl p-8 hover:border-[#82e256] transition-all duration-300 hover:shadow-[0_0_30px_rgba(130,226,86,0.3)] hover:scale-105">
-            <div class="text-6xl mb-4">📞</div>
-            <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-[#82e256] transition-colors">Atención al Cliente IA</h3>
-            <p class="text-gray-300 mb-4">Chatbots inteligentes 24/7, análisis de sentimiento y soporte automatizado multicanal.</p>
-            <div class="flex items-center text-[#82e256] font-semibold">
-              Ver soluciones →
-            </div>
-          </a>
+          <div class="group bg-white/5 backdrop-blur border border-white/10 rounded-xl p-8 hover:border-[#82e256] transition-all duration-300 hover:shadow-[0_0_30px_rgba(130,226,86,0.3)] relative">
+            <button
+              class="download-card-btn absolute top-4 right-4 p-2 bg-gradient-to-r from-[#82e256] to-[#6bc73d] rounded-lg hover:shadow-[0_0_20px_rgba(130,226,86,0.6)] transition-all hover:scale-110 z-10"
+              data-solucion="atencion-cliente"
+              title="Descargar guía gratuita"
+            >
+              <img src="/img/download.svg" alt="Descargar" class="w-5 h-5 download-icon" />
+            </button>
+
+            <a href="/soluciones/atencion-cliente" class="block">
+              <div class="text-6xl mb-4">📞</div>
+              <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-[#82e256] transition-colors">Atención al Cliente IA</h3>
+              <p class="text-gray-300 mb-4">Chatbots inteligentes 24/7, análisis de sentimiento y soporte automatizado multicanal.</p>
+              <div class="flex items-center text-[#82e256] font-semibold">
+                Ver soluciones →
+              </div>
+            </a>
+          </div>
 
           <!-- Marketing y Ventas -->
-          <a href="/soluciones/marketing-ventas" class="group bg-white/5 backdrop-blur border border-white/10 rounded-xl p-8 hover:border-[#82e256] transition-all duration-300 hover:shadow-[0_0_30px_rgba(130,226,86,0.3)] hover:scale-105">
-            <div class="text-6xl mb-4">📊</div>
-            <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-[#82e256] transition-colors">Marketing y Ventas Digital</h3>
-            <p class="text-gray-300 mb-4">Campañas automáticas, lead generation, contenido IA y análisis predictivo de ventas.</p>
-            <div class="flex items-center text-[#82e256] font-semibold">
-              Ver soluciones →
-            </div>
-          </a>
+          <div class="group bg-white/5 backdrop-blur border border-white/10 rounded-xl p-8 hover:border-[#82e256] transition-all duration-300 hover:shadow-[0_0_30px_rgba(130,226,86,0.3)] relative">
+            <button
+              class="download-card-btn absolute top-4 right-4 p-2 bg-gradient-to-r from-[#82e256] to-[#6bc73d] rounded-lg hover:shadow-[0_0_20px_rgba(130,226,86,0.6)] transition-all hover:scale-110 z-10"
+              data-solucion="marketing-ventas"
+              title="Descargar guía gratuita"
+            >
+              <img src="/img/download.svg" alt="Descargar" class="w-5 h-5 download-icon" />
+            </button>
+
+            <a href="/soluciones/marketing-ventas" class="block">
+              <div class="text-6xl mb-4">📊</div>
+              <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-[#82e256] transition-colors">Marketing y Ventas Digital</h3>
+              <p class="text-gray-300 mb-4">Campañas automáticas, lead generation, contenido IA y análisis predictivo de ventas.</p>
+              <div class="flex items-center text-[#82e256] font-semibold">
+                Ver soluciones →
+              </div>
+            </a>
+          </div>
 
           <!-- Calidad -->
-          <a href="/soluciones/calidad-control" class="group bg-white/5 backdrop-blur border border-white/10 rounded-xl p-8 hover:border-[#82e256] transition-all duration-300 hover:shadow-[0_0_30px_rgba(130,226,86,0.3)] hover:scale-105">
-            <div class="text-6xl mb-4">⚙️</div>
-            <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-[#82e256] transition-colors">Calidad y Control</h3>
-            <p class="text-gray-300 mb-4">Inspección con IA, gestión de no conformidades, auditorías automáticas y trazabilidad total.</p>
-            <div class="flex items-center text-[#82e256] font-semibold">
-              Ver soluciones →
-            </div>
-          </a>
+          <div class="group bg-white/5 backdrop-blur border border-white/10 rounded-xl p-8 hover:border-[#82e256] transition-all duration-300 hover:shadow-[0_0_30px_rgba(130,226,86,0.3)] relative">
+            <button
+              class="download-card-btn absolute top-4 right-4 p-2 bg-gradient-to-r from-[#82e256] to-[#6bc73d] rounded-lg hover:shadow-[0_0_20px_rgba(130,226,86,0.6)] transition-all hover:scale-110 z-10"
+              data-solucion="calidad-control"
+              title="Descargar guía gratuita"
+            >
+              <img src="/img/download.svg" alt="Descargar" class="w-5 h-5 download-icon" />
+            </button>
+
+            <a href="/soluciones/calidad-control" class="block">
+              <div class="text-6xl mb-4">⚙️</div>
+              <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-[#82e256] transition-colors">Calidad y Control</h3>
+              <p class="text-gray-300 mb-4">Inspección con IA, gestión de no conformidades, auditorías automáticas y trazabilidad total.</p>
+              <div class="flex items-center text-[#82e256] font-semibold">
+                Ver soluciones →
+              </div>
+            </a>
+          </div>
 
           <!-- Finanzas -->
-          <a href="/soluciones/finanzas-inteligentes" class="group bg-white/5 backdrop-blur border border-white/10 rounded-xl p-8 hover:border-[#82e256] transition-all duration-300 hover:shadow-[0_0_30px_rgba(130,226,86,0.3)] hover:scale-105">
-            <div class="text-6xl mb-4">💰</div>
-            <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-[#82e256] transition-colors">Finanzas Inteligentes</h3>
-            <p class="text-gray-300 mb-4">Conciliación bancaria, cobranza automatizada, reportes financieros y detección de fraude con IA.</p>
-            <div class="flex items-center text-[#82e256] font-semibold">
-              Ver soluciones →
-            </div>
-          </a>
+          <div class="group bg-white/5 backdrop-blur border border-white/10 rounded-xl p-8 hover:border-[#82e256] transition-all duration-300 hover:shadow-[0_0_30px_rgba(130,226,86,0.3)] relative">
+            <button
+              class="download-card-btn absolute top-4 right-4 p-2 bg-gradient-to-r from-[#82e256] to-[#6bc73d] rounded-lg hover:shadow-[0_0_20px_rgba(130,226,86,0.6)] transition-all hover:scale-110 z-10"
+              data-solucion="finanzas-inteligentes"
+              title="Descargar guía gratuita"
+            >
+              <img src="/img/download.svg" alt="Descargar" class="w-5 h-5 download-icon" />
+            </button>
+
+            <a href="/soluciones/finanzas-inteligentes" class="block">
+              <div class="text-6xl mb-4">💰</div>
+              <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-[#82e256] transition-colors">Finanzas Inteligentes</h3>
+              <p class="text-gray-300 mb-4">Conciliación bancaria, cobranza automatizada, reportes financieros y detección de fraude con IA.</p>
+              <div class="flex items-center text-[#82e256] font-semibold">
+                Ver soluciones →
+              </div>
+            </a>
+          </div>
 
           <!-- Inventarios -->
-          <a href="/soluciones/inventarios-inteligentes" class="group bg-white/5 backdrop-blur border border-white/10 rounded-xl p-8 hover:border-[#82e256] transition-all duration-300 hover:shadow-[0_0_30px_rgba(130,226,86,0.3)] hover:scale-105">
-            <div class="text-6xl mb-4">📦</div>
-            <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-[#82e256] transition-colors">Inventarios Inteligentes</h3>
-            <p class="text-gray-300 mb-4">Optimiza stock, predice demanda y automatiza órdenes de compra con IA.</p>
-            <div class="flex items-center text-[#82e256] font-semibold">
-              Ver soluciones →
-            </div>
-          </a>
+          <div class="group bg-white/5 backdrop-blur border border-white/10 rounded-xl p-8 hover:border-[#82e256] transition-all duration-300 hover:shadow-[0_0_30px_rgba(130,226,86,0.3)] relative">
+            <button
+              class="download-card-btn absolute top-4 right-4 p-2 bg-gradient-to-r from-[#82e256] to-[#6bc73d] rounded-lg hover:shadow-[0_0_20px_rgba(130,226,86,0.6)] transition-all hover:scale-110 z-10"
+              data-solucion="inventarios-inteligentes"
+              title="Descargar guía gratuita"
+            >
+              <img src="/img/download.svg" alt="Descargar" class="w-5 h-5 download-icon" />
+            </button>
+
+            <a href="/soluciones/inventarios-inteligentes" class="block">
+              <div class="text-6xl mb-4">📦</div>
+              <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-[#82e256] transition-colors">Inventarios Inteligentes</h3>
+              <p class="text-gray-300 mb-4">Optimiza stock, predice demanda y automatiza órdenes de compra con IA.</p>
+              <div class="flex items-center text-[#82e256] font-semibold">
+                Ver soluciones →
+              </div>
+            </a>
+          </div>
 
           <!-- Integración CRM -->
-          <a href="/soluciones/integracion-crm" class="group bg-white/5 backdrop-blur border border-white/10 rounded-xl p-8 hover:border-[#82e256] transition-all duration-300 hover:shadow-[0_0_30px_rgba(130,226,86,0.3)] hover:scale-105">
-            <div class="text-6xl mb-4">🔄</div>
-            <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-[#82e256] transition-colors">Integración CRM</h3>
-            <p class="text-gray-300 mb-4">Sincronización inteligente entre CRMs, enriquecimiento de datos y validación con IA.</p>
-            <div class="flex items-center text-[#82e256] font-semibold">
-              Ver soluciones →
-            </div>
-          </a>
+          <div class="group bg-white/5 backdrop-blur border border-white/10 rounded-xl p-8 hover:border-[#82e256] transition-all duration-300 hover:shadow-[0_0_30px_rgba(130,226,86,0.3)] relative">
+            <button
+              class="download-card-btn absolute top-4 right-4 p-2 bg-gradient-to-r from-[#82e256] to-[#6bc73d] rounded-lg hover:shadow-[0_0_20px_rgba(130,226,86,0.6)] transition-all hover:scale-110 z-10"
+              data-solucion="integracion-crm"
+              title="Descargar guía gratuita"
+            >
+              <img src="/img/download.svg" alt="Descargar" class="w-5 h-5 download-icon" />
+            </button>
+
+            <a href="/soluciones/integracion-crm" class="block">
+              <div class="text-6xl mb-4">🔄</div>
+              <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-[#82e256] transition-colors">Integración CRM</h3>
+              <p class="text-gray-300 mb-4">Sincronización inteligente entre CRMs, enriquecimiento de datos y validación con IA.</p>
+              <div class="flex items-center text-[#82e256] font-semibold">
+                Ver soluciones →
+              </div>
+            </a>
+          </div>
 
           <!-- Comunicaciones -->
-          <a href="/soluciones/comunicaciones-multicanal" class="group bg-white/5 backdrop-blur border border-white/10 rounded-xl p-8 hover:border-[#82e256] transition-all duration-300 hover:shadow-[0_0_30px_rgba(130,226,86,0.3)] hover:scale-105">
-            <div class="text-6xl mb-4">🔔</div>
-            <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-[#82e256] transition-colors">Comunicaciones Multicanal</h3>
-            <p class="text-gray-300 mb-4">Notificaciones inteligentes por Email, SMS, WhatsApp y Slack con enrutamiento automático.</p>
-            <div class="flex items-center text-[#82e256] font-semibold">
-              Ver soluciones →
-            </div>
-          </a>
+          <div class="group bg-white/5 backdrop-blur border border-white/10 rounded-xl p-8 hover:border-[#82e256] transition-all duration-300 hover:shadow-[0_0_30px_rgba(130,226,86,0.3)] relative">
+            <button
+              class="download-card-btn absolute top-4 right-4 p-2 bg-gradient-to-r from-[#82e256] to-[#6bc73d] rounded-lg hover:shadow-[0_0_20px_rgba(130,226,86,0.6)] transition-all hover:scale-110 z-10"
+              data-solucion="comunicaciones-multicanal"
+              title="Descargar guía gratuita"
+            >
+              <img src="/img/download.svg" alt="Descargar" class="w-5 h-5 download-icon" />
+            </button>
+
+            <a href="/soluciones/comunicaciones-multicanal" class="block">
+              <div class="text-6xl mb-4">🔔</div>
+              <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-[#82e256] transition-colors">Comunicaciones Multicanal</h3>
+              <p class="text-gray-300 mb-4">Notificaciones inteligentes por Email, SMS, WhatsApp y Slack con enrutamiento automático.</p>
+              <div class="flex items-center text-[#82e256] font-semibold">
+                Ver soluciones →
+              </div>
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-<!-- Sección de 9 Soluciones con Lead Magnets -->
-<SolucionesLeadMagnets />
- 
-
-<!-- CTA Final -->
+  <!-- CTA Final -->
   <section class="py-20 bg-[#1a1a1a]">
     <div class="container mx-auto px-4 md:px-16">
       <div class="max-w-4xl mx-auto text-center">
@@ -164,3 +250,238 @@ import SolucionesLeadMagnets from '../../components/SolucionesLeadMagnets.astro'
     </div>
   </section>
 </Layout>
+
+<!-- Modal Universal de Lead Magnets -->
+<div id="lead-magnet-modal-universal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+  <div class="bg-gradient-to-br from-[#1a1a1a] to-[#00464e] rounded-2xl max-w-md w-full p-8 border-2 border-[#82e256] relative">
+
+    <div class="text-center mb-6">
+      <div class="text-6xl mb-4" id="modal-icon">📚</div>
+      <h3 class="text-2xl font-black text-white mb-2" id="modal-title">
+        Guía Gratuita
+      </h3>
+      <p class="text-gray-300" id="modal-description">
+        Descarga nuestra guía completa 2025
+      </p>
+    </div>
+
+    <form id="lead-form-universal" class="space-y-4">
+      <input type="hidden" id="lead-area" name="area" value="">
+
+      <div>
+        <label class="block text-sm font-semibold text-gray-300 mb-2">Nombre completo</label>
+        <input
+          type="text"
+          name="nombre"
+          required
+          class="w-full px-4 py-3 bg-white/10 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#82e256] text-white"
+          placeholder="Tu nombre"
+        />
+      </div>
+
+      <div>
+        <label class="block text-sm font-semibold text-gray-300 mb-2">Email</label>
+        <input
+          type="email"
+          name="email"
+          required
+          class="w-full px-4 py-3 bg-white/10 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#82e256] text-white"
+          placeholder="tu@email.com"
+        />
+      </div>
+
+      <button
+        type="submit"
+        class="w-full px-8 py-4 bg-gradient-to-r from-[#82e256] to-[#6bc73d] text-black rounded-lg font-bold hover:shadow-[0_0_30px_rgba(130,226,86,0.5)] transition-all duration-300"
+      >
+        📥 Descargar Ahora
+      </button>
+
+      <p class="text-xs text-gray-400 text-center">
+        Al descargar aceptas recibir emails con consejos. Puedes cancelar cuando quieras.
+      </p>
+    </form>
+  </div>
+</div>
+
+<style>
+  /* Animación del icono de descarga en las cards */
+  .download-icon {
+    filter: brightness(0);
+    transition: transform 0.3s ease;
+  }
+
+  .download-card-btn:hover .download-icon {
+    animation: download-bounce 0.6s ease-in-out infinite;
+  }
+
+  @keyframes download-bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(4px);
+    }
+  }
+
+  /* Animación cuando se hace clic */
+  .download-card-btn:active {
+    transform: scale(0.95);
+  }
+
+  .download-card-btn:active .download-icon {
+    animation: download-pulse 0.3s ease;
+  }
+
+  @keyframes download-pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+  }
+</style>
+
+<script>
+  // Configuración de lead magnets
+  const leadMagnets = {
+    'ecommerce': {
+      icon: '🛒',
+      title: 'Guía E-commerce con IA',
+      description: 'Automatización de E-commerce con IA - Guía Completa 2025',
+      area: 'E-commerce'
+    },
+    'rrhh': {
+      icon: '👥',
+      title: 'Guía Recursos Humanos IA',
+      description: 'Automatización de RRHH con IA - Guía Completa 2025',
+      area: 'Recursos Humanos'
+    },
+    'atencion-cliente': {
+      icon: '📞',
+      title: 'Guía Atención al Cliente IA',
+      description: 'Atención al Cliente con IA - Guía Completa 2025',
+      area: 'Atención al Cliente'
+    },
+    'marketing': {
+      icon: '📊',
+      title: 'Guía Marketing y Ventas IA',
+      description: 'Marketing y Ventas con IA - Guía Completa 2025',
+      area: 'Marketing y Ventas'
+    },
+    'calidad': {
+      icon: '⚙️',
+      title: 'Guía Calidad y Control IA',
+      description: 'Control de Calidad con IA - Guía Completa 2025',
+      area: 'Calidad y Control'
+    },
+    'finanzas': {
+      icon: '💰',
+      title: 'Guía Finanzas Inteligentes',
+      description: 'Automatización Financiera con IA - Guía Completa 2025',
+      area: 'Finanzas'
+    },
+    'inventarios': {
+      icon: '📦',
+      title: 'Guía Inventarios Inteligentes',
+      description: 'Optimización de Inventarios con IA - Guía Completa 2025',
+      area: 'Inventarios Inteligentes'
+    },
+    'crm': {
+      icon: '🔄',
+      title: 'Guía Integración CRM',
+      description: 'Integración y Sincronización de CRM - Guía Completa 2025',
+      area: 'Integración CRM'
+    },
+    'comunicaciones': {
+      icon: '🔔',
+      title: 'Guía Comunicaciones Multicanal',
+      description: 'Automatización de Comunicaciones - Guía Completa 2025',
+      area: 'Comunicaciones Multicanal'
+    }
+  };
+
+  // Función para abrir modal
+  function openLeadMagnet(area) {
+    const config = leadMagnets[area];
+    if (!config) return;
+
+    document.getElementById('modal-icon').textContent = config.icon;
+    document.getElementById('modal-title').textContent = config.title;
+    document.getElementById('modal-description').textContent = config.description;
+    document.getElementById('lead-area').value = config.area;
+
+    document.getElementById('lead-magnet-modal-universal').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  // Hacer función global para onclick
+  window.openLeadMagnet = openLeadMagnet;
+
+  // Cerrar modal al hacer click fuera
+  document.getElementById('lead-magnet-modal-universal')?.addEventListener('click', (e) => {
+    if (e.target.id === 'lead-magnet-modal-universal') {
+      document.getElementById('lead-magnet-modal-universal').classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+  });
+
+  // Submit form
+  document.getElementById('lead-form-universal')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const data = {
+      nombre: formData.get('nombre'),
+      email: formData.get('email'),
+      area: formData.get('area'),
+      timestamp: new Date().toISOString()
+    };
+
+    console.log('Lead capturado:', data);
+
+    // TODO: Enviar a backend/webhook/n8n
+    alert('¡Gracias! Te hemos enviado la guía a tu email. Revisa tu bandeja de entrada.');
+
+    document.getElementById('lead-magnet-modal-universal').classList.add('hidden');
+    document.body.style.overflow = 'auto';
+    e.target.reset();
+  });
+
+  // Botones de descarga de las cards
+  document.addEventListener('DOMContentLoaded', () => {
+    const cardDownloadBtns = document.querySelectorAll('.download-card-btn');
+
+    cardDownloadBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation(); // Evitar que se active el link de la card
+
+        const solucion = btn.getAttribute('data-solucion');
+
+        // Mapeo de nombres de solución a las keys del modal
+        const solucionMap = {
+          'ecommerce': 'ecommerce',
+          'recursos-humanos': 'rrhh',
+          'atencion-cliente': 'atencion-cliente',
+          'marketing-ventas': 'marketing',
+          'calidad-control': 'calidad',
+          'finanzas-inteligentes': 'finanzas',
+          'inventarios-inteligentes': 'inventarios',
+          'integracion-crm': 'crm',
+          'comunicaciones-multicanal': 'comunicaciones'
+        };
+
+        const modalKey = solucionMap[solucion] || solucion;
+
+        // Llamar a la función global del modal
+        if (typeof window.openLeadMagnet === 'function') {
+          window.openLeadMagnet(modalKey);
+        } else {
+          console.error('Modal function not found');
+        }
+      });
+    });
+  });
+</script>

@@ -1,35 +1,491 @@
 <!-- Sección de Stack -->
 <section
   id="contenido9"
-  class="w-full min-h-screen md:px-16 px-5 py-4 flex flex-col items-center justify-center bg-[#1a1a1a]"
+  class="w-full min-h-screen md:px-16 px-5 py-16 flex flex-col items-center justify-center bg-gradient-to-b from-[#0a0a0a] via-[#1a1a1a] to-[#0a0a0a] relative overflow-hidden"
 >
-  <div class="flex flex-col items-center px-5 py-4 h-full text-center">
-    <div class="sticky-title w-full">
-      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight text-[#82e256]">
-        Stack Tech
+  <!-- Decorative background -->
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute top-20 left-10 w-72 h-72 bg-[#82e256] rounded-full blur-[100px]"></div>
+    <div class="absolute bottom-20 right-10 w-96 h-96 bg-[#04ADC0] rounded-full blur-[120px]"></div>
+  </div>
+
+  <div class="relative z-10 w-full max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#82e256] to-[#04ADC0] rounded-2xl mb-6 shadow-xl">
+        <svg class="w-10 h-10 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+        </svg>
+      </div>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight bg-gradient-to-r from-[#82e256] via-white to-[#04ADC0] bg-clip-text text-transparent">
+        Stack Tecnológico
       </h1>
+      <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+        Dominamos las tecnologías más avanzadas del mercado para crear <span class="text-[#82e256] font-semibold">soluciones digitales innovadoras</span> adaptadas a tu negocio
+      </p>
     </div>
-    <p class="text-lg text-center text-[#82e256]">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod autem
-      corporis nesciunt dolorem, nihil aut, dicta id ipsam e obcaecati vitae.
-    </p>
-    <div class="flex flex-col items-center justify-between gap-8 mt-12">
-      <div class="flex flex-row items-center justify-center gap-2 md:gap-8">
-        <img src="/img/logoJavaScript.png" class="w-16 h-16" />
-        <img src="/img/logoTypeScript.png" class="w-16 h-16" />
-        <img src="/img/logoCSS3.png" class="w-16 h-16" />
-        <img src="/img/logoHTML.png" class="w-16 h-16" />
-        <img src="/img/logoReact.svg" class="w-16 h-16" />
+
+    <!-- Tech Categories Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+      <!-- Category 1: Frontend UI/UX -->
+      <div class="group relative bg-gradient-to-br from-[#1e1e1e] to-[#2a2a2a] rounded-3xl p-8 border border-white/10 hover:border-[#82e256]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[#82e256]/20">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#82e256]/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-16 h-16 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-xl flex items-center justify-center shadow-lg">
+            <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+            </svg>
+          </div>
+          <div>
+            <h2 class="text-2xl font-bold text-white mb-1">Interfaces Modernas</h2>
+            <p class="text-sm text-gray-400">Diseño y desarrollo de experiencias visuales</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-4 gap-4">
+          <div class="tech-item group/item relative flex items-center justify-center">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-[#82e256]/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-[#82e256]/50 hover:scale-110">
+              <img src="/img/logoJavaScript.png" class="w-12 h-12 object-contain transition-transform duration-300 group-hover/item:scale-110" alt="JavaScript" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              JavaScript
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-[#82e256]/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-[#82e256]/50 hover:scale-110">
+              <img src="/img/logoTypeScript.png" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="TypeScript" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              TypeScript
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-[#82e256]/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-[#82e256]/50 hover:scale-110">
+              <img src="/img/logoCSS3.png" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="CSS3" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              CSS3
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-[#82e256]/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-[#82e256]/50 hover:scale-110">
+              <img src="/img/tailwind.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="Tailwind CSS" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              Tailwind CSS
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-[#82e256]/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-[#82e256]/50 hover:scale-110">
+              <img src="/img/logoHTML.png" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="HTML5" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              HTML5
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-[#82e256]/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-[#82e256]/50 hover:scale-110">
+              <img src="/img/logoReact.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="React" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              React
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-[#82e256]/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-[#82e256]/50 hover:scale-110">
+              <img src="/img/angular.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="Angular" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              Angular
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-[#82e256]/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-[#82e256]/50 hover:scale-110">
+              <img src="/img/storybook.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="Storybook" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              Storybook
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="flex flex-row items-center justify-center gap-2 md:gap-8">
-        <img src="/img/logoPHP.png" class="w-16 h-16" />
-        <img src="/img/logoPython.png" class="w-16 h-16" />
-        <img src="/img/logoGO.png" class="w-16 h-16" />
+
+      <!-- Category 2: Backend APIs -->
+      <div class="group relative bg-gradient-to-br from-[#1e1e1e] to-[#2a2a2a] rounded-3xl p-8 border border-white/10 hover:border-[#04ADC0]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[#04ADC0]/20">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#04ADC0]/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-16 h-16 bg-gradient-to-br from-[#04ADC0] to-[#028a9a] rounded-xl flex items-center justify-center shadow-lg">
+            <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path>
+            </svg>
+          </div>
+          <div>
+            <h2 class="text-2xl font-bold text-white mb-1">APIs & Lógica de Negocio</h2>
+            <p class="text-sm text-gray-400">Construcción de servicios robustos y escalables</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-4 gap-4">
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-[#04ADC0]/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-[#04ADC0]/50 hover:scale-110">
+              <img src="/img/logoPHP.png" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="PHP" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              PHP
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-[#04ADC0]/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-[#04ADC0]/50 hover:scale-110">
+              <img src="/img/logoPython.png" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="Python" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              Python
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-[#04ADC0]/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-[#04ADC0]/50 hover:scale-110">
+              <img src="/img/Node.js.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="Node.js" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              Node.js
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-[#04ADC0]/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-[#04ADC0]/50 hover:scale-110">
+              <img src="/img/logoGO.png" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="Go" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              Go
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-[#04ADC0]/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-[#04ADC0]/50 hover:scale-110">
+              <img src="/img/java.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="Java" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              Java
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="flex flex-row items-center justify-center gap-2 md:gap-8">
-        <img src="/img/kotlin.svg" class="w-16 h-16" />
-        <img src="/img/logoReactNative.png" class="w-16 h-16" />
+
+      <!-- Category 3: Mobile Apps -->
+      <div class="group relative bg-gradient-to-br from-[#1e1e1e] to-[#2a2a2a] rounded-3xl p-8 border border-white/10 hover:border-purple-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-500/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl flex items-center justify-center shadow-lg">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <div>
+            <h2 class="text-2xl font-bold text-white mb-1">Apps Móviles</h2>
+            <p class="text-sm text-gray-400">Desarrollo nativo y multiplataforma</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-4 gap-4">
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-purple-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-purple-500/50 hover:scale-110">
+              <img src="/img/kotlin.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="Kotlin" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              Kotlin
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-purple-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-purple-500/50 hover:scale-110">
+              <img src="/img/swift.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="Swift" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              Swift
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-purple-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-purple-500/50 hover:scale-110">
+              <img src="/img/logoReactNative.png" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="React Native" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              React Native
+            </div>
+          </div>
+        </div>
       </div>
+
+      <!-- Category 4: Databases -->
+      <div class="group relative bg-gradient-to-br from-[#1e1e1e] to-[#2a2a2a] rounded-3xl p-8 border border-white/10 hover:border-orange-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/20">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-500/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-700 rounded-xl flex items-center justify-center shadow-lg">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
+            </svg>
+          </div>
+          <div>
+            <h2 class="text-2xl font-bold text-white mb-1">Bases de Datos</h2>
+            <p class="text-sm text-gray-400">Almacenamiento eficiente y confiable</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-4 gap-4">
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-orange-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-orange-500/50 hover:scale-110">
+              <img src="/img/postgresql.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="PostgreSQL" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              PostgreSQL
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-orange-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-orange-500/50 hover:scale-110">
+              <img src="/img/mysql.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="MySQL" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              MySQL
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-orange-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-orange-500/50 hover:scale-110">
+              <img src="/img/mongodb.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="MongoDB" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              MongoDB
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-orange-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-orange-500/50 hover:scale-110">
+              <img src="/img/sqlite.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="SQLite" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              SQLite
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-orange-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-orange-500/50 hover:scale-110">
+              <img src="/img/qdrant.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="Qdrant" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              Qdrant
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-orange-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-orange-500/50 hover:scale-110">
+              <img src="/img/redis.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="Redis" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              Redis
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category 5: ML & AI -->
+      <div class="group relative bg-gradient-to-br from-[#1e1e1e] to-[#2a2a2a] rounded-3xl p-8 border border-white/10 hover:border-pink-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-pink-500/20 lg:col-span-2">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-pink-500/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-pink-700 rounded-xl flex items-center justify-center shadow-lg">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+            </svg>
+          </div>
+          <div>
+            <h2 class="text-2xl font-bold text-white mb-1">Machine Learning e Inteligencia Artificial</h2>
+            <p class="text-sm text-gray-400">Modelos inteligentes y procesamiento de datos</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-4 md:grid-cols-8 gap-4">
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-pink-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-pink-500/50 hover:scale-110">
+              <img src="/img/tensorflow.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="TensorFlow" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              TensorFlow
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-pink-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-pink-500/50 hover:scale-110">
+              <img src="/img/jupyter.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="Jupyter" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              Jupyter
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-pink-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-pink-500/50 hover:scale-110">
+              <img src="/img/pytorch.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="PyTorch" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              PyTorch
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-pink-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-pink-500/50 hover:scale-110">
+              <img src="/img/openai.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="OpenAI" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              OpenAI
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-pink-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-pink-500/50 hover:scale-110">
+              <img src="/img/gemini.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="Gemini" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              Gemini
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-pink-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-pink-500/50 hover:scale-110">
+              <img src="/img/airflow.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="Airflow" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              Airflow
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-pink-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-pink-500/50 hover:scale-110">
+              <img src="/img/spark.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="Spark" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              Spark
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-pink-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-pink-500/50 hover:scale-110">
+              <img src="/img/OpenCV.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="OpenCV" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              OpenCV
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category 6: Infrastructure & DevOps -->
+      <div class="group relative bg-gradient-to-br from-[#1e1e1e] to-[#2a2a2a] rounded-3xl p-8 border border-white/10 hover:border-blue-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20 lg:col-span-2">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+            </svg>
+          </div>
+          <div>
+            <h2 class="text-2xl font-bold text-white mb-1">Infraestructura & DevOps</h2>
+            <p class="text-sm text-gray-400">Despliegue automático y gestión en la nube</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-4 md:grid-cols-7 gap-4">
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-blue-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-blue-500/50 hover:scale-110">
+              <img src="/img/aws.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="AWS" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              AWS
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-blue-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-blue-500/50 hover:scale-110">
+              <img src="/img/digitalocean.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="DigitalOcean" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              DigitalOcean
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-blue-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-blue-500/50 hover:scale-110">
+              <img src="/img/docker.png" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="Docker" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              Docker
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-blue-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-blue-500/50 hover:scale-110">
+              <img src="/img/kubernetes.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="Kubernetes" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              Kubernetes
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-blue-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-blue-500/50 hover:scale-110">
+              <img src="/img/bash.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="Bash" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              Bash
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-blue-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-blue-500/50 hover:scale-110">
+              <img src="/img/jenkins.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="Jenkins" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              Jenkins
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-blue-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-blue-500/50 hover:scale-110">
+              <img src="/img/github.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="GitHub" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              GitHub
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="mt-16 text-center">
+      <p class="text-gray-400 mb-6">¿Tienes un proyecto en mente? Combinamos estas tecnologías para crear soluciones a medida</p>
+      <a href="#contenido10" class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#82e256] to-[#04ADC0] hover:from-[#6bc73d] hover:to-[#028a9a] text-black font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:scale-105">
+        <span>Hablemos de tu Proyecto</span>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
+      </a>
     </div>
   </div>
 </section>

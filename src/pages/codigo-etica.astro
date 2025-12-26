@@ -1,0 +1,459 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+---
+
+<Layout>
+  <Header />
+
+  <!-- Contenedor principal -->
+  <main class="min-h-screen bg-[#1a1a1a] pt-24 pb-16">
+    <div class="container mx-auto px-4 md:px-16 max-w-4xl">
+
+      <!-- Logo -->
+      <div class="flex justify-center mb-12">
+        <a href="/">
+          <img
+            src="/img/logoAquicreamos.png"
+            class="h-16 md:h-20"
+            alt="Logo Aquí Creamos"
+          />
+        </a>
+      </div>
+
+      <!-- Título principal -->
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-black mb-8 leading-tight text-center bg-gradient-to-r from-white via-white to-[#82e256] bg-clip-text text-transparent">
+        Código de Ética Profesional
+      </h1>
+
+      <!-- Fecha de actualización -->
+      <p class="text-gray-400 text-center mb-12">
+        Última actualización: Diciembre 2025
+      </p>
+
+      <!-- Contenido -->
+      <div class="prose prose-invert prose-lg max-w-none">
+
+        <!-- Introducción -->
+        <section class="mb-10">
+          <p class="text-gray-300 leading-relaxed mb-4">
+            En <strong class="text-white">Aquí Creamos</strong>, nos comprometemos con los más altos estándares de ética profesional, integridad y excelencia técnica. Este Código de Ética establece los principios y valores que guían nuestras acciones, decisiones y relaciones con clientes, colaboradores y la comunidad tecnológica.
+          </p>
+          <div class="bg-gradient-to-r from-[#82e256]/20 to-[#6bc73d]/20 border-l-4 border-[#82e256] p-4 rounded-r-lg">
+            <p class="text-white italic">
+              "La tecnología debe ser una fuerza para el bien, construida con integridad, responsabilidad y respeto por las personas."
+            </p>
+          </div>
+        </section>
+
+        <!-- 1. Valores Fundamentales -->
+        <section class="mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            1. Valores Fundamentales
+          </h2>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-6">
+              <div class="text-3xl mb-3">🎯</div>
+              <h3 class="text-xl font-bold text-white mb-2">Integridad</h3>
+              <p class="text-gray-300 text-sm">
+                Actuamos con honestidad absoluta en todas nuestras relaciones profesionales. Cumplimos nuestros compromisos y admitimos nuestros errores.
+              </p>
+            </div>
+
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-6">
+              <div class="text-3xl mb-3">⭐</div>
+              <h3 class="text-xl font-bold text-white mb-2">Excelencia</h3>
+              <p class="text-gray-300 text-sm">
+                Nos esforzamos continuamente por la calidad superior en cada línea de código, cada diseño y cada interacción con el cliente.
+              </p>
+            </div>
+
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-6">
+              <div class="text-3xl mb-3">🤝</div>
+              <h3 class="text-xl font-bold text-white mb-2">Transparencia</h3>
+              <p class="text-gray-300 text-sm">
+                Comunicamos clara y abiertamente sobre procesos, limitaciones, riesgos y resultados esperados.
+              </p>
+            </div>
+
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-6">
+              <div class="text-3xl mb-3">🌱</div>
+              <h3 class="text-xl font-bold text-white mb-2">Innovación Responsable</h3>
+              <p class="text-gray-300 text-sm">
+                Impulsamos la innovación tecnológica considerando siempre su impacto ético, social y ambiental.
+              </p>
+            </div>
+
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-6">
+              <div class="text-3xl mb-3">👥</div>
+              <h3 class="text-xl font-bold text-white mb-2">Respeto</h3>
+              <p class="text-gray-300 text-sm">
+                Valoramos la diversidad, tratamos a todos con dignidad y creamos ambientes inclusivos y colaborativos.
+              </p>
+            </div>
+
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-6">
+              <div class="text-3xl mb-3">🛡️</div>
+              <h3 class="text-xl font-bold text-white mb-2">Responsabilidad</h3>
+              <p class="text-gray-300 text-sm">
+                Asumimos plena responsabilidad por nuestro trabajo, sus consecuencias y el impacto en usuarios finales.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. Compromiso con los Clientes -->
+        <section class="mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            2. Compromiso con los Clientes
+          </h2>
+
+          <div class="space-y-4">
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-5">
+              <h3 class="text-lg font-bold text-white mb-2">2.1 Servicio Profesional</h3>
+              <ul class="list-disc list-inside text-gray-300 space-y-1 ml-4">
+                <li>Proporcionamos servicios con el máximo nivel de profesionalismo y competencia técnica.</li>
+                <li>Solo aceptamos proyectos para los cuales tenemos las capacidades necesarias.</li>
+                <li>Buscamos continuamente mejorar nuestras habilidades y conocimientos.</li>
+                <li>Cumplimos con los compromisos adquiridos en tiempo, calidad y presupuesto.</li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-5">
+              <h3 class="text-lg font-bold text-white mb-2">2.2 Confidencialidad</h3>
+              <ul class="list-disc list-inside text-gray-300 space-y-1 ml-4">
+                <li>Protegemos rigurosamente toda información confidencial de nuestros clientes.</li>
+                <li>No divulgamos detalles de proyectos sin autorización expresa.</li>
+                <li>Implementamos medidas robustas de seguridad de la información.</li>
+                <li>Mantenemos la confidencialidad incluso después de finalizar la relación comercial.</li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-5">
+              <h3 class="text-lg font-bold text-white mb-2">2.3 Conflictos de Interés</h3>
+              <ul class="list-disc list-inside text-gray-300 space-y-1 ml-4">
+                <li>Identificamos y divulgamos cualquier potencial conflicto de interés.</li>
+                <li>No trabajamos simultáneamente en proyectos competidores sin consentimiento.</li>
+                <li>Priorizamos siempre el mejor interés del cliente.</li>
+                <li>Rechazamos oportunidades que comprometan nuestra objetividad.</li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-5">
+              <h3 class="text-lg font-bold text-white mb-2">2.4 Comunicación Honesta</h3>
+              <ul class="list-disc list-inside text-gray-300 space-y-1 ml-4">
+                <li>Proporcionamos estimaciones realistas basadas en nuestra experiencia.</li>
+                <li>Comunicamos proactivamente sobre riesgos, desafíos y limitaciones.</li>
+                <li>Admitimos errores rápidamente y trabajamos para corregirlos.</li>
+                <li>No hacemos promesas que no podemos cumplir.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. Prácticas de Desarrollo Responsable -->
+        <section class="mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            3. Prácticas de Desarrollo Responsable
+          </h2>
+
+          <div class="space-y-4">
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-5">
+              <h3 class="text-lg font-bold text-white mb-2">3.1 Calidad del Código</h3>
+              <ul class="list-disc list-inside text-gray-300 space-y-1 ml-4">
+                <li>Escribimos código limpio, mantenible y bien documentado.</li>
+                <li>Seguimos estándares de la industria y mejores prácticas establecidas.</li>
+                <li>Realizamos revisiones de código exhaustivas (code reviews).</li>
+                <li>Implementamos pruebas automatizadas para garantizar fiabilidad.</li>
+                <li>Refactorizamos proactivamente para mejorar la calidad técnica.</li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-5">
+              <h3 class="text-lg font-bold text-white mb-2">3.2 Seguridad</h3>
+              <ul class="list-disc list-inside text-gray-300 space-y-1 ml-4">
+                <li>Priorizamos la seguridad desde la fase de diseño (security by design).</li>
+                <li>Implementamos medidas contra vulnerabilidades conocidas (OWASP Top 10).</li>
+                <li>Realizamos análisis de seguridad y pruebas de penetración.</li>
+                <li>Actualizamos dependencias para corregir vulnerabilidades.</li>
+                <li>Educamos a los clientes sobre prácticas de seguridad.</li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-5">
+              <h3 class="text-lg font-bold text-white mb-2">3.3 Privacidad y Protección de Datos</h3>
+              <ul class="list-disc list-inside text-gray-300 space-y-1 ml-4">
+                <li>Diseñamos sistemas respetando la privacidad del usuario (privacy by design).</li>
+                <li>Cumplimos con GDPR, CCPA y todas las regulaciones aplicables.</li>
+                <li>Minimizamos la recolección de datos personales.</li>
+                <li>Implementamos cifrado y controles de acceso robustos.</li>
+                <li>Facilitamos los derechos de los usuarios sobre sus datos.</li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-5">
+              <h3 class="text-lg font-bold text-white mb-2">3.4 Accesibilidad e Inclusión</h3>
+              <ul class="list-disc list-inside text-gray-300 space-y-1 ml-4">
+                <li>Desarrollamos soluciones accesibles siguiendo estándares WCAG.</li>
+                <li>Consideramos usuarios con diferentes capacidades y necesidades.</li>
+                <li>Diseñamos interfaces inclusivas y culturalmente sensibles.</li>
+                <li>Probamos con usuarios diversos para garantizar usabilidad universal.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. Ética en Inteligencia Artificial -->
+        <section class="mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            4. Ética en Inteligencia Artificial
+          </h2>
+
+          <p class="text-gray-300 leading-relaxed mb-4">
+            Reconocemos la responsabilidad especial que conlleva el desarrollo de sistemas de IA:
+          </p>
+
+          <div class="space-y-4">
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-5">
+              <h3 class="text-lg font-bold text-white mb-2">4.1 Transparencia Algorítmica</h3>
+              <ul class="list-disc list-inside text-gray-300 space-y-1 ml-4">
+                <li>Documentamos claramente cómo funcionan nuestros modelos de IA.</li>
+                <li>Explicamos las limitaciones y sesgos potenciales de los sistemas.</li>
+                <li>Proporcionamos visibilidad sobre las decisiones automatizadas.</li>
+                <li>Facilitamos la interpretabilidad de los modelos cuando sea posible.</li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-5">
+              <h3 class="text-lg font-bold text-white mb-2">4.2 Equidad y No Discriminación</h3>
+              <ul class="list-disc list-inside text-gray-300 space-y-1 ml-4">
+                <li>Evaluamos y mitigamos sesgos en datos de entrenamiento.</li>
+                <li>Probamos modelos para detectar discriminación por raza, género, edad, etc.</li>
+                <li>Implementamos fairness metrics y auditorías regulares.</li>
+                <li>No desarrollamos sistemas que perpetúen injusticias sociales.</li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-5">
+              <h3 class="text-lg font-bold text-white mb-2">4.3 Control Humano</h3>
+              <ul class="list-disc list-inside text-gray-300 space-y-1 ml-4">
+                <li>Mantenemos supervisión humana en decisiones críticas.</li>
+                <li>Diseñamos sistemas con controles de anulación (human-in-the-loop).</li>
+                <li>No automatizamos decisiones que requieran juicio humano ético.</li>
+                <li>Permitimos intervención humana cuando sea necesario.</li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-5">
+              <h3 class="text-lg font-bold text-white mb-2">4.4 Uso Responsable</h3>
+              <ul class="list-disc list-inside text-gray-300 space-y-1 ml-4">
+                <li>Rechazamos proyectos de IA para propósitos dañinos o no éticos.</li>
+                <li>No desarrollamos sistemas de vigilancia masiva o control social.</li>
+                <li>Evaluamos el impacto social potencial antes de implementar.</li>
+                <li>Promovemos el uso de IA para el beneficio de la humanidad.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. Responsabilidad Social y Ambiental -->
+        <section class="mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            5. Responsabilidad Social y Ambiental
+          </h2>
+
+          <div class="space-y-4">
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-5">
+              <h3 class="text-lg font-bold text-white mb-2">5.1 Sostenibilidad Digital</h3>
+              <ul class="list-disc list-inside text-gray-300 space-y-1 ml-4">
+                <li>Desarrollamos software eficiente que minimiza el consumo energético.</li>
+                <li>Optimizamos código y recursos para reducir la huella de carbono.</li>
+                <li>Recomendamos infraestructuras cloud sostenibles.</li>
+                <li>Consideramos el impacto ambiental en nuestras decisiones técnicas.</li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-5">
+              <h3 class="text-lg font-bold text-white mb-2">5.2 Contribución a la Comunidad</h3>
+              <ul class="list-disc list-inside text-gray-300 space-y-1 ml-4">
+                <li>Compartimos conocimiento a través de artículos, charlas y formación.</li>
+                <li>Contribuimos a proyectos de código abierto.</li>
+                <li>Mentorizamos a profesionales junior y estudiantes.</li>
+                <li>Apoyamos iniciativas tecnológicas de impacto social.</li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-5">
+              <h3 class="text-lg font-bold text-white mb-2">5.3 Diversidad e Inclusión</h3>
+              <ul class="list-disc list-inside text-gray-300 space-y-1 ml-4">
+                <li>Promovemos un ambiente de trabajo diverso e inclusivo.</li>
+                <li>Valoramos perspectivas diferentes en nuestros equipos.</li>
+                <li>No toleramos discriminación, acoso o comportamiento abusivo.</li>
+                <li>Apoyamos la igualdad de oportunidades en la industria tecnológica.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- 6. Propiedad Intelectual -->
+        <section class="mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            6. Propiedad Intelectual
+          </h2>
+
+          <ul class="list-disc list-inside text-gray-300 space-y-2 ml-4">
+            <li><strong class="text-white">Respeto por los derechos de autor:</strong> Nunca utilizamos código, diseños o contenido sin la debida autorización o licencia.</li>
+            <li><strong class="text-white">Licencias de software:</strong> Cumplimos estrictamente con los términos de las licencias de código abierto y comercial.</li>
+            <li><strong class="text-white">Atribución adecuada:</strong> Damos crédito a los autores originales y respetamos las licencias de atribución.</li>
+            <li><strong class="text-white">Código original:</strong> Entregamos código original desarrollado por nosotros, claramente diferenciando dependencias externas.</li>
+            <li><strong class="text-white">Transferencia de derechos:</strong> Transferimos los derechos de propiedad intelectual según lo acordado contractualmente.</li>
+          </ul>
+        </section>
+
+        <!-- 7. Conducta Profesional -->
+        <section class="mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            7. Conducta Profesional
+          </h2>
+
+          <div class="space-y-3">
+            <p class="text-gray-300 leading-relaxed">
+              <strong class="text-white">Integridad personal:</strong> Actuamos con honestidad en todas nuestras relaciones profesionales y personales.
+            </p>
+            <p class="text-gray-300 leading-relaxed">
+              <strong class="text-white">Competencia técnica:</strong> Mantenemos y mejoramos continuamente nuestras habilidades técnicas y conocimientos.
+            </p>
+            <p class="text-gray-300 leading-relaxed">
+              <strong class="text-white">Colaboración:</strong> Trabajamos eficazmente en equipo, respetando las contribuciones de todos.
+            </p>
+            <p class="text-gray-300 leading-relaxed">
+              <strong class="text-white">Crítica constructiva:</strong> Damos y recibimos feedback de manera respetuosa y profesional.
+            </p>
+            <p class="text-gray-300 leading-relaxed">
+              <strong class="text-white">Aprendizaje continuo:</strong> Nos comprometemos con el desarrollo profesional permanente.
+            </p>
+            <p class="text-gray-300 leading-relaxed">
+              <strong class="text-white">Ética digital:</strong> Promovemos prácticas éticas en el uso de tecnología y datos.
+            </p>
+          </div>
+        </section>
+
+        <!-- 8. Cumplimiento y Reporte -->
+        <section class="mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            8. Cumplimiento y Reporte de Incidentes
+          </h2>
+
+          <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-6 mb-4">
+            <h3 class="text-lg font-bold text-white mb-3">Compromiso de Cumplimiento</h3>
+            <p class="text-gray-300 mb-2">
+              Todo el personal de <strong class="text-white">Aquí Creamos</strong> debe:
+            </p>
+            <ul class="list-disc list-inside text-gray-300 space-y-1 ml-4">
+              <li>Conocer y cumplir este Código de Ética.</li>
+              <li>Participar en formación ética regular.</li>
+              <li>Reportar cualquier violación observada.</li>
+              <li>Cooperar en investigaciones de incumplimiento.</li>
+            </ul>
+          </div>
+
+          <div class="bg-yellow-900/20 border border-yellow-700/50 rounded-lg p-6">
+            <h3 class="text-lg font-bold text-yellow-200 mb-3">⚠️ Reporte de Violaciones</h3>
+            <p class="text-yellow-100 mb-3">
+              Si observas o experimentas una violación de este código:
+            </p>
+            <ul class="list-disc list-inside text-yellow-100 space-y-1 ml-4 mb-3">
+              <li>Reporta a: <a href="mailto:etica@aquicreamos.com" class="text-[#82e256] hover:underline font-semibold">etica@aquicreamos.com</a></li>
+              <li>Todos los reportes se tratan con confidencialidad.</li>
+              <li>No habrá represalias por reportar de buena fe.</li>
+              <li>Investigaremos todas las denuncias seriamente.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- 9. Revisión y Actualización -->
+        <section class="mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            9. Revisión y Actualización
+          </h2>
+          <p class="text-gray-300 leading-relaxed">
+            Este Código de Ética es un documento vivo que revisamos anualmente o cuando sea necesario para reflejar cambios en tecnología, regulaciones o mejores prácticas éticas. Invitamos a todo nuestro equipo a contribuir con sugerencias de mejora.
+          </p>
+        </section>
+
+        <!-- 10. Contacto -->
+        <section class="mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            10. Contacto
+          </h2>
+          <p class="text-gray-300 leading-relaxed mb-4">
+            Para consultas sobre este Código de Ética:
+          </p>
+          <div class="bg-gray-800/50 border border-gray-700 rounded-xl p-6">
+            <p class="text-white mb-2"><strong>Comité de Ética - Aquí Creamos</strong></p>
+            <p class="text-gray-300 mb-1">
+              <strong class="text-white">Email:</strong> <a href="mailto:etica@aquicreamos.com" class="text-[#82e256] hover:underline">etica@aquicreamos.com</a>
+            </p>
+            <p class="text-gray-300 mb-1">
+              <strong class="text-white">Teléfono:</strong> <a href="tel:+123456789" class="text-[#82e256] hover:underline">+1 (234) 567-89</a>
+            </p>
+            <p class="text-gray-300">
+              <strong class="text-white">Dirección:</strong> [Dirección de la empresa]
+            </p>
+          </div>
+        </section>
+
+        <!-- Declaración Final -->
+        <section class="mb-10">
+          <div class="bg-gradient-to-r from-[#00464e] to-[#006064] border border-[#82e256]/30 rounded-xl p-8 text-center">
+            <p class="text-white text-lg leading-relaxed">
+              "En <strong class="text-[#82e256]">Aquí Creamos</strong>, creemos que la tecnología debe servir a la humanidad.
+              Nos comprometemos a desarrollar soluciones que sean no solo técnicamente excelentes,
+              sino también éticas, responsables y beneficiosas para la sociedad."
+            </p>
+            <p class="text-gray-300 mt-4 text-sm">
+              — Equipo Aquí Creamos
+            </p>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Botón de regreso -->
+      <div class="mt-12 flex justify-center">
+        <a
+          href="/"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#82e256] to-[#6bc73d] hover:from-[#6bc73d] hover:to-[#5ba62e] text-black font-bold rounded-lg transition-all duration-300 transform hover:scale-105"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+          </svg>
+          Volver al inicio
+        </a>
+      </div>
+
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .prose {
+    color: #d1d5db;
+  }
+
+  .prose strong {
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  .prose ul {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .prose li {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+</style>

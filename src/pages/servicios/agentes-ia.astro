@@ -1,251 +1,470 @@
 ---
-import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+// Todos los servicios disponibles (excluyendo el actual)
+const todosLosServicios = [
+  { slug: 'aplicaciones-ia', title: 'Aplicaciones con IA', icon: '🧠' },
+  { slug: 'desarrollo-web', title: 'Desarrollo Web', icon: '🌐' },
+  { slug: 'apps-moviles', title: 'Apps Móviles', icon: '📱' },
+  { slug: 'computer-vision', title: 'Computer Vision', icon: '👁️' },
+  { slug: 'arquitectura', title: 'Arquitectura TOGAF 2026', icon: '🏗️' },
+  { slug: 'desarrollo-fullstack', title: 'Desarrollo Full-Stack', icon: '💻' },
+  { slug: 'ia-machine-learning', title: 'IA & Machine Learning', icon: '🤖' },
+  { slug: 'devops-infraestructura', title: 'DevOps & Cloud', icon: '⚙️' }
+];
+
+// Secciones del menú interno
+const secciones = [
+  { id: 'intro', title: 'Introducción' },
+  { id: 'capacidades', title: 'Capacidades' },
+  { id: 'funcionamiento', title: 'Cómo Funciona' },
+  { id: 'tecnologia', title: 'Tecnología' },
+  { id: 'casos-exito', title: 'Casos de Éxito' },
+  { id: 'implementacion', title: 'Implementación' }
+];
 ---
 
-<ServiceLayout
-  title="Agentes Cognitivos Empresariales con IA"
-  description="Transforma tu operación con empleados digitales que trabajan 24/7"
-  icon="🤖"
-  gradient="bg-gradient-to-br from-[#00464e] to-[#d4e256]"
->
-  <!-- Introducción narrativa -->
-  <div class="mb-16">
-    <h2>Empleados Digitales que Nunca Duermen</h2>
-    <p class="text-xl text-gray-300 leading-relaxed">
-      Imagina tener miembros digitales en tu equipo que nunca duermen, no cometen errores humanos y escalan sin costo adicional. Nuestros agentes cognitivos son sistemas inteligentes que <strong>actúan, deciden y aprenden</strong> de forma autónoma, integrados completamente en tus operaciones.
-    </p>
-  </div>
+<Layout>
+  <Header currentPage="servicios" />
 
-  <!-- Imagen conceptual -->
-  <div class="my-16">
-    <div class="rounded-2xl overflow-hidden shadow-2xl flex justify-center mb-4">
-      <img src="/img/robot.png" alt="Agente de IA trabajando" class="h-auto max-w-2xl" />
-    </div>
-    <p class="text-center text-gray-400 text-sm italic">Agentes de IA que trabajan incansablemente por tu negocio</p>
-  </div>
+  <div class="min-h-screen bg-[#1a1a1a]">
+    <!-- Hero Section -->
+    <section class="relative flex items-center justify-center bg-hero-pattern bg-repeat w-full min-h-screen bg-[url(/img/fondo.png)] bg-no-repeat bg-cover bg-center">
+      <div class="absolute inset-0 bg-gradient-to-b from-black/50 to-[#1a1a1a] z-10"></div>
 
-  <!-- Qué pueden hacer - Grid visual -->
-  <div class="mb-20">
-    <h2>Lo que Nuestros Agentes Hacen por Ti</h2>
+      <div class="container mx-auto px-4 py-20 md:py-24 relative z-20">
+        <div class="max-w-7xl mx-auto">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div class="text-center lg:text-left">
+              <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
+                <span class="text-white drop-shadow-lg">AGENTES COGNITIVOS</span>
+                <br />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#82e256] to-[#04ADC0] drop-shadow-lg">
+                  EMPRESARIALES CON IA
+                </span>
+              </h1>
+              <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 font-light max-w-2xl mt-4 md:mt-6 lg:mt-8 mx-auto lg:mx-0 text-center lg:text-left drop-shadow-md">
+                <span class="text-2xl">TRANSFORMA TU OPERACIÓN</span> con empleados digitales que trabajan 24/7, nunca duermen y escalan sin costo adicional.
+              </p>
+            </div>
 
-    <div class="grid md:grid-cols-2 gap-8 mt-8">
-      <!-- Card 1 -->
-      <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
-        <div class="text-5xl mb-4">💬</div>
-        <h3 class="text-2xl font-bold text-white mb-3">Atención al Cliente Inteligente</h3>
-        <p class="text-gray-300 leading-relaxed">
-          Atienden clientes con contexto completo de conversaciones anteriores. Responden instantáneamente, 24/7, con precisión del 95% y escalan solo casos complejos a tu equipo humano.
-        </p>
-        <div class="mt-6 p-4 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]">
-          <p class="text-sm text-gray-400"><strong>Resultado real:</strong> Reducción del 60% en tiempo de respuesta</p>
-        </div>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
-        <div class="text-5xl mb-4">🎯</div>
-        <h3 class="text-2xl font-bold text-white mb-3">Cualificación de Leads Automática</h3>
-        <p class="text-gray-300 leading-relaxed">
-          Analizan cada lead en tiempo real usando tus criterios personalizados, priorizan oportunidades de alto valor y actualizan tu CRM automáticamente sin intervención manual.
-        </p>
-        <div class="mt-6 p-4 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]">
-          <p class="text-sm text-gray-400"><strong>Resultado real:</strong> 35% más conversión de leads</p>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
-        <div class="text-5xl mb-4">⚙️</div>
-        <h3 class="text-2xl font-bold text-white mb-3">Automatización de Procesos</h3>
-        <p class="text-gray-300 leading-relaxed">
-          Ejecutan flujos de trabajo complejos sin intervención humana. Desde procesar facturas hasta generar reportes ejecutivos, todo mientras tu equipo se enfoca en tareas estratégicas.
-        </p>
-        <div class="mt-6 p-4 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]">
-          <p class="text-sm text-gray-400"><strong>Resultado real:</strong> 40% ahorro en horas-hombre</p>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
-        <div class="text-5xl mb-4">📊</div>
-        <h3 class="text-2xl font-bold text-white mb-3">Análisis y Reportes Predictivos</h3>
-        <p class="text-gray-300 leading-relaxed">
-          Generan insights accionables cruzando datos de múltiples fuentes. Detectan anomalías, predicen tendencias y envían alertas proactivas antes de que surjan problemas.
-        </p>
-        <div class="mt-6 p-4 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]">
-          <p class="text-sm text-gray-400"><strong>Resultado real:</strong> Decisiones en tiempo real</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Cómo funciona - Timeline visual -->
-  <div class="mb-20">
-    <h2>Cómo Funciona la Magia</h2>
-
-    <div class="relative mt-12">
-      <!-- Línea vertical -->
-      <div class="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-[#82e256] to-transparent"></div>
-
-      <!-- Paso 1 -->
-      <div class="relative pl-24 pb-12">
-        <div class="absolute left-0 w-16 h-16 bg-[#82e256] rounded-full flex items-center justify-center text-2xl font-bold text-black">1</div>
-        <div class="bg-gray-800/50 p-6 rounded-xl">
-          <h3 class="text-xl font-bold text-white mb-2">Integración Total</h3>
-          <p class="text-gray-300">Conectamos el agente con tu CRM, ERP, bases de datos y herramientas existentes. Sin migración, sin disrupciones.</p>
-        </div>
-      </div>
-
-      <!-- Paso 2 -->
-      <div class="relative pl-24 pb-12">
-        <div class="absolute left-0 w-16 h-16 bg-[#82e256] rounded-full flex items-center justify-center text-2xl font-bold text-black">2</div>
-        <div class="bg-gray-800/50 p-6 rounded-xl">
-          <h3 class="text-xl font-bold text-white mb-2">Entrenamiento Personalizado</h3>
-          <p class="text-gray-300">Adaptamos modelos de IA de última generación (GPT-4, Claude, Gemini) con tus datos, políticas y procesos específicos.</p>
-        </div>
-      </div>
-
-      <!-- Paso 3 -->
-      <div class="relative pl-24 pb-12">
-        <div class="absolute left-0 w-16 h-16 bg-[#82e256] rounded-full flex items-center justify-center text-2xl font-bold text-black">3</div>
-        <div class="bg-gray-800/50 p-6 rounded-xl">
-          <h3 class="text-xl font-bold text-white mb-2">Autonomía Controlada</h3>
-          <p class="text-gray-300">Defines qué decisiones puede tomar solo, cuándo escalar a humanos y los límites de autorización. Tú tienes el control total.</p>
-        </div>
-      </div>
-
-      <!-- Paso 4 -->
-      <div class="relative pl-24">
-        <div class="absolute left-0 w-16 h-16 bg-[#82e256] rounded-full flex items-center justify-center text-2xl font-bold text-black">4</div>
-        <div class="bg-gray-800/50 p-6 rounded-xl">
-          <h3 class="text-xl font-bold text-white mb-2">Mejora Continua</h3>
-          <p class="text-gray-300">El agente aprende de cada interacción, optimiza su rendimiento automáticamente y se adapta a cambios en tu negocio.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Imagen contextual - Equipo trabajando -->
-  <div class="my-16">
-    <div class="rounded-2xl overflow-hidden shadow-2xl flex justify-center mb-4">
-      <img src="/img/personaje2.png" alt="Equipo trabajando con IA" class="h-auto max-w-2xl" />
-    </div>
-    <p class="text-center text-gray-400 text-sm italic">Tu equipo potenciado con inteligencia artificial</p>
-  </div>
-
-  <!-- Caso de éxito destacado -->
-  <div class="mb-20 bg-gradient-to-br from-[#00464e]/20 to-[#006064]/20 p-10 rounded-2xl border border-[#82e256]/30">
-    <div class="flex items-start gap-4 mb-6">
-      <div class="text-6xl">🏆</div>
-      <div>
-        <h2 class="text-3xl font-bold text-white mb-2">Caso de Éxito: Startup EdTech</h2>
-        <p class="text-gray-400">5,000 estudiantes • Sector Educación</p>
-      </div>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-6 mb-6">
-      <div class="bg-black/30 p-6 rounded-xl text-center">
-        <div class="text-4xl font-bold text-[#82e256] mb-2">80%</div>
-        <p class="text-gray-300">Consultas resueltas por IA</p>
-      </div>
-      <div class="bg-black/30 p-6 rounded-xl text-center">
-        <div class="text-4xl font-bold text-[#82e256] mb-2">60%</div>
-        <p class="text-gray-300">Reducción de costos</p>
-      </div>
-      <div class="bg-black/30 p-6 rounded-xl text-center">
-        <div class="text-4xl font-bold text-[#82e256] mb-2">+25</div>
-        <p class="text-gray-300">Puntos de NPS</p>
-      </div>
-    </div>
-
-    <p class="text-gray-300 italic">
-      "Implementamos un asistente IA que resuelve dudas 24/7, genera ejercicios personalizados y detecta cuando un estudiante necesita ayuda humana. Los tutores ahora se enfocan en casos complejos mientras la IA maneja consultas básicas perfectamente."
-    </p>
-  </div>
-
-  <!-- Imagen tecnología - Espacio para imagen personalizada -->
-  <div class="my-16">
-    <div class="rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-[#00464e]/20 to-[#006064]/20 p-8 flex justify-center mb-4">
-      <img src="/img/personaje3.png" alt="Tecnología de vanguardia" class="h-auto max-w-2xl" />
-    </div>
-    <p class="text-center text-gray-400 text-sm italic">Tecnología que impulsa la transformación digital</p>
-  </div>
-
-  <!-- Stack tecnológico visual -->
-  <div class="mb-20">
-    <h2>Tecnología de Vanguardia</h2>
-
-    <div class="grid md:grid-cols-2 gap-8 mt-8">
-      <div>
-        <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
-          <span class="text-3xl">🧠</span>
-          Modelos de IA
-        </h3>
-        <div class="space-y-3">
-          <div class="bg-gray-800/30 p-4 rounded-lg border-l-4 border-[#82e256]">
-            <p class="font-semibold text-white">GPT-4</p>
-            <p class="text-sm text-gray-400">Razonamiento complejo y tareas de lenguaje</p>
-          </div>
-          <div class="bg-gray-800/30 p-4 rounded-lg border-l-4 border-[#82e256]">
-            <p class="font-semibold text-white">Claude Opus</p>
-            <p class="text-sm text-gray-400">Análisis extenso de documentos</p>
-          </div>
-          <div class="bg-gray-800/30 p-4 rounded-lg border-l-4 border-[#82e256]">
-            <p class="font-semibold text-white">Llama 3</p>
-            <p class="text-sm text-gray-400">Soluciones on-premise y privacidad</p>
+            <div class="relative w-full h-[400px] sm:h-[500px] lg:h-[600px] hidden lg:block">
+              <img
+                src="/img/personaje1.png"
+                class="absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-100"
+                alt="Agente de IA"
+              />
+            </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div>
-        <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
-          <span class="text-3xl">🔧</span>
-          Infraestructura
-        </h3>
-        <div class="space-y-3">
-          <div class="bg-gray-800/30 p-4 rounded-lg border-l-4 border-[#04ADC0]">
-            <p class="font-semibold text-white">LangChain / LangGraph</p>
-            <p class="text-sm text-gray-400">Orquestación de agentes</p>
-          </div>
-          <div class="bg-gray-800/30 p-4 rounded-lg border-l-4 border-[#04ADC0]">
-            <p class="font-semibold text-white">Vector Databases</p>
-            <p class="text-sm text-gray-400">Memoria empresarial de largo plazo</p>
-          </div>
-          <div class="bg-gray-800/30 p-4 rounded-lg border-l-4 border-[#04ADC0]">
-            <p class="font-semibold text-white">Observabilidad 24/7</p>
-            <p class="text-sm text-gray-400">Monitoreo completo con LangSmith</p>
+    <!-- Content con Sidebar -->
+    <section class="py-16 md:py-24 bg-[#1a1a1a]">
+      <div class="container mx-auto px-4 md:px-16">
+        <div class="max-w-7xl mx-auto">
+          <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+
+            <!-- Sidebar Menu -->
+            <div class="lg:col-span-1">
+              <div class="sticky top-24 space-y-4">
+                <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 border border-gray-700">
+                  <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    Contenido
+                  </h3>
+                  <nav class="space-y-2">
+                    {secciones.map((seccion) => (
+                      <a
+                        href={`#${seccion.id}`}
+                        class="block px-4 py-2 text-gray-400 hover:text-[#82e256] hover:bg-white/5 rounded-lg transition-all text-sm"
+                      >
+                        {seccion.title}
+                      </a>
+                    ))}
+                  </nav>
+                </div>
+
+                <!-- CTA Card -->
+                <div class="bg-gradient-to-br from-[#00464e] to-[#d4e256] rounded-xl p-6 shadow-2xl">
+                  <h3 class="text-xl font-bold text-white mb-3">
+                    ¿Necesitas agentes de IA?
+                  </h3>
+                  <p class="text-white/90 mb-4 text-sm">
+                    Agenda una sesión gratuita de 30 minutos
+                  </p>
+                  <a
+                    href="/#contenido10"
+                    class="block w-full text-center px-6 py-3 bg-[#82e256] text-black font-bold rounded-lg hover:bg-[#6bc73d] transition-all duration-300 transform hover:scale-105"
+                  >
+                    Agendar Ahora
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="lg:col-span-3 space-y-12">
+
+              <!-- Intro -->
+              <div id="intro">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">Empleados Digitales que Nunca Duermen</h2>
+
+                <p class="text-gray-300 text-lg mb-4">
+                  Imagina tener miembros digitales en tu equipo que nunca duermen, no cometen errores humanos y escalan sin costo adicional. Nuestros agentes cognitivos son sistemas inteligentes que <strong class="text-white">actúan, deciden y aprenden</strong> de forma autónoma, integrados completamente en tus operaciones.
+                </p>
+
+                <div class="my-8">
+                  <div class="rounded-2xl overflow-hidden shadow-2xl flex justify-center mb-4">
+                    <img src="/img/robot.png" alt="Agente de IA trabajando" class="h-auto max-w-2xl" />
+                  </div>
+                  <p class="text-center text-gray-400 text-sm italic">Agentes de IA que trabajan incansablemente por tu negocio</p>
+                </div>
+              </div>
+
+              <hr class="border-gray-800" />
+
+              <!-- Capacidades -->
+              <div id="capacidades">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">Lo que Nuestros Agentes Hacen por Ti</h2>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                  <!-- Card 1 -->
+                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                    <div class="text-5xl mb-4">💬</div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Atención al Cliente Inteligente</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                      Atienden clientes con contexto completo de conversaciones anteriores. Responden instantáneamente, 24/7, con precisión del 95% y escalan solo casos complejos a tu equipo humano.
+                    </p>
+                    <div class="mt-6 p-4 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]">
+                      <p class="text-sm text-gray-400"><strong>Resultado real:</strong> Reducción del 60% en tiempo de respuesta</p>
+                    </div>
+                  </div>
+
+                  <!-- Card 2 -->
+                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                    <div class="text-5xl mb-4">🎯</div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Cualificación de Leads Automática</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                      Analizan cada lead en tiempo real usando tus criterios personalizados, priorizan oportunidades de alto valor y actualizan tu CRM automáticamente sin intervención manual.
+                    </p>
+                    <div class="mt-6 p-4 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]">
+                      <p class="text-sm text-gray-400"><strong>Resultado real:</strong> 35% más conversión de leads</p>
+                    </div>
+                  </div>
+
+                  <!-- Card 3 -->
+                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                    <div class="text-5xl mb-4">⚙️</div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Automatización de Procesos</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                      Ejecutan flujos de trabajo complejos sin intervención humana. Desde procesar facturas hasta generar reportes ejecutivos, todo mientras tu equipo se enfoca en tareas estratégicas.
+                    </p>
+                    <div class="mt-6 p-4 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]">
+                      <p class="text-sm text-gray-400"><strong>Resultado real:</strong> 40% ahorro en horas-hombre</p>
+                    </div>
+                  </div>
+
+                  <!-- Card 4 -->
+                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                    <div class="text-5xl mb-4">📊</div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Análisis y Reportes Predictivos</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                      Generan insights accionables cruzando datos de múltiples fuentes. Detectan anomalías, predicen tendencias y envían alertas proactivas antes de que surjan problemas.
+                    </p>
+                    <div class="mt-6 p-4 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]">
+                      <p class="text-sm text-gray-400"><strong>Resultado real:</strong> Decisiones en tiempo real</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="border-gray-800" />
+
+              <!-- Funcionamiento -->
+              <div id="funcionamiento">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">Cómo Funciona la Magia</h2>
+
+                <div class="relative mt-12">
+                  <!-- Línea vertical -->
+                  <div class="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-[#82e256] to-transparent"></div>
+
+                  <!-- Paso 1 -->
+                  <div class="relative pl-24 pb-12">
+                    <div class="absolute left-0 w-16 h-16 bg-[#82e256] rounded-full flex items-center justify-center text-2xl font-bold text-black">1</div>
+                    <div class="bg-gray-800/50 p-6 rounded-xl">
+                      <h3 class="text-xl font-bold text-white mb-2">Integración Total</h3>
+                      <p class="text-gray-300">Conectamos el agente con tu CRM, ERP, bases de datos y herramientas existentes. Sin migración, sin disrupciones.</p>
+                    </div>
+                  </div>
+
+                  <!-- Paso 2 -->
+                  <div class="relative pl-24 pb-12">
+                    <div class="absolute left-0 w-16 h-16 bg-[#82e256] rounded-full flex items-center justify-center text-2xl font-bold text-black">2</div>
+                    <div class="bg-gray-800/50 p-6 rounded-xl">
+                      <h3 class="text-xl font-bold text-white mb-2">Entrenamiento Personalizado</h3>
+                      <p class="text-gray-300">Adaptamos modelos de IA de última generación (GPT-4, Claude, Gemini) con tus datos, políticas y procesos específicos.</p>
+                    </div>
+                  </div>
+
+                  <!-- Paso 3 -->
+                  <div class="relative pl-24 pb-12">
+                    <div class="absolute left-0 w-16 h-16 bg-[#82e256] rounded-full flex items-center justify-center text-2xl font-bold text-black">3</div>
+                    <div class="bg-gray-800/50 p-6 rounded-xl">
+                      <h3 class="text-xl font-bold text-white mb-2">Autonomía Controlada</h3>
+                      <p class="text-gray-300">Defines qué decisiones puede tomar solo, cuándo escalar a humanos y los límites de autorización. Tú tienes el control total.</p>
+                    </div>
+                  </div>
+
+                  <!-- Paso 4 -->
+                  <div class="relative pl-24">
+                    <div class="absolute left-0 w-16 h-16 bg-[#82e256] rounded-full flex items-center justify-center text-2xl font-bold text-black">4</div>
+                    <div class="bg-gray-800/50 p-6 rounded-xl">
+                      <h3 class="text-xl font-bold text-white mb-2">Mejora Continua</h3>
+                      <p class="text-gray-300">El agente aprende de cada interacción, optimiza su rendimiento automáticamente y se adapta a cambios en tu negocio.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="border-gray-800" />
+
+              <!-- Tecnología -->
+              <div id="tecnologia">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">Tecnología de Vanguardia</h2>
+
+                <div class="grid md:grid-cols-2 gap-8 mt-8">
+                  <div>
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+                      <span class="text-3xl">🧠</span>
+                      Modelos de IA
+                    </h3>
+                    <div class="space-y-3">
+                      <div class="bg-gray-800/30 p-4 rounded-lg border-l-4 border-[#82e256]">
+                        <p class="font-semibold text-white">GPT-4</p>
+                        <p class="text-sm text-gray-400">Razonamiento complejo y tareas de lenguaje</p>
+                      </div>
+                      <div class="bg-gray-800/30 p-4 rounded-lg border-l-4 border-[#82e256]">
+                        <p class="font-semibold text-white">Claude Opus</p>
+                        <p class="text-sm text-gray-400">Análisis extenso de documentos</p>
+                      </div>
+                      <div class="bg-gray-800/30 p-4 rounded-lg border-l-4 border-[#82e256]">
+                        <p class="font-semibold text-white">Llama 3</p>
+                        <p class="text-sm text-gray-400">Soluciones on-premise y privacidad</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+                      <span class="text-3xl">🔧</span>
+                      Infraestructura
+                    </h3>
+                    <div class="space-y-3">
+                      <div class="bg-gray-800/30 p-4 rounded-lg border-l-4 border-[#04ADC0]">
+                        <p class="font-semibold text-white">LangChain / LangGraph</p>
+                        <p class="text-sm text-gray-400">Orquestación de agentes</p>
+                      </div>
+                      <div class="bg-gray-800/30 p-4 rounded-lg border-l-4 border-[#04ADC0]">
+                        <p class="font-semibold text-white">Vector Databases</p>
+                        <p class="text-sm text-gray-400">Memoria empresarial de largo plazo</p>
+                      </div>
+                      <div class="bg-gray-800/30 p-4 rounded-lg border-l-4 border-[#04ADC0]">
+                        <p class="font-semibold text-white">Observabilidad 24/7</p>
+                        <p class="text-sm text-gray-400">Monitoreo completo con LangSmith</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="my-8">
+                  <div class="rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-[#00464e]/20 to-[#006064]/20 p-8 flex justify-center mb-4">
+                    <img src="/img/personaje2.png" alt="Equipo trabajando con IA" class="h-auto max-w-2xl" />
+                  </div>
+                  <p class="text-center text-gray-400 text-sm italic">Tu equipo potenciado con inteligencia artificial</p>
+                </div>
+              </div>
+
+              <hr class="border-gray-800" />
+
+              <!-- Casos de Éxito -->
+              <div id="casos-exito">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">Casos de Éxito</h2>
+
+                <div class="bg-gradient-to-br from-[#00464e]/20 to-[#006064]/20 p-10 rounded-2xl border border-[#82e256]/30">
+                  <div class="flex items-start gap-4 mb-6">
+                    <div class="text-6xl">🏆</div>
+                    <div>
+                      <h3 class="text-3xl font-bold text-white mb-2">Caso de Éxito: Startup EdTech</h3>
+                      <p class="text-gray-400">5,000 estudiantes • Sector Educación</p>
+                    </div>
+                  </div>
+
+                  <div class="grid md:grid-cols-3 gap-6 mb-6">
+                    <div class="bg-black/30 p-6 rounded-xl text-center">
+                      <div class="text-4xl font-bold text-[#82e256] mb-2">80%</div>
+                      <p class="text-gray-300">Consultas resueltas por IA</p>
+                    </div>
+                    <div class="bg-black/30 p-6 rounded-xl text-center">
+                      <div class="text-4xl font-bold text-[#82e256] mb-2">60%</div>
+                      <p class="text-gray-300">Reducción de costos</p>
+                    </div>
+                    <div class="bg-black/30 p-6 rounded-xl text-center">
+                      <div class="text-4xl font-bold text-[#82e256] mb-2">+25</div>
+                      <p class="text-gray-300">Puntos de NPS</p>
+                    </div>
+                  </div>
+
+                  <p class="text-gray-300 italic">
+                    "Implementamos un asistente IA que resuelve dudas 24/7, genera ejercicios personalizados y detecta cuando un estudiante necesita ayuda humana. Los tutores ahora se enfocan en casos complejos mientras la IA maneja consultas básicas perfectamente."
+                  </p>
+                </div>
+              </div>
+
+              <hr class="border-gray-800" />
+
+              <!-- Implementación -->
+              <div id="implementacion">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">De la Idea a Producción en 4 Semanas</h2>
+
+                <div class="grid md:grid-cols-4 gap-4 mt-8">
+                  <div class="text-center">
+                    <div class="w-16 h-16 bg-[#82e256] rounded-full flex items-center justify-center text-2xl font-bold text-black mx-auto mb-4">1</div>
+                    <h4 class="font-bold text-white mb-2">Semana 1-2</h4>
+                    <p class="text-sm text-gray-400">Análisis y definición</p>
+                  </div>
+                  <div class="text-center">
+                    <div class="w-16 h-16 bg-[#82e256] rounded-full flex items-center justify-center text-2xl font-bold text-black mx-auto mb-4">2</div>
+                    <h4 class="font-bold text-white mb-2">Semana 2-3</h4>
+                    <p class="text-sm text-gray-400">Desarrollo y config</p>
+                  </div>
+                  <div class="text-center">
+                    <div class="w-16 h-16 bg-[#82e256] rounded-full flex items-center justify-center text-2xl font-bold text-black mx-auto mb-4">3</div>
+                    <h4 class="font-bold text-white mb-2">Semana 3-4</h4>
+                    <p class="text-sm text-gray-400">Pruebas y ajustes</p>
+                  </div>
+                  <div class="text-center">
+                    <div class="w-16 h-16 bg-[#82e256] rounded-full flex items-center justify-center text-2xl font-bold text-black mx-auto mb-4">4</div>
+                    <h4 class="font-bold text-white mb-2">Semana 4</h4>
+                    <p class="text-sm text-gray-400">Lanzamiento</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CTA Final -->
+              <div class="bg-gradient-to-br from-[#00464e] to-[#d4e256] p-8 md:p-12 rounded-2xl text-center mt-12">
+                <h3 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                  ¿Listo para agentes cognitivos en tu empresa?
+                </h3>
+                <p class="text-xl text-white/90 mb-8">
+                  Agenda una consultoría gratuita de 30 minutos
+                </p>
+                <a
+                  href="/#contenido10"
+                  class="inline-flex items-center gap-2 px-10 py-5 bg-[#82e256] text-black font-bold rounded-xl hover:bg-[#6bc73d] transition-all duration-300 transform hover:scale-105 shadow-2xl text-lg"
+                >
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                  </svg>
+                  Solicitar Consultoría Gratuita
+                </a>
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- Más Servicios -->
+    <section class="py-20 bg-gradient-to-b from-[#1a1a1a] to-[#0a0a0a]">
+      <div class="container mx-auto px-4 md:px-16">
+        <div class="max-w-7xl mx-auto">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+              Otros Servicios Tecnológicos
+            </h2>
+            <p class="text-gray-400 text-lg">
+              Soluciones complementarias para tu estrategia tecnológica
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {todosLosServicios.map((servicio) => (
+              <a
+                href={`/servicios/${servicio.slug}`}
+                class="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256] transition-all duration-300 hover:transform hover:scale-105"
+              >
+                <div class="text-4xl mb-3">{servicio.icon}</div>
+                <h3 class="text-lg font-bold text-white group-hover:text-[#82e256] transition-colors">
+                  {servicio.title}
+                </h3>
+                <div class="flex items-center gap-2 text-gray-400 text-sm mt-4">
+                  <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                  <span>Ver más</span>
+                </div>
+              </a>
+            ))}
+          </div>
+
+          <div class="mt-12 text-center">
+            <a
+              href="/servicios"
+              class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#82e256] to-[#6bc73d] hover:from-[#6bc73d] hover:to-[#5ba62e] text-black font-bold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+              </svg>
+              Ver Todos los Servicios
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 
-  <!-- Timeline de implementación -->
-  <div class="mb-16">
-    <h2>De la Idea a Producción en 4 Semanas</h2>
+  <!-- Footer -->
+  <Footer />
+</Layout>
 
-    <div class="grid md:grid-cols-4 gap-4 mt-8">
-      <div class="text-center">
-        <div class="w-16 h-16 bg-[#82e256] rounded-full flex items-center justify-center text-2xl font-bold text-black mx-auto mb-4">1</div>
-        <h4 class="font-bold text-white mb-2">Semana 1-2</h4>
-        <p class="text-sm text-gray-400">Análisis y definición</p>
-      </div>
-      <div class="text-center">
-        <div class="w-16 h-16 bg-[#82e256] rounded-full flex items-center justify-center text-2xl font-bold text-black mx-auto mb-4">2</div>
-        <h4 class="font-bold text-white mb-2">Semana 2-3</h4>
-        <p class="text-sm text-gray-400">Desarrollo y config</p>
-      </div>
-      <div class="text-center">
-        <div class="w-16 h-16 bg-[#82e256] rounded-full flex items-center justify-center text-2xl font-bold text-black mx-auto mb-4">3</div>
-        <h4 class="font-bold text-white mb-2">Semana 3-4</h4>
-        <p class="text-sm text-gray-400">Pruebas y ajustes</p>
-      </div>
-      <div class="text-center">
-        <div class="w-16 h-16 bg-[#82e256] rounded-full flex items-center justify-center text-2xl font-bold text-black mx-auto mb-4">4</div>
-        <h4 class="font-bold text-white mb-2">Semana 4</h4>
-        <p class="text-sm text-gray-400">Lanzamiento</p>
-      </div>
-    </div>
-  </div>
+<style>
+  /* Smooth scroll */
+  html {
+    scroll-behavior: smooth;
+  }
 
-</ServiceLayout>
+  /* Estilos globales mejorados */
+  h2 {
+    scroll-margin-top: 100px;
+  }
+</style>
+
+<script>
+  // Smooth scroll para el menú interno
+  document.addEventListener('DOMContentLoaded', () => {
+    const links = document.querySelectorAll('a[href^="#"]');
+
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href && href !== '#') {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }
+      });
+    });
+  });
+</script>
