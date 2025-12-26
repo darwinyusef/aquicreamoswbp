@@ -29,22 +29,29 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
       <!-- Category 1: Frontend UI/UX -->
-      <div class="group relative bg-gradient-to-br from-[#1e1e1e] to-[#2a2a2a] rounded-3xl p-8 border border-white/10 hover:border-[#82e256]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[#82e256]/20">
+      <div class="tech-category group relative bg-gradient-to-br from-[#1e1e1e] to-[#2a2a2a] rounded-3xl p-8 border border-white/10 hover:border-[#82e256]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[#82e256]/20">
         <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#82e256]/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-        <div class="flex items-center gap-4 mb-6">
-          <div class="w-16 h-16 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-xl flex items-center justify-center shadow-lg">
-            <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+        <button class="tech-category-toggle w-full flex items-center justify-between gap-4 mb-6 cursor-pointer group/toggle" data-category="frontend">
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-xl flex items-center justify-center shadow-lg">
+              <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+              </svg>
+            </div>
+            <div class="text-left">
+              <h2 class="text-2xl font-bold text-white mb-1">Interfaces Modernas</h2>
+              <p class="text-sm text-gray-400">Diseño y desarrollo de experiencias visuales</p>
+            </div>
+          </div>
+          <div class="chevron-icon transition-transform duration-300">
+            <svg class="w-6 h-6 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
           </div>
-          <div>
-            <h2 class="text-2xl font-bold text-white mb-1">Interfaces Modernas</h2>
-            <p class="text-sm text-gray-400">Diseño y desarrollo de experiencias visuales</p>
-          </div>
-        </div>
+        </button>
 
-        <div class="grid grid-cols-4 gap-4">
+        <div class="tech-content grid grid-cols-4 gap-4">
           <div class="tech-item group/item relative flex items-center justify-center">
             <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-[#82e256]/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-[#82e256]/50 hover:scale-110">
               <img src="/img/logoJavaScript.png" class="w-12 h-12 object-contain transition-transform duration-300 group-hover/item:scale-110" alt="JavaScript" />
@@ -120,22 +127,29 @@
       </div>
 
       <!-- Category 2: Backend APIs -->
-      <div class="group relative bg-gradient-to-br from-[#1e1e1e] to-[#2a2a2a] rounded-3xl p-8 border border-white/10 hover:border-[#04ADC0]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[#04ADC0]/20">
+      <div class="tech-category group relative bg-gradient-to-br from-[#1e1e1e] to-[#2a2a2a] rounded-3xl p-8 border border-white/10 hover:border-[#04ADC0]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[#04ADC0]/20">
         <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#04ADC0]/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-        <div class="flex items-center gap-4 mb-6">
-          <div class="w-16 h-16 bg-gradient-to-br from-[#04ADC0] to-[#028a9a] rounded-xl flex items-center justify-center shadow-lg">
-            <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path>
+        <button class="tech-category-toggle w-full flex items-center justify-between gap-4 mb-6 cursor-pointer group/toggle" data-category="backend">
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 bg-gradient-to-br from-[#04ADC0] to-[#028a9a] rounded-xl flex items-center justify-center shadow-lg">
+              <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path>
+              </svg>
+            </div>
+            <div class="text-left">
+              <h2 class="text-2xl font-bold text-white mb-1">APIs & Lógica de Negocio</h2>
+              <p class="text-sm text-gray-400">Construcción de servicios robustos y escalables</p>
+            </div>
+          </div>
+          <div class="chevron-icon transition-transform duration-300">
+            <svg class="w-6 h-6 text-[#04ADC0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
           </div>
-          <div>
-            <h2 class="text-2xl font-bold text-white mb-1">APIs & Lógica de Negocio</h2>
-            <p class="text-sm text-gray-400">Construcción de servicios robustos y escalables</p>
-          </div>
-        </div>
+        </button>
 
-        <div class="grid grid-cols-4 gap-4">
+        <div class="tech-content grid grid-cols-4 gap-4">
           <div class="tech-item group/item relative">
             <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-[#04ADC0]/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-[#04ADC0]/50 hover:scale-110">
               <img src="/img/logoPHP.png" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="PHP" />
@@ -192,145 +206,30 @@
         </div>
       </div>
 
-  
-
-      <!-- Category 4: Databases -->
-      <div class="group relative bg-gradient-to-br from-[#1e1e1e] to-[#2a2a2a] rounded-3xl p-8 border border-white/10 hover:border-orange-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/20">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-500/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-        <div class="flex items-center gap-4 mb-6">
-          <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-700 rounded-xl flex items-center justify-center shadow-lg">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
-            </svg>
-          </div>
-          <div>
-            <h2 class="text-2xl font-bold text-white mb-1">Bases de Datos</h2>
-            <p class="text-sm text-gray-400">Almacenamiento eficiente y confiable</p>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-4 gap-4">
-          <div class="tech-item group/item relative">
-            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-orange-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-orange-500/50 hover:scale-110">
-              <img src="/img/postgresql.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="PostgreSQL" />
-            </div>
-            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
-              PostgreSQL
-            </div>
-          </div>
-
-          <div class="tech-item group/item relative">
-            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-orange-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-orange-500/50 hover:scale-110">
-              <img src="/img/mysql.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="MySQL" />
-            </div>
-            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
-              MySQL
-            </div>
-          </div>
-
-          <div class="tech-item group/item relative">
-            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-orange-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-orange-500/50 hover:scale-110">
-              <img src="/img/mongodb.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="MongoDB" />
-            </div>
-            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
-              MongoDB
-            </div>
-          </div>
-
-          <div class="tech-item group/item relative">
-            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-orange-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-orange-500/50 hover:scale-110">
-              <img src="/img/sqlite.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="SQLite" />
-            </div>
-            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
-              SQLite
-            </div>
-          </div>
-
-          <div class="tech-item group/item relative">
-            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-orange-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-orange-500/50 hover:scale-110">
-              <img src="/img/qdrant.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="Qdrant" />
-            </div>
-            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
-              Qdrant
-            </div>
-          </div>
-
-          <div class="tech-item group/item relative">
-            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-orange-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-orange-500/50 hover:scale-110">
-              <img src="/img/redis.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="Redis" />
-            </div>
-            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
-              Redis
-            </div>
-          </div>
-        </div>
-      </div>
-      
-
-          <!-- Category 3: Mobile Apps -->
-      <div class="group relative bg-gradient-to-br from-[#1e1e1e] to-[#2a2a2a] rounded-3xl p-8 border border-white/10 hover:border-purple-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-500/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-        <div class="flex items-center gap-4 mb-6">
-          <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl flex items-center justify-center shadow-lg">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-            </svg>
-          </div>
-          <div>
-            <h2 class="text-2xl font-bold text-white mb-1">Apps Móviles</h2>
-            <p class="text-sm text-gray-400">Desarrollo nativo y multiplataforma</p>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-4 gap-4">
-          <div class="tech-item group/item relative">
-            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-purple-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-purple-500/50 hover:scale-110">
-              <img src="/img/kotlin.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="Kotlin" />
-            </div>
-            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
-              Kotlin
-            </div>
-          </div>
-
-          <div class="tech-item group/item relative">
-            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-purple-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-purple-500/50 hover:scale-110">
-              <img src="/img/swift.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="Swift" />
-            </div>
-            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
-              Swift
-            </div>
-          </div>
-
-          <div class="tech-item group/item relative">
-            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-purple-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-purple-500/50 hover:scale-110">
-              <img src="/img/logoReactNative.png" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="React Native" />
-            </div>
-            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
-              React Native
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Category 5: ML & AI -->
-      <div class="group relative bg-gradient-to-br from-[#1e1e1e] to-[#2a2a2a] rounded-3xl p-8 border border-white/10 hover:border-pink-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-pink-500/20 lg:col-span-2">
+  <!-- Category 5: ML & AI -->
+      <div class="tech-category group relative bg-gradient-to-br from-[#1e1e1e] to-[#2a2a2a] rounded-3xl p-8 border border-white/10 hover:border-pink-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-pink-500/20 lg:col-span-2">
         <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-pink-500/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-        <div class="flex items-center gap-4 mb-6">
-          <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-pink-700 rounded-xl flex items-center justify-center shadow-lg">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+        <button class="tech-category-toggle w-full flex items-center justify-between gap-4 mb-6 cursor-pointer group/toggle" data-category="ai">
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-pink-700 rounded-xl flex items-center justify-center shadow-lg">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+              </svg>
+            </div>
+            <div class="text-left">
+              <h2 class="text-2xl font-bold text-white mb-1">Machine Learning e Inteligencia Artificial</h2>
+              <p class="text-sm text-gray-400">Modelos inteligentes y procesamiento de datos</p>
+            </div>
+          </div>
+          <div class="chevron-icon transition-transform duration-300">
+            <svg class="w-6 h-6 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
           </div>
-          <div>
-            <h2 class="text-2xl font-bold text-white mb-1">Machine Learning e Inteligencia Artificial</h2>
-            <p class="text-sm text-gray-400">Modelos inteligentes y procesamiento de datos</p>
-          </div>
-        </div>
+        </button>
 
-        <div class="grid grid-cols-4 md:grid-cols-8 gap-4">
+        <div class="tech-content grid grid-cols-4 md:grid-cols-8 gap-4">
           <div class="tech-item group/item relative">
             <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-pink-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-pink-500/50 hover:scale-110">
               <img src="/img/tensorflow.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="TensorFlow" />
@@ -405,24 +304,167 @@
           </div>
         </div>
       </div>
+ 
 
-      <!-- Category 6: Infrastructure & DevOps -->
-      <div class="group relative bg-gradient-to-br from-[#1e1e1e] to-[#2a2a2a] rounded-3xl p-8 border border-white/10 hover:border-blue-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20 lg:col-span-2">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <!-- Category 4: Databases -->
+      <div class="tech-category group relative bg-gradient-to-br from-[#1e1e1e] to-[#2a2a2a] rounded-3xl p-8 border border-white/10 hover:border-orange-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/20">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-500/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-        <div class="flex items-center gap-4 mb-6">
-          <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+        <button class="tech-category-toggle w-full flex items-center justify-between gap-4 mb-6 cursor-pointer group/toggle" data-category="database">
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-700 rounded-xl flex items-center justify-center shadow-lg">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
+              </svg>
+            </div>
+            <div class="text-left">
+              <h2 class="text-2xl font-bold text-white mb-1">Bases de Datos</h2>
+              <p class="text-sm text-gray-400">Almacenamiento eficiente y confiable</p>
+            </div>
+          </div>
+          <div class="chevron-icon transition-transform duration-300">
+            <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
           </div>
-          <div>
-            <h2 class="text-2xl font-bold text-white mb-1">Infraestructura & DevOps</h2>
-            <p class="text-sm text-gray-400">Despliegue automático y gestión en la nube</p>
+        </button>
+
+        <div class="tech-content grid grid-cols-4 gap-4">
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-orange-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-orange-500/50 hover:scale-110">
+              <img src="/img/postgresql.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="PostgreSQL" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              PostgreSQL
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-orange-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-orange-500/50 hover:scale-110">
+              <img src="/img/mysql.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="MySQL" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              MySQL
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-orange-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-orange-500/50 hover:scale-110">
+              <img src="/img/mongodb.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="MongoDB" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              MongoDB
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-orange-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-orange-500/50 hover:scale-110">
+              <img src="/img/sqlite.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="SQLite" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              SQLite
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-orange-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-orange-500/50 hover:scale-110">
+              <img src="/img/qdrant.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="Qdrant" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              Qdrant
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-orange-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-orange-500/50 hover:scale-110">
+              <img src="/img/redis.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="Redis" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              Redis
+            </div>
           </div>
         </div>
+      </div>
+      
 
-        <div class="grid grid-cols-4 md:grid-cols-7 gap-4">
+          <!-- Category 3: Mobile Apps -->
+      <div class="tech-category group relative bg-gradient-to-br from-[#1e1e1e] to-[#2a2a2a] rounded-3xl p-8 border border-white/10 hover:border-purple-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-500/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+        <button class="tech-category-toggle w-full flex items-center justify-between gap-4 mb-6 cursor-pointer group/toggle" data-category="mobile">
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl flex items-center justify-center shadow-lg">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <div class="text-left">
+              <h2 class="text-2xl font-bold text-white mb-1">Apps Móviles</h2>
+              <p class="text-sm text-gray-400">Desarrollo nativo y multiplataforma</p>
+            </div>
+          </div>
+          <div class="chevron-icon transition-transform duration-300">
+            <svg class="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </div>
+        </button>
+
+        <div class="tech-content grid grid-cols-4 gap-4">
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-purple-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-purple-500/50 hover:scale-110">
+              <img src="/img/kotlin.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="Kotlin" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              Kotlin
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-purple-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-purple-500/50 hover:scale-110">
+              <img src="/img/swift.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="Swift" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              Swift
+            </div>
+          </div>
+
+          <div class="tech-item group/item relative">
+            <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-purple-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-purple-500/50 hover:scale-110">
+              <img src="/img/logoReactNative.png" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="React Native" />
+            </div>
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+              React Native
+            </div>
+          </div>
+        </div>
+      </div>
+
+     
+      <!-- Category 6: Infrastructure & DevOps -->
+      <div class="tech-category group relative bg-gradient-to-br from-[#1e1e1e] to-[#2a2a2a] rounded-3xl p-8 border border-white/10 hover:border-blue-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20 lg:col-span-2">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+        <button class="tech-category-toggle w-full flex items-center justify-between gap-4 mb-6 cursor-pointer group/toggle" data-category="devops">
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+              </svg>
+            </div>
+            <div class="text-left">
+              <h2 class="text-2xl font-bold text-white mb-1">Infraestructura & DevOps</h2>
+              <p class="text-sm text-gray-400">Despliegue automático y gestión en la nube</p>
+            </div>
+          </div>
+          <div class="chevron-icon transition-transform duration-300">
+            <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </div>
+        </button>
+
+        <div class="tech-content grid grid-cols-4 md:grid-cols-7 gap-4">
           <div class="tech-item group/item relative">
             <div class="w-full aspect-square bg-black/30 rounded-xl flex items-center justify-center hover:bg-blue-500/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-blue-500/50 hover:scale-110">
               <img src="/img/aws.svg" class="w-12 h-12 transition-transform duration-300 group-hover/item:scale-110" alt="AWS" />
@@ -496,3 +538,59 @@
     </div>
   </div>
 </section>
+
+<script>
+  // Toggle functionality for tech categories
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggleButtons = document.querySelectorAll('.tech-category-toggle');
+
+    toggleButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const category = button.closest('.tech-category');
+        const content = category?.querySelector('.tech-content');
+        const chevron = button.querySelector('.chevron-icon');
+
+        if (content && chevron) {
+          // Toggle content visibility
+          if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+            // Collapse
+            content.style.maxHeight = '0px';
+            content.style.opacity = '0';
+            content.style.marginTop = '0';
+            chevron.style.transform = 'rotate(0deg)';
+          } else {
+            // Expand
+            content.style.maxHeight = content.scrollHeight + 'px';
+            content.style.opacity = '1';
+            content.style.marginTop = '1.5rem';
+            chevron.style.transform = 'rotate(180deg)';
+          }
+        }
+      });
+    });
+
+    // Initialize all categories as COLLAPSED
+    document.querySelectorAll('.tech-content').forEach((content) => {
+      if (content instanceof HTMLElement) {
+        content.style.maxHeight = '0px';
+        content.style.opacity = '0';
+        content.style.marginTop = '0';
+        content.style.transition = 'all 0.3s ease';
+      }
+    });
+
+    // Initialize all chevrons pointing down (collapsed state)
+    document.querySelectorAll('.chevron-icon').forEach((chevron) => {
+      if (chevron instanceof HTMLElement) {
+        chevron.style.transform = 'rotate(0deg)';
+      }
+    });
+  });
+</script>
+
+<style>
+  .tech-content {
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+</style>

@@ -37,44 +37,9 @@
     <div
       class="flex flex-col md:flex-row items-center justify-center w-full max-w-7xl z-10"
     >
-      <!-- Imagen (Superpuesta) -->
+      <!-- Descripción con Tooltip (Izquierda) -->
       <div
-        class="w-full md:w-1/2 flex justify-center md:justify-end order-1 md:order-1"
-      >
-        <div
-          class="carousel-container relative w-[500px] h-[500px] md:w-[700px] md:h-[700px] lg:w-[850px] lg:h-[850px] hover:scale-105 transition-transform duration-500 drop-shadow-2xl pointer-events-none"
-        >
-          <img
-            src="/img/personaje1/01.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-100"
-            alt="Agente IA"
-          />
-          <img
-            src="/img/personaje1/02.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Agente IA"
-          />
-          <img
-            src="/img/personaje1/03.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Agente IA"
-          />
-          <img
-            src="/img/personaje1/04.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Agente IA"
-          />
-          <img
-            src="/img/personaje1/05.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Agente IA"
-          />
-        </div>
-      </div>
-
-      <!-- Descripción con Tooltip -->
-      <div
-        class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-ml-[300px]"
+        class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-mr-[300px] order-2 md:order-1"
       >
         <!-- H3 con Mini Tooltip y Video Shorts -->
         <div class="tooltip-wrapper relative group w-full flex flex-col items-center md:items-start mt-4 md:mt-6">
@@ -113,6 +78,41 @@
           </div>
         </div>
       </div>
+
+      <!-- Imagen (Derecha) -->
+      <div
+        class="w-full md:w-1/2 flex justify-center md:justify-start order-1 md:order-2"
+      >
+        <div
+          class="carousel-container relative w-[500px] h-[500px] md:w-[700px] md:h-[700px] lg:w-[850px] lg:h-[850px] hover:scale-105 transition-transform duration-500 drop-shadow-2xl pointer-events-none"
+        >
+          <img
+            src="/img/personaje1/01.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-100"
+            alt="Agente IA"
+          />
+          <img
+            src="/img/personaje1/02.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
+            alt="Agente IA"
+          />
+          <img
+            src="/img/personaje1/03.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
+            alt="Agente IA"
+          />
+          <img
+            src="/img/personaje1/04.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
+            alt="Agente IA"
+          />
+          <img
+            src="/img/personaje1/05.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
+            alt="Agente IA"
+          />
+        </div>
+      </div>
     </div>
   </section>
 
@@ -132,52 +132,9 @@
     <div
       class="flex flex-col md:flex-row items-center justify-center w-full max-w-7xl z-10"
     >
-      <!-- Descripción con Tooltip -->
+      <!-- Imagen (Izquierda) -->
       <div
-        class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-mr-[300px] order-2 md:order-1"
-      >
-        <!-- H3 con Mini Tooltip y Video Shorts -->
-        <div class="tooltip-wrapper relative group w-full flex flex-col items-center md:items-start mt-4 md:mt-6">
-          <div class="flex items-center gap-4">
-            <a href="/servicios/aplicaciones-ia" class="block">
-              <h3
-                class="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center md:text-left px-6 py-4 cursor-pointer relative inline-block leading-tight"
-              >
-                Apps con integraciones hechas a la medida + IA
-
-                <!-- Mini Tooltip (aparece arriba al hover) -->
-                <div class="tooltip-content absolute left-0 md:left-auto md:right-0 bottom-full mb-4 w-[90vw] md:w-[450px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:-translate-y-2 z-50 pointer-events-none">
-                  <div class="backdrop-blur-xl bg-black/90 p-5 rounded-2xl border-2 border-[#82e256]/50 shadow-2xl">
-                    <!-- Contenido del Tooltip -->
-                    <p class="text-sm md:text-base text-white font-light leading-relaxed">
-                      Potencia tus plataformas, y aplicaciones webs, con integraciones de modelos de lenguaje LLM, machine learning,
-                     computer visión. búsqueda semántica, Analisis de datos, personalización predictiva y
-                      experiencias conversacionales integradas (STT - TTS).
-                    </p>
-                  </div>
-
-                  <!-- Flecha indicadora del tooltip (apunta hacia abajo) -->
-                  <div class="absolute -bottom-2 left-8 md:left-auto md:right-8 w-4 h-4 bg-black/90 border-r border-b border-[#82e256]/50 transform rotate-45"></div>
-                </div>
-              </h3>
-            </a>
-
-            <!-- Botón de Video Shorts -->
-            <button
-              class="service-video-btn relative flex-shrink-0 w-12 h-12 flex items-center justify-center transition-all duration-300 hover:scale-110 z-30 group/play drop-shadow-lg hover:drop-shadow-2xl"
-              data-service="service3"
-              title="Ver videos explicativos"
-            >
-              <img src="/img/playvideo.svg" alt="Play video" class="w-full h-full transition-transform duration-300 group-hover/play:rotate-6 group-hover/play:scale-105 drop-shadow-xl" />
-              <span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-white opacity-0 group-hover/play:opacity-100 transition-opacity duration-300 whitespace-nowrap">VIDEO</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Imagen (Derecha) -->
-      <div
-        class="w-full md:w-1/2 flex justify-center md:justify-start order-1 md:order-2"
+        class="w-full md:w-1/2 flex justify-center md:justify-end order-1 md:order-1"
       >
         <div
           class="carousel-container relative w-[500px] h-[500px] md:w-[700px] md:h-[700px] lg:w-[850px] lg:h-[850px] hover:scale-105 transition-transform duration-500 drop-shadow-2xl pointer-events-none"
@@ -209,7 +166,48 @@
           />
         </div>
       </div>
+
+      <!-- Descripción con Tooltip (Derecha) -->
+      <div
+        class="w-full md:w-1/2 flex flex-col items-center md:items-end relative z-20 md:-ml-[300px] order-2 md:order-2"
+      >
+        <!-- H3 con Mini Tooltip -->
+        <div class="tooltip-wrapper relative group w-full flex flex-col items-center md:items-end mt-4 md:mt-6">
+          <a href="/servicios/aplicaciones-ia" class="block">
+            <h3
+              class="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center md:text-right px-6 py-4 cursor-pointer relative inline-block leading-tight"
+            >
+              Apps con integraciones hechas a la medida + IA
+
+              <!-- Mini Tooltip (aparece arriba al hover) -->
+              <div class="tooltip-content absolute left-0 md:left-0 md:right-auto bottom-full mb-4 w-[90vw] md:w-[450px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:-translate-y-2 z-50 pointer-events-none">
+                <div class="backdrop-blur-xl bg-black/90 p-5 rounded-2xl border-2 border-[#82e256]/50 shadow-2xl">
+                  <!-- Contenido del Tooltip -->
+                  <p class="text-sm md:text-base text-white font-light leading-relaxed">
+                    Potencia tus plataformas, y aplicaciones webs, con integraciones de modelos de lenguaje LLM, machine learning,
+                   computer visión. búsqueda semántica, Analisis de datos, personalización predictiva y
+                    experiencias conversacionales integradas (STT - TTS).
+                  </p>
+                </div>
+
+                <!-- Flecha indicadora del tooltip (apunta hacia abajo) -->
+                <div class="absolute -bottom-2 left-8 md:left-auto md:right-8 w-4 h-4 bg-black/90 border-r border-b border-[#82e256]/50 transform rotate-45"></div>
+              </div>
+            </h3>
+          </a>
+        </div>
+      </div>
     </div>
+
+    <!-- Botón de Video Shorts (Centrado en pantalla) -->
+    <button
+      class="service-video-btn absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex-shrink-0 w-12 h-12 flex items-center justify-center transition-all duration-300 hover:scale-110 z-30 group/play drop-shadow-lg hover:drop-shadow-2xl"
+      data-service="service3"
+      title="Ver videos explicativos"
+    >
+      <img src="/img/playvideo.svg" alt="Play video" class="w-full h-full transition-transform duration-300 group-hover/play:rotate-6 group-hover/play:scale-105 drop-shadow-xl" />
+      <span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-white opacity-0 group-hover/play:opacity-100 transition-opacity duration-300 whitespace-nowrap">VIDEO</span>
+    </button>
   </section>
 
   <!-- Sección 3: Modern Web (Personaje 4) -->
@@ -228,44 +226,9 @@
     <div
       class="flex flex-col md:flex-row items-center justify-center w-full max-w-7xl z-10"
     >
-      <!-- Imagen (Izquierda) -->
+      <!-- Descripción con Tooltip (Izquierda) -->
       <div
-        class="w-full md:w-1/2 flex justify-center md:justify-end order-1 md:order-1"
-      >
-        <div
-          class="carousel-container relative w-[500px] h-[500px] md:w-[700px] md:h-[700px] lg:w-[850px] lg:h-[850px] hover:scale-105 transition-transform duration-500 drop-shadow-2xl pointer-events-none"
-        >
-          <img
-            src="/img/personaje4/01.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-100"
-            alt="Modern Web"
-          />
-          <img
-            src="/img/personaje4/02.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Modern Web"
-          />
-          <img
-            src="/img/personaje4/03.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Modern Web"
-          />
-          <img
-            src="/img/personaje4/04.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Modern Web"
-          />
-          <img
-            src="/img/personaje4/05.png"
-            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
-            alt="Modern Web"
-          />
-        </div>
-      </div>
-
-      <!-- Descripción con Tooltip -->
-      <div
-        class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-ml-[300px]"
+        class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-mr-[300px] order-2 md:order-1"
       >
         <!-- H3 con Mini Tooltip y Video Shorts -->
         <div class="tooltip-wrapper relative group w-full flex flex-col items-center md:items-start mt-4 md:mt-6">
@@ -305,6 +268,41 @@
           </div>
         </div>
       </div>
+
+      <!-- Imagen (Derecha) -->
+      <div
+        class="w-full md:w-1/2 flex justify-center md:justify-start order-1 md:order-2"
+      >
+        <div
+          class="carousel-container relative w-[500px] h-[500px] md:w-[700px] md:h-[700px] lg:w-[850px] lg:h-[850px] hover:scale-105 transition-transform duration-500 drop-shadow-2xl pointer-events-none"
+        >
+          <img
+            src="/img/personaje4/01.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-100"
+            alt="Modern Web"
+          />
+          <img
+            src="/img/personaje4/02.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
+            alt="Modern Web"
+          />
+          <img
+            src="/img/personaje4/03.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
+            alt="Modern Web"
+          />
+          <img
+            src="/img/personaje4/04.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
+            alt="Modern Web"
+          />
+          <img
+            src="/img/personaje4/05.png"
+            class="carousel-img absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0"
+            alt="Modern Web"
+          />
+        </div>
+      </div>
     </div>
   </section>
 
@@ -324,51 +322,9 @@
     <div
       class="flex flex-col md:flex-row items-center justify-center w-full max-w-7xl z-10"
     >
-      <!-- Descripción con Tooltip -->
+      <!-- Imagen (Izquierda) -->
       <div
-        class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-mr-[300px] order-2 md:order-1"
-      >
-        <!-- H3 con Mini Tooltip y Video Shorts -->
-        <div class="tooltip-wrapper relative group w-full flex flex-col items-center md:items-start mt-4 md:mt-6">
-          <div class="flex items-center gap-4">
-            <a href="/servicios/apps-moviles" class="block">
-              <h3
-                class="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center md:text-left px-6 py-4 cursor-pointer relative inline-block leading-tight"
-              >
-                Aplicaciones Nativas & Cross-Platform
-
-                <!-- Mini Tooltip (aparece arriba al hover) -->
-                <div class="tooltip-content absolute left-0 md:left-auto md:right-0 bottom-full mb-4 w-[90vw] md:w-[450px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:-translate-y-2 z-50 pointer-events-none">
-                  <div class="backdrop-blur-xl bg-black/90 p-5 rounded-2xl border-2 border-[#82e256]/50 shadow-2xl">
-                    <!-- Contenido del Tooltip -->
-                    <p class="text-sm md:text-base text-white font-light leading-relaxed">
-                      Apps de alto rendimiento en lenguajes nativos (Swift, Kotlin). Experiencias de usuario
-                      fluidas, notificaciones push, cross-platform (que funciona en múltiples plataformas) y funcionalidades nativas avanzadas.
-                    </p>
-                  </div>
-
-                  <!-- Flecha indicadora del tooltip (apunta hacia abajo) -->
-                  <div class="absolute -bottom-2 left-8 md:left-auto md:right-8 w-4 h-4 bg-black/90 border-r border-b border-[#82e256]/50 transform rotate-45"></div>
-                </div>
-              </h3>
-            </a>
-
-            <!-- Botón de Video Shorts -->
-            <button
-              class="service-video-btn relative flex-shrink-0 w-12 h-12 flex items-center justify-center transition-all duration-300 hover:scale-110 z-30 group/play drop-shadow-lg hover:drop-shadow-2xl"
-              data-service="service5"
-              title="Ver videos explicativos"
-            >
-              <img src="/img/playvideo.svg" alt="Play video" class="w-full h-full transition-transform duration-300 group-hover/play:rotate-6 group-hover/play:scale-105 drop-shadow-xl" />
-              <span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-white opacity-0 group-hover/play:opacity-100 transition-opacity duration-300 whitespace-nowrap">VIDEO</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Imagen (Derecha) -->
-      <div
-        class="w-full md:w-1/2 flex justify-center md:justify-start order-1 md:order-2"
+        class="w-full md:w-1/2 flex justify-center md:justify-end order-1 md:order-1"
       >
         <div
           class="carousel-container relative w-[500px] h-[500px] md:w-[700px] md:h-[700px] lg:w-[850px] lg:h-[850px] hover:scale-105 transition-transform duration-500 drop-shadow-2xl pointer-events-none"
@@ -400,7 +356,47 @@
           />
         </div>
       </div>
+
+      <!-- Descripción con Tooltip (Derecha) -->
+      <div
+        class="w-full md:w-1/2 flex flex-col items-center md:items-end relative z-20 md:-ml-[300px] order-2 md:order-2"
+      >
+        <!-- H3 con Mini Tooltip -->
+        <div class="tooltip-wrapper relative group w-full flex flex-col items-center md:items-end mt-4 md:mt-6">
+          <a href="/servicios/apps-moviles" class="block">
+            <h3
+              class="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center md:text-right px-6 py-4 cursor-pointer relative inline-block leading-tight"
+            >
+              Aplicaciones Nativas & Cross-Platform
+
+              <!-- Mini Tooltip (aparece arriba al hover) -->
+              <div class="tooltip-content absolute left-0 md:left-0 md:right-auto bottom-full mb-4 w-[90vw] md:w-[450px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:-translate-y-2 z-50 pointer-events-none">
+                <div class="backdrop-blur-xl bg-black/90 p-5 rounded-2xl border-2 border-[#82e256]/50 shadow-2xl">
+                  <!-- Contenido del Tooltip -->
+                  <p class="text-sm md:text-base text-white font-light leading-relaxed">
+                    Apps de alto rendimiento en lenguajes nativos (Swift, Kotlin). Experiencias de usuario
+                    fluidas, notificaciones push, cross-platform (que funciona en múltiples plataformas) y funcionalidades nativas avanzadas.
+                  </p>
+                </div>
+
+                <!-- Flecha indicadora del tooltip (apunta hacia abajo) -->
+                <div class="absolute -bottom-2 left-8 md:left-auto md:right-8 w-4 h-4 bg-black/90 border-r border-b border-[#82e256]/50 transform rotate-45"></div>
+              </div>
+            </h3>
+          </a>
+        </div>
+      </div>
     </div>
+
+    <!-- Botón de Video Shorts (Centrado en pantalla) -->
+    <button
+      class="service-video-btn absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex-shrink-0 w-12 h-12 flex items-center justify-center transition-all duration-300 hover:scale-110 z-30 group/play drop-shadow-lg hover:drop-shadow-2xl"
+      data-service="service5"
+      title="Ver videos explicativos"
+    >
+      <img src="/img/playvideo.svg" alt="Play video" class="w-full h-full transition-transform duration-300 group-hover/play:rotate-6 group-hover/play:scale-105 drop-shadow-xl" />
+      <span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-white opacity-0 group-hover/play:opacity-100 transition-opacity duration-300 whitespace-nowrap">VIDEO</span>
+    </button>
   </section>
 
   <!-- Sección 5: Arquitectura (Personaje 6) -->
@@ -465,7 +461,7 @@
               <h3
                 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center md:text-left px-6 py-4 cursor-pointer relative inline-block leading-tight"
               >
-                Arquitectura Escalable & Robusta
+                Arquitectura de Software Escalable & Robusta
 
                 <!-- Mini Tooltip (aparece arriba al hover) -->
                 <div class="tooltip-content absolute left-0 md:left-auto md:right-0 bottom-full mb-4 w-[90vw] md:w-[450px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:-translate-y-2 z-50 pointer-events-none">
@@ -514,52 +510,9 @@
     <div
       class="flex flex-col md:flex-row items-center justify-center w-full max-w-7xl z-10"
     >
-      <!-- Descripción con Tooltip -->
+      <!-- Imagen (Izquierda) -->
       <div
-        class="w-full md:w-1/2 flex flex-col items-center md:items-start relative z-20 md:-mr-[300px] order-2 md:order-1"
-      >
-        <!-- H3 con Mini Tooltip y Video Shorts -->
-        <div class="tooltip-wrapper relative group w-full flex flex-col items-center md:items-start mt-4 md:mt-6">
-          <div class="flex items-center gap-4">
-            <a href="/servicios/computer-vision" class="block">
-              <h3
-                class="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center md:text-left px-6 py-4 cursor-pointer relative inline-block leading-tight"
-              >
-                Visión por Computadora hecha a la medida. + IA
-
-                <!-- Mini Tooltip (aparece arriba al hover) -->
-                <div class="tooltip-content absolute left-0 md:left-auto md:right-0 bottom-full mb-4 w-[90vw] md:w-[450px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:-translate-y-2 z-50 pointer-events-none">
-                  <div class="backdrop-blur-xl bg-black/90 p-5 rounded-2xl border-2 border-[#82e256]/50 shadow-2xl">
-                    <!-- Contenido del Tooltip -->
-                    <p class="text-sm md:text-base text-white font-light leading-relaxed">
-                      Análisis de imágenes y video en tiempo real, Detección de objetos,
-                      reconocimiento facial y control de calidad automatizado, Tenemos muchos flujos listos para integrar a tus plataformas
-                      que incluyen Deeplearning para sus procesos.
-                    </p>
-                  </div>
-
-                  <!-- Flecha indicadora del tooltip (apunta hacia abajo) -->
-                  <div class="absolute -bottom-2 left-8 md:left-auto md:right-8 w-4 h-4 bg-black/90 border-r border-b border-[#82e256]/50 transform rotate-45"></div>
-                </div>
-              </h3>
-            </a>
-
-            <!-- Botón de Video Shorts -->
-            <button
-              class="service-video-btn relative flex-shrink-0 w-12 h-12 flex items-center justify-center transition-all duration-300 hover:scale-110 z-30 group/play drop-shadow-lg hover:drop-shadow-2xl"
-              data-service="service7"
-              title="Ver videos explicativos"
-            >
-              <img src="/img/playvideo.svg" alt="Play video" class="w-full h-full transition-transform duration-300 group-hover/play:rotate-6 group-hover/play:scale-105 drop-shadow-xl" />
-              <span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-white opacity-0 group-hover/play:opacity-100 transition-opacity duration-300 whitespace-nowrap">VIDEO</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Imagen (Derecha) -->
-      <div
-        class="w-full md:w-1/2 flex justify-center md:justify-start order-1 md:order-2"
+        class="w-full md:w-1/2 flex justify-center md:justify-end order-1 md:order-1"
       >
         <div
           class="carousel-container relative w-[500px] h-[500px] md:w-[700px] md:h-[700px] lg:w-[850px] lg:h-[850px] hover:scale-105 transition-transform duration-500 drop-shadow-2xl pointer-events-none"
@@ -591,10 +544,51 @@
           />
         </div>
       </div>
+
+      <!-- Descripción con Tooltip (Derecha) -->
+      <div
+        class="w-full md:w-1/2 flex flex-col items-center md:items-end relative z-20 md:-ml-[300px] order-2 md:order-2"
+      >
+        <!-- H3 con Mini Tooltip -->
+        <div class="tooltip-wrapper relative group w-full flex flex-col items-center md:items-end mt-4 md:mt-6">
+          <a href="/servicios/computer-vision" class="block">
+            <h3
+              class="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center md:text-right px-6 py-4 cursor-pointer relative inline-block leading-tight"
+            >
+              Visión por Computadora hecha a la medida. + IA
+
+              <!-- Mini Tooltip (aparece arriba al hover) -->
+              <div class="tooltip-content absolute left-0 md:left-0 md:right-auto bottom-full mb-4 w-[90vw] md:w-[450px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:-translate-y-2 z-50 pointer-events-none">
+                <div class="backdrop-blur-xl bg-black/90 p-5 rounded-2xl border-2 border-[#82e256]/50 shadow-2xl">
+                  <!-- Contenido del Tooltip -->
+                  <p class="text-sm md:text-base text-white font-light leading-relaxed">
+                    Análisis de imágenes y video en tiempo real, Detección de objetos,
+                    reconocimiento fiscal y control de calidad automatizado, Tenemos muchos flujos listos para integrar a tus plataformas
+                    que incluyen Deeplearning para sus procesos.
+                  </p>
+                </div>
+
+                <!-- Flecha indicadora del tooltip (apunta hacia abajo) -->
+                <div class="absolute -bottom-2 left-8 md:left-auto md:right-8 w-4 h-4 bg-black/90 border-r border-b border-[#82e256]/50 transform rotate-45"></div>
+              </div>
+            </h3>
+          </a>
+        </div>
+      </div>
     </div>
+
+    <!-- Botón de Video Shorts (Centrado en pantalla) -->
+    <button
+      class="service-video-btn absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex-shrink-0 w-12 h-12 flex items-center justify-center transition-all duration-300 hover:scale-110 z-30 group/play drop-shadow-lg hover:drop-shadow-2xl"
+      data-service="service7"
+      title="Ver videos explicativos"
+    >
+      <img src="/img/playvideo.svg" alt="Play video" class="w-full h-full transition-transform duration-300 group-hover/play:rotate-6 group-hover/play:scale-105 drop-shadow-xl" />
+      <span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-white opacity-0 group-hover/play:opacity-100 transition-opacity duration-300 whitespace-nowrap">VIDEO</span>
+    </button>
   </section>
 
-    <!-- Sección 6: Computer Vision (Personaje 7) -->
+  <!-- Sección 6: Computer Vision (Personaje 7) -->
   <section
     id="personaje7"
     class="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden animate-vision pb-32"
@@ -621,7 +615,7 @@
               <h3
                 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center md:text-left px-6 py-4 cursor-pointer relative inline-block leading-tight"
               >
-                Aprendizaje Automático & Modelos de IA
+                Aprendizaje Automático y por refuerzo + Modelos de IA
 
                 <!-- Mini Tooltip (aparece arriba al hover) -->
                 <div class="tooltip-content absolute left-0 md:left-auto md:right-0 bottom-full mb-4 w-[90vw] md:w-[450px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:-translate-y-2 z-50 pointer-events-none">

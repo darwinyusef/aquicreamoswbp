@@ -1,0 +1,98 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: main-ingress
+  namespace: production
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+spec:
+  ingressClassName: nginx
+  tls:
+  # Certificado para wpaqc (aquicreamos.com)
+  - hosts:
+    - aquicreamos.com
+    - www.aquicreamos.com
+    secretName: wpaqc-tls
+  # Certificado para portfolio (darwinyusef.com)
+  - hosts:
+    - darwinyusef.com
+    - www.darwinyusef.com
+    - en.darwinyusef.com
+    - br.darwinyusef.com
+    secretName: portfolio-tls
+  rules:
+  # ================================================
+  # WPAQC - aquicreamos.com
+  # ================================================
+  - host: aquicreamos.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: wpaqc-service
+            port:
+              number: 80
+  - host: www.aquicreamos.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: wpaqc-service
+            port:
+              number: 80
+  # ================================================
+  # PORTFOLIO - darwinyusef.com (Español)
+  # ================================================
+  - host: darwinyusef.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: portfolio-service
+            port:
+              number: 80
+  - host: www.darwinyusef.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: portfolio-service
+            port:
+              number: 80
+  # ================================================
+  # PORTFOLIO - en.darwinyusef.com (Inglés)
+  # ================================================
+  - host: en.darwinyusef.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: portfolio-service
+            port:
+              number: 80
+  # ================================================
+  # PORTFOLIO - br.darwinyusef.com (Portugués)
+  # ================================================
+  - host: br.darwinyusef.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: portfolio-service
+            port:
+              number: 80
