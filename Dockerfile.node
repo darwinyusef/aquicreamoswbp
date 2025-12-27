@@ -1,0 +1,93 @@
+# ========================================
+# Dockerfile para Astro con SSR y SQLite
+# ========================================
+
+# ========================================
+# Stage 1: Dependencies
+# ========================================
+FROM node:20-alpine AS deps
+WORKDIR /app
+
+# Instalar dependencias del sistema necesarias para SQLite
+RUN apk add --no-cache \
+    libc6-compat \
+    python3 \
+    make \
+    g++
+
+# Copiar archivos de dependencias
+COPY package.json package-lock.json* ./
+
+# Instalar dependencias de producción (incluyendo better-sqlite3)
+RUN npm ci --only=production && \
+    npm cache clean --force
+
+# ========================================
+# Stage 2: Build
+# ========================================
+FROM node:20-alpine AS builder
+WORKDIR /app
+
+# Instalar dependencias del sistema necesarias para build
+RUN apk add --no-cache \
+    libc6-compat \
+    python3 \
+    make \
+    g++
+
+# Copiar dependencias desde deps
+COPY --from=deps /app/node_modules ./node_modules
+COPY package.json package-lock.json* ./
+
+# Instalar todas las dependencias (incluyendo devDependencies)
+RUN npm ci
+
+# Copiar código fuente
+COPY . .
+
+# Build de producción con SSR
+ENV NODE_ENV=production
+RUN npm run build
+
+# ========================================
+# Stage 3: Runtime (Node.js)
+# ========================================
+FROM node:20-alpine AS runtime
+WORKDIR /app
+
+# Instalar dependencias del sistema necesarias
+RUN apk add --no-cache \
+    curl \
+    sqlite \
+    libc6-compat
+
+# Crear usuario no-root
+RUN addgroup -g 1001 -S astro-app && \
+    adduser -S astro-app -u 1001
+
+# Copiar archivos necesarios desde builder
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./package.json
+
+# Crear directorio para la base de datos
+RUN mkdir -p /app/data && \
+    chown -R astro-app:astro-app /app
+
+# Cambiar a usuario no-root
+USER astro-app
+
+# Exponer puerto
+EXPOSE 4321
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
+    CMD curl -f http://localhost:4321/ || exit 1
+
+# Variables de entorno
+ENV HOST=0.0.0.0
+ENV PORT=4321
+ENV NODE_ENV=production
+
+# Ejecutar servidor Astro
+CMD ["node", "./dist/server/entry.mjs"]

@@ -595,13 +595,73 @@ import Header from '../components/Header.astro';
     console.error('Error loading advisory data:', error);
   }
 
-  // Occupied slots - En producción, estos vendrían de tu base de datos
-  const occupiedSlots = [
-    { date: '2025-11-25', time: '10:00' },
-    { date: '2025-11-25', time: '14:00' },
-    { date: '2025-11-26', time: '11:00' },
-    // Agregar más slots ocupados según tu BD
+  // Días festivos de Colombia 2025-2026
+  const colombianHolidays = [
+    // 2025
+    '2025-01-01', // Año Nuevo
+    '2025-01-06', // Reyes Magos
+    '2025-03-24', // San José
+    '2025-04-17', // Jueves Santo
+    '2025-04-18', // Viernes Santo
+    '2025-05-01', // Día del Trabajo
+    '2025-06-02', // Ascensión del Señor
+    '2025-06-23', // Corpus Christi
+    '2025-06-30', // Sagrado Corazón
+    '2025-07-07', // San Pedro y San Pablo
+    '2025-07-20', // Día de la Independencia
+    '2025-08-07', // Batalla de Boyacá
+    '2025-08-18', // Asunción de la Virgen
+    '2025-10-13', // Día de la Raza
+    '2025-11-03', // Todos los Santos
+    '2025-11-17', // Independencia de Cartagena
+    '2025-12-08', // Inmaculada Concepción
+    '2025-12-25', // Navidad
+    // 2026
+    '2026-01-01', // Año Nuevo
+    '2026-01-12', // Reyes Magos
+    '2026-03-23', // San José
+    '2026-04-02', // Jueves Santo
+    '2026-04-03', // Viernes Santo
+    '2026-05-01', // Día del Trabajo
+    '2026-05-18', // Ascensión del Señor
+    '2026-06-08', // Corpus Christi
+    '2026-06-15', // Sagrado Corazón
+    '2026-06-29', // San Pedro y San Pablo
+    '2026-07-20', // Día de la Independencia
+    '2026-08-07', // Batalla de Boyacá
+    '2026-08-17', // Asunción de la Virgen
+    '2026-10-12', // Día de la Raza
+    '2026-11-02', // Todos los Santos
+    '2026-11-16', // Independencia de Cartagena
+    '2026-12-08', // Inmaculada Concepción
+    '2026-12-25', // Navidad
   ];
+
+  // Función para verificar si una fecha es festivo
+  function isHoliday(date) {
+    const dateStr = date.toISOString().split('T')[0];
+    return colombianHolidays.includes(dateStr);
+  }
+
+  // Occupied slots - Se cargarán desde la base de datos
+  let occupiedSlots = [];
+
+  // Cargar slots ocupados desde la API
+  async function loadOccupiedSlots() {
+    try {
+      const response = await fetch('/api/get-occupied-slots.json');
+      const result = await response.json();
+
+      if (result.success) {
+        occupiedSlots = result.data;
+        console.log(`✅ Cargados ${occupiedSlots.length} slots ocupados desde la BD`);
+      } else {
+        console.error('❌ Error al cargar slots ocupados:', result.error);
+      }
+    } catch (error) {
+      console.error('❌ Error al conectar con la API de slots:', error);
+    }
+  }
 
   let currentDate = new Date();
   let selectedDate = null;
@@ -682,7 +742,8 @@ import Header from '../components/Header.astro';
     document.getElementById('step-2-indicator').querySelector('div').classList.add('text-black');
     document.getElementById('progress-bar').style.width = '100%';
 
-    // Initialize calendar
+    // Load occupied slots and initialize calendar
+    await loadOccupiedSlots();
     renderCalendar();
   });
 
@@ -718,6 +779,7 @@ import Header from '../components/Header.astro';
       dayDate.setHours(0, 0, 0, 0);
       const isPast = dayDate < today;
       const isWeekend = dayDate.getDay() === 0 || dayDate.getDay() === 6;
+      const isHolidayDate = isHoliday(dayDate);
 
       const dayCell = document.createElement('button');
       dayCell.type = 'button';
@@ -729,6 +791,11 @@ import Header from '../components/Header.astro';
       } else if (isWeekend) {
         dayCell.className += 'bg-black/20 text-white/30 cursor-not-allowed';
         dayCell.disabled = true;
+      } else if (isHolidayDate) {
+        // Días festivos con estilo distintivo
+        dayCell.className += 'bg-red-900/20 text-red-300/50 cursor-not-allowed border-2 border-red-500/20';
+        dayCell.disabled = true;
+        dayCell.title = 'Día festivo';
       } else {
         dayCell.className += 'bg-black/30 border-2 border-white/10 hover:border-[#82e256]/50 hover:bg-black/50';
         dayCell.onclick = () => selectDate(year, month, day);
@@ -835,6 +902,7 @@ import Header from '../components/Header.astro';
 
   // Confirm booking
   document.getElementById('confirm-booking-btn').addEventListener('click', async () => {
+    const btn = document.getElementById('confirm-booking-btn');
     const name = document.getElementById('client-name').value;
     const email = document.getElementById('client-email').value;
     const phone = document.getElementById('client-phone').value;
@@ -848,34 +916,66 @@ import Header from '../components/Header.astro';
       return;
     }
 
+    // Deshabilitar botón mientras se procesa
+    btn.disabled = true;
+    btn.innerHTML = '<span>Procesando...</span>';
+
+    const formDataObject = Object.fromEntries(formData);
     const bookingData = {
-      // Datos de la asesoría inicial
-      ...(advisoryData || {}),
-      // Datos del cuestionario de 10 preguntas
-      ...Object.fromEntries(formData),
-      // Datos de la cita
+      name: name,
+      email: email,
+      phone: phone,
+      company: company,
       date: selectedDate.toISOString().split('T')[0],
       time: selectedTime,
       service: classificationResult.service,
-      clientName: name,
-      clientEmail: email,
-      clientPhone: phone,
-      clientCompany: company,
-      // Metadata
-      bookingTimestamp: new Date().toISOString()
+      project_type: formDataObject.project_type,
+      project_stage: formDataObject.project_stage,
+      budget: formDataObject.budget,
+      timeline: formDataObject.timeline,
+      description: formDataObject.project_description || '',
+      type: formDataObject.project_type || 'general'
     };
 
-    // AQUÍ GUARDARÁS LA CITA EN TU BASE DE DATOS
-    console.log('Complete booking data:', bookingData);
+    try {
+      // Enviar a la API para guardar en BD y enviar email
+      const response = await fetch('/api/send-appointment.json', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(bookingData)
+      });
 
-    // Simulación
-    alert(`¡Cita confirmada!\n\nFecha: ${selectedDate.toLocaleDateString('es-ES')}\nHora: ${selectedTime}\nServicio: ${classificationResult.service}\n\nRecibirás un email de confirmación en ${email}`);
+      const result = await response.json();
 
-    // Limpiar localStorage
-    localStorage.removeItem('advisoryFormData');
+      if (result.success) {
+        // Guardar datos de la cita en localStorage para mostrar el modal en home
+        const successData = {
+          email: email,
+          date: selectedDate.toISOString().split('T')[0],
+          time: selectedTime,
+          service: classificationResult.service,
+          name: name
+        };
+        localStorage.setItem('appointmentSuccess', JSON.stringify(successData));
 
-    // Redirect to home or confirmation page
-    window.location.href = '/';
+        // Limpiar datos del formulario
+        localStorage.removeItem('advisoryFormData');
+
+        // Redirigir al home donde se mostrará el modal
+        window.location.href = '/';
+      } else {
+        throw new Error(result.error || 'Error al confirmar la cita');
+      }
+    } catch (error) {
+      console.error('Error al confirmar cita:', error);
+      alert(`Error al confirmar la cita: ${error.message}\n\nPor favor, intenta nuevamente o contáctanos directamente.`);
+
+      // Rehabilitar botón
+      btn.disabled = false;
+      btn.innerHTML = '<svg class="w-5 h-5 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span class="relative z-10">Confirmar Sesión Gratuita</span>';
+    }
   });
 </script>
 </Layout>

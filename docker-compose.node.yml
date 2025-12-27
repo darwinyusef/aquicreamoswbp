@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  wpaqc-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.node
+      target: runtime
+    container_name: wpaqc-node-app
+    ports:
+      - "4000:4321"  # Puerto 4000 externo -> 4321 interno (Astro SSR)
+    environment:
+      - NODE_ENV=production
+      - HOST=0.0.0.0
+      - PORT=4321
+      # Variables de email (opcional)
+      - EMAILJS_API_KEY=${EMAILJS_API_KEY:-}
+      - RESEND_API_KEY=${RESEND_API_KEY:-}
+    volumes:
+      # Volumen persistente para la base de datos SQLite
+      - wpaqc-db:/app/data
+      # Montar el archivo de BD directamente (alternativa)
+      - ./appointments.db:/app/appointments.db
+    networks:
+      - wpaqc-network
+    restart: unless-stopped
+    labels:
+      - "com.aquicreamos.app=wpaqc-node"
+      - "com.aquicreamos.version=1.0.0"
+      - "com.aquicreamos.description=WPAQC con Astro SSR y SQLite"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4321/"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 15s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    # Recursos (opcional)
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
+        reservations:
+          cpus: '0.5'
+          memory: 256M
+
+volumes:
+  # Volumen nombrado para persistir la base de datos
+  wpaqc-db:
+    driver: local
+    name: wpaqc-appointments-db
+
+networks:
+  wpaqc-network:
+    driver: bridge
+    name: wpaqc-network

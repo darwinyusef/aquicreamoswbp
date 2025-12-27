@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro';
+import { appointmentsDb } from '../../lib/db';
 
 export const prerender = false;
 
@@ -6,10 +7,16 @@ interface AppointmentData {
   name: string;
   email: string;
   phone: string;
+  company?: string;
   type: string;
   description: string;
   date: string;
   time: string;
+  service?: string;
+  project_type?: string;
+  project_stage?: string;
+  budget?: string;
+  timeline?: string;
   chatConversation?: string;
 }
 
@@ -31,32 +38,79 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
+    // Verificar si el slot está disponible
+    const isAvailable = appointmentsDb.isSlotAvailable(appointmentData.date, appointmentData.time);
+    if (!isAvailable) {
+      return new Response(
+        JSON.stringify({
+          error: 'Este horario ya no está disponible. Por favor, selecciona otro.',
+          success: false
+        }),
+        { status: 409, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
+    // Guardar en la base de datos
+    try {
+      const appointmentId = appointmentsDb.create({
+        name: appointmentData.name,
+        email: appointmentData.email,
+        phone: appointmentData.phone,
+        company: appointmentData.company,
+        date: appointmentData.date,
+        time: appointmentData.time,
+        service: appointmentData.service || getTypeLabel(appointmentData.type),
+        project_type: appointmentData.project_type,
+        project_stage: appointmentData.project_stage,
+        budget: appointmentData.budget,
+        timeline: appointmentData.timeline,
+        description: appointmentData.description,
+        status: 'confirmed'
+      });
+
+      console.log(`✅ Cita guardada en BD con ID: ${appointmentId}`);
+    } catch (dbError) {
+      console.error('❌ Error al guardar en base de datos:', dbError);
+      return new Response(
+        JSON.stringify({
+          error: 'Error al guardar la cita',
+          success: false
+        }),
+        { status: 500, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
     // Obtener la API key de EmailJS o Resend desde variables de entorno
     const emailServiceKey = import.meta.env.EMAILJS_API_KEY || import.meta.env.RESEND_API_KEY;
 
     if (!emailServiceKey) {
-      console.warn('⚠️ No hay servicio de email configurado. Guardando en consola...');
+      console.warn('⚠️ No hay servicio de email configurado. Guardando solo en consola y BD...');
 
       // En desarrollo, mostrar en consola
-      console.log('📅 NUEVA CITA AGENDADA:');
-      console.log('========================');
+      console.log('📅 NUEVA CITA AGENDADA EN BD:');
+      console.log('================================');
       console.log(`👤 Nombre: ${appointmentData.name}`);
       console.log(`📧 Email: ${appointmentData.email}`);
       console.log(`📞 Teléfono: ${appointmentData.phone}`);
-      console.log(`📋 Tipo: ${appointmentData.type}`);
+      console.log(`🏢 Empresa: ${appointmentData.company || 'N/A'}`);
+      console.log(`📋 Servicio: ${appointmentData.service}`);
       console.log(`📝 Descripción: ${appointmentData.description}`);
       console.log(`📅 Fecha: ${appointmentData.date}`);
       console.log(`⏰ Hora: ${appointmentData.time}`);
+      console.log(`💼 Tipo Proyecto: ${appointmentData.project_type || 'N/A'}`);
+      console.log(`🚀 Etapa: ${appointmentData.project_stage || 'N/A'}`);
+      console.log(`💰 Presupuesto: ${appointmentData.budget || 'N/A'}`);
+      console.log(`⏱️ Timeline: ${appointmentData.timeline || 'N/A'}`);
       if (appointmentData.chatConversation) {
         console.log(`💬 Conversación Chat:\n${appointmentData.chatConversation}`);
       }
-      console.log('========================');
+      console.log('================================');
 
-      // Simular envío exitoso en desarrollo
+      // Retornar éxito (ya se guardó en BD)
       return new Response(
         JSON.stringify({
           success: true,
-          message: 'Cita guardada (modo desarrollo)',
+          message: 'Cita guardada exitosamente en la base de datos. Email no configurado (modo desarrollo).',
           appointment: appointmentData
         }),
         {

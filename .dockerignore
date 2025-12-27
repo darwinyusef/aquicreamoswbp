@@ -46,6 +46,12 @@ Jenkinsfile
 coverage/
 .nyc_output/
 
+# Base de datos SQLite (se manejará con volumen)
+*.db
+*.db-shm
+*.db-wal
+data/
+
 # Otros
 *.md
 LICENSE
