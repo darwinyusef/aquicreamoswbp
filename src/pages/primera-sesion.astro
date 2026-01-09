@@ -798,7 +798,7 @@ import Header from '../components/Header.astro';
         dayCell.title = 'Día festivo';
       } else {
         dayCell.className += 'bg-black/30 border-2 border-white/10 hover:border-[#82e256]/50 hover:bg-black/50';
-        dayCell.onclick = () => selectDate(year, month, day);
+        dayCell.onclick = function() { selectDate(year, month, day, this); };
       }
 
       dayCell.textContent = day;
@@ -806,17 +806,24 @@ import Header from '../components/Header.astro';
     }
   }
 
-  function selectDate(year, month, day) {
+  function selectDate(year, month, day, clickedElement) {
     selectedDate = new Date(year, month, day);
 
-    // Update visual selection
+    // Update visual selection - remove from all days
     document.querySelectorAll('#calendar-days button').forEach(btn => {
-      btn.classList.remove('border-[#82e256]', 'bg-[#82e256]/20');
+      btn.classList.remove('border-[#82e256]', 'bg-[#82e256]/20', 'border-2');
+      btn.classList.add('border-2', 'border-white/10');
     });
-    event.target.classList.add('border-[#82e256]', 'bg-[#82e256]/20');
+
+    // Add selection to clicked day
+    clickedElement.classList.remove('border-white/10');
+    clickedElement.classList.add('border-[#82e256]', 'bg-[#82e256]/20');
 
     // Generate time slots
     generateTimeSlots(selectedDate);
+
+    // Scroll to time slots
+    document.getElementById('time-slots-section').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
   function generateTimeSlots(date) {
@@ -920,7 +927,32 @@ import Header from '../components/Header.astro';
     btn.disabled = true;
     btn.innerHTML = '<span>Procesando...</span>';
 
-    const formDataObject = Object.fromEntries(formData);
+    // Recolectar todos los datos del formulario
+    const formDataObject = {};
+    const featuresArray = [];
+
+    for (let [key, value] of formData.entries()) {
+      if (key === 'features') {
+        // features es multi-select, agregar a array
+        featuresArray.push(value);
+      } else {
+        formDataObject[key] = value;
+      }
+    }
+
+    // Combinar datos del formulario inicial (advisoryData) con los del cuestionario
+    const initialDescription = advisoryData?.description || '';
+    const initialType = advisoryData?.type || '';
+    const questionnaireDescription = formDataObject.project_description || '';
+
+    // Combinar ambas descripciones si existen
+    let fullDescription = '';
+    if (initialDescription && questionnaireDescription) {
+      fullDescription = `CONTEXTO INICIAL:\n${initialDescription}\n\nDETALLES ADICIONALES:\n${questionnaireDescription}`;
+    } else {
+      fullDescription = initialDescription || questionnaireDescription;
+    }
+
     const bookingData = {
       name: name,
       email: email,
@@ -929,12 +961,18 @@ import Header from '../components/Header.astro';
       date: selectedDate.toISOString().split('T')[0],
       time: selectedTime,
       service: classificationResult.service,
+      advisory_type: initialType,  // Tipo de asesoría del formulario inicial
       project_type: formDataObject.project_type,
       project_stage: formDataObject.project_stage,
       budget: formDataObject.budget,
       timeline: formDataObject.timeline,
-      description: formDataObject.project_description || '',
-      type: formDataObject.project_type || 'general'
+      expected_users: formDataObject.expected_users || '',
+      features: featuresArray.length > 0 ? featuresArray : [],
+      tech_preferences: formDataObject.tech_preferences || '',
+      has_team: formDataObject.has_team || '',
+      priority: formDataObject.priority || '',
+      description: fullDescription,  // Descripción combinada
+      type: formDataObject.project_type || initialType || 'general'
     };
 
     try {

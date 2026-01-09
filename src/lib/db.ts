@@ -30,12 +30,20 @@ db.exec(`
     date TEXT NOT NULL,
     time TEXT NOT NULL,
     service TEXT NOT NULL,
+    advisory_type TEXT,
     project_type TEXT,
     project_stage TEXT,
     budget TEXT,
     timeline TEXT,
+    expected_users TEXT,
+    features TEXT,
+    tech_preferences TEXT,
+    has_team TEXT,
+    priority TEXT,
     description TEXT,
+    calendar_event_id TEXT,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     status TEXT DEFAULT 'confirmed'
   )
 `);
@@ -56,12 +64,20 @@ export interface Appointment {
   date: string;
   time: string;
   service: string;
+  advisory_type?: string;
   project_type?: string;
   project_stage?: string;
   budget?: string;
   timeline?: string;
+  expected_users?: string;
+  features?: string;
+  tech_preferences?: string;
+  has_team?: string;
+  priority?: string;
   description?: string;
+  calendar_event_id?: string;
   created_at?: string;
+  updated_at?: string;
   status?: string;
 }
 
@@ -75,10 +91,12 @@ export const appointmentsDb = {
   create(appointment: Appointment): number {
     const stmt = db.prepare(`
       INSERT INTO appointments (
-        name, email, phone, company, date, time, service,
-        project_type, project_stage, budget, timeline, description
+        name, email, phone, company, date, time, service, advisory_type,
+        project_type, project_stage, budget, timeline,
+        expected_users, features, tech_preferences, has_team, priority,
+        description, calendar_event_id, status
       )
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `);
 
     const result = stmt.run(
@@ -89,14 +107,34 @@ export const appointmentsDb = {
       appointment.date,
       appointment.time,
       appointment.service,
+      appointment.advisory_type || null,
       appointment.project_type || null,
       appointment.project_stage || null,
       appointment.budget || null,
       appointment.timeline || null,
-      appointment.description || null
+      appointment.expected_users || null,
+      appointment.features || null,
+      appointment.tech_preferences || null,
+      appointment.has_team || null,
+      appointment.priority || null,
+      appointment.description || null,
+      appointment.calendar_event_id || null,
+      appointment.status || 'confirmed'
     );
 
     return result.lastInsertRowid as number;
+  },
+
+  // Actualizar calendar_event_id
+  updateCalendarEventId(id: number, calendarEventId: string): boolean {
+    const stmt = db.prepare(`
+      UPDATE appointments
+      SET calendar_event_id = ?, updated_at = CURRENT_TIMESTAMP
+      WHERE id = ?
+    `);
+
+    const result = stmt.run(calendarEventId, id);
+    return result.changes > 0;
   },
 
   // Obtener todos los slots ocupados

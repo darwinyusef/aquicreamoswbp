@@ -1,0 +1,111 @@
+name: CD - Build Docker Image
+
+on:
+  push:
+    branches: [ master, develop ]
+  workflow_run:
+    workflows: ["CI"]
+    types:
+      - completed
+    branches: [ master, develop ]
+
+env:
+  PROJECT_NAME: wpaqc
+  DOCKER_IMAGE: wpaqc
+
+jobs:
+  build-docker:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'push' }}
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set environment variables
+      id: env
+      run: |
+        # Get short commit SHA
+        echo "GIT_COMMIT_SHORT=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
+        # Determine environment based on branch
+        if [[ "${{ github.ref_name }}" == "master" || "${{ github.ref_name }}" == "main" ]]; then
+          echo "DEPLOY_ENV=production" >> $GITHUB_OUTPUT
+        elif [[ "${{ github.ref_name }}" == "develop" ]]; then
+          echo "DEPLOY_ENV=staging" >> $GITHUB_OUTPUT
+        else
+          echo "DEPLOY_ENV=development" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Display build information
+      run: |
+        echo "================================================"
+        echo "Build Information"
+        echo "================================================"
+        echo "Project: ${{ env.PROJECT_NAME }}"
+        echo "Branch: ${{ github.ref_name }}"
+        echo "Commit: ${{ steps.env.outputs.GIT_COMMIT_SHORT }}"
+        echo "Run Number: ${{ github.run_number }}"
+        echo "Environment: ${{ steps.env.outputs.DEPLOY_ENV }}"
+        echo "================================================"
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci --prefer-offline --no-audit
+
+    - name: Build application
+      run: npm run build
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    - name: Build Docker image
+      run: |
+        docker build \
+          -t ${{ env.DOCKER_IMAGE }}:${{ github.run_number }} \
+          -t ${{ env.DOCKER_IMAGE }}:${{ steps.env.outputs.GIT_COMMIT_SHORT }} \
+          -t ${{ env.DOCKER_IMAGE }}:${{ steps.env.outputs.DEPLOY_ENV }} \
+          -t ${{ env.DOCKER_IMAGE }}:latest \
+          -f Dockerfile .
+
+        echo "Docker images created:"
+        docker images | grep ${{ env.DOCKER_IMAGE }}
+
+    - name: Cleanup old Docker images
+      if: always()
+      run: |
+        echo "Cleaning up old Docker images..."
+        docker image prune -f --filter "until=72h" || true
+
+    - name: Build Summary
+      if: always()
+      run: |
+        if [[ "${{ job.status }}" == "success" ]]; then
+          echo "✅ BUILD EXITOSO"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Proyecto: ${{ env.PROJECT_NAME }}"
+          echo "Branch: ${{ github.ref_name }}"
+          echo "Commit: ${{ steps.env.outputs.GIT_COMMIT_SHORT }}"
+          echo "Build: #${{ github.run_number }}"
+          echo "Environment: ${{ steps.env.outputs.DEPLOY_ENV }}"
+          echo "Docker Tags:"
+          echo "  - ${{ env.DOCKER_IMAGE }}:${{ github.run_number }}"
+          echo "  - ${{ env.DOCKER_IMAGE }}:${{ steps.env.outputs.GIT_COMMIT_SHORT }}"
+          echo "  - ${{ env.DOCKER_IMAGE }}:${{ steps.env.outputs.DEPLOY_ENV }}"
+          echo "  - ${{ env.DOCKER_IMAGE }}:latest"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        else
+          echo "❌ BUILD FALLIDO"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Proyecto: ${{ env.PROJECT_NAME }}"
+          echo "Branch: ${{ github.ref_name }}"
+          echo "Commit: ${{ steps.env.outputs.GIT_COMMIT_SHORT }}"
+          echo "Build: #${{ github.run_number }}"
+          echo "Environment: ${{ steps.env.outputs.DEPLOY_ENV }}"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        fi
