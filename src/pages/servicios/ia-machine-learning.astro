@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import SpotlightCard from '../../components/SpotlightCard.astro';
 
 const todosLosServicios = [
   { titulo: 'Agentes Cognitivos IA', url: '/servicios/agentes-ia', descripcion: 'Asistentes inteligentes empresariales' },
@@ -57,7 +58,7 @@ const secciones = [
                 <img
                   src="/img/personaje1.png"
                   alt="Machine Learning en producción"
-                  class="relative rounded-2xl shadow-2xl max-w-md w-full"
+                  class="relative rounded-2xl max-w-md w-full"
                 />
               </div>
             </div>
@@ -110,9 +111,16 @@ const secciones = [
         <main class="lg:col-span-3 space-y-16">
           <!-- Introducción -->
           <section id="intro">
+            <div class="bg-gradient-to-br from-[#82e256]/10 to-[#04ADC0]/10 p-6 rounded-xl border border-[#82e256]/30 mb-6">
+              <h3 class="text-xl font-bold text-white mb-3">En palabras simples...</h3>
+              <p class="text-gray-300 text-lg">
+                <strong class="text-[#82e256]">Machine Learning</strong> (aprendizaje automatico) es cuando le ensenamos a una computadora a <strong class="text-white">aprender de los datos y hacer predicciones</strong>, como un empleado que mejora con la experiencia. Por ejemplo: puede aprender a predecir que clientes van a cancelar su servicio, que productos se van a vender mas, o detectar fraudes automaticamente. Es como tener un analista super inteligente que revisa millones de datos en segundos y te dice exactamente que va a pasar.
+              </p>
+            </div>
+
             <div class="prose prose-invert max-w-none">
               <p class="text-xl text-gray-300 leading-relaxed">
-                No vendemos IA por vender. Implementamos <strong class="text-[#82e256]">soluciones de Machine Learning que generan valor real</strong> y pasan del laboratorio a producción con ROI medible.
+                No vendemos IA por vender. Implementamos <strong class="text-[#82e256]">soluciones de Machine Learning que generan valor real</strong> y pasan del laboratorio a produccion con ROI medible.
               </p>
             </div>
           </section>
@@ -472,7 +480,7 @@ const secciones = [
 
             <!-- Imagen tecnología -->
             <div class="mt-12">
-              <div class="rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-[#d4e256]/10 to-[#82e256]/20 p-8 flex justify-center mb-4">
+              <div class="rounded-2xl overflow-hidden flex justify-center mb-4">
                 <img src="/img/robot.png" alt="Machine Learning stack" class="h-auto max-w-2xl" />
               </div>
               <p class="text-center text-gray-400 text-sm italic">Tecnología de IA que funciona en el mundo real</p>
@@ -545,7 +553,7 @@ const secciones = [
 
             <!-- Imagen de apoyo -->
             <div class="flex justify-center mt-12">
-              <img src="/img/personaje2.png" alt="IA y Machine Learning" class="max-w-md w-full rounded-2xl shadow-2xl" />
+              <img src="/img/personaje2.png" alt="IA y Machine Learning" class="max-w-md w-full rounded-2xl" />
             </div>
           </section>
 
@@ -614,15 +622,12 @@ const secciones = [
       <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Otros Servicios</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {todosLosServicios.map(servicio => (
-          <a
-            href={servicio.url}
-            class="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all hover:transform hover:scale-105"
-          >
+          <SpotlightCard href={servicio.url} className="group">
             <h3 class="text-lg font-bold text-white mb-2 group-hover:text-[#82e256] transition-colors">
               {servicio.titulo}
             </h3>
             <p class="text-gray-400 text-sm">{servicio.descripcion}</p>
-          </a>
+          </SpotlightCard>
         ))}
       </div>
     </section>

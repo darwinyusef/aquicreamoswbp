@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import SpotlightCard from '../../components/SpotlightCard.astro';
 
 // Todos los servicios disponibles (excluyendo el actual)
 const todosLosServicios = [
@@ -115,12 +116,19 @@ const secciones = [
               <div id="intro">
                 <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">Plataformas Web de Alto Rendimiento</h2>
 
+                <div class="bg-gradient-to-br from-[#82e256]/10 to-[#04ADC0]/10 p-6 rounded-xl border border-[#82e256]/30 mb-6">
+                  <h3 class="text-xl font-bold text-white mb-3">En palabras simples...</h3>
+                  <p class="text-gray-300 text-lg">
+                    El <strong class="text-[#82e256]">desarrollo web</strong> es el proceso de crear tu espacio en internet: tu pagina, tu tienda online o tu plataforma. Imagina que es como construir tu local comercial, pero en el mundo digital. Un buen sitio web es como tener un vendedor que <strong class="text-white">trabaja las 24 horas</strong>, atiende a miles de personas al mismo tiempo, y nunca se cansa. Nosotros construimos ese "local" para que sea rapido, bonito, y sobre todo, que te ayude a conseguir mas clientes.
+                  </p>
+                </div>
+
                 <p class="text-gray-300 text-lg mb-4">
-                  No creamos "páginas web bonitas". Desarrollamos <strong class="text-white">plataformas web de alto rendimiento</strong> optimizadas para conversión, posicionamiento y escalabilidad. Tu sitio web es tu vendedor 24/7, debe trabajar por ti.
+                  No creamos "paginas web bonitas". Desarrollamos <strong class="text-white">plataformas web de alto rendimiento</strong> optimizadas para conversion, posicionamiento y escalabilidad. Tu sitio web es tu vendedor 24/7, debe trabajar por ti.
                 </p>
 
                 <div class="my-8">
-                  <div class="rounded-2xl overflow-hidden shadow-2xl flex justify-center mb-4">
+                  <div class="rounded-2xl overflow-hidden flex justify-center mb-4">
                     <img src="/img/personaje1.png" alt="Desarrollo web moderno" class="h-auto max-w-2xl" />
                   </div>
                   <p class="text-center text-gray-400 text-sm italic">Sitios web que convierten visitantes en clientes</p>
@@ -334,7 +342,7 @@ const secciones = [
                 </div>
 
                 <div class="my-8">
-                  <div class="rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-[#006417]/10 to-[#00464e]/20 p-8 flex justify-center mb-4">
+                  <div class="rounded-2xl overflow-hidden flex justify-center mb-4">
                     <img src="/img/robot.png" alt="Tecnología moderna" class="h-auto max-w-2xl" />
                   </div>
                   <p class="text-center text-gray-400 text-sm italic">Herramientas modernas para resultados extraordinarios</p>
@@ -374,7 +382,7 @@ const secciones = [
                 </div>
 
                 <div class="flex justify-center my-12">
-                  <img src="/img/personaje2.png" alt="Desarrollo Web Moderno" class="max-w-md w-full rounded-2xl shadow-2xl" />
+                  <img src="/img/personaje2.png" alt="Desarrollo Web Moderno" class="max-w-md w-full rounded-2xl" />
                 </div>
               </div>
 
@@ -418,10 +426,7 @@ const secciones = [
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {todosLosServicios.map((servicio) => (
-              <a
-                href={`/servicios/${servicio.slug}`}
-                class="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256] transition-all duration-300 hover:transform hover:scale-105"
-              >
+              <SpotlightCard href={`/servicios/${servicio.slug}`} className="group">
                 <div class="text-4xl mb-3">{servicio.icon}</div>
                 <h3 class="text-lg font-bold text-white group-hover:text-[#82e256] transition-colors">
                   {servicio.title}
@@ -430,9 +435,9 @@ const secciones = [
                   <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
-                  <span>Ver más</span>
+                  <span>Ver mas</span>
                 </div>
-              </a>
+              </SpotlightCard>
             ))}
           </div>
 
