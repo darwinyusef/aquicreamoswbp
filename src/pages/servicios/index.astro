@@ -1,99 +1,99 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
 
 // Servicios disponibles
 const servicios = [
   {
-    slug: 'agentes-ia',
-    title: 'Agentes Cognitivos Empresariales con IA',
-    description: 'Transforma tu operación con empleados digitales que trabajan 24/7. Atienden clientes, cualifican leads y ejecutan flujos de trabajo complejos.',
-    image: '/img/servicios/agentes-ia.webp',
-    gradient: 'from-[#00464e] to-[#d4e256]',
-    category: 'IA',
-    featured: true
+    slug: "agentes-ia",
+    title: "Agentes Cognitivos Empresariales con IA",
+    description:
+      "Transforma tu operación con empleados digitales que trabajan 24/7. Atienden clientes, cualifican leads y ejecutan flujos de trabajo complejos.",
+    image: "/img/personaje1/01.png",
+    category: "IA",
+    featured: true,
   },
   {
-    slug: 'aplicaciones-ia',
-    title: 'Desarrollo de Aplicaciones con IA',
-    description: 'Aplicaciones inteligentes que entienden, predicen y personalizan. Integra búsqueda semántica, generación de contenido y recomendaciones avanzadas.',
-    image: '/img/servicios/aplicaciones-ia.webp',
-    gradient: 'from-[#d4e256] to-[#00464e]',
-    category: 'IA',
-    featured: true
+    slug: "aplicaciones-ia",
+    title: "Desarrollo de Aplicaciones con IA",
+    description:
+      "Aplicaciones inteligentes que entienden, predicen y personalizan. Integra búsqueda semántica, generación de contenido y recomendaciones avanzadas.",
+    image: "/img/personaje3/01.png",
+    category: "IA",
+    featured: true,
   },
   {
-    slug: 'desarrollo-web',
-    title: 'Desarrollo Web Moderno',
-    description: 'Sitios web rápidos, escalables y preparados para el futuro. Optimizados para conversión, SEO y experiencia de usuario excepcional.',
-    image: '/img/servicios/desarrollo-web.webp',
-    gradient: 'from-[#006417] to-[#00464e]',
-    category: 'Web',
-    featured: true
+    slug: "desarrollo-web",
+    title: "Desarrollo Web Moderno",
+    description:
+      "Sitios web rápidos, escalables y preparados para el futuro. Optimizados para conversión, SEO y experiencia de usuario excepcional.",
+    image: "/img/personaje4/01.png",
+    category: "Web",
+    featured: true,
   },
   {
-    slug: 'apps-moviles',
-    title: 'Desarrollo de Aplicaciones Móviles',
-    description: 'Apps nativas e híbridas de clase mundial para iOS y Android. Desde MVPs hasta aplicaciones empresariales complejas.',
-    image: '/img/servicios/apps-moviles.webp',
-    gradient: 'from-[#d4e256] to-[#006417]',
-    category: 'Mobile',
-    featured: false
+    slug: "apps-moviles",
+    title: "Desarrollo de Aplicaciones Móviles",
+    description:
+      "Apps nativas e híbridas de clase mundial para iOS y Android. Desde MVPs hasta aplicaciones empresariales complejas.",
+    image: "/img/personaje5/01.png",
+    category: "Mobile",
+    featured: false,
   },
   {
-    slug: 'computer-vision',
-    title: 'Computer Vision e IA Visual',
-    description: 'Sistemas inteligentes que ven, analizan y actúan. Detección de objetos, reconocimiento facial, OCR y análisis de video en tiempo real.',
-    image: '/img/servicios/computer-vision.webp',
-    gradient: 'from-[#006417] to-[#d4e256]',
-    category: 'IA',
-    featured: true
+    slug: "computer-vision",
+    title: "Computer Vision e IA Visual",
+    description:
+      "Sistemas inteligentes que ven, analizan y actúan. Detección de objetos, reconocimiento facial, OCR y análisis de video en tiempo real.",
+    image: "/img/personaje7/01.png",
+    category: "IA",
+    featured: true,
   },
   {
-    slug: 'arquitectura',
-    title: 'Arquitectura TOGAF 2026 + Scrum',
-    description: 'Arquitectura empresarial de última generación combinando TOGAF 2026 con metodologías ágiles Scrum. Transformación digital iterativa, modernización de sistemas y roadmaps adaptativos.',
-    image: '/img/servicios/arquitectura.webp',
-    gradient: 'from-[#04ADC0] to-[#00464e]',
-    category: 'Profesional',
-    featured: true
+    slug: "arquitectura",
+    title: "Arquitectura TOGAF 2026 + Scrum",
+    description:
+      "Arquitectura empresarial de última generación combinando TOGAF 2026 con metodologías ágiles Scrum. Transformación digital iterativa, modernización de sistemas y roadmaps adaptativos.",
+    image: "/img/personaje6/01.png",
+    category: "Profesional",
+    featured: true,
   },
   {
-    slug: 'desarrollo-fullstack',
-    title: 'Desarrollo Full-Stack',
-    description: 'Soluciones completas con React, Node.js, Python y tecnologías modernas. Desde MVPs hasta plataformas empresariales escalables con arquitecturas cloud-native.',
-    image: '/img/servicios/desarrollo-fullstack.webp',
-    gradient: 'from-[#82e256] to-[#04ADC0]',
-    category: 'Profesional',
-    featured: true
+    slug: "desarrollo-fullstack",
+    title: "Desarrollo Full-Stack",
+    description:
+      "Soluciones completas con React, Node.js, Python y tecnologías modernas. Desde MVPs hasta plataformas empresariales escalables con arquitecturas cloud-native.",
+    image: "/img/personaje9/01.png",
+    category: "Profesional",
+    featured: true,
   },
   {
-    slug: 'ia-machine-learning',
-    title: 'IA & Machine Learning en Producción',
-    description: 'MLOps, modelos predictivos, procesamiento de lenguaje natural y agentes autónomos. Llevamos la IA del laboratorio a producción con ROI medible.',
-    image: '/img/servicios/ia-machine-learning.webp',
-    gradient: 'from-[#d4e256] to-[#82e256]',
-    category: 'Profesional',
-    featured: false
+    slug: "ia-machine-learning",
+    title: "IA & Machine Learning en Producción",
+    description:
+      "MLOps, modelos predictivos, procesamiento de lenguaje natural y agentes autónomos. Llevamos la IA del laboratorio a producción con ROI medible.",
+    image: "/img/personaje8/01.png",
+    category: "Profesional",
+    featured: false,
   },
   {
-    slug: 'devops-infraestructura',
-    title: 'DevOps & Infraestructura Cloud',
-    description: 'CI/CD, contenedores, Kubernetes, serverless y automatización de infraestructura. Reduce costos hasta 40% y despliega 10x más rápido con AWS, Azure o GCP.',
-    image: '/img/servicios/devops-infraestructura.webp',
-    gradient: 'from-[#00464e] to-[#006417]',
-    category: 'Profesional',
-    featured: false
-  }
+    slug: "devops-infraestructura",
+    title: "DevOps & Infraestructura Cloud",
+    description:
+      "CI/CD, contenedores, Kubernetes, serverless y automatización de infraestructura. Reduce costos hasta 40% y despliega 10x más rápido con AWS, Azure o GCP.",
+    image: "/img/personaje010/01.png",
+    category: "Profesional",
+    featured: false,
+  },
 ];
 
-const categories = ['Todos', 'IA', 'Web', 'Mobile', 'Profesional'];
+const categories = ["Todos", "IA", "Web", "Mobile", "Profesional"];
 
 const categoryColors: Record<string, string> = {
-  'IA': 'bg-purple-600',
-  'Web': 'bg-blue-600',
-  'Mobile': 'bg-green-600',
-  'Profesional': 'bg-cyan-600',
+  IA: "bg-purple-600",
+  Web: "bg-blue-600",
+  Mobile: "bg-green-600",
+  Profesional: "bg-cyan-600",
 };
 ---
 
@@ -108,7 +108,8 @@ const categoryColors: Record<string, string> = {
           Nuestros Servicios
         </h1>
         <p class="text-xl md:text-2xl text-white/90 mb-8">
-          Soluciones tecnológicas de vanguardia para impulsar tu negocio. Especialistas en IA, desarrollo web y aplicaciones móviles.
+          Soluciones tecnológicas de vanguardia para impulsar tu negocio.
+          Especialistas en IA, desarrollo web y aplicaciones móviles.
         </p>
       </div>
     </div>
@@ -118,82 +119,104 @@ const categoryColors: Record<string, string> = {
   <section class="py-16 bg-[#1a1a1a] min-h-screen">
     <div class="container mx-auto px-4 md:px-16">
       <!-- Filtros por categoría -->
-      <div class="flex flex-wrap justify-center gap-3 mb-12" id="category-filters">
-        {categories.map((category) => (
-          <button
-            class="category-filter px-6 py-2 rounded-full text-white transition-all duration-300 hover:scale-105"
-            class:list={[
-              category === 'Todos'
-                ? 'bg-[#82e256] text-black font-semibold'
-                : 'bg-gray-700 hover:bg-gray-600'
-            ]}
-            data-category={category}
-          >
-            {category}
-          </button>
-        ))}
+      <div
+        class="flex flex-wrap justify-center gap-3 mb-12"
+        id="category-filters"
+      >
+        {
+          categories.map((category) => (
+            <button
+              class="category-filter px-6 py-2 rounded-full text-white transition-all duration-300 hover:scale-105"
+              class:list={[
+                category === "Todos"
+                  ? "bg-[#82e256] text-black font-semibold"
+                  : "bg-gray-700 hover:bg-gray-600",
+              ]}
+              data-category={category}
+            >
+              {category}
+            </button>
+          ))
+        }
       </div>
 
       <!-- Servicios -->
       <div class="mb-16">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {servicios.map((servicio) => {
-            const categoryColor = categoryColors[servicio.category] || 'bg-gray-600';
+          {
+            servicios.map((servicio) => {
+              const categoryColor =
+                categoryColors[servicio.category] || "bg-gray-600";
 
-            return (
-              <article
-                class="service-card spotlight-card bg-gray-800/50 rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300 border border-gray-700 hover:border-[#82e256] group"
-                data-category={servicio.category}
-              >
-                {/* Header con imagen */}
-                <div class="relative h-48 overflow-hidden">
-                  <img
-                    src={servicio.image}
-                    alt={servicio.title}
-                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div class={`absolute inset-0 bg-gradient-to-t ${servicio.gradient} opacity-60`}></div>
-                  <span class={`absolute top-4 right-4 ${categoryColor} text-white px-3 py-1 rounded-full text-xs font-semibold`}>
-                    {servicio.category}
-                  </span>
-                </div>
+              return (
+                <article
+                  class="service-card spotlight-card bg-gray-800/50 rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300 border border-gray-700 hover:border-[#82e256] group"
+                  data-category={servicio.category}
+                >
+                  {/* Header con imagen */}
+                  <div class="relative h-48 overflow-hidden bg-gray-900">
+                    <img
+                      src={servicio.image}
+                      alt={servicio.title}
+                      class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <span
+                      class={`absolute top-4 right-4 ${categoryColor} text-white px-3 py-1 text-xs font-semibold`}
+                    >
+                      {servicio.category}
+                    </span>
+                  </div>
 
-                {/* Contenido */}
-                <div class="p-6">
-                  {/* Título */}
-                  <h3 class="text-xl font-bold text-white mb-3 line-clamp-2 group-hover:text-[#82e256] transition-colors">
-                    {servicio.title}
-                  </h3>
+                  {/* Contenido */}
+                  <div class="p-6">
+                    {/* Título */}
+                    <h3 class="text-xl font-bold text-white mb-3 line-clamp-2 group-hover:text-[#82e256] transition-colors">
+                      {servicio.title}
+                    </h3>
 
-                  {/* Descripción */}
-                  <p class="text-gray-300 mb-6 line-clamp-4">
-                    {servicio.description}
-                  </p>
+                    {/* Descripción */}
+                    <p class="text-gray-300 mb-6 line-clamp-4">
+                      {servicio.description}
+                    </p>
 
-                  {/* Botón */}
-                  <a
-                    href={`/servicios/${servicio.slug}`}
-                    class="inline-flex items-center gap-2 text-[#82e256] font-semibold hover:gap-3 transition-all"
-                  >
-                    Ver detalles
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                  </a>
-                </div>
-              </article>
-            );
-          })}
+                    {/* Botón */}
+                    <a
+                      href={`/servicios/${servicio.slug}`}
+                      class="inline-flex items-center gap-2 text-[#82e256] font-semibold hover:gap-3 transition-all"
+                    >
+                      Ver detalles
+                      <svg
+                        class="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </article>
+              );
+            })
+          }
         </div>
       </div>
 
       <!-- CTA -->
-      <div class="mt-20 max-w-4xl mx-auto p-8 md:p-12 bg-gradient-to-br from-[#00464e] to-[#006064] rounded-2xl text-center">
+      <div
+        class="mt-20 max-w-4xl mx-auto p-8 md:p-12 bg-gradient-to-br from-[#00464e] to-[#006064] rounded-2xl text-center"
+      >
         <h3 class="text-3xl md:text-4xl font-bold text-white mb-4">
           ¿Listo para transformar tu negocio?
         </h3>
         <p class="text-lg text-white/90 mb-8">
-          Agenda una consultoría gratuita y descubre cómo podemos ayudarte a alcanzar tus objetivos
+          Agenda una consultoría gratuita y descubre cómo podemos ayudarte a
+          alcanzar tus objetivos
         </p>
         <a
           href="/#contenido10"
@@ -207,47 +230,47 @@ const categoryColors: Record<string, string> = {
 </Layout>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener("DOMContentLoaded", () => {
     // SpotlightCard Effect - trackear posición del mouse
-    const spotlightCards = document.querySelectorAll('.spotlight-card');
+    const spotlightCards = document.querySelectorAll(".spotlight-card");
 
-    spotlightCards.forEach(card => {
-      card.addEventListener('mousemove', (e) => {
+    spotlightCards.forEach((card) => {
+      card.addEventListener("mousemove", (e) => {
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
 
-        card.style.setProperty('--mouse-x', `${x}px`);
-        card.style.setProperty('--mouse-y', `${y}px`);
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
       });
     });
 
     // Filtrado por categoría
-    const filters = document.querySelectorAll('.category-filter');
-    const services = document.querySelectorAll('.service-card');
+    const filters = document.querySelectorAll(".category-filter");
+    const services = document.querySelectorAll(".service-card");
 
-    filters.forEach(filter => {
-      filter.addEventListener('click', () => {
-        const category = filter.getAttribute('data-category');
+    filters.forEach((filter) => {
+      filter.addEventListener("click", () => {
+        const category = filter.getAttribute("data-category");
 
         // Actualizar estilos de los filtros
-        filters.forEach(f => {
+        filters.forEach((f) => {
           if (f === filter) {
-            f.classList.add('bg-[#82e256]', 'text-black', 'font-semibold');
-            f.classList.remove('bg-gray-700');
+            f.classList.add("bg-[#82e256]", "text-black", "font-semibold");
+            f.classList.remove("bg-gray-700");
           } else {
-            f.classList.remove('bg-[#82e256]', 'text-black', 'font-semibold');
-            f.classList.add('bg-gray-700');
+            f.classList.remove("bg-[#82e256]", "text-black", "font-semibold");
+            f.classList.add("bg-gray-700");
           }
         });
 
         // Filtrar servicios
-        services.forEach(service => {
-          const serviceCategory = service.getAttribute('data-category');
-          if (category === 'Todos' || serviceCategory === category) {
-            service.style.display = 'block';
+        services.forEach((service) => {
+          const serviceCategory = service.getAttribute("data-category");
+          if (category === "Todos" || serviceCategory === category) {
+            service.style.display = "block";
           } else {
-            service.style.display = 'none';
+            service.style.display = "none";
           }
         });
       });
@@ -273,7 +296,6 @@ const categoryColors: Record<string, string> = {
   /* SpotlightCard Effect */
   .spotlight-card {
     position: relative;
-    border-radius: 0.75rem;
     overflow: hidden;
     --mouse-x: 50%;
     --mouse-y: 50%;
@@ -281,17 +303,13 @@ const categoryColors: Record<string, string> = {
   }
 
   .spotlight-card::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(
-      600px circle at var(--mouse-x) var(--mouse-y),
-      var(--spotlight-color),
-      transparent 40%
-    );
+    background: var(--spotlight-color);
     opacity: 0;
     transition: opacity 0.5s ease;
     pointer-events: none;

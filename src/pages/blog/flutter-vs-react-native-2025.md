@@ -480,7 +480,6 @@ Ambos tienen tiempos similares, Flutter puede ser ligeramente más rápido una v
 4. **Timeline**: ¿Cuánto tiempo tienen?
 
 **Nuestra recomendación general:**
-- **Flutter** para apps nuevas con diseños custom y animaciones
 - **React Native** si ya tienes equipo React o necesitas web
 
 Ambas son excelentes opciones en 2025. La clave es ejecutar bien, no tanto la herramienta elegida.

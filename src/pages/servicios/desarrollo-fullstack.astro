@@ -1,27 +1,58 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
 
 const todosLosServicios = [
-  { titulo: 'Agentes Cognitivos IA', url: '/servicios/agentes-ia', descripcion: 'Asistentes inteligentes empresariales' },
-  { titulo: 'Arquitectura TOGAF', url: '/servicios/arquitectura', descripcion: 'Arquitectura empresarial estratégica' },
-  { titulo: 'Aplicaciones IA', url: '/servicios/aplicaciones-ia', descripcion: 'Apps potenciadas con inteligencia artificial' },
-  { titulo: 'Desarrollo Web', url: '/servicios/desarrollo-web', descripcion: 'Sitios modernos de alto rendimiento' },
-  { titulo: 'Apps Móviles', url: '/servicios/apps-moviles', descripcion: 'Apps nativas e híbridas multiplataforma' },
-  { titulo: 'Computer Vision', url: '/servicios/computer-vision', descripcion: 'IA visual para detección y análisis' },
-  { titulo: 'IA & Machine Learning', url: '/servicios/ia-machine-learning', descripcion: 'Modelos predictivos personalizados' },
-  { titulo: 'DevOps e Infraestructura', url: '/servicios/devops-infraestructura', descripcion: 'CI/CD, cloud y automatización' }
+  {
+    titulo: "Agentes Cognitivos IA",
+    url: "/servicios/agentes-ia",
+    descripcion: "Asistentes inteligentes empresariales",
+  },
+  {
+    titulo: "Arquitectura TOGAF",
+    url: "/servicios/arquitectura",
+    descripcion: "Arquitectura empresarial estratégica",
+  },
+  {
+    titulo: "Aplicaciones IA",
+    url: "/servicios/aplicaciones-ia",
+    descripcion: "Apps potenciadas con inteligencia artificial",
+  },
+  {
+    titulo: "Desarrollo Web",
+    url: "/servicios/desarrollo-web",
+    descripcion: "Sitios modernos de alto rendimiento",
+  },
+  {
+    titulo: "Apps Móviles",
+    url: "/servicios/apps-moviles",
+    descripcion: "Apps nativas e híbridas multiplataforma",
+  },
+  {
+    titulo: "Computer Vision",
+    url: "/servicios/computer-vision",
+    descripcion: "IA visual para detección y análisis",
+  },
+  {
+    titulo: "IA & Machine Learning",
+    url: "/servicios/ia-machine-learning",
+    descripcion: "Modelos predictivos personalizados",
+  },
+  {
+    titulo: "DevOps e Infraestructura",
+    url: "/servicios/devops-infraestructura",
+    descripcion: "CI/CD, cloud y automatización",
+  },
 ];
 
 const secciones = [
-  { id: 'intro', title: 'Introducción' },
-  { id: 'capas', title: '¿Qué es Full-Stack?' },
-  { id: 'proyectos', title: 'Tipos de Proyectos' },
-  { id: 'caso-exito', title: 'Caso de Éxito' },
-  { id: 'stack', title: 'Stack Tecnológico' },
-  { id: 'proceso', title: 'Proceso de Desarrollo' },
-  { id: 'ventajas', title: 'Garantías y Ventajas' }
+  { id: "intro", title: "Introducción" },
+  { id: "capas", title: "¿Qué es Full-Stack?" },
+  { id: "proyectos", title: "Tipos de Proyectos" },
+  { id: "stack", title: "Stack Tecnológico" },
+  { id: "proceso", title: "Proceso de Desarrollo" },
+  { id: "ventajas", title: "Garantías y Ventajas" },
 ];
 ---
 
@@ -30,36 +61,45 @@ const secciones = [
 
   <div class="min-h-screen bg-[#1a1a1a]">
     <!-- Hero Section -->
-    <section class="relative flex items-center justify-center bg-hero-pattern bg-repeat w-full min-h-screen bg-[url(/img/fondo.png)] bg-no-repeat bg-cover bg-center">
-      <div class="absolute inset-0 bg-gradient-to-b from-black/50 to-[#1a1a1a] z-10"></div>
+    <section
+      class="relative flex items-center justify-center bg-hero-pattern bg-repeat w-full min-h-screen bg-[url(/img/fondo.png)] bg-no-repeat bg-cover bg-center"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-black/50 to-[#1a1a1a] z-10"
+      >
+      </div>
 
       <div class="container mx-auto px-4 py-20 md:py-24 relative z-20">
         <div class="max-w-7xl mx-auto">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <!-- Texto -->
             <div class="text-center lg:text-left">
-              <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
+              <h1
+                class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight"
+              >
                 <span class="text-white drop-shadow-lg">DESARROLLO</span>
                 <br />
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#82e256] to-[#04ADC0] drop-shadow-lg">
+                <span
+                  class="text-transparent bg-clip-text bg-gradient-to-r from-[#82e256] to-[#04ADC0] drop-shadow-lg"
+                >
                   FULL-STACK
                 </span>
               </h1>
-              <p class="text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0">
-                Soluciones completas con React, Node.js, Python y tecnologías modernas
+              <p
+                class="text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0"
+              >
+                Soluciones completas con React, Node.js, Python y tecnologías
+                modernas
               </p>
             </div>
 
             <!-- Imagen -->
             <div class="flex justify-center lg:justify-end">
-              <div class="relative">
-                <div class="absolute inset-0 bg-gradient-to-r from-[#82e256] to-[#04ADC0] rounded-2xl blur-3xl opacity-20"></div>
-                <img
-                  src="/img/personaje1.png"
-                  alt="Desarrollo Full-Stack"
-                  class="relative rounded-2xl shadow-2xl max-w-md w-full"
-                />
-              </div>
+              <img
+                src="/img/personaje6/01.png"
+                alt="Desarrollo Full-Stack"
+                class="max-w-md w-full"
+              />
             </div>
           </div>
         </div>
@@ -73,29 +113,40 @@ const secciones = [
         <aside class="lg:col-span-1">
           <div class="sticky top-24 space-y-6">
             <!-- Menú de navegación -->
-            <nav class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl p-6 border border-gray-700">
-              <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+            <nav
+              class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl p-6 border border-gray-700"
+            >
+              <h3
+                class="text-lg font-bold text-white mb-4 flex items-center gap-2"
+              >
                 <span>📑</span> Contenido
               </h3>
               <ul class="space-y-2">
-                {secciones.map(seccion => (
-                  <li>
-                    <a
-                      href={`#${seccion.id}`}
-                      class="block text-gray-300 hover:text-[#82e256] transition-colors py-2 px-3 rounded-lg hover:bg-gray-800/50"
-                    >
-                      {seccion.title}
-                    </a>
-                  </li>
-                ))}
+                {
+                  secciones.map((seccion) => (
+                    <li>
+                      <a
+                        href={`#${seccion.id}`}
+                        class="block text-gray-300 hover:text-[#82e256] transition-colors py-2 px-3 rounded-lg hover:bg-gray-800/50"
+                      >
+                        {seccion.title}
+                      </a>
+                    </li>
+                  ))
+                }
               </ul>
             </nav>
 
             <!-- CTA Card -->
-            <div class="bg-gradient-to-br from-[#82e256] to-[#04ADC0] rounded-2xl p-6 text-center">
-              <div class="text-4xl mb-3">💻</div>
-              <h3 class="text-lg font-bold text-black mb-2">¿Listo para comenzar?</h3>
-              <p class="text-sm text-black/80 mb-4">Agenda una consultoría gratuita</p>
+            <div
+              class="bg-gradient-to-br from-[#82e256] to-[#04ADC0] rounded-2xl p-6 text-center"
+            >
+              <h3 class="text-lg font-bold text-black mb-2">
+                ¿Listo para comenzar?
+              </h3>
+              <p class="text-sm text-black/80 mb-4">
+                Agenda una consultoría gratuita
+              </p>
               <a
                 href="/#contenido10"
                 class="inline-block px-6 py-3 bg-black text-white font-bold rounded-lg hover:bg-gray-900 transition-all text-sm"
@@ -112,7 +163,10 @@ const secciones = [
           <section id="intro">
             <div class="prose prose-invert max-w-none">
               <p class="text-xl text-gray-300 leading-relaxed">
-                No solo hacemos "sitios web". Construimos <strong class="text-[#82e256]">plataformas completas</strong> desde el frontend hasta el backend, bases de datos, APIs y infraestructura cloud.
+                No solo hacemos "sitios web". Construimos <strong
+                  class="text-[#82e256]">plataformas completas</strong
+                > desde el frontend hasta el backend, bases de datos, APIs y infraestructura
+                cloud.
               </p>
             </div>
           </section>
@@ -121,17 +175,26 @@ const secciones = [
 
           <!-- ¿Qué es Full-Stack? -->
           <section id="capas">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">¿Qué significa desarrollo Full-Stack?</h2>
-            <p class="text-gray-300 mb-12 text-lg">Un desarrollador full-stack domina todas las capas de una aplicación</p>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+              ¿Qué significa desarrollo Full-Stack?
+            </h2>
+            <p class="text-gray-300 mb-12 text-lg">
+              Un desarrollador full-stack domina todas las capas de una
+              aplicación
+            </p>
 
             <div class="grid md:grid-cols-3 gap-8">
               <!-- Frontend -->
-              <div class="bg-gradient-to-br from-blue-900/20 to-blue-800/20 p-8 rounded-2xl border border-blue-500/30 hover:border-blue-400 transition-all">
+              <div
+                class="bg-gradient-to-br from-blue-900/20 to-blue-800/20 p-8 rounded-2xl border border-blue-500/30 hover:border-blue-400 transition-all"
+              >
                 <div class="text-5xl mb-4">🎨</div>
                 <h3 class="text-2xl font-bold text-white mb-3">Frontend</h3>
-                <p class="text-gray-300 mb-4">Lo que el usuario ve e interactúa</p>
+                <p class="text-gray-300 mb-4">
+                  Lo que el usuario ve e interactúa
+                </p>
                 <ul class="text-gray-400 space-y-2 text-sm">
-                  <li>✓ React, Next.js, Vue.js</li>
+                  <li>✓ React, Next.js Astro</li>
                   <li>✓ Interfaces responsivas</li>
                   <li>✓ Animaciones fluidas</li>
                   <li>✓ Optimización de rendimiento</li>
@@ -139,22 +202,30 @@ const secciones = [
               </div>
 
               <!-- Backend -->
-              <div class="bg-gradient-to-br from-green-900/20 to-green-800/20 p-8 rounded-2xl border border-green-500/30 hover:border-green-400 transition-all">
+              <div
+                class="bg-gradient-to-br from-green-900/20 to-green-800/20 p-8 rounded-2xl border border-green-500/30 hover:border-green-400 transition-all"
+              >
                 <div class="text-5xl mb-4">⚙️</div>
                 <h3 class="text-2xl font-bold text-white mb-3">Backend</h3>
-                <p class="text-gray-300 mb-4">La lógica de negocio y procesamiento</p>
+                <p class="text-gray-300 mb-4">
+                  La lógica de negocio y procesamiento
+                </p>
                 <ul class="text-gray-400 space-y-2 text-sm">
-                  <li>✓ Node.js, Python, .NET</li>
-                  <li>✓ APIs RESTful y GraphQL</li>
+                  <li>✓ Node.js, Python, JAVA y GO</li>
+                  <li>✓ APIs RESTful</li>
                   <li>✓ Autenticación y seguridad</li>
                   <li>✓ Lógica de negocio compleja</li>
                 </ul>
               </div>
 
               <!-- Infrastructure -->
-              <div class="bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-8 rounded-2xl border border-purple-500/30 hover:border-purple-400 transition-all">
+              <div
+                class="bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-8 rounded-2xl border border-purple-500/30 hover:border-purple-400 transition-all"
+              >
                 <div class="text-5xl mb-4">☁️</div>
-                <h3 class="text-2xl font-bold text-white mb-3">Infraestructura</h3>
+                <h3 class="text-2xl font-bold text-white mb-3">
+                  Infraestructura
+                </h3>
                 <p class="text-gray-300 mb-4">Donde vive tu aplicación</p>
                 <ul class="text-gray-400 space-y-2 text-sm">
                   <li>✓ AWS, Azure, Google Cloud</li>
@@ -170,76 +241,112 @@ const secciones = [
 
           <!-- Tipos de Proyectos Full-Stack -->
           <section id="proyectos">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Tipos de Proyectos que Desarrollamos</h2>
-            <p class="text-gray-300 mb-12 text-lg">Desde MVPs hasta plataformas empresariales complejas</p>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+              Tipos de Proyectos que Desarrollamos
+            </h2>
+            <p class="text-gray-300 mb-12 text-lg">
+              Desde MVPs hasta plataformas empresariales complejas
+            </p>
 
             <div class="grid md:grid-cols-2 gap-8">
               <!-- MVP/Startup -->
-              <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all">
+              <div
+                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all"
+              >
                 <div class="text-5xl mb-4">🚀</div>
-                <h3 class="text-2xl font-bold text-white mb-3">MVPs y Startups</h3>
-                <p class="text-gray-300 mb-4">Validación rápida de ideas con arquitectura escalable</p>
+                <h3 class="text-2xl font-bold text-white mb-3">
+                  MVPs y Startups
+                </h3>
+                <p class="text-gray-300 mb-4">
+                  Validación rápida de ideas con arquitectura escalable
+                </p>
 
                 <div class="mt-6 space-y-3">
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Desarrollo en 4-8 semanas</p>
+                    <p class="text-gray-400">
+                      Stack moderno y probado en producción
+                    </p>
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Stack moderno y probado en producción</p>
+                    <p class="text-gray-400">
+                      Preparado para crecer sin reescribir
+                    </p>
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Preparado para crecer sin reescribir</p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Autenticación, pagos y analytics incluidos</p>
+                    <p class="text-gray-400">
+                      Autenticación, pagos y analytics incluidos
+                    </p>
                   </div>
                 </div>
               </div>
 
               <!-- SaaS -->
-              <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all">
+              <div
+                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all"
+              >
                 <div class="text-5xl mb-4">🌐</div>
-                <h3 class="text-2xl font-bold text-white mb-3">Plataformas SaaS</h3>
-                <p class="text-gray-300 mb-4">Software como servicio con multi-tenancy</p>
+                <h3 class="text-2xl font-bold text-white mb-3">
+                  Plataformas SaaS
+                </h3>
+                <p class="text-gray-300 mb-4">
+                  Software como servicio con multi-tenancy
+                </p>
 
                 <div class="mt-6 space-y-3">
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Arquitectura multi-tenant segura</p>
+                    <p class="text-gray-400">
+                      Arquitectura multi-tenant segura
+                    </p>
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Subscripciones y facturación automática</p>
+                    <p class="text-gray-400">
+                      Subscripciones y facturación automática
+                    </p>
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Dashboard de analytics en tiempo real</p>
+                    <p class="text-gray-400">
+                      Dashboard de analytics en tiempo real
+                    </p>
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Roles, permisos y gestión de equipos</p>
+                    <p class="text-gray-400">
+                      Roles, permisos y gestión de equipos
+                    </p>
                   </div>
                 </div>
               </div>
 
               <!-- E-commerce -->
-              <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all">
+              <div
+                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all"
+              >
                 <div class="text-5xl mb-4">🛒</div>
-                <h3 class="text-2xl font-bold text-white mb-3">E-commerce Personalizado</h3>
-                <p class="text-gray-300 mb-4">Tiendas online optimizadas para conversión</p>
+                <h3 class="text-2xl font-bold text-white mb-3">
+                  E-commerce Personalizado
+                </h3>
+                <p class="text-gray-300 mb-4">
+                  Tiendas online optimizadas para conversión
+                </p>
 
                 <div class="mt-6 space-y-3">
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Headless commerce (Shopify/Medusa)</p>
+                    <p class="text-gray-400">
+                      Headless commerce (Shopify/Medusa)
+                    </p>
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Carrito, checkout y pasarelas de pago</p>
+                    <p class="text-gray-400">
+                      Carrito, checkout y pasarelas de pago
+                    </p>
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
@@ -247,21 +354,31 @@ const secciones = [
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">SEO y optimización de conversión</p>
+                    <p class="text-gray-400">
+                      SEO y optimización de conversión
+                    </p>
                   </div>
                 </div>
               </div>
 
               <!-- Portales -->
-              <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all">
+              <div
+                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all"
+              >
                 <div class="text-5xl mb-4">🏢</div>
-                <h3 class="text-2xl font-bold text-white mb-3">Portales Empresariales</h3>
-                <p class="text-gray-300 mb-4">Sistemas internos de gestión y colaboración</p>
+                <h3 class="text-2xl font-bold text-white mb-3">
+                  Portales Empresariales
+                </h3>
+                <p class="text-gray-300 mb-4">
+                  Sistemas internos de gestión y colaboración
+                </p>
 
                 <div class="mt-6 space-y-3">
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">CRM, ERP y sistemas administrativos</p>
+                    <p class="text-gray-400">
+                      CRM, ERP y sistemas administrativos
+                    </p>
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
@@ -273,44 +390,10 @@ const secciones = [
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Reportes y dashboards ejecutivos</p>
+                    <p class="text-gray-400">
+                      Reportes y dashboards ejecutivos
+                    </p>
                   </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <div class="border-t border-gray-700"></div>
-
-          <!-- Caso de Éxito -->
-          <section id="caso-exito">
-            <div class="bg-gradient-to-br from-[#82e256]/10 to-[#04ADC0]/10 p-8 md:p-12 rounded-2xl border border-[#82e256]/20">
-              <div class="flex items-center gap-3 mb-6">
-                <div class="text-4xl">🏆</div>
-                <h2 class="text-3xl md:text-4xl font-bold text-white">Caso de Éxito: Plataforma SaaS de Recursos Humanos</h2>
-              </div>
-
-              <p class="text-gray-300 mb-8 text-lg">
-                Una startup de RRHH necesitaba una plataforma para gestionar nóminas, vacaciones y evaluaciones de desempeño. La construimos en 12 semanas.
-              </p>
-
-              <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-gradient-to-br from-[#82e256]/10 to-transparent p-6 rounded-xl border border-[#82e256]/30">
-                  <div class="text-4xl font-bold text-[#82e256] mb-2">500+</div>
-                  <p class="text-white font-semibold">Empresas usando la plataforma</p>
-                  <p class="text-gray-400 text-sm mt-1">Gestionando +15,000 empleados</p>
-                </div>
-
-                <div class="bg-gradient-to-br from-[#82e256]/10 to-transparent p-6 rounded-xl border border-[#82e256]/30">
-                  <div class="text-4xl font-bold text-[#82e256] mb-2">99.9%</div>
-                  <p class="text-white font-semibold">Uptime garantizado</p>
-                  <p class="text-gray-400 text-sm mt-1">Infraestructura en AWS multi-región</p>
-                </div>
-
-                <div class="bg-gradient-to-br from-[#82e256]/10 to-transparent p-6 rounded-xl border border-[#82e256]/30">
-                  <div class="text-4xl font-bold text-[#82e256] mb-2">$2M+</div>
-                  <p class="text-white font-semibold">ARR alcanzado en 18 meses</p>
-                  <p class="text-gray-400 text-sm mt-1">Modelo de suscripción mensual</p>
                 </div>
               </div>
             </div>
@@ -320,19 +403,26 @@ const secciones = [
 
           <!-- Stack Tecnológico -->
           <section id="stack">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Nuestro Stack Tecnológico Full-Stack</h2>
-            <p class="text-gray-300 mb-12 text-lg">Herramientas modernas probadas en producción</p>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+              Nuestro Stack Tecnológico Full-Stack
+            </h2>
+            <p class="text-gray-300 mb-12 text-lg">
+              Herramientas modernas probadas en producción
+            </p>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <!-- Frontend -->
-              <div class="bg-gradient-to-br from-blue-900/20 to-blue-800/20 p-6 rounded-xl border border-blue-500/30">
-                <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <div
+                class="bg-gradient-to-br from-blue-900/20 to-blue-800/20 p-6 rounded-xl border border-blue-500/30"
+              >
+                <h3
+                  class="text-xl font-bold text-white mb-4 flex items-center gap-2"
+                >
                   <span>⚛️</span> Frontend
                 </h3>
                 <div class="space-y-2 text-gray-300 text-sm">
                   <p>• React + TypeScript</p>
                   <p>• Next.js 14 (App Router)</p>
-                  <p>• Vue 3 + Nuxt 3</p>
                   <p>• Astro</p>
                   <p>• Tailwind CSS</p>
                   <p>• Shadcn/ui</p>
@@ -340,23 +430,31 @@ const secciones = [
               </div>
 
               <!-- Backend -->
-              <div class="bg-gradient-to-br from-green-900/20 to-green-800/20 p-6 rounded-xl border border-green-500/30">
-                <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <div
+                class="bg-gradient-to-br from-green-900/20 to-green-800/20 p-6 rounded-xl border border-green-500/30"
+              >
+                <h3
+                  class="text-xl font-bold text-white mb-4 flex items-center gap-2"
+                >
                   <span>🔧</span> Backend
                 </h3>
                 <div class="space-y-2 text-gray-300 text-sm">
                   <p>• Node.js + Express</p>
                   <p>• Python (FastAPI/Django)</p>
-                  <p>• .NET Core</p>
+                  <p>• JAVA Spring Boot</p>
+                  <p>• GO</p>
                   <p>• Next.js API Routes</p>
                   <p>• tRPC</p>
-                  <p>• GraphQL</p>
                 </div>
               </div>
 
               <!-- Databases -->
-              <div class="bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-6 rounded-xl border border-purple-500/30">
-                <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <div
+                class="bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-6 rounded-xl border border-purple-500/30"
+              >
+                <h3
+                  class="text-xl font-bold text-white mb-4 flex items-center gap-2"
+                >
                   <span>🗄️</span> Databases
                 </h3>
                 <div class="space-y-2 text-gray-300 text-sm">
@@ -370,8 +468,12 @@ const secciones = [
               </div>
 
               <!-- Cloud & DevOps -->
-              <div class="bg-gradient-to-br from-cyan-900/20 to-cyan-800/20 p-6 rounded-xl border border-cyan-500/30">
-                <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <div
+                class="bg-gradient-to-br from-cyan-900/20 to-cyan-800/20 p-6 rounded-xl border border-cyan-500/30"
+              >
+                <h3
+                  class="text-xl font-bold text-white mb-4 flex items-center gap-2"
+                >
                   <span>☁️</span> Cloud & DevOps
                 </h3>
                 <div class="space-y-2 text-gray-300 text-sm">
@@ -387,69 +489,17 @@ const secciones = [
 
             <!-- Imagen tecnología -->
             <div class="mt-12">
-              <div class="rounded-2xl overflow-hidden flex justify-center mb-4">
-                <img src="/img/robot.png" alt="Stack tecnológico moderno" class="h-auto max-w-2xl" />
+              <div class="flex justify-center mb-4">
+                <img
+                  src="/imgfondos/13.jpg"
+                  alt="Stack tecnológico moderno"
+                  class="h-auto max-w-2xl rounded-2xl"
+                />
               </div>
-              <p class="text-center text-gray-400 text-sm italic">Tecnologías de vanguardia para aplicaciones robustas y escalables</p>
-            </div>
-          </section>
-
-          <div class="border-t border-gray-700"></div>
-
-          <!-- Proceso de Desarrollo -->
-          <section id="proceso">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Nuestro Proceso Full-Stack</h2>
-            <p class="text-gray-300 mb-12 text-lg">Metodología ágil con sprints de 2 semanas</p>
-
-            <div class="space-y-6">
-              <!-- Sprint 0 -->
-              <div class="flex gap-4 items-start">
-                <div class="bg-[#82e256] text-black font-bold rounded-full w-12 h-12 flex-shrink-0 flex items-center justify-center">
-                  0
-                </div>
-                <div class="flex-1 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700">
-                  <h3 class="text-xl font-bold text-white mb-2">Sprint 0: Discovery (1 semana)</h3>
-                  <p class="text-gray-300">Entendimiento profundo del negocio, usuarios, requerimientos técnicos y no técnicos. Definición de arquitectura y stack.</p>
-                </div>
-              </div>
-
-              <!-- Sprints 1-N -->
-              <div class="flex gap-4 items-start">
-                <div class="bg-[#82e256] text-black font-bold rounded-full w-12 h-12 flex-shrink-0 flex items-center justify-center">
-                  1-N
-                </div>
-                <div class="flex-1 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700">
-                  <h3 class="text-xl font-bold text-white mb-2">Sprints de Desarrollo (2 semanas c/u)</h3>
-                  <p class="text-gray-300">Desarrollo incremental con demos semanales. Testing continuo. Entregas parciales funcionales que puedes usar y probar.</p>
-                </div>
-              </div>
-
-              <!-- Hardening -->
-              <div class="flex gap-4 items-start">
-                <div class="bg-[#82e256] text-black font-bold rounded-full w-12 h-12 flex-shrink-0 flex items-center justify-center">
-                  H
-                </div>
-                <div class="flex-1 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700">
-                  <h3 class="text-xl font-bold text-white mb-2">Hardening Sprint (1 semana)</h3>
-                  <p class="text-gray-300">Refinamiento final, optimización de performance, testing de seguridad, preparación para producción.</p>
-                </div>
-              </div>
-
-              <!-- Release -->
-              <div class="flex gap-4 items-start">
-                <div class="bg-[#82e256] text-black font-bold rounded-full w-12 h-12 flex-shrink-0 flex items-center justify-center">
-                  R
-                </div>
-                <div class="flex-1 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700">
-                  <h3 class="text-xl font-bold text-white mb-2">Release & Support (3-6 meses)</h3>
-                  <p class="text-gray-300">Despliegue a producción, monitoreo intensivo, soporte incluido, ajustes y mejoras continuas.</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Imagen de apoyo -->
-            <div class="flex justify-center mt-12">
-              <img src="/img/personaje2.png" alt="Desarrollo Full-Stack" class="max-w-md w-full rounded-2xl" />
+              <p class="text-center text-gray-400 text-sm italic">
+                Tecnologías de vanguardia para aplicaciones robustas y
+                escalables
+              </p>
             </div>
           </section>
 
@@ -457,51 +507,99 @@ const secciones = [
 
           <!-- Garantías -->
           <section id="ventajas">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Garantías y Ventajas</h2>
+            <h2
+              class="text-3xl md:text-4xl font-bold text-white mb-12 text-center"
+            >
+              Garantías y Ventajas
+            </h2>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center">
+              <div
+                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
+              >
                 <div class="text-4xl mb-3">📦</div>
                 <h3 class="text-lg font-bold text-white mb-2">Código Propio</h3>
-                <p class="text-gray-400 text-sm">100% del código es tuyo. Repository completo en GitHub con documentación.</p>
+                <p class="text-gray-400 text-sm">
+                  100% del código es tuyo. Repository completo en GitHub con
+                  documentación.
+                </p>
               </div>
 
-              <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center">
+              <div
+                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
+              >
                 <div class="text-4xl mb-3">🔒</div>
-                <h3 class="text-lg font-bold text-white mb-2">Seguridad Incluida</h3>
-                <p class="text-gray-400 text-sm">OWASP top 10, autenticación robusta, cifrado end-to-end.</p>
+                <h3 class="text-lg font-bold text-white mb-2">
+                  Seguridad Incluida
+                </h3>
+                <p class="text-gray-400 text-sm">
+                  OWASP top 10, autenticación robusta, cifrado end-to-end.
+                </p>
               </div>
 
-              <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center">
+              <div
+                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
+              >
                 <div class="text-4xl mb-3">📊</div>
-                <h3 class="text-lg font-bold text-white mb-2">Analytics Desde Día 1</h3>
-                <p class="text-gray-400 text-sm">Tracking de métricas clave, eventos personalizados, dashboards.</p>
+                <h3 class="text-lg font-bold text-white mb-2">
+                  Analytics Desde Día 1
+                </h3>
+                <p class="text-gray-400 text-sm">
+                  Tracking de métricas clave, eventos personalizados,
+                  dashboards.
+                </p>
               </div>
 
-              <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center">
+              <div
+                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
+              >
                 <div class="text-4xl mb-3">⚡</div>
-                <h3 class="text-lg font-bold text-white mb-2">Performance Garantizado</h3>
-                <p class="text-gray-400 text-sm">Core Web Vitals optimizados, caching inteligente, CDN global.</p>
+                <h3 class="text-lg font-bold text-white mb-2">
+                  Performance a la medida de tus necesidades
+                </h3>
+                <p class="text-gray-400 text-sm">
+                  Core Web Vitals optimizados, caching inteligente, CDN global.
+                </p>
               </div>
 
-              <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center">
+              <div
+                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
+              >
                 <div class="text-4xl mb-3">🔄</div>
-                <h3 class="text-lg font-bold text-white mb-2">CI/CD Automatizado</h3>
-                <p class="text-gray-400 text-sm">Deploys automáticos, testing continuo, rollback instantáneo.</p>
+                <h3 class="text-lg font-bold text-white mb-2">
+                  CI/CD Automatizado
+                </h3>
+                <p class="text-gray-400 text-sm">
+                  Deploys automáticos, testing continuo, rollback instantáneo.
+                </p>
               </div>
 
-              <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center">
+              <div
+                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
+              >
                 <div class="text-4xl mb-3">📞</div>
-                <h3 class="text-lg font-bold text-white mb-2">Soporte Extendido</h3>
-                <p class="text-gray-400 text-sm">90 días de soporte incluido + opciones de mantenimiento mensual.</p>
+                <h3 class="text-lg font-bold text-white mb-2">
+                  Soporte Extendido
+                </h3>
+                <p class="text-gray-400 text-sm">
+                  90 días de soporte incluido + opciones de mantenimiento
+                  mensual.
+                </p>
               </div>
             </div>
           </section>
 
           <!-- CTA Final -->
-          <section class="bg-gradient-to-br from-[#82e256] to-[#04ADC0] p-8 md:p-12 rounded-2xl text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">¿Listo para construir tu plataforma?</h2>
-            <p class="text-xl text-black/80 mb-8">Agenda una consultoría gratuita y te mostramos cómo llevamos tu idea del concepto a producción</p>
+          <section
+            class="bg-gradient-to-br from-[#82e256] to-[#04ADC0] p-8 md:p-12 rounded-2xl text-center"
+          >
+            <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">
+              ¿Listo para construir tu plataforma?
+            </h2>
+            <p class="text-xl text-black/80 mb-8">
+              Agenda una consultoría gratuita y te mostramos cómo llevamos tu
+              idea del concepto a producción
+            </p>
             <a
               href="/#contenido10"
               class="inline-block px-8 py-4 bg-black text-white font-bold rounded-lg hover:bg-gray-900 transition-all duration-300 transform hover:scale-105 text-lg"
@@ -515,19 +613,23 @@ const secciones = [
 
     <!-- Servicios Relacionados -->
     <section class="container mx-auto px-4 py-16 max-w-7xl">
-      <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Otros Servicios</h2>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
+        Otros Servicios
+      </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {todosLosServicios.map(servicio => (
-          <a
-            href={servicio.url}
-            class="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all hover:transform hover:scale-105"
-          >
-            <h3 class="text-lg font-bold text-white mb-2 group-hover:text-[#82e256] transition-colors">
-              {servicio.titulo}
-            </h3>
-            <p class="text-gray-400 text-sm">{servicio.descripcion}</p>
-          </a>
-        ))}
+        {
+          todosLosServicios.map((servicio) => (
+            <a
+              href={servicio.url}
+              class="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all hover:transform hover:scale-105"
+            >
+              <h3 class="text-lg font-bold text-white mb-2 group-hover:text-[#82e256] transition-colors">
+                {servicio.titulo}
+              </h3>
+              <p class="text-gray-400 text-sm">{servicio.descripcion}</p>
+            </a>
+          ))
+        }
       </div>
     </section>
   </div>
@@ -542,16 +644,19 @@ const secciones = [
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener("DOMContentLoaded", () => {
     const links = document.querySelectorAll('a[href^="#"]');
-    links.forEach(link => {
-      link.addEventListener('click', (e) => {
+    links.forEach((link) => {
+      link.addEventListener("click", (e) => {
         e.preventDefault();
-        const targetId = link.getAttribute('href')?.slice(1);
+        const targetId = link.getAttribute("href")?.slice(1);
         if (targetId) {
           const targetElement = document.getElementById(targetId);
           if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            targetElement.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
           }
         }
       });

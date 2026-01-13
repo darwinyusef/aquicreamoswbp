@@ -22,7 +22,7 @@ En este episodio profundizamos en la arquitectura de microservicios, uno de los 
    - Trade-offs importantes
 
 2. **Patrones de Comunicación**
-   - REST vs gRPC vs GraphQL
+   - REST vs gRPC
    - Event-driven architecture
    - Message queues y pub/sub
 

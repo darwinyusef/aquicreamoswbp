@@ -1,28 +1,59 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import SpotlightCard from '../../components/SpotlightCard.astro';
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import SpotlightCard from "../../components/SpotlightCard.astro";
 
 const todosLosServicios = [
-  { titulo: 'Agentes Cognitivos IA', url: '/servicios/agentes-ia', descripcion: 'Asistentes inteligentes empresariales' },
-  { titulo: 'Arquitectura TOGAF', url: '/servicios/arquitectura', descripcion: 'Arquitectura empresarial estratégica' },
-  { titulo: 'Aplicaciones IA', url: '/servicios/aplicaciones-ia', descripcion: 'Apps potenciadas con inteligencia artificial' },
-  { titulo: 'Desarrollo Web', url: '/servicios/desarrollo-web', descripcion: 'Sitios modernos de alto rendimiento' },
-  { titulo: 'Apps Móviles', url: '/servicios/apps-moviles', descripcion: 'Apps nativas e híbridas multiplataforma' },
-  { titulo: 'Computer Vision', url: '/servicios/computer-vision', descripcion: 'IA visual para detección y análisis' },
-  { titulo: 'Desarrollo Fullstack', url: '/servicios/desarrollo-fullstack', descripcion: 'Sistemas completos end-to-end' },
-  { titulo: 'DevOps e Infraestructura', url: '/servicios/devops-infraestructura', descripcion: 'CI/CD, cloud y automatización' }
+  {
+    titulo: "Agentes Cognitivos IA",
+    url: "/servicios/agentes-ia",
+    descripcion: "Asistentes inteligentes empresariales",
+  },
+  {
+    titulo: "Arquitectura TOGAF",
+    url: "/servicios/arquitectura",
+    descripcion: "Arquitectura empresarial estratégica",
+  },
+  {
+    titulo: "Aplicaciones IA",
+    url: "/servicios/aplicaciones-ia",
+    descripcion: "Apps potenciadas con inteligencia artificial",
+  },
+  {
+    titulo: "Desarrollo Web",
+    url: "/servicios/desarrollo-web",
+    descripcion: "Sitios modernos de alto rendimiento",
+  },
+  {
+    titulo: "Apps Móviles",
+    url: "/servicios/apps-moviles",
+    descripcion: "Apps nativas e híbridas multiplataforma",
+  },
+  {
+    titulo: "Computer Vision",
+    url: "/servicios/computer-vision",
+    descripcion: "IA visual para detección y análisis",
+  },
+  {
+    titulo: "Desarrollo Fullstack",
+    url: "/servicios/desarrollo-fullstack",
+    descripcion: "Sistemas completos end-to-end",
+  },
+  {
+    titulo: "DevOps e Infraestructura",
+    url: "/servicios/devops-infraestructura",
+    descripcion: "CI/CD, cloud y automatización",
+  },
 ];
 
 const secciones = [
-  { id: 'intro', title: 'Introducción' },
-  { id: 'diferencia', title: '¿Qué hacemos diferente?' },
-  { id: 'servicios', title: 'Servicios IA/ML' },
-  { id: 'caso-exito', title: 'Caso de Éxito' },
-  { id: 'stack', title: 'Stack Tecnológico' },
-  { id: 'metodologia', title: 'Metodología' },
-  { id: 'garantias', title: 'Garantías' }
+  { id: "intro", title: "Introducción" },
+  { id: "diferencia", title: "¿Qué hacemos diferente?" },
+  { id: "servicios", title: "Servicios IA/ML" },
+  { id: "stack", title: "Stack Tecnológico" },
+  { id: "metodologia", title: "Metodología" },
+  { id: "garantias", title: "Garantías" },
 ];
 ---
 
@@ -31,36 +62,46 @@ const secciones = [
 
   <div class="min-h-screen bg-[#1a1a1a]">
     <!-- Hero Section -->
-    <section class="relative flex items-center justify-center bg-hero-pattern bg-repeat w-full min-h-screen bg-[url(/img/fondo.png)] bg-no-repeat bg-cover bg-center">
-      <div class="absolute inset-0 bg-gradient-to-b from-black/50 to-[#1a1a1a] z-10"></div>
+    <section
+      class="relative flex items-center justify-center bg-hero-pattern bg-repeat w-full min-h-screen bg-[url(/img/fondo.png)] bg-no-repeat bg-cover bg-center"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-black/50 to-[#1a1a1a] z-10"
+      >
+      </div>
 
       <div class="container mx-auto px-4 py-20 md:py-24 relative z-20">
         <div class="max-w-7xl mx-auto">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <!-- Texto -->
             <div class="text-center lg:text-left">
-              <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
-                <span class="text-white drop-shadow-lg">IA & MACHINE LEARNING</span>
+              <h1
+                class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight"
+              >
+                <span class="text-white drop-shadow-lg"
+                  >IA & MACHINE LEARNING</span
+                >
                 <br />
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#d4e256] to-[#82e256] drop-shadow-lg">
+                <span
+                  class="text-transparent bg-clip-text bg-gradient-to-r from-[#d4e256] to-[#82e256] drop-shadow-lg"
+                >
                   EN PRODUCCIÓN
                 </span>
               </h1>
-              <p class="text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0">
+              <p
+                class="text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0"
+              >
                 MLOps, modelos predictivos y agentes autónomos con ROI medible
               </p>
             </div>
 
             <!-- Imagen -->
             <div class="flex justify-center lg:justify-end">
-              <div class="relative">
-                <div class="absolute inset-0 bg-gradient-to-r from-[#d4e256] to-[#82e256] rounded-2xl blur-3xl opacity-20"></div>
-                <img
-                  src="/img/personaje1.png"
-                  alt="Machine Learning en producción"
-                  class="relative rounded-2xl max-w-md w-full"
-                />
-              </div>
+              <img
+                src="/img/personaje8/01.png"
+                alt="Machine Learning en producción"
+                class="max-w-md w-full"
+              />
             </div>
           </div>
         </div>
@@ -74,29 +115,40 @@ const secciones = [
         <aside class="lg:col-span-1">
           <div class="sticky top-24 space-y-6">
             <!-- Menú de navegación -->
-            <nav class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl p-6 border border-gray-700">
-              <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+            <nav
+              class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl p-6 border border-gray-700"
+            >
+              <h3
+                class="text-lg font-bold text-white mb-4 flex items-center gap-2"
+              >
                 <span>📑</span> Contenido
               </h3>
               <ul class="space-y-2">
-                {secciones.map(seccion => (
-                  <li>
-                    <a
-                      href={`#${seccion.id}`}
-                      class="block text-gray-300 hover:text-[#82e256] transition-colors py-2 px-3 rounded-lg hover:bg-gray-800/50"
-                    >
-                      {seccion.title}
-                    </a>
-                  </li>
-                ))}
+                {
+                  secciones.map((seccion) => (
+                    <li>
+                      <a
+                        href={`#${seccion.id}`}
+                        class="block text-gray-300 hover:text-[#82e256] transition-colors py-2 px-3 rounded-lg hover:bg-gray-800/50"
+                      >
+                        {seccion.title}
+                      </a>
+                    </li>
+                  ))
+                }
               </ul>
             </nav>
 
             <!-- CTA Card -->
-            <div class="bg-gradient-to-br from-[#d4e256] to-[#82e256] rounded-2xl p-6 text-center">
-              <div class="text-4xl mb-3">🤖</div>
-              <h3 class="text-lg font-bold text-black mb-2">¿Listo para comenzar?</h3>
-              <p class="text-sm text-black/80 mb-4">Agenda una consultoría gratuita</p>
+            <div
+              class="bg-gradient-to-br from-[#d4e256] to-[#82e256] rounded-2xl p-6 text-center"
+            >
+              <h3 class="text-lg font-bold text-black mb-2">
+                ¿Listo para comenzar?
+              </h3>
+              <p class="text-sm text-black/80 mb-4">
+                Agenda una consultoría gratuita
+              </p>
               <a
                 href="/#contenido10"
                 class="inline-block px-6 py-3 bg-black text-white font-bold rounded-lg hover:bg-gray-900 transition-all text-sm"
@@ -111,16 +163,29 @@ const secciones = [
         <main class="lg:col-span-3 space-y-16">
           <!-- Introducción -->
           <section id="intro">
-            <div class="bg-gradient-to-br from-[#82e256]/10 to-[#04ADC0]/10 p-6 rounded-xl border border-[#82e256]/30 mb-6">
-              <h3 class="text-xl font-bold text-white mb-3">En palabras simples...</h3>
+            <div
+              class="bg-gradient-to-br from-[#82e256]/10 to-[#04ADC0]/10 p-6 rounded-xl border border-[#82e256]/30 mb-6"
+            >
               <p class="text-gray-300 text-lg">
-                <strong class="text-[#82e256]">Machine Learning</strong> (aprendizaje automatico) es cuando le ensenamos a una computadora a <strong class="text-white">aprender de los datos y hacer predicciones</strong>, como un empleado que mejora con la experiencia. Por ejemplo: puede aprender a predecir que clientes van a cancelar su servicio, que productos se van a vender mas, o detectar fraudes automaticamente. Es como tener un analista super inteligente que revisa millones de datos en segundos y te dice exactamente que va a pasar.
+                <strong class="text-[#82e256]">Machine Learning</strong> (aprendizaje
+                automatico) es cuando le ensenamos a una computadora a <strong
+                  class="text-white"
+                  >aprender de los datos y hacer predicciones</strong
+                >, como un empleado que mejora con la experiencia. Por ejemplo:
+                puede aprender a predecir que clientes van a cancelar su
+                servicio, que productos se van a vender mas, o detectar fraudes
+                automaticamente. Es como tener un analista super inteligente que
+                revisa millones de datos en segundos y te dice exactamente que
+                va a pasar.
               </p>
             </div>
 
             <div class="prose prose-invert max-w-none">
               <p class="text-xl text-gray-300 leading-relaxed">
-                No vendemos IA por vender. Implementamos <strong class="text-[#82e256]">soluciones de Machine Learning que generan valor real</strong> y pasan del laboratorio a produccion con ROI medible.
+                No vendemos IA por vender. Implementamos <strong
+                  class="text-[#82e256]"
+                  >soluciones de Machine Learning que generan valor real</strong
+                > y pasan del laboratorio a produccion con ROI medible.
               </p>
             </div>
           </section>
@@ -129,14 +194,23 @@ const secciones = [
 
           <!-- ¿Qué hacemos diferente? -->
           <section id="diferencia">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">¿Qué hacemos diferente en IA?</h2>
-            <p class="text-gray-300 mb-12 text-lg">La mayoría de proyectos de IA fracasan. Así evitamos que eso te pase</p>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+              ¿Qué hacemos diferente en IA?
+            </h2>
+            <p class="text-gray-300 mb-12 text-lg">
+              La mayoría de proyectos de IA fracasan. Así evitamos que eso te
+              pase
+            </p>
 
             <div class="grid md:grid-cols-2 gap-8">
               <!-- Problema 1 -->
-              <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all">
+              <div
+                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all"
+              >
                 <div class="text-5xl mb-4">❌</div>
-                <h3 class="text-2xl font-bold text-white mb-3">Lo que NO hacemos</h3>
+                <h3 class="text-2xl font-bold text-white mb-3">
+                  Lo que NO hacemos
+                </h3>
                 <ul class="text-gray-400 space-y-3">
                   <li class="flex items-start gap-3">
                     <span class="text-red-400 mt-1">✗</span>
@@ -158,9 +232,13 @@ const secciones = [
               </div>
 
               <!-- Solución -->
-              <div class="bg-gradient-to-br from-[#82e256]/10 to-[#d4e256]/10 p-8 rounded-2xl border border-[#82e256]/30">
+              <div
+                class="bg-gradient-to-br from-[#82e256]/10 to-[#d4e256]/10 p-8 rounded-2xl border border-[#82e256]/30"
+              >
                 <div class="text-5xl mb-4">✅</div>
-                <h3 class="text-2xl font-bold text-white mb-3">Lo que SÍ hacemos</h3>
+                <h3 class="text-2xl font-bold text-white mb-3">
+                  Lo que SÍ hacemos
+                </h3>
                 <ul class="text-gray-300 space-y-3">
                   <li class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">✓</span>
@@ -176,7 +254,10 @@ const secciones = [
                   </li>
                   <li class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">✓</span>
-                    <p>Te decimos la verdad: si la IA NO es para ti, te lo decimos</p>
+                    <p>
+                      Te decimos la verdad: si la IA NO es para ti, te lo
+                      decimos
+                    </p>
                   </li>
                 </ul>
               </div>
@@ -187,45 +268,71 @@ const secciones = [
 
           <!-- Nuestros Servicios de IA/ML -->
           <section id="servicios">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Servicios de IA & Machine Learning</h2>
-            <p class="text-gray-300 mb-12 text-lg">Desde chatbots hasta modelos predictivos personalizados</p>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+              Servicios de IA & Machine Learning
+            </h2>
+            <p class="text-gray-300 mb-12 text-lg">
+              Desde chatbots hasta modelos predictivos personalizados
+            </p>
 
             <div class="grid md:grid-cols-2 gap-8">
               <!-- LLMs y NLP -->
-              <div class="bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-8 rounded-2xl border border-purple-500/30 hover:border-purple-400 transition-all">
+              <div
+                class="bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-8 rounded-2xl border border-purple-500/30 hover:border-purple-400 transition-all"
+              >
                 <div class="text-5xl mb-4">💬</div>
-                <h3 class="text-2xl font-bold text-white mb-3">LLMs y Procesamiento de Lenguaje Natural</h3>
-                <p class="text-gray-300 mb-4">Aprovecha GPT-4, Claude y otros LLMs en tu negocio</p>
+                <h3 class="text-2xl font-bold text-white mb-3">
+                  LLMs y Procesamiento de Lenguaje Natural
+                </h3>
+                <p class="text-gray-300 mb-4">
+                  Aprovecha GPT-4, Claude y otros LLMs en tu negocio
+                </p>
 
                 <div class="space-y-3 mt-6">
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Chatbots conversacionales inteligentes</p>
+                    <p class="text-gray-400">
+                      Chatbots conversacionales inteligentes
+                    </p>
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Análisis de sentimiento y clasificación de texto</p>
+                    <p class="text-gray-400">
+                      Análisis de sentimiento y clasificación de texto
+                    </p>
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Generación de contenido y resúmenes automáticos</p>
+                    <p class="text-gray-400">
+                      Generación de contenido y resúmenes automáticos
+                    </p>
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Fine-tuning de modelos para tu dominio</p>
+                    <p class="text-gray-400">
+                      Fine-tuning de modelos para tu dominio
+                    </p>
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">RAG (Retrieval Augmented Generation)</p>
+                    <p class="text-gray-400">
+                      RAG (Retrieval Augmented Generation)
+                    </p>
                   </div>
                 </div>
               </div>
 
               <!-- Modelos Predictivos -->
-              <div class="bg-gradient-to-br from-blue-900/20 to-blue-800/20 p-8 rounded-2xl border border-blue-500/30 hover:border-blue-400 transition-all">
+              <div
+                class="bg-gradient-to-br from-blue-900/20 to-blue-800/20 p-8 rounded-2xl border border-blue-500/30 hover:border-blue-400 transition-all"
+              >
                 <div class="text-5xl mb-4">📈</div>
-                <h3 class="text-2xl font-bold text-white mb-3">Modelos Predictivos y Forecasting</h3>
-                <p class="text-gray-300 mb-4">Predice comportamientos y optimiza decisiones</p>
+                <h3 class="text-2xl font-bold text-white mb-3">
+                  Modelos Predictivos y Forecasting
+                </h3>
+                <p class="text-gray-300 mb-4">
+                  Predice comportamientos y optimiza decisiones
+                </p>
 
                 <div class="space-y-3 mt-6">
                   <div class="flex items-start gap-3">
@@ -234,11 +341,15 @@ const secciones = [
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Churn prediction (predicción de fuga de clientes)</p>
+                    <p class="text-gray-400">
+                      Churn prediction (predicción de fuga de clientes)
+                    </p>
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Lead scoring y cualificación automática</p>
+                    <p class="text-gray-400">
+                      Lead scoring y cualificación automática
+                    </p>
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
@@ -246,59 +357,89 @@ const secciones = [
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Optimización de precios dinámicos</p>
+                    <p class="text-gray-400">
+                      Optimización de precios dinámicos
+                    </p>
                   </div>
                 </div>
               </div>
 
               <!-- Sistemas de Recomendación -->
-              <div class="bg-gradient-to-br from-green-900/20 to-green-800/20 p-8 rounded-2xl border border-green-500/30 hover:border-green-400 transition-all">
+              <div
+                class="bg-gradient-to-br from-green-900/20 to-green-800/20 p-8 rounded-2xl border border-green-500/30 hover:border-green-400 transition-all"
+              >
                 <div class="text-5xl mb-4">🎯</div>
-                <h3 class="text-2xl font-bold text-white mb-3">Sistemas de Recomendación</h3>
-                <p class="text-gray-300 mb-4">Personalización masiva de contenido y productos</p>
+                <h3 class="text-2xl font-bold text-white mb-3">
+                  Sistemas de Recomendación
+                </h3>
+                <p class="text-gray-300 mb-4">
+                  Personalización masiva de contenido y productos
+                </p>
 
                 <div class="space-y-3 mt-6">
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Recomendaciones de productos (e-commerce)</p>
+                    <p class="text-gray-400">
+                      Recomendaciones de productos (e-commerce)
+                    </p>
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Personalización de contenido (Netflix-style)</p>
+                    <p class="text-gray-400">
+                      Personalización de contenido (Netflix-style)
+                    </p>
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Matching de usuarios (dating apps, B2B)</p>
+                    <p class="text-gray-400">
+                      Matching de usuarios (dating apps, B2B)
+                    </p>
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Filtrado colaborativo y content-based</p>
+                    <p class="text-gray-400">
+                      Filtrado colaborativo y content-based
+                    </p>
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">A/B testing y optimización continua</p>
+                    <p class="text-gray-400">
+                      A/B testing y optimización continua
+                    </p>
                   </div>
                 </div>
               </div>
 
               <!-- Computer Vision -->
-              <div class="bg-gradient-to-br from-orange-900/20 to-orange-800/20 p-8 rounded-2xl border border-orange-500/30 hover:border-orange-400 transition-all">
+              <div
+                class="bg-gradient-to-br from-orange-900/20 to-orange-800/20 p-8 rounded-2xl border border-orange-500/30 hover:border-orange-400 transition-all"
+              >
                 <div class="text-5xl mb-4">👁️</div>
-                <h3 class="text-2xl font-bold text-white mb-3">Computer Vision y OCR</h3>
-                <p class="text-gray-300 mb-4">Sistemas que ven, entienden y actúan</p>
+                <h3 class="text-2xl font-bold text-white mb-3">
+                  Computer Vision y OCR
+                </h3>
+                <p class="text-gray-300 mb-4">
+                  Sistemas que ven, entienden y actúan
+                </p>
 
                 <div class="space-y-3 mt-6">
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">OCR y extracción de datos de documentos</p>
+                    <p class="text-gray-400">
+                      OCR y extracción de datos de documentos
+                    </p>
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Detección y clasificación de objetos</p>
+                    <p class="text-gray-400">
+                      Detección y clasificación de objetos
+                    </p>
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Reconocimiento facial y biometría</p>
+                    <p class="text-gray-400">
+                      Reconocimiento facial y biometría
+                    </p>
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
@@ -312,10 +453,16 @@ const secciones = [
               </div>
 
               <!-- MLOps -->
-              <div class="bg-gradient-to-br from-cyan-900/20 to-cyan-800/20 p-8 rounded-2xl border border-cyan-500/30 hover:border-cyan-400 transition-all">
+              <div
+                class="bg-gradient-to-br from-cyan-900/20 to-cyan-800/20 p-8 rounded-2xl border border-cyan-500/30 hover:border-cyan-400 transition-all"
+              >
                 <div class="text-5xl mb-4">🔄</div>
-                <h3 class="text-2xl font-bold text-white mb-3">MLOps y Puesta en Producción</h3>
-                <p class="text-gray-300 mb-4">Del experimento a producción sin fricción</p>
+                <h3 class="text-2xl font-bold text-white mb-3">
+                  MLOps y Puesta en Producción
+                </h3>
+                <p class="text-gray-300 mb-4">
+                  Del experimento a producción sin fricción
+                </p>
 
                 <div class="space-y-3 mt-6">
                   <div class="flex items-start gap-3">
@@ -324,7 +471,9 @@ const secciones = [
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Monitoreo de drift y degradación de modelos</p>
+                    <p class="text-gray-400">
+                      Monitoreo de drift y degradación de modelos
+                    </p>
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
@@ -332,20 +481,30 @@ const secciones = [
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Feature stores y gestión de datos</p>
+                    <p class="text-gray-400">
+                      Feature stores y gestión de datos
+                    </p>
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Serving de modelos escalable (APIs)</p>
+                    <p class="text-gray-400">
+                      Serving de modelos escalable (APIs)
+                    </p>
                   </div>
                 </div>
               </div>
 
               <!-- Agentes Autónomos -->
-              <div class="bg-gradient-to-br from-pink-900/20 to-pink-800/20 p-8 rounded-2xl border border-pink-500/30 hover:border-pink-400 transition-all">
+              <div
+                class="bg-gradient-to-br from-pink-900/20 to-pink-800/20 p-8 rounded-2xl border border-pink-500/30 hover:border-pink-400 transition-all"
+              >
                 <div class="text-5xl mb-4">🦾</div>
-                <h3 class="text-2xl font-bold text-white mb-3">Agentes Autónomos con IA</h3>
-                <p class="text-gray-300 mb-4">Empleados digitales que toman decisiones</p>
+                <h3 class="text-2xl font-bold text-white mb-3">
+                  Agentes Autónomos con IA
+                </h3>
+                <p class="text-gray-300 mb-4">
+                  Empleados digitales que toman decisiones
+                </p>
 
                 <div class="space-y-3 mt-6">
                   <div class="flex items-start gap-3">
@@ -354,56 +513,28 @@ const secciones = [
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Asistentes de ventas y calificación de leads</p>
+                    <p class="text-gray-400">
+                      Asistentes de ventas y calificación de leads
+                    </p>
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Agentes de automatización de procesos (RPA + IA)</p>
+                    <p class="text-gray-400">
+                      Agentes de automatización de procesos (RPA + IA)
+                    </p>
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Sistemas multi-agente coordinados</p>
+                    <p class="text-gray-400">
+                      Sistemas multi-agente coordinados
+                    </p>
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Integración con tools y APIs externas</p>
+                    <p class="text-gray-400">
+                      Integración con tools y APIs externas
+                    </p>
                   </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <div class="border-t border-gray-700"></div>
-
-          <!-- Caso de Éxito -->
-          <section id="caso-exito">
-            <div class="bg-gradient-to-br from-[#d4e256]/10 to-[#82e256]/10 p-8 md:p-12 rounded-2xl border border-[#82e256]/20">
-              <div class="flex items-center gap-3 mb-6">
-                <div class="text-4xl">🏆</div>
-                <h2 class="text-3xl md:text-4xl font-bold text-white">Caso de Éxito: Predicción de Churn en Telco</h2>
-              </div>
-
-              <p class="text-gray-300 mb-8 text-lg">
-                Una empresa de telecomunicaciones perdía 18% de clientes al año. Implementamos un modelo de predicción de churn con acciones automáticas de retención.
-              </p>
-
-              <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-gradient-to-br from-[#82e256]/10 to-transparent p-6 rounded-xl border border-[#82e256]/30">
-                  <div class="text-4xl font-bold text-[#82e256] mb-2">-42%</div>
-                  <p class="text-white font-semibold">Reducción de churn</p>
-                  <p class="text-gray-400 text-sm mt-1">De 18% a 10.4% anual</p>
-                </div>
-
-                <div class="bg-gradient-to-br from-[#82e256]/10 to-transparent p-6 rounded-xl border border-[#82e256]/30">
-                  <div class="text-4xl font-bold text-[#82e256] mb-2">$3.2M</div>
-                  <p class="text-white font-semibold">Ahorro anual en retención</p>
-                  <p class="text-gray-400 text-sm mt-1">ROI del 680% en el primer año</p>
-                </div>
-
-                <div class="bg-gradient-to-br from-[#82e256]/10 to-transparent p-6 rounded-xl border border-[#82e256]/30">
-                  <div class="text-4xl font-bold text-[#82e256] mb-2">87%</div>
-                  <p class="text-white font-semibold">Accuracy del modelo</p>
-                  <p class="text-gray-400 text-sm mt-1">Con 14 días de anticipación</p>
                 </div>
               </div>
             </div>
@@ -413,13 +544,21 @@ const secciones = [
 
           <!-- Stack Tecnológico -->
           <section id="stack">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Stack Tecnológico de IA/ML</h2>
-            <p class="text-gray-300 mb-12 text-lg">Las mejores herramientas del ecosistema</p>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+              Stack Tecnológico de IA/ML
+            </h2>
+            <p class="text-gray-300 mb-12 text-lg">
+              Las mejores herramientas del ecosistema
+            </p>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <!-- LLMs -->
-              <div class="bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-6 rounded-xl border border-purple-500/30">
-                <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <div
+                class="bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-6 rounded-xl border border-purple-500/30"
+              >
+                <h3
+                  class="text-xl font-bold text-white mb-4 flex items-center gap-2"
+                >
                   <span>🧠</span> LLMs
                 </h3>
                 <div class="space-y-2 text-gray-300 text-sm">
@@ -433,8 +572,12 @@ const secciones = [
               </div>
 
               <!-- ML Frameworks -->
-              <div class="bg-gradient-to-br from-blue-900/20 to-blue-800/20 p-6 rounded-xl border border-blue-500/30">
-                <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <div
+                class="bg-gradient-to-br from-blue-900/20 to-blue-800/20 p-6 rounded-xl border border-blue-500/30"
+              >
+                <h3
+                  class="text-xl font-bold text-white mb-4 flex items-center gap-2"
+                >
                   <span>🔬</span> ML Frameworks
                 </h3>
                 <div class="space-y-2 text-gray-300 text-sm">
@@ -448,8 +591,12 @@ const secciones = [
               </div>
 
               <!-- MLOps -->
-              <div class="bg-gradient-to-br from-green-900/20 to-green-800/20 p-6 rounded-xl border border-green-500/30">
-                <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <div
+                class="bg-gradient-to-br from-green-900/20 to-green-800/20 p-6 rounded-xl border border-green-500/30"
+              >
+                <h3
+                  class="text-xl font-bold text-white mb-4 flex items-center gap-2"
+                >
                   <span>⚙️</span> MLOps
                 </h3>
                 <div class="space-y-2 text-gray-300 text-sm">
@@ -463,8 +610,12 @@ const secciones = [
               </div>
 
               <!-- Data & Cloud -->
-              <div class="bg-gradient-to-br from-cyan-900/20 to-cyan-800/20 p-6 rounded-xl border border-cyan-500/30">
-                <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <div
+                class="bg-gradient-to-br from-cyan-900/20 to-cyan-800/20 p-6 rounded-xl border border-cyan-500/30"
+              >
+                <h3
+                  class="text-xl font-bold text-white mb-4 flex items-center gap-2"
+                >
                   <span>☁️</span> Data & Cloud
                 </h3>
                 <div class="space-y-2 text-gray-300 text-sm">
@@ -480,80 +631,16 @@ const secciones = [
 
             <!-- Imagen tecnología -->
             <div class="mt-12">
-              <div class="rounded-2xl overflow-hidden flex justify-center mb-4">
-                <img src="/img/robot.png" alt="Machine Learning stack" class="h-auto max-w-2xl" />
+              <div class="flex justify-center mb-4">
+                <img
+                  src="/imgfondos/14.jpg"
+                  alt="Machine Learning stack"
+                  class="h-auto max-w-2xl rounded-2xl"
+                />
               </div>
-              <p class="text-center text-gray-400 text-sm italic">Tecnología de IA que funciona en el mundo real</p>
-            </div>
-          </section>
-
-          <div class="border-t border-gray-700"></div>
-
-          <!-- Metodología -->
-          <section id="metodologia">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Nuestra Metodología de IA/ML</h2>
-            <p class="text-gray-300 mb-12 text-lg">Del problema de negocio al modelo en producción</p>
-
-            <div class="space-y-6">
-              <!-- Fase 1 -->
-              <div class="flex gap-4 items-start">
-                <div class="bg-[#82e256] text-black font-bold rounded-full w-12 h-12 flex-shrink-0 flex items-center justify-center">
-                  1
-                </div>
-                <div class="flex-1 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700">
-                  <h3 class="text-xl font-bold text-white mb-2">Discovery & Viabilidad (1-2 semanas)</h3>
-                  <p class="text-gray-300">Entendimiento del problema de negocio. Análisis de datos disponibles. Estimación de ROI esperado. ¿Realmente necesitas IA o hay soluciones más simples?</p>
-                </div>
-              </div>
-
-              <!-- Fase 2 -->
-              <div class="flex gap-4 items-start">
-                <div class="bg-[#82e256] text-black font-bold rounded-full w-12 h-12 flex-shrink-0 flex items-center justify-center">
-                  2
-                </div>
-                <div class="flex-1 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700">
-                  <h3 class="text-xl font-bold text-white mb-2">EDA & Feature Engineering (2-3 semanas)</h3>
-                  <p class="text-gray-300">Análisis exploratorio de datos. Limpieza y preparación. Creación de features relevantes. Definición de métricas de éxito (negocio + técnicas).</p>
-                </div>
-              </div>
-
-              <!-- Fase 3 -->
-              <div class="flex gap-4 items-start">
-                <div class="bg-[#82e256] text-black font-bold rounded-full w-12 h-12 flex-shrink-0 flex items-center justify-center">
-                  3
-                </div>
-                <div class="flex-1 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700">
-                  <h3 class="text-xl font-bold text-white mb-2">Modelado & Experimentación (3-6 semanas)</h3>
-                  <p class="text-gray-300">Baseline model. Experimentación con diferentes algoritmos. Hyperparameter tuning. Validación cruzada y testing riguroso.</p>
-                </div>
-              </div>
-
-              <!-- Fase 4 -->
-              <div class="flex gap-4 items-start">
-                <div class="bg-[#82e256] text-black font-bold rounded-full w-12 h-12 flex-shrink-0 flex items-center justify-center">
-                  4
-                </div>
-                <div class="flex-1 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700">
-                  <h3 class="text-xl font-bold text-white mb-2">Deployment & MLOps (2-4 semanas)</h3>
-                  <p class="text-gray-300">API de serving del modelo. Integración con sistemas existentes. Monitoreo de performance en producción. Plan de re-entrenamiento.</p>
-                </div>
-              </div>
-
-              <!-- Fase 5 -->
-              <div class="flex gap-4 items-start">
-                <div class="bg-[#82e256] text-black font-bold rounded-full w-12 h-12 flex-shrink-0 flex items-center justify-center">
-                  5
-                </div>
-                <div class="flex-1 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700">
-                  <h3 class="text-xl font-bold text-white mb-2">Monitoring & Mejora Continua (ongoing)</h3>
-                  <p class="text-gray-300">Dashboard de métricas de negocio y técnicas. Detección de drift. Re-entrenamiento cuando sea necesario. Optimización basada en feedback real.</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Imagen de apoyo -->
-            <div class="flex justify-center mt-12">
-              <img src="/img/personaje2.png" alt="IA y Machine Learning" class="max-w-md w-full rounded-2xl" />
+              <p class="text-center text-gray-400 text-sm italic">
+                Tecnología de IA que funciona en el mundo real
+              </p>
             </div>
           </section>
 
@@ -561,51 +648,99 @@ const secciones = [
 
           <!-- Garantías -->
           <section id="garantias">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Nuestras Garantías en IA/ML</h2>
+            <h2
+              class="text-3xl md:text-4xl font-bold text-white mb-12 text-center"
+            >
+              Nuestras Garantías en IA/ML
+            </h2>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center">
+              <div
+                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
+              >
                 <div class="text-4xl mb-3">💯</div>
-                <h3 class="text-lg font-bold text-white mb-2">Transparencia Total</h3>
-                <p class="text-gray-400 text-sm">Te explicamos cómo funcionan los modelos. No "cajas negras" mágicas.</p>
+                <h3 class="text-lg font-bold text-white mb-2">
+                  Transparencia Total
+                </h3>
+                <p class="text-gray-400 text-sm">
+                  Te explicamos cómo funcionan los modelos. No "cajas negras"
+                  mágicas.
+                </p>
               </div>
 
-              <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center">
+              <div
+                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
+              >
                 <div class="text-4xl mb-3">📊</div>
                 <h3 class="text-lg font-bold text-white mb-2">ROI Medible</h3>
-                <p class="text-gray-400 text-sm">KPIs de negocio claros. Tracking del impacto real en tu operación.</p>
+                <p class="text-gray-400 text-sm">
+                  KPIs de negocio claros. Tracking del impacto real en tu
+                  operación.
+                </p>
               </div>
 
-              <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center">
+              <div
+                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
+              >
                 <div class="text-4xl mb-3">🔧</div>
-                <h3 class="text-lg font-bold text-white mb-2">Transferencia de Conocimiento</h3>
-                <p class="text-gray-400 text-sm">Tu equipo aprende a mantener y mejorar los modelos.</p>
+                <h3 class="text-lg font-bold text-white mb-2">
+                  Transferencia de Conocimiento
+                </h3>
+                <p class="text-gray-400 text-sm">
+                  Tu equipo aprende a mantener y mejorar los modelos.
+                </p>
               </div>
 
-              <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center">
+              <div
+                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
+              >
                 <div class="text-4xl mb-3">⚡</div>
-                <h3 class="text-lg font-bold text-white mb-2">Producción en Semanas</h3>
-                <p class="text-gray-400 text-sm">No años de investigación. Modelos funcionando rápido.</p>
+                <h3 class="text-lg font-bold text-white mb-2">
+                  Producción en Semanas
+                </h3>
+                <p class="text-gray-400 text-sm">
+                  No años de investigación. Modelos funcionando rápido.
+                </p>
               </div>
 
-              <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center">
+              <div
+                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
+              >
                 <div class="text-4xl mb-3">🔒</div>
-                <h3 class="text-lg font-bold text-white mb-2">Privacidad y Seguridad</h3>
-                <p class="text-gray-400 text-sm">Tus datos están seguros. Cumplimiento de regulaciones.</p>
+                <h3 class="text-lg font-bold text-white mb-2">
+                  Privacidad y Seguridad
+                </h3>
+                <p class="text-gray-400 text-sm">
+                  Tus datos están seguros. Cumplimiento de regulaciones.
+                </p>
               </div>
 
-              <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center">
+              <div
+                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
+              >
                 <div class="text-4xl mb-3">🎯</div>
-                <h3 class="text-lg font-bold text-white mb-2">No Promesas Vacías</h3>
-                <p class="text-gray-400 text-sm">Si la IA no es viable para tu caso, te lo decimos antes de empezar.</p>
+                <h3 class="text-lg font-bold text-white mb-2">
+                  No Promesas Vacías
+                </h3>
+                <p class="text-gray-400 text-sm">
+                  Si la IA no es viable para tu caso, te lo decimos antes de
+                  empezar.
+                </p>
               </div>
             </div>
           </section>
 
           <!-- CTA Final -->
-          <section class="bg-gradient-to-br from-[#d4e256] to-[#82e256] p-8 md:p-12 rounded-2xl text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">¿Listo para implementar IA con ROI real?</h2>
-            <p class="text-xl text-black/80 mb-8">Agenda una consultoría gratuita y analizamos la viabilidad de IA en tu negocio</p>
+          <section
+            class="bg-gradient-to-br from-[#d4e256] to-[#82e256] p-8 md:p-12 rounded-2xl text-center"
+          >
+            <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">
+              ¿Listo para implementar IA con ROI real?
+            </h2>
+            <p class="text-xl text-black/80 mb-8">
+              Agenda una consultoría gratuita y analizamos la viabilidad de IA
+              en tu negocio
+            </p>
             <a
               href="/#contenido10"
               class="inline-block px-8 py-4 bg-black text-white font-bold rounded-lg hover:bg-gray-900 transition-all duration-300 transform hover:scale-105 text-lg"
@@ -619,16 +754,20 @@ const secciones = [
 
     <!-- Servicios Relacionados -->
     <section class="container mx-auto px-4 py-16 max-w-7xl">
-      <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Otros Servicios</h2>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
+        Otros Servicios
+      </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {todosLosServicios.map(servicio => (
-          <SpotlightCard href={servicio.url} className="group">
-            <h3 class="text-lg font-bold text-white mb-2 group-hover:text-[#82e256] transition-colors">
-              {servicio.titulo}
-            </h3>
-            <p class="text-gray-400 text-sm">{servicio.descripcion}</p>
-          </SpotlightCard>
-        ))}
+        {
+          todosLosServicios.map((servicio) => (
+            <SpotlightCard href={servicio.url} className="group">
+              <h3 class="text-lg font-bold text-white mb-2 group-hover:text-[#82e256] transition-colors">
+                {servicio.titulo}
+              </h3>
+              <p class="text-gray-400 text-sm">{servicio.descripcion}</p>
+            </SpotlightCard>
+          ))
+        }
       </div>
     </section>
   </div>
@@ -643,16 +782,19 @@ const secciones = [
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener("DOMContentLoaded", () => {
     const links = document.querySelectorAll('a[href^="#"]');
-    links.forEach(link => {
-      link.addEventListener('click', (e) => {
+    links.forEach((link) => {
+      link.addEventListener("click", (e) => {
         e.preventDefault();
-        const targetId = link.getAttribute('href')?.slice(1);
+        const targetId = link.getAttribute("href")?.slice(1);
         if (targetId) {
           const targetElement = document.getElementById(targetId);
           if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            targetElement.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
           }
         }
       });

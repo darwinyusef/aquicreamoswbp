@@ -4,32 +4,51 @@
   class="w-full md:px-16 px-5 py-8 min-h-screen flex flex-col items-center justify-center bg-[#1a1a1a] g-hero-pattern bg-repeat w-full min-h-screen bg-[url(/img/fondo.png)] bg-no-repeat bg-cover bg-center"
 >
   <div
-    class="flex flex-col items-center px-5 py-2 h-full text-center max-w-7xl w-full "
+    class="flex flex-col items-center px-5 py-2 h-full text-center max-w-7xl w-full"
   >
     <!-- Título rediseñado con estilo del sitio -->
     <div class="sticky-title w-full mb-12">
-      <h1 class="text-2xl sm:text-3xxl md:text-4xl lg:text-5xl font-black mb-6 leading-tight">
+      <h1
+        class="text-2xl sm:text-3xxl md:text-4xl lg:text-5xl font-black mb-6 leading-tight"
+      >
         <span class="text-white">Como creamos </span>
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-pink-500 to-red-600">juntos estos productos</span>
+        <span
+          class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-pink-500 to-red-600"
+          >juntos estos productos</span
+        >
       </h1>
 
-      <p class="text-lg md:text-xl lg:text-2xl text-gray-300 font-light max-w-3xl mx-auto leading-relaxed">
-        Descubre nuestros proyectos, tutoriales y consejos sobre desarrollo de software e inteligencia artificial
+      <p
+        class="text-lg md:text-xl lg:text-2xl text-gray-300 font-light max-w-3xl mx-auto leading-relaxed"
+      >
+        Descubre nuestros proyectos, tutoriales y consejos sobre desarrollo de
+        software e inteligencia artificial
       </p>
 
       <!-- Línea decorativa -->
       <div class="mt-8 flex items-center justify-center gap-2">
-        <div class="h-px w-16 md:w-24 bg-gradient-to-r from-transparent to-red-500"></div>
+        <div
+          class="h-px w-16 md:w-24 bg-gradient-to-r from-transparent to-red-500"
+        >
+        </div>
         <div class="w-2 h-2 rounded-full bg-red-500"></div>
-        <div class="h-px w-16 md:w-24 bg-gradient-to-l from-transparent to-red-500"></div>
+        <div
+          class="h-px w-16 md:w-24 bg-gradient-to-l from-transparent to-red-500"
+        >
+        </div>
       </div>
     </div>
 
     <!-- Layout responsive de videos -->
-    <div class="flex flex-col lg:flex-row gap-6 w-full max-w-7xl" id="video-section">
+    <div
+      class="flex flex-col lg:flex-row gap-6 w-full max-w-7xl"
+      id="video-section"
+    >
       <!-- Video principal con controles -->
       <div class="w-full lg:w-[75%] flex flex-col gap-4">
-        <div class="aspect-video bg-black rounded-xl overflow-hidden shadow-2xl border-2 border-gray-700">
+        <div
+          class="aspect-video bg-black rounded-xl overflow-hidden shadow-2xl border-2 border-gray-700"
+        >
           <div id="main-player"></div>
         </div>
 
@@ -39,16 +58,31 @@
             id="prev-btn"
             class="flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-700 hover:to-pink-700 text-white rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl hover:scale-105"
           >
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 19l-7-7 7-7"></path>
             </svg>
             <span class="hidden sm:inline font-semibold">Anterior</span>
           </button>
 
-          <div class="flex items-center gap-3 bg-gray-800/50 px-4 py-2 rounded-lg">
-            <span id="current-video-number" class="text-red-500 font-bold text-lg">1</span>
+          <div
+            class="flex items-center gap-3 bg-gray-800/50 px-4 py-2 rounded-lg"
+          >
+            <span
+              id="current-video-number"
+              class="text-red-500 font-bold text-lg">1</span
+            >
             <span class="text-gray-400">/</span>
-            <span id="total-videos" class="text-gray-300 font-semibold">10</span>
+            <span id="total-videos" class="text-gray-300 font-semibold">10</span
+            >
           </div>
 
           <button
@@ -56,8 +90,17 @@
             class="flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-700 hover:to-pink-700 text-white rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl hover:scale-105"
           >
             <span class="hidden sm:inline font-semibold">Siguiente</span>
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"></path>
             </svg>
           </button>
         </div>
@@ -66,9 +109,15 @@
       <!-- Carousel vertical de videos -->
       <div class="w-full lg:w-[25%] flex flex-col gap-3">
         <!-- Header del carousel -->
-        <div class="flex items-center justify-between px-3 py-2.5 bg-gradient-to-r from-gray-800/40 to-gray-800/30 rounded-lg border border-gray-700/80 shadow-lg">
+        <div
+          class="flex items-center justify-between px-3 py-2.5 bg-gradient-to-r from-gray-800/40 to-gray-800/30 rounded-lg border border-gray-700/80 shadow-lg"
+        >
           <h3 class="text-white font-bold text-sm flex items-center gap-2">
-            <svg class="w-4 h-4 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+            <svg
+              class="w-4 h-4 text-red-500"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
               <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path>
             </svg>
             Lista de Videos
@@ -77,8 +126,17 @@
             id="scroll-up"
             class="p-1.5 text-red-500 hover:bg-red-500/20 rounded-md transition-all hover:scale-110"
           >
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 15l7-7 7 7"></path>
             </svg>
           </button>
         </div>
@@ -97,8 +155,17 @@
             id="scroll-down"
             class="p-1.5 text-red-500 hover:bg-red-500/20 rounded-md transition-all hover:scale-110"
           >
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"></path>
             </svg>
           </button>
         </div>
@@ -149,11 +216,6 @@
       id: "gB6WLkSrtJk", // Video 8
       title: "Next.js Full Course",
       thumbnail: "https://img.youtube.com/vi/gB6WLkSrtJk/maxresdefault.jpg",
-    },
-    {
-      id: "RGOj5yH7evk", // Video 9
-      title: "GraphQL & Apollo",
-      thumbnail: "https://img.youtube.com/vi/RGOj5yH7evk/maxresdefault.jpg",
     },
     {
       id: "tN6oJu2DqCM", // Video 10
@@ -340,7 +402,12 @@
   function updateCarouselUI() {
     document.querySelectorAll(".carousel-item").forEach((item, index) => {
       if (index === currentVideoIndex) {
-        item.classList.add("ring-3", "ring-red-500", "shadow-lg", "shadow-red-500/50");
+        item.classList.add(
+          "ring-3",
+          "ring-red-500",
+          "shadow-lg",
+          "shadow-red-500/50",
+        );
         item.classList.remove("ring-1", "ring-gray-700");
 
         // Agregar indicador si no existe
@@ -351,7 +418,12 @@
           item.appendChild(indicator);
         }
       } else {
-        item.classList.remove("ring-3", "ring-red-500", "shadow-lg", "shadow-red-500/50");
+        item.classList.remove(
+          "ring-3",
+          "ring-red-500",
+          "shadow-lg",
+          "shadow-red-500/50",
+        );
         item.classList.add("ring-1", "ring-gray-700");
 
         // Remover indicador de reproducción

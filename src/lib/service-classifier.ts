@@ -170,7 +170,7 @@ function getTrainingData(): { inputs: number[][], labels: number[][] } {
   // Patrón 1: Desarrollo Web/API (label: [1,0,0,0,0])
   for (let i = 0; i < 20; i++) {
     inputs.push([
-      1,0,0,0,0,0, // web_app
+      1, 0, 0, 0, 0, 0, // web_app
       Math.random() * 0.5 + 0.3, // stage: planning-development
       Math.random() * 0.6 + 0.2, // budget: moderate
       Math.random() * 0.5 + 0.3, // timeline: 1-6 months
@@ -190,7 +190,7 @@ function getTrainingData(): { inputs: number[][], labels: number[][] } {
   // Patrón 2: Desarrollo Móvil (label: [0,1,0,0,0])
   for (let i = 0; i < 20; i++) {
     inputs.push([
-      0,1,0,0,0,0, // mobile_app
+      0, 1, 0, 0, 0, 0, // mobile_app
       Math.random() * 0.5 + 0.2, // stage
       Math.random() * 0.6 + 0.3, // budget: higher
       Math.random() * 0.5 + 0.4, // timeline: longer
@@ -211,7 +211,7 @@ function getTrainingData(): { inputs: number[][], labels: number[][] } {
   // Patrón 3: Integración de IA (label: [0,0,1,0,0])
   for (let i = 0; i < 20; i++) {
     inputs.push([
-      0,0,0,1,0,0, // ai_integration
+      0, 0, 0, 1, 0, 0, // ai_integration
       Math.random() * 0.5 + 0.4, // stage: development-production
       Math.random() * 0.6 + 0.4, // budget: higher
       Math.random() * 0.6 + 0.3, // timeline: flexible
@@ -232,7 +232,7 @@ function getTrainingData(): { inputs: number[][], labels: number[][] } {
   // Patrón 4: Revisión de Arquitectura (label: [0,0,0,1,0])
   for (let i = 0; i < 20; i++) {
     inputs.push([
-      0,0,0,0,1,0, // architecture_review
+      0, 0, 0, 0, 1, 0, // architecture_review
       Math.random() * 0.4 + 0.6, // stage: production-scaling
       Math.random() * 0.6 + 0.3, // budget
       Math.random() * 0.5 + 0.2, // timeline: shorter
@@ -253,7 +253,7 @@ function getTrainingData(): { inputs: number[][], labels: number[][] } {
   // Patrón 5: Consultoría General (label: [0,0,0,0,1])
   for (let i = 0; i < 20; i++) {
     inputs.push([
-      0,0,0,0,0,1, // other
+      0, 0, 0, 0, 0, 1, // other
       Math.random() * 0.6 + 0.1, // stage: idea-development
       Math.random() * 0.8 + 0.1, // budget: variable
       Math.random() * 0.8 + 0.1, // timeline: flexible
@@ -320,10 +320,10 @@ function generateRecommendations(
     case 'Desarrollo Web/API':
       recommendations = [
         'Arquitectura basada en microservicios o monolito modular',
-        'API RESTful o GraphQL según complejidad',
+        'API RESTful según complejidad',
         'Base de datos relacional (PostgreSQL) o NoSQL (MongoDB)',
         'Deploy en servicios cloud (AWS, Google Cloud, o Azure)',
-        'CI/CD con GitHub Actions o GitLab CI'
+        'CI/CD con GitHub Actions'
       ];
       estimatedDuration = data.timeline === 'urgent' ? '4-8 semanas' : '8-16 semanas';
       suggestedApproach = 'Desarrollo incremental con entregas semanales y feedback continuo';
@@ -332,8 +332,7 @@ function generateRecommendations(
     case 'Desarrollo Móvil':
       recommendations = [
         'React Native para desarrollo cross-platform',
-        'Flutter si se requiere alto rendimiento',
-        'Integración con APIs backend mediante REST o GraphQL',
+        'Integración con APIs backend mediante REST',
         'Sistema de autenticación robusto (Firebase Auth, Auth0)',
         'Publicación en App Store y Google Play'
       ];

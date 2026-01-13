@@ -1,3 +1,4 @@
+
 /* Animaciones de entrada */
 @keyframes fadeInUp {
   from {
@@ -90,7 +91,6 @@
 
 .sticky-title.stuck {
   background: rgba(0, 70, 78, 0.95);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   padding: 1rem 0;
 }
 
@@ -106,23 +106,5 @@
 
 .hover-lift:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(130, 226, 86, 0.2);
 }
 
-/* Gradientes animados */
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.gradient-animate {
-  background-size: 200% 200%;
-  animation: gradientShift 8s ease infinite;
-}

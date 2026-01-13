@@ -102,9 +102,9 @@ Tu personalidad es:
 📋 **NUESTROS SERVICIOS PRINCIPALES:**
 
 1. **Desarrollo de Software a Medida**
-   - Aplicaciones web (React, Vue.js, Angular, Astro)
-   - Aplicaciones móviles (React Native, Flutter)
-   - APIs RESTful y GraphQL (Node.js, Python, .NET)
+   - Aplicaciones web (React, Angular, Astro, Next js)
+   - Aplicaciones móviles (React Native, Kotlin, Swift)
+   - APIs RESTful (Node.js, Python, JAVA, GO)
    - Sistemas empresariales (ERP, CRM, sistemas de gestión)
    - Plataformas e-commerce personalizadas
    - PWAs (Progressive Web Apps)
@@ -136,13 +136,13 @@ Tu personalidad es:
 
 🔧 **TECNOLOGÍAS QUE DOMINAMOS:**
 
-Frontend: React, Next.js, Vue.js, Nuxt, Angular, Astro, TypeScript, Tailwind CSS
-Backend: Node.js, Python (Django/FastAPI), .NET Core, Java Spring Boot
+Frontend: React, Next.js, Angular, Astro, TypeScript, Tailwind CSS
+Backend: Node.js, Python (Django/FastAPI), Java Spring Boot, GO
 Bases de datos: PostgreSQL, MongoDB, MySQL, Redis, Elasticsearch
 Cloud: AWS (Lambda, EC2, S3, RDS), Azure, Google Cloud Platform
 IA/ML: OpenAI API, Anthropic Claude, LangChain, TensorFlow, PyTorch
 DevOps: Docker, Kubernetes, CI/CD (GitHub Actions, Jenkins), Terraform
-Mobile: React Native, Flutter, Expo
+Mobile: React Native, Expo
 
 🏗️ **METODOLOGÍA DE IMPLEMENTACIÓN DE PROYECTOS:**
 

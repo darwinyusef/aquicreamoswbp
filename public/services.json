@@ -369,15 +369,6 @@
     "icon": "api"
   },
   {
-    "id": 41,
-    "name": "GraphQL APIs",
-    "description": "Implementación de APIs GraphQL con Apollo Server, resolvers optimizados, subscriptions en tiempo real y DataLoader.",
-    "price": 30000,
-    "duration": "Por hora",
-    "is_active": true,
-    "icon": "layers"
-  },
-  {
     "id": 42,
     "name": "Backend con Node.js/Express",
     "description": "Desarrollo de aplicaciones backend robustas con Node.js, Express, middleware personalizados y arquitectura escalable.",
@@ -432,15 +423,6 @@
     "icon": "rocket"
   },
   {
-    "id": 48,
-    "name": "Aplicaciones Vue.js",
-    "description": "Desarrollo frontend con Vue.js 3, Composition API, Pinia para state management y componentes reactivos.",
-    "price": 30000,
-    "duration": "Por hora",
-    "is_active": true,
-    "icon": "code2"
-  },
-  {
     "id": 49,
     "name": "TypeScript Full Stack",
     "description": "Desarrollo type-safe en frontend y backend con TypeScript, interfaces compartidas y reducción de errores en runtime.",
@@ -488,7 +470,7 @@
   {
     "id": 54,
     "name": "Integración de APIs en Apps Móviles",
-    "description": "Consumo de APIs REST/GraphQL en móviles, manejo de autenticación, caché offline y sincronización de datos.",
+    "description": "Consumo de APIs REST en móviles, manejo de autenticación, caché offline y sincronización de datos.",
     "price": 30000,
     "duration": "Por hora",
     "is_active": true,
