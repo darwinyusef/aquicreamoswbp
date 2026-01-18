@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import SpotlightCard from '../../components/SpotlightCard.astro';
+import SimpleCarousel from "../../components/SimpleCarousel.astro";
 
 // Todos los servicios disponibles (excluyendo el actual)
 const todosLosServicios = [
@@ -139,7 +140,7 @@ const secciones = [
               <div id="superpoderes">
                 <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">Los Superpoderes que Agregamos a Tu App</h2>
 
-                <div class="grid md:grid-cols-2 gap-6">
+                <SimpleCarousel id="superpoderes-ia-carousel">
                   <!-- Búsqueda Semántica -->
                   <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
                     <div class="text-5xl mb-4">🔍</div>
@@ -187,7 +188,7 @@ const secciones = [
                       <p class="text-sm text-gray-400"><strong>Ejemplo:</strong> Asistente legal que cita cláusulas exactas de tus contratos al responder</p>
                     </div>
                   </div>
-                </div>
+                </SimpleCarousel>
 
                 <div class="my-8">
                   <div class="flex justify-center mb-4">
@@ -204,7 +205,7 @@ const secciones = [
               <div id="stack">
                 <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">Stack de Vanguardia</h2>
 
-                <div class="grid md:grid-cols-3 gap-6 mt-8">
+                <SimpleCarousel id="stack-tecnologico-carousel">
                   <!-- Modelos -->
                   <div class="bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-6 rounded-xl border border-purple-500/30">
                     <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
@@ -246,7 +247,7 @@ const secciones = [
                       <p>• CI/CD automatizado</p>
                     </div>
                   </div>
-                </div>
+                </SimpleCarousel>
 
                 <div class="my-8">
                   <div class="flex justify-center mb-4">
@@ -262,7 +263,7 @@ const secciones = [
               <div id="ventajas">
                 <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">Por Qué Elegirnos</h2>
 
-                <div class="grid md:grid-cols-2 gap-6">
+                <SimpleCarousel id="ventajas-elegirnos-carousel">
                   <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border-l-4 border-[#82e256]">
                     <h4 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
                       <span>🚀</span>
@@ -294,7 +295,7 @@ const secciones = [
                     </h4>
                     <p class="text-gray-300">De 100 a 100K usuarios sin problemas. Arquitectura cloud-native lista para crecer contigo.</p>
                   </div>
-                </div>
+                </SimpleCarousel>
               </div>
 
               <!-- CTA Final -->

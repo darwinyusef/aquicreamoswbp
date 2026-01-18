@@ -1,0 +1,658 @@
+{
+  "desarrollo-web": {
+    "servicio": "Desarrollo Web Moderno & Rápido + IA",
+    "carousels": [
+      {
+        "id": "problemas-carousel",
+        "titulo": "¿Por qué tu sitio actual está perdiendo dinero?",
+        "items": [
+          {
+            "icon": "⚡",
+            "titulo": "Carga Lenta = Ventas Perdidas",
+            "texto": "Dato: 53% de usuarios abandonan si una página tarda más de 3 segundos.",
+            "solucion": "SSR + Lazy Loading + CDN global = Páginas que cargan en 0.8-1.5 segundos"
+          },
+          {
+            "icon": "🔍",
+            "titulo": "Mal SEO = Invisible en Google",
+            "texto": "Problema: Sitios en React/Vue sin SSR no indexan bien en buscadores.",
+            "solucion": "Frameworks con SSR/SSG + Schema markup = Top 3 en búsquedas en 3-6 meses"
+          },
+          {
+            "icon": "📱",
+            "titulo": "No Responsive = Pierdes 60% del Tráfico",
+            "texto": "Dato: Google penaliza sitios que no son mobile-first desde 2021.",
+            "solucion": "Mobile-first design + PWA + Touch-optimized = Experiencia perfecta en cualquier dispositivo"
+          },
+          {
+            "icon": "📈",
+            "titulo": "Sin Escalabilidad = Límites de Crecimiento",
+            "texto": "Problema: Tu sitio se cae cuando hay mucho tráfico o es difícil agregar funcionalidades.",
+            "solucion": "Arquitectura modular + API First + Cloud hosting = Soporta millones de usuarios"
+          }
+        ]
+      }
+    ]
+  },
+  "agentes-ia": {
+    "servicio": "Agentes de inteligencia artificial y MCP's",
+    "carousels": [
+      {
+        "id": "capacidades-carousel",
+        "titulo": "Cómo Integramos Agentes IA en Tu Negocio",
+        "subtitulo": "Desarrollamos agentes que se integran con tus aplicaciones web existentes o nuevas usando MCP",
+        "items": [
+          {
+            "icon": "🔗",
+            "titulo": "Integración con Apps Existentes",
+            "texto": "Conectamos agentes IA a tus aplicaciones web actuales sin necesidad de reescribirlas. Los agentes acceden a tus bases de datos y sistemas mediante Model Context Protocol (MCP).",
+            "ejemplo": "Agente integrado a tu CRM antiguo que lee y actualiza registros automáticamente"
+          },
+          {
+            "icon": "🔄",
+            "titulo": "MCP: Lee y Escribe en Tus Sistemas",
+            "texto": "Model Context Protocol (MCP) permite que la IA interactúe directamente con bases de datos, APIs y software existente. El agente puede leer datos, ejecutar acciones y actualizar información en tiempo real.",
+            "capacidad": "Interoperabilidad total con PostgreSQL, MySQL, APIs REST, Salesforce, etc."
+          },
+          {
+            "icon": "🔍",
+            "titulo": "Análisis: ¿Puede un Agente Vivir en Tu Proyecto?",
+            "texto": "Analizamos tu aplicación web (existente o nueva) para determinar si un agente IA puede integrarse efectivamente. Evaluamos infraestructura, bases de datos, flujos de trabajo y definimos tareas específicas donde un agente agregaría valor real.",
+            "proceso": "Análisis técnico + definición de tareas directas y medibles"
+          },
+          {
+            "icon": "⚙️",
+            "titulo": "Programación de Agentes para Tareas Directas",
+            "texto": "Una vez validada la viabilidad, programamos agentes especializados para tareas como: gestión de chats, presentación de productos, apoyo en ventas, control de calidad. Cada agente se diseña, analiza y desarrolla específicamente para tu operación.",
+            "areas": "Ventas, calidad, interoperabilidad, atención al cliente"
+          }
+        ]
+      },
+      {
+        "id": "stack-agentico-carousel",
+        "titulo": "Stack Tecnológico para Agentes IA",
+        "subtitulo": "Tecnologías que usamos para desarrollo agéntico",
+        "items": [
+          {
+            "icon": "🔗",
+            "titulo": "Orquestación de Agentes",
+            "tecnologias": [
+              {
+                "nombre": "LangChain",
+                "descripcion": "Framework para desarrollo con LLMs"
+              },
+              {
+                "nombre": "LangGraph",
+                "descripcion": "Construcción de agentes con flujos complejos"
+              },
+              {
+                "nombre": "LangSmith",
+                "descripcion": "Observabilidad y debugging de agentes"
+              }
+            ]
+          },
+          {
+            "icon": "🧠",
+            "titulo": "Modelos GenAI & Monitoreo",
+            "tecnologias": [
+              {
+                "nombre": "GPT-4, Claude, Gemini",
+                "descripcion": "Modelos de lenguaje de última generación"
+              },
+              {
+                "nombre": "MLflow",
+                "descripcion": "Tracking y gestión de agentes GenAI"
+              },
+              {
+                "nombre": "FastMCP",
+                "descripcion": "Implementación rápida de Model Context Protocol"
+              }
+            ]
+          },
+          {
+            "icon": "🔄",
+            "titulo": "Automatización de Flujos",
+            "tecnologias": [
+              {
+                "nombre": "N8N",
+                "descripcion": "Workflows y automatizaciones visuales"
+              },
+              {
+                "nombre": "WhatsApp API",
+                "descripcion": "Integración de agentes con WhatsApp Business"
+              },
+              {
+                "nombre": "Python + JavaScript",
+                "descripcion": "Lenguajes principales para lógica de agentes"
+              }
+            ]
+          },
+          {
+            "icon": "🎙️",
+            "titulo": "Voz y APIs Backend",
+            "tecnologias": [
+              {
+                "nombre": "Whisper",
+                "descripcion": "Speech-to-Text para agentes de voz"
+              },
+              {
+                "nombre": "Google TTS",
+                "descripcion": "Text-to-Speech para respuestas de audio"
+              },
+              {
+                "nombre": "FastAPI",
+                "descripcion": "APIs de alto rendimiento para agentes"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "aplicaciones-ia": {
+    "servicio": "Apps con integraciones hechas a la medida + IA",
+    "carousels": [
+      {
+        "id": "superpoderes-ia-carousel",
+        "titulo": "Superpoderes de IA para tus Apps",
+        "items": [
+          {
+            "icon": "🔍",
+            "titulo": "Búsqueda Inteligente",
+            "texto": "Los usuarios encuentran lo que buscan instantáneamente con búsqueda semántica."
+          },
+          {
+            "icon": "✨",
+            "titulo": "Contenido Personalizado",
+            "texto": "Genera contenido dinámico adaptado a cada usuario en tiempo real."
+          },
+          {
+            "icon": "🎯",
+            "titulo": "Recomendaciones Predictivas",
+            "texto": "Anticipa necesidades y sugiere acciones basadas en patrones de comportamiento."
+          },
+          {
+            "icon": "📚",
+            "titulo": "RAG (Retrieval-Augmented Generation)",
+            "texto": "Respuestas precisas usando tu propia base de conocimientos empresarial."
+          }
+        ]
+      },
+      {
+        "id": "stack-tecnologico-carousel",
+        "titulo": "Stack Tecnológico",
+        "items": [
+          {
+            "icon": "🧠",
+            "titulo": "Modelos de IA",
+            "tecnologias": [
+              "GPT-4 - Razonamiento complejo",
+              "Claude Opus - Análisis de documentos",
+              "Llama 3 - Soluciones on-premise"
+            ]
+          },
+          {
+            "icon": "🔧",
+            "titulo": "Infraestructura",
+            "tecnologias": [
+              "LangChain - Orquestación",
+              "Pinecone/Weaviate - Vector DB",
+              "FastAPI - APIs de alto rendimiento"
+            ]
+          },
+          {
+            "icon": "💻",
+            "titulo": "Frontend/Backend",
+            "tecnologias": [
+              "Next.js/React - Interfaces",
+              "Python/Node.js - Backend",
+              "PostgreSQL/MongoDB - Datos"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ventajas-elegirnos-carousel",
+        "titulo": "Por Qué Elegirnos",
+        "items": [
+          {
+            "icon": "🎯",
+            "titulo": "Experiencia Real en Producción",
+            "texto": "Apps con IA funcionando en producción atendiendo miles de usuarios diarios."
+          },
+          {
+            "icon": "💰",
+            "titulo": "Optimización de Costos",
+            "texto": "Reducimos costos de API hasta 70% con estrategias de caching y modelos híbridos."
+          },
+          {
+            "icon": "⚡",
+            "titulo": "Latencia Mínima",
+            "texto": "Respuestas en <2 segundos con técnicas de streaming y optimización."
+          },
+          {
+            "icon": "📈",
+            "titulo": "Escalabilidad Garantizada",
+            "texto": "Arquitectura que soporta desde 100 hasta 1M+ de usuarios sin degradación."
+          }
+        ]
+      }
+    ]
+  },
+  "apps-moviles": {
+    "servicio": "Aplicaciones Nativas & Cross-Platform",
+    "carousels": [
+      {
+        "id": "nativa-vs-hibrida-carousel",
+        "titulo": "¿Nativa o Híbrida? Te Ayudamos a Decidir",
+        "items": [
+          {
+            "icon": "⚡",
+            "titulo": "Desarrollo Nativo",
+            "texto": "Swift para iOS • Kotlin para Android",
+            "ideal_para": "Apps que requieren máxima performance (juegos, edición de video), uso intensivo de hardware (AR, sensores) o experiencia 100% nativa.",
+            "ventajas": "Velocidad extrema, acceso completo a APIs del sistema, mejor UX",
+            "consideracion": "Costo y tiempo 2x (una app por plataforma)"
+          },
+          {
+            "icon": "🚀",
+            "titulo": "Desarrollo Híbrido",
+            "texto": "React Native",
+            "ideal_para": "Apps CRUD (formularios, listas, chat), lanzamiento simultáneo iOS + Android, time-to-market rápido.",
+            "ventajas": "1 código = 2 plataformas, desarrollo 40-60% más rápido, menor costo de mantenimiento",
+            "consideracion": "Leves limitaciones en features muy específicas"
+          }
+        ]
+      }
+    ]
+  },
+  "computer-vision": {
+    "servicio": "Visión por Computadora hecha a la medida. + IA",
+    "carousels": [
+      {
+        "id": "capacidades-computer-vision",
+        "titulo": "¿Qué Podemos Hacer con Computer Vision?",
+        "items": [
+          {
+            "icon": "🔍",
+            "titulo": "Detección de Objetos",
+            "texto": "Identifica y categoriza elementos en imágenes o video en tiempo real.",
+            "caso_real": "Sistema que cuenta productos en estantes con 99.5% de precisión"
+          },
+          {
+            "icon": "👤",
+            "titulo": "Reconocimiento Facial",
+            "texto": "Identifica personas y analiza emociones con alta precisión.",
+            "caso_real": "Control de acceso empresarial sin tarjetas ni huella digital"
+          },
+          {
+            "icon": "📝",
+            "titulo": "OCR Avanzado",
+            "texto": "Extrae texto de documentos, placas, formularios y más.",
+            "caso_real": "App que digitaliza facturas automáticamente con solo una foto"
+          },
+          {
+            "icon": "🏭",
+            "titulo": "Inspección Industrial",
+            "texto": "Control de calidad automatizado con precisión milimétrica.",
+            "caso_real": "Detecta defectos a 100 unidades/min con 99.8% de precisión"
+          },
+          {
+            "icon": "🛒",
+            "titulo": "Visual Search",
+            "texto": "Búsqueda por imagen: encuentra productos similares al instante.",
+            "caso_real": "E-commerce que permite buscar productos con una foto"
+          }
+        ]
+      }
+    ]
+  },
+  "arquitectura": {
+    "servicio": "Arquitectura de Software Escalable & Robusta",
+    "carousels": [
+      {
+        "id": "stack-tecnologias-carousel",
+        "titulo": "Stack de Tecnologías",
+        "items": [
+          {
+            "icon": "⚙️",
+            "titulo": "Backend",
+            "tecnologias": [
+              "Node.js / TypeScript",
+              "Python / FastAPI",
+              "Go (alto performance)",
+              "Rust (servicios críticos)"
+            ]
+          },
+          {
+            "icon": "🗄️",
+            "titulo": "Bases de datos",
+            "tecnologias": [
+              "PostgreSQL (relacional)",
+              "MongoDB (documentos)",
+              "Redis (caché y sesiones)",
+              "Elasticsearch (búsqueda)"
+            ]
+          },
+          {
+            "icon": "📬",
+            "titulo": "Mensajería",
+            "tecnologias": [
+              "RabbitMQ (tareas asíncronas)",
+              "Apache Kafka (streaming)",
+              "AWS SQS/SNS (managed queues)"
+            ]
+          },
+          {
+            "icon": "☁️",
+            "titulo": "Infraestructura",
+            "tecnologias": [
+              "Docker + Kubernetes",
+              "AWS / GCP / Azure",
+              "Terraform (IaC)",
+              "Nginx / Traefik"
+            ]
+          },
+          {
+            "icon": "📊",
+            "titulo": "Observabilidad",
+            "tecnologias": [
+              "Prometheus + Grafana",
+              "ELK Stack (logs)",
+              "Jaeger (tracing)",
+              "Sentry (error tracking)"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "desarrollo-fullstack": {
+    "servicio": "Desarrollo Full-Stack",
+    "carousels": [
+      {
+        "id": "capas-fullstack-carousel",
+        "titulo": "Las 3 Capas del Full-Stack",
+        "items": [
+          {
+            "icon": "🎨",
+            "titulo": "Frontend",
+            "texto": "Lo que el usuario ve e interactúa",
+            "caracteristicas": [
+              "React, Next.js Astro",
+              "Interfaces responsivas",
+              "Animaciones fluidas",
+              "Optimización de rendimiento"
+            ]
+          },
+          {
+            "icon": "⚙️",
+            "titulo": "Backend",
+            "texto": "La lógica de negocio y procesamiento",
+            "caracteristicas": [
+              "Node.js, Python, JAVA y GO",
+              "APIs RESTful",
+              "Autenticación y seguridad",
+              "Lógica de negocio compleja"
+            ]
+          },
+          {
+            "icon": "☁️",
+            "titulo": "Infraestructura",
+            "texto": "Donde vive tu aplicación",
+            "caracteristicas": [
+              "AWS, Azure, Google Cloud",
+              "Bases de datos escalables",
+              "CI/CD y DevOps",
+              "Monitoreo y logs"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "tipos-proyectos-fullstack",
+        "titulo": "Tipos de Proyectos que Desarrollamos",
+        "items": [
+          {
+            "icon": "🚀",
+            "titulo": "MVPs y Startups",
+            "texto": "Validación rápida de ideas con arquitectura escalable"
+          },
+          {
+            "icon": "🏢",
+            "titulo": "Plataformas SaaS",
+            "texto": "Software como servicio multi-tenant con facturación automatizada"
+          },
+          {
+            "icon": "🛒",
+            "titulo": "E-commerce Avanzado",
+            "texto": "Tiendas online con integraciones de pago, inventario y logística"
+          },
+          {
+            "icon": "📱",
+            "titulo": "Aplicaciones Web Empresariales",
+            "texto": "CRMs, ERPs, sistemas de gestión personalizados"
+          }
+        ]
+      }
+    ]
+  },
+  "devops-infraestructura": {
+    "servicio": "DevOps & Infraestructura Cloud",
+    "carousels": [
+      {
+        "id": "problemas-infraestructura",
+        "titulo": "¿Tu infraestructura tiene estos problemas?",
+        "items": [
+          {
+            "icon": "🔥",
+            "titulo": "Deploys Manuales y Terroríficos",
+            "texto": "Los viernes a las 6pm nadie quiere desplegar porque 'algo siempre se rompe'",
+            "solucion": "CI/CD automatizado con GitHub Actions. Deploy seguro con rollback automático si algo falla."
+          },
+          {
+            "icon": "💸",
+            "titulo": "Costos Cloud Descontrolados",
+            "texto": "Facturas de AWS/Azure que suben cada mes sin saber por qué",
+            "solucion": "Auto-scaling inteligente + serverless donde tiene sentido = Reducción de costos del 40-60%."
+          },
+          {
+            "icon": "😴",
+            "titulo": "Caídas a las 3AM",
+            "texto": "Tu equipo recibe alerts en la madrugada porque el servidor se cayó otra vez",
+            "solucion": "Monitoreo proactivo + auto-healing + alta disponibilidad multi-región = 99.9% uptime garantizado."
+          },
+          {
+            "icon": "🐌",
+            "titulo": "Lentitud Inexplicable",
+            "texto": "La aplicación va lenta pero no sabes si es backend, base de datos o infraestructura",
+            "solucion": "Observability completa (logs, métricas, tracing). Identificas cuellos de botella en minutos."
+          }
+        ]
+      },
+      {
+        "id": "servicios-devops",
+        "titulo": "Servicios DevOps & Cloud",
+        "items": [
+          {
+            "icon": "🔄",
+            "titulo": "CI/CD Pipelines",
+            "texto": "Deploys automáticos seguros y confiables",
+            "features": [
+              "GitHub Actions / Jenkins",
+              "Testing automatizado en cada commit",
+              "Deploys Blue/Green o Canary",
+              "Rollback automático ante errores"
+            ]
+          },
+          {
+            "icon": "☁️",
+            "titulo": "Infraestructura como Código",
+            "texto": "Infraestructura versionada y reproducible",
+            "features": [
+              "Terraform / Pulumi",
+              "Ambientes idénticos (dev/staging/prod)",
+              "Disaster recovery en minutos",
+              "Multi-cloud o multi-región"
+            ]
+          },
+          {
+            "icon": "🐳",
+            "titulo": "Containerización & Orquestación",
+            "texto": "Despliegues consistentes y escalables",
+            "features": [
+              "Docker + Kubernetes",
+              "Auto-scaling horizontal",
+              "Rolling updates sin downtime",
+              "Service mesh (Istio/Linkerd)"
+            ]
+          },
+          {
+            "icon": "📊",
+            "titulo": "Monitoreo & Observability",
+            "texto": "Visibilidad completa de tu sistema",
+            "features": [
+              "Prometheus + Grafana",
+              "Logs centralizados (ELK/Loki)",
+              "Tracing distribuido (Jaeger)",
+              "Alertas inteligentes (PagerDuty)"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "ia-machine-learning": {
+    "servicio": "Aprendizaje Automático y por refuerzo + Modelos de IA",
+    "carousels": [
+      {
+        "id": "diferencia-ia-carousel",
+        "titulo": "¿Cuál es la diferencia entre IA y Machine Learning?",
+        "items": [
+          {
+            "icon": "🤖",
+            "titulo": "Inteligencia Artificial (IA)",
+            "texto": "Es el concepto amplio: máquinas que 'piensan' como humanos. Incluye chatbots, asistentes virtuales y sistemas expertos."
+          },
+          {
+            "icon": "🧠",
+            "titulo": "Machine Learning (ML)",
+            "texto": "Un tipo de IA donde las máquinas 'aprenden' de datos sin programación explícita. Ejemplos: Netflix recomendando series, Gmail filtrando spam."
+          }
+        ]
+      },
+      {
+        "id": "servicios-ia-ml-carousel",
+        "titulo": "Servicios de IA & ML",
+        "items": [
+          {
+            "icon": "🎯",
+            "titulo": "Modelos Predictivos",
+            "texto": "Predice el futuro basado en datos históricos",
+            "casos_uso": [
+              "Predicción de demanda (retail, manufactura)",
+              "Credit scoring (fintech)",
+              "Churn prediction (SaaS, telco)",
+              "Forecasting de ventas"
+            ]
+          },
+          {
+            "icon": "💬",
+            "titulo": "Procesamiento de Lenguaje Natural (NLP)",
+            "texto": "Entiende y genera texto humano",
+            "casos_uso": [
+              "Chatbots inteligentes",
+              "Análisis de sentimientos (reviews, redes sociales)",
+              "Clasificación de tickets de soporte",
+              "Resumen automático de documentos"
+            ]
+          },
+          {
+            "icon": "🔍",
+            "titulo": "Sistemas de Recomendación",
+            "texto": "Sugiere productos o contenido personalizado",
+            "casos_uso": [
+              "E-commerce (productos relacionados)",
+              "Media (películas, música, artículos)",
+              "B2B (proveedores, socios)",
+              "Educación (cursos personalizados)"
+            ]
+          },
+          {
+            "icon": "⚡",
+            "titulo": "Aprendizaje por Refuerzo",
+            "texto": "Agentes que aprenden por prueba y error",
+            "casos_uso": [
+              "Optimización de precios dinámicos",
+              "Trading algorítmico",
+              "Logística y ruteo",
+              "Gestión de inventario"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "stack-tecnologico-carousel",
+        "titulo": "Stack Tecnológico",
+        "items": [
+          {
+            "icon": "🐍",
+            "titulo": "Frameworks & Librerías",
+            "tecnologias": [
+              "TensorFlow / PyTorch",
+              "scikit-learn",
+              "XGBoost / LightGBM",
+              "Hugging Face Transformers"
+            ]
+          },
+          {
+            "icon": "☁️",
+            "titulo": "MLOps & Deployment",
+            "tecnologias": [
+              "MLflow (tracking)",
+              "Kubeflow (pipelines)",
+              "AWS SageMaker / Azure ML",
+              "Docker + Kubernetes"
+            ]
+          },
+          {
+            "icon": "📊",
+            "titulo": "Datos & Features",
+            "tecnologias": [
+              "Apache Spark (big data)",
+              "Feature stores (Feast)",
+              "Data versioning (DVC)",
+              "Label studio (anotación)"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "garantias-ia-carousel",
+        "titulo": "Nuestras Garantías",
+        "items": [
+          {
+            "icon": "📈",
+            "titulo": "ROI Medible",
+            "texto": "Establecemos KPIs claros desde el día 1 y medimos el impacto real del modelo."
+          },
+          {
+            "icon": "🔒",
+            "titulo": "Propiedad de Datos",
+            "texto": "Tus datos son tuyos. No los usamos para entrenar modelos de otros clientes."
+          },
+          {
+            "icon": "🚀",
+            "titulo": "Deployment en Producción",
+            "texto": "No solo entregamos notebooks. Desplegamos modelos en producción con monitoreo continuo."
+          },
+          {
+            "icon": "📚",
+            "titulo": "Transferencia de Conocimiento",
+            "texto": "Documentación completa y capacitación para que tu equipo mantenga el modelo."
+          }
+        ]
+      }
+    ]
+  }
+}

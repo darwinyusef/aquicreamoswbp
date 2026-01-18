@@ -38,22 +38,24 @@ const secciones = [
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div class="text-center lg:text-left">
               <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
-                <span class="text-white drop-shadow-lg">ARQUITECTURA TOGAF 2026</span>
+                <span class="text-white drop-shadow-lg">ARQUITECTURA DE SOFTWARE</span>
                 <br />
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#82e256] to-[#04ADC0] drop-shadow-lg">
-                  + SCRUM
+                  ESCALABLE & ROBUSTA
                 </span>
               </h1>
               <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 font-light max-w-2xl mt-4 md:mt-6 lg:mt-8 mx-auto lg:mx-0 text-center lg:text-left drop-shadow-md">
-                <span class="text-2xl">ARQUITECTURA EMPRESARIAL</span> de última generación combinando frameworks probados con metodologías ágiles.
+                Diseñamos ecosistemas digitales que crecen con tu negocio.
+                Arquitectura empresarial de <span class="text-bold text-[#82e256]">última generación</span>
+                combinando frameworks probados con metodologías ágiles para transformación digital efectiva.
               </p>
             </div>
 
             <div class="relative w-full h-[400px] sm:h-[500px] lg:h-[600px] hidden lg:block">
               <img
-                src="/img/personaje8/01.png"
+                src="/img/personaje6/04.png"
                 class="absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-100"
-                alt="Arquitectura TOGAF"
+                alt="Arquitectura de Software"
               />
             </div>
           </div>
@@ -162,7 +164,7 @@ const secciones = [
                   Ejecutamos cada fase del ADM de TOGAF en <strong class="text-[#82e256]">sprints iterativos</strong>:
                 </p>
 
-                <div class="grid md:grid-cols-2 gap-4 mb-6">
+                <SimpleCarousel id="togaf-fases-adm">
                   <div class="bg-gradient-to-br from-blue-900/20 to-blue-800/20 p-6 rounded-xl border border-blue-500/30">
                     <div class="flex items-center gap-3 mb-3">
                       <div class="w-12 h-12 bg-[#82e256] rounded-full flex items-center justify-center text-black font-bold text-lg">1-2</div>
@@ -206,7 +208,7 @@ const secciones = [
                     </div>
                     <p class="text-gray-300 text-sm">Infraestructura, cloud y seguridad</p>
                   </div>
-                </div>
+                </SimpleCarousel>
 
                 <div class="bg-gradient-to-br from-cyan-900/20 to-cyan-800/20 p-6 rounded-xl border border-cyan-500/30">
                   <h4 class="text-white font-bold mb-3">Beneficios de la combinación:</h4>
@@ -244,7 +246,7 @@ const secciones = [
                     <p class="text-gray-300 mb-4">
                       Tu lógica de negocio <strong class="text-white">no depende de frameworks ni databases</strong>. Puedes cambiar de Express a Fastify, de MySQL a PostgreSQL, sin tocar el core.
                     </p>
-                    <div class="grid md:grid-cols-2 gap-4">
+                    <SimpleCarousel id="hexagonal-detalles">
                       <div>
                         <h4 class="text-white font-semibold mb-2 text-sm">✅ Ideal para:</h4>
                         <ul class="text-gray-400 text-sm space-y-1">
@@ -258,7 +260,7 @@ const secciones = [
                         <div class="text-[#82e256] my-1">↓ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ↓</div>
                         <div>[gRPC] &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[MongoDB]</div>
                       </div>
-                    </div>
+                    </SimpleCarousel>
                   </div>
 
                   <!-- Clean Architecture -->
@@ -267,7 +269,7 @@ const secciones = [
                     <p class="text-gray-300 mb-4">
                       Código organizado en capas con <strong class="text-white">dependencias en una sola dirección</strong>. El core del negocio está en el centro, protegido de cambios externos.
                     </p>
-                    <div class="grid md:grid-cols-2 gap-4">
+                    <SimpleCarousel id="clean-architecture-detalles">
                       <div>
                         <h4 class="text-white font-semibold mb-2 text-sm">✅ Ideal para:</h4>
                         <ul class="text-gray-400 text-sm space-y-1">
@@ -285,7 +287,7 @@ const secciones = [
                           <li>• <strong class="text-[#82e256]">Drivers:</strong> UI, DB, APIs externas</li>
                         </ul>
                       </div>
-                    </div>
+                    </SimpleCarousel>
                   </div>
 
                   <!-- Microservicios -->
@@ -294,7 +296,7 @@ const secciones = [
                     <p class="text-gray-300 mb-4">
                       Divide tu aplicación en servicios pequeños e independientes. Cada uno puede deployarse por separado, escalar solo lo que necesita y usar tecnologías diferentes.
                     </p>
-                    <div class="grid md:grid-cols-2 gap-4">
+                    <SimpleCarousel id="microservicios-detalles">
                       <div>
                         <h4 class="text-white font-semibold mb-2 text-sm">✅ Ideal para:</h4>
                         <ul class="text-gray-400 text-sm space-y-1">
@@ -311,7 +313,7 @@ const secciones = [
                           <div>📊 Servicio Analytics (Rust)</div>
                         </div>
                       </div>
-                    </div>
+                    </SimpleCarousel>
                   </div>
 
                   <!-- Event-Driven -->
@@ -320,7 +322,7 @@ const secciones = [
                     <p class="text-gray-300 mb-4">
                       Los servicios se comunican mediante <strong class="text-white">eventos asíncronos</strong>. Si un servicio cae, los eventos se encolan y procesan después.
                     </p>
-                    <div class="grid md:grid-cols-2 gap-4">
+                    <SimpleCarousel id="event-driven-detalles">
                       <div>
                         <h4 class="text-white font-semibold mb-2 text-sm">✅ Ideal para:</h4>
                         <ul class="text-gray-400 text-sm space-y-1">
@@ -336,7 +338,7 @@ const secciones = [
                           <li>• Event Sourcing + CQRS</li>
                         </ul>
                       </div>
-                    </div>
+                    </SimpleCarousel>
                   </div>
 
                   <!-- CQRS -->
@@ -345,7 +347,7 @@ const secciones = [
                     <p class="text-gray-300 mb-4">
                       Separa las operaciones de <strong class="text-white">escritura</strong> (commands) de las de <strong class="text-white">lectura</strong> (queries). Cada una puede optimizarse independientemente.
                     </p>
-                    <div class="grid md:grid-cols-2 gap-4">
+                    <SimpleCarousel id="cqrs-detalles">
                       <div>
                         <h4 class="text-white font-semibold mb-2 text-sm">✅ Ideal para:</h4>
                         <ul class="text-gray-400 text-sm space-y-1">
@@ -360,7 +362,7 @@ const secciones = [
                           <div><strong class="text-[#82e256]">Read:</strong> Elasticsearch para búsquedas rápidas</div>
                         </div>
                       </div>
-                    </div>
+                    </SimpleCarousel>
                   </div>
                 </div>
               </div>
@@ -371,7 +373,7 @@ const secciones = [
               <div id="servicios">
                 <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">Servicios que Ofrecemos</h2>
 
-                <div class="grid md:grid-cols-2 gap-6">
+                <SimpleCarousel id="servicios-arquitectura">
                   <!-- Auditoría -->
                   <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256] transition-all">
                     <div class="text-4xl mb-4">🔍</div>
@@ -440,11 +442,11 @@ const secciones = [
                   </div>
 
                   <!-- CI/CD -->
-                  <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256] transition-all md:col-span-2">
+                  <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256] transition-all">
                     <div class="text-4xl mb-4">🚀</div>
                     <h3 class="text-xl font-bold text-white mb-3">CI/CD y DevOps</h3>
                     <p class="text-gray-300 mb-4 text-sm">Deploy rápido y seguro</p>
-                    <div class="grid md:grid-cols-2 gap-4">
+                    <SimpleCarousel id="cicd-caracteristicas">
                       <ul class="text-gray-400 text-sm space-y-2">
                         <li>• Pipelines automatizados (GitHub Actions)</li>
                         <li>• Infrastructure as Code (Terraform, Pulumi)</li>
@@ -453,13 +455,13 @@ const secciones = [
                         <li>• Blue-Green deployments</li>
                         <li>• Rollback automático si algo falla</li>
                       </ul>
-                    </div>
+                    </SimpleCarousel>
                     <div class="flex justify-between items-center text-sm mt-4">
                       <span class="text-[#82e256] font-semibold">⚡ Deploys en minutos</span>
                       <span class="text-gray-500">⏱️ 3-6 semanas</span>
                     </div>
                   </div>
-                </div>
+                </SimpleCarousel>
               </div>
 
               <hr class="border-gray-800" />
@@ -468,7 +470,7 @@ const secciones = [
               <div id="stack">
                 <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">Stack de Tecnologías</h2>
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <SimpleCarousel id="stack-tecnologias-carousel">
                   <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700">
                     <h3 class="text-white font-bold mb-4 flex items-center gap-2">
                       <span class="text-2xl">⚙️</span> Backend
@@ -527,7 +529,7 @@ const secciones = [
                       <li>• Sentry (error tracking)</li>
                     </ul>
                   </div>
-                </div>
+                </SimpleCarousel>
               </div>
 
               <!-- CTA Final -->

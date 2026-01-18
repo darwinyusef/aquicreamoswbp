@@ -3,6 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import SpotlightCard from "../../components/SpotlightCard.astro";
+import SimpleCarousel from "../../components/SimpleCarousel.astro";
 
 // Todos los servicios disponibles (excluyendo el actual)
 const todosLosServicios = [
@@ -193,101 +194,100 @@ const secciones = [
               <!-- Capacidades -->
               <div id="capacidades">
                 <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">
-                  Lo que Nuestros Agentes Hacen por Ti
+                  Cómo Integramos Agentes IA en Tu Negocio
                 </h2>
+                <p class="text-gray-300 mb-8 text-lg">
+                  Desarrollamos agentes que se integran con tus aplicaciones web existentes o nuevas usando MCP
+                </p>
 
-                <div class="grid md:grid-cols-2 gap-6">
-                  <!-- Card 1 -->
+                <SimpleCarousel id="capacidades-carousel">
+                  <!-- Card 1: Integración con Apps Existentes -->
                   <div
                     class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300"
                   >
-                    <div class="text-5xl mb-4">💬</div>
+                    <div class="text-5xl mb-4">🔗</div>
                     <h3 class="text-2xl font-bold text-white mb-3">
-                      Atención al Cliente Inteligente
+                      Integración con Apps Existentes
                     </h3>
-                    <p class="text-gray-300 leading-relaxed">
-                      Atienden clientes con contexto completo de conversaciones
-                      anteriores. Responden instantáneamente, 24/7, con
-                      precisión del 95% y escalan solo casos complejos a tu
-                      equipo humano.
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                      Conectamos agentes IA a tus aplicaciones web actuales sin necesidad de reescribirlas.
+                      Los agentes acceden a tus bases de datos y sistemas mediante <strong class="text-[#82e256]">Model Context Protocol (MCP)</strong>.
                     </p>
                     <div
                       class="mt-6 p-4 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]"
                     >
                       <p class="text-sm text-gray-400">
-                        <strong>Resultado real:</strong> Reducción del 60% en tiempo
-                        de respuesta
+                        <strong>Ejemplo:</strong> Agente integrado a tu CRM antiguo que lee y actualiza registros automáticamente
                       </p>
                     </div>
                   </div>
 
-                  <!-- Card 2 -->
+                  <!-- Card 2: MCP - Interoperabilidad -->
                   <div
                     class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300"
                   >
-                    <div class="text-5xl mb-4">🎯</div>
+                    <div class="text-5xl mb-4">🔄</div>
                     <h3 class="text-2xl font-bold text-white mb-3">
-                      Cualificación de Leads Automática
+                      MCP: Lee y Escribe en Tus Sistemas
                     </h3>
-                    <p class="text-gray-300 leading-relaxed">
-                      Analizan cada lead en tiempo real usando tus criterios
-                      personalizados, priorizan oportunidades de alto valor y
-                      actualizan tu CRM automáticamente sin intervención manual.
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                      <strong class="text-[#82e256]">Model Context Protocol (MCP)</strong> permite que la IA
+                      interactúe directamente con bases de datos, APIs y software existente.
+                      El agente puede leer datos, ejecutar acciones y actualizar información en tiempo real.
                     </p>
                     <div
                       class="mt-6 p-4 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]"
                     >
                       <p class="text-sm text-gray-400">
-                        <strong>Resultado real:</strong> 35% más conversión de leads
+                        <strong>Capacidad:</strong> Interoperabilidad total con PostgreSQL, MySQL, APIs REST, Salesforce, etc.
                       </p>
                     </div>
                   </div>
 
-                  <!-- Card 3 -->
+                  <!-- Card 3: Análisis de Viabilidad -->
+                  <div
+                    class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300"
+                  >
+                    <div class="text-5xl mb-4">🔍</div>
+                    <h3 class="text-2xl font-bold text-white mb-3">
+                      Análisis: ¿Puede un Agente Vivir en Tu Proyecto?
+                    </h3>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                      Analizamos tu aplicación web (existente o nueva) para determinar si un agente IA
+                      puede integrarse efectivamente. Evaluamos infraestructura, bases de datos, flujos de trabajo
+                      y definimos tareas específicas donde un agente agregaría valor real.
+                    </p>
+                    <div
+                      class="mt-6 p-4 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]"
+                    >
+                      <p class="text-sm text-gray-400">
+                        <strong>Proceso:</strong> Análisis técnico + definición de tareas directas y medibles
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Card 4: Desarrollo de Agentes a Medida -->
                   <div
                     class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300"
                   >
                     <div class="text-5xl mb-4">⚙️</div>
                     <h3 class="text-2xl font-bold text-white mb-3">
-                      Automatización de Procesos
+                      Programación de Agentes para Tareas Directas
                     </h3>
-                    <p class="text-gray-300 leading-relaxed">
-                      Ejecutan flujos de trabajo complejos sin intervención
-                      humana. Desde procesar facturas hasta generar reportes
-                      ejecutivos, todo mientras tu equipo se enfoca en tareas
-                      estratégicas.
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                      Una vez validada la viabilidad, programamos agentes especializados para tareas como:
+                      gestión de chats, presentación de productos, apoyo en ventas, control de calidad.
+                      Cada agente se diseña, analiza y desarrolla específicamente para tu operación.
                     </p>
                     <div
                       class="mt-6 p-4 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]"
                     >
                       <p class="text-sm text-gray-400">
-                        <strong>Resultado real:</strong> 40% ahorro en horas-hombre
+                        <strong>Áreas:</strong> Ventas, calidad, interoperabilidad, atención al cliente
                       </p>
                     </div>
                   </div>
-
-                  <!-- Card 4 -->
-                  <div
-                    class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300"
-                  >
-                    <div class="text-5xl mb-4">📊</div>
-                    <h3 class="text-2xl font-bold text-white mb-3">
-                      Análisis y Reportes Predictivos
-                    </h3>
-                    <p class="text-gray-300 leading-relaxed">
-                      Generan insights accionables cruzando datos de múltiples
-                      fuentes. Detectan anomalías, predicen tendencias y envían
-                      alertas proactivas antes de que surjan problemas.
-                    </p>
-                    <div
-                      class="mt-6 p-4 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]"
-                    >
-                      <p class="text-sm text-gray-400">
-                        <strong>Resultado real:</strong> Decisiones en tiempo real
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                </SimpleCarousel>
               </div>
 
               <hr class="border-gray-800" />
@@ -295,99 +295,109 @@ const secciones = [
               <!-- Tecnología -->
               <div id="tecnologia">
                 <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">
-                  Tecnología de Vanguardia
+                  Stack Tecnológico para Agentes IA
                 </h2>
+                <p class="text-gray-300 mb-8 text-lg">
+                  Tecnologías que usamos para desarrollo agéntico
+                </p>
 
-                <div class="grid md:grid-cols-2 gap-8 mt-8">
-                  <div>
-                    <h3
-                      class="text-xl font-bold text-white mb-4 flex items-center gap-3"
-                    >
-                      <span class="text-3xl">🧠</span>
-                      Modelos de IA
-                    </h3>
-                    <div class="space-y-3">
-                      <div
-                        class="bg-gray-800/30 p-4 rounded-lg border-l-4 border-[#82e256]"
-                      >
-                        <p class="font-semibold text-white">GPT-4</p>
-                        <p class="text-sm text-gray-400">
-                          Razonamiento complejo y tareas de lenguaje
-                        </p>
-                      </div>
-                      <div
-                        class="bg-gray-800/30 p-4 rounded-lg border-l-4 border-[#82e256]"
-                      >
-                        <p class="font-semibold text-white">Claude Opus</p>
-                        <p class="text-sm text-gray-400">
-                          Análisis extenso de documentos
-                        </p>
-                      </div>
-                      <div
-                        class="bg-gray-800/30 p-4 rounded-lg border-l-4 border-[#82e256]"
-                      >
-                        <p class="font-semibold text-white">Llama 3</p>
-                        <p class="text-sm text-gray-400">
-                          Soluciones on-premise y privacidad
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div>
-                    <h3
-                      class="text-xl font-bold text-white mb-4 flex items-center gap-3"
-                    >
-                      <span class="text-3xl">🔧</span>
-                      Infraestructura
-                    </h3>
-                    <div class="space-y-3">
-                      <div
-                        class="bg-gray-800/30 p-4 rounded-lg border-l-4 border-[#04ADC0]"
-                      >
-                        <p class="font-semibold text-white">
-                          LangChain / LangGraph
-                        </p>
-                        <p class="text-sm text-gray-400">
-                          Orquestación de agentes
-                        </p>
-                      </div>
-                      <div
-                        class="bg-gray-800/30 p-4 rounded-lg border-l-4 border-[#04ADC0]"
-                      >
-                        <p class="font-semibold text-white">Vector Databases</p>
-                        <p class="text-sm text-gray-400">
-                          Memoria empresarial de largo plazo
-                        </p>
-                      </div>
-                      <div
-                        class="bg-gray-800/30 p-4 rounded-lg border-l-4 border-[#04ADC0]"
-                      >
-                        <p class="font-semibold text-white">
-                          Observabilidad 24/7
-                        </p>
-                        <p class="text-sm text-gray-400">
-                          Monitoreo completo con LangSmith
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="my-8">
+                <SimpleCarousel id="stack-agentico-carousel">
+                  <!-- Orquestación de Agentes -->
                   <div
-                    class="flex justify-center mb-4"
+                    class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300"
                   >
-                    <img
-                      src="/imgfondos/02.jpg"
-                      alt="Equipo trabajando con IA"
-                      class="h-auto max-w-2xl rounded-2xl"
-                    />
+                    <div class="text-5xl mb-4">🔗</div>
+                    <h3 class="text-2xl font-bold text-white mb-3">
+                      Orquestación de Agentes
+                    </h3>
+                    <div class="space-y-3">
+                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                        <p class="font-semibold text-white">LangChain</p>
+                        <p class="text-sm text-gray-400">Framework para desarrollo con LLMs</p>
+                      </div>
+                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                        <p class="font-semibold text-white">LangGraph</p>
+                        <p class="text-sm text-gray-400">Construcción de agentes con flujos complejos</p>
+                      </div>
+                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                        <p class="font-semibold text-white">LangSmith</p>
+                        <p class="text-sm text-gray-400">Observabilidad y debugging de agentes</p>
+                      </div>
+                    </div>
                   </div>
-                  <p class="text-center text-gray-400 text-sm italic">
-                    Tu equipo potenciado con inteligencia artificial
-                  </p>
-                </div>
+
+                  <!-- Modelos y Monitoreo -->
+                  <div
+                    class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300"
+                  >
+                    <div class="text-5xl mb-4">🧠</div>
+                    <h3 class="text-2xl font-bold text-white mb-3">
+                      Modelos GenAI & Monitoreo
+                    </h3>
+                    <div class="space-y-3">
+                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                        <p class="font-semibold text-white">GPT-4, Claude, Gemini</p>
+                        <p class="text-sm text-gray-400">Modelos de lenguaje de última generación</p>
+                      </div>
+                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                        <p class="font-semibold text-white">MLflow</p>
+                        <p class="text-sm text-gray-400">Tracking y gestión de agentes GenAI</p>
+                      </div>
+                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                        <p class="font-semibold text-white">FastMCP</p>
+                        <p class="text-sm text-gray-400">Implementación rápida de Model Context Protocol</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Automatización y Flujos -->
+                  <div
+                    class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300"
+                  >
+                    <div class="text-5xl mb-4">🔄</div>
+                    <h3 class="text-2xl font-bold text-white mb-3">
+                      Automatización de Flujos
+                    </h3>
+                    <div class="space-y-3">
+                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                        <p class="font-semibold text-white">N8N</p>
+                        <p class="text-sm text-gray-400">Workflows y automatizaciones visuales</p>
+                      </div>
+                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                        <p class="font-semibold text-white">WhatsApp API</p>
+                        <p class="text-sm text-gray-400">Integración de agentes con WhatsApp Business</p>
+                      </div>
+                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                        <p class="font-semibold text-white">Python + JavaScript</p>
+                        <p class="text-sm text-gray-400">Lenguajes principales para lógica de agentes</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Procesamiento de Voz y APIs -->
+                  <div
+                    class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300"
+                  >
+                    <div class="text-5xl mb-4">🎙️</div>
+                    <h3 class="text-2xl font-bold text-white mb-3">
+                      Voz y APIs Backend
+                    </h3>
+                    <div class="space-y-3">
+                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                        <p class="font-semibold text-white">Whisper</p>
+                        <p class="text-sm text-gray-400">Speech-to-Text para agentes de voz</p>
+                      </div>
+                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                        <p class="font-semibold text-white">Google TTS</p>
+                        <p class="text-sm text-gray-400">Text-to-Speech para respuestas de audio</p>
+                      </div>
+                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                        <p class="font-semibold text-white">FastAPI</p>
+                        <p class="text-sm text-gray-400">APIs de alto rendimiento para agentes</p>
+                      </div>
+                    </div>
+                  </div>
+                </SimpleCarousel>
               </div>
 
               <hr class="border-gray-800" />

@@ -3,6 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import SpotlightCard from "../../components/SpotlightCard.astro";
+import SimpleCarousel from "../../components/SimpleCarousel.astro";
 
 const todosLosServicios = [
   {
@@ -202,7 +203,7 @@ const secciones = [
               pase
             </p>
 
-            <div class="grid md:grid-cols-2 gap-8">
+            <SimpleCarousel id="diferencia-ia-carousel">
               <!-- Problema 1 -->
               <div
                 class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all"
@@ -261,7 +262,7 @@ const secciones = [
                   </li>
                 </ul>
               </div>
-            </div>
+            </SimpleCarousel>
           </section>
 
           <div class="border-t border-gray-700"></div>
@@ -275,7 +276,7 @@ const secciones = [
               Desde chatbots hasta modelos predictivos personalizados
             </p>
 
-            <div class="grid md:grid-cols-2 gap-8">
+            <SimpleCarousel id="servicios-ia-ml-carousel">
               <!-- LLMs y NLP -->
               <div
                 class="bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-8 rounded-2xl border border-purple-500/30 hover:border-purple-400 transition-all"
@@ -537,7 +538,7 @@ const secciones = [
                   </div>
                 </div>
               </div>
-            </div>
+            </SimpleCarousel>
           </section>
 
           <div class="border-t border-gray-700"></div>
@@ -551,7 +552,7 @@ const secciones = [
               Las mejores herramientas del ecosistema
             </p>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <SimpleCarousel id="stack-tecnologico-carousel">
               <!-- LLMs -->
               <div
                 class="bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-6 rounded-xl border border-purple-500/30"
@@ -627,7 +628,7 @@ const secciones = [
                   <p>• Airflow / Prefect</p>
                 </div>
               </div>
-            </div>
+            </SimpleCarousel>
 
             <!-- Imagen tecnología -->
             <div class="mt-12">
@@ -654,7 +655,7 @@ const secciones = [
               Nuestras Garantías en IA/ML
             </h2>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <SimpleCarousel id="garantias-ia-carousel">
               <div
                 class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
               >
@@ -727,7 +728,7 @@ const secciones = [
                   empezar.
                 </p>
               </div>
-            </div>
+            </SimpleCarousel>
           </section>
 
           <!-- CTA Final -->

@@ -3,6 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import SpotlightCard from "../../components/SpotlightCard.astro";
+import SimpleCarousel from "../../components/SimpleCarousel.astro";
 
 // Todos los servicios disponibles (excluyendo el actual)
 const todosLosServicios = [
@@ -58,8 +59,11 @@ const secciones = [
               <p
                 class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 font-light max-w-2xl mt-4 md:mt-6 lg:mt-8 mx-auto lg:mx-0 text-center lg:text-left drop-shadow-md"
               >
-                <span class="text-2xl">SITIOS WEB RÁPIDOS</span> optimizados para
-                conversión, posicionamiento y escalabilidad.
+                Desarrollamos ecosistemas digitales de alto rendimiento con las
+                últimas tecnologías. Tu sitio web es tu vendedor 24/7, debe
+                trabajar por ti: <span class="text-bold text-[#82e256]"
+                  >rápido, escalable y optimizado</span
+                > para conversión y posicionamiento.
               </p>
             </div>
 
@@ -67,7 +71,7 @@ const secciones = [
               class="relative w-full h-[400px] sm:h-[500px] lg:h-[600px] hidden lg:block"
             >
               <img
-                src="/img/personaje3/01.png"
+                src="/img/personaje4/01.png"
                 class="absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-100"
                 alt="Desarrollo Web Moderno"
               />
@@ -196,7 +200,7 @@ const secciones = [
                   Los problemas más comunes que matan las conversiones
                 </p>
 
-                <div class="grid md:grid-cols-2 gap-6">
+                <SimpleCarousel id="problemas-carousel">
                   <!-- Problema 1: Velocidad -->
                   <div
                     class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300"
@@ -300,7 +304,7 @@ const secciones = [
                       </p>
                     </div>
                   </div>
-                </div>
+                </SimpleCarousel>
               </div>
 
               <hr class="border-gray-800" />

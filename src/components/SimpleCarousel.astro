@@ -1,0 +1,224 @@
+---
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+---
+
+<div class="carousel-container relative" data-carousel-id={id}>
+  <!-- Carousel wrapper -->
+  <div class="overflow-hidden">
+    <div class="carousel-track flex transition-transform duration-500 ease-out">
+      <slot />
+    </div>
+  </div>
+
+  <!-- Controles -->
+  <div class="flex items-center justify-center gap-4 mt-6">
+    <!-- Botón Anterior -->
+    <button
+      class="carousel-prev p-3 bg-gray-800/50 hover:bg-[#82e256]/20 border border-gray-700 hover:border-[#82e256] rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+      data-carousel={id}
+      aria-label="Anterior"
+    >
+      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+      </svg>
+    </button>
+
+    <!-- Indicadores -->
+    <div class="carousel-indicators flex gap-2" data-carousel={id}>
+    </div>
+
+    <!-- Botón Siguiente -->
+    <button
+      class="carousel-next p-3 bg-gray-800/50 hover:bg-[#82e256]/20 border border-gray-700 hover:border-[#82e256] rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+      data-carousel={id}
+      aria-label="Siguiente"
+    >
+      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Contador de slides -->
+  <div class="text-center mt-4">
+    <span class="carousel-counter text-gray-400 text-sm" data-carousel={id}></span>
+  </div>
+</div>
+
+<style>
+  .carousel-track > :global(*) {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .carousel-track > :global(*) {
+      flex: 0 0 50%;
+      width: 50%;
+      padding: 0 0.75rem;
+    }
+  }
+
+  .carousel-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .carousel-indicator.active {
+    background-color: #82e256;
+    border-color: #82e256;
+    width: 12px;
+    height: 12px;
+  }
+</style>
+
+<script>
+  class SimpleCarousel {
+    container: HTMLElement;
+    track: HTMLElement;
+    prevBtn: HTMLButtonElement;
+    nextBtn: HTMLButtonElement;
+    indicators: HTMLElement;
+    counter: HTMLElement;
+    currentIndex: number = 0;
+    itemsPerPage: number = 1;
+    totalItems: number = 0;
+    totalPages: number = 0;
+
+    constructor(container: HTMLElement) {
+      this.container = container;
+      this.track = container.querySelector('.carousel-track') as HTMLElement;
+
+      const carouselId = container.getAttribute('data-carousel-id');
+      this.prevBtn = container.querySelector(`.carousel-prev[data-carousel="${carouselId}"]`) as HTMLButtonElement;
+      this.nextBtn = container.querySelector(`.carousel-next[data-carousel="${carouselId}"]`) as HTMLButtonElement;
+      this.indicators = container.querySelector(`.carousel-indicators[data-carousel="${carouselId}"]`) as HTMLElement;
+      this.counter = container.querySelector(`.carousel-counter[data-carousel="${carouselId}"]`) as HTMLElement;
+
+      this.init();
+    }
+
+    init() {
+      this.updateItemsPerPage();
+      this.totalItems = this.track.children.length;
+      this.totalPages = Math.ceil(this.totalItems / this.itemsPerPage);
+
+      this.createIndicators();
+      this.updateCarousel();
+      this.attachEvents();
+
+      // Recalcular en resize
+      window.addEventListener('resize', () => {
+        this.updateItemsPerPage();
+        this.totalPages = Math.ceil(this.totalItems / this.itemsPerPage);
+        this.createIndicators();
+        this.updateCarousel();
+      });
+    }
+
+    updateItemsPerPage() {
+      this.itemsPerPage = window.innerWidth >= 768 ? 2 : 1;
+    }
+
+    createIndicators() {
+      this.indicators.innerHTML = '';
+      for (let i = 0; i < this.totalPages; i++) {
+        const dot = document.createElement('button');
+        dot.classList.add('carousel-indicator');
+        dot.setAttribute('aria-label', `Ir a página ${i + 1}`);
+        dot.addEventListener('click', () => this.goToPage(i));
+        this.indicators.appendChild(dot);
+      }
+    }
+
+    updateCarousel() {
+      const offset = -(this.currentIndex * (100 / this.itemsPerPage));
+      this.track.style.transform = `translateX(${offset}%)`;
+
+      // Actualizar indicadores
+      const dots = this.indicators.querySelectorAll('.carousel-indicator');
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === this.currentIndex);
+      });
+
+      // Actualizar botones
+      this.prevBtn.disabled = this.currentIndex === 0;
+      this.nextBtn.disabled = this.currentIndex >= this.totalPages - 1;
+
+      // Actualizar contador
+      const startItem = (this.currentIndex * this.itemsPerPage) + 1;
+      const endItem = Math.min((this.currentIndex + 1) * this.itemsPerPage, this.totalItems);
+      this.counter.textContent = `${startItem}-${endItem} de ${this.totalItems}`;
+    }
+
+    goToPage(index: number) {
+      if (index >= 0 && index < this.totalPages) {
+        this.currentIndex = index;
+        this.updateCarousel();
+      }
+    }
+
+    next() {
+      if (this.currentIndex < this.totalPages - 1) {
+        this.currentIndex++;
+        this.updateCarousel();
+      }
+    }
+
+    prev() {
+      if (this.currentIndex > 0) {
+        this.currentIndex--;
+        this.updateCarousel();
+      }
+    }
+
+    attachEvents() {
+      this.prevBtn.addEventListener('click', () => this.prev());
+      this.nextBtn.addEventListener('click', () => this.next());
+
+      // Soporte para teclado
+      this.container.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') this.prev();
+        if (e.key === 'ArrowRight') this.next();
+      });
+
+      // Soporte para swipe en móvil
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      this.track.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      });
+
+      this.track.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        this.handleSwipe();
+      });
+
+      const handleSwipe = () => {
+        if (touchEndX < touchStartX - 50) this.next();
+        if (touchEndX > touchStartX + 50) this.prev();
+      };
+      this.handleSwipe = handleSwipe;
+    }
+
+    handleSwipe() {}
+  }
+
+  // Inicializar todos los carousels en la página
+  document.addEventListener('DOMContentLoaded', () => {
+    const carousels = document.querySelectorAll('.carousel-container');
+    carousels.forEach((carousel) => {
+      new SimpleCarousel(carousel as HTMLElement);
+    });
+  });
+</script>
