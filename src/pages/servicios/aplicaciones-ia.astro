@@ -7,14 +7,14 @@ import SimpleCarousel from "../../components/SimpleCarousel.astro";
 
 // Todos los servicios disponibles (excluyendo el actual)
 const todosLosServicios = [
-  { slug: 'agentes-ia', title: 'Agentes Cognitivos', icon: '🤖' },
-  { slug: 'desarrollo-web', title: 'Desarrollo Web', icon: '🌐' },
-  { slug: 'apps-moviles', title: 'Apps Móviles', icon: '📱' },
-  { slug: 'computer-vision', title: 'Computer Vision', icon: '👁️' },
-  { slug: 'arquitectura', title: 'Arquitectura TOGAF 2026', icon: '🏗️' },
-  { slug: 'desarrollo-fullstack', title: 'Desarrollo Full-Stack', icon: '💻' },
-  { slug: 'ia-machine-learning', title: 'IA & Machine Learning', icon: '🤖' },
-  { slug: 'devops-infraestructura', title: 'DevOps & Cloud', icon: '⚙️' }
+  { slug: 'agentes-ia', title: 'Agentes de inteligencia artificial y MCP\'s', icon: '/img/personaje1/01.png' },
+  { slug: 'desarrollo-web', title: 'Diseño y Desarrollo Web Moderno & Rápido + IA', icon: '/img/personaje4/01.png' },
+  { slug: 'apps-moviles', title: 'Aplicaciones Nativas & Cross-Platform', icon: '/img/personaje5/01.png' },
+  { slug: 'computer-vision', title: 'Visión por Computadora hecha a la medida. + IA', icon: '/img/personaje7/01.png' },
+  { slug: 'arquitectura', title: 'Arquitectura de Software Escalable & Robusta', icon: '/img/personaje6/01.png' },
+  { slug: 'desarrollo-fullstack', title: 'Desarrollo Full-Stack', icon: '/img/personaje4/01.png' },
+  { slug: 'ia-machine-learning', title: 'Aprendizaje Automático y por refuerzo + Modelos de IA', icon: '/img/personaje8/01.png' },
+  { slug: 'devops-infraestructura', title: 'DevOps & Infraestructura Cloud', icon: '/img/personaje6/01.png' }
 ];
 
 // Secciones del menú interno
@@ -409,7 +409,7 @@ const secciones = [
                 href={`/servicios/${servicio.slug}`}
                 class="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256] transition-all duration-300 hover:transform hover:scale-105"
               >
-                <div class="text-4xl mb-3">{servicio.icon}</div>
+                
                 <h3 class="text-lg font-bold text-white group-hover:text-[#82e256] transition-colors">
                   {servicio.title}
                 </h3>
