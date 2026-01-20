@@ -1,74 +1,46 @@
-# ========================================
-# Stage 1: Dependencies
-# ========================================
 FROM node:20-alpine AS deps
 WORKDIR /app
 
-# Instalar dependencias del sistema necesarias
-RUN apk add --no-cache libc6-compat
+RUN apk add --no-cache python3 make g++ sqlite
 
-# Copiar archivos de dependencias
 COPY package.json package-lock.json* ./
+RUN npm ci --only=production && npm cache clean --force
 
-# Instalar dependencias de producción
-RUN npm ci --only=production && \
-    npm cache clean --force
-
-# ========================================
-# Stage 2: Build
-# ========================================
 FROM node:20-alpine AS builder
 WORKDIR /app
 
-# Copiar dependencias desde deps
+RUN apk add --no-cache python3 make g++ sqlite
+
 COPY --from=deps /app/node_modules ./node_modules
 COPY package.json package-lock.json* ./
-
-# Instalar todas las dependencias (incluyendo devDependencies)
 RUN npm ci
 
-# Copiar código fuente
 COPY . .
-
-# Build de producción
 ENV NODE_ENV=production
 RUN npm run build
 
-# ========================================
-# Stage 3: Runtime (Nginx)
-# ========================================
-FROM nginx:alpine AS runtime
+FROM node:20-alpine AS runtime
+WORKDIR /app
 
-# Instalar curl para health checks
-RUN apk add --no-cache curl
+RUN apk add --no-cache sqlite curl && \
+    addgroup -g 1001 -S nodejs && \
+    adduser -S nodejs -u 1001
 
-# Crear usuario no-root para nginx
-RUN addgroup -g 1001 -S nginx-app && \
-    adduser -S nginx-app -u 1001
+COPY --from=builder --chown=nodejs:nodejs /app/dist ./dist
+COPY --from=builder --chown=nodejs:nodejs /app/node_modules ./node_modules
+COPY --chown=nodejs:nodejs package.json ./
 
-# Copiar archivos estáticos desde build
-COPY --from=builder /app/dist /usr/share/nginx/html
+RUN mkdir -p /app/data && chown nodejs:nodejs /app/data
 
-# Copiar configuración de nginx
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+USER nodejs
 
-# Ajustar permisos
-RUN chown -R nginx-app:nginx-app /usr/share/nginx/html && \
-    chown -R nginx-app:nginx-app /var/cache/nginx && \
-    chown -R nginx-app:nginx-app /var/log/nginx && \
-    chown -R nginx-app:nginx-app /etc/nginx/conf.d && \
-    touch /var/run/nginx.pid && \
-    chown -R nginx-app:nginx-app /var/run/nginx.pid
+EXPOSE 4321
 
-# Cambiar a usuario no-root
-USER nginx-app
+ENV HOST=0.0.0.0
+ENV PORT=4321
+ENV NODE_ENV=production
 
-# Exponer puerto
-EXPOSE 8080
+HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
+    CMD curl -f http://localhost:4321/ || exit 1
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost:8080/ || exit 1
-
-# Ejecutar nginx
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["node", "./dist/server/entry.mjs"]

@@ -2,12 +2,12 @@ name: CD - Build Docker Image
 
 on:
   push:
-    branches: [ master, develop ]
+    branches: [ main, develop ]
   workflow_run:
     workflows: ["CI"]
     types:
       - completed
-    branches: [ master, develop ]
+    branches: [ main, develop ]
 
 env:
   PROJECT_NAME: wpaqc
