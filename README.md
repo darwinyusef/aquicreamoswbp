@@ -1,11 +1,5 @@
-para mañana
+actua como experto en marketing y genera una estrategia de recomendaciones dinamica que permita usando busquedas como las que te presento a continuación de ejemplo podamos ofrecer a estrategias reales en una card de tipo carrousel al estilo de netflix con iconos de lucid mostrar estas soluciones al publico la idea es vender lo más popular y estrategico y añadir el componente al home y en la parte inferior del hero de cada servicio 
 
-el roi merece ser más claro a los usuarios y más explicativo, en una pequeña  
-  frace: dentro de cada solucion hay un espacio de ROI que realmente es un      
-  enunciado vacio y no explica el porque hacemos esto ejm: 25-40% más
-  conversiones (25-40% Generamos recomendaciones y promociones automatizadas    
-  para  más conversiones) esta clase de modificaciones dan más claridad
-  ayudame a modificar todos los rois de soluciones
+/aquicreamos?search=microservicios&categories=Arquitectura+de+Software+Escalable+%26+Robusta
 
-tambien he actualizado los icons de toda la aplicación primero porque me parecen feos y creo que esa clase de iconos dañan los iconos mas profesionales 
-repara los errores en .icon porque fueron eliminados
+/aquicreamos?search=visi%C3%B3n&categories=Arquitectura+de+Software+Escalable+%26+Robusta

@@ -2,54 +2,8 @@
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-
-const todosLosServicios = [
-  {
-    titulo: "Agentes de inteligencia artificial y MCP's",
-    url: "/servicios/agentes-ia",
-    descripcion: "Asistentes inteligentes empresariales",
-    image: "/img/personaje1/01.png"
-  },
-  {
-    titulo: "Arquitectura de Software Escalable & Robusta",
-    url: "/servicios/arquitectura",
-    descripcion: "Arquitectura empresarial estratégica",
-    image: "/img/personaje6/01.png"
-  },
-  {
-    titulo: "Apps con integraciones hechas a la medida + IA",
-    url: "/servicios/aplicaciones-ia",
-    descripcion: "Apps potenciadas con inteligencia artificial",
-    image: "/img/personaje3/01.png"
-  },
-  {
-    titulo: "Diseño y Desarrollo Web Moderno & Rápido + IA",
-    url: "/servicios/desarrollo-web",
-    descripcion: "Sitios modernos de alto rendimiento",
-    image: "/img/personaje4/01.png"
-  },
-  {
-    titulo: "Aplicaciones Nativas & Cross-Platform",
-    url: "/servicios/apps-moviles",
-    descripcion: "Apps nativas e híbridas multiplataforma",
-    image: "/img/personaje5/01.png"
-  },
-  {
-    titulo: "Computer Vision",
-    url: "/servicios/computer-vision",
-    descripcion: "IA visual para detección y análisis",
-  },
-  {
-    titulo: "IA & Machine Learning",
-    url: "/servicios/ia-machine-learning",
-    descripcion: "Modelos predictivos personalizados",
-  },
-  {
-    titulo: "DevOps e Infraestructura",
-    url: "/servicios/devops-infraestructura",
-    descripcion: "CI/CD, cloud y automatización",
-  },
-];
+import OtrosServicios from "../../components/OtrosServicios.astro";
+import SimpleCarousel from "../../components/SimpleCarousel.astro";
 
 const secciones = [
   { id: "intro", title: "Introducción" },
@@ -522,7 +476,6 @@ const secciones = [
               <div
                 class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
               >
-                <div class="text-4xl mb-3">📦</div>
                 <h3 class="text-lg font-bold text-white mb-2">Código Propio</h3>
                 <p class="text-gray-400 text-sm">
                   100% del código es tuyo. Repository completo en GitHub con
@@ -533,7 +486,6 @@ const secciones = [
               <div
                 class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
               >
-                <div class="text-4xl mb-3">🔒</div>
                 <h3 class="text-lg font-bold text-white mb-2">
                   Seguridad Incluida
                 </h3>
@@ -545,7 +497,6 @@ const secciones = [
               <div
                 class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
               >
-                <div class="text-4xl mb-3">📊</div>
                 <h3 class="text-lg font-bold text-white mb-2">
                   Analytics Desde Día 1
                 </h3>
@@ -558,7 +509,6 @@ const secciones = [
               <div
                 class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
               >
-                <div class="text-4xl mb-3">⚡</div>
                 <h3 class="text-lg font-bold text-white mb-2">
                   Performance a la medida de tus necesidades
                 </h3>
@@ -570,7 +520,6 @@ const secciones = [
               <div
                 class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
               >
-                <div class="text-4xl mb-3">🔄</div>
                 <h3 class="text-lg font-bold text-white mb-2">
                   CI/CD Automatizado
                 </h3>
@@ -582,7 +531,6 @@ const secciones = [
               <div
                 class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
               >
-                <div class="text-4xl mb-3">📞</div>
                 <h3 class="text-lg font-bold text-white mb-2">
                   Soporte Extendido
                 </h3>
@@ -616,27 +564,8 @@ const secciones = [
       </div>
     </div>
 
-    <!-- Servicios Relacionados -->
-    <section class="container mx-auto px-4 py-16 max-w-7xl">
-      <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
-        Otros Servicios
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {
-          todosLosServicios.map((servicio) => (
-            <a
-              href={servicio.url}
-              class="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all hover:transform hover:scale-105"
-            >
-              <h3 class="text-lg font-bold text-white mb-2 group-hover:text-[#82e256] transition-colors">
-                {servicio.titulo}
-              </h3>
-              <p class="text-gray-400 text-sm">{servicio.descripcion}</p>
-            </a>
-          ))
-        }
-      </div>
-    </section>
+    <!-- Más Servicios -->
+    <OtrosServicios currentService="desarrollo-fullstack" />
   </div>
 
   <Footer />

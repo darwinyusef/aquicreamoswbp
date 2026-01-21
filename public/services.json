@@ -1050,16 +1050,6 @@
     "category": "Aprendizaje Automático y por refuerzo + Modelos de IA"
   },
   {
-    "id": 107,
-    "name": "Edge AI Architecture",
-    "description": "Arquitectura para IA en edge computing, modelos optimizados para dispositivos, sincronización cloud-edge y procesamiento local.",
-    "price": 30000,
-    "duration": "Por hora",
-    "is_active": true,
-    "icon": "wifi",
-    "category": "Aprendizaje Automático y por refuerzo + Modelos de IA"
-  },
-  {
     "id": 108,
     "name": "AI-Powered Personalization Engine",
     "description": "Motor de personalización con IA para experiencias de usuario, recomendaciones en tiempo real y segmentación dinámica.",
