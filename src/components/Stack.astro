@@ -544,26 +544,57 @@
   document.addEventListener('DOMContentLoaded', () => {
     const toggleButtons = document.querySelectorAll('.tech-category-toggle');
 
+    // Definir pares de bloques que están en la misma línea
+    const pairMap = {
+      'frontend': 'backend',   // Bloque 1 y 2
+      'backend': 'frontend',   // Bloque 2 y 1
+      'database': 'mobile',    // Bloque 4 y 5
+      'mobile': 'database'     // Bloque 5 y 4
+    };
+
+    // Función para expandir/contraer un bloque
+    const toggleCategory = (button, shouldExpand) => {
+      const category = button.closest('.tech-category');
+      const content = category?.querySelector('.tech-content');
+      const chevron = button.querySelector('.chevron-icon');
+
+      if (content && chevron) {
+        if (shouldExpand) {
+          // Expand
+          content.style.maxHeight = content.scrollHeight + 'px';
+          content.style.opacity = '1';
+          content.style.marginTop = '1.5rem';
+          chevron.style.transform = 'rotate(180deg)';
+        } else {
+          // Collapse
+          content.style.maxHeight = '0px';
+          content.style.opacity = '0';
+          content.style.marginTop = '0';
+          chevron.style.transform = 'rotate(0deg)';
+        }
+      }
+    };
+
     toggleButtons.forEach((button) => {
       button.addEventListener('click', () => {
         const category = button.closest('.tech-category');
         const content = category?.querySelector('.tech-content');
-        const chevron = button.querySelector('.chevron-icon');
+        const categoryName = button.getAttribute('data-category');
 
-        if (content && chevron) {
-          // Toggle content visibility
-          if (content.style.maxHeight && content.style.maxHeight !== '0px') {
-            // Collapse
-            content.style.maxHeight = '0px';
-            content.style.opacity = '0';
-            content.style.marginTop = '0';
-            chevron.style.transform = 'rotate(0deg)';
-          } else {
-            // Expand
-            content.style.maxHeight = content.scrollHeight + 'px';
-            content.style.opacity = '1';
-            content.style.marginTop = '1.5rem';
-            chevron.style.transform = 'rotate(180deg)';
+        if (content) {
+          const isCurrentlyOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+
+          // Toggle el bloque actual
+          toggleCategory(button, !isCurrentlyOpen);
+
+          // Si este bloque tiene un par en la misma línea, también togglearlo
+          if (categoryName && pairMap[categoryName]) {
+            const pairCategoryName = pairMap[categoryName];
+            const pairButton = document.querySelector(`[data-category="${pairCategoryName}"]`);
+
+            if (pairButton) {
+              toggleCategory(pairButton, !isCurrentlyOpen);
+            }
           }
         }
       });
