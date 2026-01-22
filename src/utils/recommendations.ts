@@ -77,19 +77,19 @@ const SEARCH_TO_CATEGORIES: Record<string, string[]> = {
     "Apps con integraciones hechas a la medida + IA",
     "DevOps & Infraestructura Cloud",
   ],
-  "fullstack": [
+  "desarrollo": [
     "Desarrollo Full-Stack",
     "Arquitectura de Software Escalable & Robusta",
     "Apps con integraciones hechas a la medida + IA",
   ],
-  "móvil": [
+  "aplicaciones": [
     "Aplicaciones Nativas & Cross-Platform",
+    "Apps con integraciones hechas a la medida + IA",
     "Desarrollo Full-Stack",
-    "Apps con integraciones hechas a la medida + IA",
   ],
-  "app": [
+  "integraciones": [
     "Apps con integraciones hechas a la medida + IA",
-    "Aplicaciones Nativas & Cross-Platform",
+    "Agentes de inteligencia artificial y MCP's",
     "Desarrollo Full-Stack",
   ],
 };
@@ -137,14 +137,17 @@ const CATEGORY_COMPLEMENTS: Record<string, string[]> = {
   ],
 };
 
-// Servicios más populares y estratégicos (en orden de prioridad)
+// Servicios más populares y estratégicos (basado en análisis de services.json)
+// Ordenados por: 1. Volumen de servicios, 2. Potencial de cross-selling, 3. Valor estratégico
 const POPULAR_SERVICES = [
-  "Agentes de inteligencia artificial y MCP's",
-  "Arquitectura de Software Escalable & Robusta",
-  "Apps con integraciones hechas a la medida + IA",
-  "DevOps & Infraestructura Cloud",
-  "Desarrollo Full-Stack",
-  "Visión por Computadora hecha a la medida. + IA",
+  "Arquitectura de Software Escalable & Robusta",      // 27.87% - MÁS POPULAR
+  "Apps con integraciones hechas a la medida + IA",     // 19.67% - ALTO CROSS-SELL
+  "Aprendizaje Automático y por refuerzo + Modelos de IA", // 15.57% - TENDENCIA
+  "Agentes de inteligencia artificial y MCP's",        // 14.75% - INNOVACIÓN
+  "Desarrollo Full-Stack",                             // 9.84% - FUNDACIONAL
+  "DevOps & Infraestructura Cloud",                    // 5.74% - COMPLEMENTARIO
+  "Aplicaciones Nativas & Cross-Platform",             // 4.92% - ESPECIALIZADO
+  "Visión por Computadora hecha a la medida. + IA",   // 1.64% - NICHO
 ];
 
 // Mapeo de categorías a slugs de servicios
@@ -171,6 +174,12 @@ const CATEGORY_TO_IMAGE: Record<string, string> = {
   "DevOps & Infraestructura Cloud": "/img/personaje6/01.png",
 };
 
+// Servicios que NO deben recomendarse (muy específicos o fuera del core business)
+const EXCLUDED_SERVICES = [
+  "Integración IoT con ESP32",
+  // Agregar otros servicios muy específicos si es necesario
+];
+
 /**
  * Genera recomendaciones inteligentes basadas en el contexto
  * @param allServices - Todos los servicios disponibles
@@ -191,11 +200,17 @@ export function getRecommendations(
   const recommendations: Service[] = [];
   const addedIds = new Set<number>();
 
+  // Filtrar servicios excluidos
+  const filteredServices = allServices.filter(
+    s => !EXCLUDED_SERVICES.includes(s.name)
+  );
+
   // Función helper para agregar servicios únicos
   const addService = (service: Service) => {
     if (
       !addedIds.has(service.id) &&
       service.id !== currentServiceId &&
+      !EXCLUDED_SERVICES.includes(service.name) &&
       recommendations.length < limit
     ) {
       recommendations.push(service);
@@ -212,7 +227,7 @@ export function getRecommendations(
       if (searchLower.includes(keyword)) {
         // Agregar servicios de categorías relacionadas
         categories.forEach((relatedCategory) => {
-          const servicesInCategory = allServices.filter(
+          const servicesInCategory = filteredServices.filter(
             (s) => s.category === relatedCategory
           );
           // Tomar el primer servicio de cada categoría relacionada
@@ -224,7 +239,7 @@ export function getRecommendations(
     }
 
     // También buscar en el nombre y descripción del servicio
-    const matchingServices = allServices.filter(
+    const matchingServices = filteredServices.filter(
       (s) =>
         s.name.toLowerCase().includes(searchLower) ||
         s.description.toLowerCase().includes(searchLower)
@@ -237,7 +252,7 @@ export function getRecommendations(
     const complementCategories = CATEGORY_COMPLEMENTS[category];
 
     complementCategories.forEach((complementCategory) => {
-      const servicesInCategory = allServices.filter(
+      const servicesInCategory = filteredServices.filter(
         (s) => s.category === complementCategory
       );
       // Tomar el primer servicio de cada categoría complementaria
@@ -252,7 +267,7 @@ export function getRecommendations(
     POPULAR_SERVICES.forEach((popularCategory) => {
       if (recommendations.length >= limit) return;
 
-      const servicesInCategory = allServices.filter(
+      const servicesInCategory = filteredServices.filter(
         (s) => s.category === popularCategory
       );
       if (servicesInCategory.length > 0) {
@@ -263,7 +278,7 @@ export function getRecommendations(
 
   // 4. Si aún no tenemos suficientes, agregar servicios aleatorios
   if (recommendations.length < limit) {
-    const remainingServices = allServices.filter(
+    const remainingServices = filteredServices.filter(
       (s) => !addedIds.has(s.id) && s.id !== currentServiceId
     );
 
@@ -282,10 +297,15 @@ export function getHomeRecommendations(allServices: Service[]): Service[] {
   const recommendations: Service[] = [];
   const addedCategories = new Set<string>();
 
-  // Tomar el primer servicio de cada categoría popular
+  // Filtrar servicios excluidos
+  const filteredServices = allServices.filter(
+    s => !EXCLUDED_SERVICES.includes(s.name)
+  );
+
+  // Tomar el primer servicio de cada categoría popular (que no esté excluido)
   POPULAR_SERVICES.forEach((popularCategory) => {
     if (!addedCategories.has(popularCategory)) {
-      const servicesInCategory = allServices.filter(
+      const servicesInCategory = filteredServices.filter(
         (s) => s.category === popularCategory
       );
       if (servicesInCategory.length > 0) {
@@ -304,10 +324,15 @@ export function getHomeRecommendations(allServices: Service[]): Service[] {
 export function getServicesByCategory(allServices: Service[]): Service[] {
   const categoryMap = new Map<string, Service>();
 
+  // Filtrar servicios excluidos
+  const filteredServices = allServices.filter(
+    s => !EXCLUDED_SERVICES.includes(s.name)
+  );
+
   // Priorizar según el orden de POPULAR_SERVICES
   POPULAR_SERVICES.forEach((popularCategory) => {
     if (!categoryMap.has(popularCategory)) {
-      const serviceInCategory = allServices.find(
+      const serviceInCategory = filteredServices.find(
         (s) => s.category === popularCategory
       );
       if (serviceInCategory) {
@@ -317,7 +342,7 @@ export function getServicesByCategory(allServices: Service[]): Service[] {
   });
 
   // Agregar las categorías restantes
-  allServices.forEach((service) => {
+  filteredServices.forEach((service) => {
     if (!categoryMap.has(service.category)) {
       categoryMap.set(service.category, service);
     }
@@ -327,19 +352,56 @@ export function getServicesByCategory(allServices: Service[]): Service[] {
 }
 
 /**
- * Enriquece un servicio con información adicional (slug, imagen)
+ * Genera keyword de búsqueda estratégica basada en el servicio
  */
-export function enrichService(service: Service): Service & { slug: string; image: string } {
+function getSearchKeyword(service: Service): string {
+  const categoryKeywords: Record<string, string> = {
+    "Arquitectura de Software Escalable & Robusta": "arquitectura",
+    "DevOps & Infraestructura Cloud": "devops",
+    "Desarrollo Full-Stack": "desarrollo",  // Cambiado: más genérico y presente en nombres
+    "Aplicaciones Nativas & Cross-Platform": "aplicaciones",  // Cambiado: más genérico
+    "Visión por Computadora hecha a la medida. + IA": "visión",
+    "Aprendizaje Automático y por refuerzo + Modelos de IA": "ia",  // Cambiado: más efectivo
+    "Agentes de inteligencia artificial y MCP's": "agentes",
+    "Apps con integraciones hechas a la medida + IA": "integraciones",  // Cambiado: más específico
+  };
+
+  // Intentar extraer keyword del nombre del servicio o usar la categoría
+  const serviceName = service.name.toLowerCase();
+
+  if (serviceName.includes('microservicio')) return 'microservicios';
+  if (serviceName.includes('arquitectura')) return 'arquitectura';
+  if (serviceName.includes('visión') || serviceName.includes('vision')) return 'visión';
+  if (serviceName.includes('agente')) return 'agentes';
+  if (serviceName.includes('mlops') || serviceName.includes('modelo')) return 'ia';
+  if (serviceName.includes('devops')) return 'devops';
+  if (serviceName.includes('cloud')) return 'cloud';
+  if (serviceName.includes('web')) return 'web';
+  if (serviceName.includes('móvil') || serviceName.includes('movil') || serviceName.includes('app')) return 'aplicaciones';
+  if (serviceName.includes('desarrollo')) return 'desarrollo';
+
+  return categoryKeywords[service.category] || service.category.split(' ')[0].toLowerCase();
+}
+
+/**
+ * Enriquece un servicio con información adicional para el carousel
+ * IMPORTANTE: SIEMPRE genera URLs a /aquicreamos con parámetros search y categories
+ * NUNCA usa /servicios/slug
+ */
+export function enrichService(service: Service): Service & { searchUrl: string } {
+  const searchKeyword = getSearchKeyword(service);
+  const category = encodeURIComponent(service.category);
+  const search = encodeURIComponent(searchKeyword);
+
   return {
     ...service,
-    slug: CATEGORY_TO_SLUG[service.category] || "desarrollo-web",
-    image: CATEGORY_TO_IMAGE[service.category] || "/img/personaje4/01.png",
+    searchUrl: `/aquicreamos?search=${search}&categories=${category}`,
   };
 }
 
 /**
  * Enriquece un array de servicios
  */
-export function enrichServices(services: Service[]): Array<Service & { slug: string; image: string }> {
+export function enrichServices(services: Service[]): Array<Service & { searchUrl: string }> {
   return services.map(enrichService);
 }

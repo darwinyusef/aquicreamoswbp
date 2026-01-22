@@ -295,49 +295,97 @@ const secciones = [
 
                 <SimpleCarousel id="stack-tecnologico-carousel">
                   <!-- Modelos -->
-                  <div class="bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-6 rounded-xl border border-purple-500/30">
-                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                      <span class="text-3xl">🤖</span>
+                  <div style="padding: 18px" class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-28 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                    <h3 class="text-2xl font-bold text-white mb-3">
                       Modelos de IA
                     </h3>
-                    <div class="space-y-2 text-gray-300">
-                      <p>• GPT-4 & GPT-4 Vision</p>
-                      <p>• Claude Sonnet & Opus</p>
-                      <p>• Gemini Pro</p>
-                      <p>• Llama 3 (on-premise)</p>
+                    <div class="space-y-3">
+                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                        <p class="font-semibold text-white">GPT-4 & GPT-4 Vision</p>
+                        <p class="text-sm text-gray-400">Modelos de lenguaje de OpenAI de última generación</p>
+                      </div>
+                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                        <p class="font-semibold text-white">Claude Sonnet & Opus</p>
+                        <p class="text-sm text-gray-400">Modelos avanzados de Anthropic</p>
+                      </div>
+                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                        <p class="font-semibold text-white">Gemini Pro</p>
+                        <p class="text-sm text-gray-400">Modelo multimodal de Google</p>
+                      </div>
+                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                        <p class="font-semibold text-white">Llama 3 (on-premise)</p>
+                        <p class="text-sm text-gray-400">Modelo open-source para deploy local</p>
+                      </div>
                     </div>
                   </div>
 
                   <!-- Infraestructura -->
-                  <div class="bg-gradient-to-br from-blue-900/20 to-blue-800/20 p-6 rounded-xl border border-blue-500/30">
-                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                      <span class="text-3xl">🏗️</span>
+                  <div style="padding: 18px" class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                    <h3 class="text-2xl font-bold text-white mb-3">
                       Infraestructura
                     </h3>
-                    <div class="space-y-2 text-gray-300 text-sm">
-                      <p>• <strong class="text-white">Vector DB:</strong> PostgreSQL Vector</p>
-                      <p>• <strong class="text-white">ML:</strong> PyTorch, TensorFlow, Scikit-learn</p>
-                      <p>• <strong class="text-white">Análisis:</strong> DuckDB</p>
-                      <p>• <strong class="text-white">Tracking:</strong> OpenTelemetry, Prefect</p>
-                      <p>• <strong class="text-white">Observabilidad:</strong> Grafana, Prometheus</p>
-                      <p>• <strong class="text-white">Microservicios:</strong> NATS, RabbitMQ</p>
-                      <p>• <strong class="text-white">Orquestación IA:</strong> LangChain, LangGraph, LangSmith, n8n</p>
-                      <p>• <strong class="text-white">Cache & DB:</strong> Redis, PostgreSQL</p>
-                      <p>• <strong class="text-white">Infra:</strong> Linux 22, Docker</p>
-                      <p>• <strong class="text-white">CI/CD:</strong> Automatizado</p>
+                    <div class="space-y-3 max-h-[400px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-[#82e256]/50 scrollbar-track-gray-800/50">
+                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                        <p class="font-semibold text-white">PostgreSQL Vector</p>
+                        <p class="text-sm text-gray-400">Base de datos vectorial para embeddings</p>
+                      </div>
+                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                        <p class="font-semibold text-white">PyTorch, TensorFlow, Scikit-learn</p>
+                        <p class="text-sm text-gray-400">Frameworks de machine learning</p>
+                      </div>
+                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                        <p class="font-semibold text-white">DuckDB</p>
+                        <p class="text-sm text-gray-400">Motor analítico de alto rendimiento</p>
+                      </div>
+                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                        <p class="font-semibold text-white">OpenTelemetry, Prefect</p>
+                        <p class="text-sm text-gray-400">Tracking y orquestación de workflows</p>
+                      </div>
+                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                        <p class="font-semibold text-white">Grafana, Prometheus</p>
+                        <p class="text-sm text-gray-400">Observabilidad y métricas</p>
+                      </div>
+                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                        <p class="font-semibold text-white">NATS, RabbitMQ</p>
+                        <p class="text-sm text-gray-400">Sistemas de mensajería para microservicios</p>
+                      </div>
+                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                        <p class="font-semibold text-white">LangChain, LangGraph, LangSmith, n8n</p>
+                        <p class="text-sm text-gray-400">Orquestación y automatización de IA</p>
+                      </div>
+                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                        <p class="font-semibold text-white">Redis, PostgreSQL</p>
+                        <p class="text-sm text-gray-400">Cache y base de datos relacional</p>
+                      </div>
+                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                        <p class="font-semibold text-white">Linux 22, Docker</p>
+                        <p class="text-sm text-gray-400">Sistema operativo y contenedores</p>
+                      </div>
+                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                        <p class="font-semibold text-white">CI/CD Automatizado</p>
+                        <p class="text-sm text-gray-400">Pipeline de integración y despliegue continuo</p>
+                      </div>
                     </div>
                   </div>
 
-                  <!-- Frontend -->
-                  <div class="bg-gradient-to-br from-green-900/20 to-green-800/20 p-6 rounded-xl border border-green-500/30">
-                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                      <span class="text-3xl">💻</span>
+                  <!-- Frontend/Backend -->
+                  <div style="padding: 18px" class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                    <h3 class="text-2xl font-bold text-white mb-3">
                       Frontend/Backend
                     </h3>
-                    <div class="space-y-2 text-gray-300 text-sm">
-                      <p>• <strong class="text-white">Frontend:</strong> React, Next.js, React Native</p>
-                      <p>• <strong class="text-white">Backend:</strong> Python, FastAPI, Node.js, Go</p>
-                      <p>• <strong class="text-white">TypeScript</strong> everywhere</p>
+                    <div class="space-y-3">
+                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                        <p class="font-semibold text-white">React, Next.js, React Native</p>
+                        <p class="text-sm text-gray-400">Frameworks frontend modernos</p>
+                      </div>
+                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                        <p class="font-semibold text-white">Python, FastAPI, Node.js, Go</p>
+                        <p class="text-sm text-gray-400">Backend de alto rendimiento</p>
+                      </div>
+                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                        <p class="font-semibold text-white">TypeScript</p>
+                        <p class="text-sm text-gray-400">Tipado estático para mayor robustez</p>
+                      </div>
                     </div>
                   </div>
                 </SimpleCarousel>

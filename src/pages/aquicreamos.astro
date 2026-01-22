@@ -457,7 +457,8 @@ import Header from '../components/Header.astro';
       const query = searchQuery.toLowerCase();
       filtered = filtered.filter(service =>
         service.name.toLowerCase().includes(query) ||
-        service.description.toLowerCase().includes(query)
+        service.description.toLowerCase().includes(query) ||
+        service.category.toLowerCase().includes(query)
       );
     }
 

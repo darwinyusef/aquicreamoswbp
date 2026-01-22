@@ -6,16 +6,16 @@ interface Props {
 const { id } = Astro.props;
 ---
 
-<div class="carousel-container relative" data-carousel-id={id}>
+<div class="carousel-container relative p-16" data-carousel-id={id}>
   <!-- Carousel wrapper -->
   <div class="overflow-hidden">
-    <div class="carousel-track flex transition-transform duration-500 ease-out">
+    <div class="carousel-track flex transition-transform duration-500 ease-out gap-2">
       <slot />
     </div>
   </div>
 
   <!-- Controles -->
-  <div class="flex items-center justify-center gap-4 mt-6">
+  <div class="flex items-center justify-center gap-8 mt-6 p-16">
     <!-- Botón Anterior -->
     <button
       class="carousel-prev p-3 bg-gray-800/50 hover:bg-[#82e256]/20 border border-gray-700 hover:border-[#82e256] rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -51,8 +51,8 @@ const { id } = Astro.props;
 
 <style>
   .carousel-track > :global(*) {
-    flex: 0 0 100%;
-    width: 100%;
+    flex: 0 0 80%;
+    width: 70%;
   }
 
   @media (min-width: 768px) {
