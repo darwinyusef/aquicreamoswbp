@@ -941,17 +941,8 @@ const pageKeywords = 'desarrollo web, apps móviles, inteligencia artificial, ma
   const contentAutomatizaciones = document.getElementById('content-automatizaciones');
   const sectionFiltros = document.getElementById('section-filtros');
 
-  function switchTab(tab: 'servicios' | 'automatizaciones', updateURL = true) {
+  function switchTab(tab: 'servicios' | 'automatizaciones') {
     currentTab = tab;
-
-    // Actualizar URL hash para SEO
-    if (updateURL) {
-      const newHash = tab === 'servicios' ? '#servicios-profesionales' : '#automatizaciones';
-      window.history.pushState(null, '', newHash);
-
-      // Actualizar meta tags dinámicamente
-      updateMetaTags(tab);
-    }
 
     if (tab === 'servicios') {
       // Activar tab servicios
@@ -994,71 +985,8 @@ const pageKeywords = 'desarrollo web, apps móviles, inteligencia artificial, ma
     }
   }
 
-  // Event listeners para tabs - ahora con prevención de navegación y actualización de URL
-  tabServiciosBtn?.addEventListener('click', (e) => {
-    e.preventDefault();
-    switchTab('servicios', true);
-  });
-
-  tabAutomatizacionesBtn?.addEventListener('click', (e) => {
-    e.preventDefault();
-    switchTab('automatizaciones', true);
-  });
-
-  // Detectar tab inicial desde URL hash
-  function initTabFromURL() {
-    const hash = window.location.hash;
-    if (hash === '#automatizaciones') {
-      switchTab('automatizaciones', false);
-    } else {
-      // Por defecto servicios-profesionales
-      if (!hash || hash === '') {
-        window.history.replaceState(null, '', '#servicios-profesionales');
-      }
-      switchTab('servicios', false);
-    }
-  }
-
-  // Manejar cambios en el hash (navegación con botones del navegador)
-  window.addEventListener('hashchange', () => {
-    const hash = window.location.hash;
-    if (hash === '#automatizaciones') {
-      switchTab('automatizaciones', false);
-    } else {
-      switchTab('servicios', false);
-    }
-  });
-
-  // Función para actualizar meta tags dinámicamente
-  function updateMetaTags(tab: 'servicios' | 'automatizaciones') {
-    const title = tab === 'servicios'
-      ? 'Servicios Profesionales | Aquí Creamos'
-      : 'Automatizaciones IA | Aquí Creamos';
-
-    const description = tab === 'servicios'
-      ? 'Servicios profesionales de desarrollo: web, móvil, IA, machine learning, DevOps y arquitectura cloud. Soluciones tecnológicas a medida.'
-      : 'Automatizaciones inteligentes con IA: chatbots, agentes virtuales, workflows automatizados y soluciones n8n personalizadas para tu negocio.';
-
-    document.title = title;
-
-    // Actualizar meta description
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.setAttribute('content', description);
-
-    // Actualizar OG tags
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) ogTitle.setAttribute('content', title);
-
-    const ogDesc = document.querySelector('meta[property="og:description"]');
-    if (ogDesc) ogDesc.setAttribute('content', description);
-
-    // Actualizar Twitter tags
-    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
-    if (twitterTitle) twitterTitle.setAttribute('content', title);
-
-    const twitterDesc = document.querySelector('meta[name="twitter:description"]');
-    if (twitterDesc) twitterDesc.setAttribute('content', description);
-  }
+  tabServiciosBtn?.addEventListener('click', () => switchTab('servicios'));
+  tabAutomatizacionesBtn?.addEventListener('click', () => switchTab('automatizaciones'));
 
   // ===== WORKFLOWS DATA & LOGIC =====
   let workflowsLoaded = false;
@@ -1099,7 +1027,6 @@ const pageKeywords = 'desarrollo web, apps móviles, inteligencia artificial, ma
     },
     {
       id: 4,
-      icon: "shopping-cart",
       title: "Recuperación de Carritos Abandonados",
       description: "Estrategia multi-canal para recuperar ventas perdidas con emails personalizados por IA, SMS y WhatsApp. Descuentos inteligentes basados en valor del carrito.",
       category: "E-commerce",
@@ -1110,7 +1037,6 @@ const pageKeywords = 'desarrollo web, apps móviles, inteligencia artificial, ma
     },
     {
       id: 5,
-      icon: "file-text",
       title: "Gestión Inteligente de Documentos",
       description: "Sistema RAG completo para upload, procesamiento y consulta de documentos empresariales con IA.",
       category: "Gestión Documental",
@@ -1121,7 +1047,6 @@ const pageKeywords = 'desarrollo web, apps móviles, inteligencia artificial, ma
     },
     {
       id: 6,
-      icon: "mail",
       title: "Campañas de Email Marketing con IA",
       description: "Automatización completa de campañas de email con contenido generado por IA, segmentación inteligente y seguimiento de métricas.",
       category: "Marketing",
@@ -1132,7 +1057,6 @@ const pageKeywords = 'desarrollo web, apps móviles, inteligencia artificial, ma
     },
     {
       id: 7,
-      icon: "user-plus",
       title: "Lead Generation en LinkedIn",
       description: "Automatización de prospección en LinkedIn con mensajes personalizados generados por IA y seguimiento automático.",
       category: "Ventas",
@@ -1143,7 +1067,6 @@ const pageKeywords = 'desarrollo web, apps móviles, inteligencia artificial, ma
     },
     {
       id: 8,
-      icon: "briefcase",
       title: "Automatización de Propuestas Upwork",
       description: "Sistema que detecta proyectos relevantes en Upwork y genera propuestas personalizadas usando IA basándose en tu perfil.",
       category: "Freelancing",
@@ -1154,7 +1077,6 @@ const pageKeywords = 'desarrollo web, apps móviles, inteligencia artificial, ma
     },
     {
       id: 9,
-      icon: "share-2",
       title: "Gestión de Redes Sociales Multi-plataforma",
       description: "Publica contenido simultáneamente en múltiples plataformas con contenido generado y optimizado por IA para cada red social.",
       category: "Marketing",
@@ -1165,7 +1087,6 @@ const pageKeywords = 'desarrollo web, apps móviles, inteligencia artificial, ma
     },
     {
       id: 10,
-      icon: "globe",
       title: "Web Scraping y Enriquecimiento de Datos",
       description: "Extrae datos de sitios web y enriquécelos con IA para obtener insights, clasificaciones y análisis de mercado.",
       category: "Data Intelligence",
@@ -1176,7 +1097,6 @@ const pageKeywords = 'desarrollo web, apps móviles, inteligencia artificial, ma
     },
     {
       id: 11,
-      icon: "pen-tool",
       title: "Creación de Contenido con IA",
       description: "Generación masiva de contenido optimizado SEO: blogs, posts sociales, scripts de video, newsletters y más.",
       category: "Marketing",
@@ -1187,7 +1107,6 @@ const pageKeywords = 'desarrollo web, apps móviles, inteligencia artificial, ma
     },
     {
       id: 12,
-      icon: "bell",
       title: "Notificaciones Inteligentes Multi-Canal",
       description: "Sistema centralizado de notificaciones que selecciona el canal óptimo (Email, SMS, WhatsApp, Slack) según urgencia y preferencias.",
       category: "Comunicación",
@@ -1198,7 +1117,6 @@ const pageKeywords = 'desarrollo web, apps móviles, inteligencia artificial, ma
     },
     {
       id: 13,
-      icon: "user-check",
       title: "Onboarding Automatizado de Empleados",
       description: "Automatiza todo el proceso de incorporación: creación de cuentas, asignación de equipos, capacitaciones, documentación y seguimiento personalizado del nuevo empleado.",
       category: "Talento Humano",
@@ -1209,7 +1127,6 @@ const pageKeywords = 'desarrollo web, apps móviles, inteligencia artificial, ma
     },
     {
       id: 14,
-      icon: "users",
       title: "Reclutamiento Inteligente con IA",
       description: "Sistema de ATS (Applicant Tracking System) potenciado con IA que filtra CVs, agenda entrevistas, evalúa candidatos y genera procesos completos de entrevista genera reportes de selección.",
       category: "Talento Humano",
@@ -1220,7 +1137,6 @@ const pageKeywords = 'desarrollo web, apps móviles, inteligencia artificial, ma
     },
     {
       id: 15,
-      icon: "award",
       title: "Evaluaciones de Desempeño Automatizadas",
       description: "Recolecta feedback 360°, analiza desempeño con IA, genera reportes personalizados y programa reuniones de retroalimentación automáticamente.",
       category: "Talento Humano",
@@ -1231,7 +1147,6 @@ const pageKeywords = 'desarrollo web, apps móviles, inteligencia artificial, ma
     },
     {
       id: 16,
-      icon: "calendar",
       title: "Gestión de Vacaciones y Ausencias",
       description: "Automatiza solicitudes, aprobaciones, detección de conflictos de cobertura y actualización de calendarios compartidos con notificaciones inteligentes.",
       category: "Talento Humano",
@@ -1242,7 +1157,6 @@ const pageKeywords = 'desarrollo web, apps móviles, inteligencia artificial, ma
     },
     {
       id: 17,
-      icon: "heart",
       title: "Encuestas de Clima Laboral con Análisis IA",
       description: "Encuestas periódicas automatizadas con análisis de sentimiento, detección de tendencias y alertas tempranas de problemas organizacionales.",
       category: "Talento Humano",
@@ -1253,7 +1167,6 @@ const pageKeywords = 'desarrollo web, apps móviles, inteligencia artificial, ma
     },
     {
       id: 18,
-      icon: "graduation-cap",
       title: "Capacitación Personalizada con IA",
       description: "Recomienda cursos y contenido de capacitación basado en gaps de habilidades, objetivos de carrera y análisis de desempeño usando IA.",
       category: "Talento Humano",
@@ -1264,7 +1177,6 @@ const pageKeywords = 'desarrollo web, apps móviles, inteligencia artificial, ma
     },
     {
       id: 19,
-      icon: "eye",
       title: "Inspección de Calidad con Computer Vision",
       description: "Sistema automatizado de control de calidad visual usando IA para detectar defectos en productos, generar reportes y alertar sobre anomalías.",
       category: "Calidad",
@@ -1275,7 +1187,6 @@ const pageKeywords = 'desarrollo web, apps móviles, inteligencia artificial, ma
     },
     {
       id: 20,
-      icon: "alert-circle",
       title: "Gestión de No Conformidades (NCR)",
       description: "Automatiza el ciclo completo de no conformidades: registro, asignación, seguimiento, análisis de causa raíz con IA y cierre de acciones correctivas.",
       category: "Calidad",
@@ -1286,7 +1197,6 @@ const pageKeywords = 'desarrollo web, apps móviles, inteligencia artificial, ma
     },
     {
       id: 21,
-      icon: "clipboard-check",
       title: "Auditorías Internas Automatizadas",
       description: "Programación, ejecución y seguimiento de auditorías con checklists inteligentes, generación de hallazgos y planes de acción automáticos.",
       category: "Calidad",
@@ -1297,7 +1207,6 @@ const pageKeywords = 'desarrollo web, apps móviles, inteligencia artificial, ma
     },
     {
       id: 22,
-      icon: "file-check",
       title: "Control de Documentación ISO",
       description: "Gestión automática de documentos normativos: control de versiones, notificaciones de revisión, aprobaciones y distribución controlada.",
       category: "Calidad",
@@ -1308,7 +1217,6 @@ const pageKeywords = 'desarrollo web, apps móviles, inteligencia artificial, ma
     },
     {
       id: 23,
-      icon: "message-square",
       title: "Análisis de Quejas de Clientes con IA",
       description: "Analiza quejas y reclamos usando NLP, clasifica por tipo, detecta patrones recurrentes y genera acciones preventivas automáticamente.",
       category: "Calidad",
@@ -1319,7 +1227,6 @@ const pageKeywords = 'desarrollo web, apps móviles, inteligencia artificial, ma
     },
     {
       id: 24,
-      icon: "dollar-sign",
       title: "Conciliación Bancaria Automatizada",
       description: "Importa extractos bancarios, concilia automáticamente con registros contables, detecta discrepancias y genera reportes de conciliación.",
       category: "Financiera",
@@ -1330,7 +1237,6 @@ const pageKeywords = 'desarrollo web, apps móviles, inteligencia artificial, ma
     },
     {
       id: 25,
-      icon: "file-text",
       title: "Gestión de Facturas y Cuentas por Pagar",
       description: "OCR de facturas, validación automática, workflow de aprobaciones, programación de pagos y alertas de vencimientos.",
       category: "Financiera",
@@ -1341,7 +1247,6 @@ const pageKeywords = 'desarrollo web, apps móviles, inteligencia artificial, ma
     },
     {
       id: 26,
-      icon: "trending-up",
       title: "Cobranza Inteligente Automatizada",
       description: "Seguimiento automático de cuentas por cobrar con mensajes personalizados, escalación inteligente y predicción de riesgo de morosidad.",
       category: "Financiera",
@@ -1352,7 +1257,6 @@ const pageKeywords = 'desarrollo web, apps móviles, inteligencia artificial, ma
     },
     {
       id: 27,
-      icon: "bar-chart-2",
       title: "Reportes Financieros Automatizados",
       description: "Genera reportes financieros (P&L, Balance, Cash Flow) automáticamente con análisis inteligente, insights y visualizaciones.",
       category: "Financiera",
@@ -1363,7 +1267,6 @@ const pageKeywords = 'desarrollo web, apps móviles, inteligencia artificial, ma
     },
     {
       id: 28,
-      icon: "shield-alert",
       title: "Detección de Fraude Financiero",
       description: "Monitorea transacciones en tiempo real, detecta patrones sospechosos con ML, alerta sobre posibles fraudes y genera casos de investigación.",
       category: "Financiera",
@@ -1374,7 +1277,6 @@ const pageKeywords = 'desarrollo web, apps móviles, inteligencia artificial, ma
     },
     {
       id: 29,
-      icon: "line-chart",
       title: "Presupuesto y Forecast con IA",
       description: "Genera presupuestos automáticos basados en históricos, tendencias y variables externas. Forecasting inteligente con modelos predictivos.",
       category: "Financiera",
@@ -1385,7 +1287,6 @@ const pageKeywords = 'desarrollo web, apps móviles, inteligencia artificial, ma
     },
     {
       id: 30,
-      icon: "package",
       title: "Optimización de Stock con IA",
       description: "Predicción de demanda con ML, cálculo automático de puntos de reorden, alertas de stock bajo y optimización de niveles de inventario.",
       category: "Inventarios",
@@ -1396,7 +1297,6 @@ const pageKeywords = 'desarrollo web, apps móviles, inteligencia artificial, ma
     },
     {
       id: 31,
-      icon: "shopping-bag",
       title: "Gestión de Órdenes de Compra Automatizada",
       description: "Genera órdenes de compra automáticamente basadas en niveles de inventario, envía a proveedores y hace seguimiento hasta recepción.",
       category: "Inventarios",
@@ -1407,7 +1307,6 @@ const pageKeywords = 'desarrollo web, apps móviles, inteligencia artificial, ma
     },
     {
       id: 32,
-      icon: "check-square",
       title: "Inventario Cíclico Automatizado",
       description: "Programa conteos cíclicos basados en criticidad ABC, asigna tareas, registra conteos y ajusta automáticamente discrepancias menores.",
       category: "Inventarios",
@@ -1418,7 +1317,6 @@ const pageKeywords = 'desarrollo web, apps móviles, inteligencia artificial, ma
     },
     {
       id: 33,
-      icon: "truck",
       title: "Picking y Packing Inteligente",
       description: "Optimiza rutas de picking con IA, genera listas inteligentes, valida con computer vision y automatiza etiquetado de envíos.",
       category: "Inventarios",
@@ -1518,9 +1416,6 @@ const pageKeywords = 'desarrollo web, apps móviles, inteligencia artificial, ma
       workflow.tech.some(t => t.toLowerCase().includes(lowerQuery))
     );
   }
-
-  // Inicializar tab desde URL al cargar la página
-  initTabFromURL();
 </script>
 
 <style>

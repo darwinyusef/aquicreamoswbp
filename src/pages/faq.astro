@@ -1,0 +1,665 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ComoContratar from "../components/ComoContratar.astro";
+---
+
+<Layout>
+  <Header currentPage="faq" />
+
+  <!-- Hero Section -->
+  <section
+    class="relative flex items-center justify-center bg-hero-pattern bg-repeat w-full min-h-[60vh] bg-[url(/img/fondo.png)] bg-no-repeat bg-cover bg-center"
+  >
+    <div class="absolute inset-0 bg-gradient-to-b from-black/50 to-background z-10"></div>
+
+    <div class="container mx-auto px-4 py-20 relative z-20">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#82e256]">
+            Preguntas Frecuentes
+          </span>
+        </h1>
+        <p class="text-base sm:text-lg md:text-xl text-gray-200 font-light max-w-2xl mx-auto">
+          Todo lo que necesitas saber sobre nuestros servicios, procesos y cómo trabajamos contigo
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Content -->
+  <section id="faq" class="relative py-20 bg-[#1a1a1a]">
+    <div class="container mx-auto px-4 md:px-16">
+      <div class="max-w-4xl mx-auto">
+
+        <!-- FAQ Items -->
+        <div class="space-y-4">
+
+          <!-- FAQ 1: Cómo contratar -->
+          <div class="faq-item bg-gray-800/50 border border-gray-700 rounded-xl overflow-hidden">
+            <button class="faq-question w-full text-left p-6 flex items-center justify-between hover:bg-gray-800/70 transition-colors">
+              <h3 class="text-lg md:text-xl font-bold text-white pr-8">
+                ¿Cómo pueden contratar nuestros servicios?
+              </h3>
+              <svg class="w-6 h-6 text-[#82e256] flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer overflow-hidden transition-all duration-300" style="max-height: 0px;">
+              <div class="p-6 pt-0 text-gray-300 space-y-3">
+                <p class="leading-relaxed">
+                  Contratar nuestros servicios es un proceso simple y transparente:
+                </p>
+                <ol class="list-decimal list-inside space-y-2 ml-4">
+                  <li><strong class="text-white">Contacto inicial:</strong> Agenda una consultoría gratuita a través de nuestro formulario o envíanos un email a <a href="mailto:info@aquicreamos.com" class="text-[#82e256] hover:underline">info@aquicreamos.com</a></li>
+                  <li><strong class="text-white">Discovery call:</strong> Conversamos sobre tu proyecto, necesidades y objetivos (30-60 min).</li>
+                  <li><strong class="text-white">Propuesta personalizada:</strong> Te enviamos una propuesta técnica y económica en 2-3 días hábiles.</li>
+                  <li><strong class="text-white">Reunión de clarificación:</strong> Revisamos juntos la propuesta y ajustamos detalles.</li>
+                  <li><strong class="text-white">Firma de contrato:</strong> Formalizamos el acuerdo con términos claros y protección legal.</li>
+                  <li><strong class="text-white">Inicio del proyecto:</strong> ¡Comenzamos a trabajar tras el pago inicial acordado!</li>
+                </ol>
+                <p class="text-sm text-gray-400 mt-4">
+                  💡 Tiempo estimado desde el contacto inicial hasta el inicio: 1-2 semanas.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 2: Cómo implementamos proyectos -->
+          <div class="faq-item bg-gray-800/50 border border-gray-700 rounded-xl overflow-hidden">
+            <button class="faq-question w-full text-left p-6 flex items-center justify-between hover:bg-gray-800/70 transition-colors">
+              <h3 class="text-lg md:text-xl font-bold text-white pr-8">
+                ¿Cómo implementamos un proyecto?
+              </h3>
+              <svg class="w-6 h-6 text-[#82e256] flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer overflow-hidden transition-all duration-300" style="max-height: 0px;">
+              <div class="p-6 pt-0 text-gray-300 space-y-4">
+                <p class="leading-relaxed">
+                  Seguimos una metodología ágil adaptada a las necesidades de cada proyecto:
+                </p>
+
+                <div class="space-y-4">
+                  <div class="bg-gray-900/50 rounded-lg p-4 border-l-4 border-[#82e256]">
+                    <h4 class="text-white font-bold mb-2">🎯 Fase 1: Planificación (1-2 semanas)</h4>
+                    <ul class="list-disc list-inside text-sm space-y-1 ml-2">
+                      <li>Definición detallada de requisitos</li>
+                      <li>Diseño de arquitectura técnica</li>
+                      <li>Creación de user stories y backlog</li>
+                      <li>Setup del entorno de desarrollo</li>
+                    </ul>
+                  </div>
+
+                  <div class="bg-gray-900/50 rounded-lg p-4 border-l-4 border-[#6bc73d]">
+                    <h4 class="text-white font-bold mb-2">🚀 Fase 2: Desarrollo Iterativo (Sprints de 2 semanas)</h4>
+                    <ul class="list-disc list-inside text-sm space-y-1 ml-2">
+                      <li>Desarrollo incremental de funcionalidades</li>
+                      <li>Revisiones semanales del progreso</li>
+                      <li>Testing continuo y QA</li>
+                      <li>Demos al final de cada sprint</li>
+                    </ul>
+                  </div>
+
+                  <div class="bg-gray-900/50 rounded-lg p-4 border-l-4 border-[#04ADC0]">
+                    <h4 class="text-white font-bold mb-2">✅ Fase 3: Testing y Refinamiento</h4>
+                    <ul class="list-disc list-inside text-sm space-y-1 ml-2">
+                      <li>Pruebas de integración completas</li>
+                      <li>User Acceptance Testing (UAT)</li>
+                      <li>Optimización de rendimiento</li>
+                      <li>Corrección de bugs finales</li>
+                    </ul>
+                  </div>
+
+                  <div class="bg-gray-900/50 rounded-lg p-4 border-l-4 border-[#82e256]">
+                    <h4 class="text-white font-bold mb-2">🎉 Fase 4: Despliegue y Lanzamiento</h4>
+                    <ul class="list-disc list-inside text-sm space-y-1 ml-2">
+                      <li>Deployment a producción</li>
+                      <li>Capacitación del equipo cliente</li>
+                      <li>Documentación completa</li>
+                      <li>Monitoreo post-lanzamiento</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <p class="text-sm text-gray-400 mt-4">
+                  📊 Comunicación: Reportes semanales, acceso a herramientas de gestión (Jira/Trello), y canal directo de Slack/WhatsApp.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 3: Integrar IA en el negocio -->
+          <div class="faq-item bg-gray-800/50 border border-gray-700 rounded-xl overflow-hidden">
+            <button class="faq-question w-full text-left p-6 flex items-center justify-between hover:bg-gray-800/70 transition-colors">
+              <h3 class="text-lg md:text-xl font-bold text-white pr-8">
+                ¿Cómo integrar IA en mi negocio?
+              </h3>
+              <svg class="w-6 h-6 text-[#82e256] flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer overflow-hidden transition-all duration-300" style="max-height: 0px;">
+              <div class="p-6 pt-0 text-gray-300 space-y-4">
+                <p class="leading-relaxed">
+                  Integramos IA de forma estratégica y progresiva en tu operación:
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-4">
+                  <div class="bg-gray-900/50 rounded-lg p-4">
+                    <div class="text-2xl mb-2">🎯</div>
+                    <h4 class="text-white font-bold mb-2">1. Identificación de Oportunidades</h4>
+                    <p class="text-sm">Analizamos tus procesos para encontrar áreas donde la IA genera mayor impacto y ROI.</p>
+                  </div>
+
+                  <div class="bg-gray-900/50 rounded-lg p-4">
+                    <div class="text-2xl mb-2">📊</div>
+                    <h4 class="text-white font-bold mb-2">2. Evaluación de Datos</h4>
+                    <p class="text-sm">Revisamos la calidad y disponibilidad de tus datos para entrenar modelos efectivos.</p>
+                  </div>
+
+                  <div class="bg-gray-900/50 rounded-lg p-4">
+                    <div class="text-2xl mb-2">🚀</div>
+                    <h4 class="text-white font-bold mb-2">3. Proyecto Piloto</h4>
+                    <p class="text-sm">Comenzamos con un caso de uso específico y medible para validar el valor.</p>
+                  </div>
+
+                  <div class="bg-gray-900/50 rounded-lg p-4">
+                    <div class="text-2xl mb-2">📈</div>
+                    <h4 class="text-white font-bold mb-2">4. Escalamiento</h4>
+                    <p class="text-sm">Expandimos la solución a más áreas una vez validada su efectividad.</p>
+                  </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-[#82e256]/10 to-[#6bc73d]/10 border border-[#82e256]/30 rounded-lg p-4 mt-4">
+                  <h4 class="text-white font-bold mb-2">💡 Casos de Uso Comunes:</h4>
+                  <ul class="list-disc list-inside text-sm space-y-1 ml-2">
+                    <li><strong class="text-white">Atención al cliente:</strong> Chatbots inteligentes 24/7 que reducen hasta 70% las consultas repetitivas</li>
+                    <li><strong class="text-white">Ventas:</strong> Agentes de cualificación de leads y seguimiento automatizado</li>
+                    <li><strong class="text-white">Operaciones:</strong> Automatización de tareas administrativas y procesamiento de documentos</li>
+                    <li><strong class="text-white">Análisis:</strong> Predicción de demanda, detección de anomalías y reportería inteligente</li>
+                    <li><strong class="text-white">Personalización:</strong> Recomendaciones y contenido adaptado a cada usuario</li>
+                  </ul>
+                </div>
+
+                <p class="text-sm text-gray-400 mt-4">
+                  ⏱️ Tiempo típico para ver primeros resultados: 4-8 semanas desde el inicio del proyecto.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 4: Qué pasará en la asesoría -->
+          <div class="faq-item bg-gray-800/50 border border-gray-700 rounded-xl overflow-hidden">
+            <button class="faq-question w-full text-left p-6 flex items-center justify-between hover:bg-gray-800/70 transition-colors">
+              <h3 class="text-lg md:text-xl font-bold text-white pr-8">
+                ¿Qué pasará en la asesoría?
+              </h3>
+              <svg class="w-6 h-6 text-[#82e256] flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer overflow-hidden transition-all duration-300" style="max-height: 0px;">
+              <div class="p-6 pt-0 text-gray-300 space-y-4">
+                <p class="leading-relaxed">
+                  Nuestra sesión de asesoría gratuita está diseñada para maximizar el valor en 60 minutos:
+                </p>
+
+                <div class="space-y-3">
+                  <div class="flex gap-4 items-start">
+                    <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-lg flex items-center justify-center text-black font-bold text-sm">10'</div>
+                    <div>
+                      <h4 class="text-white font-bold">Conocernos y entender tu contexto</h4>
+                      <p class="text-sm">Te escuchamos: ¿Cuál es tu negocio? ¿Qué desafíos enfrentas? ¿Qué objetivos persigues?</p>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-4 items-start">
+                    <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-lg flex items-center justify-center text-black font-bold text-sm">15'</div>
+                    <div>
+                      <h4 class="text-white font-bold">Profundizar en el problema</h4>
+                      <p class="text-sm">Hacemos preguntas estratégicas para entender el alcance real de tu necesidad y las limitaciones actuales.</p>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-4 items-start">
+                    <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-lg flex items-center justify-center text-black font-bold text-sm">20'</div>
+                    <div>
+                      <h4 class="text-white font-bold">Propuesta de solución</h4>
+                      <p class="text-sm">Compartimos ideas concretas, referencias de proyectos similares, y opciones técnicas viables.</p>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-4 items-start">
+                    <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-lg flex items-center justify-center text-black font-bold text-sm">10'</div>
+                    <div>
+                      <h4 class="text-white font-bold">Hoja de ruta y próximos pasos</h4>
+                      <p class="text-sm">Esbozamos un plan de acción inicial, estimación de tiempos y presupuesto aproximado.</p>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-4 items-start">
+                    <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-lg flex items-center justify-center text-black font-bold text-sm">5'</div>
+                    <div>
+                      <h4 class="text-white font-bold">Q&A y cierre</h4>
+                      <p class="text-sm">Resolvemos dudas finales y definimos los siguientes pasos si decides avanzar.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-[#00464e] to-[#006064] border border-[#82e256]/30 rounded-lg p-4 mt-4">
+                  <h4 class="text-white font-bold mb-2">📝 Recibirás:</h4>
+                  <ul class="list-disc list-inside text-sm space-y-1 ml-2">
+                    <li>Resumen escrito de la sesión por email</li>
+                    <li>Recomendaciones técnicas personalizadas</li>
+                    <li>Recursos adicionales relevantes para tu caso</li>
+                    <li>Propuesta formal detallada (si solicitas continuar)</li>
+                  </ul>
+                </div>
+
+                <div class="bg-gradient-to-r from-green-900/20 to-green-800/20 border border-green-700/50 rounded-lg p-4 mt-4">
+                  <h4 class="text-green-200 font-bold mb-2 flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                    </svg>
+                    Tu Idea Está Protegida
+                  </h4>
+                  <p class="text-sm text-gray-300">
+                    <strong class="text-white">Firmamos una cláusula de confidencialidad</strong> donde nos comprometemos legalmente a
+                    cuidar tu idea. Puedes compartir todos los detalles de tu proyecto sin preocupaciones. Tu información
+                    jamás será divulgada ni utilizada para otros fines.
+                  </p>
+                </div>
+
+                <p class="text-sm text-gray-400 mt-4">
+                  ✅ No hay compromiso de contratación. La asesoría es 100% gratuita y sin presión comercial.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 5: Qué arquitectura usar -->
+          <div class="faq-item bg-gray-800/50 border border-gray-700 rounded-xl overflow-hidden">
+            <button class="faq-question w-full text-left p-6 flex items-center justify-between hover:bg-gray-800/70 transition-colors">
+              <h3 class="text-lg md:text-xl font-bold text-white pr-8">
+                ¿Qué arquitectura debo usar en mi proyecto?
+              </h3>
+              <svg class="w-6 h-6 text-[#82e256] flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer overflow-hidden transition-all duration-300" style="max-height: 0px;">
+              <div class="p-6 pt-0 text-gray-300 space-y-4">
+                <p class="leading-relaxed">
+                  La arquitectura correcta depende de tus necesidades específicas. Te ayudamos a elegir considerando:
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-4">
+                  <div class="bg-gray-900/50 rounded-lg p-4 border-l-4 border-[#82e256]">
+                    <h4 class="text-white font-bold mb-2">🏢 Monolito Modular</h4>
+                    <p class="text-sm mb-2"><strong class="text-white">Ideal para:</strong></p>
+                    <ul class="list-disc list-inside text-sm space-y-1 ml-2 mb-2">
+                      <li>MVPs y proyectos pequeños-medianos</li>
+                      <li>Equipos pequeños (1-5 desarrolladores)</li>
+                      <li>Presupuestos limitados</li>
+                    </ul>
+                    <p class="text-xs text-gray-400">✅ Rápido desarrollo, menor complejidad operacional</p>
+                  </div>
+
+                  <div class="bg-gray-900/50 rounded-lg p-4 border-l-4 border-[#6bc73d]">
+                    <h4 class="text-white font-bold mb-2">🔷 Microservicios</h4>
+                    <p class="text-sm mb-2"><strong class="text-white">Ideal para:</strong></p>
+                    <ul class="list-disc list-inside text-sm space-y-1 ml-2 mb-2">
+                      <li>Aplicaciones empresariales complejas</li>
+                      <li>Equipos distribuidos múltiples</li>
+                      <li>Alta escalabilidad requerida</li>
+                    </ul>
+                    <p class="text-xs text-gray-400">✅ Escalabilidad independiente, tecnologías heterogéneas</p>
+                  </div>
+
+                  <div class="bg-gray-900/50 rounded-lg p-4 border-l-4 border-[#04ADC0]">
+                    <h4 class="text-white font-bold mb-2">⚡ Serverless</h4>
+                    <p class="text-sm mb-2"><strong class="text-white">Ideal para:</strong></p>
+                    <ul class="list-disc list-inside text-sm space-y-1 ml-2 mb-2">
+                      <li>Tráfico variable o impredecible</li>
+                      <li>Event-driven applications</li>
+                      <li>Optimización de costos operativos</li>
+                    </ul>
+                    <p class="text-xs text-gray-400">✅ Pay-per-use, auto-scaling, zero infraestructura</p>
+                  </div>
+
+                  <div class="bg-gray-900/50 rounded-lg p-4 border-l-4 border-[#82e256]">
+                    <h4 class="text-white font-bold mb-2">🎯 Arquitectura Híbrida</h4>
+                    <p class="text-sm mb-2"><strong class="text-white">Ideal para:</strong></p>
+                    <ul class="list-disc list-inside text-sm space-y-1 ml-2 mb-2">
+                      <li>Migración gradual de legacy</li>
+                      <li>Necesidades mixtas de escalabilidad</li>
+                      <li>Optimización costo-beneficio</li>
+                    </ul>
+                    <p class="text-xs text-gray-400">✅ Mejor de ambos mundos, evolución progresiva</p>
+                  </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-[#82e256]/10 to-[#6bc73d]/10 border border-[#82e256]/30 rounded-lg p-4 mt-4">
+                  <h4 class="text-white font-bold mb-2">🏗️ Aplicamos TOGAF 2026</h4>
+                  <p class="text-sm mb-2">
+                    Utilizamos el framework TOGAF para diseñar arquitecturas empresariales que consideran:
+                  </p>
+                  <div class="grid md:grid-cols-2 gap-2 text-sm">
+                    <div>• Arquitectura de negocio</div>
+                    <div>• Arquitectura de aplicaciones</div>
+                    <div>• Arquitectura de datos</div>
+                    <div>• Arquitectura tecnológica</div>
+                  </div>
+                </div>
+
+                <p class="text-sm text-gray-400 mt-4">
+                  💡 En la consultoría gratuita analizamos tu caso específico y recomendamos la arquitectura óptima.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 6: La IA resuelve todos los problemas -->
+          <div class="faq-item bg-gray-800/50 border border-gray-700 rounded-xl overflow-hidden">
+            <button class="faq-question w-full text-left p-6 flex items-center justify-between hover:bg-gray-800/70 transition-colors">
+              <h3 class="text-lg md:text-xl font-bold text-white pr-8">
+                ¿La IA resuelve todos mis problemas?
+              </h3>
+              <svg class="w-6 h-6 text-[#82e256] flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer overflow-hidden transition-all duration-300" style="max-height: 0px;">
+              <div class="p-6 pt-0 text-gray-300 space-y-4">
+                <p class="leading-relaxed font-semibold text-white">
+                  Seamos honestos: No. La IA es una herramienta poderosa, pero no es mágica.
+                </p>
+
+                <div class="bg-red-900/20 border border-red-700/50 rounded-lg p-4">
+                  <h4 class="text-red-200 font-bold mb-3">❌ La IA NO es la solución si:</h4>
+                  <ul class="list-disc list-inside text-sm space-y-2 ml-2">
+                    <li><strong class="text-white">Tus procesos son caóticos:</strong> La IA automatiza procesos, pero si estos están mal diseñados, solo automatizarás el caos.</li>
+                    <li><strong class="text-white">No tienes datos de calidad:</strong> "Garbage in, garbage out". Los modelos de IA necesitan datos limpios y representativos.</li>
+                    <li><strong class="text-white">El problema es organizacional:</strong> Si hay resistencia al cambio o falta de liderazgo, la tecnología no salvará el proyecto.</li>
+                    <li><strong class="text-white">Esperas resultados instantáneos:</strong> Implementar IA requiere tiempo de entrenamiento, ajuste y adopción.</li>
+                    <li><strong class="text-white">No hay presupuesto para mantenimiento:</strong> Los modelos necesitan actualización y monitoreo continuo.</li>
+                  </ul>
+                </div>
+
+                <div class="bg-green-900/20 border border-green-700/50 rounded-lg p-4">
+                  <h4 class="text-green-200 font-bold mb-3">✅ La IA SÍ es la solución si:</h4>
+                  <ul class="list-disc list-inside text-sm space-y-2 ml-2">
+                    <li><strong class="text-white">Tienes tareas repetitivas a escala:</strong> La IA sobresale automatizando trabajo manual recurrente.</li>
+                    <li><strong class="text-white">Necesitas personalización masiva:</strong> Contenido, recomendaciones o experiencias únicas para miles de usuarios.</li>
+                    <li><strong class="text-white">Requieres análisis de grandes volúmenes:</strong> Detectar patrones en millones de registros que humanos no podrían procesar.</li>
+                    <li><strong class="text-white">Buscas disponibilidad 24/7:</strong> Atención al cliente, ventas o soporte que nunca duerme.</li>
+                    <li><strong class="text-white">Quieres predicciones basadas en datos:</strong> Forecasting, detección de anomalías, prevención de fraude.</li>
+                  </ul>
+                </div>
+
+                <div class="bg-gradient-to-r from-[#00464e] to-[#006064] border border-[#82e256]/30 rounded-lg p-4">
+                  <h4 class="text-white font-bold mb-2">🎯 Nuestro enfoque realista:</h4>
+                  <p class="text-sm mb-2">
+                    En <strong>Aquí Creamos</strong> te diremos la verdad:
+                  </p>
+                  <ul class="list-disc list-inside text-sm space-y-1 ml-2">
+                    <li>Si la IA no es la mejor solución, te lo diremos y recomendaremos alternativas.</li>
+                    <li>Identificamos qué puede y qué NO puede resolver la IA en tu caso específico.</li>
+                    <li>Establecemos expectativas realistas sobre tiempos, costos y resultados.</li>
+                    <li>Diseñamos soluciones híbridas que combinan IA con otras tecnologías cuando es necesario.</li>
+                  </ul>
+                </div>
+
+                <p class="text-sm text-gray-400 mt-4">
+                  💬 <em>"La IA es un amplificador: potencia lo que ya funciona bien, pero también amplifica los problemas existentes si no se implementa correctamente."</em>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 7: Qué elecciones puedo tomar al mezclar servicios y tecnologías -->
+          <div class="faq-item bg-gray-800/50 border border-gray-700 rounded-xl overflow-hidden">
+            <button class="faq-question w-full text-left p-6 flex items-center justify-between hover:bg-gray-800/70 transition-colors">
+              <h3 class="text-lg md:text-xl font-bold text-white pr-8">
+                ¿Qué elecciones puedo tomar al mezclar servicios y tecnologías?
+              </h3>
+              <svg class="w-6 h-6 text-[#82e256] flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer overflow-hidden transition-all duration-300" style="max-height: 0px;">
+              <div class="p-6 pt-0 text-gray-300 space-y-4">
+                <p class="leading-relaxed">
+                  Nuestros servicios están diseñados para combinarse según tus necesidades. No vendemos paquetes rígidos,
+                  sino soluciones flexibles que se adaptan a tu proyecto:
+                </p>
+
+                <div class="bg-gradient-to-r from-blue-900/30 to-blue-800/30 rounded-xl p-6 border border-blue-500/30">
+                  <h4 class="text-white font-bold mb-4 flex items-center gap-2">
+                    <span class="text-2xl">🎯</span>
+                    Combinaciones Comunes de Servicios
+                  </h4>
+
+                  <div class="space-y-4">
+                    <div class="bg-black/30 rounded-lg p-4">
+                      <h5 class="text-[#82e256] font-bold mb-2">Startup Tech: Web + IA + DevOps</h5>
+                      <p class="text-sm text-gray-300 mb-2">
+                        Ideal para startups que quieren lanzar rápido con tecnología moderna.
+                      </p>
+                      <ul class="list-disc list-inside text-sm space-y-1 ml-2">
+                        <li>Aplicación web fullstack (React/Next.js + Node.js)</li>
+                        <li>Agente de IA para automatizar procesos clave</li>
+                        <li>Pipeline CI/CD y hosting en cloud</li>
+                      </ul>
+                      <p class="text-xs text-gray-400 mt-2">⏱️ Timeline: 8-12 semanas</p>
+                    </div>
+
+                    <div class="bg-black/30 rounded-lg p-4">
+                      <h5 class="text-[#82e256] font-bold mb-2">Producto Digital Completo: Mobile + Backend + ML</h5>
+                      <p class="text-sm text-gray-300 mb-2">
+                        Para productos que necesitan presencia móvil con inteligencia artificial.
+                      </p>
+                      <ul class="list-disc list-inside text-sm space-y-1 ml-2">
+                        <li>App móvil nativa (iOS + Android) o híbrida</li>
+                        <li>Backend robusto con APIs RESTful/GraphQL</li>
+                        <li>Modelo de ML para recomendaciones o predicciones</li>
+                        <li>Infraestructura escalable en AWS/GCP/Azure</li>
+                      </ul>
+                      <p class="text-xs text-gray-400 mt-2">⏱️ Timeline: 12-16 semanas</p>
+                    </div>
+
+                    <div class="bg-black/30 rounded-lg p-4">
+                      <h5 class="text-[#82e256] font-bold mb-2">Ecosistema IA: Agentes + Computer Vision + RAG</h5>
+                      <p class="text-sm text-gray-300 mb-2">
+                        Para empresas que quieren automatización avanzada con múltiples capacidades de IA.
+                      </p>
+                      <ul class="list-disc list-inside text-sm space-y-1 ml-2">
+                        <li>Sistema multi-agente para orquestación de tareas</li>
+                        <li>Computer Vision para análisis de imágenes/documentos</li>
+                        <li>RAG con base de conocimiento empresarial</li>
+                        <li>Dashboard de monitoreo y métricas</li>
+                      </ul>
+                      <p class="text-xs text-gray-400 mt-2">⏱️ Timeline: 10-14 semanas</p>
+                    </div>
+
+                    <div class="bg-black/30 rounded-lg p-4">
+                      <h5 class="text-[#82e256] font-bold mb-2">Transformación Legacy: Modernización + Cloud + IA</h5>
+                      <p class="text-sm text-gray-300 mb-2">
+                        Para empresas con sistemas antiguos que necesitan evolucionar.
+                      </p>
+                      <ul class="list-disc list-inside text-sm space-y-1 ml-2">
+                        <li>Migración gradual de legacy a arquitectura moderna</li>
+                        <li>Refactorización a microservicios o serverless</li>
+                        <li>Integración de IA en procesos existentes</li>
+                        <li>DevOps y automatización de deploys</li>
+                      </ul>
+                      <p class="text-xs text-gray-400 mt-2">⏱️ Timeline: Variable según complejidad (16+ semanas)</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-purple-900/30 to-purple-800/30 rounded-xl p-6 border border-purple-500/30">
+                  <h4 class="text-white font-bold mb-4 flex items-center gap-2">
+                    <span class="text-2xl">🔧</span>
+                    Elecciones Tecnológicas Flexibles
+                  </h4>
+
+                  <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <h5 class="text-white font-bold mb-2 text-sm">Frontend</h5>
+                      <ul class="text-sm space-y-1">
+                        <li class="flex items-center gap-2">
+                          <span class="w-1.5 h-1.5 bg-[#82e256] rounded-full"></span>
+                          React + Next.js (SEO, SSR)
+                        </li>
+                        <li class="flex items-center gap-2">
+                          <span class="w-1.5 h-1.5 bg-[#82e256] rounded-full"></span>
+                          Vue + Nuxt (flexibilidad)
+                        </li>
+                        <li class="flex items-center gap-2">
+                          <span class="w-1.5 h-1.5 bg-[#82e256] rounded-full"></span>
+                          Astro (velocidad extrema)
+                        </li>
+                        <li class="flex items-center gap-2">
+                          <span class="w-1.5 h-1.5 bg-[#82e256] rounded-full"></span>
+                          SvelteKit (rendimiento)
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h5 class="text-white font-bold mb-2 text-sm">Backend</h5>
+                      <ul class="text-sm space-y-1">
+                        <li class="flex items-center gap-2">
+                          <span class="w-1.5 h-1.5 bg-[#82e256] rounded-full"></span>
+                          Node.js (fullstack JS)
+                        </li>
+                        <li class="flex items-center gap-2">
+                          <span class="w-1.5 h-1.5 bg-[#82e256] rounded-full"></span>
+                          Python + FastAPI (IA/ML)
+                        </li>
+                        <li class="flex items-center gap-2">
+                          <span class="w-1.5 h-1.5 bg-[#82e256] rounded-full"></span>
+                          Go (alto rendimiento)
+                        </li>
+                        <li class="flex items-center gap-2">
+                          <span class="w-1.5 h-1.5 bg-[#82e256] rounded-full"></span>
+                          Rust (sistemas críticos)
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h5 class="text-white font-bold mb-2 text-sm">Bases de Datos</h5>
+                      <ul class="text-sm space-y-1">
+                        <li class="flex items-center gap-2">
+                          <span class="w-1.5 h-1.5 bg-[#82e256] rounded-full"></span>
+                          PostgreSQL (relacional robusto)
+                        </li>
+                        <li class="flex items-center gap-2">
+                          <span class="w-1.5 h-1.5 bg-[#82e256] rounded-full"></span>
+                          MongoDB (NoSQL flexible)
+                        </li>
+                        <li class="flex items-center gap-2">
+                          <span class="w-1.5 h-1.5 bg-[#82e256] rounded-full"></span>
+                          Redis (cache/tiempo real)
+                        </li>
+                        <li class="flex items-center gap-2">
+                          <span class="w-1.5 h-1.5 bg-[#82e256] rounded-full"></span>
+                          Vector DBs (embeddings IA)
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h5 class="text-white font-bold mb-2 text-sm">Infraestructura</h5>
+                      <ul class="text-sm space-y-1">
+                        <li class="flex items-center gap-2">
+                          <span class="w-1.5 h-1.5 bg-[#82e256] rounded-full"></span>
+                          AWS (ecosistema completo)
+                        </li>
+                        <li class="flex items-center gap-2">
+                          <span class="w-1.5 h-1.5 bg-[#82e256] rounded-full"></span>
+                          Vercel/Netlify (JAMstack)
+                        </li>
+                        <li class="flex items-center gap-2">
+                          <span class="w-1.5 h-1.5 bg-[#82e256] rounded-full"></span>
+                          Docker + Kubernetes
+                        </li>
+                        <li class="flex items-center gap-2">
+                          <span class="w-1.5 h-1.5 bg-[#82e256] rounded-full"></span>
+                          Railway/Render (simplicidad)
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-green-900/20 to-green-800/20 border border-green-700/50 rounded-lg p-4">
+                  <h4 class="text-green-200 font-bold mb-3">✅ Cómo Decidimos Juntos:</h4>
+                  <ul class="list-disc list-inside text-sm space-y-2 ml-2">
+                    <li><strong class="text-white">Tu presupuesto y tiempos:</strong> Ajustamos el alcance según recursos disponibles</li>
+                    <li><strong class="text-white">Tu equipo actual:</strong> Si ya tienes devs, elegimos tecnologías que conozcan o puedan aprender</li>
+                    <li><strong class="text-white">Escalabilidad futura:</strong> Diseñamos para crecer, pero sin over-engineering desde día 1</li>
+                    <li><strong class="text-white">Casos de uso específicos:</strong> IA para e-commerce es diferente a IA para salud</li>
+                    <li><strong class="text-white">Compliance y seguridad:</strong> Si manejas datos sensibles, elegimos stack apropiado</li>
+                  </ul>
+                </div>
+
+                <p class="text-sm text-gray-400 mt-4">
+                  💡 En la consultoría gratuita analizamos tu caso y proponemos la mejor combinación de servicios y tecnologías para tu proyecto específico.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cómo Contratar Section -->
+  <section class="relative py-20 bg-black">
+    <div class="container mx-auto px-4 md:px-16">
+      <ComoContratar />
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<script>
+  // FAQ Accordion functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqQuestions = document.querySelectorAll(".faq-question");
+
+    faqQuestions.forEach((question) => {
+      question.addEventListener("click", () => {
+        const faqItem = question.parentElement;
+        const answer = faqItem.querySelector(".faq-answer");
+        const icon = question.querySelector("svg");
+        const isOpen = answer.style.maxHeight && answer.style.maxHeight !== "0px";
+
+        // Cerrar todos los otros FAQ items
+        document.querySelectorAll(".faq-answer").forEach((otherAnswer) => {
+          if (otherAnswer !== answer) {
+            otherAnswer.style.maxHeight = "0px";
+            otherAnswer.parentElement.querySelector("svg").style.transform = "rotate(0deg)";
+          }
+        });
+
+        // Toggle el actual
+        if (isOpen) {
+          answer.style.maxHeight = "0px";
+          icon.style.transform = "rotate(0deg)";
+        } else {
+          answer.style.maxHeight = answer.scrollHeight + "px";
+          icon.style.transform = "rotate(180deg)";
+        }
+      });
+    });
+  });
+</script>

@@ -579,53 +579,17 @@ const opsItems = [
               <hr class="border-gray-800" />
 
               <!-- Ops para Agentes IA -->
-              <div class="mt-12 p-8 bg-gradient-to-br from-blue-900/30 to-blue-800/30 rounded-2xl border-2 border-blue-500/50">
-                <h3 class="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+              <div class="mt-12">
+                <h3 class="text-3xl font-bold text-white mb-4 flex items-center gap-3">
                   <span class="text-4xl">⚙️</span>
                   Operaciones para Agentes de IA
                 </h3>
-                <div class="prose prose-invert max-w-none">
-                  <p class="text-gray-300 text-base leading-relaxed mb-4">
-                    Desarrollar un agente de IA es solo el principio. Para que funcione en producción, necesitas operaciones especializadas
-                    que van mucho más allá del DevOps tradicional. Aquí es donde entran las disciplinas Ops específicas para IA.
-                  </p>
+                <p class="text-gray-300 mb-8 text-lg">
+                  Desarrollar un agente de IA es solo el principio. Para que funcione en producción, necesitas operaciones especializadas
+                  que van mucho más allá del DevOps tradicional.
+                </p>
 
-                  <p class="text-gray-300 text-base leading-relaxed mb-4">
-                    <strong class="text-[#82e256]">PromptOps</strong> es la gestión y versionado de prompts. Cada cambio en un prompt puede
-                    cambiar completamente el comportamiento de tu agente. Versionamos prompts como código, testeamos A/B diferentes versiones
-                    y monitoreamos qué prompts generan mejores respuestas. Todo automatizado.
-                  </p>
-
-                  <p class="text-gray-300 text-base leading-relaxed mb-4">
-                    <strong class="text-[#82e256]">AgentOps</strong> gestiona el ciclo de vida completo de tus agentes: deployment,
-                    monitoreo de conversaciones, análisis de decisiones que toman, detección de comportamientos anómalos. Si un agente
-                    empieza a dar respuestas raras, lo detectamos antes de que llegue a tus clientes.
-                  </p>
-
-                  <p class="text-gray-300 text-base leading-relaxed mb-4">
-                    <strong class="text-[#82e256]">DesigningOps</strong> se enfoca en el diseño conversacional: flujos de conversación,
-                    manejo de contexto, personalidad del agente. Iteramos diseños basados en datos reales de uso, mejorando continuamente
-                    la experiencia conversacional.
-                  </p>
-
-                  <p class="text-gray-300 text-base leading-relaxed mb-4">
-                    <strong class="text-[#82e256]">RAGOps</strong> es específico para sistemas RAG (Retrieval Augmented Generation).
-                    Gestionamos la actualización de knowledge bases, optimizamos embeddings, monitoreamos calidad de retrieval y
-                    detectamos cuando el agente necesita información que no tiene. Tu base de conocimiento evoluciona automáticamente.
-                  </p>
-
-                  <p class="text-gray-300 text-base leading-relaxed mb-4">
-                    <strong class="text-[#82e256]">LLMOps</strong> gestiona los modelos de lenguaje grandes: selección de modelos,
-                    fine-tuning cuando es necesario, optimización de costos de API, fallbacks entre proveedores. Si OpenAI está caído,
-                    tu agente automáticamente usa Claude sin que nadie note la diferencia.
-                  </p>
-
-                  <p class="text-gray-300 text-base leading-relaxed">
-                    Y por supuesto, todo esto se integra con <strong class="text-[#82e256]">MLOps, DLOps, FMOps y GenAIOps</strong> del
-                    mundo DevOps tradicional: CI/CD para agentes, infraestructura como código, observabilidad completa con OpenTelemetry,
-                    logs auditables y monitoreo 24/7. Tus agentes corren en producción con la misma confiabilidad que cualquier aplicación crítica.
-                  </p>
-                </div>
+                <Accordion items={opsItems} />
               </div>
 
               <hr class="border-gray-800" />
