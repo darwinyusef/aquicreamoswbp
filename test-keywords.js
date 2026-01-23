@@ -25,7 +25,7 @@ console.log('=== PRUEBA DE KEYWORDS ===\n');
 const tests = [
   { keyword: 'desarrollo', category: 'Desarrollo Full-Stack' },
   { keyword: 'ia', category: 'Aprendizaje Automático y por refuerzo + Modelos de IA' },
-  { keyword: 'arquitectura', category: 'Arquitectura de Software Escalable & Robusta' },
+  { keyword: 'arquitectura', category: 'Oficina de Arquitectura de Software + IA' },
   { keyword: 'agentes', category: "Agentes de inteligencia artificial y MCP's" },
   { keyword: 'aplicaciones', category: 'Aplicaciones Nativas & Cross-Platform' },
   { keyword: 'integraciones', category: 'Apps con integraciones hechas a la medida + IA' },

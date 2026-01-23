@@ -2,7 +2,6 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import SimpleCarousel from "../../components/SimpleCarousel.astro";
 import OtrosServicios from "../../components/OtrosServicios.astro";
 
 // Secciones del menú interno
@@ -215,51 +214,95 @@ const secciones = [
 
                 <h3 class="text-2xl font-bold text-white mb-6">Capacidades que Transforman Tu Aplicación</h3>
 
-                <SimpleCarousel id="superpoderes-ia-carousel">
-                  <!-- Búsqueda Semántica -->
-                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
-                    <h3 class="text-2xl font-bold text-white mb-4">Búsqueda Inteligente</h3>
-                    <p class="text-gray-300 leading-relaxed mb-4">
-                      Los usuarios buscan por intención, no por palabras exactas. Pregunta "¿cómo reseteo mi contraseña?" y encuentra la respuesta correcta aunque el manual diga "procedimiento de recuperación de credenciales".
-                    </p>
-                    <div class="bg-[#04ADC0]/10 p-2.5 rounded-lg border-l-4 border-[#04ADC0]">
-                      <p class="text-sm text-gray-400"><strong>Ejemplo:</strong> E-commerce de moda donde buscas "vestido elegante para boda" y encuentra el outfit perfecto</p>
+                <!-- Looper de Superpoderes IA -->
+                <div class="overflow-hidden relative mb-8">
+                  <div class="superpoderes-looper-track flex gap-6 py-4">
+                    <!-- Búsqueda Semántica -->
+                    <div class="superpoderes-card flex-shrink-0 w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                      <h3 class="text-2xl font-bold text-white mb-4">Búsqueda Inteligente</h3>
+                      <p class="text-gray-300 leading-relaxed mb-4">
+                        Los usuarios buscan por intención, no por palabras exactas. Pregunta "¿cómo reseteo mi contraseña?" y encuentra la respuesta correcta aunque el manual diga "procedimiento de recuperación de credenciales".
+                      </p>
+                      <div class="bg-[#04ADC0]/10 p-2.5 rounded-lg border-l-4 border-[#04ADC0]">
+                        <p class="text-sm text-gray-400"><strong>Ejemplo:</strong> E-commerce de moda donde buscas "vestido elegante para boda" y encuentra el outfit perfecto</p>
+                      </div>
                     </div>
-                  </div>
 
-                  <!-- Generación de Contenido -->
-                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
-                    <h3 class="text-2xl font-bold text-white mb-4">Contenido Personalizado</h3>
-                    <p class="text-gray-300 leading-relaxed mb-4">
-                      Tu app crea contenido único para cada usuario. Emails de marketing que resuenan, descripciones de productos optimizadas, reportes ejecutivos y traducciones contextuales en segundos.
-                    </p>
-                    <div class="bg-[#04ADC0]/10 p-2.5 rounded-lg border-l-4 border-[#04ADC0]">
-                      <p class="text-sm text-gray-400"><strong>Ejemplo:</strong> Plataforma educativa que genera ejercicios únicos según el nivel de cada estudiante</p>
+                    <!-- Generación de Contenido -->
+                    <div class="superpoderes-card flex-shrink-0 w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                      <h3 class="text-2xl font-bold text-white mb-4">Contenido Personalizado</h3>
+                      <p class="text-gray-300 leading-relaxed mb-4">
+                        Tu app crea contenido único para cada usuario. Emails de marketing que resuenan, descripciones de productos optimizadas, reportes ejecutivos y traducciones contextuales en segundos.
+                      </p>
+                      <div class="bg-[#04ADC0]/10 p-2.5 rounded-lg border-l-4 border-[#04ADC0]">
+                        <p class="text-sm text-gray-400"><strong>Ejemplo:</strong> Plataforma educativa que genera ejercicios únicos según el nivel de cada estudiante</p>
+                      </div>
                     </div>
-                  </div>
 
-                  <!-- Recomendaciones -->
-                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
-                    <h3 class="text-2xl font-bold text-white mb-4">Recomendaciones Predictivas</h3>
-                    <p class="text-gray-300 leading-relaxed mb-4">
-                      Más allá del "otros también compraron". Analiza comportamiento en tiempo real, predice necesidades futuras y explica por qué recomienda cada elemento.
-                    </p>
-                    <div class="bg-[#04ADC0]/10 p-2.5 rounded-lg border-l-4 border-[#04ADC0]">
-                      <p class="text-sm text-gray-400"><strong>Ejemplo:</strong> App de streaming que no solo recomienda, sino que explica por qué te gustará</p>
+                    <!-- Recomendaciones -->
+                    <div class="superpoderes-card flex-shrink-0 w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                      <h3 class="text-2xl font-bold text-white mb-4">Recomendaciones Predictivas</h3>
+                      <p class="text-gray-300 leading-relaxed mb-4">
+                        Más allá del "otros también compraron". Analiza comportamiento en tiempo real, predice necesidades futuras y explica por qué recomienda cada elemento.
+                      </p>
+                      <div class="bg-[#04ADC0]/10 p-2.5 rounded-lg border-l-4 border-[#04ADC0]">
+                        <p class="text-sm text-gray-400"><strong>Ejemplo:</strong> App de streaming que no solo recomienda, sino que explica por qué te gustará</p>
+                      </div>
                     </div>
-                  </div>
 
-                  <!-- RAG -->
-                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
-                    <h3 class="text-2xl font-bold text-white mb-4">RAG: Tus Datos, Respuestas Precisas</h3>
-                    <p class="text-gray-300 leading-relaxed mb-4">
-                      La app consulta tu documentación interna, genera respuestas citando fuentes exactas y se actualiza automáticamente cuando cambias tus documentos. Sin alucinaciones.
-                    </p>
-                    <div class="bg-[#04ADC0]/10 p-2.5 rounded-lg border-l-4 border-[#04ADC0]">
-                      <p class="text-sm text-gray-400"><strong>Ejemplo:</strong> Asistente legal que cita cláusulas exactas de tus contratos al responder</p>
+                    <!-- RAG -->
+                    <div class="superpoderes-card flex-shrink-0 w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                      <h3 class="text-2xl font-bold text-white mb-4">RAG: Tus Datos, Respuestas Precisas</h3>
+                      <p class="text-gray-300 leading-relaxed mb-4">
+                        La app consulta tu documentación interna, genera respuestas citando fuentes exactas y se actualiza automáticamente cuando cambias tus documentos. Sin alucinaciones.
+                      </p>
+                      <div class="bg-[#04ADC0]/10 p-2.5 rounded-lg border-l-4 border-[#04ADC0]">
+                        <p class="text-sm text-gray-400"><strong>Ejemplo:</strong> Asistente legal que cita cláusulas exactas de tus contratos al responder</p>
+                      </div>
+                    </div>
+
+                    <!-- Duplicates for infinite loop -->
+                    <div class="superpoderes-card flex-shrink-0 w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                      <h3 class="text-2xl font-bold text-white mb-4">Búsqueda Inteligente</h3>
+                      <p class="text-gray-300 leading-relaxed mb-4">
+                        Los usuarios buscan por intención, no por palabras exactas. Pregunta "¿cómo reseteo mi contraseña?" y encuentra la respuesta correcta aunque el manual diga "procedimiento de recuperación de credenciales".
+                      </p>
+                      <div class="bg-[#04ADC0]/10 p-2.5 rounded-lg border-l-4 border-[#04ADC0]">
+                        <p class="text-sm text-gray-400"><strong>Ejemplo:</strong> E-commerce de moda donde buscas "vestido elegante para boda" y encuentra el outfit perfecto</p>
+                      </div>
+                    </div>
+
+                    <div class="superpoderes-card flex-shrink-0 w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                      <h3 class="text-2xl font-bold text-white mb-4">Contenido Personalizado</h3>
+                      <p class="text-gray-300 leading-relaxed mb-4">
+                        Tu app crea contenido único para cada usuario. Emails de marketing que resuenan, descripciones de productos optimizadas, reportes ejecutivos y traducciones contextuales en segundos.
+                      </p>
+                      <div class="bg-[#04ADC0]/10 p-2.5 rounded-lg border-l-4 border-[#04ADC0]">
+                        <p class="text-sm text-gray-400"><strong>Ejemplo:</strong> Plataforma educativa que genera ejercicios únicos según el nivel de cada estudiante</p>
+                      </div>
+                    </div>
+
+                    <div class="superpoderes-card flex-shrink-0 w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                      <h3 class="text-2xl font-bold text-white mb-4">Recomendaciones Predictivas</h3>
+                      <p class="text-gray-300 leading-relaxed mb-4">
+                        Más allá del "otros también compraron". Analiza comportamiento en tiempo real, predice necesidades futuras y explica por qué recomienda cada elemento.
+                      </p>
+                      <div class="bg-[#04ADC0]/10 p-2.5 rounded-lg border-l-4 border-[#04ADC0]">
+                        <p class="text-sm text-gray-400"><strong>Ejemplo:</strong> App de streaming que no solo recomienda, sino que explica por qué te gustará</p>
+                      </div>
+                    </div>
+
+                    <div class="superpoderes-card flex-shrink-0 w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                      <h3 class="text-2xl font-bold text-white mb-4">RAG: Tus Datos, Respuestas Precisas</h3>
+                      <p class="text-gray-300 leading-relaxed mb-4">
+                        La app consulta tu documentación interna, genera respuestas citando fuentes exactas y se actualiza automáticamente cuando cambias tus documentos. Sin alucinaciones.
+                      </p>
+                      <div class="bg-[#04ADC0]/10 p-2.5 rounded-lg border-l-4 border-[#04ADC0]">
+                        <p class="text-sm text-gray-400"><strong>Ejemplo:</strong> Asistente legal que cita cláusulas exactas de tus contratos al responder</p>
+                      </div>
                     </div>
                   </div>
-                </SimpleCarousel>
+                </div>
 
                 <div class="bg-gradient-to-br from-blue-900/20 to-purple-900/20 p-6 rounded-xl border border-blue-500/30 mt-8">
                   <h4 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
@@ -293,102 +336,150 @@ const secciones = [
               <div id="stack">
                 <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">Stack de Vanguardia</h2>
 
-                <SimpleCarousel id="stack-tecnologico-carousel">
-                  <!-- Modelos -->
-                  <div style="padding: 18px" class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-28 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
-                    <h3 class="text-2xl font-bold text-white mb-3">
-                      Modelos de IA
-                    </h3>
-                    <div class="space-y-3">
-                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
-                        <p class="font-semibold text-white">GPT-4 & GPT-4 Vision</p>
-                        <p class="text-sm text-gray-400">Modelos de lenguaje de OpenAI de última generación</p>
-                      </div>
-                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
-                        <p class="font-semibold text-white">Claude Sonnet & Opus</p>
-                        <p class="text-sm text-gray-400">Modelos avanzados de Anthropic</p>
-                      </div>
-                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
-                        <p class="font-semibold text-white">Gemini Pro</p>
-                        <p class="text-sm text-gray-400">Modelo multimodal de Google</p>
-                      </div>
-                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
-                        <p class="font-semibold text-white">Llama 3 (on-premise)</p>
-                        <p class="text-sm text-gray-400">Modelo open-source para deploy local</p>
+                <!-- Looper del Stack Tecnológico -->
+                <div class="overflow-hidden relative mb-8">
+                  <div class="stack-apps-looper-track flex gap-6 py-4">
+                    <!-- Modelos -->
+                    <div class="stack-apps-card flex-shrink-0 w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                      <h3 class="text-2xl font-bold text-white mb-3">
+                        Modelos de IA
+                      </h3>
+                      <div class="space-y-3">
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">GPT-4 & GPT-4 Vision</p>
+                          <p class="text-sm text-gray-400">Modelos de lenguaje de OpenAI de última generación</p>
+                        </div>
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">Claude Sonnet & Opus</p>
+                          <p class="text-sm text-gray-400">Modelos avanzados de Anthropic</p>
+                        </div>
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">Gemini Pro</p>
+                          <p class="text-sm text-gray-400">Modelo multimodal de Google</p>
+                        </div>
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">Llama 3 (on-premise)</p>
+                          <p class="text-sm text-gray-400">Modelo open-source para deploy local</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  <!-- Infraestructura -->
-                  <div style="padding: 18px" class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
-                    <h3 class="text-2xl font-bold text-white mb-3">
-                      Infraestructura
-                    </h3>
-                    <div class="space-y-3 max-h-[400px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-[#82e256]/50 scrollbar-track-gray-800/50">
-                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
-                        <p class="font-semibold text-white">PostgreSQL Vector</p>
-                        <p class="text-sm text-gray-400">Base de datos vectorial para embeddings</p>
-                      </div>
-                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
-                        <p class="font-semibold text-white">PyTorch, TensorFlow, Scikit-learn</p>
-                        <p class="text-sm text-gray-400">Frameworks de machine learning</p>
-                      </div>
-                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
-                        <p class="font-semibold text-white">DuckDB</p>
-                        <p class="text-sm text-gray-400">Motor analítico de alto rendimiento</p>
-                      </div>
-                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
-                        <p class="font-semibold text-white">OpenTelemetry, Prefect</p>
-                        <p class="text-sm text-gray-400">Tracking y orquestación de workflows</p>
-                      </div>
-                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
-                        <p class="font-semibold text-white">Grafana, Prometheus</p>
-                        <p class="text-sm text-gray-400">Observabilidad y métricas</p>
-                      </div>
-                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
-                        <p class="font-semibold text-white">NATS, RabbitMQ</p>
-                        <p class="text-sm text-gray-400">Sistemas de mensajería para microservicios</p>
-                      </div>
-                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
-                        <p class="font-semibold text-white">LangChain, LangGraph, LangSmith, n8n</p>
-                        <p class="text-sm text-gray-400">Orquestación y automatización de IA</p>
-                      </div>
-                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
-                        <p class="font-semibold text-white">Redis, PostgreSQL</p>
-                        <p class="text-sm text-gray-400">Cache y base de datos relacional</p>
-                      </div>
-                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
-                        <p class="font-semibold text-white">Linux 22, Docker</p>
-                        <p class="text-sm text-gray-400">Sistema operativo y contenedores</p>
-                      </div>
-                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
-                        <p class="font-semibold text-white">CI/CD Automatizado</p>
-                        <p class="text-sm text-gray-400">Pipeline de integración y despliegue continuo</p>
+                    <!-- Infraestructura -->
+                    <div class="stack-apps-card flex-shrink-0 w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                      <h3 class="text-2xl font-bold text-white mb-3">
+                        Infraestructura
+                      </h3>
+                      <div class="space-y-3">
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">PostgreSQL Vector</p>
+                          <p class="text-sm text-gray-400">Base de datos vectorial para embeddings</p>
+                        </div>
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">PyTorch, TensorFlow, Scikit-learn</p>
+                          <p class="text-sm text-gray-400">Frameworks de machine learning</p>
+                        </div>
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">LangChain, LangGraph, LangSmith</p>
+                          <p class="text-sm text-gray-400">Orquestación y automatización de IA</p>
+                        </div>
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">Redis, Docker, CI/CD</p>
+                          <p class="text-sm text-gray-400">Cache, contenedores y deploy automatizado</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  <!-- Frontend/Backend -->
-                  <div style="padding: 18px" class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
-                    <h3 class="text-2xl font-bold text-white mb-3">
-                      Frontend/Backend
-                    </h3>
-                    <div class="space-y-3">
-                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
-                        <p class="font-semibold text-white">React, Next.js, React Native</p>
-                        <p class="text-sm text-gray-400">Frameworks frontend modernos</p>
+                    <!-- Frontend/Backend -->
+                    <div class="stack-apps-card flex-shrink-0 w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                      <h3 class="text-2xl font-bold text-white mb-3">
+                        Frontend/Backend
+                      </h3>
+                      <div class="space-y-3">
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">React, Next.js, React Native</p>
+                          <p class="text-sm text-gray-400">Frameworks frontend modernos</p>
+                        </div>
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">Python, FastAPI, Node.js, Go</p>
+                          <p class="text-sm text-gray-400">Backend de alto rendimiento</p>
+                        </div>
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">TypeScript</p>
+                          <p class="text-sm text-gray-400">Tipado estático para mayor robustez</p>
+                        </div>
                       </div>
-                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
-                        <p class="font-semibold text-white">Python, FastAPI, Node.js, Go</p>
-                        <p class="text-sm text-gray-400">Backend de alto rendimiento</p>
+                    </div>
+
+                    <!-- Duplicates for infinite loop -->
+                    <div class="stack-apps-card flex-shrink-0 w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                      <h3 class="text-2xl font-bold text-white mb-3">
+                        Modelos de IA
+                      </h3>
+                      <div class="space-y-3">
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">GPT-4 & GPT-4 Vision</p>
+                          <p class="text-sm text-gray-400">Modelos de lenguaje de OpenAI de última generación</p>
+                        </div>
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">Claude Sonnet & Opus</p>
+                          <p class="text-sm text-gray-400">Modelos avanzados de Anthropic</p>
+                        </div>
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">Gemini Pro</p>
+                          <p class="text-sm text-gray-400">Modelo multimodal de Google</p>
+                        </div>
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">Llama 3 (on-premise)</p>
+                          <p class="text-sm text-gray-400">Modelo open-source para deploy local</p>
+                        </div>
                       </div>
-                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
-                        <p class="font-semibold text-white">TypeScript</p>
-                        <p class="text-sm text-gray-400">Tipado estático para mayor robustez</p>
+                    </div>
+
+                    <div class="stack-apps-card flex-shrink-0 w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                      <h3 class="text-2xl font-bold text-white mb-3">
+                        Infraestructura
+                      </h3>
+                      <div class="space-y-3">
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">PostgreSQL Vector</p>
+                          <p class="text-sm text-gray-400">Base de datos vectorial para embeddings</p>
+                        </div>
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">PyTorch, TensorFlow, Scikit-learn</p>
+                          <p class="text-sm text-gray-400">Frameworks de machine learning</p>
+                        </div>
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">LangChain, LangGraph, LangSmith</p>
+                          <p class="text-sm text-gray-400">Orquestación y automatización de IA</p>
+                        </div>
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">Redis, Docker, CI/CD</p>
+                          <p class="text-sm text-gray-400">Cache, contenedores y deploy automatizado</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="stack-apps-card flex-shrink-0 w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                      <h3 class="text-2xl font-bold text-white mb-3">
+                        Frontend/Backend
+                      </h3>
+                      <div class="space-y-3">
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">React, Next.js, React Native</p>
+                          <p class="text-sm text-gray-400">Frameworks frontend modernos</p>
+                        </div>
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">Python, FastAPI, Node.js, Go</p>
+                          <p class="text-sm text-gray-400">Backend de alto rendimiento</p>
+                        </div>
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">TypeScript</p>
+                          <p class="text-sm text-gray-400">Tipado estático para mayor robustez</p>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </SimpleCarousel>
+                </div>
 
                 <div class="my-8">
                   <div class="flex justify-center mb-4">
@@ -444,6 +535,38 @@ const secciones = [
   h2 {
     scroll-margin-top: 100px;
   }
+
+  /* Looper de Superpoderes IA */
+  .superpoderes-looper-track {
+    animation: superpoderes-scroll 30s linear infinite;
+    will-change: transform;
+  }
+  .superpoderes-looper-track:hover {
+    animation-play-state: paused;
+  }
+  @keyframes superpoderes-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .superpoderes-card {
+    min-width: 384px;
+  }
+
+  /* Looper del Stack Tecnológico de Apps IA */
+  .stack-apps-looper-track {
+    animation: stack-apps-scroll 25s linear infinite;
+    will-change: transform;
+  }
+  .stack-apps-looper-track:hover {
+    animation-play-state: paused;
+  }
+  @keyframes stack-apps-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .stack-apps-card {
+    min-width: 384px;
+  }
 </style>
 
 <script>
@@ -465,6 +588,81 @@ const secciones = [
           }
         }
       });
+    });
+
+    // Drag-to-scroll para loopers
+    const loopers = document.querySelectorAll('.superpoderes-looper-track, .stack-apps-looper-track');
+
+    loopers.forEach(looper => {
+      let isDown = false;
+      let startX;
+      let currentTranslate = 0;
+      let prevTranslate = 0;
+      let isDragging = false;
+
+      // Obtener el valor actual de transform
+      function getTranslateX() {
+        const style = window.getComputedStyle(looper);
+        const matrix = new DOMMatrix(style.transform);
+        return matrix.m41;
+      }
+
+      looper.addEventListener('mousedown', (e) => {
+        isDown = true;
+        isDragging = false;
+        looper.style.cursor = 'grabbing';
+        startX = e.pageX;
+
+        // Pausar animación y obtener posición actual
+        looper.style.animationPlayState = 'paused';
+        prevTranslate = getTranslateX();
+        currentTranslate = prevTranslate;
+      });
+
+      looper.addEventListener('mouseleave', () => {
+        if (isDown) {
+          isDown = false;
+          looper.style.cursor = 'grab';
+          // Reanudar animación
+          looper.style.animationPlayState = 'running';
+        }
+      });
+
+      looper.addEventListener('mouseup', () => {
+        isDown = false;
+        looper.style.cursor = 'grab';
+        // Reanudar animación
+        looper.style.animationPlayState = 'running';
+      });
+
+      looper.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        isDragging = true;
+
+        const currentX = e.pageX;
+        const diff = currentX - startX;
+        currentTranslate = prevTranslate + diff;
+
+        // Aplicar transform directamente
+        looper.style.transform = `translateX(${currentTranslate}px)`;
+      });
+
+      // Pausar en hover
+      looper.addEventListener('mouseenter', () => {
+        if (!isDown) {
+          looper.style.animationPlayState = 'paused';
+        }
+      });
+
+      looper.addEventListener('mouseleave', () => {
+        if (!isDown) {
+          looper.style.animationPlayState = 'running';
+        }
+      });
+
+      // Cambiar cursor para indicar que es arrastrable
+      looper.style.cursor = 'grab';
     });
   });
 </script>

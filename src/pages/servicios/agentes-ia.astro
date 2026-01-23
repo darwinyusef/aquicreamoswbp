@@ -2,8 +2,8 @@
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import SimpleCarousel from "../../components/SimpleCarousel.astro";
 import OtrosServicios from "../../components/OtrosServicios.astro";
+import Accordion from "../../components/Accordion.astro";
 
 // Secciones del menú interno
 const secciones = [
@@ -11,6 +11,76 @@ const secciones = [
   { id: "capacidades", title: "Capacidades" },
   { id: "funcionamiento", title: "Cómo Funciona" },
   { id: "tecnologia", title: "Tecnología" },
+];
+
+// Items del acordeón de Operaciones
+const opsItems = [
+  {
+    title: "PromptOps - Gestión de Prompts",
+    icon: "file-text",
+    content: `
+      <p class="text-gray-300 leading-relaxed">
+        Gestión y versionado de prompts. Cada cambio en un prompt puede cambiar completamente el comportamiento
+        de tu agente. Versionamos prompts como código, testeamos A/B diferentes versiones y monitoreamos qué
+        prompts generan mejores respuestas. Todo automatizado.
+      </p>
+    `
+  },
+  {
+    title: "AgentOps - Ciclo de Vida de Agentes",
+    icon: "bot",
+    content: `
+      <p class="text-gray-300 leading-relaxed">
+        Gestiona el ciclo de vida completo de tus agentes: deployment, monitoreo de conversaciones, análisis
+        de decisiones que toman, detección de comportamientos anómalos. Si un agente empieza a dar respuestas
+        raras, lo detectamos antes de que llegue a tus clientes.
+      </p>
+    `
+  },
+  {
+    title: "DesigningOps - Diseño Conversacional",
+    icon: "pencil",
+    content: `
+      <p class="text-gray-300 leading-relaxed">
+        Se enfoca en el diseño conversacional: flujos de conversación, manejo de contexto, personalidad del
+        agente. Iteramos diseños basados en datos reales de uso, mejorando continuamente la experiencia
+        conversacional.
+      </p>
+    `
+  },
+  {
+    title: "RAGOps - Gestión de Knowledge Bases",
+    icon: "database",
+    content: `
+      <p class="text-gray-300 leading-relaxed">
+        Específico para sistemas RAG (Retrieval Augmented Generation). Gestionamos la actualización de
+        knowledge bases, optimizamos embeddings, monitoreamos calidad de retrieval y detectamos cuando el
+        agente necesita información que no tiene. Tu base de conocimiento evoluciona automáticamente.
+      </p>
+    `
+  },
+  {
+    title: "LLMOps - Gestión de Modelos",
+    icon: "cpu",
+    content: `
+      <p class="text-gray-300 leading-relaxed">
+        Gestiona los modelos de lenguaje grandes: selección de modelos, fine-tuning cuando es necesario,
+        optimización de costos de API, fallbacks entre proveedores. Si OpenAI está caído, tu agente
+        automáticamente usa Claude sin que nadie note la diferencia.
+      </p>
+    `
+  },
+  {
+    title: "MLOps, DLOps, FMOps y GenAIOps",
+    icon: "settings",
+    content: `
+      <p class="text-gray-300 leading-relaxed">
+        Todo se integra con el mundo DevOps tradicional: CI/CD para agentes, infraestructura como código,
+        observabilidad completa con OpenTelemetry, logs auditables y monitoreo 24/7. Tus agentes corren en
+        producción con la misma confiabilidad que cualquier aplicación crítica.
+      </p>
+    `
+  }
 ];
 ---
 
@@ -187,90 +257,141 @@ const secciones = [
                   Desarrollamos agentes que se integran con tus aplicaciones web existentes o nuevas usando MCP
                 </p>
 
-                <SimpleCarousel id="capacidades-carousel">
-                  <!-- Card 1: Integración con Apps Existentes -->
-                  <div
-                    class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300"
-                  >
-                    <h3 class="text-2xl font-bold text-white mb-3">
-                      Integración con Apps Existentes
-                    </h3>
-                    <p class="text-gray-300 leading-relaxed mb-4">
-                      Conectamos agentes IA a tus aplicaciones web actuales sin necesidad de reescribirlas.
-                      Los agentes acceden a tus bases de datos y sistemas mediante <strong class="text-[#82e256]">Model Context Protocol (MCP)</strong>.
-                    </p>
-                    <div
-                      class="mt-6 p-4 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]"
-                    >
-                      <p class="text-sm text-gray-400">
-                        <strong>Ejemplo:</strong> Agente integrado a tu CRM antiguo que lee y actualiza registros automáticamente
+                <!-- Looper de Capacidades -->
+                <div class="overflow-hidden relative mb-8">
+                  <div class="capacidades-looper-track flex gap-6 py-4">
+                    <!-- Card 1: Integración con Apps Existentes -->
+                    <div class="capacidades-card flex-shrink-0 w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                      <h3 class="text-2xl font-bold text-white mb-3">
+                        Integración con Apps Existentes
+                      </h3>
+                      <p class="text-gray-300 leading-relaxed mb-4">
+                        Conectamos agentes IA a tus aplicaciones web actuales sin necesidad de reescribirlas.
+                        Los agentes acceden a tus bases de datos y sistemas mediante <strong class="text-[#82e256]">Model Context Protocol (MCP)</strong>.
                       </p>
+                      <div class="mt-6 p-4 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]">
+                        <p class="text-sm text-gray-400">
+                          <strong>Ejemplo:</strong> Agente integrado a tu CRM antiguo que lee y actualiza registros automáticamente
+                        </p>
+                      </div>
                     </div>
-                  </div>
 
-                  <!-- Card 2: MCP - Interoperabilidad -->
-                  <div
-                    class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300"
-                  >
-                    <h3 class="text-2xl font-bold text-white mb-3">
-                      MCP: Lee y Escribe en Tus Sistemas
-                    </h3>
-                    <p class="text-gray-300 leading-relaxed mb-4">
-                      <strong class="text-[#82e256]">Model Context Protocol (MCP)</strong> permite que la IA
-                      interactúe directamente con bases de datos, APIs y software existente.
-                      El agente puede leer datos, ejecutar acciones y actualizar información en tiempo real.
-                    </p>
-                    <div
-                      class="mt-6 p-4 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]"
-                    >
-                      <p class="text-sm text-gray-400">
-                        <strong>Capacidad:</strong> Interoperabilidad total con PostgreSQL, MySQL, APIs REST, Salesforce, etc.
+                    <!-- Card 2: MCP - Interoperabilidad -->
+                    <div class="capacidades-card flex-shrink-0 w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                      <h3 class="text-2xl font-bold text-white mb-3">
+                        MCP: Lee y Escribe en Tus Sistemas
+                      </h3>
+                      <p class="text-gray-300 leading-relaxed mb-4">
+                        <strong class="text-[#82e256]">Model Context Protocol (MCP)</strong> permite que la IA
+                        interactúe directamente con bases de datos, APIs y software existente.
+                        El agente puede leer datos, ejecutar acciones y actualizar información en tiempo real.
                       </p>
+                      <div class="mt-6 p-4 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]">
+                        <p class="text-sm text-gray-400">
+                          <strong>Capacidad:</strong> Interoperabilidad total con PostgreSQL, MySQL, APIs REST, Salesforce, etc.
+                        </p>
+                      </div>
                     </div>
-                  </div>
 
-                  <!-- Card 3: Análisis de Viabilidad -->
-                  <div
-                    class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300"
-                  >
-                    <h3 class="text-2xl font-bold text-white mb-3">
-                      Análisis: ¿Puede un Agente Vivir en Tu Proyecto?
-                    </h3>
-                    <p class="text-gray-300 leading-relaxed mb-4">
-                      Analizamos tu aplicación web (existente o nueva) para determinar si un agente IA
-                      puede integrarse efectivamente. Evaluamos infraestructura, bases de datos, flujos de trabajo
-                      y definimos tareas específicas donde un agente agregaría valor real.
-                    </p>
-                    <div
-                      class="mt-6 p-4 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]"
-                    >
-                      <p class="text-sm text-gray-400">
-                        <strong>Proceso:</strong> Análisis técnico + definición de tareas directas y medibles
+                    <!-- Card 3: Análisis de Viabilidad -->
+                    <div class="capacidades-card flex-shrink-0 w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                      <h3 class="text-2xl font-bold text-white mb-3">
+                        Análisis: ¿Puede un Agente Vivir en Tu Proyecto?
+                      </h3>
+                      <p class="text-gray-300 leading-relaxed mb-4">
+                        Analizamos tu aplicación web (existente o nueva) para determinar si un agente IA
+                        puede integrarse efectivamente. Evaluamos infraestructura, bases de datos, flujos de trabajo
+                        y definimos tareas específicas donde un agente agregaría valor real.
                       </p>
+                      <div class="mt-6 p-4 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]">
+                        <p class="text-sm text-gray-400">
+                          <strong>Proceso:</strong> Análisis técnico + definición de tareas directas y medibles
+                        </p>
+                      </div>
                     </div>
-                  </div>
 
-                  <!-- Card 4: Desarrollo de Agentes a Medida -->
-                  <div
-                    class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300"
-                  >
-                    <h3 class="text-2xl font-bold text-white mb-3">
-                      Programación de Agentes para Tareas Directas
-                    </h3>
-                    <p class="text-gray-300 leading-relaxed mb-4">
-                      Una vez validada la viabilidad, programamos agentes especializados para tareas como:
-                      gestión de chats, presentación de productos, apoyo en ventas, control de calidad.
-                      Cada agente se diseña, analiza y desarrolla específicamente para tu operación.
-                    </p>
-                    <div
-                      class="mt-6 p-4 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]"
-                    >
-                      <p class="text-sm text-gray-400">
-                        <strong>Áreas:</strong> Ventas, calidad, interoperabilidad, atención al cliente
+                    <!-- Card 4: Desarrollo de Agentes a Medida -->
+                    <div class="capacidades-card flex-shrink-0 w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                      <h3 class="text-2xl font-bold text-white mb-3">
+                        Programación de Agentes para Tareas Directas
+                      </h3>
+                      <p class="text-gray-300 leading-relaxed mb-4">
+                        Una vez validada la viabilidad, programamos agentes especializados para tareas como:
+                        gestión de chats, presentación de productos, apoyo en ventas, control de calidad.
+                        Cada agente se diseña, analiza y desarrolla específicamente para tu operación.
                       </p>
+                      <div class="mt-6 p-4 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]">
+                        <p class="text-sm text-gray-400">
+                          <strong>Áreas:</strong> Ventas, calidad, interoperabilidad, atención al cliente
+                        </p>
+                      </div>
+                    </div>
+
+                    <!-- Duplicates for infinite loop -->
+                    <div class="capacidades-card flex-shrink-0 w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                      <h3 class="text-2xl font-bold text-white mb-3">
+                        Integración con Apps Existentes
+                      </h3>
+                      <p class="text-gray-300 leading-relaxed mb-4">
+                        Conectamos agentes IA a tus aplicaciones web actuales sin necesidad de reescribirlas.
+                        Los agentes acceden a tus bases de datos y sistemas mediante <strong class="text-[#82e256]">Model Context Protocol (MCP)</strong>.
+                      </p>
+                      <div class="mt-6 p-4 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]">
+                        <p class="text-sm text-gray-400">
+                          <strong>Ejemplo:</strong> Agente integrado a tu CRM antiguo que lee y actualiza registros automáticamente
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="capacidades-card flex-shrink-0 w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                      <h3 class="text-2xl font-bold text-white mb-3">
+                        MCP: Lee y Escribe en Tus Sistemas
+                      </h3>
+                      <p class="text-gray-300 leading-relaxed mb-4">
+                        <strong class="text-[#82e256]">Model Context Protocol (MCP)</strong> permite que la IA
+                        interactúe directamente con bases de datos, APIs y software existente.
+                        El agente puede leer datos, ejecutar acciones y actualizar información en tiempo real.
+                      </p>
+                      <div class="mt-6 p-4 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]">
+                        <p class="text-sm text-gray-400">
+                          <strong>Capacidad:</strong> Interoperabilidad total con PostgreSQL, MySQL, APIs REST, Salesforce, etc.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="capacidades-card flex-shrink-0 w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                      <h3 class="text-2xl font-bold text-white mb-3">
+                        Análisis: ¿Puede un Agente Vivir en Tu Proyecto?
+                      </h3>
+                      <p class="text-gray-300 leading-relaxed mb-4">
+                        Analizamos tu aplicación web (existente o nueva) para determinar si un agente IA
+                        puede integrarse efectivamente. Evaluamos infraestructura, bases de datos, flujos de trabajo
+                        y definimos tareas específicas donde un agente agregaría valor real.
+                      </p>
+                      <div class="mt-6 p-4 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]">
+                        <p class="text-sm text-gray-400">
+                          <strong>Proceso:</strong> Análisis técnico + definición de tareas directas y medibles
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="capacidades-card flex-shrink-0 w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                      <h3 class="text-2xl font-bold text-white mb-3">
+                        Programación de Agentes para Tareas Directas
+                      </h3>
+                      <p class="text-gray-300 leading-relaxed mb-4">
+                        Una vez validada la viabilidad, programamos agentes especializados para tareas como:
+                        gestión de chats, presentación de productos, apoyo en ventas, control de calidad.
+                        Cada agente se diseña, analiza y desarrolla específicamente para tu operación.
+                      </p>
+                      <div class="mt-6 p-4 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]">
+                        <p class="text-sm text-gray-400">
+                          <strong>Áreas:</strong> Ventas, calidad, interoperabilidad, atención al cliente
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </SimpleCarousel>
+                </div>
               </div>
 
               <hr class="border-gray-800" />
@@ -284,99 +405,227 @@ const secciones = [
                   Tecnologías que usamos para desarrollo agéntico
                 </p>
 
-                <SimpleCarousel id="stack-agentico-carousel">
-                  <!-- Orquestación de Agentes -->
-                  <div
-                    class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-10 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300"
-                  >
-                    <h3 class="text-2xl font-bold text-white mb-3">
-                      Orquestación de Agentes
-                    </h3>
-                    <div class="space-y-3">
-                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
-                        <p class="font-semibold text-white">LangChain</p>
-                        <p class="text-sm text-gray-400">Framework para desarrollo con LLMs</p>
-                      </div>
-                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
-                        <p class="font-semibold text-white">LangGraph</p>
-                        <p class="text-sm text-gray-400">Construcción de agentes con flujos complejos</p>
-                      </div>
-                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
-                        <p class="font-semibold text-white">LangSmith</p>
-                        <p class="text-sm text-gray-400">Observabilidad y debugging de agentes</p>
+                <!-- Looper de Stack Tecnológico -->
+                <div class="overflow-hidden relative mb-8">
+                  <div class="stack-agentes-looper-track flex gap-6 py-4">
+                    <!-- Orquestación de Agentes -->
+                    <div class="stack-agentes-card flex-shrink-0 w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                      <h3 class="text-2xl font-bold text-white mb-3">
+                        Orquestación de Agentes
+                      </h3>
+                      <div class="space-y-3">
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">LangChain</p>
+                          <p class="text-sm text-gray-400">Framework para desarrollo con LLMs</p>
+                        </div>
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">LangGraph</p>
+                          <p class="text-sm text-gray-400">Construcción de agentes con flujos complejos</p>
+                        </div>
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">LangSmith</p>
+                          <p class="text-sm text-gray-400">Observabilidad y debugging de agentes</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  <!-- Modelos y Monitoreo -->
-                  <div
-                    class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300"
-                  >
-                    <h3 class="text-2xl font-bold text-white mb-3">
-                      Modelos GenAI & Monitoreo
-                    </h3>
-                    <div class="space-y-3">
-                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
-                        <p class="font-semibold text-white">GPT-4, Claude, Gemini</p>
-                        <p class="text-sm text-gray-400">Modelos de lenguaje de última generación</p>
-                      </div>
-                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
-                        <p class="font-semibold text-white">MLflow</p>
-                        <p class="text-sm text-gray-400">Tracking y gestión de agentes GenAI</p>
-                      </div>
-                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
-                        <p class="font-semibold text-white">FastMCP</p>
-                        <p class="text-sm text-gray-400">Implementación rápida de Model Context Protocol</p>
+                    <!-- Modelos y Monitoreo -->
+                    <div class="stack-agentes-card flex-shrink-0 w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                      <h3 class="text-2xl font-bold text-white mb-3">
+                        Modelos GenAI & Monitoreo
+                      </h3>
+                      <div class="space-y-3">
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">GPT-4, Claude, Gemini</p>
+                          <p class="text-sm text-gray-400">Modelos de lenguaje de última generación</p>
+                        </div>
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">MLflow</p>
+                          <p class="text-sm text-gray-400">Tracking y gestión de agentes GenAI</p>
+                        </div>
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">FastMCP</p>
+                          <p class="text-sm text-gray-400">Implementación rápida de Model Context Protocol</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  <!-- Automatización y Flujos -->
-                  <div
-                    class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300"
-                  >
-                    <h3 class="text-2xl font-bold text-white mb-3">
-                      Automatización de Flujos
-                    </h3>
-                    <div class="space-y-3">
-                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
-                        <p class="font-semibold text-white">N8N</p>
-                        <p class="text-sm text-gray-400">Workflows y automatizaciones visuales</p>
-                      </div>
-                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
-                        <p class="font-semibold text-white">WhatsApp API</p>
-                        <p class="text-sm text-gray-400">Integración de agentes con WhatsApp Business</p>
-                      </div>
-                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
-                        <p class="font-semibold text-white">Python + JavaScript</p>
-                        <p class="text-sm text-gray-400">Lenguajes principales para lógica de agentes</p>
+                    <!-- Automatización y Flujos -->
+                    <div class="stack-agentes-card flex-shrink-0 w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                      <h3 class="text-2xl font-bold text-white mb-3">
+                        Automatización de Flujos
+                      </h3>
+                      <div class="space-y-3">
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">N8N</p>
+                          <p class="text-sm text-gray-400">Workflows y automatizaciones visuales</p>
+                        </div>
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">WhatsApp API</p>
+                          <p class="text-sm text-gray-400">Integración de agentes con WhatsApp Business</p>
+                        </div>
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">Python + JavaScript</p>
+                          <p class="text-sm text-gray-400">Lenguajes principales para lógica de agentes</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  <!-- Procesamiento de Voz y APIs -->
-                  <div
-                    class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300"
-                  >
-                    <h3 class="text-2xl font-bold text-white mb-3">
-                      Voz y APIs Backend
-                    </h3>
-                    <div class="space-y-3">
-                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
-                        <p class="font-semibold text-white">Whisper</p>
-                        <p class="text-sm text-gray-400">Speech-to-Text para agentes de voz</p>
+                    <!-- Procesamiento de Voz y APIs -->
+                    <div class="stack-agentes-card flex-shrink-0 w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                      <h3 class="text-2xl font-bold text-white mb-3">
+                        Voz y APIs Backend
+                      </h3>
+                      <div class="space-y-3">
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">Whisper</p>
+                          <p class="text-sm text-gray-400">Speech-to-Text para agentes de voz</p>
+                        </div>
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">Google TTS</p>
+                          <p class="text-sm text-gray-400">Text-to-Speech para respuestas de audio</p>
+                        </div>
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">FastAPI</p>
+                          <p class="text-sm text-gray-400">APIs de alto rendimiento para agentes</p>
+                        </div>
                       </div>
-                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
-                        <p class="font-semibold text-white">Google TTS</p>
-                        <p class="text-sm text-gray-400">Text-to-Speech para respuestas de audio</p>
+                    </div>
+
+                    <!-- Duplicates for infinite loop -->
+                    <div class="stack-agentes-card flex-shrink-0 w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                      <h3 class="text-2xl font-bold text-white mb-3">
+                        Orquestación de Agentes
+                      </h3>
+                      <div class="space-y-3">
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">LangChain</p>
+                          <p class="text-sm text-gray-400">Framework para desarrollo con LLMs</p>
+                        </div>
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">LangGraph</p>
+                          <p class="text-sm text-gray-400">Construcción de agentes con flujos complejos</p>
+                        </div>
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">LangSmith</p>
+                          <p class="text-sm text-gray-400">Observabilidad y debugging de agentes</p>
+                        </div>
                       </div>
-                      <div class="bg-[#82e256]/10 p-3 rounded-lg">
-                        <p class="font-semibold text-white">FastAPI</p>
-                        <p class="text-sm text-gray-400">APIs de alto rendimiento para agentes</p>
+                    </div>
+
+                    <div class="stack-agentes-card flex-shrink-0 w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                      <h3 class="text-2xl font-bold text-white mb-3">
+                        Modelos GenAI & Monitoreo
+                      </h3>
+                      <div class="space-y-3">
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">GPT-4, Claude, Gemini</p>
+                          <p class="text-sm text-gray-400">Modelos de lenguaje de última generación</p>
+                        </div>
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">MLflow</p>
+                          <p class="text-sm text-gray-400">Tracking y gestión de agentes GenAI</p>
+                        </div>
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">FastMCP</p>
+                          <p class="text-sm text-gray-400">Implementación rápida de Model Context Protocol</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="stack-agentes-card flex-shrink-0 w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                      <h3 class="text-2xl font-bold text-white mb-3">
+                        Automatización de Flujos
+                      </h3>
+                      <div class="space-y-3">
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">N8N</p>
+                          <p class="text-sm text-gray-400">Workflows y automatizaciones visuales</p>
+                        </div>
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">WhatsApp API</p>
+                          <p class="text-sm text-gray-400">Integración de agentes con WhatsApp Business</p>
+                        </div>
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">Python + JavaScript</p>
+                          <p class="text-sm text-gray-400">Lenguajes principales para lógica de agentes</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="stack-agentes-card flex-shrink-0 w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                      <h3 class="text-2xl font-bold text-white mb-3">
+                        Voz y APIs Backend
+                      </h3>
+                      <div class="space-y-3">
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">Whisper</p>
+                          <p class="text-sm text-gray-400">Speech-to-Text para agentes de voz</p>
+                        </div>
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">Google TTS</p>
+                          <p class="text-sm text-gray-400">Text-to-Speech para respuestas de audio</p>
+                        </div>
+                        <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                          <p class="font-semibold text-white">FastAPI</p>
+                          <p class="text-sm text-gray-400">APIs de alto rendimiento para agentes</p>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </SimpleCarousel>
+                </div>
+              </div>
+
+              <hr class="border-gray-800" />
+
+              <!-- Ops para Agentes IA -->
+              <div class="mt-12 p-8 bg-gradient-to-br from-blue-900/30 to-blue-800/30 rounded-2xl border-2 border-blue-500/50">
+                <h3 class="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+                  <span class="text-4xl">⚙️</span>
+                  Operaciones para Agentes de IA
+                </h3>
+                <div class="prose prose-invert max-w-none">
+                  <p class="text-gray-300 text-base leading-relaxed mb-4">
+                    Desarrollar un agente de IA es solo el principio. Para que funcione en producción, necesitas operaciones especializadas
+                    que van mucho más allá del DevOps tradicional. Aquí es donde entran las disciplinas Ops específicas para IA.
+                  </p>
+
+                  <p class="text-gray-300 text-base leading-relaxed mb-4">
+                    <strong class="text-[#82e256]">PromptOps</strong> es la gestión y versionado de prompts. Cada cambio en un prompt puede
+                    cambiar completamente el comportamiento de tu agente. Versionamos prompts como código, testeamos A/B diferentes versiones
+                    y monitoreamos qué prompts generan mejores respuestas. Todo automatizado.
+                  </p>
+
+                  <p class="text-gray-300 text-base leading-relaxed mb-4">
+                    <strong class="text-[#82e256]">AgentOps</strong> gestiona el ciclo de vida completo de tus agentes: deployment,
+                    monitoreo de conversaciones, análisis de decisiones que toman, detección de comportamientos anómalos. Si un agente
+                    empieza a dar respuestas raras, lo detectamos antes de que llegue a tus clientes.
+                  </p>
+
+                  <p class="text-gray-300 text-base leading-relaxed mb-4">
+                    <strong class="text-[#82e256]">DesigningOps</strong> se enfoca en el diseño conversacional: flujos de conversación,
+                    manejo de contexto, personalidad del agente. Iteramos diseños basados en datos reales de uso, mejorando continuamente
+                    la experiencia conversacional.
+                  </p>
+
+                  <p class="text-gray-300 text-base leading-relaxed mb-4">
+                    <strong class="text-[#82e256]">RAGOps</strong> es específico para sistemas RAG (Retrieval Augmented Generation).
+                    Gestionamos la actualización de knowledge bases, optimizamos embeddings, monitoreamos calidad de retrieval y
+                    detectamos cuando el agente necesita información que no tiene. Tu base de conocimiento evoluciona automáticamente.
+                  </p>
+
+                  <p class="text-gray-300 text-base leading-relaxed mb-4">
+                    <strong class="text-[#82e256]">LLMOps</strong> gestiona los modelos de lenguaje grandes: selección de modelos,
+                    fine-tuning cuando es necesario, optimización de costos de API, fallbacks entre proveedores. Si OpenAI está caído,
+                    tu agente automáticamente usa Claude sin que nadie note la diferencia.
+                  </p>
+
+                  <p class="text-gray-300 text-base leading-relaxed">
+                    Y por supuesto, todo esto se integra con <strong class="text-[#82e256]">MLOps, DLOps, FMOps y GenAIOps</strong> del
+                    mundo DevOps tradicional: CI/CD para agentes, infraestructura como código, observabilidad completa con OpenTelemetry,
+                    logs auditables y monitoreo 24/7. Tus agentes corren en producción con la misma confiabilidad que cualquier aplicación crítica.
+                  </p>
+                </div>
               </div>
 
               <hr class="border-gray-800" />
@@ -435,6 +684,38 @@ const secciones = [
   h2 {
     scroll-margin-top: 100px;
   }
+
+  /* Looper de Capacidades */
+  .capacidades-looper-track {
+    animation: capacidades-scroll 35s linear infinite;
+    will-change: transform;
+  }
+  .capacidades-looper-track:hover {
+    animation-play-state: paused;
+  }
+  @keyframes capacidades-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .capacidades-card {
+    min-width: 384px;
+  }
+
+  /* Looper del Stack Tecnológico de Agentes */
+  .stack-agentes-looper-track {
+    animation: stack-agentes-scroll 30s linear infinite;
+    will-change: transform;
+  }
+  .stack-agentes-looper-track:hover {
+    animation-play-state: paused;
+  }
+  @keyframes stack-agentes-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .stack-agentes-card {
+    min-width: 384px;
+  }
 </style>
 
 <script>
@@ -456,6 +737,82 @@ const secciones = [
           }
         }
       });
+    });
+
+    // Drag-to-scroll para loopers
+    const loopers = document.querySelectorAll('.capacidades-looper-track, .stack-agentes-looper-track');
+
+    loopers.forEach(looper => {
+      let isDown = false;
+      let startX;
+      let currentTranslate = 0;
+      let prevTranslate = 0;
+      let animationID;
+      let isDragging = false;
+
+      // Obtener el valor actual de transform
+      function getTranslateX() {
+        const style = window.getComputedStyle(looper);
+        const matrix = new DOMMatrix(style.transform);
+        return matrix.m41;
+      }
+
+      looper.addEventListener('mousedown', (e) => {
+        isDown = true;
+        isDragging = false;
+        looper.style.cursor = 'grabbing';
+        startX = e.pageX;
+
+        // Pausar animación y obtener posición actual
+        looper.style.animationPlayState = 'paused';
+        prevTranslate = getTranslateX();
+        currentTranslate = prevTranslate;
+      });
+
+      looper.addEventListener('mouseleave', () => {
+        if (isDown) {
+          isDown = false;
+          looper.style.cursor = 'grab';
+          // Reanudar animación
+          looper.style.animationPlayState = 'running';
+        }
+      });
+
+      looper.addEventListener('mouseup', () => {
+        isDown = false;
+        looper.style.cursor = 'grab';
+        // Reanudar animación
+        looper.style.animationPlayState = 'running';
+      });
+
+      looper.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        isDragging = true;
+
+        const currentX = e.pageX;
+        const diff = currentX - startX;
+        currentTranslate = prevTranslate + diff;
+
+        // Aplicar transform directamente
+        looper.style.transform = `translateX(${currentTranslate}px)`;
+      });
+
+      // Pausar en hover
+      looper.addEventListener('mouseenter', () => {
+        if (!isDown) {
+          looper.style.animationPlayState = 'paused';
+        }
+      });
+
+      looper.addEventListener('mouseleave', () => {
+        if (!isDown) {
+          looper.style.animationPlayState = 'running';
+        }
+      });
+
+      // Cambiar cursor para indicar que es arrastrable
+      looper.style.cursor = 'grab';
     });
   });
 </script>

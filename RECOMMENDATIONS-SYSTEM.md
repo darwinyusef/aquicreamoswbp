@@ -5,7 +5,7 @@
 **Total de servicios:** 122
 
 ### Top Categorías por Volumen
-1. **Arquitectura de Software Escalable & Robusta** - 34 servicios (27.87%)
+1. **Oficina de Arquitectura de Software + IA** - 34 servicios (27.87%)
 2. **Apps con integraciones hechas a la medida + IA** - 24 servicios (19.67%)
 3. **Aprendizaje Automático y por refuerzo + Modelos de IA** - 19 servicios (15.57%)
 4. **Agentes de inteligencia artificial y MCP's** - 18 servicios (14.75%)
@@ -32,7 +32,7 @@ Genera recomendaciones inteligentes basadas en contexto:
 ```typescript
 const recommendations = getRecommendations(allServices, {
   search: "microservicios",
-  category: "Arquitectura de Software Escalable & Robusta",
+  category: "Oficina de Arquitectura de Software + IA",
   limit: 6
 });
 ```
@@ -124,7 +124,7 @@ try {
   const servicesResponse = await fetch(new URL('/services.json', Astro.url.origin));
   const allServices = await servicesResponse.json();
 
-  const currentCategory = "Arquitectura de Software Escalable & Robusta";
+  const currentCategory = "Oficina de Arquitectura de Software + IA";
   const recommendations = getRecommendations(allServices, {
     category: currentCategory,
     limit: 6
@@ -140,7 +140,7 @@ try {
   title="Servicios Complementarios"
   subtitle="Potencia tu arquitectura con estas soluciones"
   services={recommendedServices}
-  context={{ category: "Arquitectura de Software Escalable & Robusta" }}
+  context={{ category: "Oficina de Arquitectura de Software + IA" }}
 />
 ```
 

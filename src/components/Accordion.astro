@@ -1,0 +1,79 @@
+---
+interface AccordionItem {
+  title: string;
+  content: string;
+  icon: string;
+}
+
+interface Props {
+  items: AccordionItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="accordion-container space-y-3">
+  {items.map((item, index) => (
+    <div class="accordion-item bg-gradient-to-br from-gray-800/30 to-gray-900/30 rounded-xl border border-gray-700 overflow-hidden">
+      <button
+        class="accordion-header w-full px-8 py-5 text-left flex justify-between items-center hover:bg-white/5 transition-all duration-300 gap-4"
+        data-accordion-index={index}
+      >
+        <div class="flex items-center gap-4 flex-1">
+          <div class="accordion-icon-container flex-shrink-0 w-10 h-10 rounded-lg bg-[#82e256]/10 flex items-center justify-center">
+            <i data-lucide={item.icon} class="w-5 h-5 text-[#82e256]"></i>
+          </div>
+          <span class="text-lg font-bold text-white">{item.title}</span>
+        </div>
+        <svg
+          class="accordion-chevron w-5 h-5 text-[#82e256] transform transition-transform duration-300 flex-shrink-0"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      <div
+        class="accordion-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out"
+        data-accordion-content={index}
+      >
+        <div class="px-8 pb-5 pt-2 text-gray-300 text-base leading-relaxed" set:html={item.content} />
+      </div>
+    </div>
+  ))}
+</div>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Wait a bit for Lucide to load and then initialize icons
+    setTimeout(() => {
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+    }, 100);
+
+    const headers = document.querySelectorAll('.accordion-header');
+
+    headers.forEach(header => {
+      header.addEventListener('click', () => {
+        const index = header.getAttribute('data-accordion-index');
+        const content = document.querySelector(`[data-accordion-content="${index}"]`);
+        const chevron = header.querySelector('.accordion-chevron');
+
+        if (!content) return;
+
+        // Toggle current item
+        const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+
+        if (!isOpen) {
+          content.style.maxHeight = content.scrollHeight + 'px';
+          chevron?.classList.add('rotate-180');
+        } else {
+          content.style.maxHeight = '0px';
+          chevron?.classList.remove('rotate-180');
+        }
+      });
+    });
+  });
+</script>

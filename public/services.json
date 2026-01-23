@@ -7,7 +7,7 @@
     "duration": "Por hora",
     "is_active": true,
     "icon": "layers",
-    "category": "Arquitectura de Software Escalable & Robusta"
+    "category": "Oficina de Arquitectura de Software + IA"
   },
   {
     "id": 1,
@@ -17,7 +17,7 @@
     "duration": "Por hora",
     "is_active": true,
     "icon": "server",
-    "category": "Arquitectura de Software Escalable & Robusta"
+    "category": "Oficina de Arquitectura de Software + IA"
   },
   {
     "id": 2,
@@ -137,7 +137,7 @@
     "duration": "Por hora",
     "is_active": true,
     "icon": "users",
-    "category": "Arquitectura de Software Escalable & Robusta"
+    "category": "Oficina de Arquitectura de Software + IA"
   },
   {
     "id": 14,
@@ -307,7 +307,7 @@
     "duration": "Por hora",
     "is_active": true,
     "icon": "table",
-    "category": "Arquitectura de Software Escalable & Robusta"
+    "category": "Oficina de Arquitectura de Software + IA"
   },
   {
     "id": 31,
@@ -317,7 +317,7 @@
     "duration": "Por hora",
     "is_active": true,
     "icon": "layers",
-    "category": "Arquitectura de Software Escalable & Robusta"
+    "category": "Oficina de Arquitectura de Software + IA"
   },
   {
     "id": 32,
@@ -587,7 +587,7 @@
     "duration": "Por hora",
     "is_active": true,
     "icon": "layers",
-    "category": "Arquitectura de Software Escalable & Robusta"
+    "category": "Oficina de Arquitectura de Software + IA"
   },
   {
     "id": 61,
@@ -597,7 +597,7 @@
     "duration": "Por hora",
     "is_active": true,
     "icon": "shield",
-    "category": "Arquitectura de Software Escalable & Robusta"
+    "category": "Oficina de Arquitectura de Software + IA"
   },
   {
     "id": 62,
@@ -607,7 +607,7 @@
     "duration": "Por hora",
     "is_active": true,
     "icon": "eye",
-    "category": "Arquitectura de Software Escalable & Robusta"
+    "category": "Oficina de Arquitectura de Software + IA"
   },
   {
     "id": 63,
@@ -617,7 +617,7 @@
     "duration": "Por hora",
     "is_active": true,
     "icon": "users",
-    "category": "Arquitectura de Software Escalable & Robusta"
+    "category": "Oficina de Arquitectura de Software + IA"
   },
   {
     "id": 64,
@@ -627,7 +627,7 @@
     "duration": "Por hora",
     "is_active": true,
     "icon": "database",
-    "category": "Arquitectura de Software Escalable & Robusta"
+    "category": "Oficina de Arquitectura de Software + IA"
   },
   {
     "id": 65,
@@ -637,7 +637,7 @@
     "duration": "Por hora",
     "is_active": true,
     "icon": "server",
-    "category": "Arquitectura de Software Escalable & Robusta"
+    "category": "Oficina de Arquitectura de Software + IA"
   },
   {
     "id": 66,
@@ -647,7 +647,7 @@
     "duration": "Por hora",
     "is_active": true,
     "icon": "linechart",
-    "category": "Arquitectura de Software Escalable & Robusta"
+    "category": "Oficina de Arquitectura de Software + IA"
   },
   {
     "id": 67,
@@ -657,7 +657,7 @@
     "duration": "Por hora",
     "is_active": true,
     "icon": "rocket",
-    "category": "Arquitectura de Software Escalable & Robusta"
+    "category": "Oficina de Arquitectura de Software + IA"
   },
   {
     "id": 68,
@@ -667,7 +667,7 @@
     "duration": "Por hora",
     "is_active": true,
     "icon": "shield",
-    "category": "Arquitectura de Software Escalable & Robusta"
+    "category": "Oficina de Arquitectura de Software + IA"
   },
   {
     "id": 69,
@@ -677,7 +677,7 @@
     "duration": "Por hora",
     "is_active": true,
     "icon": "repeat",
-    "category": "Arquitectura de Software Escalable & Robusta"
+    "category": "Oficina de Arquitectura de Software + IA"
   },
   {
     "id": 70,
@@ -687,7 +687,7 @@
     "duration": "Por hora",
     "is_active": true,
     "icon": "shield",
-    "category": "Arquitectura de Software Escalable & Robusta"
+    "category": "Oficina de Arquitectura de Software + IA"
   },
   {
     "id": 71,
@@ -697,7 +697,7 @@
     "duration": "Por hora",
     "is_active": true,
     "icon": "folder",
-    "category": "Arquitectura de Software Escalable & Robusta"
+    "category": "Oficina de Arquitectura de Software + IA"
   },
   {
     "id": 72,
@@ -707,7 +707,7 @@
     "duration": "Por hora",
     "is_active": true,
     "icon": "users",
-    "category": "Arquitectura de Software Escalable & Robusta"
+    "category": "Oficina de Arquitectura de Software + IA"
   },
   {
     "id": 73,
@@ -727,7 +727,7 @@
     "duration": "Por hora",
     "is_active": true,
     "icon": "gauge",
-    "category": "Arquitectura de Software Escalable & Robusta"
+    "category": "Oficina de Arquitectura de Software + IA"
   },
   {
     "id": 75,
@@ -737,7 +737,7 @@
     "duration": "Por hora",
     "is_active": true,
     "icon": "layers",
-    "category": "Arquitectura de Software Escalable & Robusta"
+    "category": "Oficina de Arquitectura de Software + IA"
   },
   {
     "id": 76,
@@ -747,7 +747,7 @@
     "duration": "Por hora",
     "is_active": true,
     "icon": "database",
-    "category": "Arquitectura de Software Escalable & Robusta"
+    "category": "Oficina de Arquitectura de Software + IA"
   },
   {
     "id": 77,
@@ -757,7 +757,7 @@
     "duration": "Por hora",
     "is_active": true,
     "icon": "folder",
-    "category": "Arquitectura de Software Escalable & Robusta"
+    "category": "Oficina de Arquitectura de Software + IA"
   },
   {
     "id": 78,
@@ -767,7 +767,7 @@
     "duration": "Por hora",
     "is_active": true,
     "icon": "rocket",
-    "category": "Arquitectura de Software Escalable & Robusta"
+    "category": "Oficina de Arquitectura de Software + IA"
   },
   {
     "id": 79,
@@ -777,7 +777,7 @@
     "duration": "Por hora",
     "is_active": true,
     "icon": "sparkles",
-    "category": "Arquitectura de Software Escalable & Robusta"
+    "category": "Oficina de Arquitectura de Software + IA"
   },
   {
     "id": 80,
@@ -787,7 +787,7 @@
     "duration": "Por hora",
     "is_active": true,
     "icon": "cloud",
-    "category": "Arquitectura de Software Escalable & Robusta"
+    "category": "Oficina de Arquitectura de Software + IA"
   },
   {
     "id": 81,
@@ -797,7 +797,7 @@
     "duration": "Por hora",
     "is_active": true,
     "icon": "broadcast",
-    "category": "Arquitectura de Software Escalable & Robusta"
+    "category": "Oficina de Arquitectura de Software + IA"
   },
   {
     "id": 82,
@@ -807,7 +807,7 @@
     "duration": "Por hora",
     "is_active": true,
     "icon": "lock",
-    "category": "Arquitectura de Software Escalable & Robusta"
+    "category": "Oficina de Arquitectura de Software + IA"
   },
   {
     "id": 83,
@@ -817,7 +817,7 @@
     "duration": "Por hora",
     "is_active": true,
     "icon": "api",
-    "category": "Arquitectura de Software Escalable & Robusta"
+    "category": "Oficina de Arquitectura de Software + IA"
   },
   {
     "id": 84,
@@ -827,7 +827,7 @@
     "duration": "Por hora",
     "is_active": true,
     "icon": "checkcircle",
-    "category": "Arquitectura de Software Escalable & Robusta"
+    "category": "Oficina de Arquitectura de Software + IA"
   },
   {
     "id": 85,
@@ -837,7 +837,7 @@
     "duration": "Por hora",
     "is_active": true,
     "icon": "creditcard",
-    "category": "Arquitectura de Software Escalable & Robusta"
+    "category": "Oficina de Arquitectura de Software + IA"
   },
   {
     "id": 86,
@@ -847,7 +847,7 @@
     "duration": "Por hora",
     "is_active": true,
     "icon": "shield",
-    "category": "Arquitectura de Software Escalable & Robusta"
+    "category": "Oficina de Arquitectura de Software + IA"
   },
   {
     "id": 87,
@@ -857,7 +857,7 @@
     "duration": "Por hora",
     "is_active": true,
     "icon": "users",
-    "category": "Arquitectura de Software Escalable & Robusta"
+    "category": "Oficina de Arquitectura de Software + IA"
   },
   {
     "id": 88,
@@ -867,7 +867,7 @@
     "duration": "Por hora",
     "is_active": true,
     "icon": "folder",
-    "category": "Arquitectura de Software Escalable & Robusta"
+    "category": "Oficina de Arquitectura de Software + IA"
   },
   {
     "id": 89,
@@ -877,7 +877,7 @@
     "duration": "Por hora",
     "is_active": true,
     "icon": "linechart",
-    "category": "Arquitectura de Software Escalable & Robusta"
+    "category": "Oficina de Arquitectura de Software + IA"
   },
   {
     "id": 90,
@@ -1218,5 +1218,205 @@
     "is_active": true,
     "icon": "gauge",
     "category": "Agentes de inteligencia artificial y MCP's"
+  },
+  {
+    "id": 125,
+    "name": "Redes Neuronales Convolucionales (CNN)",
+    "description": "Desarrollo de modelos CNN para clasificación de imágenes, detección de objetos y segmentación semántica con TensorFlow/PyTorch.",
+    "price": 30000,
+    "duration": "Por hora",
+    "is_active": true,
+    "icon": "sparkles",
+    "category": "Aprendizaje Automático y por refuerzo + Modelos de IA"
+  },
+  {
+    "id": 126,
+    "name": "Redes Neuronales Recurrentes (RNN/LSTM)",
+    "description": "Modelos de secuencias para análisis de series temporales, predicción y procesamiento de lenguaje natural con memoria a largo plazo.",
+    "price": 30000,
+    "duration": "Por hora",
+    "is_active": true,
+    "icon": "linechart",
+    "category": "Aprendizaje Automático y por refuerzo + Modelos de IA"
+  },
+  {
+    "id": 127,
+    "name": "Transformers y Arquitecturas de Atención",
+    "description": "Implementación de modelos Transformer, BERT, GPT para NLP, traducción automática y generación de texto.",
+    "price": 30000,
+    "duration": "Por hora",
+    "is_active": true,
+    "icon": "sparkles",
+    "category": "Aprendizaje Automático y por refuerzo + Modelos de IA"
+  },
+  {
+    "id": 128,
+    "name": "Redes Generativas Adversariales (GANs)",
+    "description": "Desarrollo de GANs para generación de imágenes sintéticas, aumento de datos y transferencia de estilo.",
+    "price": 30000,
+    "duration": "Por hora",
+    "is_active": true,
+    "icon": "sparkles",
+    "category": "Aprendizaje Automático y por refuerzo + Modelos de IA"
+  },
+  {
+    "id": 129,
+    "name": "Autoencoders y Aprendizaje No Supervisado",
+    "description": "Modelos de autoencoder para reducción de dimensionalidad, detección de anomalías y compresión de datos.",
+    "price": 30000,
+    "duration": "Por hora",
+    "is_active": true,
+    "icon": "database",
+    "category": "Aprendizaje Automático y por refuerzo + Modelos de IA"
+  },
+  {
+    "id": 130,
+    "name": "Deep Reinforcement Learning",
+    "description": "Agentes inteligentes con DQN, A3C, PPO para optimización de decisiones, control robótico y juegos.",
+    "price": 30000,
+    "duration": "Por hora",
+    "is_active": true,
+    "icon": "robot",
+    "category": "Aprendizaje Automático y por refuerzo + Modelos de IA"
+  },
+  {
+    "id": 131,
+    "name": "Transfer Learning y Fine-tuning",
+    "description": "Aprovechamiento de modelos pre-entrenados (ResNet, VGG, BERT) para tareas específicas con pocos datos.",
+    "price": 30000,
+    "duration": "Por hora",
+    "is_active": true,
+    "icon": "repeat",
+    "category": "Aprendizaje Automático y por refuerzo + Modelos de IA"
+  },
+  {
+    "id": 132,
+    "name": "Neural Architecture Search (NAS)",
+    "description": "Búsqueda automatizada de arquitecturas de redes neuronales óptimas para tu problema específico.",
+    "price": 30000,
+    "duration": "Por hora",
+    "is_active": true,
+    "icon": "layers",
+    "category": "Aprendizaje Automático y por refuerzo + Modelos de IA"
+  },
+  {
+    "id": 133,
+    "name": "Modelos de Difusión (Diffusion Models)",
+    "description": "Implementación de modelos de difusión para generación de imágenes de alta calidad y síntesis de datos.",
+    "price": 30000,
+    "duration": "Por hora",
+    "is_active": true,
+    "icon": "sparkles",
+    "category": "Aprendizaje Automático y por refuerzo + Modelos de IA"
+  },
+  {
+    "id": 134,
+    "name": "Graph Neural Networks (GNN)",
+    "description": "Redes neuronales para datos en forma de grafos, recomendaciones, análisis de redes sociales y moleculares.",
+    "price": 30000,
+    "duration": "Por hora",
+    "is_active": true,
+    "icon": "activity",
+    "category": "Aprendizaje Automático y por refuerzo + Modelos de IA"
+  },
+  {
+    "id": 135,
+    "name": "Modelos de Detección de Objetos en Tiempo Real",
+    "description": "YOLO, SSD, Faster R-CNN para detección y tracking de objetos en video con baja latencia.",
+    "price": 30000,
+    "duration": "Por hora",
+    "is_active": true,
+    "icon": "eye",
+    "category": "Visión por Computadora hecha a la medida. + IA"
+  },
+  {
+    "id": 136,
+    "name": "Segmentación de Instancias (Mask R-CNN)",
+    "description": "Detección y segmentación precisa de objetos individuales en imágenes complejas.",
+    "price": 30000,
+    "duration": "Por hora",
+    "is_active": true,
+    "icon": "scan",
+    "category": "Visión por Computadora hecha a la medida. + IA"
+  },
+  {
+    "id": 137,
+    "name": "Modelos de Predicción de Series Temporales",
+    "description": "ARIMA, Prophet, LSTM para forecasting de ventas, demanda, precios y métricas de negocio.",
+    "price": 30000,
+    "duration": "Por hora",
+    "is_active": true,
+    "icon": "linechart",
+    "category": "Aprendizaje Automático y por refuerzo + Modelos de IA"
+  },
+  {
+    "id": 138,
+    "name": "Sistemas de Recomendación Avanzados",
+    "description": "Filtrado colaborativo, matrix factorization, deep learning para recomendaciones personalizadas.",
+    "price": 30000,
+    "duration": "Por hora",
+    "is_active": true,
+    "icon": "sparkles",
+    "category": "Aprendizaje Automático y por refuerzo + Modelos de IA"
+  },
+  {
+    "id": 139,
+    "name": "Modelos de Clasificación Multiclase y Multilabel",
+    "description": "Clasificadores robustos con XGBoost, Random Forest, Neural Networks para categorización compleja.",
+    "price": 30000,
+    "duration": "Por hora",
+    "is_active": true,
+    "icon": "table",
+    "category": "Aprendizaje Automático y por refuerzo + Modelos de IA"
+  },
+  {
+    "id": 140,
+    "name": "Detección de Anomalías con Deep Learning",
+    "description": "Isolation Forest, Autoencoders, One-Class SVM para detectar patrones inusuales y fraude.",
+    "price": 30000,
+    "duration": "Por hora",
+    "is_active": true,
+    "icon": "shield",
+    "category": "Aprendizaje Automático y por refuerzo + Modelos de IA"
+  },
+  {
+    "id": 141,
+    "name": "Procesamiento de Lenguaje Natural (NLP) Avanzado",
+    "description": "Análisis de sentimientos, extracción de entidades, clasificación de texto y resumen automático.",
+    "price": 30000,
+    "duration": "Por hora",
+    "is_active": true,
+    "icon": "sparkles",
+    "category": "Aprendizaje Automático y por refuerzo + Modelos de IA"
+  },
+  {
+    "id": 142,
+    "name": "Modelos de Embeddings Personalizados",
+    "description": "Word2Vec, FastText, BERT embeddings customizados para tu dominio específico de negocio.",
+    "price": 30000,
+    "duration": "Por hora",
+    "is_active": true,
+    "icon": "database",
+    "category": "Aprendizaje Automático y por refuerzo + Modelos de IA"
+  },
+  {
+    "id": 143,
+    "name": "Optimización de Hiperparámetros Automatizada",
+    "description": "Bayesian optimization, Optuna, Ray Tune para encontrar la mejor configuración de modelos.",
+    "price": 30000,
+    "duration": "Por hora",
+    "is_active": true,
+    "icon": "gauge",
+    "category": "Aprendizaje Automático y por refuerzo + Modelos de IA"
+  },
+  {
+    "id": 144,
+    "name": "Modelos Explicables (XAI)",
+    "description": "SHAP, LIME, attention maps para interpretar decisiones de modelos y cumplir regulaciones.",
+    "price": 30000,
+    "duration": "Por hora",
+    "is_active": true,
+    "icon": "checkcircle",
+    "category": "Aprendizaje Automático y por refuerzo + Modelos de IA"
   }
 ]

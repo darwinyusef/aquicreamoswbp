@@ -3,20 +3,109 @@ import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import OtrosServicios from "../../components/OtrosServicios.astro";
-import SimpleCarousel from "../../components/SimpleCarousel.astro";
-import NewsletterReveal from "../../components/NewsletterReveal.astro";
+import DraggableLooper from "../../components/DraggableLooper.astro";
+import Accordion from "../../components/Accordion.astro";
 
 const secciones = [
   { id: "intro", title: "Introducción" },
-  { id: "capas", title: "¿Qué es Full-Stack?" },
-  { id: "proyectos", title: "Tipos de Proyectos" },
-  { id: "stack", title: "Stack Tecnológico" },
-  { id: "proceso", title: "Proceso de Desarrollo" },
-  { id: "ventajas", title: "Garantías y Ventajas" },
+  { id: "arquitectura", title: "Arquitectura de Software" },
+  { id: "frontend", title: "Frontend: Lo que Ves" },
+  { id: "backend", title: "Backend: La Lógica" },
+  { id: "integracion-ia", title: "Integración con IA" },
+  { id: "proceso", title: "Nuestro Proceso" },
+  { id: "tipos-proyectos", title: "Tipos de Proyectos" },
+];
+
+const procesoItems = [
+  {
+    title: "Paso 1: Entendemos Tu Negocio",
+    icon: "users",
+    content: `
+      <p class="mb-3">
+        Hacemos una reunión contigo para entender qué problema quieres resolver, quiénes son tus clientes
+        y qué necesitas que haga tu aplicación. No hablamos en código, hablamos en tu idioma.
+      </p>
+      <p class="text-gray-400 text-sm italic">
+        Esta es la fase más importante: entender bien lo que necesitas para construir la solución correcta
+      </p>
+    `
+  },
+  {
+    title: "Paso 2: Diseñamos la Arquitectura",
+    icon: "layers",
+    content: `
+      <p class="mb-3">
+        Creamos el "plano de construcción" de tu aplicación: decidimos cómo se conectarán las partes,
+        dónde guardaremos los datos, cómo será la experiencia del usuario.
+      </p>
+      <p class="text-gray-400 text-sm italic">
+        Te mostramos diagramas y maquetas visuales para que entiendas exactamente cómo funcionará todo
+      </p>
+    `
+  },
+  {
+    title: "Paso 3: Desarrollamos por Etapas",
+    icon: "git-branch",
+    content: `
+      <p class="mb-4">
+        No esperamos hasta el final para mostrarte algo. Cada 1-2 semanas te mostramos avances reales
+        que puedes probar en tu navegador o celular.
+      </p>
+      <ul class="space-y-2">
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">→</span>
+          <span>Primero construimos las funciones principales (MVP)</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">→</span>
+          <span>Luego añadimos las funciones secundarias</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">→</span>
+          <span>Finalmente pulimos detalles y optimizamos</span>
+        </li>
+      </ul>
+    `
+  },
+  {
+    title: "Paso 4: Pruebas y Control de Calidad",
+    icon: "shield-check",
+    content: `
+      <p>
+        Antes de lanzar, probamos todo exhaustivamente: funcionalidad, seguridad, velocidad,
+        compatibilidad con diferentes dispositivos. Queremos que todo funcione perfecto.
+      </p>
+    `
+  },
+  {
+    title: "Paso 5: Lanzamiento",
+    icon: "rocket",
+    content: `
+      <p class="mb-3">
+        Publicamos tu aplicación en la nube (o donde tú quieras) y la dejamos lista para que tus usuarios empiecen a usarla.
+      </p>
+      <div class="bg-[#82e256]/10 p-3 rounded-lg">
+        <p class="text-sm">
+          <strong class="text-white">Incluye:</strong> Configuración de servidores, dominio, SSL (candado de seguridad),
+          monitoreo y alertas automáticas
+        </p>
+      </div>
+    `
+  },
+  {
+    title: "Paso 6: Soporte y Mejoras Continuas",
+    icon: "headphones",
+    content: `
+      <p>
+        No te dejamos solo después del lanzamiento. Incluimos 90 días de soporte y ofrecemos planes de mantenimiento
+        para que tu aplicación siempre esté actualizada y funcionando al 100%.
+      </p>
+    `
+  }
 ];
 ---
 
-<Layout title="Desarrollo Full-Stack | Plataformas completas end-to-end">
+<Layout title="Desarrollo Fullstack | Arquitectura Web y Móvil">
   <Header currentPage="servicios" />
 
   <div class="min-h-screen bg-[#1a1a1a]">
@@ -42,21 +131,20 @@ const secciones = [
                 <span
                   class="text-transparent bg-clip-text bg-gradient-to-r from-[#82e256] to-[#04ADC0] drop-shadow-lg"
                 >
-                  FULL-STACK
+                  FULLSTACK
                 </span>
               </h1>
               <p
                 class="text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0"
               >
-                Soluciones completas con React, Node.js, Python y tecnologías
-                modernas
+                Construimos tu aplicación completa: desde lo que ves en pantalla hasta toda la lógica que funciona detrás
               </p>
             </div>
 
             <!-- Imagen -->
             <div class="flex justify-center lg:justify-end">
               <img
-                src="/img/personaje6/01.png"
+                src="/img/personaje9/01.png"
                 alt="Desarrollo Full-Stack"
                 class="max-w-md w-full"
               />
@@ -122,422 +210,775 @@ const secciones = [
           <!-- Introducción -->
           <section id="intro">
             <div class="prose prose-invert max-w-none">
+              <p class="text-xl text-gray-300 leading-relaxed mb-6">
+                Imagina que quieres construir una casa. No solo necesitas el diseño bonito que ves por fuera,
+                también necesitas <strong class="text-[#82e256]">los cimientos, las tuberías, la electricidad y toda la estructura</strong> que hace que funcione.
+              </p>
               <p class="text-xl text-gray-300 leading-relaxed">
-                No solo hacemos "sitios web". Construimos <strong
-                  class="text-[#82e256]">plataformas completas</strong
-                > desde el frontend hasta el backend, bases de datos, APIs y infraestructura
-                cloud.
+                Así es el desarrollo Fullstack: creamos <strong class="text-white">aplicaciones completas</strong> -
+                tanto la parte visual que usas (web o móvil) como toda la tecnología invisible que hace que todo funcione detrás de escena.
               </p>
             </div>
           </section>
 
           <div class="border-t border-gray-700"></div>
 
-          <!-- ¿Qué es Full-Stack? -->
-          <section id="capas">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-              ¿Qué significa desarrollo Full-Stack?
+          <!-- ¿Qué es Arquitectura de Software? -->
+          <section id="arquitectura">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+              ¿Qué es Arquitectura de Software?
             </h2>
-            <p class="text-gray-300 mb-12 text-lg">
-              Un desarrollador full-stack domina todas las capas de una
-              aplicación
+            <p class="text-gray-300 mb-8 text-lg leading-relaxed">
+              La arquitectura es como el <strong class="text-white">plano de construcción de tu aplicación</strong>.
+              Define cómo se organizan todas las piezas para que tu proyecto sea <strong class="text-[#82e256]">rápido, seguro y fácil de mejorar</strong> con el tiempo.
             </p>
 
-            <SimpleCarousel id="capas-fullstack-carousel">
-              <!-- Frontend -->
-              <div
-                class="bg-gradient-to-br from-blue-900/20 to-blue-800/20 p-8 rounded-2xl border border-blue-500/30 hover:border-blue-400 transition-all"
-              >
-🎨</div>
-                <h3 class="text-2xl font-bold text-white mb-3">Frontend</h3>
-                <p class="text-gray-300 mb-4">
-                  Lo que el usuario ve e interactúa
-                </p>
-                <ul class="text-gray-400 space-y-2 text-sm">
-                  <li>✓ React, Next.js Astro</li>
-                  <li>✓ Interfaces responsivas</li>
-                  <li>✓ Animaciones fluidas</li>
-                  <li>✓ Optimización de rendimiento</li>
-                </ul>
-              </div>
+            <div class="bg-gradient-to-br from-blue-900/20 to-purple-900/20 p-8 rounded-xl border border-blue-500/30 mb-8">
+              <h3 class="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+                <span>🏗️</span> Pensamos como arquitectos
+              </h3>
+              <p class="text-gray-300 text-lg leading-relaxed">
+                Antes de escribir código, diseñamos la estructura completa: ¿Cómo se conectarán las partes?
+                ¿Dónde guardaremos la información? ¿Cómo protegeremos los datos? ¿Cómo crecerá cuando tengas más usuarios?
+              </p>
+            </div>
 
-              <!-- Backend -->
-              <div
-                class="bg-gradient-to-br from-green-900/20 to-green-800/20 p-8 rounded-2xl border border-green-500/30 hover:border-green-400 transition-all"
-              >
-⚙️</div>
-                <h3 class="text-2xl font-bold text-white mb-3">Backend</h3>
-                <p class="text-gray-300 mb-4">
-                  La lógica de negocio y procesamiento
-                </p>
-                <ul class="text-gray-400 space-y-2 text-sm">
-                  <li>✓ Node.js, Python, JAVA y GO</li>
-                  <li>✓ APIs RESTful</li>
-                  <li>✓ Autenticación y seguridad</li>
-                  <li>✓ Lógica de negocio compleja</li>
-                </ul>
-              </div>
-
-              <!-- Infrastructure -->
-              <div
-                class="bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-8 rounded-2xl border border-purple-500/30 hover:border-purple-400 transition-all"
-              >
-☁️</div>
-                <h3 class="text-2xl font-bold text-white mb-3">
-                  Infraestructura
-                </h3>
-                <p class="text-gray-300 mb-4">Donde vive tu aplicación</p>
-                <ul class="text-gray-400 space-y-2 text-sm">
-                  <li>✓ AWS, Azure, Google Cloud</li>
-                  <li>✓ Bases de datos escalables</li>
-                  <li>✓ CI/CD y DevOps</li>
-                  <li>✓ Monitoreo y logs</li>
-                </ul>
-              </div>
-            </SimpleCarousel>
+            <p class="text-gray-300 text-lg leading-relaxed">
+              Una buena arquitectura significa que tu aplicación será <strong class="text-white">estable, rápida y preparada para crecer</strong>.
+              No tendrás que rehacerla desde cero cuando tu negocio crezca.
+            </p>
           </section>
 
           <div class="border-t border-gray-700"></div>
 
-          <!-- Tipos de Proyectos Full-Stack -->
-          <section id="proyectos">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+          <!-- Frontend: Lo que el usuario ve -->
+          <section id="frontend">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+              Frontend: Lo Que Tus Usuarios Ven y Tocan
+            </h2>
+            <p class="text-gray-300 mb-8 text-lg">
+              El frontend es la <strong class="text-[#82e256]">cara visible de tu aplicación</strong> -
+              todo lo que tus clientes ven en su pantalla y con lo que interact</p>
+
+            <DraggableLooper animationDuration="35s" gap="gap-6" id="frontend-looper">
+              <!-- Web -->
+              <div class="w-96 bg-gradient-to-br from-blue-900/20 to-blue-800/20 p-8 rounded-2xl border border-blue-500/30 hover:border-blue-400/50 transition-all">
+                <div class="text-4xl mb-4">🌐</div>
+                <h3 class="text-2xl font-bold text-white mb-3">Aplicaciones Web</h3>
+                <p class="text-gray-300 mb-4 text-sm">
+                  Sitios web modernos que funcionan en cualquier navegador
+                </p>
+                <ul class="text-gray-400 space-y-2 text-sm">
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Se adaptan a cualquier pantalla</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Rápidas y fluidas</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Sin instalación, solo un link</span>
+                  </li>
+                </ul>
+                <div class="mt-6 pt-4 border-t border-blue-500/30">
+                  <a href="/servicios/desarrollo-web" class="text-[#82e256] hover:text-[#a0f072] font-semibold text-sm flex items-center gap-2">
+                    Ver más sobre Desarrollo Web →
+                  </a>
+                </div>
+              </div>
+
+              <!-- Mobile -->
+              <div class="w-96 bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-8 rounded-2xl border border-purple-500/30 hover:border-purple-400/50 transition-all">
+                <div class="text-4xl mb-4">📱</div>
+                <h3 class="text-2xl font-bold text-white mb-3">Aplicaciones Móviles</h3>
+                <p class="text-gray-300 mb-4 text-sm">
+                  Apps para descargar en Android e iOS
+                </p>
+                <ul class="text-gray-400 space-y-2 text-sm">
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Funcionan sin internet</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Usan cámara, GPS y sensores</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Notificaciones push</span>
+                  </li>
+                </ul>
+                <div class="mt-6 pt-4 border-t border-purple-500/30">
+                  <a href="/servicios/aplicaciones-moviles" class="text-[#82e256] hover:text-[#a0f072] font-semibold text-sm flex items-center gap-2">
+                    Ver más sobre Apps Móviles →
+                  </a>
+                </div>
+              </div>
+
+              <!-- Progressive Web Apps -->
+              <div class="w-96 bg-gradient-to-br from-green-900/20 to-green-800/20 p-8 rounded-2xl border border-green-500/30 hover:border-green-400/50 transition-all">
+                <div class="text-4xl mb-4">⚡</div>
+                <h3 class="text-2xl font-bold text-white mb-3">Progressive Web Apps</h3>
+                <p class="text-gray-300 mb-4 text-sm">
+                  Web y móvil en uno: apps web que se sienten nativas
+                </p>
+                <ul class="text-gray-400 space-y-2 text-sm">
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Funcionan en web e instalables</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Más económicas que apps nativas</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Actualizaciones automáticas</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Duplicados -->
+              <div class="w-96 bg-gradient-to-br from-blue-900/20 to-blue-800/20 p-8 rounded-2xl border border-blue-500/30 hover:border-blue-400/50 transition-all">
+                <div class="text-4xl mb-4">🌐</div>
+                <h3 class="text-2xl font-bold text-white mb-3">Aplicaciones Web</h3>
+                <p class="text-gray-300 mb-4 text-sm">
+                  Sitios web modernos que funcionan en cualquier navegador
+                </p>
+                <ul class="text-gray-400 space-y-2 text-sm">
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Se adaptan a cualquier pantalla</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Rápidas y fluidas</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Sin instalación, solo un link</span>
+                  </li>
+                </ul>
+                <div class="mt-6 pt-4 border-t border-blue-500/30">
+                  <a href="/servicios/desarrollo-web" class="text-[#82e256] hover:text-[#a0f072] font-semibold text-sm flex items-center gap-2">
+                    Ver más sobre Desarrollo Web →
+                  </a>
+                </div>
+              </div>
+
+              <div class="w-96 bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-8 rounded-2xl border border-purple-500/30 hover:border-purple-400/50 transition-all">
+                <div class="text-4xl mb-4">📱</div>
+                <h3 class="text-2xl font-bold text-white mb-3">Aplicaciones Móviles</h3>
+                <p class="text-gray-300 mb-4 text-sm">
+                  Apps para descargar en Android e iOS
+                </p>
+                <ul class="text-gray-400 space-y-2 text-sm">
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Funcionan sin internet</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Usan cámara, GPS y sensores</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Notificaciones push</span>
+                  </li>
+                </ul>
+                <div class="mt-6 pt-4 border-t border-purple-500/30">
+                  <a href="/servicios/aplicaciones-moviles" class="text-[#82e256] hover:text-[#a0f072] font-semibold text-sm flex items-center gap-2">
+                    Ver más sobre Apps Móviles →
+                  </a>
+                </div>
+              </div>
+
+              <div class="w-96 bg-gradient-to-br from-green-900/20 to-green-800/20 p-8 rounded-2xl border border-green-500/30 hover:border-green-400/50 transition-all">
+                <div class="text-4xl mb-4">⚡</div>
+                <h3 class="text-2xl font-bold text-white mb-3">Progressive Web Apps</h3>
+                <p class="text-gray-300 mb-4 text-sm">
+                  Web y móvil en uno: apps web que se sienten nativas
+                </p>
+                <ul class="text-gray-400 space-y-2 text-sm">
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Funcionan en web e instalables</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Más económicas que apps nativas</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Actualizaciones automáticas</span>
+                  </li>
+                </ul>
+              </div>
+            </DraggableLooper>
+          </section>
+
+          <div class="border-t border-gray-700"></div>
+
+          <!-- Backend: La lógica oculta -->
+          <section id="backend">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+              Backend: La Lógica que No Se Ve Pero Todo Lo Hace Funcionar
+            </h2>
+            <p class="text-gray-300 mb-8 text-lg leading-relaxed">
+              Si el frontend es lo que ves, el backend es <strong class="text-[#82e256]">el cerebro de tu aplicación</strong>.
+              Es donde guardamos información, procesamos pagos, validamos usuarios y hacemos que todo funcione de forma segura.
+            </p>
+
+            <DraggableLooper animationDuration="40s" gap="gap-6" id="backend-looper">
+              <!-- APIs -->
+              <div class="w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256]/50 transition-all">
+                <div class="text-4xl mb-4">🔌</div>
+                <h3 class="text-2xl font-bold text-white mb-3">APIs</h3>
+                <p class="text-gray-300 mb-4 text-sm">
+                  El puente de comunicación entre frontend y backend
+                </p>
+                <div class="bg-[#82e256]/10 p-4 rounded-lg border-l-4 border-[#82e256]">
+                  <p class="text-gray-300 text-xs">
+                    <strong class="text-white">Ejemplo:</strong> Cuando haces login, la API envía tus datos al servidor y verifica si son correctos.
+                  </p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-gray-700">
+                  <a href="/servicios/devops-cloud" class="text-[#82e256] hover:text-[#a0f072] font-semibold text-sm flex items-center gap-2">
+                    Ver más sobre DevOps & Cloud →
+                  </a>
+                </div>
+              </div>
+
+              <!-- Bases de Datos -->
+              <div class="w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256]/50 transition-all">
+                <div class="text-4xl mb-4">🗄️</div>
+                <h3 class="text-2xl font-bold text-white mb-3">Bases de Datos</h3>
+                <p class="text-gray-300 mb-4 text-sm">
+                  Guardamos toda tu información de forma segura
+                </p>
+                <ul class="text-gray-400 space-y-2 text-sm">
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">•</span>
+                    <span>Datos de clientes</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">•</span>
+                    <span>Productos e inventarios</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">•</span>
+                    <span>Transacciones y pedidos</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">•</span>
+                    <span>Cifrado y respaldos automáticos</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Seguridad -->
+              <div class="w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256]/50 transition-all">
+                <div class="text-4xl mb-4">🔐</div>
+                <h3 class="text-2xl font-bold text-white mb-3">Seguridad</h3>
+                <p class="text-gray-300 mb-4 text-sm">
+                  Protegemos tu aplicación contra ataques y fraudes
+                </p>
+                <ul class="text-gray-400 space-y-2 text-sm">
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">•</span>
+                    <span>Contraseñas encriptadas</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">•</span>
+                    <span>Protección contra hackers</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">•</span>
+                    <span>Respaldos automáticos</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">•</span>
+                    <span>Cumplimiento GDPR y LOPD</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Procesamiento -->
+              <div class="w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256]/50 transition-all">
+                <div class="text-4xl mb-4">⚙️</div>
+                <h3 class="text-2xl font-bold text-white mb-3">Procesamiento</h3>
+                <p class="text-gray-300 mb-4 text-sm">
+                  Tareas automáticas 24/7
+                </p>
+                <div class="space-y-3">
+                  <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                    <p class="text-white font-semibold text-sm mb-1">E-commerce</p>
+                    <p class="text-gray-400 text-xs">Procesa pagos, actualiza inventario y envía notificaciones</p>
+                  </div>
+                  <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                    <p class="text-white font-semibold text-sm mb-1">Reportes</p>
+                    <p class="text-gray-400 text-xs">Genera reportes automáticos y los envía por email</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Duplicados -->
+              <div class="w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256]/50 transition-all">
+                <div class="text-4xl mb-4">🔌</div>
+                <h3 class="text-2xl font-bold text-white mb-3">APIs</h3>
+                <p class="text-gray-300 mb-4 text-sm">
+                  El puente de comunicación entre frontend y backend
+                </p>
+                <div class="bg-[#82e256]/10 p-4 rounded-lg border-l-4 border-[#82e256]">
+                  <p class="text-gray-300 text-xs">
+                    <strong class="text-white">Ejemplo:</strong> Cuando haces login, la API envía tus datos al servidor y verifica si son correctos.
+                  </p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-gray-700">
+                  <a href="/servicios/devops-cloud" class="text-[#82e256] hover:text-[#a0f072] font-semibold text-sm flex items-center gap-2">
+                    Ver más sobre DevOps & Cloud →
+                  </a>
+                </div>
+              </div>
+
+              <div class="w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256]/50 transition-all">
+                <div class="text-4xl mb-4">🗄️</div>
+                <h3 class="text-2xl font-bold text-white mb-3">Bases de Datos</h3>
+                <p class="text-gray-300 mb-4 text-sm">
+                  Guardamos toda tu información de forma segura
+                </p>
+                <ul class="text-gray-400 space-y-2 text-sm">
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">•</span>
+                    <span>Datos de clientes</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">•</span>
+                    <span>Productos e inventarios</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">•</span>
+                    <span>Transacciones y pedidos</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">•</span>
+                    <span>Cifrado y respaldos automáticos</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256]/50 transition-all">
+                <div class="text-4xl mb-4">🔐</div>
+                <h3 class="text-2xl font-bold text-white mb-3">Seguridad</h3>
+                <p class="text-gray-300 mb-4 text-sm">
+                  Protegemos tu aplicación contra ataques y fraudes
+                </p>
+                <ul class="text-gray-400 space-y-2 text-sm">
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">•</span>
+                    <span>Contraseñas encriptadas</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">•</span>
+                    <span>Protección contra hackers</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">•</span>
+                    <span>Respaldos automáticos</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">•</span>
+                    <span>Cumplimiento GDPR y LOPD</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256]/50 transition-all">
+                <div class="text-4xl mb-4">⚙️</div>
+                <h3 class="text-2xl font-bold text-white mb-3">Procesamiento</h3>
+                <p class="text-gray-300 mb-4 text-sm">
+                  Tareas automáticas 24/7
+                </p>
+                <div class="space-y-3">
+                  <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                    <p class="text-white font-semibold text-sm mb-1">E-commerce</p>
+                    <p class="text-gray-400 text-xs">Procesa pagos, actualiza inventario y envía notificaciones</p>
+                  </div>
+                  <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                    <p class="text-white font-semibold text-sm mb-1">Reportes</p>
+                    <p class="text-gray-400 text-xs">Genera reportes automáticos y los envía por email</p>
+                  </div>
+                </div>
+              </div>
+            </DraggableLooper>
+          </section>
+
+          <div class="border-t border-gray-700"></div>
+
+          <!-- Integración con IA -->
+          <section id="integracion-ia">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+              Integración con Inteligencia Artificial
+            </h2>
+
+            <div class="prose prose-invert max-w-none">
+              <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                Tu aplicación puede ser mucho más que botones y formularios. Puede conversar con tus clientes, aprender de sus preferencias,
+                detectar fraudes antes de que pasen, reconocer imágenes, generar contenido automáticamente. La Inteligencia Artificial no es
+                el futuro, es ahora mismo.
+              </p>
+
+              <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                Integramos <a href="/servicios/agentes-ia" class="text-[#82e256] hover:text-[#a0f072] font-semibold">agentes inteligentes</a> que
+                atienden a tus usuarios 24/7. Añadimos <a href="/servicios/ia-machine-learning" class="text-[#82e256] hover:text-[#a0f072] font-semibold">sistemas
+                que aprenden</a> de tus datos para tomar mejores decisiones. Implementamos <a href="/servicios/computer-vision" class="text-[#82e256] hover:text-[#a0f072] font-semibold">visión
+                por computadora</a> para que tu software pueda "ver" y entender imágenes. Desarrollamos <a href="/servicios/aplicaciones-ia" class="text-[#82e256] hover:text-[#a0f072] font-semibold">funciones
+                inteligentes</a> que automatizan tareas repetitivas.
+              </p>
+
+              <p class="text-gray-300 text-lg leading-relaxed">
+                Mientras tus competidores siguen haciendo las cosas manualmente, tú puedes estar automatizando, personalizando y escalando.
+                Te ayudamos a integrar estas tecnologías de forma práctica, sin complicaciones técnicas, enfocados en resultados reales.
+              </p>
+            </div>
+          </section>
+
+          <div class="border-t border-gray-700"></div>
+
+          <!-- Nuestro Proceso Paso a Paso -->
+          <section id="proceso">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+              Cómo Trabajamos: Nuestro Proceso Paso a Paso
+            </h2>
+            <p class="text-gray-300 mb-12 text-lg">
+              Te acompañamos desde la idea hasta el lanzamiento y más allá
+            </p>
+
+            <Accordion items={procesoItems} />
+          </section>
+
+          <div class="border-t border-gray-700"></div>
+
+          <!-- Tipos de Proyectos -->
+          <section id="tipos-proyectos">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
               Tipos de Proyectos que Desarrollamos
             </h2>
             <p class="text-gray-300 mb-12 text-lg">
-              Desde MVPs hasta plataformas empresariales complejas
+              Desde aplicaciones sencillas hasta plataformas empresariales complejas
             </p>
 
-            <SimpleCarousel id="tipos-proyectos-fullstack">
+            <DraggableLooper animationDuration="50s" gap="gap-6" id="proyectos-looper">
               <!-- MVP/Startup -->
-              <div
-                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all"
-              >
-🚀</div>
-                <h3 class="text-2xl font-bold text-white mb-3">
-                  MVPs y Startups
-                </h3>
-                <p class="text-gray-300 mb-4">
-                  Validación rápida de ideas con arquitectura escalable
+              <div class="w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256]/50 transition-all">
+                <div class="text-4xl mb-4">🚀</div>
+                <h3 class="text-2xl font-bold text-white mb-3">MVP para Startups</h3>
+                <p class="text-gray-300 mb-4 text-sm">
+                  Versión inicial de tu idea para validar con usuarios reales sin gastar mucho
                 </p>
-
-                <div class="mt-6 space-y-3">
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Stack moderno y probado en producción
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Preparado para crecer sin reescribir
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Autenticación, pagos y analytics incluidos
-                    </p>
-                  </div>
+                <div class="bg-[#82e256]/10 p-4 rounded-lg mb-4">
+                  <p class="text-white font-semibold text-sm mb-2">Ideal para:</p>
+                  <ul class="text-gray-300 text-xs space-y-1">
+                    <li>• Emprendedores con idea de negocio</li>
+                    <li>• Buscar inversión o primeros clientes</li>
+                    <li>• Probar el mercado rápido</li>
+                  </ul>
                 </div>
-              </div>
-
-              <!-- SaaS -->
-              <div
-                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all"
-              >
-🌐</div>
-                <h3 class="text-2xl font-bold text-white mb-3">
-                  Plataformas SaaS
-                </h3>
-                <p class="text-gray-300 mb-4">
-                  Software como servicio con multi-tenancy
+                <p class="text-gray-400 text-xs italic">
+                  Lo construimos para crecer: cuando tengas éxito, no tendrás que rehacer todo
                 </p>
-
-                <div class="mt-6 space-y-3">
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Arquitectura multi-tenant segura
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Subscripciones y facturación automática
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Dashboard de analytics en tiempo real
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Roles, permisos y gestión de equipos
-                    </p>
-                  </div>
-                </div>
               </div>
 
               <!-- E-commerce -->
-              
-                <h3 class="text-2xl font-bold text-white mb-3">
-                  E-commerce Personalizado
-                </h3>
-                <p class="text-gray-300 mb-4">
-                  Tiendas online optimizadas para conversión
+              <div class="w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256]/50 transition-all">
+                <div class="text-4xl mb-4">🛒</div>
+                <h3 class="text-2xl font-bold text-white mb-3">Tiendas Online</h3>
+                <p class="text-gray-300 mb-4 text-sm">
+                  Vende tus productos online con carrito de compras, pagos y gestión de inventario
                 </p>
+                <ul class="text-gray-400 space-y-2 text-sm">
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Catálogo de productos con fotos y descripciones</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Pasarelas de pago seguras (tarjetas, PayPal, etc)</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Panel de administración para gestionar pedidos</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Integración con envíos y facturación</span>
+                  </li>
+                </ul>
+              </div>
 
-                <div class="mt-6 space-y-3">
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Headless commerce (Shopify/Medusa)
-                    </p>
+              <!-- SaaS -->
+              <div class="w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256]/50 transition-all">
+                <div class="text-4xl mb-4">☁️</div>
+                <h3 class="text-2xl font-bold text-white mb-3">Plataformas SaaS</h3>
+                <p class="text-gray-300 mb-4 text-sm">
+                  Software como servicio con suscripciones mensuales (como Netflix, Spotify)
+                </p>
+                <div class="space-y-3">
+                  <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                    <p class="text-white font-semibold text-sm mb-1">Multi-usuario</p>
+                    <p class="text-gray-400 text-xs">Cada cliente tiene su propio espacio privado y seguro</p>
                   </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Carrito, checkout y pasarelas de pago
-                    </p>
+                  <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                    <p class="text-white font-semibold text-sm mb-1">Facturación automática</p>
+                    <p class="text-gray-400 text-xs">Cobros mensuales/anuales automáticos con Stripe</p>
                   </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Gestión de inventario y pedidos</p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      SEO y optimización de conversión
-                    </p>
+                  <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                    <p class="text-white font-semibold text-sm mb-1">Roles y permisos</p>
+                    <p class="text-gray-400 text-xs">Administradores, usuarios, invitados con diferentes accesos</p>
                   </div>
                 </div>
               </div>
 
-              <!-- Portales -->
-              <div
-                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all"
-              >
-🏢</div>
-                <h3 class="text-2xl font-bold text-white mb-3">
-                  Portales Empresariales
-                </h3>
-                <p class="text-gray-300 mb-4">
-                  Sistemas internos de gestión y colaboración
+              <!-- Portales Empresariales -->
+              <div class="w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256]/50 transition-all">
+                <div class="text-4xl mb-4">🏢</div>
+                <h3 class="text-2xl font-bold text-white mb-3">Portales Empresariales</h3>
+                <p class="text-gray-300 mb-4 text-sm">
+                  Sistemas internos para gestionar tu empresa (CRM, ERP, sistemas administrativos)
                 </p>
+                <ul class="text-gray-400 space-y-2 text-sm">
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Gestión de clientes y ventas</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Control de inventarios y proveedores</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Reportes y dashboards con gráficas</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Integraciones con sistemas que ya uses</span>
+                  </li>
+                </ul>
+              </div>
 
-                <div class="mt-6 space-y-3">
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      CRM, ERP y sistemas administrativos
-                    </p>
+              <!-- Marketplace -->
+              <div class="w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256]/50 transition-all">
+                <div class="text-4xl mb-4">🏪</div>
+                <h3 class="text-2xl font-bold text-white mb-3">Marketplaces</h3>
+                <p class="text-gray-300 mb-4 text-sm">
+                  Plataformas donde múltiples vendedores venden a múltiples compradores (como Mercado Libre, Airbnb)
+                </p>
+                <div class="bg-[#82e256]/10 p-4 rounded-lg">
+                  <p class="text-white font-semibold text-sm mb-2">Incluye:</p>
+                  <ul class="text-gray-300 text-xs space-y-1">
+                    <li>• Perfiles de vendedores y compradores</li>
+                    <li>• Sistema de pagos con comisiones</li>
+                    <li>• Reseñas y calificaciones</li>
+                    <li>• Chat entre usuarios</li>
+                    <li>• Panel de admin para moderar</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Apps Sociales -->
+              <div class="w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256]/50 transition-all">
+                <div class="text-4xl mb-4">💬</div>
+                <h3 class="text-2xl font-bold text-white mb-3">Aplicaciones Sociales</h3>
+                <p class="text-gray-300 mb-4 text-sm">
+                  Plataformas donde los usuarios interactúan, comparten contenido y se conectan
+                </p>
+                <ul class="text-gray-400 space-y-2 text-sm">
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Perfiles de usuario personalizables</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Feeds de noticias y publicaciones</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Sistema de amigos/seguidores</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Mensajería en tiempo real</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Notificaciones push</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Duplicados -->
+              <div class="w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256]/50 transition-all">
+                <div class="text-4xl mb-4">🚀</div>
+                <h3 class="text-2xl font-bold text-white mb-3">MVP para Startups</h3>
+                <p class="text-gray-300 mb-4 text-sm">
+                  Versión inicial de tu idea para validar con usuarios reales sin gastar mucho
+                </p>
+                <div class="bg-[#82e256]/10 p-4 rounded-lg mb-4">
+                  <p class="text-white font-semibold text-sm mb-2">Ideal para:</p>
+                  <ul class="text-gray-300 text-xs space-y-1">
+                    <li>• Emprendedores con idea de negocio</li>
+                    <li>• Buscar inversión o primeros clientes</li>
+                    <li>• Probar el mercado rápido</li>
+                  </ul>
+                </div>
+                <p class="text-gray-400 text-xs italic">
+                  Lo construimos para crecer: cuando tengas éxito, no tendrás que rehacer todo
+                </p>
+              </div>
+
+              <div class="w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256]/50 transition-all">
+                <div class="text-4xl mb-4">🛒</div>
+                <h3 class="text-2xl font-bold text-white mb-3">Tiendas Online</h3>
+                <p class="text-gray-300 mb-4 text-sm">
+                  Vende tus productos online con carrito de compras, pagos y gestión de inventario
+                </p>
+                <ul class="text-gray-400 space-y-2 text-sm">
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Catálogo de productos con fotos y descripciones</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Pasarelas de pago seguras (tarjetas, PayPal, etc)</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Panel de administración para gestionar pedidos</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Integración con envíos y facturación</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256]/50 transition-all">
+                <div class="text-4xl mb-4">☁️</div>
+                <h3 class="text-2xl font-bold text-white mb-3">Plataformas SaaS</h3>
+                <p class="text-gray-300 mb-4 text-sm">
+                  Software como servicio con suscripciones mensuales (como Netflix, Spotify)
+                </p>
+                <div class="space-y-3">
+                  <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                    <p class="text-white font-semibold text-sm mb-1">Multi-usuario</p>
+                    <p class="text-gray-400 text-xs">Cada cliente tiene su propio espacio privado y seguro</p>
                   </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Integración con sistemas legacy</p>
+                  <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                    <p class="text-white font-semibold text-sm mb-1">Facturación automática</p>
+                    <p class="text-gray-400 text-xs">Cobros mensuales/anuales automáticos con Stripe</p>
                   </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Workflows personalizados</p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Reportes y dashboards ejecutivos
-                    </p>
+                  <div class="bg-[#82e256]/10 p-3 rounded-lg">
+                    <p class="text-white font-semibold text-sm mb-1">Roles y permisos</p>
+                    <p class="text-gray-400 text-xs">Administradores, usuarios, invitados con diferentes accesos</p>
                   </div>
                 </div>
               </div>
-            </SimpleCarousel>
+
+              <div class="w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256]/50 transition-all">
+                <div class="text-4xl mb-4">🏢</div>
+                <h3 class="text-2xl font-bold text-white mb-3">Portales Empresariales</h3>
+                <p class="text-gray-300 mb-4 text-sm">
+                  Sistemas internos para gestionar tu empresa (CRM, ERP, sistemas administrativos)
+                </p>
+                <ul class="text-gray-400 space-y-2 text-sm">
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Gestión de clientes y ventas</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Control de inventarios y proveedores</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Reportes y dashboards con gráficas</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Integraciones con sistemas que ya uses</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256]/50 transition-all">
+                <div class="text-4xl mb-4">🏪</div>
+                <h3 class="text-2xl font-bold text-white mb-3">Marketplaces</h3>
+                <p class="text-gray-300 mb-4 text-sm">
+                  Plataformas donde múltiples vendedores venden a múltiples compradores (como Mercado Libre, Airbnb)
+                </p>
+                <div class="bg-[#82e256]/10 p-4 rounded-lg">
+                  <p class="text-white font-semibold text-sm mb-2">Incluye:</p>
+                  <ul class="text-gray-300 text-xs space-y-1">
+                    <li>• Perfiles de vendedores y compradores</li>
+                    <li>• Sistema de pagos con comisiones</li>
+                    <li>• Reseñas y calificaciones</li>
+                    <li>• Chat entre usuarios</li>
+                    <li>• Panel de admin para moderar</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="w-96 bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256]/50 transition-all">
+                <div class="text-4xl mb-4">💬</div>
+                <h3 class="text-2xl font-bold text-white mb-3">Aplicaciones Sociales</h3>
+                <p class="text-gray-300 mb-4 text-sm">
+                  Plataformas donde los usuarios interactúan, comparten contenido y se conectan
+                </p>
+                <ul class="text-gray-400 space-y-2 text-sm">
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Perfiles de usuario personalizables</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Feeds de noticias y publicaciones</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Sistema de amigos/seguidores</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Mensajería en tiempo real</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-[#82e256] mt-1">✓</span>
+                    <span>Notificaciones push</span>
+                  </li>
+                </ul>
+              </div>
+            </DraggableLooper>
           </section>
 
           <div class="border-t border-gray-700"></div>
 
-          <!-- Stack Tecnológico -->
-          <section id="stack">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-              Nuestro Stack Tecnológico Full-Stack
-            </h2>
-            <p class="text-gray-300 mb-12 text-lg">
-              Herramientas modernas probadas en producción
-            </p>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <!-- Frontend -->
-              <div
-                class="bg-gradient-to-br from-blue-900/20 to-blue-800/20 p-6 rounded-xl border border-blue-500/30"
-              >
-                <h3
-                  class="text-xl font-bold text-white mb-4 flex items-center gap-2"
-                >
-                  <span>⚛️</span> Frontend
-                </h3>
-                <div class="space-y-2 text-gray-300 text-sm">
-                  <p>• React + TypeScript</p>
-                  <p>• Next.js 14 (App Router)</p>
-                  <p>• Astro</p>
-                  <p>• Tailwind CSS</p>
-                  <p>• Shadcn/ui</p>
-                </div>
-              </div>
-
-              <!-- Backend -->
-              <div
-                class="bg-gradient-to-br from-green-900/20 to-green-800/20 p-6 rounded-xl border border-green-500/30"
-              >
-                <h3
-                  class="text-xl font-bold text-white mb-4 flex items-center gap-2"
-                >
-                  <span>🔧</span> Backend
-                </h3>
-                <div class="space-y-2 text-gray-300 text-sm">
-                  <p>• Node.js + Express</p>
-                  <p>• Python (FastAPI/Django)</p>
-                  <p>• JAVA Spring Boot</p>
-                  <p>• GO</p>
-                  <p>• Next.js API Routes</p>
-                  <p>• tRPC</p>
-                </div>
-              </div>
-
-              <!-- Databases -->
-              <div
-                class="bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-6 rounded-xl border border-purple-500/30"
-              >
-                <h3
-                  class="text-xl font-bold text-white mb-4 flex items-center gap-2"
-                >
-                  <span>🗄️</span> Databases
-                </h3>
-                <div class="space-y-2 text-gray-300 text-sm">
-                  <p>• PostgreSQL</p>
-                  <p>• MongoDB</p>
-                  <p>• Redis</p>
-                  <p>• Supabase</p>
-                  <p>• Prisma ORM</p>
-                  <p>• Drizzle ORM</p>
-                </div>
-              </div>
-
-              <!-- Cloud & DevOps -->
-              <div
-                class="bg-gradient-to-br from-cyan-900/20 to-cyan-800/20 p-6 rounded-xl border border-cyan-500/30"
-              >
-                <h3
-                  class="text-xl font-bold text-white mb-4 flex items-center gap-2"
-                >
-                  <span>☁️</span> Cloud & DevOps
-                </h3>
-                <div class="space-y-2 text-gray-300 text-sm">
-                  <p>• AWS / Vercel / Railway</p>
-                  <p>• Docker + Kubernetes</p>
-                  <p>• GitHub Actions</p>
-                  <p>• Monitoring (Sentry)</p>
-                  <p>• CDN Cloudflare</p>
-                  <p>• Serverless Functions</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Imagen tecnología -->
-            <div class="mt-12">
-              <div class="flex justify-center mb-4">
-                <img
-                  src="/imgfondos/13.jpg"
-                  alt="Stack tecnológico moderno"
-                  class="h-auto max-w-2xl rounded-2xl"
-                />
-              </div>
-              <p class="text-center text-gray-400 text-sm italic">
-                Tecnologías de vanguardia para aplicaciones robustas y
-                escalables
+          <!-- Tecnologías -->
+          <section>
+            <div class="bg-gradient-to-br from-blue-900/20 to-purple-900/20 p-8 rounded-xl border border-blue-500/30 text-center">
+              <h3 class="text-2xl font-bold text-white mb-4">¿Quieres conocer las tecnologías que usamos?</h3>
+              <p class="text-gray-300 mb-6">
+                Trabajamos con tecnologías modernas, probadas y confiables. Si te interesan los detalles técnicos,
+                puedes verlas en nuestra página principal.
               </p>
+              <a
+                href="/#tecnologias"
+                class="inline-block px-6 py-3 bg-[#82e256] text-black font-bold rounded-lg hover:bg-[#a0f072] transition-all"
+              >
+                Ver Stack Tecnológico →
+              </a>
             </div>
-          </section>
-
-          <div class="border-t border-gray-700"></div>
-
-          <!-- Garantías -->
-          <section id="ventajas">
-            <h2
-              class="text-3xl md:text-4xl font-bold text-white mb-12 text-center"
-            >
-              Garantías y Ventajas
-            </h2>
-
-            <SimpleCarousel id="garantias-ventajas-fullstack">
-              <div
-                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
-              >
-                <h3 class="text-lg font-bold text-white mb-2">Código Propio</h3>
-                <p class="text-gray-400 text-sm">
-                  100% del código es tuyo. Repository completo en GitHub con
-                  documentación.
-                </p>
-              </div>
-
-              <div
-                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
-              >
-                <h3 class="text-lg font-bold text-white mb-2">
-                  Seguridad Incluida
-                </h3>
-                <p class="text-gray-400 text-sm">
-                  OWASP top 10, autenticación robusta, cifrado end-to-end.
-                </p>
-              </div>
-
-              <div
-                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
-              >
-                <h3 class="text-lg font-bold text-white mb-2">
-                  Analytics Desde Día 1
-                </h3>
-                <p class="text-gray-400 text-sm">
-                  Tracking de métricas clave, eventos personalizados,
-                  dashboards.
-                </p>
-              </div>
-
-              <div
-                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
-              >
-                <h3 class="text-lg font-bold text-white mb-2">
-                  Performance a la medida de tus necesidades
-                </h3>
-                <p class="text-gray-400 text-sm">
-                  Core Web Vitals optimizados, caching inteligente, CDN global.
-                </p>
-              </div>
-
-              <div
-                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
-              >
-                <h3 class="text-lg font-bold text-white mb-2">
-                  CI/CD Automatizado
-                </h3>
-                <p class="text-gray-400 text-sm">
-                  Deploys automáticos, testing continuo, rollback instantáneo.
-                </p>
-              </div>
-
-              <div
-                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
-              >
-                <h3 class="text-lg font-bold text-white mb-2">
-                  Soporte Extendido
-                </h3>
-                <p class="text-gray-400 text-sm">
-                  90 días de soporte incluido + opciones de mantenimiento
-                  mensual.
-                </p>
-              </div>
-            </SimpleCarousel>
           </section>
 
           <!-- CTA Final -->
@@ -545,11 +986,10 @@ const secciones = [
             class="bg-gradient-to-br from-[#82e256] to-[#04ADC0] p-8 md:p-12 rounded-2xl text-center"
           >
             <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">
-              ¿Listo para construir tu plataforma?
+              ¿Listo para construir tu aplicación?
             </h2>
             <p class="text-xl text-black/80 mb-8">
-              Agenda una consultoría gratuita y te mostramos cómo llevamos tu
-              idea del concepto a producción
+              Agenda una consultoría gratuita y te explicamos cómo podemos ayudarte
             </p>
             <a
               href="/#contenido10"
@@ -593,5 +1033,10 @@ const secciones = [
         }
       });
     });
+
+    // Inicializar iconos de Lucide si están disponibles
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
   });
 </script>

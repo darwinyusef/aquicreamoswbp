@@ -3,15 +3,94 @@ import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import OtrosServicios from "../../components/OtrosServicios.astro";
-import SimpleCarousel from "../../components/SimpleCarousel.astro";
+import DraggableLooper from "../../components/DraggableLooper.astro";
+import Accordion from "../../components/Accordion.astro";
 
 const secciones = [
   { id: "intro", title: "Introducción" },
-  { id: "problemas", title: "Problemas Comunes" },
-  { id: "servicios", title: "Servicios DevOps" },
-  { id: "stack", title: "Stack Tecnológico" },
-  { id: "proceso", title: "Proceso de Transformación" },
-  { id: "garantias", title: "Garantías" },
+  { id: "que-hacemos", title: "Qué Hacemos" },
+  { id: "servicios", title: "Servicios Principales" },
+  { id: "ia-devops", title: "IA en DevOps" },
+  { id: "procesos", title: "Nuestros Procesos" },
+  { id: "observabilidad", title: "Observabilidad" },
+];
+
+const procesosItems = [
+  {
+    title: "Paso 1: Análisis de tu Infraestructura Actual",
+    icon: "search",
+    content: `
+      <p class="mb-3">
+        Revisamos tu infraestructura actual sin juzgar. No importa si está en tu computadora, en un servidor olvidado
+        o ya en la nube. Entendemos qué tienes, qué funciona y qué no.
+      </p>
+      <p class="text-gray-400 text-sm">
+        Identificamos los puntos críticos y te damos un plan claro de mejora.
+      </p>
+    `
+  },
+  {
+    title: "Paso 2: Diseño de Arquitectura Escalable",
+    icon: "layers",
+    content: `
+      <p class="mb-3">
+        Diseñamos una arquitectura que crece contigo. No over-engineering, no soluciones de "Google scale"
+        si tienes 100 usuarios. Cada app es importante y merece la infraestructura correcta para su tamaño.
+      </p>
+      <p class="text-gray-400 text-sm">
+        Seleccionamos las herramientas y servicios según tus necesidades reales, no las modas del momento.
+      </p>
+    `
+  },
+  {
+    title: "Paso 3: Automatización y CI/CD",
+    icon: "git-branch",
+    content: `
+      <p class="mb-3">
+        Implementamos pipelines de CI/CD para que tus deploys sean automáticos, seguros y repetibles.
+        Push a main, tests automáticos, deploy a producción. Así de simple.
+      </p>
+      <p class="text-gray-400 text-sm">
+        Con rollback automático si algo falla. Despliegas con confianza, no con miedo.
+      </p>
+    `
+  },
+  {
+    title: "Paso 4: Implementación de Observabilidad",
+    icon: "activity",
+    content: `
+      <p class="mb-3">
+        Instalamos OpenTelemetry, Grafana y sistemas de logs auditables. No solo sabrás que algo falló,
+        sabrás exactamente dónde, cuándo y por qué.
+      </p>
+      <p class="text-gray-400 text-sm">
+        Métricas, logs y traces en un solo lugar. Debugging que no te hace perder el sueño.
+      </p>
+    `
+  },
+  {
+    title: "Paso 5: Capacitación del Equipo",
+    icon: "users",
+    content: `
+      <p class="mb-3">
+        No te dejamos con una caja negra. Capacitamos a tu equipo para que entienda y pueda mantener
+        la infraestructura. Documentación clara, sesiones de training y soporte continuo.
+      </p>
+      <p class="text-gray-400 text-sm">
+        Queremos que seas autónomo, no dependiente.
+      </p>
+    `
+  },
+  {
+    title: "Paso 6: Monitoreo y Mejora Continua",
+    icon: "trending-up",
+    content: `
+      <p>
+        Seguimos monitoreando y optimizando. Revisiones mensuales de costos, performance y seguridad.
+        Tu infraestructura evoluciona con tu negocio.
+      </p>
+    `
+  }
 ];
 ---
 
@@ -47,8 +126,7 @@ const secciones = [
               <p
                 class="text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0"
               >
-                CI/CD, Kubernetes, serverless y automatización para desplegar
-                10x más rápido
+                Infraestructura moderna, deploys automáticos y monitoreo que te deja dormir tranquilo
               </p>
             </div>
 
@@ -121,832 +199,265 @@ const secciones = [
           <!-- Introducción -->
           <section id="intro">
             <div class="prose prose-invert max-w-none">
-              <p class="text-xl text-gray-300 leading-relaxed">
-                Pasamos tu infraestructura de <strong class="text-red-400"
-                  >"rezar para que no se caiga"</strong
-                > a <strong class="text-[#82e256]"
-                  >deploys automáticos, escalado inteligente y costos
-                  optimizados</strong
-                >. Tu equipo despliega 10x más rápido y duerme tranquilo.
+              <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                Tu aplicación funciona en tu computadora, pero cuando la subes a internet todo se complica. Los deploys te dan miedo,
+                no sabes si el servidor aguantará cuando lleguen más usuarios, y cada vez que algo falla tardas horas en descubrir qué pasó.
+              </p>
+
+              <p class="text-gray-300 text-lg leading-relaxed">
+                Nosotros te ayudamos a pasar de esa incertidumbre a una infraestructura profesional. Deploys automáticos que funcionan,
+                servidores que escalan solos cuando los necesitas y herramientas que te dicen exactamente qué está pasando en cada momento.
+                Tu equipo despliega con confianza y duerme tranquilo.
               </p>
             </div>
           </section>
 
           <div class="border-t border-gray-700"></div>
 
-          <!-- Problemas comunes -->
-          <section id="problemas">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-              ¿Tu infraestructura tiene estos problemas?
+          <!-- Qué Hacemos -->
+          <section id="que-hacemos">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+              Qué Hacemos en DevOps
             </h2>
-            <p class="text-gray-300 mb-12 text-lg">
-              Síntomas de que necesitas DevOps ya
-            </p>
 
-            <SimpleCarousel id="problemas-infraestructura">
-              <!-- Problema 1 -->
-              <div
-                class="bg-gradient-to-br from-red-900/20 to-red-800/20 p-8 rounded-2xl border border-red-500/30"
-              >
-🔥</div>
-                <h3 class="text-2xl font-bold text-white mb-3">
-                  Deploys Manuales y Terroríficos
-                </h3>
-                <p class="text-gray-300 mb-4">
-                  Los viernes a las 6pm nadie quiere desplegar porque "algo
-                  siempre se rompe"
-                </p>
-                <div
-                  class="mt-6 p-4 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]"
-                >
-                  <p class="text-white"><strong>Nuestra solución:</strong></p>
-                  <p class="text-gray-300 mt-2">
-                    CI/CD automatizado con GitHub Actions. Deploy seguro con
-                    rollback automático si algo falla.
-                  </p>
-                </div>
-              </div>
+            <div class="prose prose-invert max-w-none">
+              <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                DevOps no es solo instalar herramientas. Es una forma de trabajar donde desarrollo y operaciones trabajan juntos para
+                que tu software llegue a tus usuarios de forma rápida, segura y confiable. Automatizamos todo lo que se pueda automatizar,
+                medimos todo lo que importa y mejoramos continuamente.
+              </p>
 
-              <!-- Problema 2 -->
-              <div
-                class="bg-gradient-to-br from-red-900/20 to-red-800/20 p-8 rounded-2xl border border-red-500/30"
-              >
-💸</div>
-                <h3 class="text-2xl font-bold text-white mb-3">
-                  Costos Cloud Descontrolados
-                </h3>
-                <p class="text-gray-300 mb-4">
-                  Facturas de AWS/Azure que suben cada mes sin saber por qué
-                </p>
-                <div
-                  class="mt-6 p-4 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]"
-                >
-                  <p class="text-white"><strong>Nuestra solución:</strong></p>
-                  <p class="text-gray-300 mt-2">
-                    Auto-scaling inteligente + serverless donde tiene sentido =
-                    Reducción de costos del 40-60%.
-                  </p>
-                </div>
-              </div>
+              <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                Seguimos principios Agile porque sabemos que tu negocio cambia y tu infraestructura debe poder cambiar con él. No construimos
+                sistemas rígidos que son imposibles de modificar. Diseñamos para el cambio, para que puedas iterar rápido sin miedo a romper todo.
+              </p>
 
-              <!-- Problema 3 -->
-              <div
-                class="bg-gradient-to-br from-red-900/20 to-red-800/20 p-8 rounded-2xl border border-red-500/30"
-              >
-😴</div>
-                <h3 class="text-2xl font-bold text-white mb-3">
-                  Caídas a las 3AM
-                </h3>
-                <p class="text-gray-300 mb-4">
-                  Tu equipo recibe alerts en la madrugada porque el servidor se
-                  cayó otra vez
-                </p>
-                <div
-                  class="mt-6 p-4 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]"
-                >
-                  <p class="text-white"><strong>Nuestra solución:</strong></p>
-                  <p class="text-gray-300 mt-2">
-                    Monitoreo proactivo + auto-healing + alta disponibilidad
-                    multi-región = 99.9% uptime garantizado.
-                  </p>
-                </div>
-              </div>
-
-              <!-- Problema 4 -->
-              <div
-                class="bg-gradient-to-br from-red-900/20 to-red-800/20 p-8 rounded-2xl border border-red-500/30"
-              >
-🐌</div>
-                <h3 class="text-2xl font-bold text-white mb-3">
-                  Lentitud Inexplicable
-                </h3>
-                <p class="text-gray-300 mb-4">
-                  La aplicación va lenta pero no sabes si es backend, base de
-                  datos o infraestructura
-                </p>
-                <div
-                  class="mt-6 p-4 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]"
-                >
-                  <p class="text-white"><strong>Nuestra solución:</strong></p>
-                  <p class="text-gray-300 mt-2">
-                    Observability completa (logs, métricas, tracing).
-                    Identificas cuellos de botella en minutos.
-                  </p>
-                </div>
-              </div>
-            </SimpleCarousel>
+              <p class="text-gray-300 text-lg leading-relaxed">
+                Y lo más importante: cada aplicación es importante. No importa si tienes 10 usuarios o 10 millones. Cada app merece una
+                infraestructura confiable y adecuada para su escala. No te vendemos soluciones over-engineered que necesitas un equipo de 20
+                personas para mantener.
+              </p>
+            </div>
           </section>
 
           <div class="border-t border-gray-700"></div>
 
-          <!-- Servicios DevOps -->
+          <!-- Servicios Principales -->
           <section id="servicios">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-              Servicios DevOps & Cloud
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+              Servicios Principales
             </h2>
             <p class="text-gray-300 mb-12 text-lg">
-              De la arquitectura al monitoreo 24/7
+              De deploys manuales a infraestructura automatizada
             </p>
 
-            <SimpleCarousel id="servicios-devops">
+            <DraggableLooper animationDuration="45s" gap="gap-6" id="servicios-looper">
               <!-- CI/CD -->
-              <div
-                class="bg-gradient-to-br from-blue-900/20 to-blue-800/20 p-8 rounded-2xl border border-blue-500/30 hover:border-blue-400 transition-all"
-              >
-🔄</div>
-                <h3 class="text-2xl font-bold text-white mb-3">
-                  CI/CD Pipelines
-                </h3>
-                <p class="text-gray-300 mb-4">
-                  Deploys automáticos seguros y confiables
+              <div class="w-96 bg-gradient-to-br from-blue-900/20 to-blue-800/20 p-8 rounded-2xl border border-blue-500/30 hover:border-blue-400/50 transition-all">
+                <div class="text-4xl mb-4">🚀</div>
+                <h3 class="text-2xl font-bold text-white mb-3">CI/CD Pipelines</h3>
+                <p class="text-gray-300 mb-4 text-sm">
+                  Deploys automáticos cada vez que haces push
                 </p>
-
-                <div class="space-y-3 mt-6">
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">GitHub Actions / Jenkins</p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Testing automatizado en cada commit
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Deploys Blue/Green o Canary</p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Rollback automático ante errores
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Ambientes de staging y producción
-                    </p>
-                  </div>
+                <div class="bg-blue-500/10 p-4 rounded-lg mb-4">
+                  <p class="text-gray-300 text-xs">
+                    Tests automáticos, builds, deploys a staging y producción. Con rollback si algo falla.
+                    GitHub Actions, GitLab CI o lo que ya uses.
+                  </p>
                 </div>
               </div>
 
-              <!-- Containerización -->
-              <div
-                class="bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-8 rounded-2xl border border-purple-500/30 hover:border-purple-400 transition-all"
-              >
-🐳</div>
-                <h3 class="text-2xl font-bold text-white mb-3">
-                  Contenedores & Kubernetes
-                </h3>
-                <p class="text-gray-300 mb-4">
-                  Escalabilidad automática y portabilidad total
+              <!-- Infraestructura como Código -->
+              <div class="w-96 bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-8 rounded-2xl border border-purple-500/30 hover:border-purple-400/50 transition-all">
+                <div class="text-4xl mb-4">📝</div>
+                <h3 class="text-2xl font-bold text-white mb-3">Infraestructura como Código</h3>
+                <p class="text-gray-300 mb-4 text-sm">
+                  Tu infraestructura versionada y reproducible
                 </p>
-
-                <div class="space-y-3 mt-6">
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Dockerización de aplicaciones</p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Kubernetes (EKS)</p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Auto-scaling horizontal y vertical
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Service mesh (Istio) si es necesario
-                    </p>
-                  </div>
+                <div class="bg-purple-500/10 p-4 rounded-lg mb-4">
+                  <p class="text-gray-300 text-xs">
+                    Terraform, Pulumi o CloudFormation. Tu infraestructura en Git, replicable en minutos.
+                    Adiós a configuraciones manuales que nadie recuerda.
+                  </p>
                 </div>
               </div>
 
-              <!-- Infrastructure as Code -->
-              <div
-                class="bg-gradient-to-br from-green-900/20 to-green-800/20 p-8 rounded-2xl border border-green-500/30 hover:border-green-400 transition-all"
-              >
-📜</div>
-                <h3 class="text-2xl font-bold text-white mb-3">
-                  Infrastructure as Code
-                </h3>
-                <p class="text-gray-300 mb-4">
-                  Tu infraestructura versionada como tu código
+              <!-- Containers y Orquestación -->
+              <div class="w-96 bg-gradient-to-br from-green-900/20 to-green-800/20 p-8 rounded-2xl border border-green-500/30 hover:border-green-400/50 transition-all">
+                <div class="text-4xl mb-4">🐳</div>
+                <h3 class="text-2xl font-bold text-white mb-3">Containers y Kubernetes</h3>
+                <p class="text-gray-300 mb-4 text-sm">
+                  Docker y orquestación para apps escalables
                 </p>
-
-                <div class="space-y-3 mt-6">
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Terraform para AWS/Azure/GCP</p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Pulumi (IaC con TypeScript/Python)
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">CloudFormation / ARM Templates</p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Ambientes reproducibles (dev=staging=prod)
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Disaster recovery automatizado</p>
-                  </div>
+                <div class="bg-green-500/10 p-4 rounded-lg mb-4">
+                  <p class="text-gray-300 text-xs">
+                    Si lo necesitas. Kubernetes cuando tiene sentido, Docker Compose cuando es suficiente.
+                    Sin over-engineering.
+                  </p>
                 </div>
               </div>
 
-              <!-- Serverless -->
-              <div
-                class="bg-gradient-to-br from-cyan-900/20 to-cyan-800/20 p-8 rounded-2xl border border-cyan-500/30 hover:border-cyan-400 transition-all"
-              >
-⚡</div>
-                <h3 class="text-2xl font-bold text-white mb-3">
-                  Arquitecturas Serverless
-                </h3>
-                <p class="text-gray-300 mb-4">
-                  Paga solo por lo que usas, escala a infinito
+              <!-- Duplicados -->
+              <div class="w-96 bg-gradient-to-br from-blue-900/20 to-blue-800/20 p-8 rounded-2xl border border-blue-500/30 hover:border-blue-400/50 transition-all">
+                <div class="text-4xl mb-4">🚀</div>
+                <h3 class="text-2xl font-bold text-white mb-3">CI/CD Pipelines</h3>
+                <p class="text-gray-300 mb-4 text-sm">
+                  Deploys automáticos cada vez que haces push
                 </p>
-
-                <div class="space-y-3 mt-6">
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      AWS Lambda, Azure Functions, Cloud Functions
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">API Gateway + Lambda para APIs</p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Event-driven architectures</p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Serverless Framework / SAM</p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Cold start optimization</p>
-                  </div>
+                <div class="bg-blue-500/10 p-4 rounded-lg mb-4">
+                  <p class="text-gray-300 text-xs">
+                    Tests automáticos, builds, deploys a staging y producción. Con rollback si algo falla.
+                    GitHub Actions, GitLab CI o lo que ya uses.
+                  </p>
                 </div>
               </div>
 
-              <!-- Monitoreo -->
-              <div
-                class="bg-gradient-to-br from-orange-900/20 to-orange-800/20 p-8 rounded-2xl border border-orange-500/30 hover:border-orange-400 transition-all"
-              >
-📊</div>
-                <h3 class="text-2xl font-bold text-white mb-3">
-                  Monitoreo & Observability
-                </h3>
-                <p class="text-gray-300 mb-4">
-                  Sabe exactamente qué está pasando siempre
+              <div class="w-96 bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-8 rounded-2xl border border-purple-500/30 hover:border-purple-400/50 transition-all">
+                <div class="text-4xl mb-4">📝</div>
+                <h3 class="text-2xl font-bold text-white mb-3">Infraestructura como Código</h3>
+                <p class="text-gray-300 mb-4 text-sm">
+                  Tu infraestructura versionada y reproducible
                 </p>
-
-                <div class="space-y-3 mt-6">
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Prometheus + Grafana dashboards</p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      ELK Stack (Elasticsearch, Logstash, Kibana)
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Distributed tracing (Jaeger, Tempo)
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Alerting inteligente (PagerDuty, OpsGenie)
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      APM (Datadog, New Relic, Sentry)
-                    </p>
-                  </div>
+                <div class="bg-purple-500/10 p-4 rounded-lg mb-4">
+                  <p class="text-gray-300 text-xs">
+                    Terraform, Pulumi o CloudFormation. Tu infraestructura en Git, replicable en minutos.
+                    Adiós a configuraciones manuales que nadie recuerda.
+                  </p>
                 </div>
               </div>
 
-              <!-- Seguridad -->
-              <div
-                class="bg-gradient-to-br from-red-900/20 to-red-800/20 p-8 rounded-2xl border border-red-500/30 hover:border-red-400 transition-all"
-              >
-🔒</div>
-                <h3 class="text-2xl font-bold text-white mb-3">
-                  DevSecOps & Seguridad
-                </h3>
-                <p class="text-gray-300 mb-4">
-                  Seguridad integrada desde el día 1
+              <div class="w-96 bg-gradient-to-br from-green-900/20 to-green-800/20 p-8 rounded-2xl border border-green-500/30 hover:border-green-400/50 transition-all">
+                <div class="text-4xl mb-4">🐳</div>
+                <h3 class="text-2xl font-bold text-white mb-3">Containers y Kubernetes</h3>
+                <p class="text-gray-300 mb-4 text-sm">
+                  Docker y orquestación para apps escalables
                 </p>
-
-                <div class="space-y-3 mt-6">
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Escaneo de vulnerabilidades automatizado
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Secrets management (Vault, AWS Secrets)
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Container scanning (Trivy, Snyk)
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">WAF y DDoS protection</p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Compliance (SOC2, ISO27001, HIPAA)
-                    </p>
-                  </div>
+                <div class="bg-green-500/10 p-4 rounded-lg mb-4">
+                  <p class="text-gray-300 text-xs">
+                    Si lo necesitas. Kubernetes cuando tiene sentido, Docker Compose cuando es suficiente.
+                    Sin over-engineering.
+                  </p>
                 </div>
               </div>
-            </SimpleCarousel>
+            </DraggableLooper>
           </section>
 
           <div class="border-t border-gray-700"></div>
 
-          <!-- Caso de Éxito -->
-          <section id="caso-exito">
-            <div
-              class="bg-gradient-to-br from-[#00464e]/10 to-[#006417]/10 p-8 md:p-12 rounded-2xl border border-[#82e256]/20"
-            >
-              <div class="flex items-center gap-3 mb-6">
-                <div class="text-4xl">🏆</div>
-                <h2 class="text-3xl md:text-4xl font-bold text-white">
-                  Caso de Éxito: Fintech en Crecimiento
-                </h2>
-              </div>
-
-              <p class="text-gray-300 mb-8 text-lg">
-                Una startup fintech con deploys manuales terroríficos y costos
-                cloud de $18k/mes. Implementamos CI/CD + Kubernetes +
-                optimización de costos.
-              </p>
-
-              <SimpleCarousel id="metricas-caso-exito">
-                <div
-                  class="bg-gradient-to-br from-[#82e256]/10 to-transparent p-6 rounded-xl border border-[#82e256]/30"
-                >
-                  <div class="text-4xl font-bold text-[#82e256] mb-2">10x</div>
-                  <p class="text-white font-semibold">Deploys más frecuentes</p>
-                  <p class="text-gray-400 text-sm mt-1">
-                    De 2 por mes a 20+ por semana
-                  </p>
-                </div>
-
-                <div
-                  class="bg-gradient-to-br from-[#82e256]/10 to-transparent p-6 rounded-xl border border-[#82e256]/30"
-                >
-                  <div class="text-4xl font-bold text-[#82e256] mb-2">-52%</div>
-                  <p class="text-white font-semibold">
-                    Reducción de costos cloud
-                  </p>
-                  <p class="text-gray-400 text-sm mt-1">
-                    De $18k a $8.6k mensuales
-                  </p>
-                </div>
-
-                <div
-                  class="bg-gradient-to-br from-[#82e256]/10 to-transparent p-6 rounded-xl border border-[#82e256]/30"
-                >
-                  <div class="text-4xl font-bold text-[#82e256] mb-2">
-                    99.95%
-                  </div>
-                  <p class="text-white font-semibold">Uptime alcanzado</p>
-                  <p class="text-gray-400 text-sm mt-1">
-                    Antes era 97.3% (demasiadas caídas)
-                  </p>
-                </div>
-              </SimpleCarousel>
-            </div>
-          </section>
-
-          <div class="border-t border-gray-700"></div>
-
-          <!-- Stack Tecnológico -->
-          <section id="stack">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-              Stack Tecnológico DevOps
+          <!-- IA en DevOps -->
+          <section id="ia-devops">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+              Cómo Usamos IA en DevOps
             </h2>
-            <p class="text-gray-300 mb-12 text-lg">
-              Las mejores herramientas del ecosistema
-            </p>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <!-- Cloud Providers -->
-              <div
-                class="bg-gradient-to-br from-orange-900/20 to-orange-800/20 p-6 rounded-xl border border-orange-500/30"
-              >
-                <h3
-                  class="text-xl font-bold text-white mb-4 flex items-center gap-2"
-                >
-                  <span>☁️</span> Cloud
-                </h3>
-                <div class="space-y-2 text-gray-300 text-sm">
-                  <p>• AWS (certificados)</p>
-                  <p>• Google Cloud Platform</p>
-                  <p>• Microsoft Azure</p>
-                  <p>• DigitalOcean</p>
-                  <p>• Vercel / Railway</p>
-                  <p>• Cloudflare</p>
-                </div>
-              </div>
+            <div class="prose prose-invert max-w-none">
+              <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                La IA no reemplaza a los ingenieros DevOps, pero sí los hace mucho más eficientes. Usamos modelos de lenguaje para
+                analizar logs gigantes y encontrar patrones de errores que serían imposibles de ver manualmente. Cuando algo falla a las
+                3am, la IA ya revisó miles de líneas de logs y te dice exactamente qué líneas son relevantes.
+              </p>
 
-              <!-- CI/CD -->
-              <div
-                class="bg-gradient-to-br from-blue-900/20 to-blue-800/20 p-6 rounded-xl border border-blue-500/30"
-              >
-                <h3
-                  class="text-xl font-bold text-white mb-4 flex items-center gap-2"
-                >
-                  <span>🔄</span> CI/CD
-                </h3>
-                <div class="space-y-2 text-gray-300 text-sm">
-                  <p>• GitHub Actions</p>
-                  <p>• Jenkins</p>
-                </div>
-              </div>
+              <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                También usamos IA para optimización de costos. Analizamos tus patrones de uso y te sugerimos ajustes automáticos:
+                qué instancias puedes reducir, qué servicios puedes mover a serverless, cuándo tiene sentido usar spot instances.
+                No es magia, es análisis inteligente de datos.
+              </p>
 
-              <!-- Containers & Orchestration -->
-              <div
-                class="bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-6 rounded-xl border border-purple-500/30"
-              >
-                <h3
-                  class="text-xl font-bold text-white mb-4 flex items-center gap-2"
-                >
-                  <span>🐳</span> Containers
-                </h3>
-                <div class="space-y-2 text-gray-300 text-sm">
-                  <p>• Docker</p>
-                  <p>• Kubernetes</p>
-                  <p>• Helm</p>
-                  <p>• Kustomize</p>
-                  <p>• Docker Compose</p>
-                  <p>• Podman</p>
-                </div>
-              </div>
-
-              <!-- IaC -->
-              <div
-                class="bg-gradient-to-br from-green-900/20 to-green-800/20 p-6 rounded-xl border border-green-500/30"
-              >
-                <h3
-                  class="text-xl font-bold text-white mb-4 flex items-center gap-2"
-                >
-                  <span>📜</span> IaC
-                </h3>
-                <div class="space-y-2 text-gray-300 text-sm">
-                  <p>• Terraform</p>
-                  <p>• Pulumi</p>
-                  <p>• Ansible</p>
-                  <p>• CloudFormation</p>
-                  <p>• Bicep / ARM</p>
-                  <p>• CDK (AWS/Azure)</p>
-                </div>
-              </div>
-
-              <!-- Monitoring -->
-              <div
-                class="bg-gradient-to-br from-cyan-900/20 to-cyan-800/20 p-6 rounded-xl border border-cyan-500/30"
-              >
-                <h3
-                  class="text-xl font-bold text-white mb-4 flex items-center gap-2"
-                >
-                  <span>📊</span> Monitoring
-                </h3>
-                <div class="space-y-2 text-gray-300 text-sm">
-                  <p>• Prometheus + Grafana</p>
-                  <p>• Datadog</p>
-                  <p>• New Relic</p>
-                  <p>• ELK / OpenSearch</p>
-                  <p>• Loki (logs)</p>
-                  <p>• Jaeger / Tempo</p>
-                </div>
-              </div>
-
-              <!-- Security -->
-              <div
-                class="bg-gradient-to-br from-red-900/20 to-red-800/20 p-6 rounded-xl border border-red-500/30"
-              >
-                <h3
-                  class="text-xl font-bold text-white mb-4 flex items-center gap-2"
-                >
-                  <span>🔒</span> Security
-                </h3>
-                <div class="space-y-2 text-gray-300 text-sm">
-                  <p>• Vault (secrets)</p>
-                  <p>• Trivy / Snyk</p>
-                  <p>• Falco (runtime)</p>
-                  <p>• OPA (policies)</p>
-                  <p>• SonarQube</p>
-                  <p>• OWASP ZAP</p>
-                </div>
-              </div>
-
-              <!-- Serverless -->
-              <div
-                class="bg-gradient-to-br from-yellow-900/20 to-yellow-800/20 p-6 rounded-xl border border-yellow-500/30"
-              >
-                <h3
-                  class="text-xl font-bold text-white mb-4 flex items-center gap-2"
-                >
-                  <span>⚡</span> Serverless
-                </h3>
-                <div class="space-y-2 text-gray-300 text-sm">
-                  <p>• AWS Lambda</p>
-                  <p>• Azure Functions</p>
-                  <p>• Google Cloud Functions</p>
-                  <p>• Serverless Framework</p>
-                  <p>• AWS SAM</p>
-                  <p>• Vercel Functions</p>
-                </div>
-              </div>
-
-              <!-- Service Mesh -->
-              <div
-                class="bg-gradient-to-br from-pink-900/20 to-pink-800/20 p-6 rounded-xl border border-pink-500/30"
-              >
-                <h3
-                  class="text-xl font-bold text-white mb-4 flex items-center gap-2"
-                >
-                  <span>🕸️</span> Service Mesh
-                </h3>
-                <div class="space-y-2 text-gray-300 text-sm">
-                  <p>• Istio</p>
-                  <p>• Linkerd</p>
-                  <p>• Consul</p>
-                  <p>• Envoy Proxy</p>
-                  <p>• AWS App Mesh</p>
-                  <p>• Traefik</p>
-                </div>
-              </div>
+              <p class="text-gray-300 text-lg leading-relaxed">
+                Y para seguridad: escaneo automático de vulnerabilidades en dependencias, análisis de configuraciones de infraestructura
+                para detectar problemas de seguridad antes de que lleguen a producción. La IA trabaja 24/7 buscando problemas que los
+                humanos podrían pasar por alto.
+              </p>
             </div>
 
-            <!-- Imagen tecnología -->
-            <div class="mt-12">
-              <div class="rounded-2xl overflow-hidden flex justify-center mb-4">
-                <img
-                  src="/img/personaje7/02.png"
-                  alt="DevOps stack"
-                  class="h-auto max-w-2xl"
-                />
+            <!-- MLOps / DLOps / GenAIOps -->
+            <div class="mt-8 p-6 bg-gradient-to-br from-blue-900/30 to-blue-800/30 rounded-2xl border-2 border-blue-500/50">
+              <h3 class="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+                <span class="text-3xl">🤖</span>
+                MLOps, DLOps y GenAIOps
+              </h3>
+              <div class="prose prose-invert max-w-none">
+                <p class="text-gray-300 text-base leading-relaxed mb-4">
+                  Cuando tu proyecto incluye Inteligencia Artificial, el DevOps tradicional no es suficiente. Los modelos de Machine Learning
+                  necesitan ser entrenados, versionados, monitoreados y actualizados de formas que no existen en aplicaciones normales. Ahí es donde
+                  entran MLOps, DLOps y GenAIOps.
+                </p>
+                <p class="text-gray-300 text-base leading-relaxed mb-4">
+                  MLOps es DevOps para modelos de Machine Learning. Automatizamos el entrenamiento de modelos, los versionamos igual que el código,
+                  monitoreamos su rendimiento en producción y los reentrenamos automáticamente cuando su precisión baja. Tu modelo aprende continuamente
+                  de datos nuevos sin que tengas que hacer nada manual.
+                </p>
+                <p class="text-gray-300 text-base leading-relaxed mb-4">
+                  DLOps aplica lo mismo pero para Deep Learning: modelos más grandes, que requieren GPUs, que tardan días en entrenar. Gestionamos
+                  pipelines de datos masivos, entrenamiento distribuido en múltiples GPUs y despliegue optimizado para inferencia rápida.
+                </p>
+                <p class="text-gray-300 text-base leading-relaxed">
+                  GenAIOps es lo más nuevo: operaciones para modelos generativos como GPT. Gestión de prompts versionados, fine-tuning automatizado,
+                  monitoreo de costos de API (porque cada llamada cuesta), evaluación continua de calidad de respuestas y RAG pipelines que se actualizan
+                  cuando cambia tu base de conocimiento. Todo automatizado, todo monitoreado, todo bajo control.
+                </p>
               </div>
-              <p class="text-center text-gray-400 text-sm italic">
-                Automatización que libera a tu equipo para innovar
-              </p>
             </div>
           </section>
 
           <div class="border-t border-gray-700"></div>
 
-          <!-- Proceso DevOps -->
-          <section id="proceso">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+          <!-- Nuestros Procesos -->
+          <section id="procesos">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
               Nuestro Proceso de Transformación DevOps
             </h2>
             <p class="text-gray-300 mb-12 text-lg">
-              De infraestructura manual a automatización total
+              Paso a paso, sin disrupciones en tu operación actual
             </p>
 
-            <div class="space-y-6">
-              <!-- Fase 1 -->
-              <div class="flex gap-4 items-start">
-                <div
-                  class="bg-[#82e256] text-black font-bold rounded-full w-12 h-12 flex-shrink-0 flex items-center justify-center"
-                >
-                  1
-                </div>
-                <div
-                  class="flex-1 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700"
-                >
-                  <h3 class="text-xl font-bold text-white mb-2">
-                    Assessment & Diagnóstico (1 semana)
-                  </h3>
-                  <p class="text-gray-300">
-                    Auditamos tu infraestructura actual. Identificamos cuellos
-                    de botella, riesgos de seguridad y oportunidades de ahorro.
-                    Informe completo con recomendaciones priorizadas.
-                  </p>
-                </div>
-              </div>
+            <Accordion items={procesosItems} />
+          </section>
 
-              <!-- Fase 2 -->
-              <div class="flex gap-4 items-start">
-                <div
-                  class="bg-[#82e256] text-black font-bold rounded-full w-12 h-12 flex-shrink-0 flex items-center justify-center"
-                >
-                  2
-                </div>
-                <div
-                  class="flex-1 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700"
-                >
-                  <h3 class="text-xl font-bold text-white mb-2">
-                    Quick Wins (1-2 semanas)
-                  </h3>
-                  <p class="text-gray-300">
-                    Implementamos mejoras rápidas que generan valor inmediato:
-                    monitoreo básico, optimización de costos obvios, fix de
-                    problemas críticos de seguridad.
-                  </p>
-                </div>
-              </div>
+          <div class="border-t border-gray-700"></div>
 
-              <!-- Fase 3 -->
-              <div class="flex gap-4 items-start">
-                <div
-                  class="bg-[#82e256] text-black font-bold rounded-full w-12 h-12 flex-shrink-0 flex items-center justify-center"
-                >
-                  3
-                </div>
-                <div
-                  class="flex-1 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700"
-                >
-                  <h3 class="text-xl font-bold text-white mb-2">
-                    CI/CD Pipeline (2-4 semanas)
-                  </h3>
-                  <p class="text-gray-300">
-                    Automatización del deploy completo. Testing, build, deploy,
-                    rollback. Tu equipo despliega 10x más rápido sin miedo a
-                    romper producción.
-                  </p>
-                </div>
-              </div>
+          <!-- Observabilidad -->
+          <section id="observabilidad">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+              Observabilidad: Ver Qué Pasa en Tu Sistema
+            </h2>
 
-              <!-- Fase 4 -->
-              <div class="flex gap-4 items-start">
-                <div
-                  class="bg-[#82e256] text-black font-bold rounded-full w-12 h-12 flex-shrink-0 flex items-center justify-center"
-                >
-                  4
-                </div>
-                <div
-                  class="flex-1 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700"
-                >
-                  <h3 class="text-xl font-bold text-white mb-2">
-                    Infraestructura como Código (3-6 semanas)
-                  </h3>
-                  <p class="text-gray-300">
-                    Tu infraestructura completa en Terraform/Pulumi. Ambientes
-                    reproducibles. Disaster recovery automatizado. Git como
-                    source of truth.
-                  </p>
-                </div>
-              </div>
+            <div class="prose prose-invert max-w-none">
+              <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                Observabilidad no es solo "monitoreo". Es la diferencia entre saber que algo falló y entender por qué falló.
+                Implementamos OpenTelemetry para capturar métricas, logs y traces en un formato estándar. Todo va a Grafana donde
+                puedes ver dashboards en tiempo real.
+              </p>
 
-              <!-- Fase 5 -->
-              <div class="flex gap-4 items-start">
-                <div
-                  class="bg-[#82e256] text-black font-bold rounded-full w-12 h-12 flex-shrink-0 flex items-center justify-center"
-                >
-                  5
-                </div>
-                <div
-                  class="flex-1 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700"
-                >
-                  <h3 class="text-xl font-bold text-white mb-2">
-                    Observability & Optimización (ongoing)
-                  </h3>
-                  <p class="text-gray-300">
-                    Dashboards de negocio y técnicos. Alerting inteligente.
-                    Optimización continua de costos y performance. Tu equipo
-                    tiene visibilidad total.
-                  </p>
-                </div>
-              </div>
-            </div>
+              <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                Los logs son auditables y estructurados. No más grep en archivos de texto infinitos. Buscas por request ID y ves
+                todo el flujo de una petición desde que llega hasta que sale. Cuánto tardó cada paso, qué errores hubo, qué queries
+                a base de datos se ejecutaron.
+              </p>
 
-            <!-- Imagen de apoyo -->
-            <div class="flex justify-center mt-12">
-              <img
-                src="/img/personaje7/03.png"
-                alt="DevOps Cloud"
-                class="max-w-md w-full"
-              />
+              <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                Las alertas son inteligentes. No te despertamos a las 3am por cualquier cosa. Configuramos umbrales que tienen sentido
+                según tu tráfico y tus SLAs. Y cuando hay una alerta, viene con contexto: no solo "el servidor está lento", sino
+                "el servidor está lento porque la query X está tardando 5 segundos".
+              </p>
+
+              <p class="text-gray-300 text-lg leading-relaxed">
+                La mantenibilidad es clave. Tu equipo debe poder entender y mantener todo lo que implementamos. Documentación clara,
+                runbooks para incidentes comunes y capacitación para que no dependan de nosotros para cada pequeño cambio. Queremos
+                que seas autónomo, no que necesites llamarnos cada vez que quieres desplegar.
+              </p>
             </div>
           </section>
 
           <div class="border-t border-gray-700"></div>
 
-          <!-- Garantías -->
-          <section id="garantias">
-            <h2
-              class="text-3xl md:text-4xl font-bold text-white mb-12 text-center"
-            >
-              Garantías DevOps
-            </h2>
-
-            <SimpleCarousel id="garantias-devops">
-              <div
-                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
-              >
-                <h3 class="text-lg font-bold text-white mb-2">
-                  ROI a la medida de tus necesidades
-                </h3>
-                <p class="text-gray-400 text-sm">
-                  Si no reduces costos al menos 30%, no cobras la consultoría de
-                  optimización.
-                </p>
-              </div>
-
-              <div
-                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
-              >
-                <h3 class="text-lg font-bold text-white mb-2">
-                  Documentación Completa
-                </h3>
-                <p class="text-gray-400 text-sm">
-                  Runbooks, arquitectura documentada, procedimientos de
-                  emergencia.
-                </p>
-              </div>
-
-              <div
-                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
-              >
-                <h3 class="text-lg font-bold text-white mb-2">
-                  Training Incluido
-                </h3>
-                <p class="text-gray-400 text-sm">
-                  Tu equipo aprende a mantener y mejorar la infraestructura.
-                </p>
-              </div>
-
-              <div
-                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
-              >
-                <h3 class="text-lg font-bold text-white mb-2">99.9% Uptime</h3>
-                <p class="text-gray-400 text-sm">
-                  Alta disponibilidad con auto-healing y multi-región.
-                </p>
-              </div>
-
-              <div
-                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
-              >
-                <h3 class="text-lg font-bold text-white mb-2">
-                  Deploys en Minutos
-                </h3>
-                <p class="text-gray-400 text-sm">
-                  De horas/días a minutos. Rollback instantáneo si hay
-                  problemas.
-                </p>
-              </div>
-
-              <div
-                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
-              >
-                <h3 class="text-lg font-bold text-white mb-2">
-                  Seguridad Integrada
-                </h3>
-                <p class="text-gray-400 text-sm">
-                  DevSecOps desde el día 1. Compliance automatizado.
-                </p>
-              </div>
-            </SimpleCarousel>
-          </section>
-
           <!-- CTA Final -->
-          <section
-            class="bg-gradient-to-br from-[#00464e] to-[#006417] p-8 md:p-12 rounded-2xl text-center"
-          >
+          <section class="text-center py-12">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-              ¿Listo para infraestructura moderna?
+              ¿Listo para Modernizar tu Infraestructura?
             </h2>
-            <p class="text-xl text-white/90 mb-8">
-              Agenda una consultoría gratuita y te mostramos cómo reducir costos
-              y aumentar velocidad
+            <p class="text-gray-300 mb-8 text-lg max-w-2xl mx-auto">
+              Agenda una consultoría gratuita y te mostramos cómo podemos mejorar tus deploys, reducir costos y dormir tranquilo
             </p>
             <a
               href="/#contenido10"
@@ -955,8 +466,7 @@ const secciones = [
               Agendar Consultoría Gratuita
             </a>
           </section>
-        </main>
-      </div>
+        </main>      </div>
     </div>
 
     <!-- Más Servicios -->
