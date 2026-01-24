@@ -2,6 +2,58 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import ServiciosGrid from '../../components/ServiciosGrid.astro';
+import StickySlidesContainer from '../../components/StickySlidesContainer.astro';
+
+const slidesData = [
+  {
+    label: 'Inspección',
+    title: 'Visión<br>Artificial.',
+    description: 'Detecta defectos visuales automáticamente con IA, clasifica severidad y genera reportes en tiempo real.',
+    icon: 'eye',
+    serviceType: 'automatizacion' as const,
+    reversed: false
+  },
+  {
+    label: 'Auditorías',
+    title: 'Automáticas<br>y Precisas.',
+    description: 'Checklists inteligentes, captura de evidencias y generación automática de hallazgos con IA.',
+    icon: 'clipboard-check',
+    serviceType: 'automatizacion' as const,
+    reversed: true
+  },
+  {
+    label: 'No Conformidades',
+    title: 'Gestión<br>Inteligente.',
+    description: 'Automatiza registro, análisis de causa raíz con IA y seguimiento completo de acciones correctivas.',
+    icon: 'alert-circle',
+    serviceType: 'automatizacion' as const,
+    reversed: false
+  },
+  {
+    label: 'Trazabilidad',
+    title: 'Total y<br>Completa.',
+    description: 'Seguimiento 100% de productos, lotes y procesos con blockchain e inteligencia artificial.',
+    icon: 'route',
+    serviceType: 'servicio' as const,
+    reversed: true
+  },
+  {
+    label: 'Análisis',
+    title: 'Tendencias<br>Predictivas.',
+    description: 'Machine learning identifica patrones, predice fallos y genera recomendaciones de mejora continua.',
+    icon: 'trending-up',
+    serviceType: 'automatizacion' as const,
+    reversed: false
+  },
+  {
+    label: 'Mejora Continua',
+    title: 'Optimización<br>Constante.',
+    description: 'Workflows automatizados que aprenden de cada inspección y optimizan procesos continuamente.',
+    icon: 'refresh-cw',
+    serviceType: 'automatizacion' as const,
+    reversed: true
+  }
+];
 ---
 
 <Layout title="Calidad y Control con IA - Aquí Creamos">
@@ -41,85 +93,7 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
   </section>
 
   <!-- Sticky Stack Section -->
-  <div class="stack-container">
-    <section class="sticky-section">
-      <div class="content-grid">
-        <div class="text-side">
-          <span class="label">Inspección</span>
-          <h2>Visión<br>Artificial.</h2>
-          <p class="desc">Detecta defectos visuales automáticamente con IA, clasifica severidad y genera reportes en tiempo real.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1200" alt="Computer Vision">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid reversed">
-        <div class="text-side">
-          <span class="label">Auditorías</span>
-          <h2>Automáticas<br>y Precisas.</h2>
-          <p class="desc">Checklists inteligentes, captura de evidencias y generación automática de hallazgos con IA.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200" alt="Automated Audits">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid">
-        <div class="text-side">
-          <span class="label">No Conformidades</span>
-          <h2>Gestión<br>Inteligente.</h2>
-          <p class="desc">Automatiza registro, análisis de causa raíz con IA y seguimiento completo de acciones correctivas.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1451187530220-4e2bd78f7ad6?q=80&w=1200" alt="Non-Conformities">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid reversed">
-        <div class="text-side">
-          <span class="label">Trazabilidad</span>
-          <h2>Total y<br>Completa.</h2>
-          <p class="desc">Seguimiento 100% de productos, lotes y procesos con blockchain e inteligencia artificial.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?q=80&w=1200" alt="Traceability">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid">
-        <div class="text-side">
-          <span class="label">Análisis</span>
-          <h2>Tendencias<br>Predictivas.</h2>
-          <p class="desc">Machine learning identifica patrones, predice fallos y genera recomendaciones de mejora continua.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200" alt="Trend Analysis">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid reversed">
-        <div class="text-side">
-          <span class="label">Mejora Continua</span>
-          <h2>Optimización<br>Constante.</h2>
-          <p class="desc">Workflows automatizados que aprenden de cada inspección y optimizan procesos continuamente.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200" alt="Continuous Improvement">
-        </div>
-      </div>
-    </section>
-  </div>
+  <StickySlidesContainer slides={slidesData} />
 
   <!-- Solutions Section -->
   <section class="py-16 bg-[#1a1a1a]">
@@ -174,54 +148,3 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
   <!-- Servicios Profesionales -->
   <ServiciosGrid />
 </Layout>
-
-<style>
-  .stack-container { display: flex; flex-direction: column; }
-  .sticky-section { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #0e0e0e; transition: transform 0.1s linear, filter 0.1s linear; will-change: transform, filter; }
-  .sticky-section:nth-child(1) { background-color: #0e0e0e; }
-  .sticky-section:nth-child(2) { background-color: #161616; }
-  .sticky-section:nth-child(3) { background-color: #1d1d1d; }
-  .sticky-section:nth-child(4) { background-color: #0e0e0e; }
-  .sticky-section:nth-child(5) { background-color: #161616; }
-  .sticky-section:nth-child(6) { background-color: #1d1d1d; }
-  .content-grid { display: grid; grid-template-columns: 1fr 1fr; width: 90%; max-width: 1300px; gap: 60px; align-items: center; }
-  .text-side { display: flex; flex-direction: column; padding: 20px; }
-  .label { font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: #82e256; margin-bottom: 10px; }
-  .sticky-section h2 { font-size: clamp(2.5rem, 6vw, 5.5rem); line-height: 0.95; margin: 0; font-weight: 900; text-transform: uppercase; color: #fff; }
-  p.desc { font-size: 1.2rem; margin-top: 30px; opacity: 0.7; max-width: 450px; line-height: 1.5; color: #fff; }
-  .image-side { width: 100%; height: 65vh; border-radius: 15px; overflow: hidden; position: relative; }
-  .image-side img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .reversed .text-side { order: 2; }
-  .reversed .image-side { order: 1; }
-  @media (max-width: 900px) {
-    .content-grid { grid-template-columns: 1fr; text-align: center; }
-    .image-side { height: 35vh; order: -1 !important; }
-    .text-side { align-items: center; padding: 0; }
-    p.desc { margin-top: 15px; }
-  }
-</style>
-
-<script>
-  const sections = document.querySelectorAll('.sticky-section');
-  window.addEventListener('scroll', () => {
-    const viewportHeight = window.innerHeight;
-    sections.forEach((section, index) => {
-      const rect = section.getBoundingClientRect();
-      if (rect.top <= 0) {
-        const nextSection = sections[index + 1];
-        if (nextSection) {
-          const nextRect = nextSection.getBoundingClientRect();
-          let progress = 1 - (nextRect.top / viewportHeight);
-          progress = Math.max(0, Math.min(1, progress));
-          const scale = 1 - (progress * 0.1);
-          const brightness = 1 - (progress * 0.6);
-          (section as HTMLElement).style.transform = `scale(${scale})`;
-          (section as HTMLElement).style.filter = `brightness(${brightness})`;
-        }
-      } else {
-        (section as HTMLElement).style.transform = `scale(1)`;
-        (section as HTMLElement).style.filter = `brightness(1)`;
-      }
-    });
-  });
-</script>

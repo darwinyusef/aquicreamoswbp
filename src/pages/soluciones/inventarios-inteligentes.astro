@@ -2,6 +2,58 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import ServiciosGrid from '../../components/ServiciosGrid.astro';
+import StickySlidesContainer from '../../components/StickySlidesContainer.astro';
+
+const slidesData = [
+  {
+    label: 'Optimización',
+    title: 'Stock<br>Inteligente.',
+    description: 'Predicción de demanda con ML, cálculo automático de puntos de reorden y optimización de niveles.',
+    icon: 'package',
+    serviceType: 'automatizacion' as const,
+    reversed: false
+  },
+  {
+    label: 'Predicción',
+    title: 'Demanda<br>con IA.',
+    description: 'Algoritmos de machine learning analizan patrones históricos y predicen necesidades futuras.',
+    icon: 'trending-up',
+    serviceType: 'automatizacion' as const,
+    reversed: true
+  },
+  {
+    label: 'Órdenes',
+    title: 'Compra<br>Automáticas.',
+    description: 'Genera y envía órdenes automáticamente basadas en niveles de inventario y predicciones de demanda.',
+    icon: 'shopping-cart',
+    serviceType: 'automatizacion' as const,
+    reversed: false
+  },
+  {
+    label: 'Conteo',
+    title: 'Cíclico<br>Automatizado.',
+    description: 'Programa conteos basados en criticidad ABC, asigna tareas y ajusta discrepancias automáticamente.',
+    icon: 'clipboard-list',
+    serviceType: 'automatizacion' as const,
+    reversed: true
+  },
+  {
+    label: 'Picking',
+    title: 'Optimizado<br>con IA.',
+    description: 'Rutas inteligentes de picking, optimización de recorridos y reducción de tiempos de preparación.',
+    icon: 'truck',
+    serviceType: 'automatizacion' as const,
+    reversed: false
+  },
+  {
+    label: 'Alertas',
+    title: 'Proactivas<br>en Tiempo Real.',
+    description: 'Notificaciones inteligentes de quiebres de stock, sobreinventario y anomalías detectadas por IA.',
+    icon: 'bell',
+    serviceType: 'automatizacion' as const,
+    reversed: true
+  }
+];
 ---
 
 <Layout title="Inventarios Inteligentes con IA - Aquí Creamos">
@@ -41,85 +93,7 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
   </section>
 
   <!-- Sticky Stack Section -->
-  <div class="stack-container">
-    <section class="sticky-section">
-      <div class="content-grid">
-        <div class="text-side">
-          <span class="label">Optimización</span>
-          <h2>Stock<br>Inteligente.</h2>
-          <p class="desc">Predicción de demanda con ML, cálculo automático de puntos de reorden y optimización de niveles.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1200" alt="Stock Optimization">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid reversed">
-        <div class="text-side">
-          <span class="label">Predicción</span>
-          <h2>Demanda<br>con IA.</h2>
-          <p class="desc">Algoritmos de machine learning analizan patrones históricos y predicen necesidades futuras.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200" alt="Demand Prediction">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid">
-        <div class="text-side">
-          <span class="label">Órdenes</span>
-          <h2>Compra<br>Automáticas.</h2>
-          <p class="desc">Genera y envía órdenes automáticamente basadas en niveles de inventario y predicciones de demanda.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1451187530220-4e2bd78f7ad6?q=80&w=1200" alt="Automatic Orders">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid reversed">
-        <div class="text-side">
-          <span class="label">Conteo</span>
-          <h2>Cíclico<br>Automatizado.</h2>
-          <p class="desc">Programa conteos basados en criticidad ABC, asigna tareas y ajusta discrepancias automáticamente.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?q=80&w=1200" alt="Cycle Counting">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid">
-        <div class="text-side">
-          <span class="label">Picking</span>
-          <h2>Optimizado<br>con IA.</h2>
-          <p class="desc">Rutas inteligentes de picking, optimización de recorridos y reducción de tiempos de preparación.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200" alt="Smart Picking">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid reversed">
-        <div class="text-side">
-          <span class="label">Alertas</span>
-          <h2>Proactivas<br>en Tiempo Real.</h2>
-          <p class="desc">Notificaciones inteligentes de quiebres de stock, sobreinventario y anomalías detectadas por IA.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200" alt="Proactive Alerts">
-        </div>
-      </div>
-    </section>
-  </div>
+  <StickySlidesContainer slides={slidesData} />
 
   <!-- Solutions Section -->
   <section class="py-16 bg-[#1a1a1a]">
@@ -174,54 +148,3 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
   <!-- Servicios Profesionales -->
   <ServiciosGrid />
 </Layout>
-
-<style>
-  .stack-container { display: flex; flex-direction: column; }
-  .sticky-section { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #0e0e0e; transition: transform 0.1s linear, filter 0.1s linear; will-change: transform, filter; }
-  .sticky-section:nth-child(1) { background-color: #0e0e0e; }
-  .sticky-section:nth-child(2) { background-color: #161616; }
-  .sticky-section:nth-child(3) { background-color: #1d1d1d; }
-  .sticky-section:nth-child(4) { background-color: #0e0e0e; }
-  .sticky-section:nth-child(5) { background-color: #161616; }
-  .sticky-section:nth-child(6) { background-color: #1d1d1d; }
-  .content-grid { display: grid; grid-template-columns: 1fr 1fr; width: 90%; max-width: 1300px; gap: 60px; align-items: center; }
-  .text-side { display: flex; flex-direction: column; padding: 20px; }
-  .label { font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: #82e256; margin-bottom: 10px; }
-  .sticky-section h2 { font-size: clamp(2.5rem, 6vw, 5.5rem); line-height: 0.95; margin: 0; font-weight: 900; text-transform: uppercase; color: #fff; }
-  p.desc { font-size: 1.2rem; margin-top: 30px; opacity: 0.7; max-width: 450px; line-height: 1.5; color: #fff; }
-  .image-side { width: 100%; height: 65vh; border-radius: 15px; overflow: hidden; position: relative; }
-  .image-side img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .reversed .text-side { order: 2; }
-  .reversed .image-side { order: 1; }
-  @media (max-width: 900px) {
-    .content-grid { grid-template-columns: 1fr; text-align: center; }
-    .image-side { height: 35vh; order: -1 !important; }
-    .text-side { align-items: center; padding: 0; }
-    p.desc { margin-top: 15px; }
-  }
-</style>
-
-<script>
-  const sections = document.querySelectorAll('.sticky-section');
-  window.addEventListener('scroll', () => {
-    const viewportHeight = window.innerHeight;
-    sections.forEach((section, index) => {
-      const rect = section.getBoundingClientRect();
-      if (rect.top <= 0) {
-        const nextSection = sections[index + 1];
-        if (nextSection) {
-          const nextRect = nextSection.getBoundingClientRect();
-          let progress = 1 - (nextRect.top / viewportHeight);
-          progress = Math.max(0, Math.min(1, progress));
-          const scale = 1 - (progress * 0.1);
-          const brightness = 1 - (progress * 0.6);
-          (section as HTMLElement).style.transform = `scale(${scale})`;
-          (section as HTMLElement).style.filter = `brightness(${brightness})`;
-        }
-      } else {
-        (section as HTMLElement).style.transform = `scale(1)`;
-        (section as HTMLElement).style.filter = `brightness(1)`;
-      }
-    });
-  });
-</script>

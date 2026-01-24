@@ -2,6 +2,58 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import ServiciosGrid from '../../components/ServiciosGrid.astro';
+import StickySlidesContainer from '../../components/StickySlidesContainer.astro';
+
+const slidesData = [
+  {
+    label: 'Conciliación',
+    title: 'Bancaria<br>Automática.',
+    description: 'Importa extractos, concilia con contabilidad y detecta discrepancias con IA en tiempo real.',
+    icon: 'landmark',
+    serviceType: 'automatizacion' as const,
+    reversed: false
+  },
+  {
+    label: 'Cobranza',
+    title: 'Inteligente<br>y Eficaz.',
+    description: 'Seguimiento automático con mensajes personalizados y predicción de riesgo de morosidad con ML.',
+    icon: 'wallet',
+    serviceType: 'automatizacion' as const,
+    reversed: true
+  },
+  {
+    label: 'Reportes',
+    title: 'Automáticos<br>en Tiempo Real.',
+    description: 'Genera dashboards, estados financieros y reportes regulatorios completamente automatizados.',
+    icon: 'file-spreadsheet',
+    serviceType: 'servicio' as const,
+    reversed: false
+  },
+  {
+    label: 'Detección',
+    title: 'Fraude<br>con IA.',
+    description: 'Monitoreo 24/7 de transacciones, detección de patrones anómalos y alertas instantáneas.',
+    icon: 'shield-alert',
+    serviceType: 'automatizacion' as const,
+    reversed: true
+  },
+  {
+    label: 'Forecasting',
+    title: 'Predicción<br>Financiera.',
+    description: 'Machine learning analiza históricos y proyecta flujos de caja, ventas e indicadores clave.',
+    icon: 'trending-up',
+    serviceType: 'automatizacion' as const,
+    reversed: false
+  },
+  {
+    label: 'Presupuestos',
+    title: 'Optimización<br>Inteligente.',
+    description: 'Workflows que monitorean gastos, alertan desviaciones y optimizan asignaciones automáticamente.',
+    icon: 'calculator',
+    serviceType: 'automatizacion' as const,
+    reversed: true
+  }
+];
 ---
 
 <Layout title="Finanzas Inteligentes con IA - Aquí Creamos">
@@ -41,85 +93,7 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
   </section>
 
   <!-- Sticky Stack Section -->
-  <div class="stack-container">
-    <section class="sticky-section">
-      <div class="content-grid">
-        <div class="text-side">
-          <span class="label">Conciliación</span>
-          <h2>Bancaria<br>Automática.</h2>
-          <p class="desc">Importa extractos, concilia con contabilidad y detecta discrepancias con IA en tiempo real.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1200" alt="Bank Reconciliation">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid reversed">
-        <div class="text-side">
-          <span class="label">Cobranza</span>
-          <h2>Inteligente<br>y Eficaz.</h2>
-          <p class="desc">Seguimiento automático con mensajes personalizados y predicción de riesgo de morosidad con ML.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200" alt="Smart Collections">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid">
-        <div class="text-side">
-          <span class="label">Reportes</span>
-          <h2>Automáticos<br>en Tiempo Real.</h2>
-          <p class="desc">Genera dashboards, estados financieros y reportes regulatorios completamente automatizados.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1451187530220-4e2bd78f7ad6?q=80&w=1200" alt="Automated Reporting">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid reversed">
-        <div class="text-side">
-          <span class="label">Detección</span>
-          <h2>Fraude<br>con IA.</h2>
-          <p class="desc">Monitoreo 24/7 de transacciones, detección de patrones anómalos y alertas instantáneas.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?q=80&w=1200" alt="Fraud Detection">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid">
-        <div class="text-side">
-          <span class="label">Forecasting</span>
-          <h2>Predicción<br>Financiera.</h2>
-          <p class="desc">Machine learning analiza históricos y proyecta flujos de caja, ventas e indicadores clave.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200" alt="Financial Forecasting">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid reversed">
-        <div class="text-side">
-          <span class="label">Presupuestos</span>
-          <h2>Optimización<br>Inteligente.</h2>
-          <p class="desc">Workflows que monitorean gastos, alertan desviaciones y optimizan asignaciones automáticamente.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200" alt="Budget Optimization">
-        </div>
-      </div>
-    </section>
-  </div>
+  <StickySlidesContainer slides={slidesData} />
 
   <!-- Solutions Section -->
   <section class="py-16 bg-[#1a1a1a]">
@@ -174,54 +148,3 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
   <!-- Servicios Profesionales -->
   <ServiciosGrid />
 </Layout>
-
-<style>
-  .stack-container { display: flex; flex-direction: column; }
-  .sticky-section { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #0e0e0e; transition: transform 0.1s linear, filter 0.1s linear; will-change: transform, filter; }
-  .sticky-section:nth-child(1) { background-color: #0e0e0e; }
-  .sticky-section:nth-child(2) { background-color: #161616; }
-  .sticky-section:nth-child(3) { background-color: #1d1d1d; }
-  .sticky-section:nth-child(4) { background-color: #0e0e0e; }
-  .sticky-section:nth-child(5) { background-color: #161616; }
-  .sticky-section:nth-child(6) { background-color: #1d1d1d; }
-  .content-grid { display: grid; grid-template-columns: 1fr 1fr; width: 90%; max-width: 1300px; gap: 60px; align-items: center; }
-  .text-side { display: flex; flex-direction: column; padding: 20px; }
-  .label { font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: #82e256; margin-bottom: 10px; }
-  .sticky-section h2 { font-size: clamp(2.5rem, 6vw, 5.5rem); line-height: 0.95; margin: 0; font-weight: 900; text-transform: uppercase; color: #fff; }
-  p.desc { font-size: 1.2rem; margin-top: 30px; opacity: 0.7; max-width: 450px; line-height: 1.5; color: #fff; }
-  .image-side { width: 100%; height: 65vh; border-radius: 15px; overflow: hidden; position: relative; }
-  .image-side img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .reversed .text-side { order: 2; }
-  .reversed .image-side { order: 1; }
-  @media (max-width: 900px) {
-    .content-grid { grid-template-columns: 1fr; text-align: center; }
-    .image-side { height: 35vh; order: -1 !important; }
-    .text-side { align-items: center; padding: 0; }
-    p.desc { margin-top: 15px; }
-  }
-</style>
-
-<script>
-  const sections = document.querySelectorAll('.sticky-section');
-  window.addEventListener('scroll', () => {
-    const viewportHeight = window.innerHeight;
-    sections.forEach((section, index) => {
-      const rect = section.getBoundingClientRect();
-      if (rect.top <= 0) {
-        const nextSection = sections[index + 1];
-        if (nextSection) {
-          const nextRect = nextSection.getBoundingClientRect();
-          let progress = 1 - (nextRect.top / viewportHeight);
-          progress = Math.max(0, Math.min(1, progress));
-          const scale = 1 - (progress * 0.1);
-          const brightness = 1 - (progress * 0.6);
-          (section as HTMLElement).style.transform = `scale(${scale})`;
-          (section as HTMLElement).style.filter = `brightness(${brightness})`;
-        }
-      } else {
-        (section as HTMLElement).style.transform = `scale(1)`;
-        (section as HTMLElement).style.filter = `brightness(1)`;
-      }
-    });
-  });
-</script>

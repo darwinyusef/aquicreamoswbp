@@ -2,6 +2,58 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import ServiciosGrid from '../../components/ServiciosGrid.astro';
+import StickySlidesContainer from '../../components/StickySlidesContainer.astro';
+
+const slidesData = [
+  {
+    label: 'Automatización',
+    title: 'Chatbot<br>Inteligente.',
+    description: 'Asistente virtual Disponible 24/7 que responde consultas de clientes con precisión y contexto, usando IA avanzada.',
+    icon: 'bot',
+    serviceType: 'automatizacion' as const,
+    reversed: false
+  },
+  {
+    label: 'Análisis',
+    title: 'Sentimiento<br>en Tiempo Real.',
+    description: 'Detecta automáticamente clientes insatisfechos y escala casos urgentes al equipo humano antes que sea tarde.',
+    icon: 'heart-pulse',
+    serviceType: 'automatizacion' as const,
+    reversed: true
+  },
+  {
+    label: 'Multicanal',
+    title: 'Un solo<br>sistema.',
+    description: 'Gestiona WhatsApp, Email, SMS y redes sociales desde una plataforma unificada con respuestas consistentes.',
+    icon: 'network',
+    serviceType: 'servicio' as const,
+    reversed: false
+  },
+  {
+    label: 'Base de Conocimiento',
+    title: 'Respuestas<br>Precisas.',
+    description: 'El sistema busca en toda tu documentación empresarial para dar respuestas exactas basadas en tus procedimientos.',
+    icon: 'database',
+    serviceType: 'automatizacion' as const,
+    reversed: true
+  },
+  {
+    label: 'Priorización',
+    title: 'Tickets<br>Inteligentes.',
+    description: 'Clasifica automáticamente solicitudes por urgencia y complejidad, asignando recursos de forma óptima.',
+    icon: 'layers',
+    serviceType: 'automatizacion' as const,
+    reversed: false
+  },
+  {
+    label: 'Métricas',
+    title: 'Dashboard<br>en Vivo.',
+    description: 'Visualiza tiempo de respuesta, satisfacción del cliente y tendencias de consultas en tiempo real.',
+    icon: 'line-chart',
+    serviceType: 'servicio' as const,
+    reversed: true
+  }
+];
 ---
 
 <Layout title="Atención al Cliente con IA - Aquí Creamos">
@@ -106,109 +158,7 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
   </section>
 
   <!-- Sticky Stack Section -->
-  <div class="stack-container">
-    <section class="sticky-section">
-      <div class="content-grid">
-        <div class="text-side">
-          <span class="label">Automatización</span>
-          <h2>Chatbot<br>Inteligente.</h2>
-          <p class="desc">Asistente virtual Disponible 24/7 que responde consultas de clientes con precisión y contexto, usando IA avanzada.</p>
-          <a href="/aquicreamos#automatizaciones" class="service-link">
-            <i data-lucide="zap" class="w-4 h-4"></i>
-            Ver Automatizaciones IA
-          </a>
-        </div>
-        <div class="image-side icon-hero">
-          <i data-lucide="bot" class="hero-icon"></i>
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid reversed">
-        <div class="text-side">
-          <span class="label">Análisis</span>
-          <h2>Sentimiento<br>en Tiempo Real.</h2>
-          <p class="desc">Detecta automáticamente clientes insatisfechos y escala casos urgentes al equipo humano antes que sea tarde.</p>
-          <a href="/aquicreamos#automatizaciones" class="service-link">
-            <i data-lucide="zap" class="w-4 h-4"></i>
-            Ver Automatizaciones IA
-          </a>
-        </div>
-        <div class="image-side icon-hero">
-          <i data-lucide="heart-pulse" class="hero-icon"></i>
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid">
-        <div class="text-side">
-          <span class="label">Multicanal</span>
-          <h2>Un solo<br>sistema.</h2>
-          <p class="desc">Gestiona WhatsApp, Email, SMS y redes sociales desde una plataforma unificada con respuestas consistentes.</p>
-          <a href="/aquicreamos#servicios-profesionales" class="service-link">
-            <i data-lucide="code-2" class="w-4 h-4"></i>
-            Ver Servicios Profesionales
-          </a>
-        </div>
-        <div class="image-side icon-hero">
-          <i data-lucide="network" class="hero-icon"></i>
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid reversed">
-        <div class="text-side">
-          <span class="label">Base de Conocimiento</span>
-          <h2>Respuestas<br>Precisas.</h2>
-          <p class="desc">El sistema busca en toda tu documentación empresarial para dar respuestas exactas basadas en tus procedimientos.</p>
-          <a href="/aquicreamos#automatizaciones" class="service-link">
-            <i data-lucide="zap" class="w-4 h-4"></i>
-            Ver Automatizaciones IA
-          </a>
-        </div>
-        <div class="image-side icon-hero">
-          <i data-lucide="database" class="hero-icon"></i>
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid">
-        <div class="text-side">
-          <span class="label">Priorización</span>
-          <h2>Tickets<br>Inteligentes.</h2>
-          <p class="desc">Clasifica automáticamente solicitudes por urgencia y complejidad, asignando recursos de forma óptima.</p>
-          <a href="/aquicreamos#automatizaciones" class="service-link">
-            <i data-lucide="zap" class="w-4 h-4"></i>
-            Ver Automatizaciones IA
-          </a>
-        </div>
-        <div class="image-side icon-hero">
-          <i data-lucide="layers" class="hero-icon"></i>
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid reversed">
-        <div class="text-side">
-          <span class="label">Métricas</span>
-          <h2>Dashboard<br>en Vivo.</h2>
-          <p class="desc">Visualiza tiempo de respuesta, satisfacción del cliente y tendencias de consultas en tiempo real.</p>
-          <a href="/aquicreamos#servicios-profesionales" class="service-link">
-            <i data-lucide="code-2" class="w-4 h-4"></i>
-            Ver Servicios Profesionales
-          </a>
-        </div>
-        <div class="image-side icon-hero">
-          <i data-lucide="line-chart" class="hero-icon"></i>
-        </div>
-      </div>
-    </section>
-  </div>
+  <StickySlidesContainer slides={slidesData} />
 
   <!-- Solutions Section -->
   <section class="py-16 bg-gradient-to-b from-[#1a1a1a] to-[#00464e]">
@@ -604,164 +554,6 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
   <ServiciosGrid />
 </Layout>
 
-<style>
-  /* Sticky Stack Effect Styles */
-  .stack-container {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .sticky-section {
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    background-color: #0e0e0e;
-    transition: transform 0.1s linear, filter 0.1s linear;
-    will-change: transform, filter;
-  }
-
-  .sticky-section:nth-child(1) { background-color: #0e0e0e; }
-  .sticky-section:nth-child(2) { background-color: #161616; }
-  .sticky-section:nth-child(3) { background-color: #1d1d1d; }
-  .sticky-section:nth-child(4) { background-color: #0e0e0e; }
-  .sticky-section:nth-child(5) { background-color: #161616; }
-  .sticky-section:nth-child(6) { background-color: #1d1d1d; }
-
-  .content-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 90%;
-    max-width: 1300px;
-    gap: 60px;
-    align-items: center;
-  }
-
-  .text-side {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-  }
-
-  .label {
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #82e256;
-    margin-bottom: 10px;
-  }
-
-  .sticky-section h2 {
-    font-size: clamp(2.5rem, 6vw, 5.5rem);
-    line-height: 0.95;
-    margin: 0;
-    font-weight: 900;
-    text-transform: uppercase;
-    color: #fff;
-  }
-
-  p.desc {
-    font-size: 1.2rem;
-    margin-top: 30px;
-    opacity: 0.7;
-    max-width: 450px;
-    line-height: 1.5;
-    color: #fff;
-  }
-
-  .image-side {
-    width: 100%;
-    height: 65vh;
-    border-radius: 15px;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .image-side img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  /* Estilos para iconos hero */
-  .image-side.icon-hero {
-    background: transparent;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .hero-icon {
-    width: 350px !important;
-    height: 350px !important;
-    color: #82e256;
-    stroke-width: 1;
-    filter: drop-shadow(0 0 40px rgba(130, 226, 86, 0.6));
-    animation: float 3s ease-in-out infinite;
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-  }
-
-  /* Estilos para enlaces de servicio */
-  .service-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    margin-top: 16px;
-    padding: 8px 16px;
-    background: transparent;
-    border: 1px solid rgba(130, 226, 86, 0.5);
-    border-radius: 6px;
-    color: #82e256;
-    font-weight: 500;
-    font-size: 0.8rem;
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
-
-  .service-link:hover {
-    background: linear-gradient(135deg, #82e256, #6bc73d);
-    color: #000;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(130, 226, 86, 0.3);
-  }
-
-  .service-link i {
-    transition: transform 0.3s ease;
-  }
-
-  .service-link:hover i {
-    transform: scale(1.2);
-  }
-
-  .reversed .text-side { order: 2; }
-  .reversed .image-side { order: 1; }
-
-  @media (max-width: 900px) {
-    .content-grid {
-      grid-template-columns: 1fr;
-      text-align: center;
-    }
-    .image-side {
-      height: 35vh;
-      order: -1 !important;
-    }
-    .text-side {
-      align-items: center;
-      padding: 0;
-    }
-    p.desc { margin-top: 15px; }
-  }
-</style>
-
 <script>
   // Modal functionality
   const modal = document.getElementById('lead-magnet-modal');
@@ -816,41 +608,4 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
     (e.target as HTMLFormElement).reset();
   });
 
-  // Sticky Stack Effect
-  const sections = document.querySelectorAll('.sticky-section');
-
-  window.addEventListener('scroll', () => {
-    const viewportHeight = window.innerHeight;
-
-    sections.forEach((section, index) => {
-      const rect = section.getBoundingClientRect();
-
-      if (rect.top <= 0) {
-        const nextSection = sections[index + 1];
-        if (nextSection) {
-          const nextRect = nextSection.getBoundingClientRect();
-          let progress = 1 - (nextRect.top / viewportHeight);
-          progress = Math.max(0, Math.min(1, progress));
-
-          const scale = 1 - (progress * 0.1);
-          const brightness = 1 - (progress * 0.6);
-
-          (section as HTMLElement).style.transform = `scale(${scale})`;
-          (section as HTMLElement).style.filter = `brightness(${brightness})`;
-        }
-      } else {
-        (section as HTMLElement).style.transform = `scale(1)`;
-        (section as HTMLElement).style.filter = `brightness(1)`;
-      }
-    });
-  });
-
-  // Inicializar iconos de Lucide después de que todo cargue
-  document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
-      if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-      }
-    }, 100);
-  });
 </script>

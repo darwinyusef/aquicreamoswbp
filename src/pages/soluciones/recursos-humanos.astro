@@ -2,6 +2,58 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import ServiciosGrid from '../../components/ServiciosGrid.astro';
+import StickySlidesContainer from '../../components/StickySlidesContainer.astro';
+
+const slidesData = [
+  {
+    label: 'Reclutamiento',
+    title: 'IA que<br>Selecciona.',
+    description: 'Parsing de CVs, scoring de candidatos, agendamiento automático y resúmenes generados con GPT-4.',
+    icon: 'user-search',
+    serviceType: 'automatizacion' as const,
+    reversed: false
+  },
+  {
+    label: 'Onboarding',
+    title: 'Automático<br>Completo.',
+    description: 'Creación de cuentas, envío de documentación, checklist interactivo y seguimiento personalizado automático.',
+    icon: 'user-plus',
+    serviceType: 'automatizacion' as const,
+    reversed: true
+  },
+  {
+    label: 'Evaluaciones',
+    title: '360° con<br>Inteligencia.',
+    description: 'Recolecta feedback, analiza sentimiento, genera reportes personalizados y recomienda desarrollo con IA.',
+    icon: 'clipboard-check',
+    serviceType: 'automatizacion' as const,
+    reversed: false
+  },
+  {
+    label: 'Vacaciones',
+    title: 'Gestión<br>Inteligente.',
+    description: 'Solicitud automática, validación de disponibilidad, detección de conflictos y actualización de calendarios.',
+    icon: 'calendar-check',
+    serviceType: 'automatizacion' as const,
+    reversed: true
+  },
+  {
+    label: 'Capacitación',
+    title: 'Personalizada<br>con IA.',
+    description: 'Análisis de skill gaps, recomendaciones de cursos y rutas de aprendizaje adaptativas con machine learning.',
+    icon: 'graduation-cap',
+    serviceType: 'automatizacion' as const,
+    reversed: false
+  },
+  {
+    label: 'Clima Laboral',
+    title: 'Análisis<br>Predictivo.',
+    description: 'Encuestas automatizadas, análisis de sentimiento, detección de riesgos y planes de acción con IA.',
+    icon: 'heart-pulse',
+    serviceType: 'automatizacion' as const,
+    reversed: true
+  }
+];
 ---
 
 <Layout title="Automatización IA para Recursos Humanos - Aquí Creamos">
@@ -106,85 +158,7 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
   </section>
 
   <!-- Sticky Stack Section -->
-  <div class="stack-container">
-    <section class="sticky-section">
-      <div class="content-grid">
-        <div class="text-side">
-          <span class="label">Reclutamiento</span>
-          <h2>IA que<br>Selecciona.</h2>
-          <p class="desc">Parsing de CVs, scoring de candidatos, agendamiento automático y resúmenes generados con GPT-4.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1200" alt="AI Recruitment">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid reversed">
-        <div class="text-side">
-          <span class="label">Onboarding</span>
-          <h2>Automático<br>Completo.</h2>
-          <p class="desc">Creación de cuentas, envío de documentación, checklist interactivo y seguimiento personalizado automático.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200" alt="Automated Onboarding">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid">
-        <div class="text-side">
-          <span class="label">Evaluaciones</span>
-          <h2>360° con<br>Inteligencia.</h2>
-          <p class="desc">Recolecta feedback, analiza sentimiento, genera reportes personalizados y recomienda desarrollo con IA.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1451187530220-4e2bd78f7ad6?q=80&w=1200" alt="Performance Reviews">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid reversed">
-        <div class="text-side">
-          <span class="label">Vacaciones</span>
-          <h2>Gestión<br>Inteligente.</h2>
-          <p class="desc">Solicitud automática, validación de disponibilidad, detección de conflictos y actualización de calendarios.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?q=80&w=1200" alt="Leave Management">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid">
-        <div class="text-side">
-          <span class="label">Capacitación</span>
-          <h2>Personalizada<br>con IA.</h2>
-          <p class="desc">Análisis de skill gaps, recomendaciones de cursos y rutas de aprendizaje adaptativas con machine learning.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200" alt="AI Training">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid reversed">
-        <div class="text-side">
-          <span class="label">Clima Laboral</span>
-          <h2>Análisis<br>Predictivo.</h2>
-          <p class="desc">Encuestas automatizadas, análisis de sentimiento, detección de riesgos y planes de acción con IA.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200" alt="Climate Analysis">
-        </div>
-      </div>
-    </section>
-  </div>
+  <StickySlidesContainer slides={slidesData} />
 
   <!-- Solutions Section -->
   <section class="py-16 bg-gradient-to-b from-[#1a1a1a] to-[#00464e]">
@@ -744,56 +718,5 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
     modal?.classList.add('hidden');
     document.body.style.overflow = 'auto';
     (e.target as HTMLFormElement).reset();
-  });
-</script>
-
-<style>
-  .stack-container { display: flex; flex-direction: column; }
-  .sticky-section { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #0e0e0e; transition: transform 0.1s linear, filter 0.1s linear; will-change: transform, filter; }
-  .sticky-section:nth-child(1) { background-color: #0e0e0e; }
-  .sticky-section:nth-child(2) { background-color: #161616; }
-  .sticky-section:nth-child(3) { background-color: #1d1d1d; }
-  .sticky-section:nth-child(4) { background-color: #0e0e0e; }
-  .sticky-section:nth-child(5) { background-color: #161616; }
-  .sticky-section:nth-child(6) { background-color: #1d1d1d; }
-  .content-grid { display: grid; grid-template-columns: 1fr 1fr; width: 90%; max-width: 1300px; gap: 60px; align-items: center; }
-  .text-side { display: flex; flex-direction: column; padding: 20px; }
-  .label { font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: #82e256; margin-bottom: 10px; }
-  .sticky-section h2 { font-size: clamp(2.5rem, 6vw, 5.5rem); line-height: 0.95; margin: 0; font-weight: 900; text-transform: uppercase; color: #fff; }
-  p.desc { font-size: 1.2rem; margin-top: 30px; opacity: 0.7; max-width: 450px; line-height: 1.5; color: #fff; }
-  .image-side { width: 100%; height: 65vh; border-radius: 15px; overflow: hidden; position: relative; }
-  .image-side img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .reversed .text-side { order: 2; }
-  .reversed .image-side { order: 1; }
-  @media (max-width: 900px) {
-    .content-grid { grid-template-columns: 1fr; text-align: center; }
-    .image-side { height: 35vh; order: -1 !important; }
-    .text-side { align-items: center; padding: 0; }
-    p.desc { margin-top: 15px; }
-  }
-</style>
-
-<script>
-  const hrSections = document.querySelectorAll('.sticky-section');
-  window.addEventListener('scroll', () => {
-    const viewportHeight = window.innerHeight;
-    hrSections.forEach((section, index) => {
-      const rect = section.getBoundingClientRect();
-      if (rect.top <= 0) {
-        const nextSection = hrSections[index + 1];
-        if (nextSection) {
-          const nextRect = nextSection.getBoundingClientRect();
-          let progress = 1 - (nextRect.top / viewportHeight);
-          progress = Math.max(0, Math.min(1, progress));
-          const scale = 1 - (progress * 0.1);
-          const brightness = 1 - (progress * 0.6);
-          (section as HTMLElement).style.transform = `scale(${scale})`;
-          (section as HTMLElement).style.filter = `brightness(${brightness})`;
-        }
-      } else {
-        (section as HTMLElement).style.transform = `scale(1)`;
-        (section as HTMLElement).style.filter = `brightness(1)`;
-      }
-    });
   });
 </script>
