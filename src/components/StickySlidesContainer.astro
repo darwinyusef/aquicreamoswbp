@@ -1,0 +1,254 @@
+---
+interface Slide {
+  label: string;
+  title: string; // Puede incluir <br> tags
+  description: string;
+  icon: string; // Lucide icon name
+  serviceType: 'automatizacion' | 'servicio';
+  reversed?: boolean;
+}
+
+interface Props {
+  slides: Slide[];
+}
+
+const { slides } = Astro.props;
+---
+
+<div class="stack-container">
+  {slides.map((slide) => {
+    const serviceLink = slide.serviceType === 'automatizacion'
+      ? '/aquicreamos#automatizaciones'
+      : '/aquicreamos#servicios-profesionales';
+
+    const serviceLinkText = slide.serviceType === 'automatizacion'
+      ? 'Ver Automatizaciones IA'
+      : 'Ver Servicios Profesionales';
+
+    const serviceLinkIcon = slide.serviceType === 'automatizacion' ? 'zap' : 'code-2';
+
+    return (
+      <section class="sticky-section">
+        <div class={`content-grid ${slide.reversed ? 'reversed' : ''}`}>
+          <div class="text-side">
+            <span class="label">{slide.label}</span>
+            <h2 set:html={slide.title}></h2>
+            <p class="desc">{slide.description}</p>
+            <a href={serviceLink} class="service-link">
+              <i data-lucide={serviceLinkIcon} class="w-4 h-4"></i>
+              {serviceLinkText}
+            </a>
+          </div>
+          <div class="image-side icon-hero">
+            <i data-lucide={slide.icon} class="hero-icon"></i>
+          </div>
+        </div>
+      </section>
+    );
+  })}
+</div>
+
+<style>
+  .stack-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sticky-section {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #0e0e0e;
+    transition: transform 0.1s linear, filter 0.1s linear;
+    will-change: transform, filter;
+  }
+
+  .sticky-section:nth-child(1) { background-color: #0e0e0e; }
+  .sticky-section:nth-child(2) { background-color: #161616; }
+  .sticky-section:nth-child(3) { background-color: #1d1d1d; }
+  .sticky-section:nth-child(4) { background-color: #0e0e0e; }
+  .sticky-section:nth-child(5) { background-color: #161616; }
+  .sticky-section:nth-child(6) { background-color: #1d1d1d; }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 90%;
+    max-width: 1300px;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .text-side {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .label {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #82e256;
+    margin-bottom: 10px;
+  }
+
+  .sticky-section h2 {
+    font-size: clamp(2.5rem, 6vw, 5.5rem);
+    line-height: 0.95;
+    margin: 0;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  p.desc {
+    font-size: 1.2rem;
+    margin-top: 30px;
+    opacity: 0.7;
+    max-width: 450px;
+    line-height: 1.5;
+    color: #fff;
+  }
+
+  .image-side {
+    width: 100%;
+    height: 65vh;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Estilos para iconos hero */
+  .image-side.icon-hero {
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-icon {
+    width: 350px !important;
+    height: 350px !important;
+    color: #82e256;
+    stroke-width: 1;
+    filter: drop-shadow(0 0 40px rgba(130, 226, 86, 0.6));
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  /* Estilos para enlaces de servicio */
+  .service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 16px;
+    padding: 8px 16px;
+    background: transparent;
+    border: 1px solid rgba(130, 226, 86, 0.5);
+    border-radius: 6px;
+    color: #82e256;
+    font-weight: 500;
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .service-link:hover {
+    background: linear-gradient(135deg, #82e256, #6bc73d);
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(130, 226, 86, 0.3);
+  }
+
+  .service-link i {
+    transition: transform 0.3s ease;
+  }
+
+  .service-link:hover i {
+    transform: scale(1.2);
+  }
+
+  .reversed .text-side {
+    order: 2;
+  }
+
+  .reversed .image-side {
+    order: 1;
+  }
+
+  @media (max-width: 900px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .image-side {
+      height: 35vh;
+      order: -1 !important;
+    }
+
+    .hero-icon {
+      width: 200px !important;
+      height: 200px !important;
+    }
+
+    .text-side {
+      align-items: center;
+      padding: 0;
+    }
+
+    p.desc {
+      margin-top: 15px;
+    }
+  }
+</style>
+
+<script>
+  // Sticky Stack Effect
+  const sections = document.querySelectorAll('.sticky-section');
+
+  window.addEventListener('scroll', () => {
+    const viewportHeight = window.innerHeight;
+
+    sections.forEach((section, index) => {
+      const rect = section.getBoundingClientRect();
+
+      if (rect.top <= 0) {
+        const nextSection = sections[index + 1];
+        if (nextSection) {
+          const nextRect = nextSection.getBoundingClientRect();
+          let progress = 1 - (nextRect.top / viewportHeight);
+          progress = Math.max(0, Math.min(1, progress));
+
+          const scale = 1 - (progress * 0.1);
+          const brightness = 1 - (progress * 0.6);
+
+          (section as HTMLElement).style.transform = `scale(${scale})`;
+          (section as HTMLElement).style.filter = `brightness(${brightness})`;
+        }
+      } else {
+        (section as HTMLElement).style.transform = `scale(1)`;
+        (section as HTMLElement).style.filter = `brightness(1)`;
+      }
+    });
+  });
+
+  // Inicializar iconos de Lucide después de que todo cargue
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+    }, 100);
+  });
+</script>

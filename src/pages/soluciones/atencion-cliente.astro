@@ -113,9 +113,13 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
           <span class="label">Automatización</span>
           <h2>Chatbot<br>Inteligente.</h2>
           <p class="desc">Asistente virtual Disponible 24/7 que responde consultas de clientes con precisión y contexto, usando IA avanzada.</p>
+          <a href="/aquicreamos#automatizaciones" class="service-link">
+            <i data-lucide="zap" class="w-4 h-4"></i>
+            Ver Automatizaciones IA
+          </a>
         </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1200" alt="Chatbot IA">
+        <div class="image-side icon-hero">
+          <i data-lucide="bot" class="hero-icon"></i>
         </div>
       </div>
     </section>
@@ -126,9 +130,13 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
           <span class="label">Análisis</span>
           <h2>Sentimiento<br>en Tiempo Real.</h2>
           <p class="desc">Detecta automáticamente clientes insatisfechos y escala casos urgentes al equipo humano antes que sea tarde.</p>
+          <a href="/aquicreamos#automatizaciones" class="service-link">
+            <i data-lucide="zap" class="w-4 h-4"></i>
+            Ver Automatizaciones IA
+          </a>
         </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200" alt="Análisis Sentimiento">
+        <div class="image-side icon-hero">
+          <i data-lucide="heart-pulse" class="hero-icon"></i>
         </div>
       </div>
     </section>
@@ -139,9 +147,13 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
           <span class="label">Multicanal</span>
           <h2>Un solo<br>sistema.</h2>
           <p class="desc">Gestiona WhatsApp, Email, SMS y redes sociales desde una plataforma unificada con respuestas consistentes.</p>
+          <a href="/aquicreamos#servicios-profesionales" class="service-link">
+            <i data-lucide="code-2" class="w-4 h-4"></i>
+            Ver Servicios Profesionales
+          </a>
         </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1451187530220-4e2bd78f7ad6?q=80&w=1200" alt="Multicanal">
+        <div class="image-side icon-hero">
+          <i data-lucide="network" class="hero-icon"></i>
         </div>
       </div>
     </section>
@@ -152,9 +164,13 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
           <span class="label">Base de Conocimiento</span>
           <h2>Respuestas<br>Precisas.</h2>
           <p class="desc">El sistema busca en toda tu documentación empresarial para dar respuestas exactas basadas en tus procedimientos.</p>
+          <a href="/aquicreamos#automatizaciones" class="service-link">
+            <i data-lucide="zap" class="w-4 h-4"></i>
+            Ver Automatizaciones IA
+          </a>
         </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?q=80&w=1200" alt="Base Conocimiento">
+        <div class="image-side icon-hero">
+          <i data-lucide="database" class="hero-icon"></i>
         </div>
       </div>
     </section>
@@ -165,9 +181,13 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
           <span class="label">Priorización</span>
           <h2>Tickets<br>Inteligentes.</h2>
           <p class="desc">Clasifica automáticamente solicitudes por urgencia y complejidad, asignando recursos de forma óptima.</p>
+          <a href="/aquicreamos#automatizaciones" class="service-link">
+            <i data-lucide="zap" class="w-4 h-4"></i>
+            Ver Automatizaciones IA
+          </a>
         </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200" alt="Tickets">
+        <div class="image-side icon-hero">
+          <i data-lucide="layers" class="hero-icon"></i>
         </div>
       </div>
     </section>
@@ -178,9 +198,13 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
           <span class="label">Métricas</span>
           <h2>Dashboard<br>en Vivo.</h2>
           <p class="desc">Visualiza tiempo de respuesta, satisfacción del cliente y tendencias de consultas en tiempo real.</p>
+          <a href="/aquicreamos#servicios-profesionales" class="service-link">
+            <i data-lucide="code-2" class="w-4 h-4"></i>
+            Ver Servicios Profesionales
+          </a>
         </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200" alt="Dashboard">
+        <div class="image-side icon-hero">
+          <i data-lucide="line-chart" class="hero-icon"></i>
         </div>
       </div>
     </section>
@@ -663,6 +687,61 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
     display: block;
   }
 
+  /* Estilos para iconos hero */
+  .image-side.icon-hero {
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-icon {
+    width: 350px !important;
+    height: 350px !important;
+    color: #82e256;
+    stroke-width: 1;
+    filter: drop-shadow(0 0 40px rgba(130, 226, 86, 0.6));
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  /* Estilos para enlaces de servicio */
+  .service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 16px;
+    padding: 8px 16px;
+    background: transparent;
+    border: 1px solid rgba(130, 226, 86, 0.5);
+    border-radius: 6px;
+    color: #82e256;
+    font-weight: 500;
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .service-link:hover {
+    background: linear-gradient(135deg, #82e256, #6bc73d);
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(130, 226, 86, 0.3);
+  }
+
+  .service-link i {
+    transition: transform 0.3s ease;
+  }
+
+  .service-link:hover i {
+    transform: scale(1.2);
+  }
+
   .reversed .text-side { order: 2; }
   .reversed .image-side { order: 1; }
 
@@ -764,5 +843,14 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
         (section as HTMLElement).style.filter = `brightness(1)`;
       }
     });
+  });
+
+  // Inicializar iconos de Lucide después de que todo cargue
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+    }, 100);
   });
 </script>
