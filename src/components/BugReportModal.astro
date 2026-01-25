@@ -1,0 +1,395 @@
+---
+// Componente de modal para reportar bugs
+---
+
+<!-- Modal de reporte de bugs -->
+<div
+  id="bug-report-modal"
+  class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[9999] hidden flex items-center justify-center p-4"
+>
+  <!-- Contenedor del modal -->
+  <div class="bg-[#1a1a1a] w-full max-w-2xl rounded-2xl flex flex-col shadow-2xl border border-white/10 max-h-[90vh] overflow-hidden animate-scale-in">
+
+    <!-- Header del modal -->
+    <div class="flex items-center justify-between p-6 border-b border-white/10 bg-gradient-to-r from-red-600/10 to-red-700/10">
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-red-600 to-red-700 flex items-center justify-center shadow-lg">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+          </svg>
+        </div>
+        <div>
+          <h3 class="font-bold text-white text-xl">Reportar un Bug</h3>
+          <p class="text-xs text-white/60">Ayúdanos a mejorar reportando problemas</p>
+        </div>
+      </div>
+      <button id="close-bug-modal" class="text-white/60 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-lg">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Formulario de reporte -->
+    <div class="flex-1 overflow-y-auto p-6">
+      <form id="bug-report-form" class="space-y-5">
+
+        <!-- Tipo de bug -->
+        <div>
+          <label class="block text-sm font-semibold text-white mb-3">Tipo de problema</label>
+          <div class="grid grid-cols-2 gap-3">
+            <label class="relative flex items-center gap-3 p-4 bg-white/5 border border-white/10 rounded-lg cursor-pointer hover:bg-white/10 transition-all duration-300 group">
+              <input type="radio" name="bug-type" value="error" class="peer sr-only" />
+              <div class="w-5 h-5 border-2 border-white/30 rounded-full peer-checked:border-red-500 peer-checked:bg-red-500 transition-all duration-300 flex items-center justify-center">
+                <div class="w-2 h-2 bg-white rounded-full opacity-0 peer-checked:opacity-100"></div>
+              </div>
+              <div class="flex-1">
+                <div class="text-white font-medium text-sm">Error</div>
+                <div class="text-white/50 text-xs">Algo no funciona</div>
+              </div>
+            </label>
+
+            <label class="relative flex items-center gap-3 p-4 bg-white/5 border border-white/10 rounded-lg cursor-pointer hover:bg-white/10 transition-all duration-300 group">
+              <input type="radio" name="bug-type" value="visual" class="peer sr-only" />
+              <div class="w-5 h-5 border-2 border-white/30 rounded-full peer-checked:border-red-500 peer-checked:bg-red-500 transition-all duration-300 flex items-center justify-center">
+                <div class="w-2 h-2 bg-white rounded-full opacity-0 peer-checked:opacity-100"></div>
+              </div>
+              <div class="flex-1">
+                <div class="text-white font-medium text-sm">Visual</div>
+                <div class="text-white/50 text-xs">Diseño/apariencia</div>
+              </div>
+            </label>
+
+            <label class="relative flex items-center gap-3 p-4 bg-white/5 border border-white/10 rounded-lg cursor-pointer hover:bg-white/10 transition-all duration-300 group">
+              <input type="radio" name="bug-type" value="performance" class="peer sr-only" />
+              <div class="w-5 h-5 border-2 border-white/30 rounded-full peer-checked:border-red-500 peer-checked:bg-red-500 transition-all duration-300 flex items-center justify-center">
+                <div class="w-2 h-2 bg-white rounded-full opacity-0 peer-checked:opacity-100"></div>
+              </div>
+              <div class="flex-1">
+                <div class="text-white font-medium text-sm">Rendimiento</div>
+                <div class="text-white/50 text-xs">Lento/pesado</div>
+              </div>
+            </label>
+
+            <label class="relative flex items-center gap-3 p-4 bg-white/5 border border-white/10 rounded-lg cursor-pointer hover:bg-white/10 transition-all duration-300 group">
+              <input type="radio" name="bug-type" value="other" class="peer sr-only" />
+              <div class="w-5 h-5 border-2 border-white/30 rounded-full peer-checked:border-red-500 peer-checked:bg-red-500 transition-all duration-300 flex items-center justify-center">
+                <div class="w-2 h-2 bg-white rounded-full opacity-0 peer-checked:opacity-100"></div>
+              </div>
+              <div class="flex-1">
+                <div class="text-white font-medium text-sm">Otro</div>
+                <div class="text-white/50 text-xs">Otra categoría</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Página donde ocurrió -->
+        <div>
+          <label for="bug-page" class="block text-sm font-semibold text-white mb-2">
+            Página donde ocurrió el problema
+          </label>
+          <input
+            type="text"
+            id="bug-page"
+            class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent backdrop-blur-sm"
+            placeholder="Ej: /servicios/agentes-ia"
+            readonly
+          />
+          <p class="text-xs text-white/40 mt-1">
+            Se autocompletará con la página actual
+          </p>
+        </div>
+
+        <!-- Título del problema -->
+        <div>
+          <label for="bug-title" class="block text-sm font-semibold text-white mb-2">
+            Título del problema <span class="text-red-500">*</span>
+          </label>
+          <input
+            type="text"
+            id="bug-title"
+            required
+            class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent backdrop-blur-sm"
+            placeholder="Describe brevemente el problema"
+          />
+        </div>
+
+        <!-- Descripción detallada -->
+        <div>
+          <label for="bug-description" class="block text-sm font-semibold text-white mb-2">
+            Descripción detallada <span class="text-red-500">*</span>
+          </label>
+          <textarea
+            id="bug-description"
+            required
+            rows="5"
+            class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent backdrop-blur-sm resize-none"
+            placeholder="Describe qué estabas haciendo, qué esperabas que pasara y qué pasó en su lugar..."
+          ></textarea>
+        </div>
+
+        <!-- Email (opcional) -->
+        <div>
+          <label for="bug-email" class="block text-sm font-semibold text-white mb-2">
+            Email (opcional)
+          </label>
+          <input
+            type="email"
+            id="bug-email"
+            class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent backdrop-blur-sm"
+            placeholder="tu@email.com"
+          />
+          <p class="text-xs text-white/40 mt-1">
+            Para darte seguimiento al reporte (opcional)
+          </p>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- Footer con botones -->
+    <div class="p-6 border-t border-white/10 bg-[#1a1a1a]">
+      <div class="flex gap-3">
+        <button
+          type="button"
+          id="cancel-bug-report"
+          class="flex-1 px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-semibold rounded-xl transition-all duration-300"
+        >
+          Cancelar
+        </button>
+        <button
+          type="submit"
+          form="bug-report-form"
+          id="submit-bug-report"
+          class="flex-1 px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center gap-2"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+          </svg>
+          <span>Enviar Reporte</span>
+        </button>
+      </div>
+      <p class="text-xs text-white/40 mt-3 text-center">
+        Gracias por ayudarnos a mejorar la experiencia
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal de confirmación -->
+<div
+  id="bug-success-modal"
+  class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[10000] hidden flex items-center justify-center p-4"
+>
+  <div class="bg-[#1a1a1a] w-full max-w-md rounded-2xl p-8 shadow-2xl border border-white/10 text-center animate-scale-in">
+    <div class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+      <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+      </svg>
+    </div>
+    <h3 class="text-2xl font-bold text-white mb-2">¡Reporte enviado!</h3>
+    <p class="text-white/70 mb-6">
+      Gracias por tu reporte. Lo revisaremos pronto y trabajaremos en solucionarlo.
+    </p>
+    <button
+      id="close-success-modal"
+      class="px-6 py-3 bg-gradient-to-r from-[#82e256] to-[#6bc73d] hover:from-[#6bc73d] hover:to-[#5ba62e] text-black font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+    >
+      Entendido
+    </button>
+  </div>
+</div>
+
+<style>
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.2s ease-out;
+  }
+
+  /* Estilo para radio buttons checked */
+  input[type="radio"]:checked + div {
+    border-color: #dc2626;
+    background-color: #dc2626;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const bugReportBtn = document.getElementById('bug-report-btn');
+    const bugReportModal = document.getElementById('bug-report-modal');
+    const closeBugModal = document.getElementById('close-bug-modal');
+    const cancelBugReport = document.getElementById('cancel-bug-report');
+    const bugReportForm = document.getElementById('bug-report-form') as HTMLFormElement;
+    const bugPageInput = document.getElementById('bug-page') as HTMLInputElement;
+    const bugSuccessModal = document.getElementById('bug-success-modal');
+    const closeSuccessModal = document.getElementById('close-success-modal');
+    const submitBtn = document.getElementById('submit-bug-report');
+
+    // Variable temporal para guardar el reporte antes de enviarlo
+    let pendingBugReport: any = null;
+
+    // Autocompletar página actual
+    if (bugPageInput) {
+      bugPageInput.value = window.location.pathname;
+    }
+
+    // Abrir modal de reporte
+    bugReportBtn?.addEventListener('click', () => {
+      bugReportModal?.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    });
+
+    // Cerrar modal de reporte
+    function closeBugReportModal() {
+      bugReportModal?.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+      bugReportForm?.reset();
+      if (bugPageInput) {
+        bugPageInput.value = window.location.pathname;
+      }
+    }
+
+    closeBugModal?.addEventListener('click', closeBugReportModal);
+    cancelBugReport?.addEventListener('click', closeBugReportModal);
+
+    // Cerrar al hacer clic fuera del modal
+    bugReportModal?.addEventListener('click', (e) => {
+      if (e.target === bugReportModal) {
+        closeBugReportModal();
+      }
+    });
+
+    // Cerrar con ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && bugReportModal && !bugReportModal.classList.contains('hidden')) {
+        closeBugReportModal();
+      }
+    });
+
+    // Enviar formulario de reporte (solo mostrar confirmación)
+    bugReportForm?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Deshabilitar botón mientras procesa
+      if (submitBtn) {
+        submitBtn.setAttribute('disabled', 'true');
+        submitBtn.innerHTML = `
+          <svg class="w-5 h-5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+          </svg>
+          <span>Procesando...</span>
+        `;
+      }
+
+      const formData = {
+        type: (document.querySelector('input[name="bug-type"]:checked') as HTMLInputElement)?.value || 'not-specified',
+        page: bugPageInput?.value || window.location.pathname,
+        title: (document.getElementById('bug-title') as HTMLInputElement)?.value,
+        description: (document.getElementById('bug-description') as HTMLTextAreaElement)?.value,
+        email: (document.getElementById('bug-email') as HTMLInputElement)?.value || 'anonymous',
+        timestamp: new Date().toISOString(),
+        userAgent: navigator.userAgent,
+        screenSize: `${window.innerWidth}x${window.innerHeight}`,
+        url: window.location.href
+      };
+
+      try {
+        console.log('🐛 Bug Report preparado:', formData);
+
+        // Guardar temporalmente para enviar cuando se haga clic en "Entendido"
+        pendingBugReport = formData;
+
+        // Guardar también en localStorage como backup
+        const existingReports = JSON.parse(localStorage.getItem('bug_reports') || '[]');
+        existingReports.push(formData);
+        localStorage.setItem('bug_reports', JSON.stringify(existingReports));
+
+        // Cerrar modal de reporte
+        closeBugReportModal();
+
+        // Mostrar modal de éxito
+        bugSuccessModal?.classList.remove('hidden');
+
+      } catch (error) {
+        console.error('Error al preparar reporte de bug:', error);
+        alert('Hubo un error al procesar tu reporte. Por favor, intenta de nuevo.');
+      } finally {
+        // Restaurar botón
+        if (submitBtn) {
+          submitBtn.removeAttribute('disabled');
+          submitBtn.innerHTML = `
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+            </svg>
+            <span>Enviar Reporte</span>
+          `;
+        }
+      }
+    });
+
+    // Enviar correo al hacer clic en "Entendido"
+    closeSuccessModal?.addEventListener('click', async () => {
+      if (pendingBugReport) {
+        // Cambiar texto del botón mientras envía
+        closeSuccessModal.innerHTML = `
+          <svg class="w-5 h-5 animate-spin inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+          </svg>
+          Enviando...
+        `;
+        closeSuccessModal.setAttribute('disabled', 'true');
+
+        try {
+          console.log('📧 Enviando reporte de bug al backend...');
+
+          const response = await fetch('/api/send-bug-report.json', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(pendingBugReport),
+          });
+
+          const result = await response.json();
+
+          if (response.ok) {
+            console.log('✅ Reporte de bug enviado exitosamente:', result);
+          } else {
+            console.error('⚠️ Error al enviar reporte:', result);
+            // No mostramos error al usuario ya que está en localStorage como backup
+          }
+        } catch (error) {
+          console.error('❌ Error al enviar correo de bug:', error);
+          // No mostramos error al usuario ya que está en localStorage como backup
+        } finally {
+          // Limpiar el reporte pendiente
+          pendingBugReport = null;
+
+          // Restaurar botón
+          closeSuccessModal.innerHTML = 'Entendido';
+          closeSuccessModal.removeAttribute('disabled');
+
+          // Cerrar modal
+          bugSuccessModal?.classList.add('hidden');
+          document.body.style.overflow = 'auto';
+        }
+      } else {
+        // Si no hay reporte pendiente, solo cerrar
+        bugSuccessModal?.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      }
+    });
+  });
+</script>

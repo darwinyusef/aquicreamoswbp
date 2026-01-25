@@ -3,6 +3,82 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import ServiciosGrid from '../../components/ServiciosGrid.astro';
 import StickySlidesContainer from '../../components/StickySlidesContainer.astro';
+import AutomationCard from '../../components/AutomationCard.astro';
+
+const shoppingCartIcon = `<svg class="w-10 h-10 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+</svg>`;
+
+const chatIcon = `<svg class="w-10 h-10 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+</svg>`;
+
+const socialIcon = `<svg class="w-10 h-10 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path>
+</svg>`;
+
+const emailIcon = `<svg class="w-10 h-10 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+</svg>`;
+
+const automations = [
+  {
+    icon: shoppingCartIcon,
+    difficulty: 'Intermedio' as const,
+    title: 'Recuperación de Carritos Abandonados',
+    description: 'Estrategia multi-canal para recuperar ventas perdidas con emails personalizados por IA, SMS y WhatsApp.',
+    features: [
+      'Email personalizado con GPT-4 (1 hora después)',
+      'SMS con urgencia (3 horas después)',
+      'WhatsApp con video de productos (24 horas)',
+      'Descuentos dinámicos según valor del carrito'
+    ],
+    benefit: 'Recuperación automatizada de ventas perdidas',
+    technologies: 'n8n, GPT-4, Twilio'
+  },
+  {
+    icon: chatIcon,
+    difficulty: 'Intermedio' as const,
+    title: 'Chatbot WhatsApp con IA',
+    description: 'Asistente inteligente 24/7 para WhatsApp con memoria contextual y búsqueda en base de conocimiento.',
+    features: [
+      'Integración WhatsApp Business API',
+      'Base de datos vectorial (Qdrant)',
+      'Memoria de conversación por usuario',
+      'Respuestas sobre productos, envíos, devoluciones'
+    ],
+    benefit: 'Atención 24/7 con IA',
+    technologies: 'n8n, GPT-4, Qdrant'
+  },
+  {
+    icon: socialIcon,
+    difficulty: 'Intermedio' as const,
+    title: 'Gestión de Redes Sociales Multi-plataforma',
+    description: 'Publica contenido simultáneamente en múltiples plataformas con contenido generado y optimizado por IA.',
+    features: [
+      'Publicación multi-canal (Instagram, Facebook, TikTok)',
+      'Adaptación de contenido por red social',
+      'Generación de hashtags con IA',
+      'Programación de posts automática'
+    ],
+    benefit: 'Publicación multi-canal automatizada',
+    technologies: 'n8n, GPT-4, APIs'
+  },
+  {
+    icon: emailIcon,
+    difficulty: 'Intermedio' as const,
+    title: 'Campañas de Email Marketing con IA',
+    description: 'Automatización completa de campañas de email con contenido generado por IA y segmentación inteligente.',
+    features: [
+      'Generación de contenido con IA',
+      'Segmentación automática de audiencias',
+      'Personalización por usuario',
+      'A/B testing automático'
+    ],
+    benefit: 'Campañas automatizadas con mejor engagement',
+    technologies: 'n8n, GPT-4, SendGrid'
+  }
+];
 
 const slidesData = [
   {
@@ -62,64 +138,31 @@ const slidesData = [
   <!-- Hero Section -->
   <section class="pt-32 pb-20 bg-gradient-to-br from-[#00464e] via-[#006064] to-[#1a1a1a]">
     <div class="container mx-auto px-4 md:px-16">
-      <div class="max-w-6xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <!-- Left: Content -->
-          <div>
-            <div class="inline-block mb-4 px-4 py-2 bg-[#82e256]/20 border border-[#82e256] rounded-full">
-              <span class="text-[#82e256] font-bold text-sm">🛒 E-COMMERCE & RETAIL</span>
-            </div>
+      <div class="max-w-6xl mx-auto text-center">
+        <div class="inline-block mb-4 px-4 py-2 bg-[#82e256]/20 border border-[#82e256] rounded-full">
+          <span class="text-[#82e256] font-bold text-sm">E-COMMERCE & RETAIL</span>
+        </div>
 
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
-              Automatiza tu ecommerce y recupera ventas perdidas con <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#82e256] to-[#04ADC0]">IA</span>
-            </h1>
+        <h1 class="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
+          Automatiza tu ecommerce con <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#82e256] to-[#04ADC0]">IA</span>
+        </h1>
 
-            <p class="text-xl text-gray-300 mb-8 leading-relaxed">
-              Automatiza tu tienda online con inteligencia artificial: recupera carritos abandonados, personaliza experiencias y aumenta conversiones hasta un <strong class="text-[#82e256]">40%</strong>.
-            </p>
+        <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+          Recupera carritos abandonados, personaliza experiencias y aumenta conversiones con inteligencia artificial.
+        </p>
 
-            <!-- Stats -->
-            <div class="grid grid-cols-3 gap-4 mb-8">
-              <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
-                <div class="text-3xl font-black text-[#82e256]">25-40%</div>
-                <div class="text-xs text-gray-300 mt-1">Mejoramos el aumento en conversiones</div>
-              </div>
-              <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
-                <div class="text-3xl font-black text-[#82e256]">70%</div>
-                <div class="text-xs text-gray-300 mt-1">Mejoramos el tiempo de respuesta</div>
-              </div>
-              <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
-                <div class="text-3xl font-black text-[#82e256]">24/7</div>
-                <div class="text-xs text-gray-300 mt-1">Mejoramos la Atención automatizada</div>
-              </div>
-            </div>
-
-            <!-- CTA Buttons -->
-            <div class="flex flex-col sm:flex-row gap-4">
-              <button
-                id="open-lead-magnet"
-                class="px-8 py-4 bg-gradient-to-r from-[#82e256] to-[#6bc73d] text-black rounded-lg font-bold hover:shadow-[0_0_30px_rgba(130,226,86,0.5)] transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
-              >
-                📥 Descargar Guía Gratis
-              </button>
-              <a
-                href="/#contenido10"
-                class="px-8 py-4 bg-white/10 backdrop-blur border-2 border-[#82e256] text-white rounded-lg font-bold hover:bg-[#82e256] hover:text-black transition-all duration-300 flex items-center justify-center gap-2"
-              >
-                📅 Agendar Asesoría Gratis
-              </a>
-            </div>
+        <div class="grid grid-cols-3 gap-4 mb-8 max-w-2xl mx-auto">
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
+            <div class="text-sm font-bold text-[#82e256] mb-1">Recuperación</div>
+            <div class="text-xs text-gray-300">Carritos abandonados</div>
           </div>
-
-          <!-- Right: Image -->
-          <div class="hidden md:block">
-            <div class="relative">
-              <div class="absolute inset-0 bg-gradient-to-r from-[#82e256] to-[#04ADC0] rounded-2xl blur-3xl opacity-20"></div>
-              <div class="relative rounded-2xl overflow-hidden">
-                <img src="/img/personaje1.png" alt="E-commerce automatizado" class="h-auto max-w-md mx-auto" />
-              </div>
-              <p class="text-center text-gray-400 text-sm italic mt-4">Automatiza tu tienda online con IA</p>
-            </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
+            <div class="text-sm font-bold text-[#82e256] mb-1">Chatbot IA</div>
+            <div class="text-xs text-gray-300">Atención inmediata</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
+            <div class="text-sm font-bold text-[#82e256] mb-1">Automatización</div>
+            <div class="text-xs text-gray-300">Marketing y ventas</div>
           </div>
         </div>
       </div>
@@ -140,17 +183,17 @@ const slidesData = [
         <div class="grid md:grid-cols-3 gap-6">
           <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-6">
             <h3 class="text-xl font-bold text-white mb-2">Carritos Abandonados</h3>
-            <p class="text-gray-300">El <strong class="text-red-400">69.8%</strong> de los carritos se abandonan sin comprar</p>
+            <p class="text-gray-300"><strong class="text-red-400">Muchos clientes</strong> abandonan el carrito sin comprar</p>
           </div>
 
           <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-6">
             <h3 class="text-xl font-bold text-white mb-2">Respuestas Lentas</h3>
-            <p class="text-gray-300">Clientes esperan <strong class="text-red-400">horas</strong> para respuestas simples</p>
+            <p class="text-gray-300">Clientes esperan <strong class="text-red-400">demasiado tiempo</strong> para respuestas simples</p>
           </div>
 
           <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-6">
             <h3 class="text-xl font-bold text-white mb-2">Marketing Manual</h3>
-            <p class="text-gray-300">Gastas <strong class="text-red-400">20+ horas/semana</strong> en emails y posts</p>
+            <p class="text-gray-300">Inviertes <strong class="text-red-400">mucho tiempo</strong> en emails y posts</p>
           </div>
         </div>
       </div>
@@ -173,221 +216,9 @@ const slidesData = [
 
         <!-- Workflows Grid -->
         <div class="grid md:grid-cols-2 gap-8">
-          <!-- Workflow 1 -->
-          <div class="bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-[#82e256] transition-all duration-300">
-            <div class="flex items-start justify-between mb-4">
-              <div class="text-5xl">🛒</div>
-              <span class="text-xs px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 font-semibold">
-                Intermedio
-              </span>
-            </div>
-
-            <h3 class="text-2xl font-bold text-white mb-3">Recuperación de Carritos Abandonados</h3>
-            <p class="text-gray-300 mb-4">
-              Estrategia multi-canal para recuperar ventas perdidas con emails personalizados por IA, SMS y WhatsApp.
-            </p>
-
-            <div class="mb-4">
-              <h4 class="text-sm font-semibold text-[#82e256] mb-2">Incluye:</h4>
-              <ul class="space-y-1">
-                <li class="text-sm text-gray-400 flex items-start">
-                  <span class="text-[#82e256] mr-2">✓</span>
-                  <span>Email personalizado con GPT-4 (1 hora después)</span>
-                </li>
-                <li class="text-sm text-gray-400 flex items-start">
-                  <span class="text-[#82e256] mr-2">✓</span>
-                  <span>SMS con urgencia (3 horas después)</span>
-                </li>
-                <li class="text-sm text-gray-400 flex items-start">
-                  <span class="text-[#82e256] mr-2">✓</span>
-                  <span>WhatsApp con video de productos (24 horas)</span>
-                </li>
-                <li class="text-sm text-gray-400 flex items-start">
-                  <span class="text-[#82e256] mr-2">✓</span>
-                  <span>Descuentos dinámicos según valor del carrito</span>
-                </li>
-              </ul>
-            </div>
-
-            <div class="border-t border-white/10 pt-4 mb-4">
-              <div class="flex justify-between items-center">
-                <div>
-                  <p class="text-xs text-gray-500">ROI Estimado</p>
-                  <p class="text-lg font-bold text-[#82e256]">25-40% más conversiones (Recomendaciones y promociones automatizadas por IA)</p>
-                </div>
-                <div>
-                  <p class="text-xs text-gray-500">Tecnologías</p>
-                  <p class="text-sm text-gray-300">n8n, GPT-4, Twilio</p>
-                </div>
-              </div>
-            </div>
-
-            <a href="/#contenido10" class="block w-full py-3 bg-gradient-to-r from-[#00464e] to-[#006417] text-white rounded-lg hover:from-[#006417] hover:to-[#82e256] transition-all duration-300 font-semibold text-center">
-              Solicitar Asesoria→
-            </a>
-          </div>
-
-          <!-- Workflow 2 -->
-          <div class="bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-[#82e256] transition-all duration-300">
-            <div class="flex items-start justify-between mb-4">
-              <div class="text-5xl">💬</div>
-              <span class="text-xs px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 font-semibold">
-                Intermedio
-              </span>
-            </div>
-
-            <h3 class="text-2xl font-bold text-white mb-3">Chatbot WhatsApp con IA</h3>
-            <p class="text-gray-300 mb-4">
-              Asistente inteligente 24/7 para WhatsApp con memoria contextual y búsqueda en base de conocimiento.
-            </p>
-
-            <div class="mb-4">
-              <h4 class="text-sm font-semibold text-[#82e256] mb-2">Incluye:</h4>
-              <ul class="space-y-1">
-                <li class="text-sm text-gray-400 flex items-start">
-                  <span class="text-[#82e256] mr-2">✓</span>
-                  <span>Integración WhatsApp Business API</span>
-                </li>
-                <li class="text-sm text-gray-400 flex items-start">
-                  <span class="text-[#82e256] mr-2">✓</span>
-                  <span>Base de datos vectorial (Qdrant)</span>
-                </li>
-                <li class="text-sm text-gray-400 flex items-start">
-                  <span class="text-[#82e256] mr-2">✓</span>
-                  <span>Memoria de conversación por usuario</span>
-                </li>
-                <li class="text-sm text-gray-400 flex items-start">
-                  <span class="text-[#82e256] mr-2">✓</span>
-                  <span>Respuestas sobre productos, envíos, devoluciones</span>
-                </li>
-              </ul>
-            </div>
-
-            <div class="border-t border-white/10 pt-4 mb-4">
-              <div class="flex justify-between items-center">
-                <div>
-                  <p class="text-xs text-gray-500">ROI Estimado</p>
-                  <p class="text-lg font-bold text-[#82e256]">70% menos tiempo respuesta (Chatbot inteligente 24/7 con IA)</p>
-                </div>
-                <div>
-                  <p class="text-xs text-gray-500">Tecnologías</p>
-                  <p class="text-sm text-gray-300">n8n, GPT-4, Qdrant</p>
-                </div>
-              </div>
-            </div>
-
-            <a href="/#contenido10" class="block w-full py-3 bg-gradient-to-r from-[#00464e] to-[#006417] text-white rounded-lg hover:from-[#006417] hover:to-[#82e256] transition-all duration-300 font-semibold text-center">
-              Solicitar Asesoria→
-            </a>
-          </div>
-
-          <!-- Workflow 3 -->
-          <div class="bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-[#82e256] transition-all duration-300">
-            <div class="flex items-start justify-between mb-4">
-              <div class="text-5xl">📱</div>
-              <span class="text-xs px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 font-semibold">
-                Intermedio
-              </span>
-            </div>
-
-            <h3 class="text-2xl font-bold text-white mb-3">Gestión de Redes Sociales Multi-plataforma</h3>
-            <p class="text-gray-300 mb-4">
-              Publica contenido simultáneamente en múltiples plataformas con contenido generado y optimizado por IA.
-            </p>
-
-            <div class="mb-4">
-              <h4 class="text-sm font-semibold text-[#82e256] mb-2">Incluye:</h4>
-              <ul class="space-y-1">
-                <li class="text-sm text-gray-400 flex items-start">
-                  <span class="text-[#82e256] mr-2">✓</span>
-                  <span>Publicación multi-canal (Instagram, Facebook, TikTok)</span>
-                </li>
-                <li class="text-sm text-gray-400 flex items-start">
-                  <span class="text-[#82e256] mr-2">✓</span>
-                  <span>Adaptación de contenido por red social</span>
-                </li>
-                <li class="text-sm text-gray-400 flex items-start">
-                  <span class="text-[#82e256] mr-2">✓</span>
-                  <span>Generación de hashtags con IA</span>
-                </li>
-                <li class="text-sm text-gray-400 flex items-start">
-                  <span class="text-[#82e256] mr-2">✓</span>
-                  <span>Programación de posts automática</span>
-                </li>
-              </ul>
-            </div>
-
-            <div class="border-t border-white/10 pt-4 mb-4">
-              <div class="flex justify-between items-center">
-                <div>
-                  <p class="text-xs text-gray-500">ROI Estimado</p>
-                  <p class="text-lg font-bold text-[#82e256]">70% ahorro de tiempo (Contenido generado y publicación multi-canal automática)</p>
-                </div>
-                <div>
-                  <p class="text-xs text-gray-500">Tecnologías</p>
-                  <p class="text-sm text-gray-300">n8n, GPT-4, APIs</p>
-                </div>
-              </div>
-            </div>
-
-            <a href="/#contenido10" class="block w-full py-3 bg-gradient-to-r from-[#00464e] to-[#006417] text-white rounded-lg hover:from-[#006417] hover:to-[#82e256] transition-all duration-300 font-semibold text-center">
-              Solicitar Asesoria→
-            </a>
-          </div>
-
-          <!-- Workflow 4 -->
-          <div class="bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-[#82e256] transition-all duration-300">
-            <div class="flex items-start justify-between mb-4">
-              <div class="text-5xl">📧</div>
-              <span class="text-xs px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 font-semibold">
-                Intermedio
-              </span>
-            </div>
-
-            <h3 class="text-2xl font-bold text-white mb-3">Campañas de Email Marketing con IA</h3>
-            <p class="text-gray-300 mb-4">
-              Automatización completa de campañas de email con contenido generado por IA y segmentación inteligente.
-            </p>
-
-            <div class="mb-4">
-              <h4 class="text-sm font-semibold text-[#82e256] mb-2">Incluye:</h4>
-              <ul class="space-y-1">
-                <li class="text-sm text-gray-400 flex items-start">
-                  <span class="text-[#82e256] mr-2">✓</span>
-                  <span>Generación de contenido con IA</span>
-                </li>
-                <li class="text-sm text-gray-400 flex items-start">
-                  <span class="text-[#82e256] mr-2">✓</span>
-                  <span>Segmentación automática de audiencias</span>
-                </li>
-                <li class="text-sm text-gray-400 flex items-start">
-                  <span class="text-[#82e256] mr-2">✓</span>
-                  <span>Personalización por usuario</span>
-                </li>
-                <li class="text-sm text-gray-400 flex items-start">
-                  <span class="text-[#82e256] mr-2">✓</span>
-                  <span>A/B testing automático</span>
-                </li>
-              </ul>
-            </div>
-
-            <div class="border-t border-white/10 pt-4 mb-4">
-              <div class="flex justify-between items-center">
-                <div>
-                  <p class="text-xs text-gray-500">ROI Estimado</p>
-                  <p class="text-lg font-bold text-[#82e256]">35% mejora en engagement (Segmentación inteligente y personalización con IA)</p>
-                </div>
-                <div>
-                  <p class="text-xs text-gray-500">Tecnologías</p>
-                  <p class="text-sm text-gray-300">n8n, GPT-4, SendGrid</p>
-                </div>
-              </div>
-            </div>
-
-            <a href="/#contenido10" class="block w-full py-3 bg-gradient-to-r from-[#00464e] to-[#006417] text-white rounded-lg hover:from-[#006417] hover:to-[#82e256] transition-all duration-300 font-semibold text-center">
-              Solicitar Asesoria→
-            </a>
-          </div>
+          {automations.map(automation => (
+            <AutomationCard {...automation} />
+          ))}
         </div>
 
         <!-- CTA -->
@@ -396,7 +227,7 @@ const slidesData = [
             id="open-lead-magnet-2"
             class="inline-block px-10 py-5 bg-gradient-to-r from-[#82e256] to-[#6bc73d] text-black rounded-lg font-bold text-lg hover:shadow-[0_0_40px_rgba(130,226,86,0.6)] transition-all duration-300 hover:scale-105"
           >
-            📥 Descargar Guía: "10 Automatizaciones para E-commerce 2025"
+            Descargar Guía: "10 Automatizaciones para E-commerce 2025"
           </button>
           <p class="text-gray-400 mt-3 text-sm">Gratis • Sin tarjeta • Descarga inmediata</p>
         </div>

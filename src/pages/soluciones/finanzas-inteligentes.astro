@@ -3,53 +3,111 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import ServiciosGrid from '../../components/ServiciosGrid.astro';
 import StickySlidesContainer from '../../components/StickySlidesContainer.astro';
+import AutomationCard from '../../components/AutomationCard.astro';
+
+const creditCardIcon = `<svg class="w-10 h-10 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+</svg>`;
+
+const walletIcon = `<svg class="w-10 h-10 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
+</svg>`;
+
+const shieldIcon = `<svg class="w-10 h-10 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+</svg>`;
+
+const automations = [
+  {
+    icon: creditCardIcon,
+    difficulty: 'Intermedio' as const,
+    title: 'Sistema Web de Conciliación',
+    description: 'Plataforma para importar extractos bancarios, conciliar con contabilidad y detectar diferencias.',
+    features: [
+      'Importación automática de extractos bancarios',
+      'Conciliación inteligente con registros contables',
+      'Detección automática de discrepancias',
+      'Reportes de conciliación en PDF'
+    ],
+    benefit: 'Conciliación simplificada y automatizada',
+    technologies: 'n8n, GPT-4, PostgreSQL'
+  },
+  {
+    icon: walletIcon,
+    difficulty: 'Básico' as const,
+    title: 'Automatización de Cobranza',
+    description: 'Recordatorios automáticos por Email/SMS/WhatsApp personalizados con IA según días de mora.',
+    features: [
+      'Recordatorios automáticos multi-canal',
+      'Mensajes personalizados con IA según mora',
+      'Seguimiento de pagos en dashboard web',
+      'Alertas de cuentas por cobrar vencidas'
+    ],
+    benefit: 'Seguimiento constante y efectivo de cobranza',
+    technologies: 'n8n, GPT-4, Twilio'
+  },
+  {
+    icon: shieldIcon,
+    difficulty: 'Intermedio' as const,
+    title: 'Alertas de Movimientos Inusuales',
+    description: 'Dashboard web con monitoreo de transacciones, alertas automáticas de movimientos atípicos.',
+    features: [
+      'Monitoreo en tiempo real de transacciones',
+      'Alertas automáticas por email/SMS',
+      'Análisis de patrones con IA',
+      'Dashboard con historial de alertas'
+    ],
+    benefit: 'Detección inteligente de anomalías financieras',
+    technologies: 'n8n, GPT-4, PostgreSQL'
+  }
+];
 
 const slidesData = [
   {
     label: 'Conciliación',
-    title: 'Bancaria<br>Automática.',
-    description: 'Importa extractos, concilia con contabilidad y detecta discrepancias con IA en tiempo real.',
+    title: 'Automática<br>Web.',
+    description: 'Plataforma web para importar extractos bancarios, conciliar con contabilidad y detectar discrepancias.',
     icon: 'landmark',
     serviceType: 'automatizacion' as const,
     reversed: false
   },
   {
     label: 'Cobranza',
-    title: 'Inteligente<br>y Eficaz.',
-    description: 'Seguimiento automático con mensajes personalizados y predicción de riesgo de morosidad con ML.',
+    title: 'Seguimiento<br>Automático.',
+    description: 'Sistema de cobranza con recordatorios automáticos por Email/SMS/WhatsApp personalizados con IA.',
     icon: 'wallet',
     serviceType: 'automatizacion' as const,
     reversed: true
   },
   {
-    label: 'Reportes',
-    title: 'Automáticos<br>en Tiempo Real.',
-    description: 'Genera dashboards, estados financieros y reportes regulatorios completamente automatizados.',
-    icon: 'file-spreadsheet',
-    serviceType: 'servicio' as const,
+    label: 'Dashboards',
+    title: 'Financieros<br>en Vivo.',
+    description: 'Panel web con métricas financieras en tiempo real, gráficos interactivos y reportes automáticos.',
+    icon: 'line-chart',
+    serviceType: 'automatizacion' as const,
     reversed: false
   },
   {
-    label: 'Detección',
-    title: 'Fraude<br>con IA.',
-    description: 'Monitoreo 24/7 de transacciones, detección de patrones anómalos y alertas instantáneas.',
+    label: 'Alertas',
+    title: 'Transacciones<br>Anómalas.',
+    description: 'Monitoreo automático de movimientos inusuales, alertas por email/SMS y análisis con IA.',
     icon: 'shield-alert',
     serviceType: 'automatizacion' as const,
     reversed: true
   },
   {
-    label: 'Forecasting',
-    title: 'Predicción<br>Financiera.',
-    description: 'Machine learning analiza históricos y proyecta flujos de caja, ventas e indicadores clave.',
+    label: 'Proyecciones',
+    title: 'Flujo de<br>Caja.',
+    description: 'Sistema web que analiza históricos y proyecta flujos de caja con análisis de tendencias IA.',
     icon: 'trending-up',
     serviceType: 'automatizacion' as const,
     reversed: false
   },
   {
-    label: 'Presupuestos',
-    title: 'Optimización<br>Inteligente.',
-    description: 'Workflows que monitorean gastos, alertan desviaciones y optimizan asignaciones automáticamente.',
-    icon: 'calculator',
+    label: 'Control',
+    title: 'Gastos<br>Inteligente.',
+    description: 'App móvil para registrar gastos, validación automática y alertas de desviaciones presupuestarias.',
+    icon: 'receipt',
     serviceType: 'automatizacion' as const,
     reversed: true
   }
@@ -63,7 +121,7 @@ const slidesData = [
     <div class="container mx-auto px-4 md:px-16">
       <div class="max-w-6xl mx-auto text-center">
         <div class="inline-block mb-4 px-4 py-2 bg-[#82e256]/20 border border-[#82e256] rounded-full">
-          <span class="text-[#82e256] font-bold text-sm">💰 FINANZAS INTELIGENTES</span>
+          <span class="text-[#82e256] font-bold text-sm">FINANZAS INTELIGENTES</span>
         </div>
 
         <h1 class="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
@@ -71,21 +129,52 @@ const slidesData = [
         </h1>
 
         <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-          Conciliación bancaria, cobranza inteligente y detección de fraude. Ahorra <strong class="text-[#82e256]">90%</strong> del tiempo en procesos financieros.
+          Sistemas web y móviles para conciliación, cobranza automatizada y control financiero con IA.
         </p>
 
         <div class="grid grid-cols-3 gap-4 mb-8 max-w-2xl mx-auto">
           <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
-            <div class="text-3xl font-black text-[#82e256]">90%</div>
-            <div class="text-xs text-gray-300 mt-1">Menos tiempo</div>
+            <div class="text-sm font-bold text-[#82e256] mb-1">Conciliación</div>
+            <div class="text-xs text-gray-300">Automática de extractos</div>
           </div>
           <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
-            <div class="text-3xl font-black text-[#82e256]">40%</div>
-            <div class="text-xs text-gray-300 mt-1">Mejor cobranza</div>
+            <div class="text-sm font-bold text-[#82e256] mb-1">Cobranza</div>
+            <div class="text-xs text-gray-300">Recordatorios multicanal</div>
           </div>
           <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
-            <div class="text-3xl font-black text-[#82e256]">85%</div>
-            <div class="text-xs text-gray-300 mt-1">Detección fraude</div>
+            <div class="text-sm font-bold text-[#82e256] mb-1">Alertas</div>
+            <div class="text-xs text-gray-300">Movimientos inusuales</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Section -->
+  <section class="py-16 bg-[#1a1a1a]">
+    <div class="container mx-auto px-4 md:px-16">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-black text-white mb-4">
+            ¿Tus procesos financieros están atascados en hojas de cálculo?
+          </h2>
+          <p class="text-xl text-gray-400">Estos problemas cuestan miles de dólares cada mes:</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-6">
+            <h3 class="text-xl font-bold text-white mb-2">Conciliación Manual</h3>
+            <p class="text-gray-300"><strong class="text-red-400">Horas al mes</strong> comparando extractos bancarios con registros contables</p>
+          </div>
+
+          <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-6">
+            <h3 class="text-xl font-bold text-white mb-2">Cobranza Desorganizada</h3>
+            <p class="text-gray-300"><strong class="text-red-400">Pagos retrasados</strong> por falta de seguimiento automático</p>
+          </div>
+
+          <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-6">
+            <h3 class="text-xl font-bold text-white mb-2">Control de Gastos Reactivo</h3>
+            <p class="text-gray-300"><strong class="text-red-400">Desviaciones detectadas</strong> cuando ya es demasiado tarde</p>
           </div>
         </div>
       </div>
@@ -96,31 +185,20 @@ const slidesData = [
   <StickySlidesContainer slides={slidesData} />
 
   <!-- Solutions Section -->
-  <section class="py-16 bg-[#1a1a1a]">
+  <section class="py-16 bg-gradient-to-b from-[#1a1a1a] to-[#00464e]">
     <div class="container mx-auto px-4 md:px-16">
       <div class="max-w-6xl mx-auto">
-        <h2 class="text-3xl md:text-4xl font-black text-white mb-12 text-center">
-          Automatizaciones Financieras con IA
-        </h2>
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-black text-white mb-4">
+            Automatizaciones Financieras con IA
+          </h2>
+          <p class="text-xl text-gray-300">Soluciones listas para implementar</p>
+        </div>
 
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-[#82e256] transition-all">
-            <h3 class="text-xl font-bold text-white mb-3">Conciliación Bancaria</h3>
-            <p class="text-gray-300 mb-4">Importa extractos, concilia automáticamente con contabilidad, detecta discrepancias con IA.</p>
-            <p class="text-[#82e256] font-semibold text-sm">90% reducción tiempo - Conciliación automática con IA detecta discrepancias al instante</p>
-          </div>
-
-          <div class="bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-[#82e256] transition-all">
-            <h3 class="text-xl font-bold text-white mb-3">Cobranza Inteligente</h3>
-            <p class="text-gray-300 mb-4">Seguimiento automático de cuentas con mensajes personalizados y predicción de riesgo de morosidad.</p>
-            <p class="text-[#82e256] font-semibold text-sm">40% mejora en recuperación - Seguimiento automático con mensajes personalizados por IA</p>
-          </div>
-
-          <div class="bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-[#82e256] transition-all">
-            <h3 class="text-xl font-bold text-white mb-3">Detección de Fraude</h3>
-            <p class="text-gray-300 mb-4">Monitoreo en tiempo real de transacciones, detección de patrones anómalos con ML.</p>
-            <p class="text-[#82e256] font-semibold text-sm">85% detección temprana - Monitoreo 24/7 con ML detecta patrones anómalos al instante</p>
-          </div>
+        <div class="grid md:grid-cols-2 gap-8">
+          {automations.map(automation => (
+            <AutomationCard {...automation} />
+          ))}
         </div>
 
         <div class="text-center mt-12">

@@ -1,6 +1,9 @@
 ---
 import FloatingChat from '../components/FloatingChat.astro';
 import SuccessModal from '../components/SuccessModal.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+import BugReportModal from '../components/BugReportModal.astro';
+import FloatingButtons from '../components/FloatingButtons.astro';
 ---
 
 <!doctype html>
@@ -38,5 +41,8 @@ import SuccessModal from '../components/SuccessModal.astro';
 		<slot />
 		<FloatingChat />
 		<SuccessModal />
+		<CookieBanner />
+		<BugReportModal />
+		<FloatingButtons />
 	</body>
 </html>

@@ -3,53 +3,111 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import ServiciosGrid from '../../components/ServiciosGrid.astro';
 import StickySlidesContainer from '../../components/StickySlidesContainer.astro';
+import AutomationCard from '../../components/AutomationCard.astro';
+
+const mobileIcon = `<svg class="w-10 h-10 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+</svg>`;
+
+const documentIcon = `<svg class="w-10 h-10 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+</svg>`;
+
+const checklistIcon = `<svg class="w-10 h-10 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+</svg>`;
+
+const automations = [
+  {
+    icon: mobileIcon,
+    difficulty: 'Intermedio' as const,
+    title: 'App Móvil de Inspección',
+    description: 'Captura fotos, registra hallazgos desde el campo, análisis IA de imágenes y reportes automáticos.',
+    features: [
+      'App móvil para iOS/Android con captura de fotos',
+      'Formularios digitales personalizables',
+      'Análisis IA de imágenes para detectar defectos',
+      'Reportes PDF automáticos con resumen IA'
+    ],
+    benefit: 'Inspecciones digitales sin papeleo',
+    technologies: 'React Native, GPT-4'
+  },
+  {
+    icon: documentIcon,
+    difficulty: 'Intermedio' as const,
+    title: 'Sistema Web de No Conformidades',
+    description: 'Plataforma web para registrar NCs, análisis de causa raíz con IA y dashboard de seguimiento.',
+    features: [
+      'Registro web de no conformidades con evidencias',
+      'Análisis automático de causa raíz con IA',
+      'Workflow de acciones correctivas asignables',
+      'Dashboard con métricas y tendencias'
+    ],
+    benefit: 'Seguimiento centralizado de NCs',
+    technologies: 'Astro, GPT-4, PostgreSQL'
+  },
+  {
+    icon: checklistIcon,
+    difficulty: 'Básico' as const,
+    title: 'App de Auditorías con Checklists',
+    description: 'App móvil/web con checklists digitales, captura de evidencias y generación automática de reportes.',
+    features: [
+      'Checklists digitales configurables por auditoría',
+      'Captura de evidencias fotográficas',
+      'Reportes PDF generados automáticamente',
+      'Resumen ejecutivo generado con IA'
+    ],
+    benefit: 'Auditorías ágiles y reportes instantáneos',
+    technologies: 'PWA, GPT-4'
+  }
+];
 
 const slidesData = [
   {
-    label: 'Inspección',
-    title: 'Visión<br>Artificial.',
-    description: 'Detecta defectos visuales automáticamente con IA, clasifica severidad y genera reportes en tiempo real.',
-    icon: 'eye',
+    label: 'App Móvil',
+    title: 'Inspección<br>Digital.',
+    description: 'App móvil para capturar fotos, registrar inspecciones y generar reportes automáticos con análisis IA.',
+    icon: 'smartphone',
     serviceType: 'automatizacion' as const,
     reversed: false
   },
   {
     label: 'Auditorías',
-    title: 'Automáticas<br>y Precisas.',
-    description: 'Checklists inteligentes, captura de evidencias y generación automática de hallazgos con IA.',
+    title: 'Checklists<br>Inteligentes.',
+    description: 'App web/móvil con checklists dinámicos, captura de evidencias y reportes automáticos con IA.',
     icon: 'clipboard-check',
     serviceType: 'automatizacion' as const,
     reversed: true
   },
   {
     label: 'No Conformidades',
-    title: 'Gestión<br>Inteligente.',
-    description: 'Automatiza registro, análisis de causa raíz con IA y seguimiento completo de acciones correctivas.',
+    title: 'Gestión<br>Completa.',
+    description: 'Sistema web para registrar NCs, análisis de causa raíz con IA y seguimiento de acciones correctivas.',
     icon: 'alert-circle',
     serviceType: 'automatizacion' as const,
     reversed: false
   },
   {
     label: 'Trazabilidad',
-    title: 'Total y<br>Completa.',
-    description: 'Seguimiento 100% de productos, lotes y procesos con blockchain e inteligencia artificial.',
-    icon: 'route',
-    serviceType: 'servicio' as const,
+    title: 'QR y<br>Códigos.',
+    description: 'Escaneo con app móvil, registro de movimientos y dashboard web en tiempo real de trazabilidad.',
+    icon: 'qr-code',
+    serviceType: 'automatizacion' as const,
     reversed: true
   },
   {
-    label: 'Análisis',
-    title: 'Tendencias<br>Predictivas.',
-    description: 'Machine learning identifica patrones, predice fallos y genera recomendaciones de mejora continua.',
+    label: 'Dashboards',
+    title: 'Métricas<br>en Vivo.',
+    description: 'Panel web con KPIs de calidad, análisis de tendencias y alertas automáticas por IA.',
     icon: 'trending-up',
     serviceType: 'automatizacion' as const,
     reversed: false
   },
   {
-    label: 'Mejora Continua',
-    title: 'Optimización<br>Constante.',
-    description: 'Workflows automatizados que aprenden de cada inspección y optimizan procesos continuamente.',
-    icon: 'refresh-cw',
+    label: 'Reportes',
+    title: 'Automáticos<br>con IA.',
+    description: 'Generación automática de reportes de calidad, resúmenes con IA y envío programado.',
+    icon: 'file-text',
     serviceType: 'automatizacion' as const,
     reversed: true
   }
@@ -71,21 +129,52 @@ const slidesData = [
         </h1>
 
         <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-          Inspección con IA, gestión de no conformidades y auditorías automatizadas. Precisión del <strong class="text-[#82e256]">95%</strong> en detección de defectos.
+          Apps móviles y web para inspecciones digitales, auditorías y gestión de calidad con análisis IA.
         </p>
 
         <div class="grid grid-cols-3 gap-4 mb-8 max-w-2xl mx-auto">
           <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
-            <div class="text-3xl font-black text-[#82e256]">95%</div>
-            <div class="text-xs text-gray-300 mt-1">Precisión IA</div>
+            <div class="text-sm font-bold text-[#82e256] mb-1">Apps Móviles</div>
+            <div class="text-xs text-gray-300">Inspecciones desde el campo</div>
           </div>
           <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
-            <div class="text-3xl font-black text-[#82e256]">65%</div>
-            <div class="text-xs text-gray-300 mt-1">Menos tiempo</div>
+            <div class="text-sm font-bold text-[#82e256] mb-1">Dashboard Web</div>
+            <div class="text-xs text-gray-300">Visibilidad centralizada</div>
           </div>
           <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
-            <div class="text-3xl font-black text-[#82e256]">100%</div>
-            <div class="text-xs text-gray-300 mt-1">Trazabilidad</div>
+            <div class="text-sm font-bold text-[#82e256] mb-1">Análisis IA</div>
+            <div class="text-xs text-gray-300">Reportes automáticos</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Section -->
+  <section class="py-16 bg-[#1a1a1a]">
+    <div class="container mx-auto px-4 md:px-16">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-black text-white mb-4">
+            ¿Tu control de calidad depende del papeleo y procesos manuales?
+          </h2>
+          <p class="text-xl text-gray-400">Estos problemas cuestan miles de dólares cada mes:</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-6">
+            <h3 class="text-xl font-bold text-white mb-2">Inspecciones con Papel</h3>
+            <p class="text-gray-300"><strong class="text-red-400">Formularios extraviados</strong> y datos que nunca llegan al sistema</p>
+          </div>
+
+          <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-6">
+            <h3 class="text-xl font-bold text-white mb-2">No Conformidades Sin Seguimiento</h3>
+            <p class="text-gray-300"><strong class="text-red-400">Problemas recurrentes</strong> por falta de análisis y trazabilidad</p>
+          </div>
+
+          <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-6">
+            <h3 class="text-xl font-bold text-white mb-2">Reportes Manuales</h3>
+            <p class="text-gray-300"><strong class="text-red-400">Días compilando</strong> datos de auditorías en hojas de cálculo</p>
           </div>
         </div>
       </div>
@@ -96,31 +185,20 @@ const slidesData = [
   <StickySlidesContainer slides={slidesData} />
 
   <!-- Solutions Section -->
-  <section class="py-16 bg-[#1a1a1a]">
+  <section class="py-16 bg-gradient-to-b from-[#1a1a1a] to-[#00464e]">
     <div class="container mx-auto px-4 md:px-16">
       <div class="max-w-6xl mx-auto">
-        <h2 class="text-3xl md:text-4xl font-black text-white mb-12 text-center">
-          Automatizaciones para Control de Calidad
-        </h2>
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-black text-white mb-4">
+            Automatizaciones para Control de Calidad
+          </h2>
+          <p class="text-xl text-gray-300">Soluciones listas para implementar</p>
+        </div>
 
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-[#82e256] transition-all">
-            <h3 class="text-xl font-bold text-white mb-3">Inspección con Computer Vision</h3>
-            <p class="text-gray-300 mb-4">Detección automática de defectos visuales con IA, clasificación de severidad y reportes en tiempo real.</p>
-            <p class="text-[#82e256] font-semibold text-sm">95% precisión en detección - Visión artificial con IA detecta defectos automáticamente</p>
-          </div>
-
-          <div class="bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-[#82e256] transition-all">
-            <h3 class="text-xl font-bold text-white mb-3">Gestión de No Conformidades</h3>
-            <p class="text-gray-300 mb-4">Automatiza el ciclo completo: registro, análisis de causa raíz con IA y seguimiento de acciones.</p>
-            <p class="text-[#82e256] font-semibold text-sm">65% reducción tiempo cierre - Análisis automático de causa raíz y seguimiento con IA</p>
-          </div>
-
-          <div class="bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-[#82e256] transition-all">
-            <h3 class="text-xl font-bold text-white mb-3">Auditorías Automatizadas</h3>
-            <p class="text-gray-300 mb-4">Checklists inteligentes, captura de evidencias y generación automática de hallazgos y planes de acción.</p>
-            <p class="text-[#82e256] font-semibold text-sm">80% ahorro en preparación - Checklists inteligentes y generación automática de hallazgos con IA</p>
-          </div>
+        <div class="grid md:grid-cols-2 gap-8">
+          {automations.map(automation => (
+            <AutomationCard {...automation} />
+          ))}
         </div>
 
         <div class="text-center mt-12">
