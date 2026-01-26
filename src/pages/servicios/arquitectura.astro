@@ -3,15 +3,72 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import OtrosServicios from '../../components/OtrosServicios.astro';
+import Accordion from '../../components/Accordion.astro';
 import SimpleCarousel from '../../components/SimpleCarousel.astro';
 
 // Secciones del menú interno
 const secciones = [
   { id: 'intro', title: 'Introducción' },
-  { id: 'togaf-scrum', title: 'TOGAF 2026 + Scrum' },
-  { id: 'patrones', title: 'Patrones de Arquitectura' },
+  { id: 'importancia', title: '¿Por qué es importante?' },
+  { id: 'oficina-ia', title: 'Oficina con IA' },
+  { id: 'como-disenamos', title: 'Cómo Diseñamos' },
+  { id: 'pilares', title: 'Pilares' },
   { id: 'servicios', title: 'Servicios' },
   { id: 'stack', title: 'Stack Tecnológico' }
+];
+
+// Servicios unificados para el acordeón
+const serviciosItems = [
+  {
+    title: 'Auditoría y Due Diligence Técnico',
+    icon: 'search',
+    content: '<p class="mb-2">Evaluación profunda de arquitectura actual, deuda técnica y riesgos tecnológicos</p><p class="mb-2"><strong>Incluye:</strong> Code smells y deuda técnica, cuellos de botella de performance, evaluación de escalabilidad y seguridad, compliance y viabilidad de roadmaps, análisis de costos de infraestructura.</p><p class="mb-2"><strong>Ideal para:</strong> M&A, inversión, evaluación pre-proyecto, optimización de sistemas existentes.</p><p><strong class="text-[#82e256]">Entregable:</strong> Reporte ejecutivo y técnico completo en 1-3 semanas</p>'
+  },
+  {
+    title: 'Diseño y Consultoría Arquitectónica',
+    icon: 'target',
+    content: '<p class="mb-2">Diseño de arquitectura desde cero o transformación digital de sistemas legacy</p><p class="mb-2"><strong>Incluye:</strong> Diagramas C4 (Context, Containers, Components, Code), selección de tecnologías y patrones, target architecture y roadmap de implementación, estimación de infraestructura y costos, definición de estándares y governance.</p><p class="mb-2"><strong>Ideal para:</strong> Nuevos productos, modernización legacy, cloud migration, optimización de costos.</p><p><strong class="text-[#82e256]">Entregable:</strong> Documentación completa y POCs en 3-8 semanas</p>'
+  },
+  {
+    title: 'Migración y Refactoring Arquitectónico',
+    icon: 'refresh-cw',
+    content: '<p class="mb-2">Evolución de arquitectura sin downtime ni riesgo al negocio</p><p class="mb-2"><strong>Migraciones:</strong> Monolito → Microservicios, arquitectura spaghetti → Clean Architecture/Hexagonal, base de datos legacy → solución moderna, on-premise → cloud, multi-cloud strategies.</p><p class="mb-2"><strong>Método:</strong> Strangler Fig Pattern, feature flags, blue-green deployments.</p><p><strong class="text-[#82e256]">Duración:</strong> 2-12 meses según complejidad</p>'
+  },
+  {
+    title: 'Mentoría y Transferencia de Conocimiento',
+    icon: 'graduation-cap',
+    content: '<p class="mb-2">Acompañamiento experto para arquitectos y líderes técnicos</p><p class="mb-2"><strong>Incluye:</strong> Transferencia de patrones modernos (event-driven, CQRS, microservicios), mejores prácticas y toma de decisiones arquitectónicas, code reviews y architectural reviews, definición de ADRs (Architecture Decision Records), upskilling del equipo técnico.</p><p class="mb-2"><strong>Formato:</strong> Sesiones semanales, workshops, pair programming.</p><p><strong class="text-[#82e256]">Duración:</strong> 3-6 meses con seguimiento continuo</p>'
+  },
+  {
+    title: 'Automatización y DevOps (CI/CD)',
+    icon: 'zap',
+    content: '<p class="mb-2">Plataformas de autoservicio para desarrolladores y pipelines automatizados</p><p class="mb-2"><strong>Implementamos:</strong> CI/CD automatizado (GitHub Actions, GitLab CI), Infrastructure as Code (Terraform, Pulumi), Developer portals y templates de proyectos, monitoreo y observabilidad (Prometheus, Grafana, Sentry), blue-green deployments y rollback automático.</p><p class="mb-2"><strong>Beneficio:</strong> Reducción de setup de semanas a horas.</p><p><strong class="text-[#82e256]">Resultado:</strong> Deploys seguros en minutos en 3-6 semanas</p>'
+  },
+  {
+    title: 'Observabilidad y Monitoreo',
+    icon: 'bar-chart-3',
+    content: '<p class="mb-2">Visibilidad completa de sistemas en producción</p><p class="mb-2"><strong>Implementamos:</strong> Logging centralizado y structured logging, métricas de negocio y técnicas (Prometheus, Grafana), distributed tracing (Jaeger, Zipkin), error tracking (Sentry), alertas inteligentes y on-call automation, dashboards ejecutivos y técnicos.</p><p class="mb-2"><strong>Resultado:</strong> Reducción de MTTR (Mean Time To Recovery) en 80%.</p><p><strong class="text-[#82e256]">Entregable:</strong> Dashboards en vivo en 2-4 semanas</p>'
+  },
+  {
+    title: 'Roadmapping y Estrategia Tecnológica',
+    icon: 'map',
+    content: '<p class="mb-2">Hojas de ruta técnicas alineadas con objetivos de negocio</p><p class="mb-2"><strong>Incluye:</strong> Definición de target architecture, priorización basada en valor de negocio, gestión de dependencias técnicas, definition of done y hitos arquitectónicos, estimaciones y TCO (Total Cost of Ownership), estrategias de adopción tecnológica.</p><p class="mb-2"><strong>Ideal para:</strong> CTOs, VPs de Engineering, líderes de transformación digital.</p><p><strong class="text-[#82e256]">Entregable:</strong> Roadmap visual y ejecutivo en 2-4 semanas</p>'
+  },
+  {
+    title: 'Definición de Roles y Estructuración de TI',
+    icon: 'users-round',
+    content: '<p class="mb-2">Estructuración de equipos técnicos y operating models efectivos</p><p class="mb-2"><strong>Incluye:</strong> Definición de roles y responsabilidades (RACI), career paths y skill matrices, modelos de gobernanza (centralized, federated, decentralized), structure de equipos (platform teams, product teams, enablement teams), KPIs y métricas de efectividad.</p><p class="mb-2"><strong>Ideal para:</strong> Empresas en crecimiento, transformación organizacional.</p><p><strong class="text-[#82e256]">Entregable:</strong> Operating model completo en 3-6 semanas</p>'
+  },
+  {
+    title: 'Estrategias de IA Empresarial',
+    icon: 'bot',
+    content: '<p class="mb-2">Adopción de IA/ML con arquitecturas de datos robustas</p><p class="mb-2"><strong>Incluye:</strong> Identificación de casos de uso de alto valor, arquitecturas de datos para IA (data lakes, feature stores), MLOps y gestión del ciclo de vida de modelos, governance de modelos y responsible AI, integración con sistemas existentes, estimaciones de ROI.</p><p class="mb-2"><strong>Ideal para:</strong> Empresas que quieren aprovechar IA de forma estratégica.</p><p><strong class="text-[#82e256]">Entregable:</strong> Estrategia de IA y POCs en 4-8 semanas</p>'
+  },
+  {
+    title: 'Soporte en Ventas Técnicas',
+    icon: 'briefcase',
+    content: '<p class="mb-2">Acompañamiento arquitectónico en procesos de venta complejos</p><p class="mb-2"><strong>Incluye:</strong> POCs y arquitecturas de referencia, estimaciones técnicas y sizing, presentaciones para stakeholders técnicos y de negocio, RFP/RFI responses, discovery workshops con clientes, documentación de soluciones propuestas.</p><p class="mb-2"><strong>Ideal para:</strong> Empresas de servicios, proveedores de software enterprise.</p><p><strong class="text-[#82e256]">Resultado:</strong> Incremento en tasa de cierre de deals técnicos</p>'
+  }
 ];
 ---
 
@@ -104,354 +161,702 @@ const secciones = [
 
               <!-- Intro -->
               <div id="intro">
-                <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">TOGAF 2026: Arquitectura Empresarial Ágil</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">¿Qué es la Arquitectura de Software?</h2>
 
-                <p class="text-gray-300 text-lg mb-4">
-                  Combinamos el <strong class="text-[#82e256]">framework TOGAF 2026</strong> (The Open Group Architecture Framework) con <strong class="text-[#82e256]">Scrum</strong> para crear arquitecturas empresariales que evolucionan con tu negocio.
+                <div class="bg-gradient-to-br from-[#82e256]/10 to-[#04ADC0]/10 p-6 rounded-xl border border-[#82e256]/30 mb-6">
+                  <p class="text-gray-300 text-lg">
+                    La <strong class="text-[#82e256]">arquitectura de software</strong> es como los planos de construcción de tu aplicación. Así como un edificio necesita buenos cimientos y una estructura sólida para no derrumbarse, tu aplicación necesita una arquitectura bien diseñada para crecer sin problemas. Es la diferencia entre un sistema que <strong class="text-white">evoluciona con tu negocio</strong> y uno que se convierte en una pesadilla cada vez que quieres agregar algo nuevo. Una buena arquitectura te ahorra <strong class="text-white">tiempo, dinero y dolores de cabeza</strong> a largo plazo.
+                  </p>
+                </div>
+
+              </div>
+
+              <hr class="border-gray-800" />
+
+              <!-- ¿Por qué es importante? -->
+              <div id="importancia">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">¿Por qué es importante la Arquitectura de Software?</h2>
+
+                <div class="bg-gradient-to-br from-[#82e256]/10 to-[#04ADC0]/10 p-6 rounded-xl border border-[#82e256]/30 mb-6">
+                  <p class="text-gray-300 text-lg mb-4">
+                    Imagina construir un edificio sin planos. Podrías levantar las paredes, pero cuando quieras agregar un piso más o cambiar la distribución, todo se viene abajo. Lo mismo pasa con el software.
+                  </p>
+
+                  <p class="text-gray-300 text-lg">
+                    Una <strong class="text-[#82e256]">buena arquitectura</strong> es la diferencia entre una aplicación que crece con tu negocio y una que se convierte en tu peor dolor de cabeza. Es la diferencia entre agregar funcionalidades en días o en meses. Entre tener usuarios felices o frustrados por la lentitud.
+                  </p>
+                </div>
+
+                <h3 class="text-2xl font-bold text-white mb-4">¿Qué problemas resolvemos con una arquitectura bien diseñada?</h3>
+
+                <div class="space-y-6">
+                  <div>
+                    <h4 class="text-xl font-bold text-[#82e256] mb-2 flex items-center gap-2">
+                      <i data-lucide="dollar-sign" class="w-6 h-6"></i>
+                      Tu aplicación no puede crecer sin gastar una fortuna
+                    </h4>
+                    <p class="text-gray-300">
+                      Cuando tu negocio crece, tu aplicación debería poder manejar más usuarios sin que tengas que reescribir todo desde cero. Te ayudamos a diseñar sistemas que <strong class="text-white">escalan de forma inteligente</strong>, solo invirtiendo en lo que realmente necesitas.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h4 class="text-xl font-bold text-[#82e256] mb-2 flex items-center gap-2">
+                      <i data-lucide="gauge" class="w-6 h-6"></i>
+                      Tu sistema es lento y los usuarios se quejan
+                    </h4>
+                    <p class="text-gray-300">
+                      Una arquitectura mal diseñada hace que cada click tarde segundos. Te ayudamos a organizar tu aplicación para que las operaciones lentas no afecten la experiencia del usuario, usando técnicas como <strong class="text-white">procesamiento en segundo plano</strong> y <strong class="text-white">cachés inteligentes</strong>.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h4 class="text-xl font-bold text-[#82e256] mb-2 flex items-center gap-2">
+                      <i data-lucide="wrench" class="w-6 h-6"></i>
+                      Cada cambio rompe algo más
+                    </h4>
+                    <p class="text-gray-300">
+                      Cuando tu código es un "plato de espaguetis" donde todo depende de todo, arreglar un bug puede crear cinco más. Organizamos tu aplicación en <strong class="text-white">piezas independientes</strong> que puedes modificar sin miedo a romper todo el sistema.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h4 class="text-xl font-bold text-[#82e256] mb-2 flex items-center gap-2">
+                      <i data-lucide="repeat" class="w-6 h-6"></i>
+                      Quieres cambiar de proveedor pero estás atrapado
+                    </h4>
+                    <p class="text-gray-300">
+                      ¿Tu aplicación está tan amarrada a una tecnología específica que cambiar te costaría meses? Diseñamos sistemas <strong class="text-white">flexibles</strong> donde puedes cambiar bases de datos, servicios de pago o proveedores de email sin tener que reescribir tu aplicación.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h4 class="text-xl font-bold text-[#82e256] mb-2 flex items-center gap-2">
+                      <i data-lucide="users" class="w-6 h-6"></i>
+                      Tu equipo tarda semanas en agregar funcionalidades simples
+                    </h4>
+                    <p class="text-gray-300">
+                      Cuando la arquitectura es confusa, los desarrolladores pierden tiempo entendiendo cómo funciona todo. Te ayudamos a crear una <strong class="text-white">estructura clara y organizada</strong> donde tu equipo puede trabajar rápido y sin tropezarse entre ellos.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h4 class="text-xl font-bold text-[#82e256] mb-2 flex items-center gap-2">
+                      <i data-lucide="shield-alert" class="w-6 h-6"></i>
+                      Los datos de tus clientes están en riesgo
+                    </h4>
+                    <p class="text-gray-300">
+                      Una mala arquitectura deja puertas abiertas para ataques. Diseñamos sistemas con <strong class="text-white">seguridad desde el inicio</strong>, no como un parche de último minuto. Protegemos datos sensibles, controlamos accesos y te preparamos para cumplir regulaciones.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h4 class="text-xl font-bold text-[#82e256] mb-2 flex items-center gap-2">
+                      <i data-lucide="activity" class="w-6 h-6"></i>
+                      No sabes qué está pasando en tu aplicación
+                    </h4>
+                    <p class="text-gray-300">
+                      ¿Se cayó algo? ¿Por qué está lento? ¿Cuántos usuarios están activos? Si no puedes responder estas preguntas, estás volando a ciegas. Implementamos <strong class="text-white">monitoreo y métricas</strong> para que siempre sepas qué está pasando y puedas tomar decisiones informadas.
+                    </p>
+                  </div>
+                </div>
+
+                <p class="text-gray-300 text-lg mt-8">
+                  <strong class="text-white">En resumen:</strong> Una buena arquitectura no es un lujo técnico, es una <strong class="text-[#82e256]">inversión en el futuro de tu negocio</strong>. Te ahorra tiempo, dinero y dolores de cabeza a largo plazo.
                 </p>
 
-                <p class="text-gray-300 text-lg mb-4">
-                  No hay nada más costoso que <strong class="text-[#82e256]">rediseñar toda tu plataforma</strong> porque la arquitectura inicial no aguantó el crecimiento ni los cambios del mercado.
-                </p>
-
-                <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 mt-6">
-                  <h3 class="text-xl font-bold text-white mb-4">Nuestra metodología híbrida te permite:</h3>
-                  <ul class="space-y-3">
-                    <li class="flex items-start gap-3 text-gray-300">
-                      <span class="text-[#82e256] text-xl flex-shrink-0">✓</span>
-                      <span><strong class="text-white">Iteraciones cortas</strong> con Scrum dentro del ADM de TOGAF</span>
-                    </li>
-                    <li class="flex items-start gap-3 text-gray-300">
-                      <span class="text-[#82e256] text-xl flex-shrink-0">✓</span>
-                      <span><strong class="text-white">Roadmaps adaptativos</strong> que se ajustan a cambios del negocio cada trimestre</span>
-                    </li>
-                    <li class="flex items-start gap-3 text-gray-300">
-                      <span class="text-[#82e256] text-xl flex-shrink-0">✓</span>
-                      <span><strong class="text-white">Arquitectura modular</strong> que escala de 100 a 1 millón de usuarios sin rediseño</span>
-                    </li>
-                    <li class="flex items-start gap-3 text-gray-300">
-                      <span class="text-[#82e256] text-xl flex-shrink-0">✓</span>
-                      <span><strong class="text-white">Documentación viva</strong> que se actualiza continuamente, no documentos obsoletos</span>
-                    </li>
-                    <li class="flex items-start gap-3 text-gray-300">
-                      <span class="text-[#82e256] text-xl flex-shrink-0">✓</span>
-                      <span><strong class="text-white">Governance ágil</strong> con revisiones arquitectónicas en cada sprint</span>
-                    </li>
-                  </ul>
+                <div class="my-8">
+                  <div class="flex justify-center mb-4">
+                    <img
+                      src="/imgfondos/09.jpg"
+                      alt="Importancia de la arquitectura de software"
+                      class="h-auto max-w-2xl rounded-2xl"
+                    />
+                  </div>
+                  <p class="text-center text-gray-400 text-sm italic">
+                    Inversión en el futuro de tu negocio
+                  </p>
                 </div>
               </div>
 
               <hr class="border-gray-800" />
 
-              <!-- TOGAF + Scrum -->
-              <div id="togaf-scrum">
-                <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">Framework TOGAF 2026 + Scrum Integrado</h2>
+              <!-- Oficina de Arquitectura con IA - DESTACADO -->
+              <div id="oficina-ia" class="relative">
+                <!-- Badge destacado -->
+                <div class="flex items-center gap-3 mb-6">
+                  <div class="bg-gradient-to-r from-[#82e256] to-[#04ADC0] px-4 py-2 rounded-full">
+                    <span class="text-black font-bold text-sm flex items-center gap-2">
+                      <i data-lucide="sparkles" class="w-4 h-4"></i>
+                      SERVICIO ESTRELLA
+                    </span>
+                  </div>
+                </div>
 
-                <h3 class="text-2xl font-bold text-white mb-4">Architecture Development Method (ADM) con Sprints</h3>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                  Oficina de Arquitectura de Software <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#82e256] to-[#04ADC0]">con Inteligencia Artificial</span>
+                </h2>
 
-                <p class="text-gray-300 text-lg mb-4">
-                  <strong class="text-white">¿Cómo lo hacemos?</strong><br/>
-                  Ejecutamos cada fase del ADM de TOGAF en <strong class="text-[#82e256]">sprints iterativos</strong>:
-                </p>
+                <!-- Destacado principal con gradiente -->
+                <div class="bg-gradient-to-br from-[#82e256]/20 to-[#04ADC0]/20 p-8 rounded-2xl border-2 border-[#82e256] mb-8 relative overflow-hidden">
+                  <!-- Efecto de brillo -->
+                  <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
 
-                <SimpleCarousel id="togaf-fases-adm">
-                  <div class="bg-gradient-to-br from-blue-900/20 to-blue-800/20 p-6 rounded-xl border border-blue-500/30">
-                    <div class="flex items-center gap-3 mb-3">
-                      <div class="w-12 h-12 bg-[#82e256] rounded-full flex items-center justify-center text-black font-bold text-lg">1-2</div>
+                  <div class="relative z-10">
+                    <div class="flex items-start gap-4 mb-6">
+                      <i data-lucide="bot" class="w-12 h-12 text-[#82e256] flex-shrink-0"></i>
                       <div>
-                        <h4 class="text-white font-bold">Visión de Arquitectura</h4>
-                        <p class="text-gray-400 text-sm">Fase A</p>
+                        <h3 class="text-2xl font-bold text-white mb-3">
+                          Tu Oficina de Arquitectura Potenciada por IA
+                        </h3>
+                        <p class="text-gray-200 text-lg leading-relaxed mb-4">
+                          Imagina tener un equipo completo de arquitectos de software trabajando 24/7 para tu proyecto. Eso es exactamente lo que ofrecemos: una <strong class="text-white">Oficina de Arquitectura de Software potenciada con IA</strong> que combina la experiencia de arquitectos senior con capacidades de inteligencia artificial para diseñar, revisar y evolucionar tu arquitectura.
+                        </p>
+                        <p class="text-gray-200 text-lg leading-relaxed">
+                          <strong class="text-[#82e256]">Para todos:</strong> Ya seas un <strong class="text-white">desarrollador independiente</strong> que necesita validar su arquitectura, una <strong class="text-white">startup</strong> buscando diseñar su MVP, o una <strong class="text-white">empresa consolidada</strong> que requiere transformación digital completa.
+                        </p>
                       </div>
                     </div>
-                    <p class="text-gray-300 text-sm">Objetivos, stakeholders y alcance inicial</p>
+
+                    <!-- Grid de beneficios -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                      <div class="bg-black/30 p-5 rounded-xl border border-[#82e256]/30">
+                        <div class="flex items-start gap-3">
+                          <i data-lucide="code" class="w-6 h-6 text-[#82e256] flex-shrink-0 mt-1"></i>
+                          <div>
+                            <h4 class="text-lg font-bold text-white mb-2">Para Desarrolladores</h4>
+                            <p class="text-gray-300 text-sm">
+                              Revisión de código arquitectónico, validación de patrones, sugerencias de mejora continua. Como tener un arquitecto senior revisando tu trabajo.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="bg-black/30 p-5 rounded-xl border border-[#82e256]/30">
+                        <div class="flex items-start gap-3">
+                          <i data-lucide="building-2" class="w-6 h-6 text-[#82e256] flex-shrink-0 mt-1"></i>
+                          <div>
+                            <h4 class="text-lg font-bold text-white mb-2">Para Empresas</h4>
+                            <p class="text-gray-300 text-sm">
+                              Diseño de arquitectura empresarial completa, gobernanza automatizada, análisis predictivo de escalabilidad y costos, roadmaps técnicos inteligentes.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="bg-black/30 p-5 rounded-xl border border-[#82e256]/30">
+                        <div class="flex items-start gap-3">
+                          <i data-lucide="zap" class="w-6 h-6 text-[#82e256] flex-shrink-0 mt-1"></i>
+                          <div>
+                            <h4 class="text-lg font-bold text-white mb-2">Velocidad sin Precedentes</h4>
+                            <p class="text-gray-300 text-sm">
+                              Lo que antes tomaba semanas, ahora toma días. Análisis de arquitectura en minutos, generación de diagramas automática, documentación siempre actualizada.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="bg-black/30 p-5 rounded-xl border border-[#82e256]/30">
+                        <div class="flex items-start gap-3">
+                          <i data-lucide="shield-check" class="w-6 h-6 text-[#82e256] flex-shrink-0 mt-1"></i>
+                          <div>
+                            <h4 class="text-lg font-bold text-white mb-2">Decisiones Basadas en Datos</h4>
+                            <p class="text-gray-300 text-sm">
+                              IA analiza millones de proyectos para recomendar las mejores prácticas. Predicción de problemas antes de que ocurran. Optimización continua.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Capacidades principales intercaladas con imágenes -->
+                    <div class="mt-8 space-y-6">
+
+                      <!-- Análisis y Diagnóstico con IA -->
+                      <div class="bg-gradient-to-r from-gray-900/50 to-black/50 p-6 rounded-xl border border-[#04ADC0]/30">
+                        <h4 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                          <i data-lucide="scan" class="w-6 h-6 text-[#04ADC0]"></i>
+                          Análisis y Diagnóstico Automatizado con IA
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-300">
+                          <p class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                            <span><strong class="text-white">Análisis arquitectónico automatizado:</strong> Code reviews, detección de anti-patrones, análisis de deuda técnica en minutos</span>
+                          </p>
+                          <p class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                            <span><strong class="text-white">Generación de diagramas inteligente:</strong> C4, UML, diagramas de secuencia generados automáticamente desde tu código</span>
+                          </p>
+                          <p class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                            <span><strong class="text-white">Predicción de escalabilidad:</strong> Simulaciones de carga, predicción de cuellos de botella, optimización de recursos</span>
+                          </p>
+                          <p class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                            <span><strong class="text-white">Monitoreo continuo:</strong> IA que aprende de tu sistema en producción y sugiere mejoras proactivas</span>
+                          </p>
+                        </div>
+                      </div>
+
+                      <!-- Imagen 1 -->
+                      <div class="relative overflow-hidden rounded-2xl group">
+                        <img
+                          src="/imgfondos/02.jpg"
+                          alt="Análisis inteligente con IA"
+                          class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+                        />
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                          <p class="text-white text-sm font-semibold">Análisis predictivo con inteligencia artificial</p>
+                        </div>
+                      </div>
+
+                      <!-- Mentorías Personalizadas -->
+                      <div class="bg-gradient-to-r from-gray-900/50 to-black/50 p-6 rounded-xl border border-[#82e256]/30">
+                        <h4 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                          <i data-lucide="graduation-cap" class="w-6 h-6 text-[#82e256]"></i>
+                          Mentorías y Acompañamiento de Arquitectos Expertos
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-300 mb-4">
+                          <p class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                            <span><strong class="text-white">Sesiones 1-on-1 con arquitectos senior:</strong> Sesiones semanales personalizadas para revisar tus decisiones arquitectónicas</span>
+                          </p>
+                          <p class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                            <span><strong class="text-white">Code reviews arquitectónicos:</strong> Revisión profunda de tu código con recomendaciones de mejora</span>
+                          </p>
+                          <p class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                            <span><strong class="text-white">Pair programming:</strong> Trabaja lado a lado con arquitectos para resolver problemas complejos</span>
+                          </p>
+                          <p class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                            <span><strong class="text-white">Workshops técnicos:</strong> Capacitación en patrones modernos, microservicios, event-driven, DDD</span>
+                          </p>
+                          <p class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                            <span><strong class="text-white">Career coaching:</strong> Guía para evolucionar de developer a architect</span>
+                          </p>
+                          <p class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                            <span><strong class="text-white">Acceso a comunidad privada:</strong> Network con otros arquitectos y desarrolladores</span>
+                          </p>
+                        </div>
+                        <p class="text-sm text-gray-400 italic">
+                          💡 Incluido en todos los planes desde Startup. Disponible también como servicio standalone.
+                        </p>
+                      </div>
+
+                      <!-- Imagen 2 -->
+                      <div class="relative overflow-hidden rounded-2xl group">
+                        <img
+                          src="/imgfondos/03.jpg"
+                          alt="Mentorías y acompañamiento"
+                          class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+                        />
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                          <p class="text-white text-sm font-semibold">Mentorías con arquitectos expertos</p>
+                        </div>
+                      </div>
+
+                      <!-- Categorización y Clasificación de Soluciones -->
+                      <div class="bg-gradient-to-r from-gray-900/50 to-black/50 p-6 rounded-xl border border-[#04ADC0]/30">
+                        <h4 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                          <i data-lucide="folder-tree" class="w-6 h-6 text-[#04ADC0]"></i>
+                          Categorización y Clasificación Inteligente de Soluciones
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-300 mb-4">
+                          <p class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                            <span><strong class="text-white">Inventario automatizado:</strong> IA cataloga todos tus servicios, APIs, dependencias y componentes</span>
+                          </p>
+                          <p class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                            <span><strong class="text-white">Clasificación por dominios:</strong> Organización de sistemas por capacidades de negocio (bounded contexts)</span>
+                          </p>
+                          <p class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                            <span><strong class="text-white">Mapeo de dependencias:</strong> Visualización automática de cómo se relacionan tus sistemas</span>
+                          </p>
+                          <p class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                            <span><strong class="text-white">Análisis de impacto:</strong> Predice qué sistemas se afectan cuando cambias uno</span>
+                          </p>
+                          <p class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                            <span><strong class="text-white">Service catalog inteligente:</strong> Documentación automática de todos tus servicios</span>
+                          </p>
+                          <p class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                            <span><strong class="text-white">Tech radar personalizado:</strong> Recomendaciones de qué tecnologías adoptar/mantener/retirar</span>
+                          </p>
+                        </div>
+                        <p class="text-sm text-gray-400 italic">
+                          🎯 Ideal para empresas con múltiples sistemas y equipos. Visibilidad total de tu landscape tecnológico.
+                        </p>
+                      </div>
+
+                      <!-- Imagen 3 -->
+                      <div class="relative overflow-hidden rounded-2xl group">
+                        <img
+                          src="/imgfondos/10.jpg"
+                          alt="Sistemas diseñados para crecer con tu negocio"
+                          class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+                        />
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                          <p class="text-white text-sm font-semibold">Arquitecturas escalables y robustas</p>
+                        </div>
+                      </div>
+
+                      <!-- Apoyo en Aplicaciones y Desarrollo -->
+                      <div class="bg-gradient-to-r from-gray-900/50 to-black/50 p-6 rounded-xl border border-[#82e256]/30">
+                        <h4 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                          <i data-lucide="code-2" class="w-6 h-6 text-[#82e256]"></i>
+                          Apoyo Continuo en Desarrollo de Aplicaciones
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-300 mb-4">
+                          <p class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                            <span><strong class="text-white">Arquitecto on-demand:</strong> Acceso a arquitectos cuando los necesites, sin contratar full-time</span>
+                          </p>
+                          <p class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                            <span><strong class="text-white">Revisión de PRs arquitectónicos:</strong> Validación de cambios críticos antes de merge</span>
+                          </p>
+                          <p class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                            <span><strong class="text-white">Soporte en decisiones técnicas:</strong> ADRs (Architecture Decision Records) validados por expertos</span>
+                          </p>
+                          <p class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                            <span><strong class="text-white">Troubleshooting arquitectónico:</strong> Ayuda cuando tu app tiene problemas de performance o escalabilidad</span>
+                          </p>
+                          <p class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                            <span><strong class="text-white">Templates y boilerplates:</strong> Proyectos base con arquitectura ya configurada</span>
+                          </p>
+                          <p class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                            <span><strong class="text-white">Integración con tu flujo:</strong> Nos integramos con GitHub, GitLab, Jira, Slack</span>
+                          </p>
+                        </div>
+                        <p class="text-sm text-gray-400 italic">
+                          ⚡ Respuesta en menos de 4 horas en planes Business y Enterprise. Canal de Slack dedicado.
+                        </p>
+                      </div>
+
+                      <!-- Imagen 4 -->
+                      <div class="relative overflow-hidden rounded-2xl group">
+                        <img
+                          src="/imgfondos/04.jpg"
+                          alt="Transformación digital completa"
+                          class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+                        />
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                          <p class="text-white text-sm font-semibold">Transformación digital de tu organización</p>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <!-- CTA -->
+                    <div class="mt-8 flex flex-col sm:flex-row gap-4 items-center justify-center">
+                      <a
+                        href="/#contenido10"
+                        class="inline-flex items-center gap-2 px-8 py-4 bg-[#82e256] text-black font-bold rounded-xl hover:bg-[#6bc73d] transition-all duration-300 transform hover:scale-105 shadow-2xl text-lg"
+                      >
+                        <i data-lucide="calendar" class="w-5 h-5"></i>
+                        Agenda una Demo de la Oficina con IA
+                      </a>
+                      <a
+                        href="#servicios"
+                        class="inline-flex items-center gap-2 px-8 py-4 bg-[#04ADC0] text-white font-bold rounded-xl hover:bg-[#0396a8] transition-all duration-300 text-lg"
+                      >
+                        <i data-lucide="arrow-down" class="w-5 h-5"></i>
+                        Ver Todos los Servicios
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Casos de uso específicos -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                  <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 border border-gray-700">
+                    <i data-lucide="user" class="w-10 h-10 text-[#82e256] mb-4"></i>
+                    <h4 class="text-lg font-bold text-white mb-3">Desarrollador Freelance</h4>
+                    <p class="text-gray-300 text-sm mb-3">
+                      "Necesito validar que mi arquitectura de microservicios está bien diseñada antes de presentarla al cliente."
+                    </p>
+                    <p class="text-[#82e256] text-sm font-semibold">
+                      Desde $299/mes - Análisis ilimitado de proyectos
+                    </p>
                   </div>
 
-                  <div class="bg-gradient-to-br from-green-900/20 to-green-800/20 p-6 rounded-xl border border-green-500/30">
-                    <div class="flex items-center gap-3 mb-3">
-                      <div class="w-12 h-12 bg-[#82e256] rounded-full flex items-center justify-center text-black font-bold text-lg">3-4</div>
-                      <div>
-                        <h4 class="text-white font-bold">Arquitectura de Negocio</h4>
-                        <p class="text-gray-400 text-sm">Fase B</p>
-                      </div>
-                    </div>
-                    <p class="text-gray-300 text-sm">Procesos, capacidades y modelo operativo</p>
+                  <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 border border-gray-700">
+                    <i data-lucide="rocket" class="w-10 h-10 text-[#82e256] mb-4"></i>
+                    <h4 class="text-lg font-bold text-white mb-3">Startup en Crecimiento</h4>
+                    <p class="text-gray-300 text-sm mb-3">
+                      "Estamos creciendo de 1,000 a 100,000 usuarios. Necesitamos re-arquitecturar antes de colapsar."
+                    </p>
+                    <p class="text-[#82e256] text-sm font-semibold">
+                      Desde $1,999/mes - Incluye mentoría de arquitectos
+                    </p>
                   </div>
 
-                  <div class="bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-6 rounded-xl border border-purple-500/30">
-                    <div class="flex items-center gap-3 mb-3">
-                      <div class="w-12 h-12 bg-[#82e256] rounded-full flex items-center justify-center text-black font-bold text-lg">5-6</div>
-                      <div>
-                        <h4 class="text-white font-bold">Arquitectura de Sistemas</h4>
-                        <p class="text-gray-400 text-sm">Fase C</p>
-                      </div>
+                  <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 border border-gray-700">
+                    <i data-lucide="building" class="w-10 h-10 text-[#82e256] mb-4"></i>
+                    <h4 class="text-lg font-bold text-white mb-3">Empresa Consolidada</h4>
+                    <p class="text-gray-300 text-sm mb-3">
+                      "Tenemos 15 sistemas legacy que necesitamos integrar y modernizar sin detener operaciones."
+                    </p>
+                    <p class="text-[#82e256] text-sm font-semibold">
+                      Plan Enterprise - Solución personalizada
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="border-gray-800" />
+
+              <!-- Cómo Diseñamos -->
+              <div id="como-disenamos">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">Cómo Diseñamos Tu Arquitectura</h2>
+
+                <div class="bg-gradient-to-br from-[#82e256]/10 to-[#04ADC0]/10 p-6 rounded-xl border border-[#82e256]/30 mb-6">
+                  <p class="text-gray-300 text-lg">
+                    No usamos una <strong class="text-white">receta única</strong> para todos los proyectos. Tu startup necesita velocidad para validar el mercado, tu empresa mediana necesita estabilidad para escalar, tu corporación necesita cumplir regulaciones. Diseñamos la arquitectura perfecta para <strong class="text-[#82e256]">tu etapa, tu industria y tus objetivos</strong>.
+                  </p>
+                </div>
+
+                <h3 class="text-2xl font-bold text-white mb-6">¿En qué etapa está tu negocio?</h3>
+
+                <SimpleCarousel id="etapas-negocio">
+                  <!-- Validando Producto -->
+                  <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl border border-gray-700" style="height: 420px; padding: 20px;">
+                    <div class="mb-4">
+                      <i data-lucide="rocket" class="w-16 h-16 text-[#82e256]"></i>
                     </div>
-                    <p class="text-gray-300 text-sm">Aplicaciones, datos e integraciones</p>
+                    <h4 class="text-2xl font-bold text-[#82e256] mb-4">Validando tu Producto</h4>
+                    <p class="text-gray-300 mb-4 text-base leading-relaxed">
+                      Si aún no sabes si tu producto funcionará en el mercado, no necesitas una arquitectura compleja. Te ayudamos a construir un <strong class="text-white">sistema ligero y flexible</strong> que puedas cambiar rápido cuando pivotes. Sin perder meses en diseño, lanzas en semanas. Tiempo de lanzamiento 3x más rápido, costos iniciales mínimos, capacidad de pivotar sin reescribir todo.
+                    </p>
                   </div>
 
-                  <div class="bg-gradient-to-br from-orange-900/20 to-orange-800/20 p-6 rounded-xl border border-orange-500/30">
-                    <div class="flex items-center gap-3 mb-3">
-                      <div class="w-12 h-12 bg-[#82e256] rounded-full flex items-center justify-center text-black font-bold text-lg">7-8</div>
-                      <div>
-                        <h4 class="text-white font-bold">Arquitectura Tecnológica</h4>
-                        <p class="text-gray-400 text-sm">Fase D</p>
-                      </div>
+                  <!-- Escalando -->
+                  <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl border border-gray-700" style="height: 420px; padding: 20px;">
+                    <div class="mb-4">
+                      <i data-lucide="trending-up" class="w-16 h-16 text-[#82e256]"></i>
                     </div>
-                    <p class="text-gray-300 text-sm">Infraestructura, cloud y seguridad</p>
+                    <h4 class="text-2xl font-bold text-[#82e256] mb-4">Escalando tu Aplicación</h4>
+                    <p class="text-gray-300 mb-4 text-base leading-relaxed">
+                      Tus usuarios están creciendo y tu sistema empieza a crujir. Te diseñamos una arquitectura que <strong class="text-white">soporte 10x más usuarios sin colapsarse</strong>. Implementamos cachés inteligentes, bases de datos optimizadas y procesamiento asíncrono para que tu app siga siendo rápida. Soportas picos de tráfico sin caídas, tiempos de carga reducidos en 70%, costos de infraestructura optimizados.
+                    </p>
+                  </div>
+
+                  <!-- Empresa Consolidada -->
+                  <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl border border-gray-700" style="height: 420px; padding: 20px;">
+                    <div class="mb-4">
+                      <i data-lucide="building-2" class="w-16 h-16 text-[#82e256]"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-[#82e256] mb-4">Empresa Consolidada</h4>
+                    <p class="text-gray-300 mb-4 text-base leading-relaxed">
+                      Tienes varios departamentos, sistemas legacy que deben integrarse, y necesitas cumplir regulaciones. Diseñamos una <strong class="text-white">arquitectura empresarial</strong> que alinea tecnología con objetivos de negocio, integra todos tus sistemas y cumple con auditorías. Visibilidad completa de tu arquitectura, reducción de silos entre departamentos, cumplimiento regulatorio garantizado.
+                    </p>
+                  </div>
+
+                  <!-- Lógica Compleja -->
+                  <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl border border-gray-700" style="height: 420px; padding: 20px;">
+                    <div class="mb-4">
+                      <i data-lucide="brain" class="w-16 h-16 text-[#82e256]"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-[#82e256] mb-4">Lógica de Negocio Compleja</h4>
+                    <p class="text-gray-300 mb-4 text-base leading-relaxed">
+                      Si tu negocio tiene reglas complejas (fintech, salud, logística), organizamos tu código para que <strong class="text-white">hable el lenguaje de tu negocio</strong>. Cuando tu equipo legal dice "el interés compuesto se calcula así", tu código dice exactamente lo mismo. Menos bugs en lógica de negocio, equipo de desarrollo que entiende el dominio, cambios de reglas implementados en horas.
+                    </p>
                   </div>
                 </SimpleCarousel>
 
-                <div class="bg-gradient-to-br from-cyan-900/20 to-cyan-800/20 p-6 rounded-xl border border-cyan-500/30">
-                  <h4 class="text-white font-bold mb-3">Beneficios de la combinación:</h4>
-                  <ul class="grid md:grid-cols-2 gap-3">
-                    <li class="flex items-start gap-2 text-gray-300 text-sm">
-                      <span class="text-[#82e256]">→</span>
-                      <span>Feedback rápido del negocio cada 2 semanas</span>
-                    </li>
-                    <li class="flex items-start gap-2 text-gray-300 text-sm">
-                      <span class="text-[#82e256]">→</span>
-                      <span>Pivoteo ágil cuando cambian prioridades</span>
-                    </li>
-                    <li class="flex items-start gap-2 text-gray-300 text-sm">
-                      <span class="text-[#82e256]">→</span>
-                      <span>ROI visible desde el primer trimestre</span>
-                    </li>
-                    <li class="flex items-start gap-2 text-gray-300 text-sm">
-                      <span class="text-[#82e256]">→</span>
-                      <span>Equipos empoderados con autonomía en sprints</span>
-                    </li>
-                  </ul>
+                <p class="text-gray-300 text-lg mt-8 mb-4">
+                  <strong class="text-white">Nuestro proceso:</strong>
+                </p>
+
+                <p class="text-gray-300 mb-2">1. <strong class="text-[#82e256]">Entendemos tu negocio:</strong> ¿Qué vendes? ¿Cómo ganas dinero? ¿Cuáles son tus metas?</p>
+                <p class="text-gray-300 mb-2">2. <strong class="text-[#82e256]">Analizamos tu situación actual:</strong> ¿Qué tienes hoy? ¿Qué funciona? ¿Qué te está frenando?</p>
+                <p class="text-gray-300 mb-2">3. <strong class="text-[#82e256]">Diseñamos la solución correcta:</strong> Seleccionamos el enfoque que te lleva de A a B más rápido</p>
+                <p class="text-gray-300 mb-2">4. <strong class="text-[#82e256]">Implementamos por fases:</strong> No reescribimos todo de golpe, evolucionamos tu sistema sin parar operaciones</p>
+
+                <div class="my-8">
+                  <div class="flex justify-center mb-4">
+                    <img
+                      src="/imgfondos/08.jpg"
+                      alt="Diseño de arquitectura personalizada"
+                      class="h-auto max-w-2xl rounded-2xl"
+                    />
+                  </div>
+                  <p class="text-center text-gray-400 text-sm italic">
+                    Arquitectura diseñada para tu etapa de negocio
+                  </p>
                 </div>
               </div>
 
               <hr class="border-gray-800" />
 
-              <!-- Patrones -->
-              <div id="patrones">
-                <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">Patrones de Arquitectura Empresarial</h2>
+              <!-- Pilares de la Oficina de Arquitectura -->
+              <div id="pilares">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">Pilares de nuestra Oficina de Arquitectura</h2>
 
-                <div class="space-y-8">
-                  <!-- Hexagonal -->
-                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700">
-                    <h3 class="text-2xl font-bold text-white mb-3">🔷 Arquitectura Hexagonal (Ports & Adapters)</h3>
-                    <p class="text-gray-300 mb-4">
-                      Tu lógica de negocio <strong class="text-white">no depende de frameworks ni databases</strong>. Puedes cambiar de Express a Fastify, de MySQL a PostgreSQL, sin tocar el core.
-                    </p>
-                    <SimpleCarousel id="hexagonal-detalles">
-                      <div>
-                        <h4 class="text-white font-semibold mb-2 text-sm">✅ Ideal para:</h4>
-                        <ul class="text-gray-400 text-sm space-y-1">
-                          <li>• Startups que pivotean frecuentemente</li>
-                          <li>• Productos con múltiples integraciones</li>
-                          <li>• Equipos que quieren testear fácil</li>
-                        </ul>
+                <div class="bg-gradient-to-br from-[#82e256]/10 to-[#04ADC0]/10 p-6 rounded-xl border border-[#82e256]/30 mb-6">
+                  <p class="text-gray-300 text-lg">
+                    Impulsamos la transformación digital de tu organización a través de un modelo integral que combina <strong class="text-white">gobernanza, innovación y entrega de valor sostenible</strong>.
+                  </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                  <!-- 1. Mentoría Estratégica -->
+                  <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 border border-gray-700 hover:border-[#82e256] transition-all">
+                    <div class="flex items-start gap-4">
+                      <i data-lucide="graduation-cap" class="w-10 h-10 text-[#82e256] flex-shrink-0"></i>
+                      <div class="space-y-2">
+                        <h3 class="text-xl font-bold text-white">Mentoría Estratégica</h3>
+                        <p class="text-gray-300 text-sm">
+                          Acompañamiento experto para arquitectos y líderes técnicos. Transferencia de conocimiento en patrones modernos, mejores prácticas y toma de decisiones arquitectónicas críticas.
+                        </p>
                       </div>
-                      <div class="bg-black/30 p-4 rounded-lg font-mono text-xs text-gray-300">
-                        <div>[API REST] ← [Casos de Uso] → [PostgreSQL]</div>
-                        <div class="text-[#82e256] my-1">↓ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ↓</div>
-                        <div>[gRPC] &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[MongoDB]</div>
-                      </div>
-                    </SimpleCarousel>
+                    </div>
                   </div>
 
-                  <!-- Clean Architecture -->
-                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700">
-                    <h3 class="text-2xl font-bold text-white mb-3">🎯 Clean Architecture / Onion Architecture</h3>
-                    <p class="text-gray-300 mb-4">
-                      Código organizado en capas con <strong class="text-white">dependencias en una sola dirección</strong>. El core del negocio está en el centro, protegido de cambios externos.
-                    </p>
-                    <SimpleCarousel id="clean-architecture-detalles">
-                      <div>
-                        <h4 class="text-white font-semibold mb-2 text-sm">✅ Ideal para:</h4>
-                        <ul class="text-gray-400 text-sm space-y-1">
-                          <li>• Proyectos enterprise complejos</li>
-                          <li>• Equipos grandes (10+ devs)</li>
-                          <li>• Sistemas que vivirán 5+ años</li>
-                        </ul>
+                  <!-- 2. Patrones de Arquitectura Moderna -->
+                  <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 border border-gray-700 hover:border-[#82e256] transition-all">
+                    <div class="flex items-start gap-4">
+                      <i data-lucide="layers" class="w-10 h-10 text-[#82e256] flex-shrink-0"></i>
+                      <div class="space-y-2">
+                        <h3 class="text-xl font-bold text-white">Patrones de Arquitectura Moderna</h3>
+                        <p class="text-gray-300 text-sm">
+                          Estandarización e implementación de patrones arquitectónicos probados: microservicios, event-driven, hexagonal, CQRS. Documentación y gobierno de decisiones de diseño.
+                        </p>
                       </div>
-                      <div>
-                        <h4 class="text-white font-semibold mb-2 text-sm">Capas:</h4>
-                        <ul class="text-gray-400 text-sm space-y-1">
-                          <li>• <strong class="text-[#82e256]">Entities:</strong> Reglas de negocio</li>
-                          <li>• <strong class="text-[#82e256]">Use Cases:</strong> Lógica de aplicación</li>
-                          <li>• <strong class="text-[#82e256]">Adapters:</strong> Controllers, presenters</li>
-                          <li>• <strong class="text-[#82e256]">Drivers:</strong> UI, DB, APIs externas</li>
-                        </ul>
-                      </div>
-                    </SimpleCarousel>
+                    </div>
                   </div>
 
-                  <!-- Microservicios -->
-                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700">
-                    <h3 class="text-2xl font-bold text-white mb-3">⚡ Microservicios</h3>
-                    <p class="text-gray-300 mb-4">
-                      Divide tu aplicación en servicios pequeños e independientes. Cada uno puede deployarse por separado, escalar solo lo que necesita y usar tecnologías diferentes.
-                    </p>
-                    <SimpleCarousel id="microservicios-detalles">
-                      <div>
-                        <h4 class="text-white font-semibold mb-2 text-sm">✅ Ideal para:</h4>
-                        <ul class="text-gray-400 text-sm space-y-1">
-                          <li>• Plataformas con múltiples funcionalidades</li>
-                          <li>• Equipos distribuidos</li>
-                          <li>• SaaS que cobra por módulos</li>
-                        </ul>
+                  <!-- 3. Autoservicio y Automatización -->
+                  <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 border border-gray-700 hover:border-[#82e256] transition-all">
+                    <div class="flex items-start gap-4">
+                      <i data-lucide="zap" class="w-10 h-10 text-[#82e256] flex-shrink-0"></i>
+                      <div class="space-y-2">
+                        <h3 class="text-xl font-bold text-white">Autoservicio y Automatización</h3>
+                        <p class="text-gray-300 text-sm">
+                          Plataformas internas para desarrolladores (IDP), templates de proyectos, CI/CD automatizado, infrastructure as code. Reducción de tiempos de setup de semanas a horas.
+                        </p>
                       </div>
-                      <div class="bg-black/30 p-4 rounded-lg text-xs text-gray-300">
-                        <div class="space-y-1">
-                          <div>🔐 Servicio Auth (Node.js)</div>
-                          <div>💳 Servicio Pagos (Python)</div>
-                          <div>📧 Servicio Notificaciones (Go)</div>
-                          <div>📊 Servicio Analytics (Rust)</div>
-                        </div>
-                      </div>
-                    </SimpleCarousel>
+                    </div>
                   </div>
 
-                  <!-- Event-Driven -->
-                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700">
-                    <h3 class="text-2xl font-bold text-white mb-3">🔄 Event-Driven Architecture</h3>
-                    <p class="text-gray-300 mb-4">
-                      Los servicios se comunican mediante <strong class="text-white">eventos asíncronos</strong>. Si un servicio cae, los eventos se encolan y procesan después.
-                    </p>
-                    <SimpleCarousel id="event-driven-detalles">
-                      <div>
-                        <h4 class="text-white font-semibold mb-2 text-sm">✅ Ideal para:</h4>
-                        <ul class="text-gray-400 text-sm space-y-1">
-                          <li>• Sistemas con alto volumen de transacciones</li>
-                          <li>• Workflows complejos (e-commerce, fintech)</li>
-                          <li>• Apps que necesitan audit logs</li>
-                        </ul>
+                  <!-- 4. Estrategias de Ventas Técnicas -->
+                  <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 border border-gray-700 hover:border-[#82e256] transition-all">
+                    <div class="flex items-start gap-4">
+                      <i data-lucide="briefcase" class="w-10 h-10 text-[#82e256] flex-shrink-0"></i>
+                      <div class="space-y-2">
+                        <h3 class="text-xl font-bold text-white">Estrategias de Ventas Técnicas</h3>
+                        <p class="text-gray-300 text-sm">
+                          Soporte arquitectónico en procesos de venta: POCs, arquitecturas de referencia, estimaciones técnicas, presentaciones para stakeholders técnicos y de negocio.
+                        </p>
                       </div>
-                      <div>
-                        <h4 class="text-white font-semibold mb-2 text-sm">Tecnologías:</h4>
-                        <ul class="text-gray-400 text-sm space-y-1">
-                          <li>• RabbitMQ, Kafka, AWS SQS</li>
-                          <li>• Event Sourcing + CQRS</li>
-                        </ul>
-                      </div>
-                    </SimpleCarousel>
+                    </div>
                   </div>
 
-                  <!-- CQRS -->
-                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700">
-                    <h3 class="text-2xl font-bold text-white mb-3">📊 CQRS (Command Query Responsibility Segregation)</h3>
-                    <p class="text-gray-300 mb-4">
-                      Separa las operaciones de <strong class="text-white">escritura</strong> (commands) de las de <strong class="text-white">lectura</strong> (queries). Cada una puede optimizarse independientemente.
-                    </p>
-                    <SimpleCarousel id="cqrs-detalles">
-                      <div>
-                        <h4 class="text-white font-semibold mb-2 text-sm">✅ Ideal para:</h4>
-                        <ul class="text-gray-400 text-sm space-y-1">
-                          <li>• Apps con millones de lecturas, pocas escrituras</li>
-                          <li>• Dashboards con analíticas complejas</li>
-                          <li>• E-commerce de alto tráfico</li>
-                        </ul>
+                  <!-- 5. Consultoría Especializada -->
+                  <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 border border-gray-700 hover:border-[#82e256] transition-all">
+                    <div class="flex items-start gap-4">
+                      <i data-lucide="target" class="w-10 h-10 text-[#82e256] flex-shrink-0"></i>
+                      <div class="space-y-2">
+                        <h3 class="text-xl font-bold text-white">Consultoría Especializada</h3>
+                        <p class="text-gray-300 text-sm">
+                          Asesoramiento en transformación digital, modernización de legacy systems, cloud migration, optimización de costos, selección de tecnologías y definición de target architectures.
+                        </p>
                       </div>
-                      <div class="bg-black/30 p-4 rounded-lg text-xs text-gray-300">
-                        <div class="space-y-2">
-                          <div><strong class="text-[#82e256]">Write:</strong> PostgreSQL relacional</div>
-                          <div><strong class="text-[#82e256]">Read:</strong> Elasticsearch para búsquedas rápidas</div>
-                        </div>
+                    </div>
+                  </div>
+
+                  <!-- 6. Due Diligence -->
+                  <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 border border-gray-700 hover:border-[#82e256] transition-all">
+                    <div class="flex items-start gap-4">
+                      <i data-lucide="search" class="w-10 h-10 text-[#82e256] flex-shrink-0"></i>
+                      <div class="space-y-2">
+                        <h3 class="text-xl font-bold text-white">Due Diligence y Evaluación de Riesgos</h3>
+                        <p class="text-gray-300 text-sm">
+                          Auditorías técnicas profundas para M&A, evaluación de deuda técnica, análisis de escalabilidad, seguridad, compliance y viabilidad de roadmaps tecnológicos.
+                        </p>
                       </div>
-                    </SimpleCarousel>
+                    </div>
+                  </div>
+
+                  <!-- 7. Apropiación de Tecnología -->
+                  <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 border border-gray-700 hover:border-[#82e256] transition-all">
+                    <div class="flex items-start gap-4">
+                      <i data-lucide="rocket" class="w-10 h-10 text-[#82e256] flex-shrink-0"></i>
+                      <div class="space-y-2">
+                        <h3 class="text-xl font-bold text-white">Apropiación de Tecnología</h3>
+                        <p class="text-gray-300 text-sm">
+                          Programas de adopción tecnológica: evangelización, capacitación técnica, definición de estándares, creación de communities of practice y guilds.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 8. Roadmapping -->
+                  <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 border border-gray-700 hover:border-[#82e256] transition-all">
+                    <div class="flex items-start gap-4">
+                      <i data-lucide="map" class="w-10 h-10 text-[#82e256] flex-shrink-0"></i>
+                      <div class="space-y-2">
+                        <h3 class="text-xl font-bold text-white">Roadmapping para Equipos</h3>
+                        <p class="text-gray-300 text-sm">
+                          Definición de hojas de ruta técnicas alineadas con objetivos de negocio. Priorización basada en valor, gestión de dependencias, definición de hitos arquitectónicos.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 9. Definición de Roles en TI -->
+                  <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 border border-gray-700 hover:border-[#82e256] transition-all">
+                    <div class="flex items-start gap-4">
+                      <i data-lucide="users-round" class="w-10 h-10 text-[#82e256] flex-shrink-0"></i>
+                      <div class="space-y-2">
+                        <h3 class="text-xl font-bold text-white">Definición de Roles en TI</h3>
+                        <p class="text-gray-300 text-sm">
+                          Estructuración de equipos técnicos: definición de roles, responsabilidades, career paths, skill matrices, modelos de gobernanza y operating models efectivos.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 10. Evolución Empresarial con IA -->
+                  <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 border border-gray-700 hover:border-[#82e256] transition-all">
+                    <div class="flex items-start gap-4">
+                      <i data-lucide="bot" class="w-10 h-10 text-[#82e256] flex-shrink-0"></i>
+                      <div class="space-y-2">
+                        <h3 class="text-xl font-bold text-white">Evolución Empresarial con IA</h3>
+                        <p class="text-gray-300 text-sm">
+                          Estrategias de adopción de IA/ML: identificación de casos de uso, arquitecturas de datos para IA, MLOps, governance de modelos, ética y responsible AI.
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
 
               <hr class="border-gray-800" />
 
-              <!-- Servicios -->
+              <!-- Servicios Completos -->
               <div id="servicios">
                 <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">Servicios que Ofrecemos</h2>
 
-                <SimpleCarousel id="servicios-arquitectura">
-                  <!-- Auditoría -->
-                  <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256] transition-all">
-                    <div class="text-4xl mb-4">🔍</div>
-                    <h3 class="text-xl font-bold text-white mb-3">Auditoría de Arquitectura Actual</h3>
-                    <p class="text-gray-300 mb-4 text-sm">Te decimos <strong class="text-white">qué está mal</strong> y <strong class="text-white">cómo arreglarlo</strong></p>
-                    <ul class="text-gray-400 text-sm space-y-2 mb-4">
-                      <li>• Code smells y deuda técnica</li>
-                      <li>• Cuellos de botella de performance</li>
-                      <li>• Problemas de escalabilidad</li>
-                      <li>• Riesgos de seguridad</li>
-                    </ul>
-                    <div class="flex justify-between items-center text-sm">
-                      <span class="text-[#82e256] font-semibold">📄 Reporte completo</span>
-                      <span class="text-gray-500">⏱️ 1-2 semanas</span>
-                    </div>
-                  </div>
+                <div class="bg-gradient-to-br from-[#82e256]/10 to-[#04ADC0]/10 p-6 rounded-xl border border-[#82e256]/30 mb-6">
+                  <p class="text-gray-300 text-lg">
+                    Desde auditorías técnicas hasta adopción de IA, cubrimos todo el espectro de necesidades arquitectónicas empresariales con servicios concretos y resultados medibles.
+                  </p>
+                </div>
 
-                  <!-- Diseño desde cero -->
-                  <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256] transition-all">
-                    <div class="text-4xl mb-4">🏗️</div>
-                    <h3 class="text-xl font-bold text-white mb-3">Diseño de Arquitectura desde Cero</h3>
-                    <p class="text-gray-300 mb-4 text-sm">Diseñamos la arquitectura completa antes de escribir código</p>
-                    <ul class="text-gray-400 text-sm space-y-2 mb-4">
-                      <li>• Diagramas C4 (Context, Containers, Components)</li>
-                      <li>• Selección de tecnologías</li>
-                      <li>• Estimación de infraestructura</li>
-                      <li>• Plan de escalamiento</li>
-                    </ul>
-                    <div class="flex justify-between items-center text-sm">
-                      <span class="text-[#82e256] font-semibold">📐 Documentación completa</span>
-                      <span class="text-gray-500">⏱️ 3-6 semanas</span>
-                    </div>
-                  </div>
-
-                  <!-- Migración -->
-                  <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256] transition-all">
-                    <div class="text-4xl mb-4">🔄</div>
-                    <h3 class="text-xl font-bold text-white mb-3">Migración / Refactoring</h3>
-                    <p class="text-gray-300 mb-4 text-sm">Tu sistema funciona pero no escala. Lo migramos sin downtime</p>
-                    <ul class="text-gray-400 text-sm space-y-2 mb-4">
-                      <li>• Monolito → Microservicios</li>
-                      <li>• Arquitectura spaghetti → Clean Architecture</li>
-                      <li>• Base de datos legacy → Solución moderna</li>
-                    </ul>
-                    <div class="flex justify-between items-center text-sm">
-                      <span class="text-[#82e256] font-semibold">🎯 Strangler Fig Pattern</span>
-                      <span class="text-gray-500">⏱️ 2-6 meses</span>
-                    </div>
-                  </div>
-
-                  <!-- Observabilidad -->
-                  <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256] transition-all">
-                    <div class="text-4xl mb-4">📊</div>
-                    <h3 class="text-xl font-bold text-white mb-3">Observabilidad y Monitoreo</h3>
-                    <p class="text-gray-300 mb-4 text-sm">No puedes arreglar lo que no puedes medir</p>
-                    <ul class="text-gray-400 text-sm space-y-2 mb-4">
-                      <li>• Logging centralizado (ELK, Loki)</li>
-                      <li>• Métricas (Prometheus, Grafana)</li>
-                      <li>• Tracing distribuido (Jaeger, Zipkin)</li>
-                      <li>• Alertas inteligentes (PagerDuty)</li>
-                    </ul>
-                    <div class="flex justify-between items-center text-sm">
-                      <span class="text-[#82e256] font-semibold">📈 Dashboards en vivo</span>
-                      <span class="text-gray-500">⏱️ 2-4 semanas</span>
-                    </div>
-                  </div>
-
-                  <!-- CI/CD -->
-                  <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256] transition-all">
-                    <div class="text-4xl mb-4">🚀</div>
-                    <h3 class="text-xl font-bold text-white mb-3">CI/CD y DevOps</h3>
-                    <p class="text-gray-300 mb-4 text-sm">Deploy rápido y seguro</p>
-                    <SimpleCarousel id="cicd-caracteristicas">
-                      <ul class="text-gray-400 text-sm space-y-2">
-                        <li>• Pipelines automatizados (GitHub Actions)</li>
-                        <li>• Infrastructure as Code (Terraform, Pulumi)</li>
-                      </ul>
-                      <ul class="text-gray-400 text-sm space-y-2">
-                        <li>• Blue-Green deployments</li>
-                        <li>• Rollback automático si algo falla</li>
-                      </ul>
-                    </SimpleCarousel>
-                    <div class="flex justify-between items-center text-sm mt-4">
-                      <span class="text-[#82e256] font-semibold">⚡ Deploys en minutos</span>
-                      <span class="text-gray-500">⏱️ 3-6 semanas</span>
-                    </div>
-                  </div>
-                </SimpleCarousel>
+                <Accordion items={serviciosItems} />
               </div>
 
               <hr class="border-gray-800" />
@@ -460,66 +865,46 @@ const secciones = [
               <div id="stack">
                 <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">Stack de Tecnologías</h2>
 
-                <SimpleCarousel id="stack-tecnologias-carousel">
-                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700">
-                    <h3 class="text-white font-bold mb-4 flex items-center gap-2">
-                      <span class="text-2xl">⚙️</span> Backend
-                    </h3>
-                    <ul class="text-gray-400 text-sm space-y-2">
-                      <li>• Node.js / TypeScript</li>
-                      <li>• Python / FastAPI</li>
-                      <li>• Go (alto performance)</li>
-                      <li>• Rust (servicios críticos)</li>
-                    </ul>
-                  </div>
+                <p class="text-gray-300 mb-3 flex items-start gap-2">
+                  <i data-lucide="settings" class="w-5 h-5 text-[#82e256] mt-0.5"></i>
+                  <span><strong class="text-white">Backend:</strong> Node.js / TypeScript, Python / FastAPI, Go (alto performance)</span>
+                </p>
+                <p class="text-gray-300 mb-3 flex items-start gap-2">
+                  <i data-lucide="database" class="w-5 h-5 text-[#82e256] mt-0.5"></i>
+                  <span><strong class="text-white">Bases de datos:</strong> PostgreSQL (relacional), MongoDB (documentos), Redis (caché y sesiones), Elasticsearch (búsqueda)</span>
+                </p>
+                <p class="text-gray-300 mb-3 flex items-start gap-2">
+                  <i data-lucide="mail" class="w-5 h-5 text-[#82e256] mt-0.5"></i>
+                  <span><strong class="text-white">Mensajería y Orquestación:</strong> RabbitMQ (colas de mensajes), NATS (streaming), Prefect (workflows)</span>
+                </p>
+                <p class="text-gray-300 mb-3 flex items-start gap-2">
+                  <i data-lucide="cloud" class="w-5 h-5 text-[#82e256] mt-0.5"></i>
+                  <span><strong class="text-white">Infraestructura:</strong> Docker + Kubernetes/Swarm, AWS / GCP / Hetzner, Terraform (IaC), Nginx / Caddy</span>
+                </p>
+                <p class="text-gray-300 mb-3 flex items-start gap-2">
+                  <i data-lucide="bar-chart-3" class="w-5 h-5 text-[#82e256] mt-0.5"></i>
+                  <span><strong class="text-white">Observabilidad:</strong> Prometheus + Grafana (métricas), Sentry (logs y error tracking), Jaeger (tracing)</span>
+                </p>
 
-                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700">
-                    <h3 class="text-white font-bold mb-4 flex items-center gap-2">
-                      <span class="text-2xl">🗄️</span> Bases de datos
-                    </h3>
-                    <ul class="text-gray-400 text-sm space-y-2">
-                      <li>• PostgreSQL (relacional)</li>
-                      <li>• MongoDB (documentos)</li>
-                      <li>• Redis (caché y sesiones)</li>
-                      <li>• Elasticsearch (búsqueda)</li>
-                    </ul>
-                  </div>
+                <div class="mt-6">
+                  <a href="/#contenido7" class="inline-flex items-center gap-2 text-[#04ADC0] hover:text-[#0396a8] underline font-semibold text-base">
+                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                    Ver nuestro stack tecnológico completo
+                  </a>
+                </div>
 
-                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700">
-                    <h3 class="text-white font-bold mb-4 flex items-center gap-2">
-                      <span class="text-2xl">📬</span> Mensajería
-                    </h3>
-                    <ul class="text-gray-400 text-sm space-y-2">
-                      <li>• RabbitMQ (tareas asíncronas)</li>
-                      <li>• Apache Kafka (streaming)</li>
-                      <li>• AWS SQS/SNS (managed queues)</li>
-                    </ul>
+                <div class="my-8">
+                  <div class="flex justify-center mb-4">
+                    <img
+                      src="/imgfondos/11.jpg"
+                      alt="Stack tecnológico moderno"
+                      class="h-auto max-w-2xl rounded-2xl"
+                    />
                   </div>
-
-                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700">
-                    <h3 class="text-white font-bold mb-4 flex items-center gap-2">
-                      <span class="text-2xl">☁️</span> Infraestructura
-                    </h3>
-                    <ul class="text-gray-400 text-sm space-y-2">
-                      <li>• Docker + Kubernetes</li>
-                      <li>• AWS / GCP / Azure</li>
-                      <li>• Terraform (IaC)</li>
-                      <li>• Nginx / Traefik</li>
-                    </ul>
-                  </div>
-
-                  <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700">
-                    <h3 class="text-white font-bold mb-4 flex items-center gap-2">
-                      <span class="text-2xl">📊</span> Observabilidad
-                    </h3>
-                    <ul class="text-gray-400 text-sm space-y-2">
-                      <li>• Prometheus + Grafana</li>
-                      <li>• ELK Stack (logs)</li>
-                      <li>• Jaeger (tracing)</li>
-                      <li>• Sentry (error tracking)</li>
-                    </ul>
-                  </div>
-                </SimpleCarousel>
+                  <p class="text-center text-gray-400 text-sm italic">
+                    Tecnologías de última generación para tu infraestructura
+                  </p>
+                </div>
               </div>
 
               <!-- CTA Final -->

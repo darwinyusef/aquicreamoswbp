@@ -3,15 +3,192 @@ import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import OtrosServicios from "../../components/OtrosServicios.astro";
-import SimpleCarousel from "../../components/SimpleCarousel.astro";
+import Accordion from "../../components/Accordion.astro";
 
 const secciones = [
   { id: "intro", title: "Introducción" },
   { id: "diferencia", title: "¿Qué hacemos diferente?" },
   { id: "servicios", title: "Servicios IA/ML" },
   { id: "stack", title: "Stack Tecnológico" },
-  { id: "metodologia", title: "Metodología" },
   { id: "garantias", title: "Garantías" },
+];
+
+// Items para el accordion de servicios
+const serviciosItems = [
+  {
+    title: 'LLMs y Procesamiento de Lenguaje Natural',
+    icon: 'message-square',
+    content: `
+      <p class="mb-3 text-gray-300 leading-relaxed">Aprovecha GPT-4, Claude y otros LLMs en tu negocio</p>
+      <ul class="space-y-2 text-gray-300">
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">●</span>
+          <span>Chatbots conversacionales inteligentes</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">●</span>
+          <span>Análisis de sentimiento y clasificación de texto</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">●</span>
+          <span>Generación de contenido y resúmenes automáticos</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">●</span>
+          <span>Fine-tuning de modelos para tu dominio</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">●</span>
+          <span>RAG (Retrieval Augmented Generation)</span>
+        </li>
+      </ul>
+    `
+  },
+  {
+    title: 'Modelos Predictivos y Forecasting',
+    icon: 'trending-up',
+    content: `
+      <p class="mb-3 text-gray-300 leading-relaxed">Predice comportamientos y optimiza decisiones</p>
+      <ul class="space-y-2 text-gray-300">
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">●</span>
+          <span>Predicción de demanda y ventas</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">●</span>
+          <span>Churn prediction (predicción de fuga de clientes)</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">●</span>
+          <span>Lead scoring y cualificación automática</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">●</span>
+          <span>Detección de anomalías y fraude</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">●</span>
+          <span>Optimización de precios dinámicos</span>
+        </li>
+      </ul>
+    `
+  },
+  {
+    title: 'Sistemas de Recomendación',
+    icon: 'target',
+    content: `
+      <p class="mb-3 text-gray-300 leading-relaxed">Personalización masiva de contenido y productos</p>
+      <ul class="space-y-2 text-gray-300">
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">●</span>
+          <span>Recomendaciones de productos (e-commerce)</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">●</span>
+          <span>Personalización de contenido (Netflix-style)</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">●</span>
+          <span>Matching de usuarios (dating apps, B2B)</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">●</span>
+          <span>Filtrado colaborativo y content-based</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">●</span>
+          <span>A/B testing y optimización continua</span>
+        </li>
+      </ul>
+    `
+  },
+  {
+    title: 'Computer Vision y OCR',
+    icon: 'eye',
+    content: `
+      <p class="mb-3 text-gray-300 leading-relaxed">Sistemas que ven, entienden y actúan</p>
+      <ul class="space-y-2 text-gray-300">
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">●</span>
+          <span>OCR y extracción de datos de documentos</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">●</span>
+          <span>Detección y clasificación de objetos</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">●</span>
+          <span>Reconocimiento facial y biometría</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">●</span>
+          <span>Análisis de imágenes médicas</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">●</span>
+          <span>Control de calidad automatizado</span>
+        </li>
+      </ul>
+    `
+  },
+  {
+    title: 'MLOps y Puesta en Producción',
+    icon: 'refresh-cw',
+    content: `
+      <p class="mb-3 text-gray-300 leading-relaxed">Del experimento a producción sin fricción</p>
+      <ul class="space-y-2 text-gray-300">
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">●</span>
+          <span>Pipelines automatizados de ML</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">●</span>
+          <span>Monitoreo de drift y degradación de modelos</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">●</span>
+          <span>Re-entrenamiento automático</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">●</span>
+          <span>Feature stores y gestión de datos</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">●</span>
+          <span>Serving de modelos escalable (APIs)</span>
+        </li>
+      </ul>
+    `
+  },
+  {
+    title: 'Agentes Autónomos con IA',
+    icon: 'cpu',
+    content: `
+      <p class="mb-3 text-gray-300 leading-relaxed">Empleados digitales que toman decisiones</p>
+      <ul class="space-y-2 text-gray-300">
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">●</span>
+          <span>Agentes de atención al cliente</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">●</span>
+          <span>Asistentes de ventas y calificación de leads</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">●</span>
+          <span>Agentes de automatización de procesos (RPA + IA)</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">●</span>
+          <span>Sistemas multi-agente coordinados</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">●</span>
+          <span>Integración con tools y APIs externas</span>
+        </li>
+      </ul>
+    `
+  }
 ];
 ---
 
@@ -155,71 +332,65 @@ const secciones = [
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
               ¿Qué hacemos diferente en IA?
             </h2>
-            <p class="text-gray-300 mb-12 text-lg">
-              La mayoría de proyectos de IA fracasan. Así evitamos que eso te
-              pase
+            <p class="text-gray-300 mb-8 text-lg">
+              8 de cada 10 proyectos de Inteligencia Artificial fracasan. Así evitamos que eso te pase a ti
             </p>
 
-            <SimpleCarousel id="diferencia-ia-carousel">
-              <!-- Problema 1 -->
-              <div
-                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all"
-              >
-❌</div>
-                <h3 class="text-2xl font-bold text-white mb-3">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <!-- Lo que NO hacemos -->
+              <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700">
+                <div class="text-4xl mb-4">❌</div>
+                <h3 class="text-2xl font-bold text-white mb-4">
                   Lo que NO hacemos
                 </h3>
                 <ul class="text-gray-400 space-y-3">
                   <li class="flex items-start gap-3">
                     <span class="text-red-400 mt-1">✗</span>
-                    <p>Vender IA como "solución mágica"</p>
+                    <p>Prometer que la IA resolverá todos tus problemas como por arte de magia</p>
                   </li>
                   <li class="flex items-start gap-3">
                     <span class="text-red-400 mt-1">✗</span>
-                    <p>Modelos que nunca llegan a producción</p>
+                    <p>Crear sistemas que solo funcionan en la computadora del ingeniero, pero nunca en tu empresa</p>
                   </li>
                   <li class="flex items-start gap-3">
                     <span class="text-red-400 mt-1">✗</span>
-                    <p>Accuracy del 95% sin valor de negocio</p>
+                    <p>Presumir porcentajes técnicos impresionantes que no se traducen en ahorros reales</p>
                   </li>
                   <li class="flex items-start gap-3">
                     <span class="text-red-400 mt-1">✗</span>
-                    <p>Promesas de automatización total sin análisis</p>
+                    <p>Decir que automatizaremos todo sin antes entender cómo funciona tu negocio</p>
                   </li>
                 </ul>
               </div>
 
-              <!-- Solución -->
-              <div
-                class="bg-gradient-to-br from-[#82e256]/10 to-[#d4e256]/10 p-8 rounded-2xl border border-[#82e256]/30"
-              >
-✅</div>
-                <h3 class="text-2xl font-bold text-white mb-3">
+              <!-- Lo que SÍ hacemos -->
+              <div class="bg-gradient-to-br from-[#82e256]/10 to-[#d4e256]/10 p-8 rounded-2xl border border-[#82e256]/30">
+                <div class="text-4xl mb-4">✅</div>
+                <h3 class="text-2xl font-bold text-white mb-4">
                   Lo que SÍ hacemos
                 </h3>
                 <ul class="text-gray-300 space-y-3">
                   <li class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">✓</span>
-                    <p>Análisis previo de viabilidad y ROI esperado</p>
+                    <p>Primero analizamos si realmente te conviene invertir en IA y calculamos cuánto dinero puedes ahorrar o ganar</p>
                   </li>
                   <li class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">✓</span>
-                    <p>Modelos en producción con monitoreo continuo</p>
+                    <p>Entregamos sistemas funcionando en tu empresa, no experimentos. Los monitoreamos para que sigan mejorando</p>
                   </li>
                   <li class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">✓</span>
-                    <p>KPIs de negocio, no solo métricas técnicas</p>
+                    <p>Medimos resultados que importan: cuánto ahorraste, cuánto vendiste más, cuántas horas recuperaste</p>
                   </li>
                   <li class="flex items-start gap-3">
                     <span class="text-[#82e256] mt-1">✓</span>
                     <p>
-                      Te decimos la verdad: si la IA NO es para ti, te lo
-                      decimos
+                      Somos honestos: si la IA no va a darte resultados o es muy cara para tu caso, te lo decimos de frente
                     </p>
                   </li>
                 </ul>
               </div>
-            </SimpleCarousel>
+            </div>
           </section>
 
           <div class="border-t border-gray-700"></div>
@@ -229,273 +400,11 @@ const secciones = [
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
               Servicios de IA & Machine Learning
             </h2>
-            <p class="text-gray-300 mb-12 text-lg">
+            <p class="text-gray-300 mb-8 text-lg">
               Desde chatbots hasta modelos predictivos personalizados
             </p>
 
-            <SimpleCarousel id="servicios-ia-ml-carousel">
-              <!-- LLMs y NLP -->
-              <div
-                class="bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-8 rounded-2xl border border-purple-500/30 hover:border-purple-400 transition-all"
-              >
-💬</div>
-                <h3 class="text-2xl font-bold text-white mb-3">
-                  LLMs y Procesamiento de Lenguaje Natural
-                </h3>
-                <p class="text-gray-300 mb-4">
-                  Aprovecha GPT-4, Claude y otros LLMs en tu negocio
-                </p>
-
-                <div class="space-y-3 mt-6">
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Chatbots conversacionales inteligentes
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Análisis de sentimiento y clasificación de texto
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Generación de contenido y resúmenes automáticos
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Fine-tuning de modelos para tu dominio
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      RAG (Retrieval Augmented Generation)
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Modelos Predictivos -->
-              <div
-                class="bg-gradient-to-br from-blue-900/20 to-blue-800/20 p-8 rounded-2xl border border-blue-500/30 hover:border-blue-400 transition-all"
-              >
-📈</div>
-                <h3 class="text-2xl font-bold text-white mb-3">
-                  Modelos Predictivos y Forecasting
-                </h3>
-                <p class="text-gray-300 mb-4">
-                  Predice comportamientos y optimiza decisiones
-                </p>
-
-                <div class="space-y-3 mt-6">
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Predicción de demanda y ventas</p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Churn prediction (predicción de fuga de clientes)
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Lead scoring y cualificación automática
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Detección de anomalías y fraude</p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Optimización de precios dinámicos
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Sistemas de Recomendación -->
-              <div
-                class="bg-gradient-to-br from-green-900/20 to-green-800/20 p-8 rounded-2xl border border-green-500/30 hover:border-green-400 transition-all"
-              >
-🎯</div>
-                <h3 class="text-2xl font-bold text-white mb-3">
-                  Sistemas de Recomendación
-                </h3>
-                <p class="text-gray-300 mb-4">
-                  Personalización masiva de contenido y productos
-                </p>
-
-                <div class="space-y-3 mt-6">
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Recomendaciones de productos (e-commerce)
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Personalización de contenido (Netflix-style)
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Matching de usuarios (dating apps, B2B)
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Filtrado colaborativo y content-based
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      A/B testing y optimización continua
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Computer Vision -->
-              <div
-                class="bg-gradient-to-br from-orange-900/20 to-orange-800/20 p-8 rounded-2xl border border-orange-500/30 hover:border-orange-400 transition-all"
-              >
-👁️</div>
-                <h3 class="text-2xl font-bold text-white mb-3">
-                  Computer Vision y OCR
-                </h3>
-                <p class="text-gray-300 mb-4">
-                  Sistemas que ven, entienden y actúan
-                </p>
-
-                <div class="space-y-3 mt-6">
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      OCR y extracción de datos de documentos
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Detección y clasificación de objetos
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Reconocimiento facial y biometría
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Análisis de imágenes médicas</p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Control de calidad automatizado</p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- MLOps -->
-              <div
-                class="bg-gradient-to-br from-cyan-900/20 to-cyan-800/20 p-8 rounded-2xl border border-cyan-500/30 hover:border-cyan-400 transition-all"
-              >
-🔄</div>
-                <h3 class="text-2xl font-bold text-white mb-3">
-                  MLOps y Puesta en Producción
-                </h3>
-                <p class="text-gray-300 mb-4">
-                  Del experimento a producción sin fricción
-                </p>
-
-                <div class="space-y-3 mt-6">
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Pipelines automatizados de ML</p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Monitoreo de drift y degradación de modelos
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Re-entrenamiento automático</p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Feature stores y gestión de datos
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Serving de modelos escalable (APIs)
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Agentes Autónomos -->
-              <div
-                class="bg-gradient-to-br from-pink-900/20 to-pink-800/20 p-8 rounded-2xl border border-pink-500/30 hover:border-pink-400 transition-all"
-              >
-🦾</div>
-                <h3 class="text-2xl font-bold text-white mb-3">
-                  Agentes Autónomos con IA
-                </h3>
-                <p class="text-gray-300 mb-4">
-                  Empleados digitales que toman decisiones
-                </p>
-
-                <div class="space-y-3 mt-6">
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">Agentes de atención al cliente</p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Asistentes de ventas y calificación de leads
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Agentes de automatización de procesos (RPA + IA)
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Sistemas multi-agente coordinados
-                    </p>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#82e256] mt-1">●</span>
-                    <p class="text-gray-400">
-                      Integración con tools y APIs externas
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </SimpleCarousel>
+            <Accordion items={serviciosItems} />
           </section>
 
           <div class="border-t border-gray-700"></div>
@@ -505,90 +414,514 @@ const secciones = [
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
               Stack Tecnológico de IA/ML
             </h2>
-            <p class="text-gray-300 mb-12 text-lg">
+            <p class="text-gray-300 mb-8 text-lg">
               Las mejores herramientas del ecosistema
             </p>
 
-            <SimpleCarousel id="stack-tecnologico-carousel">
-              <!-- LLMs -->
-              <div
-                class="bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-6 rounded-xl border border-purple-500/30"
-              >
-                <h3
-                  class="text-xl font-bold text-white mb-4 flex items-center gap-2"
-                >
-                  <span>🧠</span> LLMs
-                </h3>
-                <div class="space-y-2 text-gray-300 text-sm">
-                  <p>• OpenAI GPT-4/4o</p>
-                  <p>• Anthropic Claude 3.5</p>
-                  <p>• LangChain / LlamaIndex</p>
-                  <p>• Vector DBs (Pinecone)</p>
-                  <p>• Fine-tuning pipelines</p>
-                  <p>• Prompt engineering</p>
+            <!-- Looper de Stack Tecnológico -->
+            <div class="overflow-hidden relative mb-8">
+              <div class="ml-stack-looper-track flex gap-6 py-4">
+                <!-- Card 1: LLMs -->
+                <div class="ml-stack-card flex-shrink-0 w-96 bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-6 rounded-xl border border-purple-500/30 hover:border-purple-400/50 transition-all">
+                  <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                    <i data-lucide="brain" class="w-6 h-6 text-purple-400"></i>
+                    LLMs y Modelos de Lenguaje
+                  </h3>
+                  <p class="text-xs text-gray-400 mb-3 italic">Modelos de lenguaje para chatbots, análisis de texto y generación de contenido</p>
+                  <div class="space-y-2 text-gray-300 text-sm">
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>OpenAI GPT-4/4o</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Anthropic Claude 3.5</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>LangChain / LlamaIndex</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Vector DBs (Pinecone, Qdrant)</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Hugging Face Transformers</span>
+                    </p>
+                  </div>
                 </div>
-              </div>
 
-              <!-- ML Frameworks -->
-              <div
-                class="bg-gradient-to-br from-blue-900/20 to-blue-800/20 p-6 rounded-xl border border-blue-500/30"
-              >
-                <h3
-                  class="text-xl font-bold text-white mb-4 flex items-center gap-2"
-                >
-                  <span>🔬</span> ML Frameworks
-                </h3>
-                <div class="space-y-2 text-gray-300 text-sm">
-                  <p>• TensorFlow / Keras</p>
-                  <p>• PyTorch</p>
-                  <p>• scikit-learn</p>
-                  <p>• XGBoost / LightGBM</p>
-                  <p>• Hugging Face</p>
-                  <p>• ONNX Runtime</p>
+                <!-- Card 2: ML Frameworks -->
+                <div class="ml-stack-card flex-shrink-0 w-96 bg-gradient-to-br from-blue-900/20 to-blue-800/20 p-6 rounded-xl border border-blue-500/30 hover:border-blue-400/50 transition-all">
+                  <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                    <i data-lucide="flask-conical" class="w-6 h-6 text-blue-400"></i>
+                    ML Frameworks
+                  </h3>
+                  <p class="text-xs text-gray-400 mb-3 italic">Frameworks para entrenar modelos de machine learning y deep learning</p>
+                  <div class="space-y-2 text-gray-300 text-sm">
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>TensorFlow / Keras</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>PyTorch / PyTorch Lightning</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>scikit-learn</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>XGBoost / LightGBM / CatBoost</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>ONNX Runtime</span>
+                    </p>
+                  </div>
                 </div>
-              </div>
 
-              <!-- MLOps -->
-              <div
-                class="bg-gradient-to-br from-green-900/20 to-green-800/20 p-6 rounded-xl border border-green-500/30"
-              >
-                <h3
-                  class="text-xl font-bold text-white mb-4 flex items-center gap-2"
-                >
-                  <span>⚙️</span> MLOps
-                </h3>
-                <div class="space-y-2 text-gray-300 text-sm">
-                  <p>• MLflow</p>
-                  <p>• Weights & Biases</p>
-                  <p>• DVC (Data Version Control)</p>
-                  <p>• Kubeflow</p>
-                  <p>• Seldon / BentoML</p>
-                  <p>• Evidently AI (monitoring)</p>
+                <!-- Card 3: MLOps / DLOps / GenAIOps -->
+                <div class="ml-stack-card flex-shrink-0 w-96 bg-gradient-to-br from-green-900/20 to-green-800/20 p-6 rounded-xl border border-green-500/30 hover:border-green-400/50 transition-all">
+                  <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                    <i data-lucide="settings" class="w-6 h-6 text-green-400"></i>
+                    MLOps / DLOps / GenAIOps
+                  </h3>
+                  <p class="text-xs text-gray-400 mb-3 italic">Operaciones y monitoreo de modelos ML, DL y IA generativa en producción</p>
+                  <div class="space-y-2 text-gray-300 text-sm">
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>MLflow - Tracking & Registry</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Weights & Biases - Experimentación</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>DVC - Data Version Control</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Kubeflow - Pipelines ML</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Evidently AI - Monitoring</span>
+                    </p>
+                  </div>
                 </div>
-              </div>
 
-              <!-- Data & Cloud -->
-              <div
-                class="bg-gradient-to-br from-cyan-900/20 to-cyan-800/20 p-6 rounded-xl border border-cyan-500/30"
-              >
-                <h3
-                  class="text-xl font-bold text-white mb-4 flex items-center gap-2"
-                >
-                  <span>☁️</span> Data & Cloud
-                </h3>
-                <div class="space-y-2 text-gray-300 text-sm">
-                  <p>• AWS SageMaker</p>
-                  <p>• Google Vertex AI</p>
-                  <p>• Azure ML</p>
-                  <p>• Snowflake</p>
-                  <p>• Apache Spark</p>
-                  <p>• Airflow / Prefect</p>
+                <!-- Card 4: DevOps para IA -->
+                <div class="ml-stack-card flex-shrink-0 w-96 bg-gradient-to-br from-orange-900/20 to-orange-800/20 p-6 rounded-xl border border-orange-500/30 hover:border-orange-400/50 transition-all">
+                  <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                    <i data-lucide="git-branch" class="w-6 h-6 text-orange-400"></i>
+                    DevOps para IA
+                  </h3>
+                  <p class="text-xs text-gray-400 mb-3 italic">Infraestructura como código, CI/CD y despliegue de modelos</p>
+                  <div class="space-y-2 text-gray-300 text-sm">
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Docker / Docker Compose</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Kubernetes / Helm</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>GitHub Actions / GitLab CI</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Terraform / Pulumi</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Seldon / BentoML - Model Serving</span>
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Card 5: Servicios Cloud para IA -->
+                <div class="ml-stack-card flex-shrink-0 w-96 bg-gradient-to-br from-cyan-900/20 to-cyan-800/20 p-6 rounded-xl border border-cyan-500/30 hover:border-cyan-400/50 transition-all">
+                  <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                    <i data-lucide="cloud" class="w-6 h-6 text-cyan-400"></i>
+                    Servicios Cloud para IA
+                  </h3>
+                  <p class="text-xs text-gray-400 mb-3 italic">Plataformas cloud para entrenar y desplegar modelos a escala</p>
+                  <div class="space-y-2 text-gray-300 text-sm">
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>AWS SageMaker</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Google Vertex AI</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Azure Machine Learning</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>AWS Lambda / Cloud Functions</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Databricks</span>
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Card 6: TTS y STT -->
+                <div class="ml-stack-card flex-shrink-0 w-96 bg-gradient-to-br from-pink-900/20 to-pink-800/20 p-6 rounded-xl border border-pink-500/30 hover:border-pink-400/50 transition-all">
+                  <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                    <i data-lucide="mic" class="w-6 h-6 text-pink-400"></i>
+                    TTS y STT (Voz)
+                  </h3>
+                  <p class="text-xs text-gray-400 mb-3 italic">Text-to-Speech y Speech-to-Text para aplicaciones de voz</p>
+                  <div class="space-y-2 text-gray-300 text-sm">
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>OpenAI Whisper (STT)</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>ElevenLabs (TTS)</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Google Cloud Speech-to-Text</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Azure Speech Services</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Coqui TTS / Tortoise TTS</span>
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Card 7: Análisis de Datos -->
+                <div class="ml-stack-card flex-shrink-0 w-96 bg-gradient-to-br from-yellow-900/20 to-yellow-800/20 p-6 rounded-xl border border-yellow-500/30 hover:border-yellow-400/50 transition-all">
+                  <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                    <i data-lucide="bar-chart-3" class="w-6 h-6 text-yellow-400"></i>
+                    Análisis de Datos
+                  </h3>
+                  <p class="text-xs text-gray-400 mb-3 italic">Herramientas para manipular, analizar y visualizar datos</p>
+                  <div class="space-y-2 text-gray-300 text-sm">
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Pandas / Polars</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>NumPy / SciPy</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Apache Spark / Dask</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Plotly / Matplotlib / Seaborn</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Tableau / Power BI</span>
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Card 8: Data Science & Engineering -->
+                <div class="ml-stack-card flex-shrink-0 w-96 bg-gradient-to-br from-indigo-900/20 to-indigo-800/20 p-6 rounded-xl border border-indigo-500/30 hover:border-indigo-400/50 transition-all">
+                  <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                    <i data-lucide="database" class="w-6 h-6 text-indigo-400"></i>
+                    Data Science & Engineering
+                  </h3>
+                  <p class="text-xs text-gray-400 mb-3 italic">Plataformas para procesamiento de datos, orquestación y almacenamiento</p>
+                  <div class="space-y-2 text-gray-300 text-sm">
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Jupyter / JupyterLab</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Airflow / Prefect - Orchestration</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Snowflake / BigQuery</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>dbt - Data Transformation</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>PostgreSQL / MongoDB</span>
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Duplicados para looping continuo (con descripciones) -->
+                <!-- Card 1 duplicado -->
+                <div class="ml-stack-card flex-shrink-0 w-96 bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-6 rounded-xl border border-purple-500/30 hover:border-purple-400/50 transition-all">
+                  <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                    <i data-lucide="brain" class="w-6 h-6 text-purple-400"></i>
+                    LLMs y Modelos de Lenguaje
+                  </h3>
+                  <p class="text-xs text-gray-400 mb-3 italic">Modelos de lenguaje para chatbots, análisis de texto y generación de contenido</p>
+                  <div class="space-y-2 text-gray-300 text-sm">
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>OpenAI GPT-4/4o</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Anthropic Claude 3.5</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>LangChain / LlamaIndex</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Vector DBs (Pinecone, Qdrant)</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Hugging Face Transformers</span>
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Card 2 duplicado -->
+                <div class="ml-stack-card flex-shrink-0 w-96 bg-gradient-to-br from-blue-900/20 to-blue-800/20 p-6 rounded-xl border border-blue-500/30 hover:border-blue-400/50 transition-all">
+                  <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                    <i data-lucide="flask-conical" class="w-6 h-6 text-blue-400"></i>
+                    ML Frameworks
+                  </h3>
+                  <p class="text-xs text-gray-400 mb-3 italic">Frameworks para entrenar modelos de machine learning y deep learning</p>
+                  <div class="space-y-2 text-gray-300 text-sm">
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>TensorFlow / Keras</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>PyTorch / PyTorch Lightning</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>scikit-learn</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>XGBoost / LightGBM / CatBoost</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>ONNX Runtime</span>
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Card 3 duplicado -->
+                <div class="ml-stack-card flex-shrink-0 w-96 bg-gradient-to-br from-green-900/20 to-green-800/20 p-6 rounded-xl border border-green-500/30 hover:border-green-400/50 transition-all">
+                  <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                    <i data-lucide="settings" class="w-6 h-6 text-green-400"></i>
+                    MLOps / DLOps / GenAIOps
+                  </h3>
+                  <p class="text-xs text-gray-400 mb-3 italic">Operaciones y monitoreo de modelos ML, DL y IA generativa en producción</p>
+                  <div class="space-y-2 text-gray-300 text-sm">
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>MLflow - Tracking & Registry</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Weights & Biases - Experimentación</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>DVC - Data Version Control</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Kubeflow - Pipelines ML</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Evidently AI - Monitoring</span>
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Card 4 duplicado -->
+                <div class="ml-stack-card flex-shrink-0 w-96 bg-gradient-to-br from-orange-900/20 to-orange-800/20 p-6 rounded-xl border border-orange-500/30 hover:border-orange-400/50 transition-all">
+                  <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                    <i data-lucide="git-branch" class="w-6 h-6 text-orange-400"></i>
+                    DevOps para IA
+                  </h3>
+                  <p class="text-xs text-gray-400 mb-3 italic">Infraestructura como código, CI/CD y despliegue de modelos</p>
+                  <div class="space-y-2 text-gray-300 text-sm">
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Docker / Docker Compose</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Kubernetes / Helm</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>GitHub Actions / GitLab CI</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Terraform / Pulumi</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Seldon / BentoML - Model Serving</span>
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Card 5 duplicado -->
+                <div class="ml-stack-card flex-shrink-0 w-96 bg-gradient-to-br from-cyan-900/20 to-cyan-800/20 p-6 rounded-xl border border-cyan-500/30 hover:border-cyan-400/50 transition-all">
+                  <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                    <i data-lucide="cloud" class="w-6 h-6 text-cyan-400"></i>
+                    Servicios Cloud para IA
+                  </h3>
+                  <p class="text-xs text-gray-400 mb-3 italic">Plataformas cloud para entrenar y desplegar modelos a escala</p>
+                  <div class="space-y-2 text-gray-300 text-sm">
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>AWS SageMaker</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Google Vertex AI</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Azure Machine Learning</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>AWS Lambda / Cloud Functions</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Databricks</span>
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Card 6 duplicado -->
+                <div class="ml-stack-card flex-shrink-0 w-96 bg-gradient-to-br from-pink-900/20 to-pink-800/20 p-6 rounded-xl border border-pink-500/30 hover:border-pink-400/50 transition-all">
+                  <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                    <i data-lucide="mic" class="w-6 h-6 text-pink-400"></i>
+                    TTS y STT (Voz)
+                  </h3>
+                  <p class="text-xs text-gray-400 mb-3 italic">Text-to-Speech y Speech-to-Text para aplicaciones de voz</p>
+                  <div class="space-y-2 text-gray-300 text-sm">
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>OpenAI Whisper (STT)</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>ElevenLabs (TTS)</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Google Cloud Speech-to-Text</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Azure Speech Services</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Coqui TTS / Tortoise TTS</span>
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Card 7 duplicado -->
+                <div class="ml-stack-card flex-shrink-0 w-96 bg-gradient-to-br from-yellow-900/20 to-yellow-800/20 p-6 rounded-xl border border-yellow-500/30 hover:border-yellow-400/50 transition-all">
+                  <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                    <i data-lucide="bar-chart-3" class="w-6 h-6 text-yellow-400"></i>
+                    Análisis de Datos
+                  </h3>
+                  <p class="text-xs text-gray-400 mb-3 italic">Herramientas para manipular, analizar y visualizar datos</p>
+                  <div class="space-y-2 text-gray-300 text-sm">
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Pandas / Polars</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>NumPy / SciPy</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Apache Spark / Dask</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Plotly / Matplotlib / Seaborn</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Tableau / Power BI</span>
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Card 8 duplicado -->
+                <div class="ml-stack-card flex-shrink-0 w-96 bg-gradient-to-br from-indigo-900/20 to-indigo-800/20 p-6 rounded-xl border border-indigo-500/30 hover:border-indigo-400/50 transition-all">
+                  <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                    <i data-lucide="database" class="w-6 h-6 text-indigo-400"></i>
+                    Data Science & Engineering
+                  </h3>
+                  <p class="text-xs text-gray-400 mb-3 italic">Plataformas para procesamiento de datos, orquestación y almacenamiento</p>
+                  <div class="space-y-2 text-gray-300 text-sm">
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Jupyter / JupyterLab</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Airflow / Prefect - Orchestration</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>Snowflake / BigQuery</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>dbt - Data Transformation</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-1"></i>
+                      <span>PostgreSQL / MongoDB</span>
+                    </p>
+                  </div>
                 </div>
               </div>
-            </SimpleCarousel>
+            </div>
 
             <!-- Imagen tecnología -->
-            <div class="mt-12">
+            <div class="mt-8">
               <div class="flex justify-center mb-4">
                 <img
                   src="/imgfondos/14.jpg"
@@ -606,38 +939,31 @@ const secciones = [
 
           <!-- Garantías -->
           <section id="garantias">
-            <h2
-              class="text-3xl md:text-4xl font-bold text-white mb-12 text-center"
-            >
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-8 text-center">
               Nuestras Garantías en IA/ML
             </h2>
 
-            <SimpleCarousel id="garantias-ia-carousel">
-              <div
-                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
-              >
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center hover:border-[#82e256]/50 transition-all">
+                <div class="text-3xl mb-3">🔍</div>
                 <h3 class="text-lg font-bold text-white mb-2">
                   Transparencia Total
                 </h3>
                 <p class="text-gray-400 text-sm">
-                  Te explicamos cómo funcionan los modelos. No "cajas negras"
-                  mágicas.
+                  Te explicamos cómo funcionan los modelos. No "cajas negras" mágicas.
                 </p>
               </div>
 
-              <div
-                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
-              >
+              <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center hover:border-[#82e256]/50 transition-all">
+                <div class="text-3xl mb-3">📊</div>
                 <h3 class="text-lg font-bold text-white mb-2">ROI Medible</h3>
                 <p class="text-gray-400 text-sm">
-                  KPIs de negocio claros. Tracking del impacto real en tu
-                  operación.
+                  KPIs de negocio claros. Tracking del impacto real en tu operación.
                 </p>
               </div>
 
-              <div
-                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
-              >
+              <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center hover:border-[#82e256]/50 transition-all">
+                <div class="text-3xl mb-3">🎓</div>
                 <h3 class="text-lg font-bold text-white mb-2">
                   Transferencia de Conocimiento
                 </h3>
@@ -646,9 +972,8 @@ const secciones = [
                 </p>
               </div>
 
-              <div
-                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
-              >
+              <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center hover:border-[#82e256]/50 transition-all">
+                <div class="text-3xl mb-3">⚡</div>
                 <h3 class="text-lg font-bold text-white mb-2">
                   Producción en Semanas
                 </h3>
@@ -657,9 +982,8 @@ const secciones = [
                 </p>
               </div>
 
-              <div
-                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
-              >
+              <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center hover:border-[#82e256]/50 transition-all">
+                <div class="text-3xl mb-3">🔒</div>
                 <h3 class="text-lg font-bold text-white mb-2">
                   Privacidad y Seguridad
                 </h3>
@@ -668,18 +992,16 @@ const secciones = [
                 </p>
               </div>
 
-              <div
-                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center"
-              >
+              <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-xl border border-gray-700 text-center hover:border-[#82e256]/50 transition-all">
+                <div class="text-3xl mb-3">✅</div>
                 <h3 class="text-lg font-bold text-white mb-2">
                   No Promesas Vacías
                 </h3>
                 <p class="text-gray-400 text-sm">
-                  Si la IA no es viable para tu caso, te lo decimos antes de
-                  empezar.
+                  Si la IA no es viable para tu caso, te lo decimos antes de empezar.
                 </p>
               </div>
-            </SimpleCarousel>
+            </div>
           </section>
 
           <!-- CTA Final -->
@@ -715,6 +1037,35 @@ const secciones = [
   html {
     scroll-behavior: smooth;
   }
+
+  /* Looper del Stack Tecnológico de ML */
+  .ml-stack-looper-track {
+    animation: ml-stack-scroll 45s linear infinite;
+    will-change: transform;
+    user-select: none;
+  }
+
+  .ml-stack-looper-track:hover {
+    animation-play-state: paused;
+  }
+
+  .ml-stack-looper-track.dragging {
+    animation: none !important;
+  }
+
+  @keyframes ml-stack-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .ml-stack-card {
+    min-width: 384px;
+    pointer-events: none;
+  }
 </style>
 
 <script>
@@ -734,6 +1085,65 @@ const secciones = [
           }
         }
       });
+    });
+
+    // Drag-to-scroll para loopers
+    const loopers = document.querySelectorAll('.ml-stack-looper-track');
+
+    loopers.forEach(looper => {
+      let isDown = false;
+      let startX;
+      let currentTranslate = 0;
+      let prevTranslate = 0;
+
+      // Obtener el valor actual de transform
+      function getTranslateX() {
+        const style = window.getComputedStyle(looper);
+        const matrix = new DOMMatrix(style.transform);
+        return matrix.m41;
+      }
+
+      looper.addEventListener('mousedown', (e) => {
+        isDown = true;
+        looper.classList.add('dragging');
+        looper.style.cursor = 'grabbing';
+        startX = e.pageX;
+
+        // Obtener posición actual de la animación
+        prevTranslate = getTranslateX();
+        currentTranslate = prevTranslate;
+      });
+
+      looper.addEventListener('mouseleave', () => {
+        if (isDown) {
+          isDown = false;
+          looper.classList.remove('dragging');
+          looper.style.cursor = 'grab';
+          looper.style.transform = '';
+        }
+      });
+
+      looper.addEventListener('mouseup', () => {
+        isDown = false;
+        looper.classList.remove('dragging');
+        looper.style.cursor = 'grab';
+        looper.style.transform = '';
+      });
+
+      looper.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+
+        const currentX = e.pageX;
+        const diff = currentX - startX;
+        currentTranslate = prevTranslate + diff;
+
+        // Aplicar transform directamente
+        looper.style.transform = `translateX(${currentTranslate}px)`;
+      });
+
+      // Cambiar cursor para indicar que es arrastrable
+      looper.style.cursor = 'grab';
     });
   });
 </script>

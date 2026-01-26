@@ -1,0 +1,153 @@
+---
+// Componente de banner de cookies según la ley europea
+---
+
+<!-- Banner de Cookies -->
+<div
+  id="cookie-banner"
+  class="fixed bottom-0 left-0 right-0 bg-gradient-to-r from-[#1a1a1a] to-[#0f0f0f] border-t border-white/10 shadow-2xl z-[9997] hidden transition-all duration-300"
+>
+  <div class="container mx-auto px-4 py-4 md:py-6">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <!-- Contenido del banner -->
+      <div class="flex items-start gap-3 flex-1">
+        <div class="w-10 h-10 bg-[#82e256]/20 rounded-lg flex items-center justify-center flex-shrink-0">
+          <svg class="w-5 h-5 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <div class="flex-1">
+          <h3 class="text-white font-bold text-sm md:text-base mb-1">
+            🍪 Este sitio utiliza cookies
+          </h3>
+          <p class="text-white/70 text-xs md:text-sm leading-relaxed">
+            Utilizamos cookies esenciales para garantizar el funcionamiento correcto del sitio y cookies analíticas para mejorar tu experiencia.
+            Al aceptar, nos ayudas a entender cómo usas nuestro sitio.
+            <a href="/politica-cookies" class="text-[#82e256] hover:text-[#6bc73d] underline ml-1">
+              Más información
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Botones de acción -->
+      <div class="flex gap-3 w-full md:w-auto">
+        <button
+          id="reject-cookies-btn"
+          class="flex-1 md:flex-none px-4 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 text-white/80 hover:text-white text-sm font-semibold rounded-lg transition-all duration-300"
+        >
+          Rechazar
+        </button>
+        <button
+          id="accept-cookies-btn"
+          class="flex-1 md:flex-none px-6 py-2.5 bg-gradient-to-r from-[#82e256] to-[#6bc73d] hover:from-[#6bc73d] hover:to-[#5ba62e] text-black text-sm font-bold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+        >
+          Aceptar todas
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const cookieBanner = document.getElementById('cookie-banner');
+    const acceptBtn = document.getElementById('accept-cookies-btn');
+    const rejectBtn = document.getElementById('reject-cookies-btn');
+
+    const COOKIE_CONSENT_KEY = 'cookie_consent';
+
+    // Función para verificar si el usuario ya respondió
+    function checkCookieConsent() {
+      const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
+      return consent !== null;
+    }
+
+    // Función para guardar la preferencia
+    function saveCookieConsent(accepted: boolean) {
+      const consentData = {
+        accepted: accepted,
+        timestamp: new Date().toISOString(),
+        version: '1.0'
+      };
+      localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(consentData));
+    }
+
+    // Función para mostrar el banner
+    function showBanner() {
+      cookieBanner?.classList.remove('hidden');
+      setTimeout(() => {
+        cookieBanner?.classList.add('animate-slide-up');
+      }, 100);
+    }
+
+    // Función para ocultar el banner
+    function hideBanner() {
+      cookieBanner?.classList.add('hidden');
+      cookieBanner?.classList.remove('animate-slide-up');
+    }
+
+    // Función para mostrar el botón de configuración (en FloatingButtons)
+    function showSettingsButton() {
+      const cookieSettingsBtn = document.getElementById('cookie-settings-btn');
+      cookieSettingsBtn?.classList.remove('hidden');
+    }
+
+    // Verificar si ya existe consentimiento
+    if (!checkCookieConsent()) {
+      // Si no hay consentimiento, mostrar el banner después de 1 segundo
+      setTimeout(() => {
+        showBanner();
+      }, 1000);
+    } else {
+      // Si ya hay consentimiento, verificar si fue rechazado para mostrar el botón
+      const consentData = localStorage.getItem(COOKIE_CONSENT_KEY);
+      try {
+        const consent = JSON.parse(consentData);
+        // Solo mostrar el botón si las cookies fueron rechazadas
+        if (consent.accepted === false) {
+          showSettingsButton();
+        }
+      } catch (e) {
+        console.error('Error al parsear cookie consent:', e);
+      }
+    }
+
+    // Manejar aceptación de cookies
+    acceptBtn?.addEventListener('click', () => {
+      saveCookieConsent(true);
+      hideBanner();
+      // NO mostrar el botón si se aceptan las cookies
+
+      // Aquí puedes activar tus scripts de analytics, etc.
+      console.log('Cookies aceptadas - Activar analytics');
+    });
+
+    // Manejar rechazo de cookies
+    rejectBtn?.addEventListener('click', () => {
+      saveCookieConsent(false);
+      hideBanner();
+      showSettingsButton();
+
+      // Aquí puedes desactivar tus scripts de analytics
+      console.log('Cookies rechazadas - Solo cookies esenciales');
+    });
+  });
+</script>
+
+<style>
+  @keyframes slide-up-banner {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-slide-up {
+    animation: slide-up-banner 0.4s ease-out;
+  }
+</style>

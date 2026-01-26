@@ -22,21 +22,21 @@ const SEARCH_TO_CATEGORIES: Record<string, string[]> = {
   // Arquitectura & Infraestructura
   "microservicios": [
     "DevOps & Infraestructura Cloud",
-    "Arquitectura de Software Escalable & Robusta",
+    "Oficina de Arquitectura de Software + IA",
     "Apps con integraciones hechas a la medida + IA",
   ],
   "arquitectura": [
-    "Arquitectura de Software Escalable & Robusta",
+    "Oficina de Arquitectura de Software + IA",
     "DevOps & Infraestructura Cloud",
     "Desarrollo Full-Stack",
   ],
   "cloud": [
     "DevOps & Infraestructura Cloud",
-    "Arquitectura de Software Escalable & Robusta",
+    "Oficina de Arquitectura de Software + IA",
   ],
   "devops": [
     "DevOps & Infraestructura Cloud",
-    "Arquitectura de Software Escalable & Robusta",
+    "Oficina de Arquitectura de Software + IA",
     "Apps con integraciones hechas a la medida + IA",
   ],
 
@@ -79,7 +79,7 @@ const SEARCH_TO_CATEGORIES: Record<string, string[]> = {
   ],
   "desarrollo": [
     "Desarrollo Full-Stack",
-    "Arquitectura de Software Escalable & Robusta",
+    "Oficina de Arquitectura de Software + IA",
     "Apps con integraciones hechas a la medida + IA",
   ],
   "aplicaciones": [
@@ -96,13 +96,13 @@ const SEARCH_TO_CATEGORIES: Record<string, string[]> = {
 
 // Mapa de categorías → categorías complementarias (cross-selling estratégico)
 const CATEGORY_COMPLEMENTS: Record<string, string[]> = {
-  "Arquitectura de Software Escalable & Robusta": [
+  "Oficina de Arquitectura de Software + IA": [
     "DevOps & Infraestructura Cloud",
     "Apps con integraciones hechas a la medida + IA",
     "Desarrollo Full-Stack",
   ],
   "DevOps & Infraestructura Cloud": [
-    "Arquitectura de Software Escalable & Robusta",
+    "Oficina de Arquitectura de Software + IA",
     "Apps con integraciones hechas a la medida + IA",
   ],
   "Desarrollo Full-Stack": [
@@ -133,14 +133,14 @@ const CATEGORY_COMPLEMENTS: Record<string, string[]> = {
   "Apps con integraciones hechas a la medida + IA": [
     "Agentes de inteligencia artificial y MCP's",
     "Desarrollo Full-Stack",
-    "Arquitectura de Software Escalable & Robusta",
+    "Oficina de Arquitectura de Software + IA",
   ],
 };
 
 // Servicios más populares y estratégicos (basado en análisis de services.json)
 // Ordenados por: 1. Volumen de servicios, 2. Potencial de cross-selling, 3. Valor estratégico
 const POPULAR_SERVICES = [
-  "Arquitectura de Software Escalable & Robusta",      // 27.87% - MÁS POPULAR
+  "Oficina de Arquitectura de Software + IA",      // 27.87% - MÁS POPULAR
   "Apps con integraciones hechas a la medida + IA",     // 19.67% - ALTO CROSS-SELL
   "Aprendizaje Automático y por refuerzo + Modelos de IA", // 15.57% - TENDENCIA
   "Agentes de inteligencia artificial y MCP's",        // 14.75% - INNOVACIÓN
@@ -157,7 +157,7 @@ const CATEGORY_TO_SLUG: Record<string, string> = {
   "Desarrollo Full-Stack": "desarrollo-fullstack",
   "Aplicaciones Nativas & Cross-Platform": "apps-moviles",
   "Visión por Computadora hecha a la medida. + IA": "computer-vision",
-  "Arquitectura de Software Escalable & Robusta": "arquitectura",
+  "Oficina de Arquitectura de Software + IA": "arquitectura",
   "Aprendizaje Automático y por refuerzo + Modelos de IA": "ia-machine-learning",
   "DevOps & Infraestructura Cloud": "devops-infraestructura",
 };
@@ -169,7 +169,7 @@ const CATEGORY_TO_IMAGE: Record<string, string> = {
   "Desarrollo Full-Stack": "/img/personaje4/01.png",
   "Aplicaciones Nativas & Cross-Platform": "/img/personaje5/01.png",
   "Visión por Computadora hecha a la medida. + IA": "/img/personaje7/01.png",
-  "Arquitectura de Software Escalable & Robusta": "/img/personaje6/01.png",
+  "Oficina de Arquitectura de Software + IA": "/img/personaje6/01.png",
   "Aprendizaje Automático y por refuerzo + Modelos de IA": "/img/personaje8/01.png",
   "DevOps & Infraestructura Cloud": "/img/personaje6/01.png",
 };
@@ -356,7 +356,7 @@ export function getServicesByCategory(allServices: Service[]): Service[] {
  */
 function getSearchKeyword(service: Service): string {
   const categoryKeywords: Record<string, string> = {
-    "Arquitectura de Software Escalable & Robusta": "arquitectura",
+    "Oficina de Arquitectura de Software + IA": "arquitectura",
     "DevOps & Infraestructura Cloud": "devops",
     "Desarrollo Full-Stack": "desarrollo",  // Cambiado: más genérico y presente en nombres
     "Aplicaciones Nativas & Cross-Platform": "aplicaciones",  // Cambiado: más genérico

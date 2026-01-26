@@ -2,6 +2,58 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import ServiciosGrid from '../../components/ServiciosGrid.astro';
+import StickySlidesContainer from '../../components/StickySlidesContainer.astro';
+
+const slidesData = [
+  {
+    label: 'Reclutamiento',
+    title: 'IA que<br>Selecciona.',
+    description: 'Parsing de CVs, scoring de candidatos, agendamiento automático y resúmenes generados con GPT-4.',
+    icon: 'user-search',
+    serviceType: 'automatizacion' as const,
+    reversed: false
+  },
+  {
+    label: 'Onboarding',
+    title: 'Automático<br>Completo.',
+    description: 'Creación de cuentas, envío de documentación, checklist interactivo y seguimiento personalizado automático.',
+    icon: 'user-plus',
+    serviceType: 'automatizacion' as const,
+    reversed: true
+  },
+  {
+    label: 'Evaluaciones',
+    title: '360° con<br>Inteligencia.',
+    description: 'Recolecta feedback, analiza sentimiento, genera reportes personalizados y recomienda desarrollo con IA.',
+    icon: 'clipboard-check',
+    serviceType: 'automatizacion' as const,
+    reversed: false
+  },
+  {
+    label: 'Vacaciones',
+    title: 'Gestión<br>Inteligente.',
+    description: 'Solicitud automática, validación de disponibilidad, detección de conflictos y actualización de calendarios.',
+    icon: 'calendar-check',
+    serviceType: 'automatizacion' as const,
+    reversed: true
+  },
+  {
+    label: 'Capacitación',
+    title: 'Personalizada<br>con IA.',
+    description: 'Análisis de skill gaps, recomendaciones de cursos y rutas de aprendizaje adaptativas con machine learning.',
+    icon: 'graduation-cap',
+    serviceType: 'automatizacion' as const,
+    reversed: false
+  },
+  {
+    label: 'Clima Laboral',
+    title: 'Análisis<br>Predictivo.',
+    description: 'Encuestas automatizadas, análisis de sentimiento, detección de riesgos y planes de acción con IA.',
+    icon: 'heart-pulse',
+    serviceType: 'automatizacion' as const,
+    reversed: true
+  }
+];
 ---
 
 <Layout title="Automatización IA para Recursos Humanos - Aquí Creamos">
@@ -10,64 +62,31 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
   <!-- Hero Section -->
   <section class="pt-32 pb-20 bg-gradient-to-br from-[#00464e] via-[#006064] to-[#1a1a1a]">
     <div class="container mx-auto px-4 md:px-16">
-      <div class="max-w-6xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <!-- Left: Content -->
-          <div>
-            <div class="inline-block mb-4 px-4 py-2 bg-[#82e256]/20 border border-[#82e256] rounded-full">
-              <span class="text-[#82e256] font-bold text-sm">👥 RECURSOS HUMANOS</span>
-            </div>
+      <div class="max-w-6xl mx-auto text-center">
+        <div class="inline-block mb-4 px-4 py-2 bg-[#82e256]/20 border border-[#82e256] rounded-full">
+          <span class="text-[#82e256] font-bold text-sm">RECURSOS HUMANOS</span>
+        </div>
 
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
-              Libera a tu equipo de RRHH con <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#82e256] to-[#04ADC0]">IA</span>
-            </h1>
+        <h1 class="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
+          RRHH automatizado con <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#82e256] to-[#04ADC0]">IA</span>
+        </h1>
 
-            <p class="text-xl text-gray-300 mb-8 leading-relaxed">
-              Automatiza reclutamiento, onboarding, evaluaciones y capacitación con inteligencia artificial. Reduce <strong class="text-[#82e256]">85%</strong> del tiempo administrativo.
-            </p>
+        <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+          Automatiza reclutamiento, onboarding, evaluaciones y capacitación con inteligencia artificial.
+        </p>
 
-            <!-- Stats -->
-            <div class="grid grid-cols-3 gap-4 mb-8">
-              <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
-                <div class="text-3xl font-black text-[#82e256]">85%</div>
-                <div class="text-xs text-gray-300 mt-1">Menos tiempo admin</div>
-              </div>
-              <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
-                <div class="text-3xl font-black text-[#82e256]">60%</div>
-                <div class="text-xs text-gray-300 mt-1">Más rápido reclutamiento</div>
-              </div>
-              <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
-                <div class="text-3xl font-black text-[#82e256]">30%</div>
-                <div class="text-xs text-gray-300 mt-1">Menos rotación</div>
-              </div>
-            </div>
-
-            <!-- CTA Buttons -->
-            <div class="flex flex-col sm:flex-row gap-4">
-              <button
-                id="open-lead-magnet"
-                class="px-8 py-4 bg-gradient-to-r from-[#82e256] to-[#6bc73d] text-black rounded-lg font-bold hover:shadow-[0_0_30px_rgba(130,226,86,0.5)] transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
-              >
-                📥 Descargar Guía Gratis
-              </button>
-              <a
-                href="/#contenido10"
-                class="px-8 py-4 bg-white/10 backdrop-blur border-2 border-[#82e256] text-white rounded-lg font-bold hover:bg-[#82e256] hover:text-black transition-all duration-300 flex items-center justify-center gap-2"
-              >
-                📅 Agendar Asesoría Gratis
-              </a>
-            </div>
+        <div class="grid grid-cols-3 gap-4 mb-8 max-w-2xl mx-auto">
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
+            <div class="text-sm font-bold text-[#82e256] mb-1">Reclutamiento</div>
+            <div class="text-xs text-gray-300">Análisis de CVs con IA</div>
           </div>
-
-          <!-- Right: Image -->
-          <div class="hidden md:block">
-            <div class="relative">
-              <div class="absolute inset-0 bg-gradient-to-r from-[#82e256] to-[#04ADC0] rounded-2xl blur-3xl opacity-20"></div>
-              <div class="relative rounded-2xl overflow-hidden">
-                <img src="/img/personaje2.png" alt="Recursos humanos automatizados" class="h-auto max-w-md mx-auto" />
-              </div>
-              <p class="text-center text-gray-400 text-sm italic mt-4">Gestión inteligente de talento humano</p>
-            </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
+            <div class="text-sm font-bold text-[#82e256] mb-1">Onboarding</div>
+            <div class="text-xs text-gray-300">Automatización completa</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
+            <div class="text-sm font-bold text-[#82e256] mb-1">Evaluaciones</div>
+            <div class="text-xs text-gray-300">360° con análisis IA</div>
           </div>
         </div>
       </div>
@@ -80,25 +99,25 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
           <h2 class="text-3xl md:text-4xl font-black text-white mb-4">
-            ¿Tu equipo de RRHH se ahoga en tareas manuales?
+            ¿Tu equipo de RRHH pierde tiempo valioso en tareas manuales?
           </h2>
-          <p class="text-xl text-gray-400">Estos problemas drenan tiempo y recursos cada día:</p>
+          <p class="text-xl text-gray-400">Estos problemas cuestan miles de dólares cada mes:</p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-6">
           <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-6">
             <h3 class="text-xl font-bold text-white mb-2">Reclutamiento Lento</h3>
-            <p class="text-gray-300"><strong class="text-red-400">40+ días</strong> para cubrir una vacante. CVs revisados manualmente.</p>
+            <p class="text-gray-300"><strong class="text-red-400">Semanas</strong> revisando CVs manualmente mientras las vacantes quedan abiertas</p>
           </div>
 
           <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-6">
             <h3 class="text-xl font-bold text-white mb-2">Onboarding Manual</h3>
-            <p class="text-gray-300"><strong class="text-red-400">15+ horas</strong> por empleado en papeleo y configuraciones</p>
+            <p class="text-gray-300"><strong class="text-red-400">Días completos</strong> en papeleo y configuraciones para cada empleado nuevo</p>
           </div>
 
           <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-6">
             <h3 class="text-xl font-bold text-white mb-2">Evaluaciones Complejas</h3>
-            <p class="text-gray-300"><strong class="text-red-400">Semanas</strong> recopilando feedback 360° y generando reportes</p>
+            <p class="text-gray-300"><strong class="text-red-400">Tiempo excesivo</strong> recopilando feedback y generando reportes manualmente</p>
           </div>
         </div>
       </div>
@@ -106,85 +125,7 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
   </section>
 
   <!-- Sticky Stack Section -->
-  <div class="stack-container">
-    <section class="sticky-section">
-      <div class="content-grid">
-        <div class="text-side">
-          <span class="label">Reclutamiento</span>
-          <h2>IA que<br>Selecciona.</h2>
-          <p class="desc">Parsing de CVs, scoring de candidatos, agendamiento automático y resúmenes generados con GPT-4.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1200" alt="AI Recruitment">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid reversed">
-        <div class="text-side">
-          <span class="label">Onboarding</span>
-          <h2>Automático<br>Completo.</h2>
-          <p class="desc">Creación de cuentas, envío de documentación, checklist interactivo y seguimiento personalizado automático.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200" alt="Automated Onboarding">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid">
-        <div class="text-side">
-          <span class="label">Evaluaciones</span>
-          <h2>360° con<br>Inteligencia.</h2>
-          <p class="desc">Recolecta feedback, analiza sentimiento, genera reportes personalizados y recomienda desarrollo con IA.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1451187530220-4e2bd78f7ad6?q=80&w=1200" alt="Performance Reviews">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid reversed">
-        <div class="text-side">
-          <span class="label">Vacaciones</span>
-          <h2>Gestión<br>Inteligente.</h2>
-          <p class="desc">Solicitud automática, validación de disponibilidad, detección de conflictos y actualización de calendarios.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?q=80&w=1200" alt="Leave Management">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid">
-        <div class="text-side">
-          <span class="label">Capacitación</span>
-          <h2>Personalizada<br>con IA.</h2>
-          <p class="desc">Análisis de skill gaps, recomendaciones de cursos y rutas de aprendizaje adaptativas con machine learning.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200" alt="AI Training">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid reversed">
-        <div class="text-side">
-          <span class="label">Clima Laboral</span>
-          <h2>Análisis<br>Predictivo.</h2>
-          <p class="desc">Encuestas automatizadas, análisis de sentimiento, detección de riesgos y planes de acción con IA.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200" alt="Climate Analysis">
-        </div>
-      </div>
-    </section>
-  </div>
+  <StickySlidesContainer slides={slidesData} />
 
   <!-- Solutions Section -->
   <section class="py-16 bg-gradient-to-b from-[#1a1a1a] to-[#00464e]">
@@ -744,56 +685,5 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
     modal?.classList.add('hidden');
     document.body.style.overflow = 'auto';
     (e.target as HTMLFormElement).reset();
-  });
-</script>
-
-<style>
-  .stack-container { display: flex; flex-direction: column; }
-  .sticky-section { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #0e0e0e; transition: transform 0.1s linear, filter 0.1s linear; will-change: transform, filter; }
-  .sticky-section:nth-child(1) { background-color: #0e0e0e; }
-  .sticky-section:nth-child(2) { background-color: #161616; }
-  .sticky-section:nth-child(3) { background-color: #1d1d1d; }
-  .sticky-section:nth-child(4) { background-color: #0e0e0e; }
-  .sticky-section:nth-child(5) { background-color: #161616; }
-  .sticky-section:nth-child(6) { background-color: #1d1d1d; }
-  .content-grid { display: grid; grid-template-columns: 1fr 1fr; width: 90%; max-width: 1300px; gap: 60px; align-items: center; }
-  .text-side { display: flex; flex-direction: column; padding: 20px; }
-  .label { font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: #82e256; margin-bottom: 10px; }
-  .sticky-section h2 { font-size: clamp(2.5rem, 6vw, 5.5rem); line-height: 0.95; margin: 0; font-weight: 900; text-transform: uppercase; color: #fff; }
-  p.desc { font-size: 1.2rem; margin-top: 30px; opacity: 0.7; max-width: 450px; line-height: 1.5; color: #fff; }
-  .image-side { width: 100%; height: 65vh; border-radius: 15px; overflow: hidden; position: relative; }
-  .image-side img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .reversed .text-side { order: 2; }
-  .reversed .image-side { order: 1; }
-  @media (max-width: 900px) {
-    .content-grid { grid-template-columns: 1fr; text-align: center; }
-    .image-side { height: 35vh; order: -1 !important; }
-    .text-side { align-items: center; padding: 0; }
-    p.desc { margin-top: 15px; }
-  }
-</style>
-
-<script>
-  const hrSections = document.querySelectorAll('.sticky-section');
-  window.addEventListener('scroll', () => {
-    const viewportHeight = window.innerHeight;
-    hrSections.forEach((section, index) => {
-      const rect = section.getBoundingClientRect();
-      if (rect.top <= 0) {
-        const nextSection = hrSections[index + 1];
-        if (nextSection) {
-          const nextRect = nextSection.getBoundingClientRect();
-          let progress = 1 - (nextRect.top / viewportHeight);
-          progress = Math.max(0, Math.min(1, progress));
-          const scale = 1 - (progress * 0.1);
-          const brightness = 1 - (progress * 0.6);
-          (section as HTMLElement).style.transform = `scale(${scale})`;
-          (section as HTMLElement).style.filter = `brightness(${brightness})`;
-        }
-      } else {
-        (section as HTMLElement).style.transform = `scale(1)`;
-        (section as HTMLElement).style.filter = `brightness(1)`;
-      }
-    });
   });
 </script>

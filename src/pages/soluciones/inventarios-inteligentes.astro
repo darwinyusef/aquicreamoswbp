@@ -2,6 +2,116 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import ServiciosGrid from '../../components/ServiciosGrid.astro';
+import StickySlidesContainer from '../../components/StickySlidesContainer.astro';
+import AutomationCard from '../../components/AutomationCard.astro';
+
+const chartIcon = `<svg class="w-10 h-10 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+</svg>`;
+
+const cartIcon = `<svg class="w-10 h-10 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+</svg>`;
+
+const phoneIcon = `<svg class="w-10 h-10 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+</svg>`;
+
+const automations = [
+  {
+    icon: chartIcon,
+    difficulty: 'Básico' as const,
+    title: 'Dashboard Web de Inventarios',
+    description: 'Panel web con niveles de stock en tiempo real, alertas automáticas y análisis de tendencias con IA.',
+    features: [
+      'Dashboard web con métricas en tiempo real',
+      'Alertas automáticas de stock bajo',
+      'Análisis de rotación de productos',
+      'Reportes automáticos de inventario'
+    ],
+    benefit: 'Visibilidad centralizada de inventarios',
+    technologies: 'Astro, PostgreSQL, n8n'
+  },
+  {
+    icon: cartIcon,
+    difficulty: 'Intermedio' as const,
+    title: 'Sistema de Órdenes Automáticas',
+    description: 'Generación automática de órdenes de compra cuando se alcanza punto de reorden, envío por email.',
+    features: [
+      'Generación automática de órdenes de compra',
+      'Cálculo inteligente de punto de reorden',
+      'Envío automático por email a proveedores',
+      'Seguimiento de órdenes pendientes'
+    ],
+    benefit: 'Compras automatizadas sin quiebres de stock',
+    technologies: 'n8n, GPT-4, PostgreSQL'
+  },
+  {
+    icon: phoneIcon,
+    difficulty: 'Intermedio' as const,
+    title: 'App Móvil de Conteo Cíclico',
+    description: 'App para escanear códigos, realizar conteos, actualizar inventario y sincronizar con sistema central.',
+    features: [
+      'App móvil para iOS/Android',
+      'Escaneo de códigos QR/Barcode',
+      'Conteos cíclicos sin cerrar almacén',
+      'Sincronización en tiempo real'
+    ],
+    benefit: 'Conteos digitales rápidos y precisos',
+    technologies: 'React Native, PostgreSQL'
+  }
+];
+
+const slidesData = [
+  {
+    label: 'Dashboard',
+    title: 'Stock en<br>Tiempo Real.',
+    description: 'Panel web con niveles de inventario actualizados, alertas de stock bajo y análisis de rotación.',
+    icon: 'layout-dashboard',
+    serviceType: 'automatizacion' as const,
+    reversed: false
+  },
+  {
+    label: 'Proyecciones',
+    title: 'Análisis de<br>Tendencias.',
+    description: 'Sistema que analiza históricos de ventas y proyecta necesidades futuras con IA.',
+    icon: 'trending-up',
+    serviceType: 'automatizacion' as const,
+    reversed: true
+  },
+  {
+    label: 'Órdenes',
+    title: 'Compra<br>Automáticas.',
+    description: 'Genera órdenes de compra automáticamente cuando stock llega a punto de reorden configurado.',
+    icon: 'shopping-cart',
+    serviceType: 'automatizacion' as const,
+    reversed: false
+  },
+  {
+    label: 'App Móvil',
+    title: 'Conteo<br>Cíclico.',
+    description: 'App móvil para realizar conteos cíclicos, escaneo de códigos y actualización instantánea.',
+    icon: 'smartphone',
+    serviceType: 'automatizacion' as const,
+    reversed: true
+  },
+  {
+    label: 'Sistema',
+    title: 'Trazabilidad<br>Completa.',
+    description: 'Plataforma web/móvil con escaneo QR/barcode para rastrear movimientos y ubicaciones.',
+    icon: 'qr-code',
+    serviceType: 'automatizacion' as const,
+    reversed: false
+  },
+  {
+    label: 'Alertas',
+    title: 'Notificaciones<br>Automáticas.',
+    description: 'Alertas por email/SMS/WhatsApp de stock bajo, vencimientos próximos y sobreinventario.',
+    icon: 'bell',
+    serviceType: 'automatizacion' as const,
+    reversed: true
+  }
+];
 ---
 
 <Layout title="Inventarios Inteligentes con IA - Aquí Creamos">
@@ -11,7 +121,7 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
     <div class="container mx-auto px-4 md:px-16">
       <div class="max-w-6xl mx-auto text-center">
         <div class="inline-block mb-4 px-4 py-2 bg-[#82e256]/20 border border-[#82e256] rounded-full">
-          <span class="text-[#82e256] font-bold text-sm">📦 INVENTARIOS INTELIGENTES</span>
+          <span class="text-[#82e256] font-bold text-sm">INVENTARIOS INTELIGENTES</span>
         </div>
 
         <h1 class="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
@@ -19,134 +129,76 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
         </h1>
 
         <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-          Optimiza stock, predice demanda y automatiza órdenes de compra. Reduce quiebres de stock en <strong class="text-[#82e256]">45%</strong>.
+          Apps móviles y plataforma web para control de inventarios, conteos cíclicos y órdenes automáticas.
         </p>
 
         <div class="grid grid-cols-3 gap-4 mb-8 max-w-2xl mx-auto">
           <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
-            <div class="text-3xl font-black text-[#82e256]">45%</div>
-            <div class="text-xs text-gray-300 mt-1">Menos quiebres</div>
+            <div class="text-sm font-bold text-[#82e256] mb-1">Dashboard Web</div>
+            <div class="text-xs text-gray-300">Visibilidad en tiempo real</div>
           </div>
           <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
-            <div class="text-3xl font-black text-[#82e256]">98%</div>
-            <div class="text-xs text-gray-300 mt-1">Precisión</div>
+            <div class="text-sm font-bold text-[#82e256] mb-1">App Móvil</div>
+            <div class="text-xs text-gray-300">Conteos desde el campo</div>
           </div>
           <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
-            <div class="text-3xl font-black text-[#82e256]">70%</div>
-            <div class="text-xs text-gray-300 mt-1">Menos tiempo</div>
+            <div class="text-sm font-bold text-[#82e256] mb-1">Órdenes Automáticas</div>
+            <div class="text-xs text-gray-300">Compras inteligentes</div>
           </div>
         </div>
     </div>
     </div>
   </section>
 
-  <!-- Sticky Stack Section -->
-  <div class="stack-container">
-    <section class="sticky-section">
-      <div class="content-grid">
-        <div class="text-side">
-          <span class="label">Optimización</span>
-          <h2>Stock<br>Inteligente.</h2>
-          <p class="desc">Predicción de demanda con ML, cálculo automático de puntos de reorden y optimización de niveles.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1200" alt="Stock Optimization">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid reversed">
-        <div class="text-side">
-          <span class="label">Predicción</span>
-          <h2>Demanda<br>con IA.</h2>
-          <p class="desc">Algoritmos de machine learning analizan patrones históricos y predicen necesidades futuras.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200" alt="Demand Prediction">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid">
-        <div class="text-side">
-          <span class="label">Órdenes</span>
-          <h2>Compra<br>Automáticas.</h2>
-          <p class="desc">Genera y envía órdenes automáticamente basadas en niveles de inventario y predicciones de demanda.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1451187530220-4e2bd78f7ad6?q=80&w=1200" alt="Automatic Orders">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid reversed">
-        <div class="text-side">
-          <span class="label">Conteo</span>
-          <h2>Cíclico<br>Automatizado.</h2>
-          <p class="desc">Programa conteos basados en criticidad ABC, asigna tareas y ajusta discrepancias automáticamente.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?q=80&w=1200" alt="Cycle Counting">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid">
-        <div class="text-side">
-          <span class="label">Picking</span>
-          <h2>Optimizado<br>con IA.</h2>
-          <p class="desc">Rutas inteligentes de picking, optimización de recorridos y reducción de tiempos de preparación.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200" alt="Smart Picking">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid reversed">
-        <div class="text-side">
-          <span class="label">Alertas</span>
-          <h2>Proactivas<br>en Tiempo Real.</h2>
-          <p class="desc">Notificaciones inteligentes de quiebres de stock, sobreinventario y anomalías detectadas por IA.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200" alt="Proactive Alerts">
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- Solutions Section -->
+  <!-- Problem Section -->
   <section class="py-16 bg-[#1a1a1a]">
     <div class="container mx-auto px-4 md:px-16">
       <div class="max-w-6xl mx-auto">
-        <h2 class="text-3xl md:text-4xl font-black text-white mb-12 text-center">
-          Automatizaciones para Gestión de Inventarios
-        </h2>
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-black text-white mb-4">
+            ¿Tu inventario es un caos de hojas de cálculo desactualizadas?
+          </h2>
+          <p class="text-xl text-gray-400">Estos problemas cuestan miles de dólares cada mes:</p>
+        </div>
 
         <div class="grid md:grid-cols-3 gap-6">
-          <div class="bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-[#82e256] transition-all">
-            <h3 class="text-xl font-bold text-white mb-3">Optimización de Stock con IA</h3>
-            <p class="text-gray-300 mb-4">Predicción de demanda con ML, cálculo automático de puntos de reorden y optimización de niveles.</p>
-            <p class="text-[#82e256] font-semibold text-sm">45% reducción en quiebres - ML predice demanda y genera alertas proactivas automáticas</p>
+          <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-6">
+            <h3 class="text-xl font-bold text-white mb-2">Quiebres de Stock</h3>
+            <p class="text-gray-300"><strong class="text-red-400">Ventas perdidas</strong> por no detectar a tiempo que el inventario se agota</p>
           </div>
 
-          <div class="bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-[#82e256] transition-all">
-            <h3 class="text-xl font-bold text-white mb-3">Órdenes de Compra Automatizadas</h3>
-            <p class="text-gray-300 mb-4">Genera órdenes automáticamente basadas en niveles de inventario, envía a proveedores y rastrea entregas.</p>
-            <p class="text-[#82e256] font-semibold text-sm">70% reducción tiempo compras - Generación y envío automático de órdenes a proveedores</p>
+          <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-6">
+            <h3 class="text-xl font-bold text-white mb-2">Conteos Manuales Lentos</h3>
+            <p class="text-gray-300"><strong class="text-red-400">Días cerrando</strong> el almacén para hacer inventario físico</p>
           </div>
 
-          <div class="bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-[#82e256] transition-all">
-            <h3 class="text-xl font-bold text-white mb-3">Inventario Cíclico Automatizado</h3>
-            <p class="text-gray-300 mb-4">Programa conteos cíclicos basados en criticidad ABC, asigna tareas y ajusta automáticamente discrepancias.</p>
-            <p class="text-[#82e256] font-semibold text-sm">85% mejora en precisión - Conteos cíclicos programados y ajustes automáticos con IA</p>
+          <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-6">
+            <h3 class="text-xl font-bold text-white mb-2">Sobreinventario</h3>
+            <p class="text-gray-300"><strong class="text-red-400">Capital atrapado</strong> en productos de baja rotación que ocupan espacio</p>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sticky Stack Section -->
+  <StickySlidesContainer slides={slidesData} />
+
+  <!-- Solutions Section -->
+  <section class="py-16 bg-gradient-to-b from-[#1a1a1a] to-[#00464e]">
+    <div class="container mx-auto px-4 md:px-16">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-black text-white mb-4">
+            Automatizaciones para Gestión de Inventarios
+          </h2>
+          <p class="text-xl text-gray-300">Soluciones listas para implementar</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          {automations.map(automation => (
+            <AutomationCard {...automation} />
+          ))}
         </div>
 
         <div class="text-center mt-12">
@@ -174,54 +226,3 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
   <!-- Servicios Profesionales -->
   <ServiciosGrid />
 </Layout>
-
-<style>
-  .stack-container { display: flex; flex-direction: column; }
-  .sticky-section { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #0e0e0e; transition: transform 0.1s linear, filter 0.1s linear; will-change: transform, filter; }
-  .sticky-section:nth-child(1) { background-color: #0e0e0e; }
-  .sticky-section:nth-child(2) { background-color: #161616; }
-  .sticky-section:nth-child(3) { background-color: #1d1d1d; }
-  .sticky-section:nth-child(4) { background-color: #0e0e0e; }
-  .sticky-section:nth-child(5) { background-color: #161616; }
-  .sticky-section:nth-child(6) { background-color: #1d1d1d; }
-  .content-grid { display: grid; grid-template-columns: 1fr 1fr; width: 90%; max-width: 1300px; gap: 60px; align-items: center; }
-  .text-side { display: flex; flex-direction: column; padding: 20px; }
-  .label { font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: #82e256; margin-bottom: 10px; }
-  .sticky-section h2 { font-size: clamp(2.5rem, 6vw, 5.5rem); line-height: 0.95; margin: 0; font-weight: 900; text-transform: uppercase; color: #fff; }
-  p.desc { font-size: 1.2rem; margin-top: 30px; opacity: 0.7; max-width: 450px; line-height: 1.5; color: #fff; }
-  .image-side { width: 100%; height: 65vh; border-radius: 15px; overflow: hidden; position: relative; }
-  .image-side img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .reversed .text-side { order: 2; }
-  .reversed .image-side { order: 1; }
-  @media (max-width: 900px) {
-    .content-grid { grid-template-columns: 1fr; text-align: center; }
-    .image-side { height: 35vh; order: -1 !important; }
-    .text-side { align-items: center; padding: 0; }
-    p.desc { margin-top: 15px; }
-  }
-</style>
-
-<script>
-  const sections = document.querySelectorAll('.sticky-section');
-  window.addEventListener('scroll', () => {
-    const viewportHeight = window.innerHeight;
-    sections.forEach((section, index) => {
-      const rect = section.getBoundingClientRect();
-      if (rect.top <= 0) {
-        const nextSection = sections[index + 1];
-        if (nextSection) {
-          const nextRect = nextSection.getBoundingClientRect();
-          let progress = 1 - (nextRect.top / viewportHeight);
-          progress = Math.max(0, Math.min(1, progress));
-          const scale = 1 - (progress * 0.1);
-          const brightness = 1 - (progress * 0.6);
-          (section as HTMLElement).style.transform = `scale(${scale})`;
-          (section as HTMLElement).style.filter = `brightness(${brightness})`;
-        }
-      } else {
-        (section as HTMLElement).style.transform = `scale(1)`;
-        (section as HTMLElement).style.filter = `brightness(1)`;
-      }
-    });
-  });
-</script>

@@ -1,0 +1,117 @@
+---
+// Componente consolidado con todos los botones flotantes
+// Orden (de abajo hacia arriba): Chatbot -> WhatsApp -> Bugs -> Cookies
+---
+
+<!-- Botón flotante de chat (existente en FloatingChat.astro - referencia visual) -->
+<!-- Se mantiene en FloatingChat.astro: bottom-28px right-6 -->
+
+<!-- Botón de WhatsApp - Encima del chatbot -->
+<a
+  href="https://wa.me/573202051241?text=Hola%2C%20me%20interesa%20conocer%20más%20sobre%20sus%20servicios"
+  target="_blank"
+  rel="noopener noreferrer"
+  id="whatsapp-btn"
+  class="fixed bottom-[96px] right-6 z-[9998] w-14 h-14 bg-[#25D366] hover:bg-[#20BA5A] rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 transform hover:scale-110 group"
+  aria-label="Contactar por WhatsApp"
+  title="Chatea con nosotros en WhatsApp"
+>
+  <svg class="w-9 h-9 text-white transition-transform group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+  </svg>
+  <!-- Pulso animado - se ocultará después de 1 minuto -->
+  <span id="whatsapp-pulse" class="absolute -inset-1 bg-[#25D366] rounded-full opacity-75 animate-ping-slow"></span>
+</a>
+
+<!-- Botón de Reporte de Bugs - Encima del WhatsApp -->
+<button
+  id="bug-report-btn"
+  class="fixed bottom-[164px] right-6 z-[9998] w-14 h-14 bg-gradient-to-br from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 transform hover:scale-110 group"
+  aria-label="Reportar un bug"
+  title="Reportar un bug"
+>
+  <svg class="w-8 h-8 text-white transition-transform group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M20 8h-2.81c-.45-.78-1.07-1.45-1.82-1.96L17 4.41 15.59 3l-2.17 2.17C12.96 5.06 12.49 5 12 5c-.49 0-.96.06-1.41.17L8.41 3 7 4.41l1.62 1.63C7.88 6.55 7.26 7.22 6.81 8H4v2h2.09c-.05.33-.09.66-.09 1v1H4v2h2v1c0 .34.04.67.09 1H4v2h2.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H20v-2h-2.09c.05-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.04-.67-.09-1H20V8zm-6 8h-4v-2h4v2zm0-4h-4v-2h4v2z"/>
+  </svg>
+</button>
+
+<!-- Botón de Configuración de Cookies - Encima del Bugs -->
+<button
+  id="cookie-settings-btn"
+  class="fixed bottom-[232px] right-6 z-[9998] w-14 h-14 bg-gradient-to-br from-[#82e256]/90 to-[#6bc73d]/90 hover:from-[#82e256] hover:to-[#6bc73d] rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 transform hover:scale-110 hidden"
+  aria-label="Configuración de cookies"
+  title="Configuración de cookies"
+>
+  <svg class="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M21.95 10.99c-1.79-.03-3.7-1.95-2.68-4.22-2.98 1-5.77-1.59-5.19-4.56C6.95.71 2 6.58 2 12c0 5.52 4.48 10 10 10 5.89 0 10.54-5.08 9.95-11.01zM8.5 15c-.83 0-1.5-.67-1.5-1.5S7.67 12 8.5 12s1.5.67 1.5 1.5S9.33 15 8.5 15zm2-5C9.67 10 9 9.33 9 8.5S9.67 7 10.5 7s1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4.5 6c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/>
+  </svg>
+</button>
+
+<style>
+  @keyframes ping-slow {
+    75%, 100% {
+      transform: scale(1.5);
+      opacity: 0;
+    }
+  }
+
+  .animate-ping-slow {
+    animation: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const cookieSettingsBtn = document.getElementById('cookie-settings-btn');
+    const bugReportBtn = document.getElementById('bug-report-btn');
+    const whatsappPulse = document.getElementById('whatsapp-pulse');
+
+    const COOKIE_CONSENT_KEY = 'cookie_consent';
+
+    // Verificar si ya existe consentimiento de cookies y si fue rechazado
+    function shouldShowCookieButton() {
+      const consentData = localStorage.getItem(COOKIE_CONSENT_KEY);
+      if (!consentData) return false;
+
+      try {
+        const consent = JSON.parse(consentData);
+        // Solo mostrar el botón si las cookies fueron RECHAZADAS
+        return consent.accepted === false;
+      } catch (e) {
+        return false;
+      }
+    }
+
+    // Mostrar botón de cookies solo si fueron rechazadas
+    if (shouldShowCookieButton()) {
+      cookieSettingsBtn?.classList.remove('hidden');
+    }
+
+    // Manejar click en botón de cookies
+    cookieSettingsBtn?.addEventListener('click', () => {
+      const cookieBanner = document.getElementById('cookie-banner');
+      cookieBanner?.classList.remove('hidden');
+      setTimeout(() => {
+        cookieBanner?.classList.add('animate-slide-up');
+      }, 100);
+    });
+
+    // Manejar click en botón de reporte de bugs
+    bugReportBtn?.addEventListener('click', () => {
+      const bugReportModal = document.getElementById('bug-report-modal');
+      bugReportModal?.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    });
+
+    // Ocultar animación de pulso de WhatsApp después de 1 minuto
+    setTimeout(() => {
+      if (whatsappPulse) {
+        whatsappPulse.style.transition = 'opacity 1s ease-out';
+        whatsappPulse.style.opacity = '0';
+        setTimeout(() => {
+          whatsappPulse.style.display = 'none';
+        }, 1000); // Esperar a que termine la transición
+      }
+    }, 60000); // 60000ms = 1 minuto
+  });
+</script>

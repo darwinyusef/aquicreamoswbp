@@ -1,0 +1,106 @@
+---
+interface Props {
+  animationDuration?: string;
+  gap?: string;
+  id?: string;
+}
+
+const { animationDuration = '30s', gap = 'gap-6', id } = Astro.props;
+const looperId = id || `looper-${Math.random().toString(36).substr(2, 9)}`;
+---
+
+<div class="looper-container overflow-x-auto scrollbar-hide relative" data-looper-id={looperId} style={`--animation-duration: ${animationDuration}`}>
+  <div class={`looper-track flex ${gap} py-4`} data-looper-track={looperId}>
+    <slot />
+  </div>
+</div>
+
+<style>
+  .looper-container {
+    cursor: grab;
+    user-select: none;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .looper-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .looper-container.active {
+    cursor: grabbing;
+  }
+
+  .looper-track {
+    animation: looper-scroll var(--animation-duration, 30s) linear infinite;
+    will-change: transform;
+  }
+
+  .looper-track:hover {
+    animation-play-state: paused;
+  }
+
+  .looper-track.dragging {
+    animation: none !important;
+  }
+
+  @keyframes looper-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .looper-container :global(*) {
+    flex-shrink: 0;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const containers = document.querySelectorAll('.looper-container');
+
+    containers.forEach(container => {
+      const looperId = container.getAttribute('data-looper-id');
+      const track = container.querySelector(`[data-looper-track="${looperId}"]`);
+
+      if (!track) return;
+
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+
+      container.addEventListener('mousedown', (e) => {
+        isDown = true;
+        container.classList.add('active');
+        track.classList.add('dragging');
+
+        startX = e.pageX - container.offsetLeft;
+        scrollLeft = container.scrollLeft;
+      });
+
+      container.addEventListener('mouseleave', () => {
+        isDown = false;
+        container.classList.remove('active');
+        track.classList.remove('dragging');
+      });
+
+      container.addEventListener('mouseup', () => {
+        isDown = false;
+        container.classList.remove('active');
+        track.classList.remove('dragging');
+      });
+
+      container.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+
+        const x = e.pageX - container.offsetLeft;
+        const walk = (x - startX) * 2;
+        container.scrollLeft = scrollLeft - walk;
+      });
+    });
+  });
+</script>

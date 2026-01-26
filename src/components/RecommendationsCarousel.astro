@@ -74,31 +74,13 @@ function getIconName(icon: string): string {
       <div class="max-w-7xl mx-auto">
         <!-- Header con indicador de contexto -->
         <div class="mb-8">
-          <div class="flex items-center justify-between mb-4">
-            <div>
-              <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">
-                {title}
-              </h2>
-              <p class="text-gray-400">
-                {subtitle}
-              </p>
-            </div>
-
-            <!-- Navegación del carrusel (desktop) -->
-            <div class="hidden md:flex items-center gap-2">
-              <button
-                class={`carousel-prev-${carouselId} p-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#82e256] transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed`}
-                aria-label="Anterior"
-              >
-                <span class="material-symbols-outlined text-white">chevron_left</span>
-              </button>
-              <button
-                class={`carousel-next-${carouselId} p-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#82e256] transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed`}
-                aria-label="Siguiente"
-              >
-                <span class="material-symbols-outlined text-white">chevron_right</span>
-              </button>
-            </div>
+          <div class="mb-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">
+              {title}
+            </h2>
+            <p class="text-gray-400">
+              {subtitle}
+            </p>
           </div>
 
           <!-- Indicador de contexto si hay búsqueda o categoría -->
@@ -121,7 +103,7 @@ function getIconName(icon: string): string {
         </div>
 
         <!-- Carrusel Container -->
-        <div class="relative group">
+        <div class="relative group overflow-hidden">
           <!-- Gradiente fade left -->
           <div class="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#1a1a1a] to-transparent z-10 pointer-events-none hidden md:block"></div>
 
@@ -130,8 +112,61 @@ function getIconName(icon: string): string {
 
           <!-- Scroll Container -->
           <div
-            class={`carousel-scroll-${carouselId} flex gap-6 overflow-x-hidden pb-4`}
+            class={`carousel-scroll-${carouselId} recommendations-looper-track flex gap-6 pb-4`}
           >
+            <!-- Primera copia de las cards -->
+            {services.map((service) => (
+              <div class="flex-shrink-0 w-[280px] md:w-[320px]">
+                <a
+                  href={service.searchUrl}
+                  class="block group/card h-full"
+                >
+                  <div class="h-full bg-gradient-to-br from-gray-800/30 to-gray-900/30 rounded-xl border border-gray-700 hover:border-[#82e256] transition-all duration-300 overflow-hidden hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-[#82e256]/20">
+                    <!-- Header con icono -->
+                    <div class="relative bg-gradient-to-br from-[#00464e] to-[#006064] p-6">
+                      <div class="flex justify-center">
+                        <div class="w-20 h-20 bg-[#82e256]/10 rounded-2xl flex items-center justify-center border border-[#82e256]/30 group-hover/card:bg-[#82e256]/20 group-hover/card:border-[#82e256]/50 transition-all duration-300">
+                          <span
+                            class="material-symbols-outlined text-[#82e256] transition-transform duration-300 group-hover/card:scale-110"
+                            style="font-size: 3rem;"
+                          >
+                            {getIconName(service.icon)}
+                          </span>
+                        </div>
+                      </div>
+
+                      <!-- Badge de categoría -->
+                      <div class="mt-4 text-center">
+                        <span class="inline-block text-xs font-semibold text-white/80 bg-black/30 px-3 py-1 rounded-full border border-white/10">
+                          {service.category}
+                        </span>
+                      </div>
+                    </div>
+
+                    <!-- Contenido -->
+                    <div class="p-6">
+                      <h3 class="text-lg font-bold text-white mb-3 line-clamp-2 group-hover/card:text-[#82e256] transition-colors">
+                        {service.name}
+                      </h3>
+
+                      <p class="text-gray-300 text-sm mb-4 line-clamp-3">
+                        {service.description}
+                      </p>
+
+                      <!-- CTA -->
+                      <div class="flex items-center gap-2 text-[#82e256] text-sm font-semibold group-hover/card:gap-3 transition-all">
+                        <span>Explorar servicios</span>
+                        <span class="material-symbols-outlined text-sm transition-transform group-hover/card:translate-x-1">
+                          search
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            ))}
+
+            <!-- Segunda copia de las cards para el efecto infinito -->
             {services.map((service) => (
               <div class="flex-shrink-0 w-[280px] md:w-[320px]">
                 <a
@@ -184,20 +219,6 @@ function getIconName(icon: string): string {
             ))}
           </div>
         </div>
-
-        <!-- Navegación Mobile (Dots) -->
-        <div class="md:hidden flex justify-center gap-2 mt-6">
-          {services.map((_, index) => (
-            <button
-              class={`carousel-dot-${carouselId} w-2 h-2 rounded-full transition-all duration-300 ${
-                index === 0 ? 'bg-[#82e256] w-8' : 'bg-white/20'
-              }`}
-              data-index={index}
-              aria-label={`Ir al servicio ${index + 1}`}
-            ></button>
-          ))}
-        </div>
-
       </div>
     </div>
   </section>
@@ -218,147 +239,22 @@ function getIconName(icon: string): string {
     overflow: hidden;
   }
 
-  /* Custom scrollbar */
-  [class^="carousel-scroll-"]::-webkit-scrollbar {
-    height: 8px;
+  /* Looper infinito de recomendaciones */
+  .recommendations-looper-track {
+    animation: recommendations-scroll 20s linear infinite;
+    will-change: transform;
   }
 
-  [class^="carousel-scroll-"]::-webkit-scrollbar-track {
-    background: #2a2a2a;
-    border-radius: 4px;
+  .recommendations-looper-track:hover {
+    animation-play-state: paused;
   }
 
-  [class^="carousel-scroll-"]::-webkit-scrollbar-thumb {
-    background: #82e256;
-    border-radius: 4px;
-  }
-
-  [class^="carousel-scroll-"]::-webkit-scrollbar-thumb:hover {
-    background: #6bc73d;
-  }
-
-  /* Ocultar scrollbar en móvil pero mantener funcionalidad */
-  @media (max-width: 768px) {
-    [class^="carousel-scroll-"] {
-      scrollbar-width: none;
-      -ms-overflow-style: none;
+  @keyframes recommendations-scroll {
+    0% {
+      transform: translateX(0);
     }
-
-    [class^="carousel-scroll-"]::-webkit-scrollbar {
-      display: none;
+    100% {
+      transform: translateX(-50%);
     }
   }
 </style>
-
-<script define:vars={{ carouselId }}>
-  document.addEventListener('DOMContentLoaded', () => {
-    const scrollContainer = document.querySelector(`.carousel-scroll-${carouselId}`);
-    const prevBtn = document.querySelector(`.carousel-prev-${carouselId}`);
-    const nextBtn = document.querySelector(`.carousel-next-${carouselId}`);
-    const dots = document.querySelectorAll(`.carousel-dot-${carouselId}`);
-
-    if (!scrollContainer) return;
-
-    const cardWidth = 320 + 24; // Ancho de card + gap
-    let currentIndex = 0;
-
-    // Función para actualizar estado de botones
-    const updateButtons = () => {
-      const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-      const currentScroll = scrollContainer.scrollLeft;
-
-      if (prevBtn) {
-        prevBtn.disabled = currentScroll <= 0;
-      }
-
-      if (nextBtn) {
-        nextBtn.disabled = currentScroll >= maxScroll - 10; // -10 para threshold
-      }
-
-      // Actualizar dots
-      const scrollPercentage = currentScroll / maxScroll;
-      const totalDots = dots.length;
-      currentIndex = Math.round(scrollPercentage * (totalDots - 1));
-
-      dots.forEach((dot, index) => {
-        if (index === currentIndex) {
-          dot.classList.add('bg-[#82e256]', 'w-8');
-          dot.classList.remove('bg-white/20');
-        } else {
-          dot.classList.remove('bg-[#82e256]', 'w-8');
-          dot.classList.add('bg-white/20');
-        }
-      });
-    };
-
-    // Navegación con botones
-    if (prevBtn) {
-      prevBtn.addEventListener('click', () => {
-        scrollContainer.scrollBy({
-          left: -cardWidth * 2,
-          behavior: 'smooth'
-        });
-      });
-    }
-
-    if (nextBtn) {
-      nextBtn.addEventListener('click', () => {
-        scrollContainer.scrollBy({
-          left: cardWidth * 2,
-          behavior: 'smooth'
-        });
-      });
-    }
-
-    // Navegación con dots
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        const targetScroll = (scrollContainer.scrollWidth / dots.length) * index;
-        scrollContainer.scrollTo({
-          left: targetScroll,
-          behavior: 'smooth'
-        });
-      });
-    });
-
-    // Actualizar botones en scroll
-    scrollContainer.addEventListener('scroll', updateButtons);
-
-    // Inicializar
-    updateButtons();
-
-    // Touch/Swipe support para móvil
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    scrollContainer.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-    });
-
-    scrollContainer.addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].screenX;
-      handleSwipe();
-    });
-
-    const handleSwipe = () => {
-      const swipeThreshold = 50;
-      const diff = touchStartX - touchEndX;
-
-      if (Math.abs(diff) > swipeThreshold) {
-        if (diff > 0) {
-          // Swipe left (siguiente)
-          scrollContainer.scrollBy({
-            left: cardWidth,
-            behavior: 'smooth'
-          });
-        } else {
-          // Swipe right (anterior)
-          scrollContainer.scrollBy({
-            left: -cardWidth,
-            behavior: 'smooth'
-          });
-        }
-      }
-    };
-  });
-</script>

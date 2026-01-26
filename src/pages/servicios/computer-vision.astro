@@ -3,12 +3,179 @@ import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import OtrosServicios from "../../components/OtrosServicios.astro";
-import SimpleCarousel from "../../components/SimpleCarousel.astro";
+import Accordion from "../../components/Accordion.astro";
+import DraggableLooper from "../../components/DraggableLooper.astro";
 
 const secciones = [
   { id: "intro", title: "Introducción" },
-  { id: "capacidades", title: "Capacidades" },
+  { id: "que-es", title: "¿Qué es Computer Vision?" },
+  { id: "logros", title: "Nuestros Logros" },
+  { id: "aplicaciones", title: "Aplicaciones" },
   { id: "stack", title: "Stack Tecnológico" }
+];
+
+// Items para el accordion de logros
+const logrosItems = [
+  {
+    title: 'Gestión y Tratamiento de Imágenes',
+    icon: 'folder-open',
+    content: `
+      <p class="mb-3 text-gray-300 leading-relaxed">Implementamos sistemas completos de gestión de imágenes que incluyen:</p>
+      <ul class="space-y-2 text-gray-300">
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">✓</span>
+          <span>Optimización automática de imágenes (compresión, redimensionamiento, conversión de formatos)</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">✓</span>
+          <span>Mejora de calidad: reducción de ruido, ajuste de iluminación, corrección de color</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">✓</span>
+          <span>Segmentación de imágenes para aislar objetos o regiones de interés</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">✓</span>
+          <span>Clasificación y organización automática de grandes volúmenes de imágenes</span>
+        </li>
+      </ul>
+    `
+  },
+  {
+    title: 'Detección de Objetos en Imágenes',
+    icon: 'scan',
+    content: `
+      <p class="mb-3 text-gray-300 leading-relaxed">Utilizamos modelos pre-entrenados de <strong class="text-white">Deep Learning</strong> para identificar y localizar objetos:</p>
+      <ul class="space-y-2 text-gray-300">
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">✓</span>
+          <span>Detección en tiempo real con modelos YOLO v8/v9</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">✓</span>
+          <span>Conteo automático de elementos (productos, personas, vehículos)</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">✓</span>
+          <span>Seguimiento de objetos en movimiento a través de video</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">✓</span>
+          <span>Detección de anomalías y elementos fuera de lugar</span>
+        </li>
+      </ul>
+    `
+  },
+  {
+    title: 'Creación de Imágenes y Videos con IA',
+    icon: 'sparkles',
+    content: `
+      <p class="mb-3 text-gray-300 leading-relaxed">Implementamos modelos generativos para crear y modificar contenido visual:</p>
+      <ul class="space-y-2 text-gray-300">
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">✓</span>
+          <span>Generación de imágenes a partir de descripciones de texto (text-to-image)</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">✓</span>
+          <span>Edición automática de fotos: eliminación de fondos, cambio de estilos, mejora de calidad</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">✓</span>
+          <span>Síntesis de video: generación de clips cortos y transformación de estilos en video</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">✓</span>
+          <span>Aumento de datos para entrenamiento de modelos personalizados</span>
+        </li>
+      </ul>
+    `
+  },
+  {
+    title: 'Reconocimiento Facial',
+    icon: 'user-check',
+    content: `
+      <p class="mb-3 text-gray-300 leading-relaxed">Implementamos sistemas de identificación y análisis facial:</p>
+      <ul class="space-y-2 text-gray-300">
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">✓</span>
+          <span>Detección de rostros en imágenes y video en tiempo real</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">✓</span>
+          <span>Verificación de identidad para sistemas de acceso</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">✓</span>
+          <span>Análisis de emociones y expresiones faciales</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">✓</span>
+          <span>Conteo de personas y análisis demográfico</span>
+        </li>
+      </ul>
+    `
+  },
+  {
+    title: 'OCR y Detección de Textos en Imágenes',
+    icon: 'text-cursor-input',
+    content: `
+      <p class="mb-3 text-gray-300 leading-relaxed">Desarrollamos soluciones de reconocimiento óptico de caracteres (OCR) para extraer texto de imágenes:</p>
+      <ul class="space-y-2 text-gray-300">
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">✓</span>
+          <span><strong class="text-white">Detección de texto en placas vehiculares:</strong> Sistemas de lectura automática de placas para control de acceso y parking</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">✓</span>
+          <span>Extracción de texto de documentos escaneados y fotografías</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">✓</span>
+          <span>OCR multilingüe con alta precisión en diferentes condiciones de iluminación</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">✓</span>
+          <span>Procesamiento de formularios y facturas digitalizadas</span>
+        </li>
+      </ul>
+    `
+  },
+  {
+    title: 'Aplicación Web para la Industria de Alimentos',
+    icon: 'utensils',
+    content: `
+      <p class="mb-3 text-gray-300 leading-relaxed">Desarrollamos una aplicación web especializada que utiliza Computer Vision para la industria alimentaria:</p>
+      <ul class="space-y-2 text-gray-300 mb-4">
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">✓</span>
+          <span>Inspección visual automatizada de productos alimenticios</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">✓</span>
+          <span>Detección de defectos, contaminantes y anomalías en alimentos</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">✓</span>
+          <span>Control de calidad en líneas de producción alimentaria</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">✓</span>
+          <span>Clasificación y conteo automático de productos empacados</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-[#82e256] mt-1">✓</span>
+          <span>Análisis de cumplimiento de estándares de calidad visual</span>
+        </li>
+      </ul>
+      <div class="p-3 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]">
+        <p class="text-sm text-gray-300">
+          <strong class="text-white">Proyecto real:</strong> Sistema web que procesa imágenes de productos alimenticios en tiempo real,
+          detecta anomalías y genera reportes de calidad automáticos para cumplimiento de normativas sanitarias.
+        </p>
+      </div>
+    `
+  }
 ];
 ---
 
@@ -120,165 +287,314 @@ const secciones = [
         <main class="lg:col-span-3 space-y-16">
           <!-- Introducción -->
           <section id="intro">
-            <div
-              class="bg-gradient-to-br from-[#82e256]/10 to-[#04ADC0]/10 p-6 rounded-xl border border-[#82e256]/30 mb-6"
-            >
-              <p class="text-gray-300 text-lg">
-                <strong class="text-[#82e256]">Computer Vision</strong> (o "vision
-                por computadora") es la tecnologia que permite a las maquinas "ver"
-                y entender imagenes como lo hacemos los humanos. Imagina una camara
-                inteligente que puede <strong class="text-white"
-                  >reconocer caras, leer textos, detectar productos defectuosos
-                  o contar personas</strong
-                > automaticamente. Es como darle ojos y cerebro a tu computadora para
-                que pueda analizar fotos y videos y tomar decisiones basadas en lo
-                que "ve".
+            <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">Enseñando a las Máquinas a Ver el Mundo</h2>
+
+            <div class="bg-gradient-to-br from-[#82e256]/10 to-[#04ADC0]/10 p-6 rounded-xl border border-[#82e256]/30 mb-6">
+              <p class="text-gray-300 text-lg leading-relaxed mb-4">
+                <strong class="text-[#82e256]">Computer Vision</strong> es la tecnología que permite a las máquinas entender el mundo visual que nos rodea.
+                A través de <strong class="text-white">Deep Learning y modelos de inteligencia artificial</strong> pre-entrenados, convertimos cámaras en sensores inteligentes
+                capaces de detectar objetos, reconocer rostros, leer textos y analizar escenas en tiempo real.
+              </p>
+              <p class="text-gray-300 text-lg leading-relaxed">
+                Esta es una <strong class="text-[#82e256]">línea técnica que estamos aprendiendo y perfeccionando</strong>, aplicando los últimos avances en visión artificial
+                para resolver problemas reales de negocio.
               </p>
             </div>
 
             <div class="prose prose-invert max-w-none">
-              <p class="text-xl text-gray-300 leading-relaxed">
-                Desarrollamos soluciones de <strong class="text-[#82e256]"
-                  >Computer Vision</strong
-                > que transforman imagenes y videos en informacion accionable. Desde
-                reconocimiento facial hasta inspeccion industrial automatizada, nuestros
-                sistemas ven, entienden y actuan con <strong
-                  class="text-[#82e256]">precision superior a la humana</strong
-                >.
+              <h3 class="text-2xl font-bold text-white mb-4">¿Cómo lo hacemos?</h3>
+
+              <p class="text-gray-300 text-lg leading-relaxed mb-4">
+                Utilizamos <strong class="text-[#82e256]">modelos de Deep Learning ya entrenados</strong> (como YOLO, SAM, MediaPipe, y otros)
+                que han aprendido de millones de imágenes. En lugar de entrenar modelos desde cero, aprovechamos estos modelos pre-entrenados
+                y los adaptamos a las necesidades específicas de cada proyecto.
+              </p>
+
+              <p class="text-gray-300 text-lg leading-relaxed mb-4">
+                Las <strong class="text-white">cámaras se convierten en productores de datos</strong>: capturan el mundo visual y nuestros sistemas
+                de IA procesan esa información para detectar patrones, identificar objetos, reconocer personas y generar insights accionables.
+              </p>
+
+              <p class="text-gray-300 text-lg leading-relaxed">
+                La Computer Vision es <strong class="text-[#82e256]">cómo la IA nos ayuda a entender el mundo que nos rodea</strong> a través de imágenes y video,
+                automatizando tareas que antes requerían supervisión humana constante.
               </p>
             </div>
           </section>
 
           <div class="border-t border-gray-700"></div>
 
-          <!-- Capacidades Principales -->
-          <section id="capacidades">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-              ¿Qué Podemos Hacer con Computer Vision?
-            </h2>
-            <p class="text-gray-300 mb-8 text-lg">
-              Soluciones visuales inteligentes para cada industria
+          <!-- ¿Qué es Computer Vision? -->
+          <section id="que-es">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">¿Qué es Computer Vision?</h2>
+
+            <!-- Looper de mini cards con componente -->
+            <DraggableLooper animationDuration="20s" gap="gap-4" id="cv-looper">
+                <!-- Card 1 -->
+                <div class="cv-card flex-shrink-0 w-80 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256]/50 transition-all">
+                  <h3 class="text-lg font-bold text-[#82e256] mb-3 flex items-center gap-2">
+                    <i data-lucide="eye" class="w-6 h-6"></i>
+                    Detección de Objetos
+                  </h3>
+                  <p class="text-gray-300 text-sm leading-relaxed">
+                    Identificamos y clasificamos objetos en imágenes y video en tiempo real. Usando modelos como <strong class="text-white">YOLO v8/v9</strong>,
+                    podemos detectar múltiples objetos simultáneamente, rastrear su movimiento y contar elementos con precisión superior al 95%.
+                  </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="cv-card flex-shrink-0 w-80 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256]/50 transition-all">
+                  <h3 class="text-lg font-bold text-[#82e256] mb-3 flex items-center gap-2">
+                    <i data-lucide="user-check" class="w-6 h-6"></i>
+                    Reconocimiento Facial
+                  </h3>
+                  <p class="text-gray-300 text-sm leading-relaxed">
+                    Implementamos sistemas de identificación facial para control de acceso, análisis de emociones y personalización de experiencias.
+                    Los modelos pueden reconocer rostros incluso con variaciones de iluminación, ángulo y expresión facial.
+                  </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="cv-card flex-shrink-0 w-80 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256]/50 transition-all">
+                  <h3 class="text-lg font-bold text-[#82e256] mb-3 flex items-center gap-2">
+                    <i data-lucide="camera" class="w-6 h-6"></i>
+                    Producción de Datos con Cámaras
+                  </h3>
+                  <p class="text-gray-300 text-sm leading-relaxed">
+                    Las cámaras capturan flujos continuos de información visual que procesamos en tiempo real. Convertimos video en datos estructurados:
+                    conteos, trayectorias, patrones de comportamiento, métricas de ocupación y alertas automáticas.
+                  </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="cv-card flex-shrink-0 w-80 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256]/50 transition-all">
+                  <h3 class="text-lg font-bold text-[#82e256] mb-3 flex items-center gap-2">
+                    <i data-lucide="file-text" class="w-6 h-6"></i>
+                    Análisis y Procesamiento de Imágenes
+                  </h3>
+                  <p class="text-gray-300 text-sm leading-relaxed">
+                    Aplicamos técnicas de procesamiento de imágenes para mejorar calidad, eliminar ruido, segmentar regiones de interés y extraer características relevantes.
+                    Desde filtros básicos hasta segmentación avanzada con modelos como <strong class="text-white">SAM (Segment Anything Model)</strong>.
+                  </p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="cv-card flex-shrink-0 w-80 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256]/50 transition-all">
+                  <h3 class="text-lg font-bold text-[#82e256] mb-3 flex items-center gap-2">
+                    <i data-lucide="image" class="w-6 h-6"></i>
+                    Generación de Imágenes y Videos con IA
+                  </h3>
+                  <p class="text-gray-300 text-sm leading-relaxed">
+                    Utilizamos IA generativa para crear y modificar contenido visual: generación de imágenes realistas, edición automática de fotos,
+                    síntesis de video y transformación de estilos visuales.
+                  </p>
+                </div>
+
+                <!-- Duplicados para looping continuo -->
+                <!-- Card 1 duplicado -->
+                <div class="cv-card flex-shrink-0 w-80 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256]/50 transition-all">
+                  <h3 class="text-lg font-bold text-[#82e256] mb-3 flex items-center gap-2">
+                    <i data-lucide="eye" class="w-6 h-6"></i>
+                    Detección de Objetos
+                  </h3>
+                  <p class="text-gray-300 text-sm leading-relaxed">
+                    Identificamos y clasificamos objetos en imágenes y video en tiempo real. Usando modelos como <strong class="text-white">YOLO v8/v9</strong>,
+                    podemos detectar múltiples objetos simultáneamente, rastrear su movimiento y contar elementos con precisión superior al 95%.
+                  </p>
+                </div>
+
+                <!-- Card 2 duplicado -->
+                <div class="cv-card flex-shrink-0 w-80 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256]/50 transition-all">
+                  <h3 class="text-lg font-bold text-[#82e256] mb-3 flex items-center gap-2">
+                    <i data-lucide="user-check" class="w-6 h-6"></i>
+                    Reconocimiento Facial
+                  </h3>
+                  <p class="text-gray-300 text-sm leading-relaxed">
+                    Implementamos sistemas de identificación facial para control de acceso, análisis de emociones y personalización de experiencias.
+                    Los modelos pueden reconocer rostros incluso con variaciones de iluminación, ángulo y expresión facial.
+                  </p>
+                </div>
+
+                <!-- Card 3 duplicado -->
+                <div class="cv-card flex-shrink-0 w-80 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256]/50 transition-all">
+                  <h3 class="text-lg font-bold text-[#82e256] mb-3 flex items-center gap-2">
+                    <i data-lucide="camera" class="w-6 h-6"></i>
+                    Producción de Datos con Cámaras
+                  </h3>
+                  <p class="text-gray-300 text-sm leading-relaxed">
+                    Las cámaras capturan flujos continuos de información visual que procesamos en tiempo real. Convertimos video en datos estructurados:
+                    conteos, trayectorias, patrones de comportamiento, métricas de ocupación y alertas automáticas.
+                  </p>
+                </div>
+
+                <!-- Card 4 duplicado -->
+                <div class="cv-card flex-shrink-0 w-80 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256]/50 transition-all">
+                  <h3 class="text-lg font-bold text-[#82e256] mb-3 flex items-center gap-2">
+                    <i data-lucide="file-text" class="w-6 h-6"></i>
+                    Análisis y Procesamiento de Imágenes
+                  </h3>
+                  <p class="text-gray-300 text-sm leading-relaxed">
+                    Aplicamos técnicas de procesamiento de imágenes para mejorar calidad, eliminar ruido, segmentar regiones de interés y extraer características relevantes.
+                    Desde filtros básicos hasta segmentación avanzada con modelos como <strong class="text-white">SAM (Segment Anything Model)</strong>.
+                  </p>
+                </div>
+
+                <!-- Card 5 duplicado -->
+                <div class="cv-card flex-shrink-0 w-80 bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256]/50 transition-all">
+                  <h3 class="text-lg font-bold text-[#82e256] mb-3 flex items-center gap-2">
+                    <i data-lucide="image" class="w-6 h-6"></i>
+                    Generación de Imágenes y Videos con IA
+                  </h3>
+                  <p class="text-gray-300 text-sm leading-relaxed">
+                    Utilizamos IA generativa para crear y modificar contenido visual: generación de imágenes realistas, edición automática de fotos,
+                    síntesis de video y transformación de estilos visuales.
+                  </p>
+                </div>
+            </DraggableLooper>
+          </section>
+
+          <div class="border-t border-gray-700"></div>
+
+          <!-- Nuestros Logros -->
+          <section id="logros">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#82e256] mb-6">Nuestros Logros en Computer Vision</h2>
+
+            <div class="bg-gradient-to-br from-[#82e256]/10 to-[#04ADC0]/10 p-6 rounded-xl border border-[#82e256]/30 mb-8">
+              <p class="text-gray-300 text-lg leading-relaxed">
+                Aunque esta es una <strong class="text-white">línea técnica que estamos aprendiendo y desarrollando activamente</strong>,
+                ya hemos logrado implementaciones exitosas en diferentes áreas de Computer Vision. Aquí están nuestros principales logros:
+              </p>
+            </div>
+
+            <Accordion items={logrosItems} />
+
+            <div class="mt-8 bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-6 rounded-xl border border-purple-500/30">
+              <p class="text-gray-300 text-lg leading-relaxed">
+                <strong class="text-[#82e256]">💡 En desarrollo continuo:</strong> Seguimos aprendiendo y experimentando con nuevas técnicas de Computer Vision,
+                incluyendo segmentación semántica avanzada, estimación de poses, realidad aumentada y análisis de video multi-cámara.
+              </p>
+            </div>
+          </section>
+
+          <div class="border-t border-gray-700"></div>
+
+          <!-- Aplicaciones Prácticas -->
+          <section id="aplicaciones">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Aplicaciones Prácticas</h2>
+
+            <p class="text-gray-300 text-lg mb-8 leading-relaxed">
+              La Computer Vision tiene aplicaciones en prácticamente todas las industrias. Aquí algunos ejemplos de cómo se puede utilizar:
             </p>
 
-            <SimpleCarousel id="capacidades-computer-vision">
-              <!-- Detección de Objetos -->
-              <div
-                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all"
-              >
-                <h3 class="text-xl font-bold text-white mb-3">
-                  Detección de Objetos
-                </h3>
-                <p class="text-gray-400 mb-4">
-                  Identifica y categoriza elementos en imágenes o video en
-                  tiempo real.
-                </p>
-                <div
-                  class="p-3 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]"
-                >
-                  <p class="text-sm text-gray-300">
-                    <strong>Caso real:</strong> Sistema que cuenta productos en estantes
-                    con 99.5% de precisión
-                  </p>
-                </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700">
+                <h3 class="text-lg font-bold text-[#82e256] mb-3">Retail y E-commerce</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                    <span>Control de inventario automático en tiendas</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                    <span>Análisis de comportamiento de clientes en tienda</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                    <span>Búsqueda visual de productos similares</span>
+                  </li>
+                </ul>
               </div>
 
-              <!-- Reconocimiento Facial -->
-              <div
-                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all"
-              >
-                <h3 class="text-xl font-bold text-white mb-3">
-                  Reconocimiento Facial
-                </h3>
-                <p class="text-gray-400 mb-4">
-                  Identifica personas y analiza emociones con alta precisión.
-                </p>
-                <div
-                  class="p-3 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]"
-                >
-                  <p class="text-sm text-gray-300">
-                    <strong>Caso real:</strong> Control de acceso empresarial sin
-                    tarjetas ni huella digital
-                  </p>
-                </div>
+              <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700">
+                <h3 class="text-lg font-bold text-[#82e256] mb-3">Manufactura e Industria</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                    <span>Inspección de calidad automatizada</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                    <span>Detección de defectos en líneas de producción</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                    <span>Monitoreo de seguridad en plantas industriales</span>
+                  </li>
+                </ul>
               </div>
 
-              <!-- OCR Avanzado -->
-              <div
-                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all"
-              >
-                <h3 class="text-xl font-bold text-white mb-3">OCR Avanzado</h3>
-                <p class="text-gray-400 mb-4">
-                  Extrae texto de documentos, placas, formularios y más.
-                </p>
-                <div
-                  class="p-3 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]"
-                >
-                  <p class="text-sm text-gray-300">
-                    <strong>Caso real:</strong> App que digitaliza facturas automáticamente
-                    con solo una foto
-                  </p>
-                </div>
+              <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700">
+                <h3 class="text-lg font-bold text-[#82e256] mb-3">Seguridad y Vigilancia</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                    <span>Control de acceso con reconocimiento facial</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                    <span>Detección de intrusiones y comportamientos sospechosos</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                    <span>Lectura automática de placas vehiculares</span>
+                  </li>
+                </ul>
               </div>
 
-              <!-- Inspección Industrial -->
-              <div
-                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all"
-              >
-                <h3 class="text-xl font-bold text-white mb-3">
-                  Inspección Industrial
-                </h3>
-                <p class="text-gray-400 mb-4">
-                  Control de calidad automatizado con precisión milimétrica.
-                </p>
-                <div
-                  class="p-3 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]"
-                >
-                  <p class="text-sm text-gray-300">
-                    <strong>Caso real:</strong> Detecta defectos a 100 unidades/min
-                    con 99.8% de precisión
-                  </p>
-                </div>
+              <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700">
+                <h3 class="text-lg font-bold text-[#82e256] mb-3">Salud y Medicina</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                    <span>Análisis de imágenes médicas (rayos X, resonancias)</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                    <span>Detección temprana de enfermedades</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                    <span>Monitoreo de signos vitales sin contacto</span>
+                  </li>
+                </ul>
               </div>
 
-              <!-- Visual Search -->
-              <div
-                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all"
-              >
-                <h3 class="text-xl font-bold text-white mb-3">Visual Search</h3>
-                <p class="text-gray-400 mb-4">
-                  Búsqueda por imagen: encuentra productos similares al
-                  instante.
-                </p>
-                <div
-                  class="p-3 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]"
-                >
-                  <p class="text-sm text-gray-300">
-                    <strong>Caso real:</strong> E-commerce que recomienda prendas
-                    similares desde fotos
-                  </p>
-                </div>
+              <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700">
+                <h3 class="text-lg font-bold text-[#82e256] mb-3">Agricultura</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                    <span>Monitoreo de cultivos con drones</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                    <span>Detección de plagas y enfermedades en plantas</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                    <span>Clasificación y selección automatizada de frutas</span>
+                  </li>
+                </ul>
               </div>
 
-              <!-- Análisis de Video -->
-              <div
-                class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-6 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all"
-              >
-                <h3 class="text-xl font-bold text-white mb-3">
-                  Análisis de Video
-                </h3>
-                <p class="text-gray-400 mb-4">
-                  Procesamiento inteligente de video en tiempo real.
-                </p>
-                <div
-                  class="p-3 bg-[#82e256]/10 rounded-lg border-l-4 border-[#82e256]"
-                >
-                  <p class="text-sm text-gray-300">
-                    <strong>Caso real:</strong> Retail optimiza layout analizando
-                    flujo de clientes
-                  </p>
-                </div>
+              <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700">
+                <h3 class="text-lg font-bold text-[#82e256] mb-3">Transporte y Logística</h3>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                    <span>Sistemas de asistencia al conductor (ADAS)</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                    <span>Conteo automático de paquetes y mercancías</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check" class="w-4 h-4 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                    <span>Optimización de rutas basada en análisis visual</span>
+                  </li>
+                </ul>
               </div>
-            </SimpleCarousel>
+            </div>
           </section>
 
           <div class="border-t border-gray-700"></div>
@@ -288,101 +604,230 @@ const secciones = [
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
               Stack Tecnológico de Vanguardia
             </h2>
-            <p class="text-gray-300 mb-12 text-lg">
-              Las mejores herramientas para Computer Vision
+            <p class="text-gray-300 mb-8 text-lg">
+              Las mejores herramientas y frameworks para Computer Vision que utilizamos en nuestros proyectos
             </p>
 
-            <SimpleCarousel id="stack-tecnologico-vision">
-              <!-- Modelos & Frameworks -->
-              <div
-                class="bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-6 rounded-xl border border-purple-500/30"
-              >
-                <h3
-                  class="text-xl font-bold text-white mb-4 flex items-center gap-2"
-                >
-                  <span>🤖</span> Modelos & Frameworks
-                </h3>
-                <div class="space-y-2 text-gray-300">
-                  <p>
-                    <strong class="text-white">YOLO v8/v9</strong> - Detección rápida
-                    de objetos
-                  </p>
-                  <p>
-                    <strong class="text-white">SAM</strong> - Segmentación universal
-                  </p>
-                  <p>
-                    <strong class="text-white">MediaPipe</strong> - Tracking y pose
-                    estimation
-                  </p>
-                  <p>
-                    <strong class="text-white">PyTorch/TensorFlow</strong> - Modelos
-                    custom
-                  </p>
+            <!-- Carousel de Stack Tecnológico -->
+            <div class="overflow-hidden relative mb-8">
+              <div class="stack-carousel-track flex gap-6 py-4">
+                <!-- Card 1: Modelos & Frameworks -->
+                <div class="stack-card flex-shrink-0 w-96 bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-6 rounded-xl border border-purple-500/30 hover:border-purple-400/50 transition-all">
+                  <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <i data-lucide="brain" class="w-6 h-6 text-purple-400"></i>
+                    Modelos de Deep Learning
+                  </h3>
+                  <div class="space-y-3 text-gray-300">
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                      <span><strong class="text-white">YOLO v8/v9</strong> - Detección de objetos en tiempo real con alta precisión</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                      <span><strong class="text-white">SAM (Segment Anything Model)</strong> - Segmentación universal de imágenes</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                      <span><strong class="text-white">MediaPipe</strong> - Tracking de objetos y estimación de poses</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                      <span><strong class="text-white">PyTorch/TensorFlow</strong> - Frameworks para modelos personalizados</span>
+                    </p>
+                  </div>
                 </div>
-              </div>
 
-              <!-- OCR & Reconocimiento -->
-              <div
-                class="bg-gradient-to-br from-blue-900/20 to-blue-800/20 p-6 rounded-xl border border-blue-500/30"
-              >
-                <h3
-                  class="text-xl font-bold text-white mb-4 flex items-center gap-2"
-                >
-                  <span>📄</span> OCR & Reconocimiento
-                </h3>
-                <div class="space-y-2 text-gray-300">
-                  <p>
-                    <strong class="text-white">PaddleOCR</strong> - OCR multilingüe
-                  </p>
-                  <p>
-                    <strong class="text-white">FaceNet/ArcFace</strong> - Reconocimiento
-                    facial
-                  </p>
-                  <p>
-                    <strong class="text-white">Google Cloud Vision</strong> - APIs
-                    enterprise
-                  </p>
-                  <p>
-                    <strong class="text-white">AWS Rekognition</strong> - Soluciones
-                    cloud
-                  </p>
+                <!-- Card 2: OCR & Reconocimiento -->
+                <div class="stack-card flex-shrink-0 w-96 bg-gradient-to-br from-blue-900/20 to-blue-800/20 p-6 rounded-xl border border-blue-500/30 hover:border-blue-400/50 transition-all">
+                  <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <i data-lucide="file-text" class="w-6 h-6 text-blue-400"></i>
+                    OCR y Reconocimiento
+                  </h3>
+                  <div class="space-y-3 text-gray-300">
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                      <span><strong class="text-white">PaddleOCR</strong> - Reconocimiento óptico de caracteres multilingüe</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                      <span><strong class="text-white">Tesseract OCR</strong> - Extracción de texto de documentos</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                      <span><strong class="text-white">FaceNet/ArcFace</strong> - Modelos de reconocimiento facial</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                      <span><strong class="text-white">DeepFace</strong> - Análisis facial y detección de emociones</span>
+                    </p>
+                  </div>
                 </div>
-              </div>
 
-              <!-- Infraestructura -->
-              <div
-                class="bg-gradient-to-br from-green-900/20 to-green-800/20 p-6 rounded-xl border border-green-500/30"
-              >
-                <h3
-                  class="text-xl font-bold text-white mb-4 flex items-center gap-2"
-                >
-                  <span>⚙️</span> Infraestructura
-                </h3>
-                <div class="space-y-2 text-gray-300">
-                  <p>
-                    <strong class="text-white">NVIDIA Jetson</strong> - Edge computing
-                  </p>
-                  <p>
-                    <strong class="text-white">CUDA/TensorRT</strong> - Aceleración
-                    GPU
-                  </p>
-                  <p>
-                    <strong class="text-white">GStreamer/FFmpeg</strong> - Streaming
-                    pipelines
-                  </p>
-                  <p>
-                    <strong class="text-white">AWS/GCP/Azure</strong> - Cloud processing
-                  </p>
+                <!-- Card 3: Procesamiento de Imágenes -->
+                <div class="stack-card flex-shrink-0 w-96 bg-gradient-to-br from-green-900/20 to-green-800/20 p-6 rounded-xl border border-green-500/30 hover:border-green-400/50 transition-all">
+                  <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <i data-lucide="image" class="w-6 h-6 text-green-400"></i>
+                    Procesamiento de Imágenes
+                  </h3>
+                  <div class="space-y-3 text-gray-300">
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                      <span><strong class="text-white">OpenCV</strong> - Biblioteca fundamental para visión por computadora</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                      <span><strong class="text-white">Pillow/PIL</strong> - Manipulación y optimización de imágenes</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                      <span><strong class="text-white">scikit-image</strong> - Algoritmos de procesamiento de imágenes</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                      <span><strong class="text-white">Albumentations</strong> - Aumento de datos para entrenamiento</span>
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Card 4: Infraestructura y Deploy -->
+                <div class="stack-card flex-shrink-0 w-96 bg-gradient-to-br from-orange-900/20 to-orange-800/20 p-6 rounded-xl border border-orange-500/30 hover:border-orange-400/50 transition-all">
+                  <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <i data-lucide="server" class="w-6 h-6 text-orange-400"></i>
+                    Infraestructura y Deploy
+                  </h3>
+                  <div class="space-y-3 text-gray-300">
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                      <span><strong class="text-white">NVIDIA CUDA</strong> - Aceleración GPU para procesamiento rápido</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                      <span><strong class="text-white">TensorRT</strong> - Optimización de modelos para inferencia</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                      <span><strong class="text-white">NVIDIA Jetson</strong> - Edge computing para cámaras inteligentes</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                      <span><strong class="text-white">GStreamer/FFmpeg</strong> - Procesamiento de streams de video</span>
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Duplicados para looping continuo -->
+                <!-- Card 1 duplicado -->
+                <div class="stack-card flex-shrink-0 w-96 bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-6 rounded-xl border border-purple-500/30 hover:border-purple-400/50 transition-all">
+                  <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <i data-lucide="brain" class="w-6 h-6 text-purple-400"></i>
+                    Modelos de Deep Learning
+                  </h3>
+                  <div class="space-y-3 text-gray-300">
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                      <span><strong class="text-white">YOLO v8/v9</strong> - Detección de objetos en tiempo real con alta precisión</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                      <span><strong class="text-white">SAM (Segment Anything Model)</strong> - Segmentación universal de imágenes</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                      <span><strong class="text-white">MediaPipe</strong> - Tracking de objetos y estimación de poses</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                      <span><strong class="text-white">PyTorch/TensorFlow</strong> - Frameworks para modelos personalizados</span>
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Card 2 duplicado -->
+                <div class="stack-card flex-shrink-0 w-96 bg-gradient-to-br from-blue-900/20 to-blue-800/20 p-6 rounded-xl border border-blue-500/30 hover:border-blue-400/50 transition-all">
+                  <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <i data-lucide="file-text" class="w-6 h-6 text-blue-400"></i>
+                    OCR y Reconocimiento
+                  </h3>
+                  <div class="space-y-3 text-gray-300">
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                      <span><strong class="text-white">PaddleOCR</strong> - Reconocimiento óptico de caracteres multilingüe</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                      <span><strong class="text-white">Tesseract OCR</strong> - Extracción de texto de documentos</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                      <span><strong class="text-white">FaceNet/ArcFace</strong> - Modelos de reconocimiento facial</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                      <span><strong class="text-white">DeepFace</strong> - Análisis facial y detección de emociones</span>
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Card 3 duplicado -->
+                <div class="stack-card flex-shrink-0 w-96 bg-gradient-to-br from-green-900/20 to-green-800/20 p-6 rounded-xl border border-green-500/30 hover:border-green-400/50 transition-all">
+                  <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <i data-lucide="image" class="w-6 h-6 text-green-400"></i>
+                    Procesamiento de Imágenes
+                  </h3>
+                  <div class="space-y-3 text-gray-300">
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                      <span><strong class="text-white">OpenCV</strong> - Biblioteca fundamental para visión por computadora</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                      <span><strong class="text-white">Pillow/PIL</strong> - Manipulación y optimización de imágenes</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                      <span><strong class="text-white">scikit-image</strong> - Algoritmos de procesamiento de imágenes</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                      <span><strong class="text-white">Albumentations</strong> - Aumento de datos para entrenamiento</span>
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Card 4 duplicado -->
+                <div class="stack-card flex-shrink-0 w-96 bg-gradient-to-br from-orange-900/20 to-orange-800/20 p-6 rounded-xl border border-orange-500/30 hover:border-orange-400/50 transition-all">
+                  <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <i data-lucide="server" class="w-6 h-6 text-orange-400"></i>
+                    Infraestructura y Deploy
+                  </h3>
+                  <div class="space-y-3 text-gray-300">
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                      <span><strong class="text-white">NVIDIA CUDA</strong> - Aceleración GPU para procesamiento rápido</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                      <span><strong class="text-white">TensorRT</strong> - Optimización de modelos para inferencia</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                      <span><strong class="text-white">NVIDIA Jetson</strong> - Edge computing para cámaras inteligentes</span>
+                    </p>
+                    <p class="flex items-start gap-2">
+                      <i data-lucide="check" class="w-5 h-5 text-[#82e256] flex-shrink-0 mt-0.5"></i>
+                      <span><strong class="text-white">GStreamer/FFmpeg</strong> - Procesamiento de streams de video</span>
+                    </p>
+                  </div>
                 </div>
               </div>
-            </SimpleCarousel>
+            </div>
 
             <!-- Imagen de apoyo -->
-            <div class="flex justify-center mt-12">
+            <div class="flex justify-center mt-8">
               <img
                 src="/imgfondos/12.jpg"
                 alt="Computer Vision Solutions"
-                class="max-w-md w-full rounded-2xl"
+                class="max-w-2xl w-full rounded-2xl"
               />
             </div>
           </section>
@@ -423,6 +868,64 @@ const secciones = [
   html {
     scroll-behavior: smooth;
   }
+
+  /* Looper de Computer Vision */
+  .cv-looper-track {
+    animation: cv-scroll 20s linear infinite;
+    will-change: transform;
+    user-select: none;
+  }
+
+  .cv-looper-track:hover {
+    animation-play-state: paused;
+  }
+
+  .cv-looper-track.dragging {
+    animation: none !important;
+  }
+
+  @keyframes cv-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .cv-card {
+    min-width: 320px;
+    pointer-events: none;
+  }
+
+  /* Carousel del Stack Tecnológico */
+  .stack-carousel-track {
+    animation: stack-scroll 25s linear infinite;
+    will-change: transform;
+    user-select: none;
+  }
+
+  .stack-carousel-track:hover {
+    animation-play-state: paused;
+  }
+
+  .stack-carousel-track.dragging {
+    animation: none !important;
+  }
+
+  @keyframes stack-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .stack-card {
+    min-width: 384px;
+    pointer-events: none;
+  }
 </style>
 
 <script>
@@ -443,5 +946,10 @@ const secciones = [
         }
       });
     });
+
+    // Inicializar iconos de Lucide
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
   });
 </script>

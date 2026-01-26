@@ -6,7 +6,7 @@ const services = JSON.parse(readFileSync('./public/services.json', 'utf-8'));
 // Simular la función enrichService
 function getSearchKeyword(service) {
   const categoryKeywords = {
-    "Arquitectura de Software Escalable & Robusta": "arquitectura",
+    "Oficina de Arquitectura de Software + IA": "arquitectura",
     "DevOps & Infraestructura Cloud": "devops",
     "Desarrollo Full-Stack": "fullstack",
     "Aplicaciones Nativas & Cross-Platform": "móvil",

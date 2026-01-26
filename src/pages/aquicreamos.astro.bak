@@ -3,37 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 
 // Meta tags dinámicos para SEO
-const pageTitle = '53+ Automatizaciones IA y Servicios Profesionales | n8n, GPT-4, WhatsApp';
-const pageDescription = 'Descubre 53 automatizaciones con IA listas para implementar: chatbots WhatsApp, agentes virtuales, email marketing, CRM automation, DevOps, IoT. Desarrollo web, móvil y soluciones tech personalizadas.';
-const pageKeywords = 'automatizaciones ia, chatbot whatsapp, n8n automation, gpt-4, agentes virtuales, desarrollo web, machine learning, devops, workflows automation, business automation, iot, ci/cd';
-
-// Structured Data para SEO
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "name": "Automatizaciones IA y Servicios Tecnológicos",
-  "description": pageDescription,
-  "numberOfItems": 53,
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "item": {
-        "@type": "SoftwareApplication",
-        "name": "Chatbot WhatsApp con IA y RAG",
-        "description": "Asistente inteligente 24/7 para WhatsApp con memoria contextual y búsqueda en base de conocimiento vectorial",
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "Cloud",
-        "offers": {
-          "@type": "Offer",
-          "price": "Consultar",
-          "priceCurrency": "USD"
-        }
-      }
-    }
-    // Más items se agregarían aquí dinámicamente
-  ]
-};
+const pageTitle = 'Servicios Profesionales y Automatizaciones IA | Aquí Creamos';
+const pageDescription = 'Servicios de desarrollo web, móvil, IA y automatizaciones inteligentes. Chatbots, agentes virtuales, workflows y soluciones tecnológicas personalizadas.';
+const pageKeywords = 'desarrollo web, apps móviles, inteligencia artificial, machine learning, DevOps, automatizaciones IA, chatbots, n8n, workflows';
 ---
 
 <Layout>
@@ -47,18 +19,11 @@ const structuredData = {
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={pageDescription} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://tupagina.com/aquicreamos" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={pageDescription} />
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://tupagina.com/aquicreamos" />
-
-    <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   </Fragment>
 
   <Header currentPage="aquicreamos" />
@@ -440,14 +405,7 @@ const structuredData = {
     }
 
     updateURL();
-
-    // Aplicar filtros según el tab actual
-    if (currentTab === 'servicios') {
-      applyFilters();
-    } else {
-      applyWorkflowFilters();
-    }
-
+    applyFilters();
     updateSelectedCategoriesDisplay();
     updateClearAllButton();
   }
@@ -491,14 +449,7 @@ const structuredData = {
           if (category) {
             selectedCategories.delete(category);
             updateURL();
-
-            // Aplicar filtros según el tab actual
-            if (currentTab === 'servicios') {
-              applyFilters();
-            } else {
-              applyWorkflowFilters();
-            }
-
+            applyFilters();
             updateSelectedCategoriesDisplay();
             renderCategoryCheckboxes();
             updateClearAllButton();
@@ -814,8 +765,7 @@ const structuredData = {
       counter.textContent = count.toString();
     }
     if (typeLabel) {
-      const text = type === 'servicios' ? 'servicios' : 'automatizaciones';
-      typeLabel.textContent = text;
+      typeLabel.textContent = type === 'servicios' ? 'servicios' : 'automatizaciones';
     }
   }
 
@@ -838,14 +788,7 @@ const structuredData = {
       }
 
       updateURL();
-
-      // Aplicar filtros según el tab actual
-      if (currentTab === 'servicios') {
-        applyFilters();
-      } else {
-        applyWorkflowFilters();
-      }
-
+      applyFilters();
       updateClearAllButton();
     });
 
@@ -855,14 +798,7 @@ const structuredData = {
       searchQuery = '';
       clearSearchBtn.classList.add('hidden');
       updateURL();
-
-      // Aplicar filtros según el tab actual
-      if (currentTab === 'servicios') {
-        applyFilters();
-      } else {
-        applyWorkflowFilters();
-      }
-
+      applyFilters();
       updateClearAllButton();
     });
 
@@ -919,14 +855,7 @@ const structuredData = {
     clearCategoriesBtn.addEventListener('click', () => {
       selectedCategories.clear();
       updateURL();
-
-      // Aplicar filtros según el tab actual
-      if (currentTab === 'servicios') {
-        applyFilters();
-      } else {
-        applyWorkflowFilters();
-      }
-
+      applyFilters();
       updateSelectedCategoriesDisplay();
       renderCategoryCheckboxes();
       updateClearAllButton();
@@ -951,14 +880,7 @@ const structuredData = {
 
       // Actualizar
       updateURL();
-
-      // Aplicar filtros según el tab actual
-      if (currentTab === 'servicios') {
-        applyFilters();
-      } else {
-        applyWorkflowFilters();
-      }
-
+      applyFilters();
       updateSelectedCategoriesDisplay();
       renderCategoryCheckboxes();
       updateClearAllButton();
@@ -1019,75 +941,8 @@ const structuredData = {
   const contentAutomatizaciones = document.getElementById('content-automatizaciones');
   const sectionFiltros = document.getElementById('section-filtros');
 
-  // Función para limpiar todos los filtros al cambiar de tab
-  function clearAllFiltersOnTabSwitch() {
-    // Limpiar input de búsqueda
-    const searchInputEl = document.getElementById('search-input') as HTMLInputElement;
-    if (searchInputEl) {
-      searchInputEl.value = '';
-    }
-
-    // Limpiar botón de limpiar búsqueda
-    const clearSearchBtn = document.getElementById('clear-search-btn');
-    if (clearSearchBtn) {
-      clearSearchBtn.classList.add('hidden');
-    }
-
-    // Limpiar categorías seleccionadas
-    if (typeof selectedCategories !== 'undefined') {
-      selectedCategories.clear();
-    }
-
-    // Limpiar variable de búsqueda global
-    if (typeof searchQuery !== 'undefined') {
-      searchQuery = '';
-    }
-
-    // Actualizar displays
-    if (typeof updateSelectedCategoriesDisplay === 'function') {
-      updateSelectedCategoriesDisplay();
-    }
-    if (typeof renderCategoryCheckboxes === 'function') {
-      renderCategoryCheckboxes();
-    }
-    if (typeof updateClearAllButton === 'function') {
-      updateClearAllButton();
-    }
-
-    // Ocultar botón de limpiar todos los filtros
-    const clearAllBtn = document.getElementById('clear-all-filters');
-    if (clearAllBtn) {
-      clearAllBtn.classList.add('hidden');
-    }
-
-    // Ocultar badge de filtros
-    const filterBadge = document.getElementById('filter-badge');
-    if (filterBadge) {
-      filterBadge.classList.add('hidden');
-    }
-
-    // Ocultar chips de categorías seleccionadas
-    const chipsContainer = document.getElementById('selected-categories-chips');
-    if (chipsContainer) {
-      chipsContainer.classList.add('hidden');
-      chipsContainer.innerHTML = '';
-    }
-  }
-
-  function switchTab(tab: 'servicios' | 'automatizaciones', updateURL = true) {
+  function switchTab(tab: 'servicios' | 'automatizaciones') {
     currentTab = tab;
-
-    // Actualizar URL hash para SEO
-    if (updateURL) {
-      const newHash = tab === 'servicios' ? '#servicios-profesionales' : '#automatizaciones';
-      window.history.pushState(null, '', newHash);
-
-      // Actualizar meta tags dinámicamente
-      updateMetaTags(tab);
-    }
-
-    // Limpiar todos los filtros al cambiar de tab
-    clearAllFiltersOnTabSwitch();
 
     if (tab === 'servicios') {
       // Activar tab servicios
@@ -1101,13 +956,9 @@ const structuredData = {
       contentAutomatizaciones?.classList.add('hidden');
       sectionFiltros?.classList.remove('hidden');
 
-      // Actualizar categorías disponibles para servicios
-      availableCategories = [...new Set(allServices.map(s => s.category).filter(Boolean))];
-      renderCategoryCheckboxes();
-
-      // Cargar todos los servicios sin filtros
-      const filtered = filterServices('');
-      renderServices(filtered);
+      // Actualizar contador
+      const query = searchInput?.value.toLowerCase() || '';
+      const filtered = filterServices(query);
       updateResultsCount(filtered.length, 'servicios');
     } else {
       // Activar tab automatizaciones
@@ -1121,90 +972,21 @@ const structuredData = {
       contentServicios?.classList.add('hidden');
       sectionFiltros?.classList.remove('hidden');
 
-      // Actualizar categorías disponibles para workflows
-      availableCategories = [...new Set(workflows.map(w => w.category).filter(Boolean))];
-      renderCategoryCheckboxes();
-
-      // Renderizar workflows
+      // Renderizar workflows si aún no se han cargado
       if (!workflowsLoaded) {
         renderWorkflows(workflows);
         workflowsLoaded = true;
-      } else {
-        // Si ya están cargados, re-renderizar todos sin filtros
-        renderWorkflows(workflows);
       }
 
-      // Actualizar contador con todos los workflows
-      const filtered = filterWorkflows('');
+      // Actualizar contador
+      const query = searchInput?.value.toLowerCase() || '';
+      const filtered = filterWorkflows(query);
       updateResultsCount(filtered.length, 'automatizaciones');
     }
   }
 
-  // Event listeners para tabs - ahora con prevención de navegación y actualización de URL
-  tabServiciosBtn?.addEventListener('click', (e) => {
-    e.preventDefault();
-    switchTab('servicios', true);
-  });
-
-  tabAutomatizacionesBtn?.addEventListener('click', (e) => {
-    e.preventDefault();
-    switchTab('automatizaciones', true);
-  });
-
-  // Detectar tab inicial desde URL hash
-  function initTabFromURL() {
-    const hash = window.location.hash;
-    if (hash === '#automatizaciones') {
-      switchTab('automatizaciones', false);
-    } else {
-      // Por defecto servicios-profesionales
-      if (!hash || hash === '') {
-        window.history.replaceState(null, '', '#servicios-profesionales');
-      }
-      switchTab('servicios', false);
-    }
-  }
-
-  // Manejar cambios en el hash (navegación con botones del navegador)
-  window.addEventListener('hashchange', () => {
-    const hash = window.location.hash;
-    if (hash === '#automatizaciones') {
-      switchTab('automatizaciones', false);
-    } else {
-      switchTab('servicios', false);
-    }
-  });
-
-  // Función para actualizar meta tags dinámicamente
-  function updateMetaTags(tab: 'servicios' | 'automatizaciones') {
-    const title = tab === 'servicios'
-      ? 'Servicios Profesionales | Aquí Creamos'
-      : 'Automatizaciones IA | Aquí Creamos';
-
-    const description = tab === 'servicios'
-      ? 'Servicios profesionales de desarrollo: web, móvil, IA, machine learning, DevOps y arquitectura cloud. Soluciones tecnológicas a medida.'
-      : 'Automatizaciones inteligentes con IA: chatbots, agentes virtuales, workflows automatizados y soluciones n8n personalizadas para tu negocio.';
-
-    document.title = title;
-
-    // Actualizar meta description
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.setAttribute('content', description);
-
-    // Actualizar OG tags
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) ogTitle.setAttribute('content', title);
-
-    const ogDesc = document.querySelector('meta[property="og:description"]');
-    if (ogDesc) ogDesc.setAttribute('content', description);
-
-    // Actualizar Twitter tags
-    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
-    if (twitterTitle) twitterTitle.setAttribute('content', title);
-
-    const twitterDesc = document.querySelector('meta[name="twitter:description"]');
-    if (twitterDesc) twitterDesc.setAttribute('content', description);
-  }
+  tabServiciosBtn?.addEventListener('click', () => switchTab('servicios'));
+  tabAutomatizacionesBtn?.addEventListener('click', () => switchTab('automatizaciones'));
 
   // ===== WORKFLOWS DATA & LOGIC =====
   let workflowsLoaded = false;
@@ -1245,7 +1027,6 @@ const structuredData = {
     },
     {
       id: 4,
-      icon: "shopping-cart",
       title: "Recuperación de Carritos Abandonados",
       description: "Estrategia multi-canal para recuperar ventas perdidas con emails personalizados por IA, SMS y WhatsApp. Descuentos inteligentes basados en valor del carrito.",
       category: "E-commerce",
@@ -1256,7 +1037,6 @@ const structuredData = {
     },
     {
       id: 5,
-      icon: "file-text",
       title: "Gestión Inteligente de Documentos",
       description: "Sistema RAG completo para upload, procesamiento y consulta de documentos empresariales con IA.",
       category: "Gestión Documental",
@@ -1267,7 +1047,6 @@ const structuredData = {
     },
     {
       id: 6,
-      icon: "mail",
       title: "Campañas de Email Marketing con IA",
       description: "Automatización completa de campañas de email con contenido generado por IA, segmentación inteligente y seguimiento de métricas.",
       category: "Marketing",
@@ -1278,7 +1057,6 @@ const structuredData = {
     },
     {
       id: 7,
-      icon: "user-plus",
       title: "Lead Generation en LinkedIn",
       description: "Automatización de prospección en LinkedIn con mensajes personalizados generados por IA y seguimiento automático.",
       category: "Ventas",
@@ -1289,7 +1067,6 @@ const structuredData = {
     },
     {
       id: 8,
-      icon: "briefcase",
       title: "Automatización de Propuestas Upwork",
       description: "Sistema que detecta proyectos relevantes en Upwork y genera propuestas personalizadas usando IA basándose en tu perfil.",
       category: "Freelancing",
@@ -1300,7 +1077,6 @@ const structuredData = {
     },
     {
       id: 9,
-      icon: "share-2",
       title: "Gestión de Redes Sociales Multi-plataforma",
       description: "Publica contenido simultáneamente en múltiples plataformas con contenido generado y optimizado por IA para cada red social.",
       category: "Marketing",
@@ -1311,7 +1087,6 @@ const structuredData = {
     },
     {
       id: 10,
-      icon: "globe",
       title: "Web Scraping y Enriquecimiento de Datos",
       description: "Extrae datos de sitios web y enriquécelos con IA para obtener insights, clasificaciones y análisis de mercado.",
       category: "Data Intelligence",
@@ -1322,7 +1097,6 @@ const structuredData = {
     },
     {
       id: 11,
-      icon: "pen-tool",
       title: "Creación de Contenido con IA",
       description: "Generación masiva de contenido optimizado SEO: blogs, posts sociales, scripts de video, newsletters y más.",
       category: "Marketing",
@@ -1333,7 +1107,6 @@ const structuredData = {
     },
     {
       id: 12,
-      icon: "bell",
       title: "Notificaciones Inteligentes Multi-Canal",
       description: "Sistema centralizado de notificaciones que selecciona el canal óptimo (Email, SMS, WhatsApp, Slack) según urgencia y preferencias.",
       category: "Comunicación",
@@ -1344,7 +1117,6 @@ const structuredData = {
     },
     {
       id: 13,
-      icon: "user-check",
       title: "Onboarding Automatizado de Empleados",
       description: "Automatiza todo el proceso de incorporación: creación de cuentas, asignación de equipos, capacitaciones, documentación y seguimiento personalizado del nuevo empleado.",
       category: "Talento Humano",
@@ -1355,7 +1127,6 @@ const structuredData = {
     },
     {
       id: 14,
-      icon: "users",
       title: "Reclutamiento Inteligente con IA",
       description: "Sistema de ATS (Applicant Tracking System) potenciado con IA que filtra CVs, agenda entrevistas, evalúa candidatos y genera procesos completos de entrevista genera reportes de selección.",
       category: "Talento Humano",
@@ -1366,7 +1137,6 @@ const structuredData = {
     },
     {
       id: 15,
-      icon: "award",
       title: "Evaluaciones de Desempeño Automatizadas",
       description: "Recolecta feedback 360°, analiza desempeño con IA, genera reportes personalizados y programa reuniones de retroalimentación automáticamente.",
       category: "Talento Humano",
@@ -1377,7 +1147,6 @@ const structuredData = {
     },
     {
       id: 16,
-      icon: "calendar",
       title: "Gestión de Vacaciones y Ausencias",
       description: "Automatiza solicitudes, aprobaciones, detección de conflictos de cobertura y actualización de calendarios compartidos con notificaciones inteligentes.",
       category: "Talento Humano",
@@ -1388,7 +1157,6 @@ const structuredData = {
     },
     {
       id: 17,
-      icon: "heart",
       title: "Encuestas de Clima Laboral con Análisis IA",
       description: "Encuestas periódicas automatizadas con análisis de sentimiento, detección de tendencias y alertas tempranas de problemas organizacionales.",
       category: "Talento Humano",
@@ -1399,7 +1167,6 @@ const structuredData = {
     },
     {
       id: 18,
-      icon: "graduation-cap",
       title: "Capacitación Personalizada con IA",
       description: "Recomienda cursos y contenido de capacitación basado en gaps de habilidades, objetivos de carrera y análisis de desempeño usando IA.",
       category: "Talento Humano",
@@ -1410,7 +1177,6 @@ const structuredData = {
     },
     {
       id: 19,
-      icon: "eye",
       title: "Inspección de Calidad con Computer Vision",
       description: "Sistema automatizado de control de calidad visual usando IA para detectar defectos en productos, generar reportes y alertar sobre anomalías.",
       category: "Calidad",
@@ -1421,7 +1187,6 @@ const structuredData = {
     },
     {
       id: 20,
-      icon: "alert-circle",
       title: "Gestión de No Conformidades (NCR)",
       description: "Automatiza el ciclo completo de no conformidades: registro, asignación, seguimiento, análisis de causa raíz con IA y cierre de acciones correctivas.",
       category: "Calidad",
@@ -1432,7 +1197,6 @@ const structuredData = {
     },
     {
       id: 21,
-      icon: "clipboard-check",
       title: "Auditorías Internas Automatizadas",
       description: "Programación, ejecución y seguimiento de auditorías con checklists inteligentes, generación de hallazgos y planes de acción automáticos.",
       category: "Calidad",
@@ -1443,7 +1207,6 @@ const structuredData = {
     },
     {
       id: 22,
-      icon: "file-check",
       title: "Control de Documentación ISO",
       description: "Gestión automática de documentos normativos: control de versiones, notificaciones de revisión, aprobaciones y distribución controlada.",
       category: "Calidad",
@@ -1454,7 +1217,6 @@ const structuredData = {
     },
     {
       id: 23,
-      icon: "message-square",
       title: "Análisis de Quejas de Clientes con IA",
       description: "Analiza quejas y reclamos usando NLP, clasifica por tipo, detecta patrones recurrentes y genera acciones preventivas automáticamente.",
       category: "Calidad",
@@ -1465,7 +1227,6 @@ const structuredData = {
     },
     {
       id: 24,
-      icon: "dollar-sign",
       title: "Conciliación Bancaria Automatizada",
       description: "Importa extractos bancarios, concilia automáticamente con registros contables, detecta discrepancias y genera reportes de conciliación.",
       category: "Financiera",
@@ -1476,7 +1237,6 @@ const structuredData = {
     },
     {
       id: 25,
-      icon: "file-text",
       title: "Gestión de Facturas y Cuentas por Pagar",
       description: "OCR de facturas, validación automática, workflow de aprobaciones, programación de pagos y alertas de vencimientos.",
       category: "Financiera",
@@ -1487,7 +1247,6 @@ const structuredData = {
     },
     {
       id: 26,
-      icon: "trending-up",
       title: "Cobranza Inteligente Automatizada",
       description: "Seguimiento automático de cuentas por cobrar con mensajes personalizados, escalación inteligente y predicción de riesgo de morosidad.",
       category: "Financiera",
@@ -1498,7 +1257,6 @@ const structuredData = {
     },
     {
       id: 27,
-      icon: "bar-chart-2",
       title: "Reportes Financieros Automatizados",
       description: "Genera reportes financieros (P&L, Balance, Cash Flow) automáticamente con análisis inteligente, insights y visualizaciones.",
       category: "Financiera",
@@ -1509,7 +1267,6 @@ const structuredData = {
     },
     {
       id: 28,
-      icon: "shield-alert",
       title: "Detección de Fraude Financiero",
       description: "Monitorea transacciones en tiempo real, detecta patrones sospechosos con ML, alerta sobre posibles fraudes y genera casos de investigación.",
       category: "Financiera",
@@ -1520,7 +1277,6 @@ const structuredData = {
     },
     {
       id: 29,
-      icon: "line-chart",
       title: "Presupuesto y Forecast con IA",
       description: "Genera presupuestos automáticos basados en históricos, tendencias y variables externas. Forecasting inteligente con modelos predictivos.",
       category: "Financiera",
@@ -1531,7 +1287,6 @@ const structuredData = {
     },
     {
       id: 30,
-      icon: "package",
       title: "Optimización de Stock con IA",
       description: "Predicción de demanda con ML, cálculo automático de puntos de reorden, alertas de stock bajo y optimización de niveles de inventario.",
       category: "Inventarios",
@@ -1542,7 +1297,6 @@ const structuredData = {
     },
     {
       id: 31,
-      icon: "shopping-bag",
       title: "Gestión de Órdenes de Compra Automatizada",
       description: "Genera órdenes de compra automáticamente basadas en niveles de inventario, envía a proveedores y hace seguimiento hasta recepción.",
       category: "Inventarios",
@@ -1553,7 +1307,6 @@ const structuredData = {
     },
     {
       id: 32,
-      icon: "check-square",
       title: "Inventario Cíclico Automatizado",
       description: "Programa conteos cíclicos basados en criticidad ABC, asigna tareas, registra conteos y ajusta automáticamente discrepancias menores.",
       category: "Inventarios",
@@ -1564,7 +1317,6 @@ const structuredData = {
     },
     {
       id: 33,
-      icon: "truck",
       title: "Picking y Packing Inteligente",
       description: "Optimiza rutas de picking con IA, genera listas inteligentes, valida con computer vision y automatiza etiquetado de envíos.",
       category: "Inventarios",
@@ -1572,226 +1324,6 @@ const structuredData = {
       tech: ["n8n", "OpenAI", "Computer Vision", "Shippo API", "PostgreSQL"],
       roi: "50% aumento en productividad",
       difficulty: "Avanzado"
-    },
-    {
-      id: 34,
-      icon: "mail-open",
-      title: "Email Parser y Automatización de Respuestas",
-      description: "Extrae datos estructurados de emails (facturas, órdenes, solicitudes), clasifica por tipo con IA y ejecuta acciones automáticas según el contenido.",
-      category: "Productividad",
-      features: ["Parsing inteligente de emails", "Extracción de datos clave (fechas, montos, contactos)", "Clasificación automática por tipo", "Respuestas automáticas personalizadas", "Creación de tickets/tareas según contenido", "Archivado y etiquetado inteligente"],
-      tech: ["n8n", "OpenAI GPT-4", "Gmail API", "Regex", "PostgreSQL"],
-      roi: "80% reducción en procesamiento manual de emails",
-      difficulty: "Intermedio"
-    },
-    {
-      id: 35,
-      icon: "video",
-      title: "Transcripción y Resumen de Reuniones",
-      description: "Graba, transcribe y genera resúmenes ejecutivos de reuniones con IA. Extrae acción items, decisiones clave y envía minutas automáticamente.",
-      category: "Productividad",
-      features: ["Transcripción automática de audio/video", "Resumen ejecutivo con GPT-4", "Extracción de action items y asignaciones", "Identificación de decisiones clave", "Generación de minutas estructuradas", "Distribución automática a participantes"],
-      tech: ["n8n", "OpenAI Whisper", "GPT-4", "Zoom API", "Google Meet", "Email"],
-      roi: "90% ahorro en documentación de reuniones",
-      difficulty: "Avanzado"
-    },
-    {
-      id: 36,
-      icon: "layout",
-      title: "Generación de Reportes Visuales con IA",
-      description: "Crea reportes ejecutivos automáticos con gráficos, insights y recomendaciones generadas por IA desde múltiples fuentes de datos.",
-      category: "Analítica",
-      features: ["Agregación de datos de múltiples fuentes", "Generación de visualizaciones automáticas", "Análisis de tendencias con IA", "Insights y recomendaciones escritas", "Exportación a PDF/PowerPoint", "Distribución programada"],
-      tech: ["n8n", "OpenAI GPT-4", "Chart.js", "Power BI API", "Python", "PostgreSQL"],
-      roi: "85% ahorro en creación de reportes",
-      difficulty: "Avanzado"
-    },
-    {
-      id: 37,
-      icon: "slack",
-      title: "Asistente Virtual para Slack/Teams",
-      description: "Bot empresarial que responde preguntas, ejecuta comandos, consulta sistemas internos y automatiza tareas desde Slack o Microsoft Teams.",
-      category: "Productividad",
-      features: ["Comandos naturales con IA", "Consulta de sistemas internos (CRM, ERP, RRHH)", "Creación de tickets y tareas", "Respuestas desde base de conocimiento", "Ejecución de workflows por comando", "Notificaciones inteligentes"],
-      tech: ["n8n", "OpenAI GPT-4", "Slack API", "Microsoft Teams", "Qdrant"],
-      roi: "60% reducción en consultas repetitivas a equipos",
-      difficulty: "Avanzado"
-    },
-    {
-      id: 38,
-      icon: "database",
-      title: "Sincronización de Datos Multi-Sistema",
-      description: "Mantén sincronizados CRM, ERP, e-commerce y otros sistemas automáticamente con validación de datos y resolución de conflictos con IA.",
-      category: "Integraciones",
-      features: ["Sincronización bidireccional en tiempo real", "Mapeo inteligente de campos", "Detección y resolución de conflictos", "Validación de datos con reglas", "Logs de auditoría completos", "Alertas de errores de sincronización"],
-      tech: ["n8n", "PostgreSQL", "APIs REST", "OpenAI", "Webhooks"],
-      roi: "95% reducción en errores de datos duplicados",
-      difficulty: "Avanzado"
-    },
-    {
-      id: 39,
-      icon: "bookmark",
-      title: "Content Curation y Newsletter Automática",
-      description: "Busca, filtra y curatea contenido relevante de múltiples fuentes, genera resúmenes con IA y publica newsletters personalizadas automáticamente.",
-      category: "Marketing",
-      features: ["Agregación de contenido de RSS, blogs, news", "Filtrado por relevancia con IA", "Resúmenes automáticos de artículos", "Generación de newsletter HTML", "Personalización por segmento de audiencia", "Publicación automática programada"],
-      tech: ["n8n", "OpenAI GPT-4", "RSS Feeds", "Mailchimp", "HTML/CSS"],
-      roi: "75% ahorro en curación de contenido",
-      difficulty: "Intermedio"
-    },
-    {
-      id: 40,
-      icon: "phone-call",
-      title: "IVR Inteligente con Voice AI",
-      description: "Sistema telefónico automatizado con reconocimiento de voz, enrutamiento inteligente y respuestas generadas por IA en lenguaje natural.",
-      category: "Atención al Cliente",
-      features: ["Reconocimiento de voz (Speech-to-Text)", "Procesamiento de lenguaje natural", "Enrutamiento inteligente de llamadas", "Respuestas de voz generadas (Text-to-Speech)", "Integración con CRM para contexto", "Transcripción y análisis de llamadas"],
-      tech: ["n8n", "Twilio", "OpenAI Whisper", "GPT-4", "ElevenLabs", "PostgreSQL"],
-      roi: "70% reducción en llamadas transferidas a agentes",
-      difficulty: "Avanzado"
-    },
-    {
-      id: 41,
-      icon: "image",
-      title: "Generación de Imágenes para Marketing",
-      description: "Crea imágenes, banners y contenido visual automáticamente con IA para campañas, posts sociales y anuncios según tu marca.",
-      category: "Marketing",
-      features: ["Generación de imágenes con DALL-E/Midjourney", "Aplicación de branding automático", "Variaciones A/B de diseños", "Redimensionamiento multi-plataforma", "Generación de copy visual con IA", "Biblioteca organizada de assets"],
-      tech: ["n8n", "DALL-E", "OpenAI GPT-4", "Cloudinary", "Canvas API"],
-      roi: "60% ahorro en costos de diseño",
-      difficulty: "Intermedio"
-    },
-    {
-      id: 42,
-      icon: "git-branch",
-      title: "CI/CD y Deploy Automation",
-      description: "Pipeline completo de integración y despliegue continuo con pruebas automáticas, notificaciones y rollback inteligente.",
-      category: "DevOps",
-      features: ["Detección automática de commits", "Ejecución de tests automatizados", "Build y deploy multi-ambiente", "Notificaciones de estado del pipeline", "Rollback automático en fallos", "Métricas de deployment"],
-      tech: ["n8n", "GitHub Actions", "Docker", "Kubernetes", "Slack", "Datadog"],
-      roi: "80% reducción en tiempo de deploy",
-      difficulty: "Avanzado"
-    },
-    {
-      id: 43,
-      icon: "activity",
-      title: "Monitoreo y Alertas de Infraestructura",
-      description: "Monitorea servidores, aplicaciones y servicios 24/7 con detección de anomalías con ML y alertas inteligentes escalables.",
-      category: "DevOps",
-      features: ["Monitoreo de métricas en tiempo real", "Detección de anomalías con ML", "Alertas multi-nivel según severidad", "Diagnóstico automático con IA", "Creación de tickets para incidencias", "Dashboard de salud del sistema"],
-      tech: ["n8n", "Prometheus", "Grafana", "OpenAI", "PagerDuty", "Slack"],
-      roi: "90% detección proactiva de incidentes",
-      difficulty: "Avanzado"
-    },
-    {
-      id: 44,
-      icon: "smartphone",
-      title: "Notificaciones Push Personalizadas",
-      description: "Sistema de notificaciones mobile y web con segmentación inteligente, personalización por usuario y análisis de engagement.",
-      category: "Marketing",
-      features: ["Segmentación avanzada de audiencias", "Personalización con datos de usuario", "Scheduling inteligente por zona horaria", "A/B testing de mensajes", "Análisis de tasas de apertura/conversión", "Re-engagement automático"],
-      tech: ["n8n", "Firebase", "OneSignal", "OpenAI GPT-4", "PostgreSQL"],
-      roi: "45% mejora en engagement de usuarios",
-      difficulty: "Intermedio"
-    },
-    {
-      id: 45,
-      icon: "file-signature",
-      title: "Firma Electrónica y Gestión de Contratos",
-      description: "Automatiza envío, firma, almacenamiento y seguimiento de contratos con recordatorios y flujos de aprobación personalizados.",
-      category: "Legal",
-      features: ["Generación de contratos desde templates", "Envío automático para firma electrónica", "Seguimiento de estado de firmas", "Recordatorios automáticos", "Almacenamiento centralizado", "Alertas de vencimientos"],
-      tech: ["n8n", "DocuSign", "HelloSign", "Google Drive", "PostgreSQL"],
-      roi: "85% reducción en tiempo de firma de contratos",
-      difficulty: "Básico"
-    },
-    {
-      id: 46,
-      icon: "credit-card",
-      title: "Procesamiento y Reconciliación de Pagos",
-      description: "Procesa pagos multi-pasarela, reconcilia automáticamente con cuentas bancarias y detecta discrepancias con IA.",
-      category: "Financiera",
-      features: ["Integración multi-pasarela (Stripe, PayPal, etc)", "Reconciliación automática con bancos", "Detección de transacciones duplicadas", "Identificación de chargebacks", "Reportes de comisiones por pasarela", "Alertas de pagos fallidos"],
-      tech: ["n8n", "Stripe", "PayPal", "Plaid", "OpenAI", "PostgreSQL"],
-      roi: "90% automatización de reconciliación",
-      difficulty: "Avanzado"
-    },
-    {
-      id: 47,
-      icon: "target",
-      title: "Lead Scoring y Cualificación con IA",
-      description: "Puntúa y cualifica leads automáticamente usando ML, enriquece datos desde múltiples fuentes y prioriza oportunidades de venta.",
-      category: "Ventas",
-      features: ["Scoring predictivo con Machine Learning", "Enriquecimiento de datos (Clearbit, Hunter)", "Análisis de intención de compra", "Segmentación automática por score", "Asignación inteligente a vendedores", "Seguimiento de evolución de leads"],
-      tech: ["n8n", "OpenAI", "Clearbit", "HubSpot", "Python ML", "PostgreSQL"],
-      roi: "3x aumento en conversión de leads calificados",
-      difficulty: "Avanzado"
-    },
-    {
-      id: 48,
-      icon: "compass",
-      title: "Análisis de Competencia Automático",
-      description: "Monitorea precios, productos, contenido y estrategias de competidores con scraping y análisis de tendencias con IA.",
-      category: "Inteligencia de Mercado",
-      features: ["Scraping de sitios de competencia", "Monitoreo de precios en tiempo real", "Análisis de contenido y SEO", "Detección de nuevos productos/servicios", "Alertas de cambios significativos", "Reportes comparativos automáticos"],
-      tech: ["n8n", "Puppeteer", "OpenAI GPT-4", "Bright Data", "PostgreSQL"],
-      roi: "Insights de mercado en tiempo real 24/7",
-      difficulty: "Avanzado"
-    },
-    {
-      id: 49,
-      icon: "map-pin",
-      title: "Gestión de Eventos y Asistentes",
-      description: "Automatiza registro, confirmaciones, recordatorios, check-in y seguimiento post-evento con comunicación personalizada.",
-      category: "Eventos",
-      features: ["Registro y confirmación automática", "Generación de QR codes de acceso", "Recordatorios por email/SMS/WhatsApp", "Check-in digital con validación", "Encuestas post-evento automáticas", "Análisis de asistencia y satisfacción"],
-      tech: ["n8n", "Eventbrite API", "QR Code Gen", "Twilio", "Google Forms", "PostgreSQL"],
-      roi: "70% ahorro en logística de eventos",
-      difficulty: "Intermedio"
-    },
-    {
-      id: 50,
-      icon: "thermometer",
-      title: "Monitoreo de Temperatura y IoT",
-      description: "Monitorea sensores IoT (temperatura, humedad, energía), detecta anomalías y ejecuta acciones automáticas de respuesta.",
-      category: "IoT",
-      features: ["Integración con sensores IoT", "Monitoreo en tiempo real de métricas", "Detección de umbrales críticos", "Alertas automáticas multi-canal", "Logs históricos y analytics", "Acciones automáticas (apagar/encender equipos)"],
-      tech: ["n8n", "MQTT", "Arduino/Raspberry Pi", "InfluxDB", "Grafana", "Twilio"],
-      roi: "40% reducción en incidentes críticos",
-      difficulty: "Avanzado"
-    },
-    {
-      id: 51,
-      icon: "book-open",
-      title: "Gestión de Tickets de Soporte con IA",
-      description: "Sistema completo de ticketing con asignación inteligente, respuestas sugeridas por IA, escalación automática y SLA tracking.",
-      category: "Atención al Cliente",
-      features: ["Creación automática desde email/chat/form", "Clasificación y priorización con IA", "Asignación inteligente a agentes", "Sugerencias de respuestas con GPT-4", "Escalación automática por SLA", "Análisis de satisfacción (CSAT)"],
-      tech: ["n8n", "OpenAI GPT-4", "Zendesk", "Freshdesk", "Slack", "PostgreSQL"],
-      roi: "55% reducción en tiempo de resolución",
-      difficulty: "Intermedio"
-    },
-    {
-      id: 52,
-      icon: "cloud-lightning",
-      title: "Backup y Disaster Recovery Automático",
-      description: "Backups programados multi-destino con validación, alertas de fallos y restauración automática en caso de desastres.",
-      category: "DevOps",
-      features: ["Backups automáticos programados", "Almacenamiento multi-destino (S3, Drive, etc)", "Validación de integridad de backups", "Versionado y retención automática", "Alertas de fallos de backup", "Restauración con un click"],
-      tech: ["n8n", "AWS S3", "Google Drive", "Restic", "PostgreSQL", "Slack"],
-      roi: "99.9% disponibilidad de datos",
-      difficulty: "Avanzado"
-    },
-    {
-      id: 53,
-      icon: "users",
-      title: "Referral Program Automation",
-      description: "Programa de referidos automatizado con tracking, recompensas, notificaciones y análisis de viralidad con gamificación.",
-      category: "Marketing",
-      features: ["Generación de códigos únicos de referido", "Tracking de conversiones por referido", "Distribución automática de recompensas", "Notificaciones de logros y milestones", "Leaderboard y gamificación", "Analytics de viralidad"],
-      tech: ["n8n", "PostgreSQL", "Stripe", "Email/SMS", "OpenAI", "React"],
-      roi: "2-3x crecimiento orgánico por referidos",
-      difficulty: "Intermedio"
     }
   ];
 
@@ -1815,113 +1347,54 @@ const structuredData = {
     }
 
     container.innerHTML = workflowsToRender.map((workflow, index) => `
-      <article
-        id="workflow-${workflow.id}"
-        class="workflow-card bg-white/5 backdrop-blur border border-white/10 rounded-xl overflow-hidden transition-all duration-300"
-        itemscope
-        itemtype="https://schema.org/SoftwareApplication"
-      >
-        <!-- Card compacta (siempre visible) -->
-        <div class="workflow-card-compact p-6 cursor-pointer transition-colors" onclick="toggleWorkflowExpansion(${workflow.id})" id="compact-${workflow.id}">
-          <div class="flex items-start justify-between mb-4">
-            <div class="w-16 h-16 bg-[#82e256]/10 rounded-2xl flex items-center justify-center border border-[#82e256]/30">
-              <i data-lucide="${workflow.icon || 'zap'}" class="text-[#82e256]" style="width: 2.5rem; height: 2.5rem;"></i>
-            </div>
-            <div class="flex items-center gap-2">
-              <span class="text-xs px-3 py-1 rounded-full bg-[#82e256]/20 text-[#82e256] font-semibold" itemprop="applicationCategory">
-                ${workflow.category}
-              </span>
-              <span class="text-xs px-2 py-1 rounded-full font-bold ${
-                workflow.difficulty === 'Avanzado' ? 'bg-red-500/20 text-red-400' :
-                workflow.difficulty === 'Intermedio' ? 'bg-yellow-500/20 text-yellow-400' :
-                'bg-green-500/20 text-green-400'
-              }">
-                ${workflow.difficulty === 'Avanzado' ? 'ADV' : workflow.difficulty === 'Intermedio' ? 'MED' : 'BAS'}
-              </span>
-            </div>
+      <div class="workflow-card bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-[#82e256] transition-all duration-300 hover:shadow-[0_0_30px_rgba(130,226,86,0.3)]">
+        <div class="flex items-start justify-between mb-4">
+          <div class="w-16 h-16 bg-[#82e256]/10 rounded-2xl flex items-center justify-center border border-[#82e256]/30">
+            <i data-lucide="${workflow.icon || 'zap'}" class="text-[#82e256]" style="width: 2.5rem; height: 2.5rem;"></i>
           </div>
-
-          <h3 class="text-2xl font-bold text-white mb-3" itemprop="name">${workflow.title}</h3>
-          <p class="text-gray-300 mb-4 leading-relaxed line-clamp-2" itemprop="description">${workflow.description}</p>
-
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-xs text-[#82e256] font-semibold flex items-center">
-                <i data-lucide="trending-up" class="w-3 h-3 inline mr-1"></i>
-                ROI: ${workflow.roi}
-              </span>
-            </div>
-            <button class="text-[#82e256] font-semibold text-sm flex items-center gap-1 hover:gap-2 transition-all">
-              Ver detalles
-              <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300 chevron-${workflow.id}"></i>
-            </button>
+          <span class="text-xs px-3 py-1 rounded-full bg-[#82e256]/20 text-[#82e256] font-semibold">
+            ${workflow.category}
+          </span>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-3">${workflow.title}</h3>
+        <p class="text-gray-300 mb-4 leading-relaxed">${workflow.description}</p>
+        <div class="mb-4">
+          <h4 class="text-sm font-semibold text-[#82e256] mb-2">Características:</h4>
+          <ul class="space-y-1">
+            ${workflow.features.map(feature => `
+              <li class="text-sm text-gray-400 flex items-start">
+                <span class="text-[#82e256] mr-2">✓</span>
+                <span>${feature}</span>
+              </li>
+            `).join('')}
+          </ul>
+        </div>
+        <div class="mb-4">
+          <h4 class="text-sm font-semibold text-[#82e256] mb-2">Tecnologías:</h4>
+          <div class="flex flex-wrap gap-2">
+            ${workflow.tech.map(tech => `
+              <span class="text-xs px-2 py-1 bg-white/10 rounded text-gray-300">${tech}</span>
+            `).join('')}
           </div>
         </div>
-
-        <!-- Contenido expandido -->
-        <div class="workflow-expanded hidden" id="expanded-${workflow.id}">
-          <div class="p-6 pt-4 space-y-5 overflow-hidden">
-
-            <!-- Botón de cerrar -->
-            <div class="flex justify-end">
-              <button
-                onclick="toggleWorkflowExpansion(${workflow.id})"
-                class="text-gray-400 hover:text-white hover:bg-white/10 rounded-full p-2 transition-colors"
-                title="Cerrar detalles"
-              >
-                <i data-lucide="x" class="w-5 h-5"></i>
-              </button>
-            </div>
-
-            <!-- Descripción extendida -->
-            <div class="bg-gradient-to-br from-[#00464e]/30 to-[#006064]/30 p-5 rounded-xl border border-[#82e256]/30">
-              <h4 class="text-base font-bold text-white mb-3 flex items-center gap-2">
-                <i data-lucide="info" class="w-4 h-4 text-[#82e256]"></i>
-                ¿Cómo funciona?
-              </h4>
-              <p class="text-gray-300 text-sm leading-relaxed">
-                ${workflow.description} Esta automatización utiliza ${workflow.tech[0]} para orquestar el flujo de trabajo y ${workflow.tech[1]} para procesar inteligentemente la información.
-              </p>
-            </div>
-
-            <!-- Características principales -->
-            <div>
-              <h4 class="text-sm font-semibold text-[#82e256] mb-2 flex items-center gap-2">
-                <i data-lucide="check-circle" class="w-4 h-4"></i>
-                Características
-              </h4>
-              <p class="text-sm text-gray-300">
-                ${workflow.features.join(', ')}
-              </p>
-            </div>
-
-            <!-- Stack tecnológico -->
-            <div>
-              <h4 class="text-sm font-semibold text-[#82e256] mb-2 flex items-center gap-2">
-                <i data-lucide="code" class="w-4 h-4"></i>
-                Stack tecnológico
-              </h4>
-              <div class="flex flex-wrap gap-2">
-                ${workflow.tech.map(tech => `
-                  <span class="text-xs px-2 py-1 bg-white/10 rounded text-gray-300">${tech}</span>
-                `).join('')}
-              </div>
-            </div>
-
-            <!-- CTAs en grid horizontal -->
-            <div class="grid grid-cols-2 gap-3 pt-3">
-              <a href="/#contenido10" class="flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-[#82e256] to-[#6bc73d] text-black rounded-lg hover:shadow-lg transition-all text-sm font-semibold">
-                <i data-lucide="calendar" class="w-4 h-4"></i>
-                Agendar asesoría
-              </a>
-              <a href="/faq" class="flex items-center justify-center gap-2 px-4 py-2 bg-white/5 border border-[#82e256] text-[#82e256] rounded-lg hover:bg-[#82e256]/10 transition-all text-sm font-semibold">
-                <i data-lucide="help-circle" class="w-4 h-4"></i>
-                Ver FAQs
-              </a>
-            </div>
+        <div class="border-t border-white/10 pt-4 mt-4 flex justify-between items-center">
+          <div>
+            <p class="text-xs text-gray-500 mb-1">ROI Estimado</p>
+            <p class="text-sm font-semibold text-[#82e256]">${workflow.roi}</p>
+          </div>
+          <div class="text-right">
+            <p class="text-xs text-gray-500 mb-1">Dificultad</p>
+            <p class="text-sm font-semibold ${
+              workflow.difficulty === 'Avanzado' ? 'text-red-400' :
+              workflow.difficulty === 'Intermedio' ? 'text-yellow-400' :
+              'text-green-400'
+            }">${workflow.difficulty}</p>
           </div>
         </div>
-      </article>
+        <a href="/#contenido10" class="mt-4 block w-full py-3 bg-gradient-to-r from-[#00464e] to-[#006417] text-white rounded-lg hover:from-[#006417] hover:to-[#82e256] transition-all duration-300 font-semibold text-center">
+          Implementar Flujo
+        </a>
+      </div>
     `).join('');
 
     // Inicializar iconos de Lucide
@@ -1929,142 +1402,6 @@ const structuredData = {
       lucide.createIcons();
     }
   }
-
-  // Variable para rastrear el workflow expandido actual
-  let currentExpandedWorkflow: number | null = null;
-
-  // Función para colapsar un workflow específico
-  function collapseWorkflow(workflowId: number) {
-    const expandedSection = document.getElementById(`expanded-${workflowId}`);
-    const chevron = document.querySelector(`.chevron-${workflowId}`) as HTMLElement;
-    const article = document.getElementById(`workflow-${workflowId}`) as HTMLElement;
-
-    if (!expandedSection || !chevron || !article) return;
-
-    // Ocultar contenido expandido
-    expandedSection.classList.add('hidden');
-
-    // Resetear chevron
-    chevron.style.transform = 'rotate(0deg)';
-
-    // Limpiar TODOS los estilos inline del article para restaurar estado original
-    article.removeAttribute('style');
-
-    // Remover clases adicionales
-    article.classList.remove('ring-2', 'ring-[#82e256]/50');
-  }
-
-  // Función para expandir/colapsar workflow
-  function toggleWorkflowExpansion(workflowId: number) {
-    const expandedSection = document.getElementById(`expanded-${workflowId}`);
-    const chevron = document.querySelector(`.chevron-${workflowId}`);
-    const article = document.getElementById(`workflow-${workflowId}`) as HTMLElement;
-
-    if (!expandedSection || !chevron || !article) return;
-
-    const isExpanded = !expandedSection.classList.contains('hidden');
-
-    // Si hay otro workflow expandido, colapsarlo primero
-    if (currentExpandedWorkflow !== null && currentExpandedWorkflow !== workflowId) {
-      collapseWorkflow(currentExpandedWorkflow);
-    }
-
-    if (isExpanded) {
-      // Colapsar - Restaurar completamente al estado original
-      collapseWorkflow(workflowId);
-      currentExpandedWorkflow = null;
-    } else {
-      // Expandir - Aumentar tamaño del article
-      expandedSection.classList.remove('hidden');
-      chevron.style.transform = 'rotate(180deg)';
-      article.style.position = 'relative';
-      article.style.width = 'calc(200% + 1.5rem)'; // 2 columnas + gap
-      article.style.zIndex = '200';
-      article.style.backgroundColor = 'rgba(0, 0, 0, 0.4)';
-      article.classList.add('ring-2', 'ring-[#82e256]/50');
-
-      // Detectar en qué columna está la card
-      // En grid de 3 columnas:
-      // - índice % 3 === 0 -> columna izquierda (0, 3, 6, 9...) -> expandir a la derecha
-      // - índice % 3 === 1 -> columna centro (1, 4, 7, 10...) -> expandir a la izquierda
-      // - índice % 3 === 2 -> columna derecha (2, 5, 8, 11...) -> expandir a la izquierda
-      const container = document.getElementById('workflows-container');
-      if (container) {
-        const cards = Array.from(container.querySelectorAll('.workflow-card'));
-        const cardIndex = cards.findIndex(card => card.id === `workflow-${workflowId}`);
-
-        // Solo la columna izquierda expande a la derecha
-        if (cardIndex % 3 === 0) {
-          // Columna izquierda - expandir hacia la derecha
-          article.style.left = '0';
-        } else {
-          // Columna centro o derecha - expandir hacia la izquierda
-          // Necesita offset negativo para cubrir la card de la izquierda
-          article.style.left = 'calc(-100% - 1.5rem)';
-        }
-      }
-
-      currentExpandedWorkflow = workflowId;
-
-      // Scroll suave hacia la card expandida
-      setTimeout(() => {
-        article.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }, 100);
-
-      // Re-inicializar iconos de Lucide para el contenido expandido
-      if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-      }
-    }
-  }
-
-  // Hacer la función global
-  (window as any).toggleWorkflowExpansion = toggleWorkflowExpansion;
-
-  // FAQs genéricas por categoría (más adelante se personalizarán por workflow)
-  function getFAQsForWorkflow(workflowId: number) {
-    // FAQs genéricas - más adelante se cargarán desde workflows-extended.ts
-    return [
-      {
-        question: "¿Cuánto tiempo toma implementar esta automatización?",
-        answer: "El tiempo de implementación varía según la complejidad y tus sistemas actuales. Típicamente entre 1-4 semanas, incluyendo configuración, integración y período de pruebas."
-      },
-      {
-        question: "¿Necesito conocimientos técnicos para usar esta automatización?",
-        answer: "No. Una vez implementada, la automatización funciona de forma autónoma. Te proporcionamos documentación y capacitación para que tu equipo pueda usarla sin conocimientos técnicos."
-      },
-      {
-        question: "¿Puedo personalizar esta automatización para mi negocio?",
-        answer: "Absolutamente. Cada automatización se adapta a tus procesos, sistemas y necesidades específicas. No vendemos soluciones genéricas sino automatizaciones a medida."
-      }
-    ];
-  }
-
-  // Función para toggle de FAQs
-  function toggleFAQ(workflowId: number, faqIdx: number) {
-    const answer = document.querySelector(`.faq-answer-${workflowId}-${faqIdx}`);
-    const chevron = document.querySelector(`.faq-chevron-${workflowId}-${faqIdx}`);
-
-    if (!answer || !chevron) return;
-
-    const isHidden = answer.classList.contains('hidden');
-
-    if (isHidden) {
-      answer.classList.remove('hidden');
-      chevron.style.transform = 'rotate(180deg)';
-    } else {
-      answer.classList.add('hidden');
-      chevron.style.transform = 'rotate(0deg)';
-    }
-
-    // Re-inicializar iconos
-    if (typeof lucide !== 'undefined') {
-      lucide.createIcons();
-    }
-  }
-
-  // Hacer la función global
-  (window as any).toggleFAQ = toggleFAQ;
 
   // Función para filtrar workflows
   function filterWorkflows(query: string) {
@@ -2079,36 +1416,6 @@ const structuredData = {
       workflow.tech.some(t => t.toLowerCase().includes(lowerQuery))
     );
   }
-
-  // Aplicar filtros a workflows (similar a applyFilters pero para workflows)
-  function applyWorkflowFilters() {
-    let filtered = workflows;
-
-    // Filtrar por categorías seleccionadas
-    if (selectedCategories.size > 0) {
-      filtered = filtered.filter(workflow =>
-        selectedCategories.has(workflow.category)
-      );
-    }
-
-    // Filtrar por texto de búsqueda
-    if (searchQuery) {
-      const query = searchQuery.toLowerCase();
-      filtered = filtered.filter(workflow =>
-        workflow.title.toLowerCase().includes(query) ||
-        workflow.description.toLowerCase().includes(query) ||
-        workflow.category.toLowerCase().includes(query) ||
-        workflow.features.some(f => f.toLowerCase().includes(query)) ||
-        workflow.tech.some(t => t.toLowerCase().includes(query))
-      );
-    }
-
-    renderWorkflows(filtered);
-    updateResultsCount(filtered.length, 'automatizaciones');
-  }
-
-  // Inicializar tab desde URL al cargar la página
-  initTabFromURL();
 </script>
 
 <style>

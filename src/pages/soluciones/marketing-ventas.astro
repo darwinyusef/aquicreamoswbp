@@ -2,6 +2,58 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import ServiciosGrid from '../../components/ServiciosGrid.astro';
+import StickySlidesContainer from '../../components/StickySlidesContainer.astro';
+
+const slidesData = [
+  {
+    label: 'Generación',
+    title: 'Leads<br>Automáticos.',
+    description: 'Captura y califica leads en LinkedIn, Twitter y otras plataformas con mensajes personalizados por IA.',
+    icon: 'users',
+    serviceType: 'automatizacion' as const,
+    reversed: false
+  },
+  {
+    label: 'Contenido',
+    title: 'Crea con<br>IA.',
+    description: 'Genera blogs, posts de redes sociales, newsletters y copy publicitario optimizado para conversión.',
+    icon: 'pen-tool',
+    serviceType: 'automatizacion' as const,
+    reversed: true
+  },
+  {
+    label: 'Email Marketing',
+    title: 'Campañas<br>Inteligentes.',
+    description: 'Segmentación automática, personalización y A/B testing con contenido generado por IA.',
+    icon: 'mail',
+    serviceType: 'automatizacion' as const,
+    reversed: false
+  },
+  {
+    label: 'Redes Sociales',
+    title: 'Multi-<br>Plataforma.',
+    description: 'Publica simultáneamente en todas tus redes sociales con contenido adaptado automáticamente.',
+    icon: 'share-2',
+    serviceType: 'automatizacion' as const,
+    reversed: true
+  },
+  {
+    label: 'Analytics',
+    title: 'Datos que<br>Convierten.',
+    description: 'Análisis predictivo de ventas, identificación de oportunidades y forecasting con machine learning.',
+    icon: 'bar-chart-3',
+    serviceType: 'automatizacion' as const,
+    reversed: false
+  },
+  {
+    label: 'Automatización',
+    title: 'Marketing<br>en Piloto.',
+    description: 'Workflows completos que nutren leads, recuperan ventas perdidas y retienen clientes automáticamente.',
+    icon: 'zap',
+    serviceType: 'automatizacion' as const,
+    reversed: true
+  }
+];
 ---
 
 <Layout title="Marketing y Ventas con IA - Aquí Creamos">
@@ -10,52 +62,62 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
   <!-- Hero Section -->
   <section class="pt-32 pb-20 bg-gradient-to-br from-[#00464e] via-[#006064] to-[#1a1a1a]">
     <div class="container mx-auto px-4 md:px-16">
+      <div class="max-w-6xl mx-auto text-center">
+        <div class="inline-block mb-4 px-4 py-2 bg-[#82e256]/20 border border-[#82e256] rounded-full">
+          <span class="text-[#82e256] font-bold text-sm">MARKETING & VENTAS</span>
+        </div>
+
+        <h1 class="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
+          Marketing y ventas con <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#82e256] to-[#04ADC0]">IA</span>
+        </h1>
+
+        <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+          Automatiza campañas, genera leads calificados y crea contenido con IA para aumentar tus conversiones.
+        </p>
+
+        <div class="grid grid-cols-3 gap-4 mb-8 max-w-2xl mx-auto">
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
+            <div class="text-sm font-bold text-[#82e256] mb-1">Email Marketing</div>
+            <div class="text-xs text-gray-300">Campañas automáticas</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
+            <div class="text-sm font-bold text-[#82e256] mb-1">Contenido IA</div>
+            <div class="text-xs text-gray-300">Blogs y posts</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
+            <div class="text-sm font-bold text-[#82e256] mb-1">Redes Sociales</div>
+            <div class="text-xs text-gray-300">Publicación multicanal</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Section -->
+  <section class="py-16 bg-[#1a1a1a]">
+    <div class="container mx-auto px-4 md:px-16">
       <div class="max-w-6xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <div class="inline-block mb-4 px-4 py-2 bg-[#82e256]/20 border border-[#82e256] rounded-full">
-              <span class="text-[#82e256] font-bold text-sm">📊 MARKETING & VENTAS</span>
-            </div>
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-black text-white mb-4">
+            ¿Tu estrategia de marketing consume recursos sin resultados claros?
+          </h2>
+          <p class="text-xl text-gray-400">Estos problemas cuestan miles de dólares cada mes:</p>
+        </div>
 
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
-              Multiplica tus ventas con <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#82e256] to-[#04ADC0]">IA</span>
-            </h1>
-
-            <p class="text-xl text-gray-300 mb-8 leading-relaxed">
-              Automatiza campañas, genera leads calificados y crea contenido con IA. Aumenta conversiones <strong class="text-[#82e256]">3x</strong> más rápido.
-            </p>
-
-            <!-- Stats -->
-            <div class="grid grid-cols-3 gap-4 mb-8">
-              <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
-                <div class="text-3xl font-black text-[#82e256]">3x</div>
-                <div class="text-xs text-gray-300 mt-1">Más leads</div>
-              </div>
-              <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
-                <div class="text-3xl font-black text-[#82e256]">70%</div>
-                <div class="text-xs text-gray-300 mt-1">Menos tiempo</div>
-              </div>
-              <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
-                <div class="text-3xl font-black text-[#82e256]">35%</div>
-                <div class="text-xs text-gray-300 mt-1">Más engagement</div>
-              </div>
-            </div>
-
-            <div class="flex flex-col sm:flex-row gap-4">
-              <a href="/#contenido10" class="px-8 py-4 bg-gradient-to-r from-[#82e256] to-[#6bc73d] text-black rounded-lg font-bold hover:shadow-[0_0_30px_rgba(130,226,86,0.5)] transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2">
-                📅 Agendar Asesoría Gratis
-              </a>
-            </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-6">
+            <h3 class="text-xl font-bold text-white mb-2">Creación de Contenido Lenta</h3>
+            <p class="text-gray-300"><strong class="text-red-400">Horas diarias</strong> escribiendo posts, blogs y emails manualmente</p>
           </div>
 
-          <div class="hidden md:block">
-            <div class="relative">
-              <div class="absolute inset-0 bg-gradient-to-r from-[#82e256] to-[#04ADC0] rounded-2xl blur-3xl opacity-20"></div>
-              <div class="relative rounded-2xl overflow-hidden">
-                <img src="/img/personaje4.png" alt="Marketing y ventas automatizado" class="h-auto max-w-md mx-auto" />
-              </div>
-              <p class="text-center text-gray-400 text-sm italic mt-4">Automatiza tus campañas y ventas con IA</p>
-            </div>
+          <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-6">
+            <h3 class="text-xl font-bold text-white mb-2">Campañas Desorganizadas</h3>
+            <p class="text-gray-300"><strong class="text-red-400">Gestión caótica</strong> entre múltiples canales sin coordinación</p>
+          </div>
+
+          <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-6">
+            <h3 class="text-xl font-bold text-white mb-2">Leads Sin Seguimiento</h3>
+            <p class="text-gray-300"><strong class="text-red-400">Oportunidades perdidas</strong> por falta de seguimiento automatizado</p>
           </div>
         </div>
       </div>
@@ -63,85 +125,7 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
   </section>
 
   <!-- Sticky Stack Section -->
-  <div class="stack-container">
-    <section class="sticky-section">
-      <div class="content-grid">
-        <div class="text-side">
-          <span class="label">Generación</span>
-          <h2>Leads<br>Automáticos.</h2>
-          <p class="desc">Captura y califica leads en LinkedIn, Twitter y otras plataformas con mensajes personalizados por IA.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1200" alt="Lead Generation">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid reversed">
-        <div class="text-side">
-          <span class="label">Contenido</span>
-          <h2>Crea con<br>IA.</h2>
-          <p class="desc">Genera blogs, posts de redes sociales, newsletters y copy publicitario optimizado para conversión.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200" alt="Content Creation">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid">
-        <div class="text-side">
-          <span class="label">Email Marketing</span>
-          <h2>Campañas<br>Inteligentes.</h2>
-          <p class="desc">Segmentación automática, personalización y A/B testing con contenido generado por IA.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1451187530220-4e2bd78f7ad6?q=80&w=1200" alt="Email Marketing">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid reversed">
-        <div class="text-side">
-          <span class="label">Redes Sociales</span>
-          <h2>Multi-<br>Plataforma.</h2>
-          <p class="desc">Publica simultáneamente en todas tus redes sociales con contenido adaptado automáticamente.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?q=80&w=1200" alt="Social Media">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid">
-        <div class="text-side">
-          <span class="label">Analytics</span>
-          <h2>Datos que<br>Convierten.</h2>
-          <p class="desc">Análisis predictivo de ventas, identificación de oportunidades y forecasting con machine learning.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200" alt="Analytics">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid reversed">
-        <div class="text-side">
-          <span class="label">Automatización</span>
-          <h2>Marketing<br>en Piloto.</h2>
-          <p class="desc">Workflows completos que nutren leads, recuperan ventas perdidas y retienen clientes automáticamente.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200" alt="Marketing Automation">
-        </div>
-      </div>
-    </section>
-  </div>
+  <StickySlidesContainer slides={slidesData} />
 
   <!-- Solutions Section -->
   <section class="py-16 bg-gradient-to-b from-[#1a1a1a] to-[#00464e]">
@@ -203,34 +187,34 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
             </a>
           </div>
 
-          <!-- Lead Generation LinkedIn -->
+          <!-- Sistema CRM Web -->
           <div class="bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-[#82e256] transition-all duration-300">
             <div class="flex items-start justify-between mb-4">
-              <div class="text-5xl">🔗</div>
-              <span class="text-xs px-3 py-1 rounded-full bg-red-500/20 text-red-400 font-semibold">Avanzado</span>
+              <div class="text-5xl">💼</div>
+              <span class="text-xs px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 font-semibold">Intermedio</span>
             </div>
-            <h3 class="text-2xl font-bold text-white mb-3">Lead Generation en LinkedIn</h3>
+            <h3 class="text-2xl font-bold text-white mb-3">Sistema CRM con Automatización IA</h3>
             <p class="text-gray-300 mb-4">
-              Automatización de prospección en LinkedIn con mensajes personalizados generados por IA y seguimiento automático.
+              Plataforma web CRM con seguimiento de leads, scoring automático con IA y flujos de nutrición personalizados.
             </p>
             <div class="mb-4">
               <h4 class="text-sm font-semibold text-[#82e256] mb-2">Incluye:</h4>
               <ul class="space-y-1">
                 <li class="text-sm text-gray-400 flex items-start">
                   <span class="text-[#82e256] mr-2">✓</span>
-                  <span>Búsqueda automática de prospectos</span>
+                  <span>Dashboard web con pipeline visual</span>
                 </li>
                 <li class="text-sm text-gray-400 flex items-start">
                   <span class="text-[#82e256] mr-2">✓</span>
-                  <span>Mensajes personalizados con IA</span>
+                  <span>Scoring automático de leads con IA</span>
                 </li>
                 <li class="text-sm text-gray-400 flex items-start">
                   <span class="text-[#82e256] mr-2">✓</span>
-                  <span>Calificación de leads</span>
+                  <span>Secuencias de emails automáticas</span>
                 </li>
                 <li class="text-sm text-gray-400 flex items-start">
                   <span class="text-[#82e256] mr-2">✓</span>
-                  <span>Integración con CRM</span>
+                  <span>Recordatorios y tareas automáticas</span>
                 </li>
               </ul>
             </div>
@@ -238,11 +222,11 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
               <div class="flex justify-between items-center">
                 <div>
                   <p class="text-xs text-gray-500">ROI Estimado</p>
-                  <p class="text-lg font-bold text-[#82e256]">3x más leads calificados (Prospección y mensajes personalizados por IA)</p>
+                  <p class="text-lg font-bold text-[#82e256]">50% más conversiones (Scoring y seguimiento automático con IA)</p>
                 </div>
                 <div>
                   <p class="text-xs text-gray-500">Tecnologías</p>
-                  <p class="text-sm text-gray-300">n8n, LinkedIn API, GPT-4</p>
+                  <p class="text-sm text-gray-300">React, n8n, GPT-4</p>
                 </div>
               </div>
             </div>
@@ -375,54 +359,3 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
   <!-- Servicios Profesionales -->
   <ServiciosGrid />
 </Layout>
-
-<style>
-  .stack-container { display: flex; flex-direction: column; }
-  .sticky-section { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #0e0e0e; transition: transform 0.1s linear, filter 0.1s linear; will-change: transform, filter; }
-  .sticky-section:nth-child(1) { background-color: #0e0e0e; }
-  .sticky-section:nth-child(2) { background-color: #161616; }
-  .sticky-section:nth-child(3) { background-color: #1d1d1d; }
-  .sticky-section:nth-child(4) { background-color: #0e0e0e; }
-  .sticky-section:nth-child(5) { background-color: #161616; }
-  .sticky-section:nth-child(6) { background-color: #1d1d1d; }
-  .content-grid { display: grid; grid-template-columns: 1fr 1fr; width: 90%; max-width: 1300px; gap: 60px; align-items: center; }
-  .text-side { display: flex; flex-direction: column; padding: 20px; }
-  .label { font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: #82e256; margin-bottom: 10px; }
-  .sticky-section h2 { font-size: clamp(2.5rem, 6vw, 5.5rem); line-height: 0.95; margin: 0; font-weight: 900; text-transform: uppercase; color: #fff; }
-  p.desc { font-size: 1.2rem; margin-top: 30px; opacity: 0.7; max-width: 450px; line-height: 1.5; color: #fff; }
-  .image-side { width: 100%; height: 65vh; border-radius: 15px; overflow: hidden; position: relative; }
-  .image-side img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .reversed .text-side { order: 2; }
-  .reversed .image-side { order: 1; }
-  @media (max-width: 900px) {
-    .content-grid { grid-template-columns: 1fr; text-align: center; }
-    .image-side { height: 35vh; order: -1 !important; }
-    .text-side { align-items: center; padding: 0; }
-    p.desc { margin-top: 15px; }
-  }
-</style>
-
-<script>
-  const sections = document.querySelectorAll('.sticky-section');
-  window.addEventListener('scroll', () => {
-    const viewportHeight = window.innerHeight;
-    sections.forEach((section, index) => {
-      const rect = section.getBoundingClientRect();
-      if (rect.top <= 0) {
-        const nextSection = sections[index + 1];
-        if (nextSection) {
-          const nextRect = nextSection.getBoundingClientRect();
-          let progress = 1 - (nextRect.top / viewportHeight);
-          progress = Math.max(0, Math.min(1, progress));
-          const scale = 1 - (progress * 0.1);
-          const brightness = 1 - (progress * 0.6);
-          (section as HTMLElement).style.transform = `scale(${scale})`;
-          (section as HTMLElement).style.filter = `brightness(${brightness})`;
-        }
-      } else {
-        (section as HTMLElement).style.transform = `scale(1)`;
-        (section as HTMLElement).style.filter = `brightness(1)`;
-      }
-    });
-  });
-</script>

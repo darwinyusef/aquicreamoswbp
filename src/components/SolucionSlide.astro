@@ -1,0 +1,106 @@
+---
+interface Props {
+  label: string;
+  title: string;
+  description: string;
+  icon: string;
+  serviceType: 'automatizacion' | 'servicio';
+  reversed?: boolean;
+}
+
+const { label, title, description, icon, serviceType, reversed = false } = Astro.props;
+
+const serviceLink = serviceType === 'automatizacion'
+  ? '/aquicreamos#automatizaciones'
+  : '/aquicreamos#servicios-profesionales';
+
+const serviceLinkText = serviceType === 'automatizacion'
+  ? 'Ver Automatizaciones IA'
+  : 'Ver Servicios Profesionales';
+
+const serviceLinkIcon = serviceType === 'automatizacion' ? 'zap' : 'code-2';
+---
+
+<section class="sticky-section">
+  <div class={`content-grid ${reversed ? 'reversed' : ''}`}>
+    <div class="text-side">
+      <span class="label">{label}</span>
+      <h2 set:html={title}></h2>
+      <p class="desc">{description}</p>
+      <a href={serviceLink} class="service-link">
+        <i data-lucide={serviceLinkIcon} class="w-4 h-4"></i>
+        {serviceLinkText}
+      </a>
+    </div>
+    <div class="image-side icon-hero">
+      <i data-lucide={icon} class="hero-icon"></i>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Estilos para iconos hero */
+  .image-side.icon-hero {
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-icon {
+    width: 350px !important;
+    height: 350px !important;
+    color: #82e256;
+    stroke-width: 1;
+    filter: drop-shadow(0 0 40px rgba(130, 226, 86, 0.6));
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  /* Estilos para enlaces de servicio */
+  .service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 16px;
+    padding: 6px 12px;
+    background: transparent;
+    border: 1px solid rgba(130, 226, 86, 0.5);
+    border-radius: 6px;
+    color: #82e256;
+    font-weight: 500;
+    font-size: 0.75rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    width: 200px;
+    justify-content: center;
+  }
+
+  .service-link:hover {
+    background: linear-gradient(135deg, #82e256, #6bc73d);
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(130, 226, 86, 0.3);
+  }
+
+  .service-link i {
+    transition: transform 0.3s ease;
+  }
+
+  .service-link:hover i {
+    transform: scale(1.2);
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .hero-icon {
+      width: 200px !important;
+      height: 200px !important;
+    }
+  }
+</style>

@@ -2,6 +2,116 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import ServiciosGrid from '../../components/ServiciosGrid.astro';
+import StickySlidesContainer from '../../components/StickySlidesContainer.astro';
+import AutomationCard from '../../components/AutomationCard.astro';
+
+const bellIcon = `<svg class="w-10 h-10 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+</svg>`;
+
+const messageIcon = `<svg class="w-10 h-10 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+</svg>`;
+
+const socialMediaIcon = `<svg class="w-10 h-10 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path>
+</svg>`;
+
+const automations = [
+  {
+    icon: bellIcon,
+    difficulty: 'Intermedio' as const,
+    title: 'Notificaciones Inteligentes',
+    description: 'Enrutamiento inteligente por urgencia, fallback automático entre canales y consolidación de notificaciones.',
+    features: [
+      'Enrutamiento automático según urgencia',
+      'Fallback entre canales (Email→SMS→WhatsApp)',
+      'Consolidación de notificaciones similares',
+      'Dashboard de monitoreo de entregas'
+    ],
+    benefit: 'Comunicación efectiva multi-canal',
+    technologies: 'n8n, GPT-4, Twilio'
+  },
+  {
+    icon: messageIcon,
+    difficulty: 'Avanzado' as const,
+    title: 'Mensajería Multi-plataforma',
+    description: 'Diseño de mensajería interna, colas, WebPush, FCM/APNs y notificaciones inteligentes unificadas.',
+    features: [
+      'Sistema de colas para mensajería',
+      'Push notifications (Web, iOS, Android)',
+      'Mensajería interna en tiempo real',
+      'Analytics de apertura y engagement'
+    ],
+    benefit: 'Plataforma completa de notificaciones',
+    technologies: 'n8n, WebSocket, FCM, APNs'
+  },
+  {
+    icon: socialMediaIcon,
+    difficulty: 'Intermedio' as const,
+    title: 'Redes Sociales Automatizadas',
+    description: 'Publicación multi-canal con contenido adaptado por red social y análisis de engagement con IA.',
+    features: [
+      'Publicación simultánea multi-red',
+      'Contenido adaptado automáticamente por red',
+      'Programación inteligente de posts',
+      'Análisis de engagement con IA'
+    ],
+    benefit: 'Gestión automatizada de redes sociales',
+    technologies: 'n8n, GPT-4, APIs sociales'
+  }
+];
+
+const slidesData = [
+  {
+    label: 'Notificaciones',
+    title: 'Inteligentes<br>y Adaptativas.',
+    description: 'Enrutamiento por urgencia, fallback automático entre canales y consolidación de notificaciones con IA.',
+    icon: 'bell',
+    serviceType: 'automatizacion' as const,
+    reversed: false
+  },
+  {
+    label: 'Enrutamiento',
+    title: 'Automático<br>Inteligente.',
+    description: 'IA selecciona el canal óptimo (Email, SMS, WhatsApp, Slack) según contexto y preferencias del usuario.',
+    icon: 'share-2',
+    serviceType: 'automatizacion' as const,
+    reversed: true
+  },
+  {
+    label: 'Preferencias',
+    title: 'Usuario<br>Primero.',
+    description: 'Respeta preferencias de canal, horarios y frecuencia. Machine learning aprende patrones de cada usuario.',
+    icon: 'user-cog',
+    serviceType: 'automatizacion' as const,
+    reversed: false
+  },
+  {
+    label: 'Consolidación',
+    title: 'Mensajes<br>Unificados.',
+    description: 'Agrupa notificaciones similares, evita spam y optimiza comunicación con resúmenes inteligentes.',
+    icon: 'package',
+    serviceType: 'automatizacion' as const,
+    reversed: true
+  },
+  {
+    label: 'Tracking',
+    title: 'Entrega<br>Garantizada.',
+    description: 'Monitoreo en tiempo real de entregas, lecturas y respuestas en todos los canales con analytics completo.',
+    icon: 'activity',
+    serviceType: 'servicio' as const,
+    reversed: false
+  },
+  {
+    label: 'Analytics',
+    title: 'Insights<br>Accionables.',
+    description: 'Análisis de engagement por canal, mejores horarios, tasas de respuesta y optimización continua con IA.',
+    icon: 'bar-chart',
+    serviceType: 'servicio' as const,
+    reversed: true
+  }
+];
 ---
 
 <Layout title="Comunicaciones Multicanal con IA - Aquí Creamos">
@@ -11,7 +121,7 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
     <div class="container mx-auto px-4 md:px-16">
       <div class="max-w-6xl mx-auto text-center">
         <div class="inline-block mb-4 px-4 py-2 bg-[#82e256]/20 border border-[#82e256] rounded-full">
-          <span class="text-[#82e256] font-bold text-sm">🔔 COMUNICACIONES MULTICANAL</span>
+          <span class="text-[#82e256] font-bold text-sm">COMUNICACIONES MULTICANAL</span>
         </div>
 
         <h1 class="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
@@ -19,21 +129,52 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
         </h1>
 
         <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-          Sistema centralizado que selecciona el canal óptimo (Email, SMS, WhatsApp, Slack) según urgencia. <strong class="text-[#82e256]">40%</strong> mejor tasa de respuesta.
+          Sistema centralizado que selecciona el canal óptimo (Email, SMS, WhatsApp, Slack) según urgencia y preferencias del usuario.
         </p>
 
         <div class="grid grid-cols-3 gap-4 mb-8 max-w-2xl mx-auto">
           <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
-            <div class="text-3xl font-black text-[#82e256]">40%</div>
-            <div class="text-xs text-gray-300 mt-1">Mejor respuesta</div>
+            <div class="text-sm font-bold text-[#82e256] mb-1">Enrutamiento IA</div>
+            <div class="text-xs text-gray-300">Canal óptimo automático</div>
           </div>
           <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
-            <div class="text-3xl font-black text-[#82e256]">4</div>
-            <div class="text-xs text-gray-300 mt-1">Canales unidos</div>
+            <div class="text-sm font-bold text-[#82e256] mb-1">Multicanal</div>
+            <div class="text-xs text-gray-300">Email, SMS, WhatsApp, Slack</div>
           </div>
           <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
-            <div class="text-3xl font-black text-[#82e256]">100%</div>
-            <div class="text-xs text-gray-300 mt-1">Automatizado</div>
+            <div class="text-sm font-bold text-[#82e256] mb-1">Tracking</div>
+            <div class="text-xs text-gray-300">Monitoreo en tiempo real</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Section -->
+  <section class="py-16 bg-[#1a1a1a]">
+    <div class="container mx-auto px-4 md:px-16">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-black text-white mb-4">
+            ¿Tus notificaciones se pierden o llegan al canal equivocado?
+          </h2>
+          <p class="text-xl text-gray-400">Estos problemas cuestan miles de dólares cada mes:</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-6">
+            <h3 class="text-xl font-bold text-white mb-2">Canales Descoordinados</h3>
+            <p class="text-gray-300"><strong class="text-red-400">Mensajes duplicados</strong> o perdidos entre Email, SMS y WhatsApp</p>
+          </div>
+
+          <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-6">
+            <h3 class="text-xl font-bold text-white mb-2">Sin Priorización</h3>
+            <p class="text-gray-300"><strong class="text-red-400">Alertas urgentes</strong> enviadas al mismo canal que notificaciones normales</p>
+          </div>
+
+          <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-6">
+            <h3 class="text-xl font-bold text-white mb-2">Falta de Visibilidad</h3>
+            <p class="text-gray-300"><strong class="text-red-400">Sin saber</strong> qué notificaciones fueron leídas o ignoradas</p>
           </div>
         </div>
       </div>
@@ -41,112 +182,23 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
   </section>
 
   <!-- Sticky Stack Section -->
-  <div class="stack-container">
-    <section class="sticky-section">
-      <div class="content-grid">
-        <div class="text-side">
-          <span class="label">Notificaciones</span>
-          <h2>Inteligentes<br>y Adaptativas.</h2>
-          <p class="desc">Enrutamiento por urgencia, fallback automático entre canales y consolidación de notificaciones con IA.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1200" alt="Smart Notifications">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid reversed">
-        <div class="text-side">
-          <span class="label">Enrutamiento</span>
-          <h2>Automático<br>Inteligente.</h2>
-          <p class="desc">IA selecciona el canal óptimo (Email, SMS, WhatsApp, Slack) según contexto y preferencias del usuario.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200" alt="Smart Routing">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid">
-        <div class="text-side">
-          <span class="label">Preferencias</span>
-          <h2>Usuario<br>Primero.</h2>
-          <p class="desc">Respeta preferencias de canal, horarios y frecuencia. Machine learning aprende patrones de cada usuario.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1451187530220-4e2bd78f7ad6?q=80&w=1200" alt="User Preferences">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid reversed">
-        <div class="text-side">
-          <span class="label">Consolidación</span>
-          <h2>Mensajes<br>Unificados.</h2>
-          <p class="desc">Agrupa notificaciones similares, evita spam y optimiza comunicación con resúmenes inteligentes.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?q=80&w=1200" alt="Message Consolidation">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid">
-        <div class="text-side">
-          <span class="label">Tracking</span>
-          <h2>Entrega<br>Garantizada.</h2>
-          <p class="desc">Monitoreo en tiempo real de entregas, lecturas y respuestas en todos los canales con analytics completo.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200" alt="Delivery Tracking">
-        </div>
-      </div>
-    </section>
-
-    <section class="sticky-section">
-      <div class="content-grid reversed">
-        <div class="text-side">
-          <span class="label">Analytics</span>
-          <h2>Insights<br>Accionables.</h2>
-          <p class="desc">Análisis de engagement por canal, mejores horarios, tasas de respuesta y optimización continua con IA.</p>
-        </div>
-        <div class="image-side">
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200" alt="Communication Analytics">
-        </div>
-      </div>
-    </section>
-  </div>
+  <StickySlidesContainer slides={slidesData} />
 
   <!-- Solutions Section -->
-  <section class="py-16 bg-[#1a1a1a]">
+  <section class="py-16 bg-gradient-to-b from-[#1a1a1a] to-[#00464e]">
     <div class="container mx-auto px-4 md:px-16">
       <div class="max-w-6xl mx-auto">
-        <h2 class="text-3xl md:text-4xl font-black text-white mb-12 text-center">
-          Automatizaciones de Comunicación
-        </h2>
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-black text-white mb-4">
+            Automatizaciones de Comunicación
+          </h2>
+          <p class="text-xl text-gray-300">Soluciones listas para implementar</p>
+        </div>
 
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-[#82e256] transition-all">
-            <h3 class="text-xl font-bold text-white mb-3">Notificaciones Inteligentes</h3>
-            <p class="text-gray-300 mb-4">Enrutamiento inteligente por urgencia, fallback automático entre canales y consolidación de notificaciones.</p>
-            <p class="text-[#82e256] font-semibold text-sm">40% mejor tasa de respuesta - IA selecciona el canal óptimo según urgencia y preferencias</p>
-          </div>
-
-          <div class="bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-[#82e256] transition-all">
-            <h3 class="text-xl font-bold text-white mb-3">Mensajería Multi-plataforma</h3>
-            <p class="text-gray-300 mb-4">Diseño de mensajería interna, colas, WebPush, FCM/APNs y notificaciones inteligentes unificadas.</p>
-            <p class="text-[#82e256] font-semibold text-sm">4 canales integrados - Email, SMS, WhatsApp y Slack unificados en una sola plataforma</p>
-          </div>
-
-          <div class="bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-[#82e256] transition-all">
-            <h3 class="text-xl font-bold text-white mb-3">Redes Sociales Automatizadas</h3>
-            <p class="text-gray-300 mb-4">Publicación multi-canal con contenido adaptado por red social y análisis de engagement con IA.</p>
-            <p class="text-[#82e256] font-semibold text-sm">70% ahorro de tiempo - Contenido adaptado automáticamente y publicación multi-canal con IA</p>
-          </div>
+        <div class="grid md:grid-cols-2 gap-8">
+          {automations.map(automation => (
+            <AutomationCard {...automation} />
+          ))}
         </div>
 
         <div class="text-center mt-12">
@@ -174,54 +226,3 @@ import ServiciosGrid from '../../components/ServiciosGrid.astro';
   <!-- Servicios Profesionales -->
   <ServiciosGrid />
 </Layout>
-
-<style>
-  .stack-container { display: flex; flex-direction: column; }
-  .sticky-section { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #0e0e0e; transition: transform 0.1s linear, filter 0.1s linear; will-change: transform, filter; }
-  .sticky-section:nth-child(1) { background-color: #0e0e0e; }
-  .sticky-section:nth-child(2) { background-color: #161616; }
-  .sticky-section:nth-child(3) { background-color: #1d1d1d; }
-  .sticky-section:nth-child(4) { background-color: #0e0e0e; }
-  .sticky-section:nth-child(5) { background-color: #161616; }
-  .sticky-section:nth-child(6) { background-color: #1d1d1d; }
-  .content-grid { display: grid; grid-template-columns: 1fr 1fr; width: 90%; max-width: 1300px; gap: 60px; align-items: center; }
-  .text-side { display: flex; flex-direction: column; padding: 20px; }
-  .label { font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: #82e256; margin-bottom: 10px; }
-  .sticky-section h2 { font-size: clamp(2.5rem, 6vw, 5.5rem); line-height: 0.95; margin: 0; font-weight: 900; text-transform: uppercase; color: #fff; }
-  p.desc { font-size: 1.2rem; margin-top: 30px; opacity: 0.7; max-width: 450px; line-height: 1.5; color: #fff; }
-  .image-side { width: 100%; height: 65vh; border-radius: 15px; overflow: hidden; position: relative; }
-  .image-side img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .reversed .text-side { order: 2; }
-  .reversed .image-side { order: 1; }
-  @media (max-width: 900px) {
-    .content-grid { grid-template-columns: 1fr; text-align: center; }
-    .image-side { height: 35vh; order: -1 !important; }
-    .text-side { align-items: center; padding: 0; }
-    p.desc { margin-top: 15px; }
-  }
-</style>
-
-<script>
-  const sections = document.querySelectorAll('.sticky-section');
-  window.addEventListener('scroll', () => {
-    const viewportHeight = window.innerHeight;
-    sections.forEach((section, index) => {
-      const rect = section.getBoundingClientRect();
-      if (rect.top <= 0) {
-        const nextSection = sections[index + 1];
-        if (nextSection) {
-          const nextRect = nextSection.getBoundingClientRect();
-          let progress = 1 - (nextRect.top / viewportHeight);
-          progress = Math.max(0, Math.min(1, progress));
-          const scale = 1 - (progress * 0.1);
-          const brightness = 1 - (progress * 0.6);
-          (section as HTMLElement).style.transform = `scale(${scale})`;
-          (section as HTMLElement).style.filter = `brightness(${brightness})`;
-        }
-      } else {
-        (section as HTMLElement).style.transform = `scale(1)`;
-        (section as HTMLElement).style.filter = `brightness(1)`;
-      }
-    });
-  });
-</script>

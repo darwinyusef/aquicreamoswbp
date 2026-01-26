@@ -1,0 +1,64 @@
+---
+interface Props {
+  icon: string;
+  difficulty: 'Básico' | 'Intermedio' | 'Avanzado';
+  title: string;
+  description: string;
+  features: string[];
+  benefit: string;
+  technologies: string;
+}
+
+const { icon, difficulty, title, description, features, benefit, technologies } = Astro.props;
+
+const difficultyColors = {
+  'Básico': 'bg-green-500/20 text-green-400',
+  'Intermedio': 'bg-yellow-500/20 text-yellow-400',
+  'Avanzado': 'bg-red-500/20 text-red-400'
+};
+---
+
+<div class="bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-[#82e256] transition-all duration-300">
+  <div class="flex items-start justify-between mb-4">
+    <div class="w-16 h-16 bg-[#82e256]/20 rounded-lg flex items-center justify-center">
+      <Fragment set:html={icon} />
+    </div>
+    <span class={`text-xs px-3 py-1 rounded-full font-semibold ${difficultyColors[difficulty]}`}>
+      {difficulty}
+    </span>
+  </div>
+
+  <h3 class="text-2xl font-bold text-white mb-3">{title}</h3>
+  <p class="text-gray-300 mb-4">
+    {description}
+  </p>
+
+  <div class="mb-4">
+    <h4 class="text-sm font-semibold text-[#82e256] mb-2">Incluye:</h4>
+    <ul class="space-y-1">
+      {features.map(feature => (
+        <li class="text-sm text-gray-400 flex items-start">
+          <span class="text-[#82e256] mr-2">✓</span>
+          <span>{feature}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <div class="border-t border-white/10 pt-4 mb-4">
+    <div class="flex justify-between items-center">
+      <div>
+        <p class="text-xs text-gray-500">Beneficio</p>
+        <p class="text-lg font-bold text-[#82e256]">{benefit}</p>
+      </div>
+      <div>
+        <p class="text-xs text-gray-500">Tecnologías</p>
+        <p class="text-sm text-gray-300">{technologies}</p>
+      </div>
+    </div>
+  </div>
+
+  <a href="/#contenido10" class="block w-full py-3 bg-gradient-to-r from-[#00464e] to-[#006417] text-white rounded-lg hover:from-[#006417] hover:to-[#82e256] transition-all duration-300 font-semibold text-center">
+    Solicitar Asesoría →
+  </a>
+</div>
