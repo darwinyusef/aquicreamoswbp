@@ -1,28 +1,107 @@
-name: Deploy to Server
+name: Deploy Aquicreamos
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   workflow_dispatch:
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
+env:
+  NODE_VERSION: '20'
 
-      - name: Deploy Aquicreamos
-        uses: appleboy/ssh-action@v1.0.0
+jobs:
+  build-test:
+    name: Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USER }}
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build application
+        run: npm run build
+
+  deploy:
+    name: Deploy to Server
+    runs-on: ubuntu-latest
+    needs: build-test
+    environment: production
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT || 22 }}
+          command_timeout: 30m
           script: |
-            cd /opt/aquicreamoswbp
+            echo "🚀 Starting deployment Aquicreamos..."
+
+            cd /opt/aquicreamoswbp || exit 1
+
+            echo "📥 Pulling latest changes..."
             git pull origin main
 
-            cd /opt/darwinyusef.portfolio
-            docker compose -f docker/services/aquicreamos.yml build --no-cache
-            docker compose -f docker/services/aquicreamos.yml up -d
+            echo "🔨 Building Docker image..."
+            docker build -t aquicreamos:latest .
 
+            cd /opt/darwinyusef.portfolio/docker || exit 1
+
+            echo "♻️ Restarting aquicreamos service..."
+            docker compose -f services/aquicreamos.yml up -d --build
+
+            echo "⏳ Waiting for service..."
+            sleep 15
+
+            echo "✅ Checking container..."
+            docker ps | grep aquicreamos || exit 1
+
+            echo "🔄 Reloading Caddy..."
+            docker exec portfolio-caddy caddy reload --config /etc/caddy/Caddyfile || true
+
+            echo "🧹 Cleanup..."
             docker image prune -f
+
+            echo "🎉 Deployment completed!"
+
+      - name: Health check
+        run: |
+          echo "🏥 Health check..."
+          sleep 10
+          response=$(curl -s -o /dev/null -w "%{http_code}" https://aquicreamos.com)
+          if [ $response -eq 200 ]; then
+            echo "✅ Site responding: $response"
+          else
+            echo "❌ Site failed: $response"
+            exit 1
+          fi
+
+  notify:
+    name: Notify
+    runs-on: ubuntu-latest
+    needs: [build-test, deploy]
+    if: always()
+
+    steps:
+      - name: Summary
+        run: |
+          echo "## Deployment Summary 🚀" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Branch:** ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Commit:** \`${{ github.sha }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "- **Author:** ${{ github.actor }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Status:** ${{ needs.deploy.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "🌐 **Live:** https://aquicreamos.com" >> $GITHUB_STEP_SUMMARY
