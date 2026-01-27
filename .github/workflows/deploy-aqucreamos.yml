@@ -1,0 +1,31 @@
+name: Deploy Aquicreamos
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'aquicreamos.yml'
+      - '.github/workflows/deploy-aquicreamos.yml'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy Aquicreamos
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd /opt/aquicreamoswbp
+            git pull origin main
+
+            cd /opt/darwinyusef.portfolio
+            docker compose -f docker/services/aquicreamos.yml build --no-cache
+            docker compose -f docker/services/aquicreamos.yml up -d
+
+            docker image prune -f
