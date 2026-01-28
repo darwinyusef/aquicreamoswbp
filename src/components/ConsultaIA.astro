@@ -893,7 +893,8 @@ const faqItems = [
 
         // Llamar a la API real con RAG
         try {
-          const response = await fetch('/api/chat-assistant.json', {
+          const BACKEND_URL = import.meta.env.PUBLIC_BACKEND_URL || 'http://localhost:3001';
+          const response = await fetch(`${BACKEND_URL}/api/chat`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

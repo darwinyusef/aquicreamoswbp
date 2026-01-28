@@ -645,7 +645,8 @@ import Header from '../components/Header.astro';
   // Cargar slots ocupados desde la API
   async function loadOccupiedSlots() {
     try {
-      const response = await fetch('/api/get-occupied-slots.json');
+      const BACKEND_URL = import.meta.env.PUBLIC_BACKEND_URL || 'http://localhost:3001';
+      const response = await fetch(`${BACKEND_URL}/api/appointments/occupied-slots`);
       const result = await response.json();
 
       if (result.success) {
@@ -689,7 +690,8 @@ import Header from '../components/Header.astro';
     // AQUÍ INTEGRARÁS TU MODELO DE ML
     // Ejemplo de llamada a API:
     /*
-    const response = await fetch('/api/classify-service', {
+    const BACKEND_URL = import.meta.env.PUBLIC_BACKEND_URL || 'http://localhost:3001';
+    const response = await fetch(`${BACKEND_URL}/api/classify-service`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
@@ -973,7 +975,8 @@ import Header from '../components/Header.astro';
 
     try {
       // Enviar a la API para guardar en BD y enviar email
-      const response = await fetch('/api/send-appointment.json', {
+      const BACKEND_URL = import.meta.env.PUBLIC_BACKEND_URL || 'http://localhost:3001';
+      const response = await fetch(`${BACKEND_URL}/api/appointments`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

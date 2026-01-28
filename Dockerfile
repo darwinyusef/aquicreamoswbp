@@ -1,7 +1,7 @@
 FROM node:20-alpine AS deps
 WORKDIR /app
 
-RUN apk add --no-cache python3 make g++ sqlite
+RUN apk add --no-cache python3 make g++
 
 COPY package.json package-lock.json* ./
 RUN npm ci --only=production && npm cache clean --force
@@ -9,7 +9,7 @@ RUN npm ci --only=production && npm cache clean --force
 FROM node:20-alpine AS builder
 WORKDIR /app
 
-RUN apk add --no-cache python3 make g++ sqlite
+RUN apk add --no-cache python3 make g++
 
 COPY --from=deps /app/node_modules ./node_modules
 COPY package.json package-lock.json* ./
@@ -22,15 +22,14 @@ RUN npm run build
 FROM node:20-alpine AS runtime
 WORKDIR /app
 
-RUN apk add --no-cache sqlite curl && \
+RUN apk add --no-cache curl && \
     addgroup -g 1001 -S nodejs && \
     adduser -S nodejs -u 1001
 
 COPY --from=builder --chown=nodejs:nodejs /app/dist ./dist
 COPY --from=builder --chown=nodejs:nodejs /app/node_modules ./node_modules
 COPY --chown=nodejs:nodejs package.json ./
-
-RUN mkdir -p /app/data && chown nodejs:nodejs /app/data
+COPY --chown=nodejs:nodejs .env* ./
 
 USER nodejs
 

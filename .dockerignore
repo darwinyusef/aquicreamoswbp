@@ -13,8 +13,8 @@ dist/
 logs/
 *.log
 
-# Environment
-.env
+# Environment (allow .env for production secrets)
+# .env is needed in container for runtime configuration
 .env.local
 .env.*.local
 
@@ -46,11 +46,7 @@ Jenkinsfile
 coverage/
 .nyc_output/
 
-# Base de datos SQLite (se manejará con volumen)
-*.db
-*.db-shm
-*.db-wal
-data/
+# No database files needed (backend handles all data)
 
 # Otros
 *.md

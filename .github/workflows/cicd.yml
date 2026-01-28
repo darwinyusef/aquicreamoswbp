@@ -1,0 +1,139 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: '20'
+  PROJECT_PATH: /opt/aquicreamoswbp
+  DOCKER_IMAGE: aquicreamos
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy to Production
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --prefer-offline --no-audit
+
+      - name: Build application
+        env:
+          PUBLIC_BACKEND_URL: ${{ secrets.BACKEND_URL }}
+        run: npm run build
+
+      - name: Display build information
+        run: |
+          echo "================================================"
+          echo "Build Information"
+          echo "================================================"
+          echo "Project: aquicreamoswbp"
+          echo "Branch: ${{ github.ref_name }}"
+          echo "Commit: $(git rev-parse --short HEAD)"
+          echo "Run Number: ${{ github.run_number }}"
+          echo "Environment: production"
+          echo "================================================"
+
+      - name: Deploy to Server
+        uses: appleboy/ssh-action@v1.0.3
+        env:
+          BACKEND_URL: ${{ secrets.BACKEND_URL }}
+          PROJECT_PATH: ${{ env.PROJECT_PATH }}
+          DOCKER_IMAGE: ${{ env.DOCKER_IMAGE }}
+          RUN_NUMBER: ${{ github.run_number }}
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT || 22 }}
+          command_timeout: 30m
+          envs: BACKEND_URL,PROJECT_PATH,DOCKER_IMAGE,RUN_NUMBER
+          script: |
+            echo "🚀 Starting deployment..."
+
+            # Navigate to project
+            cd ${PROJECT_PATH} || exit 1
+
+            # Pull latest changes
+            echo "📥 Pulling latest changes from master..."
+            git pull origin master
+
+            # Create .env file with GitHub Secrets
+            echo "🔐 Creating .env file from GitHub Secrets..."
+            cat > .env << EOF
+PUBLIC_BACKEND_URL=${BACKEND_URL}
+EOF
+
+            # Build Docker image
+            echo "🔨 Building Docker image..."
+            docker build -t ${DOCKER_IMAGE}:latest \
+              -t ${DOCKER_IMAGE}:${RUN_NUMBER} \
+              -t ${DOCKER_IMAGE}:$(git rev-parse --short HEAD) .
+
+            # Navigate to docker compose location
+            cd /opt/darwinyusef.portfolio/docker || exit 1
+
+            # Restart service
+            echo "♻️ Restarting service..."
+            docker compose -f services/aquicreamos.yml up -d --force-recreate
+
+            # Wait for service to be ready
+            echo "⏳ Waiting for service to start..."
+            sleep 15
+
+            # Check container status
+            echo "✅ Checking container status..."
+            docker ps | grep aquicreamos || exit 1
+
+            # Reload Caddy
+            echo "🔄 Reloading Caddy..."
+            docker exec portfolio-caddy caddy reload --config /etc/caddy/Caddyfile || true
+
+            # Cleanup old images
+            echo "🧹 Cleaning up old Docker images..."
+            docker image prune -f
+
+            echo "🎉 Deployment completed successfully!"
+
+      - name: Health Check
+        run: |
+          echo "🏥 Running health check..."
+          sleep 10
+          response=$(curl -s -o /dev/null -w "%{http_code}" https://aquicreamos.com)
+          if [ $response -eq 200 ]; then
+            echo "✅ Site is responding correctly: HTTP $response"
+          else
+            echo "❌ Site health check failed: HTTP $response"
+            exit 1
+          fi
+
+      - name: Deployment Summary
+        if: always()
+        run: |
+          echo "## Deployment Summary 🚀" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Project:** aquicreamoswbp" >> $GITHUB_STEP_SUMMARY
+          echo "- **Branch:** ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Commit:** \`$(git rev-parse --short HEAD)\`" >> $GITHUB_STEP_SUMMARY
+          echo "- **Build:** #${{ github.run_number }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Author:** ${{ github.actor }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Status:** ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "🌐 **Live Site:** https://aquicreamos.com" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [[ "${{ job.status }}" == "success" ]]; then
+            echo "✅ Deployment completed successfully!" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Deployment failed. Check the logs for details." >> $GITHUB_STEP_SUMMARY
+          fi

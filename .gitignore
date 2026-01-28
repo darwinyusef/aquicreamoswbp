@@ -17,11 +17,6 @@ pnpm-debug.log*
 .env
 .env.production
 
-# database
-data/
-*.db
-*.db-journal
-
 # google tokens
 google-token.json
 google-credentials.json

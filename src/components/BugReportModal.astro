@@ -354,7 +354,9 @@
         try {
           console.log('📧 Enviando reporte de bug al backend...');
 
-          const response = await fetch('/api/send-bug-report.json', {
+          // Llamar directamente al backend
+          const BACKEND_URL = import.meta.env.PUBLIC_BACKEND_URL || 'http://localhost:3001';
+          const response = await fetch(`${BACKEND_URL}/api/bug-reports`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
