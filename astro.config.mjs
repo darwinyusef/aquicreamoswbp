@@ -6,6 +6,7 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
     // Static site generation - todas las APIs están en el backend
     output: 'static',
+    site: 'https://aquicreamos.com',
     trailingSlash: 'ignore',
     vite: {
         plugins: [tailwindcss()],
