@@ -632,4 +632,4 @@ Computer Vision está revolucionando industrias. Desde retail hasta manufactura,
 
 ---
 
-**¿Necesitas implementar Computer Vision en tu empresa?** [Contáctanos](/#contenido10) para una consultoría gratuita.
+**¿Necesitas implementar Computer Vision en tu empresa?** [Contáctanos](/#asesorias) para una consultoría gratuita.

@@ -3,7 +3,9 @@
     "allow": [
       "Bash(test:*)",
       "Bash(done)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(python update_ids.py:*)",
+      "Bash(python -c:*)"
     ]
   }
 }

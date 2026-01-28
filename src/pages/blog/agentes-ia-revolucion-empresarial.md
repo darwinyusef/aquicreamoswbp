@@ -157,7 +157,7 @@ La próxima generación de agentes incluirá:
 
 Los agentes de IA no son el futuro, son el **presente**. Las empresas que adopten esta tecnología ahora tendrán una ventaja competitiva significativa. La clave está en empezar de forma estratégica, medir resultados y escalar lo que funciona.
 
-¿Listo para implementar agentes de IA en tu empresa? [Contáctanos](/#contenido10) para una consultoría gratuita.
+¿Listo para implementar agentes de IA en tu empresa? [Contáctanos](/#asesorias) para una consultoría gratuita.
 
 ---
 

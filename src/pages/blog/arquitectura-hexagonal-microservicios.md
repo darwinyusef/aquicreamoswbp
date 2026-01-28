@@ -385,7 +385,7 @@ La **Arquitectura Hexagonal** es ideal para microservicios porque:
 ✅ Clarifica responsabilidades y límites
 ✅ Mejora la colaboración entre equipos
 
-¿Quieres implementar arquitectura hexagonal en tu proyecto? [Agenda una consultoría gratuita](/#contenido10) con nuestro equipo.
+¿Quieres implementar arquitectura hexagonal en tu proyecto? [Agenda una consultoría gratuita](/#asesorias) con nuestro equipo.
 
 ---
 

@@ -486,4 +486,4 @@ Ambas son excelentes opciones en 2025. La clave es ejecutar bien, no tanto la he
 
 ---
 
-**¿Necesitas ayuda decidiendo?** [Agenda una consultoría gratuita](/#contenido10) y analizamos tu caso específico.
+**¿Necesitas ayuda decidiendo?** [Agenda una consultoría gratuita](/#asesorias) y analizamos tu caso específico.
