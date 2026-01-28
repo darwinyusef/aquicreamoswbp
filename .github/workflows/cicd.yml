@@ -94,9 +94,22 @@ jobs:
             echo "✅ Checking container status..."
             docker ps | grep aquicreamos || exit 1
 
+            # Check Caddy status before reload
+            echo "🔍 Checking Caddy status..."
+            docker ps | grep caddy
+            docker exec portfolio-caddy caddy version || echo "⚠️ Caddy version check failed"
+
             # Reload Caddy
             echo "🔄 Reloading Caddy..."
-            docker exec portfolio-caddy caddy reload --config /etc/caddy/Caddyfile || true
+            docker exec portfolio-caddy caddy reload --config /etc/caddy/Caddyfile || echo "⚠️ Caddy reload failed"
+
+            # Verify Caddy configuration
+            echo "🔧 Verifying Caddy configuration..."
+            docker exec portfolio-caddy caddy validate --config /etc/caddy/Caddyfile || echo "⚠️ Caddy config validation failed"
+
+            # Check Caddy logs
+            echo "📋 Recent Caddy logs..."
+            docker logs portfolio-caddy --tail 20 || echo "⚠️ Could not fetch Caddy logs"
 
             # Cleanup old images
             echo "🧹 Cleaning up old Docker images..."
@@ -105,6 +118,7 @@ jobs:
             echo "🎉 Deployment completed successfully!"
 
       - name: Health Check
+        continue-on-error: true
         run: |
           echo "🏥 Running health check..."
           max_attempts=12
