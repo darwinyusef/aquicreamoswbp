@@ -107,14 +107,26 @@ jobs:
       - name: Health Check
         run: |
           echo "🏥 Running health check..."
-          sleep 10
-          response=$(curl -s -o /dev/null -w "%{http_code}" https://aquicreamos.com)
-          if [ $response -eq 200 ]; then
-            echo "✅ Site is responding correctly: HTTP $response"
-          else
-            echo "❌ Site health check failed: HTTP $response"
-            exit 1
-          fi
+          max_attempts=12
+          attempt=1
+
+          while [ $attempt -le $max_attempts ]; do
+            echo "Attempt $attempt of $max_attempts..."
+            response=$(curl -s -o /dev/null -w "%{http_code}" https://aquicreamos.com || echo "000")
+
+            if [ "$response" = "200" ]; then
+              echo "✅ Site is responding correctly: HTTP $response"
+              exit 0
+            else
+              echo "⏳ Site returned HTTP $response, waiting 10 seconds..."
+              sleep 10
+            fi
+
+            attempt=$((attempt + 1))
+          done
+
+          echo "❌ Site health check failed after $max_attempts attempts"
+          exit 1
 
       - name: Deployment Summary
         if: always()
