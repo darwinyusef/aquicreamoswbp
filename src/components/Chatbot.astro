@@ -190,7 +190,7 @@ const { context, title, initialMessage } = Astro.props;
 
       try {
         const BACKEND_URL = import.meta.env.PUBLIC_BACKEND_URL || 'http://localhost:3001';
-        const response = await fetch(`${BACKEND_URL}/api/chat`, {
+        const response = await fetch(`${BACKEND_URL}/api/assistant-rag`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -198,7 +198,8 @@ const { context, title, initialMessage } = Astro.props;
           body: JSON.stringify({
             question: question,
             conversationHistory: conversationHistory,
-            context: context
+            context: context,
+            route: window.location.pathname
           }),
         });
 
@@ -206,7 +207,7 @@ const { context, title, initialMessage } = Astro.props;
 
         if (response.ok) {
           const data = await response.json();
-          addMessage(data.response || 'No pude procesar tu pregunta.', false, context);
+          addMessage(data.answer || 'No pude procesar tu pregunta.', false, context);
         } else {
           addMessage('Lo siento, hubo un error al procesar tu pregunta. Por favor intenta de nuevo.', false, context);
         }

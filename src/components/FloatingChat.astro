@@ -325,7 +325,7 @@
 
       try {
         const BACKEND_URL = import.meta.env.PUBLIC_BACKEND_URL || 'http://localhost:3001';
-        const response = await fetch(`${BACKEND_URL}/api/chat`, {
+        const response = await fetch(`${BACKEND_URL}/api/assistant-rag`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -333,7 +333,8 @@
           body: JSON.stringify({
             question: question,
             conversationHistory: floatingConversationHistory,
-            context: 'global' // Contexto global sobre la empresa
+            context: 'global', // Contexto global sobre la empresa
+            route: window.location.pathname
           }),
         });
 
@@ -341,7 +342,7 @@
 
         if (response.ok) {
           const data = await response.json();
-          addFloatingMessage(data.response || 'No pude procesar tu pregunta.', false);
+          addFloatingMessage(data.answer || 'No pude procesar tu pregunta.', false);
         } else {
           addFloatingMessage('Lo siento, hubo un error. Por favor intenta de nuevo.', false);
         }

@@ -894,7 +894,7 @@ const faqItems = [
         // Llamar a la API real con RAG
         try {
           const BACKEND_URL = import.meta.env.PUBLIC_BACKEND_URL || 'http://localhost:3001';
-          const response = await fetch(`${BACKEND_URL}/api/chat`, {
+          const response = await fetch(`${BACKEND_URL}/api/assistant-rag`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -902,14 +902,15 @@ const faqItems = [
             body: JSON.stringify({
               question: question,
               conversationHistory: [], // Sin historial en este formulario
-              context: 'consulta-ia' // Contexto técnico
+              context: 'consulta-ia', // Contexto técnico
+              route: window.location.pathname
             }),
           });
 
           if (response.ok) {
             const data = await response.json();
             if (answerDiv) {
-              answerDiv.innerHTML = data.response || 'No pude procesar tu pregunta.';
+              answerDiv.innerHTML = data.answer || 'No pude procesar tu pregunta.';
             }
           } else {
             if (answerDiv) {

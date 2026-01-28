@@ -1,15 +1,11 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import tailwindcss from "@tailwindcss/vite";
-import node from '@astrojs/node';
 
 // https://astro.build/config
 export default defineConfig({
-    // Habilitar SSR para APIs con SQLite
-    output: 'server',
-    adapter: node({
-        mode: 'standalone'
-    }),
+    // Static site generation - todas las APIs están en el backend
+    output: 'static',
     vite: {
         plugins: [tailwindcss()],
     },
