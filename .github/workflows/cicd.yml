@@ -110,7 +110,21 @@ jobs:
 
             # Cleanup old images
             echo "🧹 Cleaning up old Docker images..."
-            docker image prune -f
+
+            # Remove dangling images
+            docker image prune -a -f
+
+            # Keep only the latest 3 versions of aquicreamos images, remove older ones
+            echo "🗑️ Removing old ${DOCKER_IMAGE} images (keeping latest 3)..."
+            docker images ${DOCKER_IMAGE} | tail -n +2 | awk '{print $3, $4, $5}' | \
+              sort -k2,3 -r | \
+              tail -n +4 | \
+              awk '{print $1}' | \
+              xargs -r docker rmi -f 2>/dev/null || echo "No old images to remove"
+
+            # Show remaining images
+            echo "📦 Remaining ${DOCKER_IMAGE} images:"
+            docker images ${DOCKER_IMAGE}
 
             echo "🎉 Deployment completed successfully!"
 
