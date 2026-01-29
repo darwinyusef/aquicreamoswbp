@@ -355,7 +355,7 @@
           console.log('📧 Enviando reporte de bug al backend...');
 
           // Llamar directamente al backend
-          const BACKEND_URL = import.meta.env.PUBLIC_BACKEND_URL || 'http://localhost:3001';
+          const BACKEND_URL = 'https://api.darwinyusef.com';
           const response = await fetch(`${BACKEND_URL}/api/bug-reports`, {
             method: 'POST',
             headers: {

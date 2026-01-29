@@ -645,7 +645,7 @@ import Header from '../components/Header.astro';
   // Cargar slots ocupados desde la API
   async function loadOccupiedSlots() {
     try {
-      const BACKEND_URL = import.meta.env.PUBLIC_BACKEND_URL || 'http://localhost:3001';
+      const BACKEND_URL = 'https://api.darwinyusef.com';
       const response = await fetch(`${BACKEND_URL}/api/appointments/occupied-slots`);
       const result = await response.json();
 
@@ -690,7 +690,7 @@ import Header from '../components/Header.astro';
     // AQUÍ INTEGRARÁS TU MODELO DE ML
     // Ejemplo de llamada a API:
     /*
-    const BACKEND_URL = import.meta.env.PUBLIC_BACKEND_URL || 'http://localhost:3001';
+    const BACKEND_URL = 'https://api.darwinyusef.com';
     const response = await fetch(`${BACKEND_URL}/api/classify-service`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -975,7 +975,7 @@ import Header from '../components/Header.astro';
 
     try {
       // Enviar a la API para guardar en BD y enviar email
-      const BACKEND_URL = import.meta.env.PUBLIC_BACKEND_URL || 'http://localhost:3001';
+      const BACKEND_URL = 'https://api.darwinyusef.com';
       const response = await fetch(`${BACKEND_URL}/api/appointments`, {
         method: 'POST',
         headers: {

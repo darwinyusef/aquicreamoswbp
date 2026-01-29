@@ -153,7 +153,7 @@ const faqItems = [
       </div>
 
       <!-- Formulario - Lado derecho -->
-      <div class="space-y-6">
+      <div id="question" class="space-y-6">
         <div class="flex items-center gap-3 mb-6">
           <svg
             class="w-6 h-6 text-[#82e256]"
@@ -1053,8 +1053,7 @@ const faqItems = [
 
         // Llamar a la API real con RAG
         try {
-          const BACKEND_URL =
-            import.meta.env.PUBLIC_BACKEND_URL || "http://localhost:3001";
+          const BACKEND_URL = 'https://api.darwinyusef.com';
           const response = await fetch(`${BACKEND_URL}/api/assistant-rag`, {
             method: "POST",
             headers: {

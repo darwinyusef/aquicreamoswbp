@@ -918,8 +918,7 @@ const structuredData = {
     chatMessages!.scrollTop = chatMessages!.scrollHeight;
 
     try {
-      const BACKEND_URL =
-        import.meta.env.PUBLIC_BACKEND_URL || "http://localhost:3001";
+      const BACKEND_URL = 'https://api.darwinyusef.com';
       const response = await fetch(`${BACKEND_URL}/api/chat`, {
         method: "POST",
         headers: {
