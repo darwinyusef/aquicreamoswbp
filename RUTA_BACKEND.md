@@ -1,8 +1,15 @@
-en local fisico G:\darwinyusef.portfolio\backend
-en local backend / http://localhost:3001/docs
+## Backend
+- **Local físico:** G:\darwinyusef.portfolio\backend
+- **Local URL:** http://localhost:3001/docs
+- **Producción físico:** /opt/darwinyusef.portfolio/backend
+- **Producción URL:** https://api.darwinyusef.com
 
-en produccion fisico /opt/darwinyusef.portfolio/backend
-en producción backend https://api.darwinyusef.com
+## Aquicreamos (Frontend)
+- **Docker Compose:** G:\darwinyusef.portfolio\docker\services\aquicreamos.yml
+- **Puerto contenedor:** 80
+- **Producción URL:** https://aquicreamos.com
 
-el caddy se encuentra en G:\darwinyusef.portfolio\docker\services\caddy\
-el archivo Caddyfile se encuentra en G:\darwinyusef.portfolio\docker\caddy\Caddyfile
+## Caddy (Reverse Proxy)
+- **Carpeta:** G:\darwinyusef.portfolio\docker\caddy\
+- **Caddyfile:** G:\darwinyusef.portfolio\docker\caddy\Caddyfile
+- **Configuración aquicreamos.com:** reverse_proxy aquicreamos:80

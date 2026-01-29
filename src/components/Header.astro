@@ -15,7 +15,7 @@ const { currentPage = "home" } = Astro.props;
 <header
   class="bg-[#00464e] flex flex-row justify-between items-center p-3 w-full fixed top-0 left-0 z-50 shadow-[0_2px_10px_rgba(0,0,0,0.5)] animate-on-scroll"
 >
-  <a ">
+  <a href="/">
     <img
       src="/img/logoAquicreamos.png"
       class="h-7 card-animate"
@@ -24,8 +24,10 @@ const { currentPage = "home" } = Astro.props;
   </a>
   <div class="flex flex-row justify-between items-center gap-5">
     <!-- Botón de menú móvil -->
-    <button class="menu-toggle p-1.5 md:hidden card-animate" aria-label="Menú">
-      <i class="fas fa-bars text-2xl text-white"></i>
+    <button class="menu-toggle p-2 md:hidden card-animate hover:bg-white/10 rounded transition-colors" aria-label="Menú">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
     </button>
 
     <!-- Menú de navegación para escritorio -->
@@ -33,59 +35,57 @@ const { currentPage = "home" } = Astro.props;
       <ul class="flex flex-row gap-6 items-center justify-center card-animate">
         <li>
           <a
-            #home"
-            class={`transition-colors ${currentPage === "home" ? "text-[#82e256] font-semibold" : "text-white hover:text-[#82e256]"}`}
+            href="/"
           >
             Inicio
           </a>
         </li>
         <li>
-          <a
-            #servicios"
+          <a href="/#servicios"
             class="text-white hover:text-[#82e256] transition-colors"
           >
             Servicios
           </a>
         </li>
         <li>
-          <a
-            soluciones"
+          <a href="/soluciones"
             class={`transition-colors ${currentPage === "soluciones" ? "text-[#82e256] font-semibold" : "text-white hover:text-[#82e256]"}`}
           >
             Soluciones
           </a>
         </li>
-        <li>
-          <a #videos" class="text-white hover:text-[#82e256] transition-colors">
+        <!-- <li>
+          <a href="/#videos" class="text-white hover:text-[#82e256] transition-colors">
             Videos
           </a>
-        </li>
-        <li>
-          <a
-            blog"
+        </li> -->
+        <!-- <li>
+          <a href="/blog"
             class={`transition-colors ${currentPage === "blog" ? "text-[#82e256] font-semibold" : "text-white hover:text-[#82e256]"}`}
           >
             Blog
           </a>
         </li>
         <li>
-          <a
-            podcast"
+          <a href="/podcast"
             class={`transition-colors ${currentPage === "podcast" ? "text-[#82e256] font-semibold" : "text-white hover:text-[#82e256]"}`}
           >
             Podcast
           </a>
-        </li>
+        </li> -->
         <li>
-          <a #stack" class="text-white hover:text-[#82e256] transition-colors">
+          <a href="/#stack" class="text-white hover:text-[#82e256] transition-colors">
             Stack
           </a>
         </li>
         <li>
-          <a
-            #asesorias"
-            class={`transition-colors ${currentPage === "contacto" ? "text-[#82e256] font-semibold" : "text-white hover:text-[#82e256]"}`}
-          >
+          <a href="/#mentoring" class="text-white hover:text-[#82e256] transition-colors">
+            Consulta con IA
+          </a>
+        </li>
+        <li>
+          <a href="/#asesorias" class={`transition-colors ${currentPage === "asesorias" ? "text-[#82e256] font-semibold" : "text-white hover:text-[#82e256]"}`}>
+
             Asesorías
           </a>
         </li>
@@ -100,49 +100,54 @@ const { currentPage = "home" } = Astro.props;
 >
   <nav class="flex flex-col p-4 gap-4">
     <a
-      #home"
+      href="/"
       class="text-white hover:text-[#82e256] transition-colors py-2 border-b border-white/10"
     >
       Inicio
     </a>
     <a
-      #servicios"
+      href="/#servicios"
       class="text-white hover:text-[#82e256] transition-colors py-2 border-b border-white/10"
     >
       Servicios
     </a>
     <a
-      soluciones"
+      href="/soluciones"
       class="text-white hover:text-[#82e256] transition-colors py-2 border-b border-white/10"
     >
       Soluciones
     </a>
     <a
-      #videos"
+      href="/#videos"
       class="text-white hover:text-[#82e256] transition-colors py-2 border-b border-white/10"
     >
       Videos
     </a>
     <a
-      blog"
+      href="/blog"
       class="text-white hover:text-[#82e256] transition-colors py-2 border-b border-white/10"
     >
       Blog
     </a>
     <a
-      podcast"
+      href="/podcast"
       class="text-white hover:text-[#82e256] transition-colors py-2 border-b border-white/10"
     >
       Podcast
     </a>
     <a
-      #stack"
+      href="/#stack"
       class="text-white hover:text-[#82e256] transition-colors py-2 border-b border-white/10"
     >
       Stack
     </a>
     <a
-      #asesorias"
+      href="/#mentoring"
+      class="text-white hover:text-[#82e256] transition-colors py-2 border-b border-white/10"
+    >
+      Consulta con IA
+    </a>
+    <a href="/#asesorias"
       class="text-white hover:text-[#82e256] transition-colors py-2"
     >
       Asesorías
