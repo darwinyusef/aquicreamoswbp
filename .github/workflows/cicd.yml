@@ -29,8 +29,6 @@ jobs:
         run: npm ci --prefer-offline --no-audit
 
       - name: Build application
-        env:
-          PUBLIC_BACKEND_URL: https://api.darwinyusef.com
         run: npm run build
 
       - name: Display build information
@@ -68,10 +66,9 @@ jobs:
             echo "📥 Pulling latest changes from master..."
             git pull origin master
 
-            # Build Docker image with backend URL
+            # Build Docker image
             echo "🔨 Building Docker image..."
             docker build \
-              --build-arg PUBLIC_BACKEND_URL=https://api.darwinyusef.com \
               -t ${DOCKER_IMAGE}:latest \
               -t ${DOCKER_IMAGE}:${RUN_NUMBER} \
               -t ${DOCKER_IMAGE}:$(git rev-parse --short HEAD) .
