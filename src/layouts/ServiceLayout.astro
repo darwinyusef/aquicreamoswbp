@@ -1,7 +1,7 @@
 ---
-import Layout from './Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import Layout from "./Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
   title: string;
@@ -15,68 +15,74 @@ const { title, description, icon, gradient } = Astro.props;
 // Todos los servicios disponibles
 const todosLosServicios = [
   {
-    slug: 'agentes-ia',
-    title: 'Agentes Cognitivos Empresariales',
-    category: 'IA'
+    slug: "agentes-ia",
+    title: "Agentes Cognitivos Empresariales",
+    category: "IA",
   },
   {
-    slug: 'aplicaciones-ia',
-    title: 'Aplicaciones con IA',
-    category: 'IA'
+    slug: "aplicaciones-ia",
+    title: "Aplicaciones con IA",
+    category: "IA",
   },
   {
-    slug: 'desarrollo-web',
-    title: 'Diseño y Desarrollo Web Moderno',
-    category: 'Web'
+    slug: "desarrollo-web",
+    title: "Diseño y Desarrollo Web Moderno",
+    category: "Web",
   },
   {
-    slug: 'apps-moviles',
-    title: 'Apps Móviles',
-    category: 'Mobile'
+    slug: "apps-moviles",
+    title: "Apps Móviles",
+    category: "Mobile",
   },
   {
-    slug: 'computer-vision',
-    title: 'Computer Vision',
-    category: 'IA'
+    slug: "computer-vision",
+    title: "Computer Vision",
+    category: "IA",
   },
   {
-    slug: 'arquitectura',
-    title: 'Arquitectura TOGAF 2026',
-    category: 'Profesional'
+    slug: "arquitectura",
+    title: "Arquitectura TOGAF 2026",
+    category: "Profesional",
   },
   {
-    slug: 'desarrollo-fullstack',
-    title: 'Desarrollo Full-Stack',
-    category: 'Profesional'
+    slug: "desarrollo-fullstack",
+    title: "Desarrollo Full-Stack",
+    category: "Profesional",
   },
   {
-    slug: 'ia-machine-learning',
-    title: 'IA & Machine Learning',
-    category: 'Profesional'
+    slug: "ia-machine-learning",
+    title: "IA & Machine Learning",
+    category: "Profesional",
   },
   {
-    slug: 'devops-infraestructura',
-    title: 'DevOps & Cloud',
-    category: 'Profesional'
-  }
+    slug: "devops-infraestructura",
+    title: "DevOps & Cloud",
+    category: "Profesional",
+  },
 ];
 
 // Obtener el slug actual de la URL
 const currentPath = Astro.url.pathname;
-const currentSlug = currentPath.split('/').pop() || '';
+const currentSlug = currentPath.split("/").pop() || "";
 
 // Filtrar otros servicios (excluyendo el actual)
-const otrosServicios = todosLosServicios.filter(s => s.slug !== currentSlug).slice(0, 6);
+const otrosServicios = todosLosServicios
+  .filter((s) => s.slug !== currentSlug)
+  .slice(0, 6);
 ---
 
 <Layout>
   <Header currentPage="servicios" />
 
   <div class="min-h-screen bg-[#1a1a1a]">
-
     <!-- Hero Section estilo Home (sin animación) -->
-    <section class="relative flex items-center justify-center bg-hero-pattern bg-repeat w-full min-h-[70vh] bg-[url(/img/fondo.png)] bg-no-repeat bg-cover bg-center">
-      <div class="absolute inset-0 bg-gradient-to-b from-black/50 to-[#1a1a1a] z-10"></div>
+    <section
+      class="relative flex items-center justify-center bg-hero-pattern bg-repeat w-full min-h-[70vh] bg-[url(/img/fondo.png)] bg-no-repeat bg-cover bg-center"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-black/50 to-[#1a1a1a] z-10"
+      >
+      </div>
 
       <div class="container mx-auto px-4 py-20 md:py-24 relative z-20">
         <div class="max-w-7xl mx-auto">
@@ -85,40 +91,70 @@ const otrosServicios = todosLosServicios.filter(s => s.slug !== currentSlug).sli
             <div class="text-center lg:text-left">
               <!-- Icono -->
               <div class="flex justify-center lg:justify-start mb-6">
-                <div class="text-7xl md:text-8xl bg-white/10 backdrop-blur-sm rounded-3xl p-6 shadow-2xl">
+                <div
+                  class="text-7xl md:text-8xl bg-white/10 backdrop-blur-sm rounded-3xl p-6 shadow-2xl"
+                >
                   {icon}
                 </div>
               </div>
 
               <!-- Título -->
-              <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#82e256] drop-shadow-lg">
+              <h1
+                class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight"
+              >
+                <span
+                  class="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#82e256] drop-shadow-lg"
+                >
                   {title}
                 </span>
               </h1>
 
               <!-- Descripción -->
-              <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 font-light max-w-2xl mt-4 md:mt-6 lg:mt-8 mx-auto lg:mx-0 text-center lg:text-left drop-shadow-md">
+              <p
+                class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 font-light max-w-2xl mt-4 md:mt-6 lg:mt-8 mx-auto lg:mx-0 text-center lg:text-left drop-shadow-md"
+              >
                 {description}
               </p>
 
               <!-- CTA rápido -->
-              <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-10">
+              <div
+                class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-10"
+              >
                 <a
-                  href="https://aquicreamos.com/#asesorias"
+                  #asesorias"
                   class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#82e256] text-black font-bold rounded-lg hover:bg-[#6bc73d] transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
                 >
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                  <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                    ></path>
                   </svg>
                   Agendar Consultoría Gratuita
                 </a>
                 <a
-                  href="https://aquicreamos.com/servicios"
+                  servicios"
                   class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-bold rounded-lg hover:bg-white/20 transition-all duration-300 border border-white/20"
                 >
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+                  <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+                    ></path>
                   </svg>
                   Ver Todos los Servicios
                 </a>
@@ -126,7 +162,9 @@ const otrosServicios = todosLosServicios.filter(s => s.slug !== currentSlug).sli
             </div>
 
             <!-- Imagen estática (sin animación) -->
-            <div class="relative w-full h-[400px] sm:h-[500px] lg:h-[600px] hidden lg:block">
+            <div
+              class="relative w-full h-[400px] sm:h-[500px] lg:h-[600px] hidden lg:block"
+            >
               <img
                 src="/img/personaje1.png"
                 class="absolute inset-0 w-full h-full object-contain"
@@ -139,8 +177,15 @@ const otrosServicios = todosLosServicios.filter(s => s.slug !== currentSlug).sli
 
       <!-- Wave divider -->
       <div class="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full">
-          <path d="M0 0L60 10C120 20 240 40 360 46.7C480 53 600 47 720 43.3C840 40 960 40 1080 46.7C1200 53 1320 67 1380 73.3L1440 80V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V0Z" fill="#1a1a1a"/>
+        <svg
+          viewBox="0 0 1440 120"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-full"
+        >
+          <path
+            d="M0 0L60 10C120 20 240 40 360 46.7C480 53 600 47 720 43.3C840 40 960 40 1080 46.7C1200 53 1320 67 1380 73.3L1440 80V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V0Z"
+            fill="#1a1a1a"></path>
         </svg>
       </div>
     </section>
@@ -156,28 +201,48 @@ const otrosServicios = todosLosServicios.filter(s => s.slug !== currentSlug).sli
 
           <!-- Características destacadas -->
           <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256] transition-all duration-300 hover:transform hover:scale-105">
+            <div
+              class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256] transition-all duration-300 hover:transform hover:scale-105"
+            >
               <div class="text-4xl mb-4">⚡</div>
-              <h3 class="text-xl font-bold text-white mb-2">Implementación Rápida</h3>
-              <p class="text-gray-400">Resultados tangibles en semanas, no meses</p>
+              <h3 class="text-xl font-bold text-white mb-2">
+                Implementación Rápida
+              </h3>
+              <p class="text-gray-400">
+                Resultados tangibles en semanas, no meses
+              </p>
             </div>
-            <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256] transition-all duration-300 hover:transform hover:scale-105">
+            <div
+              class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256] transition-all duration-300 hover:transform hover:scale-105"
+            >
               <div class="text-4xl mb-4">🎯</div>
               <h3 class="text-xl font-bold text-white mb-2">ROI Medible</h3>
-              <p class="text-gray-400">Métricas claras y seguimiento continuo</p>
+              <p class="text-gray-400">
+                Métricas claras y seguimiento continuo
+              </p>
             </div>
-            <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256] transition-all duration-300 hover:transform hover:scale-105">
+            <div
+              class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256] transition-all duration-300 hover:transform hover:scale-105"
+            >
               <div class="text-4xl mb-4">🚀</div>
               <h3 class="text-xl font-bold text-white mb-2">Soporte Total</h3>
-              <p class="text-gray-400">Acompañamiento continuo post-implementación</p>
+              <p class="text-gray-400">
+                Acompañamiento continuo post-implementación
+              </p>
             </div>
           </div>
 
           <!-- CTA Section mejorado -->
           <div class="mt-20 relative">
             <!-- Decoración de fondo -->
-            <div class="absolute inset-0 bg-gradient-to-br from-[#00464e] to-[#006064] rounded-2xl opacity-90"></div>
-            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] rounded-2xl"></div>
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-[#00464e] to-[#006064] rounded-2xl opacity-90"
+            >
+            </div>
+            <div
+              class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] rounded-2xl"
+            >
+            </div>
 
             <div class="relative p-8 md:p-12 text-center">
               <div class="max-w-3xl mx-auto">
@@ -185,37 +250,75 @@ const otrosServicios = todosLosServicios.filter(s => s.slug !== currentSlug).sli
                   ¿Listo para transformar tu negocio?
                 </h3>
                 <p class="text-lg md:text-xl text-white/90 mb-8">
-                  Agenda una consultoría gratuita de 30 minutos y descubre cómo podemos ayudarte a alcanzar tus objetivos
+                  Agenda una consultoría gratuita de 30 minutos y descubre cómo
+                  podemos ayudarte a alcanzar tus objetivos
                 </p>
 
                 <!-- Beneficios rápidos -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                  <div class="flex items-center justify-center gap-2 text-white/90">
-                    <svg class="w-5 h-5 text-[#82e256]" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  <div
+                    class="flex items-center justify-center gap-2 text-white/90"
+                  >
+                    <svg
+                      class="w-5 h-5 text-[#82e256]"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd"></path>
                     </svg>
                     <span class="text-sm">Sin compromiso</span>
                   </div>
-                  <div class="flex items-center justify-center gap-2 text-white/90">
-                    <svg class="w-5 h-5 text-[#82e256]" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  <div
+                    class="flex items-center justify-center gap-2 text-white/90"
+                  >
+                    <svg
+                      class="w-5 h-5 text-[#82e256]"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd"></path>
                     </svg>
                     <span class="text-sm">100% gratuita</span>
                   </div>
-                  <div class="flex items-center justify-center gap-2 text-white/90">
-                    <svg class="w-5 h-5 text-[#82e256]" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  <div
+                    class="flex items-center justify-center gap-2 text-white/90"
+                  >
+                    <svg
+                      class="w-5 h-5 text-[#82e256]"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd"></path>
                     </svg>
                     <span class="text-sm">Respuesta en 24h</span>
                   </div>
                 </div>
 
                 <a
-                  href="https://aquicreamos.com/#asesorias"
+                  #asesorias"
                   class="inline-flex items-center justify-center gap-2 px-10 py-5 bg-[#82e256] text-black font-bold rounded-xl hover:bg-[#6bc73d] transition-all duration-300 transform hover:scale-105 shadow-2xl text-lg"
                 >
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                  <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    ></path>
                   </svg>
                   Agendar Consultoría Gratuita
                 </a>
@@ -236,40 +339,63 @@ const otrosServicios = todosLosServicios.filter(s => s.slug !== currentSlug).sli
               Más Soluciones Tecnológicas para tu Negocio
             </h2>
             <p class="text-gray-400 text-lg max-w-2xl mx-auto">
-              Explora otras soluciones que pueden complementar tu estrategia tecnológica
+              Explora otras soluciones que pueden complementar tu estrategia
+              tecnológica
             </p>
           </div>
 
           <!-- Grid de servicios -->
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {otrosServicios.map((servicio) => (
-              <a
-                href={`/servicios/${servicio.slug}`}
-                class="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256] transition-all duration-300 hover:transform hover:scale-105"
-              >
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-[#82e256] transition-colors">
-                  {servicio.title}
-                </h3>
-                <div class="flex items-center gap-2 text-gray-400 text-sm mt-4">
-                  <span class="px-3 py-1 bg-white/5 rounded-full">
-                    {servicio.category}
-                  </span>
-                  <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                  </svg>
-                </div>
-              </a>
-            ))}
+            {
+              otrosServicios.map((servicio) => (
+                <a
+                  href={`/servicios/${servicio.slug}`}
+                  class="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-[#82e256] transition-all duration-300 hover:transform hover:scale-105"
+                >
+                  <h3 class="text-xl font-bold text-white mb-2 group-hover:text-[#82e256] transition-colors">
+                    {servicio.title}
+                  </h3>
+                  <div class="flex items-center gap-2 text-gray-400 text-sm mt-4">
+                    <span class="px-3 py-1 bg-white/5 rounded-full">
+                      {servicio.category}
+                    </span>
+                    <svg
+                      class="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </div>
+                </a>
+              ))
+            }
           </div>
 
           <!-- Ver todos -->
           <div class="mt-12 text-center">
             <a
-              href="https://aquicreamos.com/servicios"
+              servicios"
               class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#82e256] to-[#6bc73d] hover:from-[#6bc73d] hover:to-[#5ba62e] text-black font-bold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+              <svg
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+                ></path>
               </svg>
               Ver Todos los Servicios
             </a>
@@ -286,7 +412,8 @@ const otrosServicios = todosLosServicios.filter(s => s.slug !== currentSlug).sli
 <style>
   /* Animación suave para el icono */
   @keyframes bounce-slow {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0);
     }
     50% {
@@ -311,7 +438,7 @@ const otrosServicios = todosLosServicios.filter(s => s.slug !== currentSlug).sli
   }
 
   article :global(h2::after) {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;
@@ -375,17 +502,21 @@ const otrosServicios = todosLosServicios.filter(s => s.slug !== currentSlug).sli
   }
 
   article :global(em) {
-    color: #04ADC0;
+    color: #04adc0;
     font-style: italic;
   }
 
   article :global(code) {
-    background: linear-gradient(135deg, rgba(130, 226, 86, 0.1), rgba(4, 173, 192, 0.1));
+    background: linear-gradient(
+      135deg,
+      rgba(130, 226, 86, 0.1),
+      rgba(4, 173, 192, 0.1)
+    );
     padding: 0.25rem 0.6rem;
     border-radius: 0.375rem;
     font-size: 0.95em;
     color: #82e256;
-    font-family: 'Courier New', monospace;
+    font-family: "Courier New", monospace;
     border: 1px solid rgba(130, 226, 86, 0.2);
   }
 
@@ -425,7 +556,7 @@ const otrosServicios = todosLosServicios.filter(s => s.slug !== currentSlug).sli
   }
 
   article :global(a) {
-    color: #04ADC0;
+    color: #04adc0;
     text-decoration: none;
     font-weight: 600;
     border-bottom: 2px solid transparent;
@@ -434,7 +565,7 @@ const otrosServicios = todosLosServicios.filter(s => s.slug !== currentSlug).sli
 
   article :global(a:hover) {
     color: #06d4e8;
-    border-bottom-color: #04ADC0;
+    border-bottom-color: #04adc0;
   }
 
   article :global(img) {
@@ -462,7 +593,11 @@ const otrosServicios = todosLosServicios.filter(s => s.slug !== currentSlug).sli
   }
 
   article :global(th) {
-    background: linear-gradient(135deg, rgba(130, 226, 86, 0.2), rgba(4, 173, 192, 0.1));
+    background: linear-gradient(
+      135deg,
+      rgba(130, 226, 86, 0.2),
+      rgba(4, 173, 192, 0.1)
+    );
     color: #82e256;
     font-weight: 700;
   }

@@ -9,39 +9,46 @@ import Accordion from "../../components/Accordion.astro";
 const estrategiasDesarrollo = [
   {
     title: "Arquitecturas Escalables",
-    content: "Diseñamos sistemas que crecen con tu negocio sin necesidad de reescribir desde cero. Tu plataforma se adapta al aumento de usuarios, transacciones y funcionalidades automáticamente.",
-    icon: "scaling"
+    content:
+      "Diseñamos sistemas que crecen con tu negocio sin necesidad de reescribir desde cero. Tu plataforma se adapta al aumento de usuarios, transacciones y funcionalidades automáticamente.",
+    icon: "scaling",
   },
   {
     title: "Sistemas Integrados",
-    content: "Conectamos todas tus operaciones en un solo ecosistema — tu CRM, ERP, sistemas de pago, inventarios y herramientas existentes trabajan juntos sin fricción.",
-    icon: "workflow"
+    content:
+      "Conectamos todas tus operaciones en un solo ecosistema — tu CRM, ERP, sistemas de pago, inventarios y herramientas existentes trabajan juntos sin fricción.",
+    icon: "workflow",
   },
   {
     title: "Infraestructura Moderna",
-    content: "Implementamos APIs RESTful y GraphQL, arquitecturas de microservicios para funcionalidades independientes, servidores optimizados con alta disponibilidad y respaldo automático de datos.",
-    icon: "server"
+    content:
+      "Implementamos APIs RESTful y GraphQL, arquitecturas de microservicios para funcionalidades independientes, servidores optimizados con alta disponibilidad y respaldo automático de datos.",
+    icon: "server",
   },
   {
     title: "Seguridad desde el Diseño",
-    content: "Integramos autenticación robusta, encriptación de datos sensibles, cumplimiento de normativas (GDPR, PCI-DSS) y protección contra vulnerabilidades OWASP desde el día uno.",
-    icon: "shield-check"
+    content:
+      "Integramos autenticación robusta, encriptación de datos sensibles, cumplimiento de normativas (GDPR, PCI-DSS) y protección contra vulnerabilidades OWASP desde el día uno.",
+    icon: "shield-check",
   },
   {
     title: "Automatización Inteligente",
-    content: "Reducimos costos operativos con DevOps, CI/CD para deploys automáticos, testing continuo, monitoreo en tiempo real y rollback instantáneo ante errores.",
-    icon: "bot"
+    content:
+      "Reducimos costos operativos con DevOps, CI/CD para deploys automáticos, testing continuo, monitoreo en tiempo real y rollback instantáneo ante errores.",
+    icon: "bot",
   },
   {
     title: "Código Legacy",
-    content: "Nuestra estrategia es migrar gradualmente tu sistema antiguo a tecnologías modernas sin interrumpir operaciones, documentando cada paso y capacitando a tu equipo en el proceso.",
-    icon: "refresh-cw"
+    content:
+      "Nuestra estrategia es migrar gradualmente tu sistema antiguo a tecnologías modernas sin interrumpir operaciones, documentando cada paso y capacitando a tu equipo en el proceso.",
+    icon: "refresh-cw",
   },
   {
     title: "IA Inmersiva en la Web",
-    content: "Integramos agentes conversacionales inteligentes que interactúan con tus usuarios desde que entran al sitio. El agente entiende en lenguaje natural, mantiene contexto, resuelve dudas, recomienda productos personalizados, agenda citas, procesa compras y conecta con tu equipo cuando es necesario — transformando tu web de catálogo estático a asistente inteligente 24/7 que aumenta conversiones y mejora la experiencia del usuario.",
-    icon: "sparkles"
-  }
+    content:
+      "Integramos agentes conversacionales inteligentes que interactúan con tus usuarios desde que entran al sitio. El agente entiende en lenguaje natural, mantiene contexto, resuelve dudas, recomienda productos personalizados, agenda citas, procesa compras y conecta con tu equipo cuando es necesario — transformando tu web de catálogo estático a asistente inteligente 24/7 que aumenta conversiones y mejora la experiencia del usuario.",
+    icon: "sparkles",
+  },
 ];
 
 // Secciones del menú interno
@@ -49,7 +56,7 @@ const secciones = [
   { id: "intro", title: "Introducción" },
   { id: "problemas", title: "Desarrollo 2025" },
   { id: "proceso", title: "Nuestro Proceso" },
-  { id: "stack", title: "Stack Tecnológico" }
+  { id: "stack", title: "Stack Tecnológico" },
 ];
 ---
 
@@ -73,7 +80,9 @@ const secciones = [
               <h1
                 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight"
               >
-                <span class="text-white drop-shadow-lg">DISEÑO Y DESARROLLO WEB</span>
+                <span class="text-white drop-shadow-lg"
+                  >DISEÑO Y DESARROLLO WEB</span
+                >
                 <br />
                 <span
                   class="text-transparent bg-clip-text bg-gradient-to-r from-[#82e256] to-[#04ADC0] drop-shadow-lg"
@@ -105,7 +114,6 @@ const secciones = [
         </div>
       </div>
     </section>
-
 
     <!-- Content con Sidebar -->
     <section class="py-16 md:py-24 bg-[#1a1a1a]">
@@ -160,7 +168,7 @@ const secciones = [
                     Consultoría gratuita y sin compromiso
                   </p>
                   <a
-                    href="https://aquicreamos.com/#asesorias"
+                    #asesorias"
                     class="block w-full text-center px-6 py-3 bg-[#82e256] text-black font-bold rounded-lg hover:bg-[#6bc73d] transition-all duration-300 transform hover:scale-105"
                   >
                     Agendar Ahora
@@ -198,8 +206,13 @@ const secciones = [
                     class="text-white"
                     >plataformas web de alto rendimiento</strong
                   > optimizadas para conversion, posicionamiento y escalabilidad.
-                  Tu sitio web es tu vendedor 24/7, debe trabajar por ti. ¿Necesitas algo más que web? También desarrollamos
-                  <a href="https://aquicreamos.com/aquicreamos?search=apps" class="text-[#04ADC0] hover:text-[#0396a8] underline font-semibold">aplicaciones móviles nativas y multiplataforma</a>.
+                  Tu sitio web es tu vendedor 24/7, debe trabajar por ti. ¿Necesitas
+                  algo más que web? También desarrollamos
+                  <a
+                    aquicreamos?search='apps"'
+                    class="text-[#04ADC0] hover:text-[#0396a8] underline font-semibold"
+                    >aplicaciones móviles nativas y multiplataforma</a
+                  >.
                 </p>
 
                 <div class="my-8">
@@ -224,7 +237,8 @@ const secciones = [
                   Cómo Desarrollamos Sitios Web en 2025
                 </h2>
                 <p class="text-gray-300 mb-8 text-lg">
-                  IA, arquitecturas distribuidas y herramientas de última generación
+                  IA, arquitecturas distribuidas y herramientas de última
+                  generación
                 </p>
 
                 <div class="space-y-8 text-gray-300">
@@ -234,17 +248,33 @@ const secciones = [
                       Desarrollo Asistido por IA
                     </h3>
                     <p class="mb-3">
-                      Contamos con un <strong class="text-white">equipo de desarrolladores expertos</strong> que
-                      usan <strong class="text-[#82e256]">Claude Sonnet 4.5</strong>, GitHub Copilot y
-                      herramientas de IA generativa como <strong class="text-white">copiloto</strong>, no como reemplazo.
-                      La IA es nuestra asistente: nos ayuda a escribir código más rápido, detectar bugs
-                      antes de producción y generar tests automáticos, pero <strong class="text-white">las decisiones
-                      de arquitectura, diseño y estrategia las toman nuestros desarrolladores</strong>. Esto nos permite
-                      reducir 60% el tiempo en desarrollo inicial, mantener código auto-documentado, detectar
-                      vulnerabilidades de forma temprana y generar tests unitarios, todo bajo la supervisión y experiencia
-                      de nuestro equipo humano. Además, también ofrecemos
-                      <a href="https://aquicreamos.com/aquicreamos?search=ia" class="text-[#04ADC0] hover:text-[#0396a8] underline font-semibold">desarrollo de aplicaciones con IA integrada</a>
-                      y <a href="https://aquicreamos.com/aquicreamos?search=machine" class="text-[#04ADC0] hover:text-[#0396a8] underline font-semibold">soluciones de Machine Learning personalizadas</a>.
+                      Contamos con un <strong class="text-white"
+                        >equipo de desarrolladores expertos</strong
+                      > que usan <strong class="text-[#82e256]"
+                        >Claude Sonnet 4.5</strong
+                      >, GitHub Copilot y herramientas de IA generativa como <strong
+                        class="text-white">copiloto</strong
+                      >, no como reemplazo. La IA es nuestra asistente: nos
+                      ayuda a escribir código más rápido, detectar bugs antes de
+                      producción y generar tests automáticos, pero <strong
+                        class="text-white"
+                        >las decisiones de arquitectura, diseño y estrategia las
+                        toman nuestros desarrolladores</strong
+                      >. Esto nos permite reducir 60% el tiempo en desarrollo
+                      inicial, mantener código auto-documentado, detectar
+                      vulnerabilidades de forma temprana y generar tests
+                      unitarios, todo bajo la supervisión y experiencia de
+                      nuestro equipo humano. Además, también ofrecemos
+                      <a
+                        aquicreamos?search='ia"'
+                        class="text-[#04ADC0] hover:text-[#0396a8] underline font-semibold"
+                        >desarrollo de aplicaciones con IA integrada</a
+                      >
+                      y <a
+                        aquicreamos?search='machine"'
+                        class="text-[#04ADC0] hover:text-[#0396a8] underline font-semibold"
+                        >soluciones de Machine Learning personalizadas</a
+                      >.
                     </p>
                   </div>
 
@@ -254,11 +284,15 @@ const secciones = [
                       Arquitecturas Escalables y Modernas
                     </h3>
                     <p class="mb-3">
-                      Implementamos <strong class="text-[#82e256]">microservicios y contenedores Docker</strong> para que tu sitio
-                      escale sin límites y sea fácil de mantener. Nuestra infraestructura incluye Docker + Kubernetes para escalabilidad
-                      automática según la demanda, arquitectura de microservicios con APIs GraphQL/REST para funcionalidades independientes,
-                      Redis para caché inteligente que acelera respuestas, y bases de datos optimizadas (PostgreSQL, MongoDB) para
-                      alto rendimiento. Todo diseñado para que tu plataforma crezca con tu negocio.
+                      Implementamos <strong class="text-[#82e256]"
+                        >microservicios y contenedores Docker</strong
+                      > para que tu sitio escale sin límites y sea fácil de mantener.
+                      Nuestra infraestructura incluye Docker + Kubernetes para escalabilidad
+                      automática según la demanda, arquitectura de microservicios
+                      con APIs GraphQL/REST para funcionalidades independientes, Redis
+                      para caché inteligente que acelera respuestas, y bases de datos
+                      optimizadas (PostgreSQL, MongoDB) para alto rendimiento. Todo
+                      diseñado para que tu plataforma crezca con tu negocio.
                     </p>
                   </div>
 
@@ -268,11 +302,13 @@ const secciones = [
                       Frameworks de Nueva Generación
                     </h3>
                     <p class="mb-3">
-                      Usamos <strong class="text-[#82e256]">Astro, Next.js 15, SvelteKit</strong> y
-                      React 19 con arquitectura Island para sitios ultra-rápidos con JavaScript mínimo.
-                      Esto significa que usamos JavaScript solo donde se necesita (Astro Islands), implementamos
-                      SSR + SSG híbrido para SEO perfecto, creamos componentes reutilizables y mantenibles,
-                      y garantizamos un Lighthouse Score de 95+.
+                      Usamos <strong class="text-[#82e256]"
+                        >Astro, Next.js 15, SvelteKit</strong
+                      > y React 19 con arquitectura Island para sitios ultra-rápidos
+                      con JavaScript mínimo. Esto significa que usamos JavaScript
+                      solo donde se necesita (Astro Islands), implementamos SSR +
+                      SSG híbrido para SEO perfecto, creamos componentes reutilizables
+                      y mantenibles, y garantizamos un Lighthouse Score de 95+.
                     </p>
                   </div>
 
@@ -282,15 +318,30 @@ const secciones = [
                       IA Inmersiva: Agentes Conversacionales Inteligentes
                     </h3>
                     <p class="mb-3">
-                      Hoy en día, las webs más avanzadas no solo son rápidas y bonitas — <strong class="text-white">están completamente
-                      inmersas en IA</strong>. Desde que el usuario entra, <strong class="text-[#82e256]">interactúa con un agente
-                      inteligente</strong> que entiende sus necesidades, responde preguntas en lenguaje natural, lo guía por el sitio,
-                      recomienda productos o servicios personalizados, y resuelve problemas en tiempo real sin necesidad de formularios
-                      o búsquedas manuales. Estos agentes conversacionales aprenden de cada interacción, mantienen contexto durante toda
-                      la sesión, y pueden ejecutar acciones como agendar citas, procesar compras, o conectar con tu equipo cuando es necesario.
-                      La <strong class="text-white">IA inmersiva transforma tu web de un catálogo estático a un asistente inteligente 24/7</strong>
-                      que aumenta conversiones, reduce abandono y mejora drásticamente la experiencia del usuario.
-                      <a href="https://aquicreamos.com/aquicreamos?search=agentes" class="text-[#04ADC0] hover:text-[#0396a8] underline font-semibold">Conoce más sobre nuestros agentes de IA</a>
+                      Hoy en día, las webs más avanzadas no solo son rápidas y
+                      bonitas — <strong class="text-white"
+                        >están completamente inmersas en IA</strong
+                      >. Desde que el usuario entra, <strong
+                        class="text-[#82e256]"
+                        >interactúa con un agente inteligente</strong
+                      > que entiende sus necesidades, responde preguntas en lenguaje
+                      natural, lo guía por el sitio, recomienda productos o servicios
+                      personalizados, y resuelve problemas en tiempo real sin necesidad
+                      de formularios o búsquedas manuales. Estos agentes conversacionales
+                      aprenden de cada interacción, mantienen contexto durante toda
+                      la sesión, y pueden ejecutar acciones como agendar citas, procesar
+                      compras, o conectar con tu equipo cuando es necesario. La <strong
+                        class="text-white"
+                        >IA inmersiva transforma tu web de un catálogo estático
+                        a un asistente inteligente 24/7</strong
+                      >
+                      que aumenta conversiones, reduce abandono y mejora drásticamente
+                      la experiencia del usuario.
+                      <a
+                        aquicreamos?search='agentes"'
+                        class="text-[#04ADC0] hover:text-[#0396a8] underline font-semibold"
+                        >Conoce más sobre nuestros agentes de IA</a
+                      >
                       y cómo pueden revolucionar tu sitio web.
                     </p>
                   </div>
@@ -301,12 +352,19 @@ const secciones = [
                       Pipeline DevOps Completamente Automatizado
                     </h3>
                     <p class="mb-3">
-                      Cada cambio pasa por <strong class="text-[#82e256]">tests automáticos, análisis de
-                      código con IA y deploy instantáneo</strong> a producción sin intervención manual.
-                      Nuestro flujo de trabajo incluye GitHub Actions con CI/CD en cada commit, tests E2E
-                      con Playwright automáticos, code review asistido por IA (Claude Code), deploy preview
-                      por cada Pull Request, y rollback automático si hay errores.
-                      <a href="https://aquicreamos.com/aquicreamos?search=devops" class="text-[#04ADC0] hover:text-[#0396a8] underline font-semibold">Descubre nuestros servicios de DevOps e infraestructura</a>
+                      Cada cambio pasa por <strong class="text-[#82e256]"
+                        >tests automáticos, análisis de código con IA y deploy
+                        instantáneo</strong
+                      > a producción sin intervención manual. Nuestro flujo de trabajo
+                      incluye GitHub Actions con CI/CD en cada commit, tests E2E con
+                      Playwright automáticos, code review asistido por IA (Claude
+                      Code), deploy preview por cada Pull Request, y rollback automático
+                      si hay errores.
+                      <a
+                        aquicreamos?search='devops"'
+                        class="text-[#04ADC0] hover:text-[#0396a8] underline font-semibold"
+                        >Descubre nuestros servicios de DevOps e infraestructura</a
+                      >
                       para llevar tu proyecto al siguiente nivel.
                     </p>
                   </div>
@@ -326,117 +384,178 @@ const secciones = [
 
                 <SimpleCarousel id="stack-desarrollo-web-carousel">
                   <!-- Frontend Frameworks -->
-                  <div style="padding: 18px" class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                  <div
+                    style="padding: 18px"
+                    class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300"
+                  >
                     <h3 class="text-2xl font-bold text-white mb-3">
                       Frontend Frameworks
                     </h3>
                     <div class="space-y-3">
                       <div class="bg-[#82e256]/10 p-3 rounded-lg">
                         <p class="font-semibold text-white">Astro</p>
-                        <p class="text-sm text-gray-400">Ultra-rápido para sitios de contenido con JavaScript mínimo</p>
+                        <p class="text-sm text-gray-400">
+                          Ultra-rápido para sitios de contenido con JavaScript
+                          mínimo
+                        </p>
                       </div>
                       <div class="bg-[#82e256]/10 p-3 rounded-lg">
                         <p class="font-semibold text-white">Next.js 15</p>
-                        <p class="text-sm text-gray-400">Apps complejas y SaaS con SSR y SSG híbrido</p>
+                        <p class="text-sm text-gray-400">
+                          Apps complejas y SaaS con SSR y SSG híbrido
+                        </p>
                       </div>
                       <div class="bg-[#82e256]/10 p-3 rounded-lg">
                         <p class="font-semibold text-white">React 19</p>
-                        <p class="text-sm text-gray-400">Interfaces dinámicas con arquitectura de componentes</p>
+                        <p class="text-sm text-gray-400">
+                          Interfaces dinámicas con arquitectura de componentes
+                        </p>
                       </div>
                       <div class="bg-[#82e256]/10 p-3 rounded-lg">
                         <p class="font-semibold text-white">SvelteKit</p>
-                        <p class="text-sm text-gray-400">Framework reactivo sin virtual DOM</p>
+                        <p class="text-sm text-gray-400">
+                          Framework reactivo sin virtual DOM
+                        </p>
                       </div>
                       <div class="bg-[#82e256]/10 p-3 rounded-lg">
                         <p class="font-semibold text-white">TypeScript</p>
-                        <p class="text-sm text-gray-400">Tipado estático para código más mantenible</p>
+                        <p class="text-sm text-gray-400">
+                          Tipado estático para código más mantenible
+                        </p>
                       </div>
                     </div>
                   </div>
 
                   <!-- Backend & APIs -->
-                  <div style="padding: 18px" class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                  <div
+                    style="padding: 18px"
+                    class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300"
+                  >
                     <h3 class="text-2xl font-bold text-white mb-3">
                       Backend & APIs
                     </h3>
                     <div class="space-y-3">
                       <div class="bg-[#82e256]/10 p-3 rounded-lg">
-                        <p class="font-semibold text-white">Node.js + Express</p>
-                        <p class="text-sm text-gray-400">APIs REST rápidas y escalables</p>
+                        <p class="font-semibold text-white">
+                          Node.js + Express
+                        </p>
+                        <p class="text-sm text-gray-400">
+                          APIs REST rápidas y escalables
+                        </p>
                       </div>
                       <div class="bg-[#82e256]/10 p-3 rounded-lg">
-                        <p class="font-semibold text-white">Next.js API Routes</p>
-                        <p class="text-sm text-gray-400">Backend integrado con frontend</p>
+                        <p class="font-semibold text-white">
+                          Next.js API Routes
+                        </p>
+                        <p class="text-sm text-gray-400">
+                          Backend integrado con frontend
+                        </p>
                       </div>
                       <div class="bg-[#82e256]/10 p-3 rounded-lg">
                         <p class="font-semibold text-white">FastAPI (Python)</p>
-                        <p class="text-sm text-gray-400">APIs modernas con validación automática</p>
+                        <p class="text-sm text-gray-400">
+                          APIs modernas con validación automática
+                        </p>
                       </div>
                       <div class="bg-[#82e256]/10 p-3 rounded-lg">
                         <p class="font-semibold text-white">GraphQL</p>
-                        <p class="text-sm text-gray-400">APIs flexibles con consultas precisas</p>
+                        <p class="text-sm text-gray-400">
+                          APIs flexibles con consultas precisas
+                        </p>
                       </div>
                       <div class="bg-[#82e256]/10 p-3 rounded-lg">
                         <p class="font-semibold text-white">Supabase</p>
-                        <p class="text-sm text-gray-400">Backend as a Service con PostgreSQL</p>
+                        <p class="text-sm text-gray-400">
+                          Backend as a Service con PostgreSQL
+                        </p>
                       </div>
                     </div>
                   </div>
 
                   <!-- CMS & Databases -->
-                  <div style="padding: 18px" class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                  <div
+                    style="padding: 18px"
+                    class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300"
+                  >
                     <h3 class="text-2xl font-bold text-white mb-3">
                       CMS & Databases
                     </h3>
                     <div class="space-y-3">
                       <div class="bg-[#82e256]/10 p-3 rounded-lg">
                         <p class="font-semibold text-white">Sanity/Strapi</p>
-                        <p class="text-sm text-gray-400">CMS headless visual para editores</p>
+                        <p class="text-sm text-gray-400">
+                          CMS headless visual para editores
+                        </p>
                       </div>
                       <div class="bg-[#82e256]/10 p-3 rounded-lg">
                         <p class="font-semibold text-white">PostgreSQL</p>
-                        <p class="text-sm text-gray-400">Base de datos relacional robusta</p>
+                        <p class="text-sm text-gray-400">
+                          Base de datos relacional robusta
+                        </p>
                       </div>
                       <div class="bg-[#82e256]/10 p-3 rounded-lg">
                         <p class="font-semibold text-white">MongoDB</p>
-                        <p class="text-sm text-gray-400">Base de datos NoSQL para datos no estructurados</p>
+                        <p class="text-sm text-gray-400">
+                          Base de datos NoSQL para datos no estructurados
+                        </p>
                       </div>
                       <div class="bg-[#82e256]/10 p-3 rounded-lg">
                         <p class="font-semibold text-white">Redis</p>
-                        <p class="text-sm text-gray-400">Cache distribuido para alto rendimiento</p>
+                        <p class="text-sm text-gray-400">
+                          Cache distribuido para alto rendimiento
+                        </p>
                       </div>
                       <div class="bg-[#82e256]/10 p-3 rounded-lg">
-                        <p class="font-semibold text-white">Shopify/WooCommerce</p>
-                        <p class="text-sm text-gray-400">Plataformas de e-commerce</p>
+                        <p class="font-semibold text-white">
+                          Shopify/WooCommerce
+                        </p>
+                        <p class="text-sm text-gray-400">
+                          Plataformas de e-commerce
+                        </p>
                       </div>
                     </div>
                   </div>
 
                   <!-- DevOps & Infraestructura -->
-                  <div style="padding: 18px" class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300">
+                  <div
+                    style="padding: 18px"
+                    class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 p-8 rounded-2xl border border-gray-700 hover:border-[#82e256] transition-all duration-300"
+                  >
                     <h3 class="text-2xl font-bold text-white mb-3">
                       DevOps & Deploy
                     </h3>
                     <div class="space-y-3">
                       <div class="bg-[#82e256]/10 p-3 rounded-lg">
-                        <p class="font-semibold text-white">Docker + Kubernetes</p>
-                        <p class="text-sm text-gray-400">Contenedores y orquestación para escalabilidad</p>
+                        <p class="font-semibold text-white">
+                          Docker + Kubernetes
+                        </p>
+                        <p class="text-sm text-gray-400">
+                          Contenedores y orquestación para escalabilidad
+                        </p>
                       </div>
                       <div class="bg-[#82e256]/10 p-3 rounded-lg">
                         <p class="font-semibold text-white">Nginx + PM2</p>
-                        <p class="text-sm text-gray-400">Servidores web optimizados y gestión de procesos</p>
+                        <p class="text-sm text-gray-400">
+                          Servidores web optimizados y gestión de procesos
+                        </p>
                       </div>
                       <div class="bg-[#82e256]/10 p-3 rounded-lg">
                         <p class="font-semibold text-white">GitHub Actions</p>
-                        <p class="text-sm text-gray-400">CI/CD automatizado en cada commit</p>
+                        <p class="text-sm text-gray-400">
+                          CI/CD automatizado en cada commit
+                        </p>
                       </div>
                       <div class="bg-[#82e256]/10 p-3 rounded-lg">
                         <p class="font-semibold text-white">Playwright</p>
-                        <p class="text-sm text-gray-400">Tests E2E automáticos</p>
+                        <p class="text-sm text-gray-400">
+                          Tests E2E automáticos
+                        </p>
                       </div>
                       <div class="bg-[#82e256]/10 p-3 rounded-lg">
                         <p class="font-semibold text-white">AWS/GCP</p>
-                        <p class="text-sm text-gray-400">Infraestructura cloud escalable</p>
+                        <p class="text-sm text-gray-400">
+                          Infraestructura cloud escalable
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -462,7 +581,24 @@ const secciones = [
                   </h3>
 
                   <p class="text-gray-300 text-lg mb-6 leading-relaxed">
-                    <strong class="text-white">No desarrollamos "páginas web bonitas con animaciones"</strong> — construimos <strong class="text-[#82e256]">ecosistemas digitales completos</strong> que funcionan como el motor de tu negocio. Nuestro enfoque es crear arquitecturas de software de alta tecnología que <strong class="text-white">resuelvan problemas reales</strong>, escalen con tu crecimiento y generen <strong class="text-white">valor medible</strong>. Si necesitas <a href="https://aquicreamos.com/aquicreamos?search=desarrollo" class="text-[#04ADC0] hover:text-[#0396a8] underline font-semibold">desarrollo fullstack completo</a> o diseñar la <a href="https://aquicreamos.com/aquicreamos?search=arquitectura" class="text-[#04ADC0] hover:text-[#0396a8] underline font-semibold">arquitectura de tu sistema</a>, también lo hacemos.
+                    <strong class="text-white"
+                      >No desarrollamos "páginas web bonitas con animaciones"</strong
+                    > — construimos <strong class="text-[#82e256]"
+                      >ecosistemas digitales completos</strong
+                    > que funcionan como el motor de tu negocio. Nuestro enfoque es
+                    crear arquitecturas de software de alta tecnología que <strong
+                      class="text-white">resuelvan problemas reales</strong
+                    >, escalen con tu crecimiento y generen <strong
+                      class="text-white">valor medible</strong
+                    >. Si necesitas <a
+                      aquicreamos?search='desarrollo"'
+                      class="text-[#04ADC0] hover:text-[#0396a8] underline font-semibold"
+                      >desarrollo fullstack completo</a
+                    > o diseñar la <a
+                      aquicreamos?search='arquitectura"'
+                      class="text-[#04ADC0] hover:text-[#0396a8] underline font-semibold"
+                      >arquitectura de tu sistema</a
+                    >, también lo hacemos.
                   </p>
 
                   <h4 class="text-xl font-bold text-white mb-4 mt-6">
@@ -472,7 +608,15 @@ const secciones = [
                   <Accordion items={estrategiasDesarrollo} />
 
                   <p class="text-gray-300 text-lg mb-6 leading-relaxed mt-6">
-                    <strong class="text-white">El resultado:</strong> Una plataforma digital que <strong class="text-[#82e256]">funciona como el sistema nervioso de tu negocio</strong> — automatizando procesos, conectando equipos, generando insights y escalando sin límites. Esto es lo que separa una <em>página web bonita</em> de un <strong class="text-white">activo digital estratégico</strong>.
+                    <strong class="text-white">El resultado:</strong> Una plataforma
+                    digital que <strong class="text-[#82e256]"
+                      >funciona como el sistema nervioso de tu negocio</strong
+                    > — automatizando procesos, conectando equipos, generando insights
+                    y escalando sin límites. Esto es lo que separa una <em
+                      >página web bonita</em
+                    > de un <strong class="text-white"
+                      >activo digital estratégico</strong
+                    >.
                   </p>
 
                   <h4 class="text-xl font-bold text-white mb-4 mt-8">
@@ -480,33 +624,57 @@ const secciones = [
                   </h4>
 
                   <p class="text-gray-300 text-lg mb-4 leading-relaxed">
-                    Cuando hablamos de <strong class="text-white">"desarrollo web moderno"</strong> no nos referimos a animaciones bonitas o diseños de moda. La verdadera modernidad web se trata de <strong class="text-[#82e256]">velocidad, rendimiento y resultados medibles</strong>.
+                    Cuando hablamos de <strong class="text-white"
+                      >"desarrollo web moderno"</strong
+                    > no nos referimos a animaciones bonitas o diseños de moda. La
+                    verdadera modernidad web se trata de <strong
+                      class="text-[#82e256]"
+                      >velocidad, rendimiento y resultados medibles</strong
+                    >.
                   </p>
 
                   <p class="text-gray-300 text-lg mb-4 leading-relaxed">
-                    <strong class="text-[#82e256]">Velocidad:</strong> Un sitio moderno carga en <strong class="text-white">menos de 2 segundos</strong> (versus 5-8 segundos de sitios tradicionales). Cada segundo de retraso reduce conversiones un 7%, y el 53% de usuarios abandonan sitios lentos.
+                    <strong class="text-[#82e256]">Velocidad:</strong> Un sitio moderno
+                    carga en <strong class="text-white"
+                      >menos de 2 segundos</strong
+                    > (versus 5-8 segundos de sitios tradicionales). Cada segundo
+                    de retraso reduce conversiones un 7%, y el 53% de usuarios abandonan
+                    sitios lentos.
                   </p>
 
                   <p class="text-gray-300 text-lg mb-4 leading-relaxed">
-                    <strong class="text-[#82e256]">Responsive Real:</strong> Funciona perfectamente en móviles, tablets y escritorio sin ajustes manuales, adaptándose automáticamente a cualquier pantalla.
+                    <strong class="text-[#82e256]">Responsive Real:</strong> Funciona
+                    perfectamente en móviles, tablets y escritorio sin ajustes manuales,
+                    adaptándose automáticamente a cualquier pantalla.
                   </p>
 
                   <p class="text-gray-300 text-lg mb-4 leading-relaxed">
-                    <strong class="text-[#82e256]">SEO Optimizado:</strong> Diseñado para que Google lo posicione naturalmente — estructura semántica, Core Web Vitals optimizados y contenido indexable correctamente.
+                    <strong class="text-[#82e256]">SEO Optimizado:</strong> Diseñado
+                    para que Google lo posicione naturalmente — estructura semántica,
+                    Core Web Vitals optimizados y contenido indexable correctamente.
                   </p>
 
                   <p class="text-gray-300 text-lg mb-4 leading-relaxed">
-                    <strong class="text-[#82e256]">Tecnologías de Vanguardia:</strong> Arquitecturas component-driven que permiten actualizaciones rápidas sin reescribir todo el sitio, Progressive Web Apps (PWA) que funcionan offline como apps nativas, y optimización avanzada de imágenes y assets para carga ultrarrápida en cualquier conexión.
+                    <strong class="text-[#82e256]"
+                      >Tecnologías de Vanguardia:</strong
+                    > Arquitecturas component-driven que permiten actualizaciones
+                    rápidas sin reescribir todo el sitio, Progressive Web Apps (PWA)
+                    que funcionan offline como apps nativas, y optimización avanzada
+                    de imágenes y assets para carga ultrarrápida en cualquier conexión.
                   </p>
 
                   <p class="text-gray-300 text-lg leading-relaxed">
-                    <strong class="text-white">Un sitio web moderno no es un lujo</strong> — es la <strong class="text-[#82e256]">infraestructura mínima para competir digitalmente en 2025</strong>, y la diferencia se mide en conversiones, engagement y retorno de inversión real.
+                    <strong class="text-white"
+                      >Un sitio web moderno no es un lujo</strong
+                    > — es la <strong class="text-[#82e256]"
+                      >infraestructura mínima para competir digitalmente en 2025</strong
+                    >, y la diferencia se mide en conversiones, engagement y
+                    retorno de inversión real.
                   </p>
                 </div>
               </div>
 
               <hr class="border-gray-800" />
-
 
               <!-- CTA Final -->
               <div
@@ -520,7 +688,7 @@ const secciones = [
                   tu tráfico
                 </p>
                 <a
-                  href="https://aquicreamos.com/#asesorias"
+                  #asesorias"
                   class="inline-flex items-center gap-2 px-10 py-5 bg-[#82e256] text-black font-bold rounded-xl hover:bg-[#6bc73d] transition-all duration-300 transform hover:scale-105 shadow-2xl text-lg"
                 >
                   <svg

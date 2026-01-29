@@ -1,58 +1,64 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import ServiciosGrid from '../../components/ServiciosGrid.astro';
-import StickySlidesContainer from '../../components/StickySlidesContainer.astro';
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import ServiciosGrid from "../../components/ServiciosGrid.astro";
+import StickySlidesContainer from "../../components/StickySlidesContainer.astro";
 
 const slidesData = [
   {
-    label: 'Generación',
-    title: 'Leads<br>Automáticos.',
-    description: 'Captura y califica leads en LinkedIn, Twitter y otras plataformas con mensajes personalizados por IA.',
-    icon: 'users',
-    serviceType: 'automatizacion' as const,
-    reversed: false
+    label: "Generación",
+    title: "Leads<br>Automáticos.",
+    description:
+      "Captura y califica leads en LinkedIn, Twitter y otras plataformas con mensajes personalizados por IA.",
+    icon: "users",
+    serviceType: "automatizacion" as const,
+    reversed: false,
   },
   {
-    label: 'Contenido',
-    title: 'Crea con<br>IA.',
-    description: 'Genera blogs, posts de redes sociales, newsletters y copy publicitario optimizado para conversión.',
-    icon: 'pen-tool',
-    serviceType: 'automatizacion' as const,
-    reversed: true
+    label: "Contenido",
+    title: "Crea con<br>IA.",
+    description:
+      "Genera blogs, posts de redes sociales, newsletters y copy publicitario optimizado para conversión.",
+    icon: "pen-tool",
+    serviceType: "automatizacion" as const,
+    reversed: true,
   },
   {
-    label: 'Email Marketing',
-    title: 'Campañas<br>Inteligentes.',
-    description: 'Segmentación automática, personalización y A/B testing con contenido generado por IA.',
-    icon: 'mail',
-    serviceType: 'automatizacion' as const,
-    reversed: false
+    label: "Email Marketing",
+    title: "Campañas<br>Inteligentes.",
+    description:
+      "Segmentación automática, personalización y A/B testing con contenido generado por IA.",
+    icon: "mail",
+    serviceType: "automatizacion" as const,
+    reversed: false,
   },
   {
-    label: 'Redes Sociales',
-    title: 'Multi-<br>Plataforma.',
-    description: 'Publica simultáneamente en todas tus redes sociales con contenido adaptado automáticamente.',
-    icon: 'share-2',
-    serviceType: 'automatizacion' as const,
-    reversed: true
+    label: "Redes Sociales",
+    title: "Multi-<br>Plataforma.",
+    description:
+      "Publica simultáneamente en todas tus redes sociales con contenido adaptado automáticamente.",
+    icon: "share-2",
+    serviceType: "automatizacion" as const,
+    reversed: true,
   },
   {
-    label: 'Analytics',
-    title: 'Datos que<br>Convierten.',
-    description: 'Análisis predictivo de ventas, identificación de oportunidades y forecasting con machine learning.',
-    icon: 'bar-chart-3',
-    serviceType: 'automatizacion' as const,
-    reversed: false
+    label: "Analytics",
+    title: "Datos que<br>Convierten.",
+    description:
+      "Análisis predictivo de ventas, identificación de oportunidades y forecasting con machine learning.",
+    icon: "bar-chart-3",
+    serviceType: "automatizacion" as const,
+    reversed: false,
   },
   {
-    label: 'Automatización',
-    title: 'Marketing<br>en Piloto.',
-    description: 'Workflows completos que nutren leads, recuperan ventas perdidas y retienen clientes automáticamente.',
-    icon: 'zap',
-    serviceType: 'automatizacion' as const,
-    reversed: true
-  }
+    label: "Automatización",
+    title: "Marketing<br>en Piloto.",
+    description:
+      "Workflows completos que nutren leads, recuperan ventas perdidas y retienen clientes automáticamente.",
+    icon: "zap",
+    serviceType: "automatizacion" as const,
+    reversed: true,
+  },
 ];
 ---
 
@@ -60,32 +66,56 @@ const slidesData = [
   <Header />
 
   <!-- Hero Section -->
-  <section class="pt-32 pb-20 bg-gradient-to-br from-[#00464e] via-[#006064] to-[#1a1a1a]">
+  <section
+    class="pt-32 pb-20 bg-gradient-to-br from-[#00464e] via-[#006064] to-[#1a1a1a]"
+  >
     <div class="container mx-auto px-4 md:px-16">
       <div class="max-w-6xl mx-auto text-center">
-        <div class="inline-block mb-4 px-4 py-2 bg-[#82e256]/20 border border-[#82e256] rounded-full">
-          <span class="text-[#82e256] font-bold text-sm">MARKETING & VENTAS</span>
+        <div
+          class="inline-block mb-4 px-4 py-2 bg-[#82e256]/20 border border-[#82e256] rounded-full"
+        >
+          <span class="text-[#82e256] font-bold text-sm"
+            >MARKETING & VENTAS</span
+          >
         </div>
 
-        <h1 class="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
-          Marketing y ventas con <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#82e256] to-[#04ADC0]">IA</span>
+        <h1
+          class="text-4xl md:text-6xl font-black text-white mb-6 leading-tight"
+        >
+          Marketing y ventas con <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-[#82e256] to-[#04ADC0]"
+            >IA</span
+          >
         </h1>
 
         <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-          Automatiza campañas, genera leads calificados y crea contenido con IA para aumentar tus conversiones.
+          Automatiza campañas, genera leads calificados y crea contenido con IA
+          para aumentar tus conversiones.
         </p>
 
         <div class="grid grid-cols-3 gap-4 mb-8 max-w-2xl mx-auto">
-          <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
-            <div class="text-sm font-bold text-[#82e256] mb-1">Email Marketing</div>
+          <div
+            class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20"
+          >
+            <div class="text-sm font-bold text-[#82e256] mb-1">
+              Email Marketing
+            </div>
             <div class="text-xs text-gray-300">Campañas automáticas</div>
           </div>
-          <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
-            <div class="text-sm font-bold text-[#82e256] mb-1">Contenido IA</div>
+          <div
+            class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20"
+          >
+            <div class="text-sm font-bold text-[#82e256] mb-1">
+              Contenido IA
+            </div>
             <div class="text-xs text-gray-300">Blogs y posts</div>
           </div>
-          <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
-            <div class="text-sm font-bold text-[#82e256] mb-1">Redes Sociales</div>
+          <div
+            class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20"
+          >
+            <div class="text-sm font-bold text-[#82e256] mb-1">
+              Redes Sociales
+            </div>
             <div class="text-xs text-gray-300">Publicación multicanal</div>
           </div>
         </div>
@@ -101,23 +131,40 @@ const slidesData = [
           <h2 class="text-3xl md:text-4xl font-black text-white mb-4">
             ¿Tu estrategia de marketing consume recursos sin resultados claros?
           </h2>
-          <p class="text-xl text-gray-400">Estos problemas cuestan miles de dólares cada mes:</p>
+          <p class="text-xl text-gray-400">
+            Estos problemas cuestan miles de dólares cada mes:
+          </p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-6">
           <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-6">
-            <h3 class="text-xl font-bold text-white mb-2">Creación de Contenido Lenta</h3>
-            <p class="text-gray-300"><strong class="text-red-400">Horas diarias</strong> escribiendo posts, blogs y emails manualmente</p>
+            <h3 class="text-xl font-bold text-white mb-2">
+              Creación de Contenido Lenta
+            </h3>
+            <p class="text-gray-300">
+              <strong class="text-red-400">Horas diarias</strong> escribiendo posts,
+              blogs y emails manualmente
+            </p>
           </div>
 
           <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-6">
-            <h3 class="text-xl font-bold text-white mb-2">Campañas Desorganizadas</h3>
-            <p class="text-gray-300"><strong class="text-red-400">Gestión caótica</strong> entre múltiples canales sin coordinación</p>
+            <h3 class="text-xl font-bold text-white mb-2">
+              Campañas Desorganizadas
+            </h3>
+            <p class="text-gray-300">
+              <strong class="text-red-400">Gestión caótica</strong> entre múltiples
+              canales sin coordinación
+            </p>
           </div>
 
           <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-6">
-            <h3 class="text-xl font-bold text-white mb-2">Leads Sin Seguimiento</h3>
-            <p class="text-gray-300"><strong class="text-red-400">Oportunidades perdidas</strong> por falta de seguimiento automatizado</p>
+            <h3 class="text-xl font-bold text-white mb-2">
+              Leads Sin Seguimiento
+            </h3>
+            <p class="text-gray-300">
+              <strong class="text-red-400">Oportunidades perdidas</strong> por falta
+              de seguimiento automatizado
+            </p>
           </div>
         </div>
       </div>
@@ -135,22 +182,34 @@ const slidesData = [
           <h2 class="text-3xl md:text-4xl font-black text-white mb-4">
             Automatizaciones IA para Marketing y Ventas
           </h2>
-          <p class="text-xl text-gray-300">Incrementa tus conversiones con inteligencia artificial</p>
+          <p class="text-xl text-gray-300">
+            Incrementa tus conversiones con inteligencia artificial
+          </p>
         </div>
 
         <div class="grid md:grid-cols-2 gap-8">
           <!-- Email Marketing IA -->
-          <div class="bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-[#82e256] transition-all duration-300">
+          <div
+            class="bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-[#82e256] transition-all duration-300"
+          >
             <div class="flex items-start justify-between mb-4">
               <div class="text-5xl">📧</div>
-              <span class="text-xs px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 font-semibold">Intermedio</span>
+              <span
+                class="text-xs px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 font-semibold"
+                >Intermedio</span
+              >
             </div>
-            <h3 class="text-2xl font-bold text-white mb-3">Campañas de Email Marketing con IA</h3>
+            <h3 class="text-2xl font-bold text-white mb-3">
+              Campañas de Email Marketing con IA
+            </h3>
             <p class="text-gray-300 mb-4">
-              Automatización completa de campañas con contenido generado por IA, segmentación inteligente y análisis de métricas.
+              Automatización completa de campañas con contenido generado por IA,
+              segmentación inteligente y análisis de métricas.
             </p>
             <div class="mb-4">
-              <h4 class="text-sm font-semibold text-[#82e256] mb-2">Incluye:</h4>
+              <h4 class="text-sm font-semibold text-[#82e256] mb-2">
+                Incluye:
+              </h4>
               <ul class="space-y-1">
                 <li class="text-sm text-gray-400 flex items-start">
                   <span class="text-[#82e256] mr-2">✓</span>
@@ -174,7 +233,10 @@ const slidesData = [
               <div class="flex justify-between items-center">
                 <div>
                   <p class="text-xs text-gray-500">ROI Estimado</p>
-                  <p class="text-lg font-bold text-[#82e256]">35% mejora en engagement (Segmentación y personalización automática con IA)</p>
+                  <p class="text-lg font-bold text-[#82e256]">
+                    35% mejora en engagement (Segmentación y personalización
+                    automática con IA)
+                  </p>
                 </div>
                 <div>
                   <p class="text-xs text-gray-500">Tecnologías</p>
@@ -182,23 +244,36 @@ const slidesData = [
                 </div>
               </div>
             </div>
-            <a href="https://aquicreamos.com/#asesorias" class="block w-full py-3 bg-gradient-to-r from-[#00464e] to-[#006417] text-white rounded-lg hover:from-[#006417] hover:to-[#82e256] transition-all duration-300 font-semibold text-center">
+            <a
+              #asesorias"
+              class="block w-full py-3 bg-gradient-to-r from-[#00464e] to-[#006417] text-white rounded-lg hover:from-[#006417] hover:to-[#82e256] transition-all duration-300 font-semibold text-center"
+            >
               Solicitar Asesoria→
             </a>
           </div>
 
           <!-- Sistema CRM Web -->
-          <div class="bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-[#82e256] transition-all duration-300">
+          <div
+            class="bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-[#82e256] transition-all duration-300"
+          >
             <div class="flex items-start justify-between mb-4">
               <div class="text-5xl">💼</div>
-              <span class="text-xs px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 font-semibold">Intermedio</span>
+              <span
+                class="text-xs px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 font-semibold"
+                >Intermedio</span
+              >
             </div>
-            <h3 class="text-2xl font-bold text-white mb-3">Sistema CRM con Automatización IA</h3>
+            <h3 class="text-2xl font-bold text-white mb-3">
+              Sistema CRM con Automatización IA
+            </h3>
             <p class="text-gray-300 mb-4">
-              Plataforma web CRM con seguimiento de leads, scoring automático con IA y flujos de nutrición personalizados.
+              Plataforma web CRM con seguimiento de leads, scoring automático
+              con IA y flujos de nutrición personalizados.
             </p>
             <div class="mb-4">
-              <h4 class="text-sm font-semibold text-[#82e256] mb-2">Incluye:</h4>
+              <h4 class="text-sm font-semibold text-[#82e256] mb-2">
+                Incluye:
+              </h4>
               <ul class="space-y-1">
                 <li class="text-sm text-gray-400 flex items-start">
                   <span class="text-[#82e256] mr-2">✓</span>
@@ -222,7 +297,10 @@ const slidesData = [
               <div class="flex justify-between items-center">
                 <div>
                   <p class="text-xs text-gray-500">ROI Estimado</p>
-                  <p class="text-lg font-bold text-[#82e256]">50% más conversiones (Scoring y seguimiento automático con IA)</p>
+                  <p class="text-lg font-bold text-[#82e256]">
+                    50% más conversiones (Scoring y seguimiento automático con
+                    IA)
+                  </p>
                 </div>
                 <div>
                   <p class="text-xs text-gray-500">Tecnologías</p>
@@ -230,27 +308,42 @@ const slidesData = [
                 </div>
               </div>
             </div>
-            <a href="https://aquicreamos.com/#asesorias" class="block w-full py-3 bg-gradient-to-r from-[#00464e] to-[#006417] text-white rounded-lg hover:from-[#006417] hover:to-[#82e256] transition-all duration-300 font-semibold text-center">
+            <a
+              #asesorias"
+              class="block w-full py-3 bg-gradient-to-r from-[#00464e] to-[#006417] text-white rounded-lg hover:from-[#006417] hover:to-[#82e256] transition-all duration-300 font-semibold text-center"
+            >
               Solicitar Asesoria→
             </a>
           </div>
 
           <!-- Redes Sociales -->
-          <div class="bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-[#82e256] transition-all duration-300">
+          <div
+            class="bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-[#82e256] transition-all duration-300"
+          >
             <div class="flex items-start justify-between mb-4">
               <div class="text-5xl">📱</div>
-              <span class="text-xs px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 font-semibold">Intermedio</span>
+              <span
+                class="text-xs px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 font-semibold"
+                >Intermedio</span
+              >
             </div>
-            <h3 class="text-2xl font-bold text-white mb-3">Gestión de Redes Sociales Multi-plataforma</h3>
+            <h3 class="text-2xl font-bold text-white mb-3">
+              Gestión de Redes Sociales Multi-plataforma
+            </h3>
             <p class="text-gray-300 mb-4">
-              Publica contenido simultáneamente en múltiples plataformas con contenido generado y optimizado por IA.
+              Publica contenido simultáneamente en múltiples plataformas con
+              contenido generado y optimizado por IA.
             </p>
             <div class="mb-4">
-              <h4 class="text-sm font-semibold text-[#82e256] mb-2">Incluye:</h4>
+              <h4 class="text-sm font-semibold text-[#82e256] mb-2">
+                Incluye:
+              </h4>
               <ul class="space-y-1">
                 <li class="text-sm text-gray-400 flex items-start">
                   <span class="text-[#82e256] mr-2">✓</span>
-                  <span>Publicación multi-canal (Twitter, LinkedIn, Instagram)</span>
+                  <span
+                    >Publicación multi-canal (Twitter, LinkedIn, Instagram)</span
+                  >
                 </li>
                 <li class="text-sm text-gray-400 flex items-start">
                   <span class="text-[#82e256] mr-2">✓</span>
@@ -270,7 +363,10 @@ const slidesData = [
               <div class="flex justify-between items-center">
                 <div>
                   <p class="text-xs text-gray-500">ROI Estimado</p>
-                  <p class="text-lg font-bold text-[#82e256]">70% ahorro de tiempo (Contenido adaptado y publicación multi-canal automática)</p>
+                  <p class="text-lg font-bold text-[#82e256]">
+                    70% ahorro de tiempo (Contenido adaptado y publicación
+                    multi-canal automática)
+                  </p>
                 </div>
                 <div>
                   <p class="text-xs text-gray-500">Tecnologías</p>
@@ -278,23 +374,36 @@ const slidesData = [
                 </div>
               </div>
             </div>
-            <a href="https://aquicreamos.com/#asesorias" class="block w-full py-3 bg-gradient-to-r from-[#00464e] to-[#006417] text-white rounded-lg hover:from-[#006417] hover:to-[#82e256] transition-all duration-300 font-semibold text-center">
+            <a
+              #asesorias"
+              class="block w-full py-3 bg-gradient-to-r from-[#00464e] to-[#006417] text-white rounded-lg hover:from-[#006417] hover:to-[#82e256] transition-all duration-300 font-semibold text-center"
+            >
               Solicitar Asesoria→
             </a>
           </div>
 
           <!-- Creación de Contenido -->
-          <div class="bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-[#82e256] transition-all duration-300">
+          <div
+            class="bg-white/5 backdrop-blur border border-white/10 rounded-xl p-6 hover:border-[#82e256] transition-all duration-300"
+          >
             <div class="flex items-start justify-between mb-4">
               <div class="text-5xl">✍️</div>
-              <span class="text-xs px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 font-semibold">Intermedio</span>
+              <span
+                class="text-xs px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 font-semibold"
+                >Intermedio</span
+              >
             </div>
-            <h3 class="text-2xl font-bold text-white mb-3">Creación de Contenido con IA</h3>
+            <h3 class="text-2xl font-bold text-white mb-3">
+              Creación de Contenido con IA
+            </h3>
             <p class="text-gray-300 mb-4">
-              Generación masiva de contenido optimizado SEO: blogs, posts sociales, scripts de video y newsletters.
+              Generación masiva de contenido optimizado SEO: blogs, posts
+              sociales, scripts de video y newsletters.
             </p>
             <div class="mb-4">
-              <h4 class="text-sm font-semibold text-[#82e256] mb-2">Incluye:</h4>
+              <h4 class="text-sm font-semibold text-[#82e256] mb-2">
+                Incluye:
+              </h4>
               <ul class="space-y-1">
                 <li class="text-sm text-gray-400 flex items-start">
                   <span class="text-[#82e256] mr-2">✓</span>
@@ -318,7 +427,10 @@ const slidesData = [
               <div class="flex justify-between items-center">
                 <div>
                   <p class="text-xs text-gray-500">ROI Estimado</p>
-                  <p class="text-lg font-bold text-[#82e256]">10x velocidad de producción (Contenido SEO generado automáticamente con IA)</p>
+                  <p class="text-lg font-bold text-[#82e256]">
+                    10x velocidad de producción (Contenido SEO generado
+                    automáticamente con IA)
+                  </p>
                 </div>
                 <div>
                   <p class="text-xs text-gray-500">Tecnologías</p>
@@ -326,7 +438,10 @@ const slidesData = [
                 </div>
               </div>
             </div>
-            <a href="https://aquicreamos.com/#asesorias" class="block w-full py-3 bg-gradient-to-r from-[#00464e] to-[#006417] text-white rounded-lg hover:from-[#006417] hover:to-[#82e256] transition-all duration-300 font-semibold text-center">
+            <a
+              #asesorias"
+              class="block w-full py-3 bg-gradient-to-r from-[#00464e] to-[#006417] text-white rounded-lg hover:from-[#006417] hover:to-[#82e256] transition-all duration-300 font-semibold text-center"
+            >
               Solicitar Asesoria→
             </a>
           </div>
@@ -347,7 +462,7 @@ const slidesData = [
         </p>
 
         <a
-          href="https://aquicreamos.com/#asesorias"
+          #asesorias"
           class="inline-block px-10 py-5 bg-gradient-to-r from-[#82e256] to-[#6bc73d] text-black rounded-lg font-bold text-lg hover:shadow-[0_0_40px_rgba(130,226,86,0.6)] transition-all duration-300 hover:scale-105"
         >
           📅 Agendar Asesoría Gratuita

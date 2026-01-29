@@ -1,9 +1,9 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import ServiciosGrid from '../../components/ServiciosGrid.astro';
-import StickySlidesContainer from '../../components/StickySlidesContainer.astro';
-import AutomationCard from '../../components/AutomationCard.astro';
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import ServiciosGrid from "../../components/ServiciosGrid.astro";
+import StickySlidesContainer from "../../components/StickySlidesContainer.astro";
+import AutomationCard from "../../components/AutomationCard.astro";
 
 const syncIcon = `<svg class="w-10 h-10 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
@@ -20,129 +20,160 @@ const userIcon = `<svg class="w-10 h-10 text-[#82e256]" fill="none" stroke="curr
 const automations = [
   {
     icon: syncIcon,
-    difficulty: 'Avanzado' as const,
-    title: 'Sincronización Multi-plataforma',
-    description: 'Mantén datos sincronizados entre HubSpot, Zoho CRM, PostgreSQL en tiempo real con validación de IA.',
+    difficulty: "Avanzado" as const,
+    title: "Sincronización Multi-plataforma",
+    description:
+      "Mantén datos sincronizados entre HubSpot, Zoho CRM, PostgreSQL en tiempo real con validación de IA.",
     features: [
-      'Sincronización bidireccional en tiempo real',
-      'Validación automática de datos con IA',
-      'Detección y resolución de conflictos',
-      'Dashboard de monitoreo de sincronización'
+      "Sincronización bidireccional en tiempo real",
+      "Validación automática de datos con IA",
+      "Detección y resolución de conflictos",
+      "Dashboard de monitoreo de sincronización",
     ],
-    benefit: 'Datos consistentes en todas las plataformas',
-    technologies: 'n8n, GPT-4, HubSpot, Zoho'
+    benefit: "Datos consistentes en todas las plataformas",
+    technologies: "n8n, GPT-4, HubSpot, Zoho",
   },
   {
     icon: databaseIcon,
-    difficulty: 'Intermedio' as const,
-    title: 'Enriquecimiento de Datos',
-    description: 'Enriquece automáticamente datos de contactos con información externa y valida con IA.',
+    difficulty: "Intermedio" as const,
+    title: "Enriquecimiento de Datos",
+    description:
+      "Enriquece automáticamente datos de contactos con información externa y valida con IA.",
     features: [
-      'Enriquecimiento con datos externos (LinkedIn, etc)',
-      'Validación de emails y teléfonos',
-      'Completado automático de campos faltantes',
-      'Detección de duplicados con IA'
+      "Enriquecimiento con datos externos (LinkedIn, etc)",
+      "Validación de emails y teléfonos",
+      "Completado automático de campos faltantes",
+      "Detección de duplicados con IA",
     ],
-    benefit: 'Datos más completos y confiables',
-    technologies: 'n8n, GPT-4, APIs externas'
+    benefit: "Datos más completos y confiables",
+    technologies: "n8n, GPT-4, APIs externas",
   },
   {
     icon: userIcon,
-    difficulty: 'Intermedio' as const,
-    title: 'CRM Inteligente',
-    description: 'Plataforma CRM con agentes IA, clasificación automática de leads y reporting en tiempo real.',
+    difficulty: "Intermedio" as const,
+    title: "CRM Inteligente",
+    description:
+      "Plataforma CRM con agentes IA, clasificación automática de leads y reporting en tiempo real.",
     features: [
-      'Clasificación automática de leads con IA',
-      'Puntuación de oportunidades (lead scoring)',
-      'Asignación inteligente a vendedores',
-      'Dashboard con métricas en tiempo real'
+      "Clasificación automática de leads con IA",
+      "Puntuación de oportunidades (lead scoring)",
+      "Asignación inteligente a vendedores",
+      "Dashboard con métricas en tiempo real",
     ],
-    benefit: 'Gestión inteligente de pipeline de ventas',
-    technologies: 'Astro, GPT-4, PostgreSQL'
-  }
+    benefit: "Gestión inteligente de pipeline de ventas",
+    technologies: "Astro, GPT-4, PostgreSQL",
+  },
 ];
 
 const slidesData = [
   {
-    label: 'Sincronización',
-    title: 'Multi-<br>Plataforma.',
-    description: 'Mantén sincronizados HubSpot, Zoho CRM, PostgreSQL en tiempo real con validación de IA.',
-    icon: 'refresh-cw',
-    serviceType: 'servicio' as const,
-    reversed: false
+    label: "Sincronización",
+    title: "Multi-<br>Plataforma.",
+    description:
+      "Mantén sincronizados HubSpot, Zoho CRM, PostgreSQL en tiempo real con validación de IA.",
+    icon: "refresh-cw",
+    serviceType: "servicio" as const,
+    reversed: false,
   },
   {
-    label: 'Enriquecimiento',
-    title: 'Datos<br>Completos.',
-    description: 'Enriquece automáticamente contactos con información externa y valida campos con inteligencia artificial.',
-    icon: 'database',
-    serviceType: 'automatizacion' as const,
-    reversed: true
+    label: "Enriquecimiento",
+    title: "Datos<br>Completos.",
+    description:
+      "Enriquece automáticamente contactos con información externa y valida campos con inteligencia artificial.",
+    icon: "database",
+    serviceType: "automatizacion" as const,
+    reversed: true,
   },
   {
-    label: 'Duplicados',
-    title: 'Detección<br>Inteligente.',
-    description: 'IA identifica registros duplicados, propone unificaciones y mantiene limpia tu base de datos.',
-    icon: 'copy-check',
-    serviceType: 'automatizacion' as const,
-    reversed: false
+    label: "Duplicados",
+    title: "Detección<br>Inteligente.",
+    description:
+      "IA identifica registros duplicados, propone unificaciones y mantiene limpia tu base de datos.",
+    icon: "copy-check",
+    serviceType: "automatizacion" as const,
+    reversed: false,
   },
   {
-    label: 'Validación',
-    title: 'IA en<br>Tiempo Real.',
-    description: 'Valida emails, teléfonos, direcciones y datos empresariales automáticamente con machine learning.',
-    icon: 'shield-check',
-    serviceType: 'automatizacion' as const,
-    reversed: true
+    label: "Validación",
+    title: "IA en<br>Tiempo Real.",
+    description:
+      "Valida emails, teléfonos, direcciones y datos empresariales automáticamente con machine learning.",
+    icon: "shield-check",
+    serviceType: "automatizacion" as const,
+    reversed: true,
   },
   {
-    label: 'Unificación',
-    title: 'Vista Única<br>del Cliente.',
-    description: 'Consolida datos de múltiples fuentes en un perfil completo y actualizado de cada cliente.',
-    icon: 'user-round-check',
-    serviceType: 'servicio' as const,
-    reversed: false
+    label: "Unificación",
+    title: "Vista Única<br>del Cliente.",
+    description:
+      "Consolida datos de múltiples fuentes en un perfil completo y actualizado de cada cliente.",
+    icon: "user-round-check",
+    serviceType: "servicio" as const,
+    reversed: false,
   },
   {
-    label: 'Reportes',
-    title: 'Insights<br>Automáticos.',
-    description: 'Dashboards en tiempo real con métricas clave y análisis predictivo generado por IA.',
-    icon: 'line-chart',
-    serviceType: 'servicio' as const,
-    reversed: true
-  }
+    label: "Reportes",
+    title: "Insights<br>Automáticos.",
+    description:
+      "Dashboards en tiempo real con métricas clave y análisis predictivo generado por IA.",
+    icon: "line-chart",
+    serviceType: "servicio" as const,
+    reversed: true,
+  },
 ];
 ---
 
 <Layout title="Integración CRM Inteligente - Aquí Creamos">
   <Header />
 
-  <section class="pt-32 pb-20 bg-gradient-to-br from-[#00464e] via-[#006064] to-[#1a1a1a]">
+  <section
+    class="pt-32 pb-20 bg-gradient-to-br from-[#00464e] via-[#006064] to-[#1a1a1a]"
+  >
     <div class="container mx-auto px-4 md:px-16">
       <div class="max-w-6xl mx-auto text-center">
-        <div class="inline-block mb-4 px-4 py-2 bg-[#82e256]/20 border border-[#82e256] rounded-full">
+        <div
+          class="inline-block mb-4 px-4 py-2 bg-[#82e256]/20 border border-[#82e256] rounded-full"
+        >
           <span class="text-[#82e256] font-bold text-sm">INTEGRACIÓN CRM</span>
         </div>
 
-        <h1 class="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
-          Sincronización <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#82e256] to-[#04ADC0]">inteligente de CRM</span>
+        <h1
+          class="text-4xl md:text-6xl font-black text-white mb-6 leading-tight"
+        >
+          Sincronización <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-[#82e256] to-[#04ADC0]"
+            >inteligente de CRM</span
+          >
         </h1>
 
         <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-          Mantén sincronizados tus CRMs y bases de datos en tiempo real con validación automática de IA.
+          Mantén sincronizados tus CRMs y bases de datos en tiempo real con
+          validación automática de IA.
         </p>
 
         <div class="grid grid-cols-3 gap-4 mb-8 max-w-2xl mx-auto">
-          <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
-            <div class="text-sm font-bold text-[#82e256] mb-1">Sincronización</div>
+          <div
+            class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20"
+          >
+            <div class="text-sm font-bold text-[#82e256] mb-1">
+              Sincronización
+            </div>
             <div class="text-xs text-gray-300">Tiempo real automática</div>
           </div>
-          <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
-            <div class="text-sm font-bold text-[#82e256] mb-1">Validación IA</div>
+          <div
+            class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20"
+          >
+            <div class="text-sm font-bold text-[#82e256] mb-1">
+              Validación IA
+            </div>
             <div class="text-xs text-gray-300">Datos limpios y precisos</div>
           </div>
-          <div class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
-            <div class="text-sm font-bold text-[#82e256] mb-1">Enriquecimiento</div>
+          <div
+            class="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20"
+          >
+            <div class="text-sm font-bold text-[#82e256] mb-1">
+              Enriquecimiento
+            </div>
             <div class="text-xs text-gray-300">Datos externos automáticos</div>
           </div>
         </div>
@@ -158,23 +189,38 @@ const slidesData = [
           <h2 class="text-3xl md:text-4xl font-black text-white mb-4">
             ¿Tus datos de clientes están desactualizados y dispersos?
           </h2>
-          <p class="text-xl text-gray-400">Estos problemas cuestan miles de dólares cada mes:</p>
+          <p class="text-xl text-gray-400">
+            Estos problemas cuestan miles de dólares cada mes:
+          </p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-6">
           <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-6">
-            <h3 class="text-xl font-bold text-white mb-2">Datos Desincronizados</h3>
-            <p class="text-gray-300"><strong class="text-red-400">Información diferente</strong> entre CRM, email y bases de datos</p>
+            <h3 class="text-xl font-bold text-white mb-2">
+              Datos Desincronizados
+            </h3>
+            <p class="text-gray-300">
+              <strong class="text-red-400">Información diferente</strong> entre CRM,
+              email y bases de datos
+            </p>
           </div>
 
           <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-6">
-            <h3 class="text-xl font-bold text-white mb-2">Registros Duplicados</h3>
-            <p class="text-gray-300"><strong class="text-red-400">Contactos repetidos</strong> que generan confusión y emails duplicados</p>
+            <h3 class="text-xl font-bold text-white mb-2">
+              Registros Duplicados
+            </h3>
+            <p class="text-gray-300">
+              <strong class="text-red-400">Contactos repetidos</strong> que generan
+              confusión y emails duplicados
+            </p>
           </div>
 
           <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-6">
             <h3 class="text-xl font-bold text-white mb-2">Datos Incompletos</h3>
-            <p class="text-gray-300"><strong class="text-red-400">Leads sin información</strong> clave para hacer seguimiento efectivo</p>
+            <p class="text-gray-300">
+              <strong class="text-red-400">Leads sin información</strong> clave para
+              hacer seguimiento efectivo
+            </p>
           </div>
         </div>
       </div>
@@ -192,17 +238,20 @@ const slidesData = [
           <h2 class="text-3xl md:text-4xl font-black text-white mb-4">
             Automatizaciones de Integración CRM
           </h2>
-          <p class="text-xl text-gray-300">Soluciones listas para implementar</p>
+          <p class="text-xl text-gray-300">
+            Soluciones listas para implementar
+          </p>
         </div>
 
         <div class="grid md:grid-cols-2 gap-8">
-          {automations.map(automation => (
-            <AutomationCard {...automation} />
-          ))}
+          {automations.map((automation) => <AutomationCard {...automation} />)}
         </div>
 
         <div class="text-center mt-12">
-          <a href="https://aquicreamos.com/aquicreamos" class="text-[#82e256] hover:text-[#6bc73d] transition-colors font-semibold">
+          <a
+            aquicreamos"
+            class="text-[#82e256] hover:text-[#6bc73d] transition-colors font-semibold"
+          >
             Ver todas las automatizaciones de CRM →
           </a>
         </div>
@@ -216,7 +265,10 @@ const slidesData = [
         <h2 class="text-3xl md:text-5xl font-black text-white mb-6">
           Integra y potencia tu CRM con IA
         </h2>
-        <a href="https://aquicreamos.com/#asesorias" class="inline-block px-10 py-5 bg-gradient-to-r from-[#82e256] to-[#6bc73d] text-black rounded-lg font-bold text-lg hover:shadow-[0_0_40px_rgba(130,226,86,0.6)] transition-all duration-300 hover:scale-105">
+        <a
+          #asesorias"
+          class="inline-block px-10 py-5 bg-gradient-to-r from-[#82e256] to-[#6bc73d] text-black rounded-lg font-bold text-lg hover:shadow-[0_0_40px_rgba(130,226,86,0.6)] transition-all duration-300 hover:scale-105"
+        >
           📅 Agendar Asesoría Gratuita
         </a>
       </div>

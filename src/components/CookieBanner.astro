@@ -11,9 +11,21 @@
     <div class="flex flex-col md:flex-row items-center justify-between gap-4">
       <!-- Contenido del banner -->
       <div class="flex items-start gap-3 flex-1">
-        <div class="w-10 h-10 bg-[#82e256]/20 rounded-lg flex items-center justify-center flex-shrink-0">
-          <svg class="w-5 h-5 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        <div
+          class="w-10 h-10 bg-[#82e256]/20 rounded-lg flex items-center justify-center flex-shrink-0"
+        >
+          <svg
+            class="w-5 h-5 text-[#82e256]"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            ></path>
           </svg>
         </div>
         <div class="flex-1">
@@ -21,9 +33,13 @@
             🍪 Este sitio utiliza cookies
           </h3>
           <p class="text-white/70 text-xs md:text-sm leading-relaxed">
-            Utilizamos cookies esenciales para garantizar el funcionamiento correcto del sitio y cookies analíticas para mejorar tu experiencia.
+            Utilizamos cookies esenciales para garantizar el funcionamiento
+            correcto del sitio y cookies analíticas para mejorar tu experiencia.
             Al aceptar, nos ayudas a entender cómo usas nuestro sitio.
-            <a href="https://aquicreamos.com/politica-cookies" class="text-[#82e256] hover:text-[#6bc73d] underline ml-1">
+            <a
+              politica-cookies"
+              class="text-[#82e256] hover:text-[#6bc73d] underline ml-1"
+            >
               Más información
             </a>
           </p>
@@ -50,12 +66,12 @@
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const cookieBanner = document.getElementById('cookie-banner');
-    const acceptBtn = document.getElementById('accept-cookies-btn');
-    const rejectBtn = document.getElementById('reject-cookies-btn');
+  document.addEventListener("DOMContentLoaded", () => {
+    const cookieBanner = document.getElementById("cookie-banner");
+    const acceptBtn = document.getElementById("accept-cookies-btn");
+    const rejectBtn = document.getElementById("reject-cookies-btn");
 
-    const COOKIE_CONSENT_KEY = 'cookie_consent';
+    const COOKIE_CONSENT_KEY = "cookie_consent";
 
     // Función para verificar si el usuario ya respondió
     function checkCookieConsent() {
@@ -68,29 +84,29 @@
       const consentData = {
         accepted: accepted,
         timestamp: new Date().toISOString(),
-        version: '1.0'
+        version: "1.0",
       };
       localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(consentData));
     }
 
     // Función para mostrar el banner
     function showBanner() {
-      cookieBanner?.classList.remove('hidden');
+      cookieBanner?.classList.remove("hidden");
       setTimeout(() => {
-        cookieBanner?.classList.add('animate-slide-up');
+        cookieBanner?.classList.add("animate-slide-up");
       }, 100);
     }
 
     // Función para ocultar el banner
     function hideBanner() {
-      cookieBanner?.classList.add('hidden');
-      cookieBanner?.classList.remove('animate-slide-up');
+      cookieBanner?.classList.add("hidden");
+      cookieBanner?.classList.remove("animate-slide-up");
     }
 
     // Función para mostrar el botón de configuración (en FloatingButtons)
     function showSettingsButton() {
-      const cookieSettingsBtn = document.getElementById('cookie-settings-btn');
-      cookieSettingsBtn?.classList.remove('hidden');
+      const cookieSettingsBtn = document.getElementById("cookie-settings-btn");
+      cookieSettingsBtn?.classList.remove("hidden");
     }
 
     // Verificar si ya existe consentimiento
@@ -109,28 +125,28 @@
           showSettingsButton();
         }
       } catch (e) {
-        console.error('Error al parsear cookie consent:', e);
+        console.error("Error al parsear cookie consent:", e);
       }
     }
 
     // Manejar aceptación de cookies
-    acceptBtn?.addEventListener('click', () => {
+    acceptBtn?.addEventListener("click", () => {
       saveCookieConsent(true);
       hideBanner();
       // NO mostrar el botón si se aceptan las cookies
 
       // Aquí puedes activar tus scripts de analytics, etc.
-      console.log('Cookies aceptadas - Activar analytics');
+      console.log("Cookies aceptadas - Activar analytics");
     });
 
     // Manejar rechazo de cookies
-    rejectBtn?.addEventListener('click', () => {
+    rejectBtn?.addEventListener("click", () => {
       saveCookieConsent(false);
       hideBanner();
       showSettingsButton();
 
       // Aquí puedes desactivar tus scripts de analytics
-      console.log('Cookies rechazadas - Solo cookies esenciales');
+      console.log("Cookies rechazadas - Solo cookies esenciales");
     });
   });
 </script>

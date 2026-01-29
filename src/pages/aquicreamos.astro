@@ -1,38 +1,42 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
 
 // Meta tags dinámicos para SEO
-const pageTitle = '53+ Automatizaciones IA y Servicios Profesionales | n8n, GPT-4, WhatsApp';
-const pageDescription = 'Descubre 53 automatizaciones con IA listas para implementar: chatbots WhatsApp, agentes virtuales, email marketing, CRM automation, DevOps, IoT. Desarrollo web, móvil y soluciones tech personalizadas.';
-const pageKeywords = 'automatizaciones ia, chatbot whatsapp, n8n automation, gpt-4, agentes virtuales, desarrollo web, machine learning, devops, workflows automation, business automation, iot, ci/cd';
+const pageTitle =
+  "53+ Automatizaciones IA y Servicios Profesionales | n8n, GPT-4, WhatsApp";
+const pageDescription =
+  "Descubre 53 automatizaciones con IA listas para implementar: chatbots WhatsApp, agentes virtuales, email marketing, CRM automation, DevOps, IoT. Desarrollo web, móvil y soluciones tech personalizadas.";
+const pageKeywords =
+  "automatizaciones ia, chatbot whatsapp, n8n automation, gpt-4, agentes virtuales, desarrollo web, machine learning, devops, workflows automation, business automation, iot, ci/cd";
 
 // Structured Data para SEO
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  "name": "Automatizaciones IA y Servicios Tecnológicos",
-  "description": pageDescription,
-  "numberOfItems": 53,
-  "itemListElement": [
+  name: "Automatizaciones IA y Servicios Tecnológicos",
+  description: pageDescription,
+  numberOfItems: 53,
+  itemListElement: [
     {
       "@type": "ListItem",
-      "position": 1,
-      "item": {
+      position: 1,
+      item: {
         "@type": "SoftwareApplication",
-        "name": "Chatbot WhatsApp con IA y RAG",
-        "description": "Asistente inteligente 24/7 para WhatsApp con memoria contextual y búsqueda en base de conocimiento vectorial",
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "Cloud",
-        "offers": {
+        name: "Chatbot WhatsApp con IA y RAG",
+        description:
+          "Asistente inteligente 24/7 para WhatsApp con memoria contextual y búsqueda en base de conocimiento vectorial",
+        applicationCategory: "BusinessApplication",
+        operatingSystem: "Cloud",
+        offers: {
           "@type": "Offer",
-          "price": "Consultar",
-          "priceCurrency": "USD"
-        }
-      }
-    }
+          price: "Consultar",
+          priceCurrency: "USD",
+        },
+      },
+    },
     // Más items se agregarían aquí dinámicamente
-  ]
+  ],
 };
 ---
 
@@ -58,7 +62,10 @@ const structuredData = {
     <link rel="canonical" href="https://tupagina.com/aquicreamos" />
 
     <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(structuredData)}
+    />
   </Fragment>
 
   <Header currentPage="aquicreamos" />
@@ -67,21 +74,34 @@ const structuredData = {
   <section class="pt-32 pb-16 bg-gradient-to-br from-[#00464e] to-[#006064]">
     <div class="container mx-auto px-4 md:px-16">
       <div class="max-w-5xl mx-auto text-center">
-  
-        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
+        <h1
+          class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight"
+        >
           <span class="text-white">Aquí </span>
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#82e256] via-[#6bc73d] to-[#04ADC0]">Creamos</span>
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-[#82e256] via-[#6bc73d] to-[#04ADC0]"
+            >Creamos</span
+          >
         </h1>
 
-        <p class="text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-8">
-          Servicios profesionales de desarrollo y tecnología para impulsar tu negocio
+        <p
+          class="text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-8"
+        >
+          Servicios profesionales de desarrollo y tecnología para impulsar tu
+          negocio
         </p>
 
         <!-- Línea decorativa -->
         <div class="flex items-center justify-center gap-2">
-          <div class="h-px w-16 md:w-24 bg-gradient-to-r from-transparent to-[#82e256]"></div>
+          <div
+            class="h-px w-16 md:w-24 bg-gradient-to-r from-transparent to-[#82e256]"
+          >
+          </div>
           <div class="w-2 h-2 rounded-full bg-[#82e256]"></div>
-          <div class="h-px w-16 md:w-24 bg-gradient-to-l from-transparent to-[#82e256]"></div>
+          <div
+            class="h-px w-16 md:w-24 bg-gradient-to-l from-transparent to-[#82e256]"
+          >
+          </div>
         </div>
       </div>
     </div>
@@ -93,14 +113,14 @@ const structuredData = {
       <div class="max-w-7xl mx-auto">
         <div class="flex gap-4 justify-center">
           <a
-            href="https://aquicreamos.com/aquicreamos#servicios-profesionales"
+            aquicreamos#servicios-profesionales"
             id="tab-servicios"
             class="tab-button active px-8 py-3 rounded-lg font-bold text-lg transition-all no-underline"
           >
             📦 Servicios Profesionales
           </a>
           <a
-            href="https://aquicreamos.com/aquicreamos#automatizaciones"
+            aquicreamos#automatizaciones"
             id="tab-automatizaciones"
             class="tab-button px-8 py-3 rounded-lg font-bold text-lg transition-all no-underline"
           >
@@ -112,7 +132,10 @@ const structuredData = {
   </section>
 
   <!-- Filtros y búsqueda unificados -->
-  <section id="section-filtros" class="py-8 bg-[#1a1a1a] border-b border-gray-800">
+  <section
+    id="section-filtros"
+    class="py-8 bg-[#1a1a1a] border-b border-gray-800"
+  >
     <div class="container mx-auto px-4 md:px-16">
       <div class="max-w-7xl mx-auto">
         <div class="flex flex-col gap-4">
@@ -120,11 +143,22 @@ const structuredData = {
           <div class="w-full">
             <div class="relative">
               <!-- Input principal con íconos -->
-              <div class="relative bg-gray-800 border border-gray-700 rounded-lg focus-within:ring-2 focus-within:ring-[#82e256] transition-all">
+              <div
+                class="relative bg-gray-800 border border-gray-700 rounded-lg focus-within:ring-2 focus-within:ring-[#82e256] transition-all"
+              >
                 <div class="flex items-center">
                   <!-- Ícono de búsqueda -->
-                  <svg class="absolute left-4 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                  <svg
+                    class="absolute left-4 w-5 h-5 text-gray-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                   </svg>
 
                   <!-- Input de búsqueda -->
@@ -143,8 +177,17 @@ const structuredData = {
                       class="hidden text-gray-400 hover:text-[#82e256] transition-colors p-1"
                       title="Limpiar búsqueda"
                     >
-                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                      <svg
+                        class="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M6 18L18 6M6 6l12 12"></path>
                       </svg>
                     </button>
 
@@ -156,38 +199,78 @@ const structuredData = {
                       id="filter-toggle-btn"
                       class="flex items-center gap-2 px-3 py-1.5 bg-gray-700 hover:bg-gray-600 text-white rounded-md transition-all"
                     >
-                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
+                      <svg
+                        class="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"
+                        ></path>
                       </svg>
                       <span class="text-sm font-semibold">Filtros</span>
-                      <span id="filter-badge" class="hidden bg-[#82e256] text-black text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                      <span
+                        id="filter-badge"
+                        class="hidden bg-[#82e256] text-black text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center"
+                        >0</span
+                      >
                     </button>
                   </div>
                 </div>
 
                 <!-- Chips de categorías seleccionadas dentro del input -->
-                <div id="selected-categories-chips" class="hidden flex flex-wrap gap-2 px-4 pb-3 pt-1">
+                <div
+                  id="selected-categories-chips"
+                  class="hidden flex flex-wrap gap-2 px-4 pb-3 pt-1"
+                >
                   <!-- Los chips se generarán dinámicamente -->
                 </div>
               </div>
 
               <!-- Mini card flotante de filtros -->
-              <div id="filter-dropdown" class="hidden absolute z-20 right-0 mt-2 w-full md:w-96 bg-gray-800 border border-gray-700 rounded-xl shadow-2xl overflow-hidden">
+              <div
+                id="filter-dropdown"
+                class="hidden absolute z-20 right-0 mt-2 w-full md:w-96 bg-gray-800 border border-gray-700 rounded-xl shadow-2xl overflow-hidden"
+              >
                 <!-- Header -->
-                <div class="flex items-center justify-between p-4 border-b border-gray-700 bg-gray-750">
+                <div
+                  class="flex items-center justify-between p-4 border-b border-gray-700 bg-gray-750"
+                >
                   <div class="flex items-center gap-2">
-                    <svg class="w-5 h-5 text-[#82e256]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
+                    <svg
+                      class="w-5 h-5 text-[#82e256]"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"
+                      ></path>
                     </svg>
-                    <h3 class="text-white font-bold text-sm">Filtrar por categoría</h3>
+                    <h3 class="text-white font-bold text-sm">
+                      Filtrar por categoría
+                    </h3>
                   </div>
-                  <button id="clear-categories" class="text-[#82e256] hover:text-[#6bc73d] text-xs font-semibold transition-colors">
+                  <button
+                    id="clear-categories"
+                    class="text-[#82e256] hover:text-[#6bc73d] text-xs font-semibold transition-colors"
+                  >
                     Limpiar
                   </button>
                 </div>
 
                 <!-- Lista de checkboxes -->
-                <div id="category-checkboxes" class="p-3 max-h-80 overflow-y-auto space-y-1">
+                <div
+                  id="category-checkboxes"
+                  class="p-3 max-h-80 overflow-y-auto space-y-1"
+                >
                   <!-- Checkboxes se generarán dinámicamente -->
                 </div>
 
@@ -207,15 +290,25 @@ const structuredData = {
           <!-- Contador de resultados y botón limpiar todo -->
           <div class="flex items-center justify-between flex-wrap gap-3">
             <div class="text-gray-400 text-sm">
-              <span id="results-count">0</span> <span id="results-type">resultados</span> disponibles
+              <span id="results-count">0</span>
+              <span id="results-type">resultados</span> disponibles
             </div>
 
             <button
               id="clear-all-filters"
               class="hidden text-sm text-[#82e256] hover:text-[#6bc73d] font-semibold transition-colors flex items-center gap-1"
             >
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"></path>
               </svg>
               Limpiar todos los filtros
             </button>
@@ -226,7 +319,10 @@ const structuredData = {
   </section>
 
   <!-- Grid de servicios -->
-  <section id="content-servicios" class="tab-content py-16 bg-[#1a1a1a] min-h-screen">
+  <section
+    id="content-servicios"
+    class="tab-content py-16 bg-[#1a1a1a] min-h-screen"
+  >
     <div class="container mx-auto px-4 md:px-16">
       <div class="max-w-7xl mx-auto">
         <div
@@ -238,7 +334,9 @@ const structuredData = {
 
         <!-- Mensaje cuando no hay resultados -->
         <div id="no-results" class="hidden text-center py-16">
-          <div class="text-gray-400 text-xl mb-4">No se encontraron servicios</div>
+          <div class="text-gray-400 text-xl mb-4">
+            No se encontraron servicios
+          </div>
           <button
             id="clear-search"
             class="text-[#82e256] hover:text-[#6bc73d] transition-colors"
@@ -249,7 +347,10 @@ const structuredData = {
 
         <!-- Loading state -->
         <div id="loading" class="text-center py-16">
-          <div class="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#82e256]"></div>
+          <div
+            class="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#82e256]"
+          >
+          </div>
           <p class="text-gray-400 mt-4">Cargando servicios...</p>
         </div>
       </div>
@@ -257,7 +358,10 @@ const structuredData = {
   </section>
 
   <!-- Grid de automatizaciones -->
-  <section id="content-automatizaciones" class="tab-content hidden py-16 bg-[#1a1a1a] min-h-screen">
+  <section
+    id="content-automatizaciones"
+    class="tab-content hidden py-16 bg-[#1a1a1a] min-h-screen"
+  >
     <div class="container mx-auto px-4 md:px-16">
       <div class="max-w-7xl mx-auto">
         <div
@@ -271,18 +375,32 @@ const structuredData = {
   </section>
 
   <!-- Modal de IA para chat de servicios -->
-  <div id="ai-modal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-    <div class="ai-modal-content bg-[#1a1a1a] rounded-3xl max-w-3xl w-full h-[85vh] flex flex-col border border-gray-800">
+  <div
+    id="ai-modal"
+    class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+  >
+    <div
+      class="ai-modal-content bg-[#1a1a1a] rounded-3xl max-w-3xl w-full h-[85vh] flex flex-col border border-gray-800"
+    >
       <!-- Header -->
-      <div class="bg-[#1a1a1a] border-b border-gray-800 p-6 flex items-center justify-between flex-shrink-0">
+      <div
+        class="bg-[#1a1a1a] border-b border-gray-800 p-6 flex items-center justify-between flex-shrink-0"
+      >
         <div class="flex items-center gap-3">
           <span class="text-5xl" id="ai-modal-emoji">🤖</span>
           <div>
-            <h3 class="text-xl font-bold text-white" id="ai-modal-title">Asistente de IA</h3>
-            <p class="text-sm text-gray-400" id="ai-modal-subtitle">Pregúntame sobre este servicio</p>
+            <h3 class="text-xl font-bold text-white" id="ai-modal-title">
+              Asistente de IA
+            </h3>
+            <p class="text-sm text-gray-400" id="ai-modal-subtitle">
+              Pregúntame sobre este servicio
+            </p>
           </div>
         </div>
-        <button id="close-ai-modal" class="text-gray-400 hover:text-white transition-colors">
+        <button
+          id="close-ai-modal"
+          class="text-gray-400 hover:text-white transition-colors"
+        >
           <span class="material-symbols-outlined text-3xl">close</span>
         </button>
       </div>
@@ -320,16 +438,18 @@ const structuredData = {
   let allServices: any[] = [];
   let selectedCategories: Set<string> = new Set();
   let availableCategories: string[] = [];
-  let searchQuery: string = '';
+  let searchQuery: string = "";
 
   // Cargar servicios desde el JSON
   async function loadServices() {
     try {
-      const response = await fetch('/services.json');
+      const response = await fetch("/services.json");
       allServices = await response.json();
 
       // Extraer categorías únicas
-      availableCategories = [...new Set(allServices.map(s => s.category).filter(Boolean))];
+      availableCategories = [
+        ...new Set(allServices.map((s) => s.category).filter(Boolean)),
+      ];
 
       // Inicializar categorías desde URL
       initializeCategoriesFromURL();
@@ -346,8 +466,8 @@ const structuredData = {
       // Aplicar filtros
       applyFilters();
     } catch (error) {
-      console.error('Error loading services:', error);
-      const container = document.getElementById('services-container');
+      console.error("Error loading services:", error);
+      const container = document.getElementById("services-container");
       if (container) {
         container.innerHTML = `
           <div class="col-span-full text-center py-16">
@@ -356,25 +476,27 @@ const structuredData = {
         `;
       }
     } finally {
-      const loading = document.getElementById('loading');
-      if (loading) loading.classList.add('hidden');
+      const loading = document.getElementById("loading");
+      if (loading) loading.classList.add("hidden");
     }
   }
 
   // Inicializar categorías y búsqueda desde URL
   function initializeCategoriesFromURL() {
     const urlParams = new URLSearchParams(window.location.search);
-    const categoriesParam = urlParams.get('categories');
-    const searchParam = urlParams.get('search');
+    const categoriesParam = urlParams.get("categories");
+    const searchParam = urlParams.get("search");
 
     if (categoriesParam) {
-      const categories = categoriesParam.split(',').filter(Boolean);
+      const categories = categoriesParam.split(",").filter(Boolean);
       selectedCategories = new Set(categories);
     }
 
     if (searchParam) {
       searchQuery = searchParam;
-      const searchInput = document.getElementById('search-input') as HTMLInputElement;
+      const searchInput = document.getElementById(
+        "search-input",
+      ) as HTMLInputElement;
       if (searchInput) {
         searchInput.value = searchQuery;
       }
@@ -386,45 +508,56 @@ const structuredData = {
     const url = new URL(window.location.href);
 
     if (selectedCategories.size > 0) {
-      url.searchParams.set('categories', Array.from(selectedCategories).join(','));
+      url.searchParams.set(
+        "categories",
+        Array.from(selectedCategories).join(","),
+      );
     } else {
-      url.searchParams.delete('categories');
+      url.searchParams.delete("categories");
     }
 
     if (searchQuery) {
-      url.searchParams.set('search', searchQuery);
+      url.searchParams.set("search", searchQuery);
     } else {
-      url.searchParams.delete('search');
+      url.searchParams.delete("search");
     }
 
-    window.history.pushState({}, '', url.toString());
+    window.history.pushState({}, "", url.toString());
   }
 
   // Renderizar checkboxes de categorías
   function renderCategoryCheckboxes() {
-    const container = document.getElementById('category-checkboxes');
+    const container = document.getElementById("category-checkboxes");
     if (!container) return;
 
-    container.innerHTML = availableCategories.map(category => `
+    container.innerHTML = availableCategories
+      .map(
+        (category) => `
       <label class="flex items-center gap-3 p-2.5 hover:bg-gray-700/50 rounded-lg cursor-pointer transition-all group">
         <input
           type="checkbox"
           value="${category}"
-          ${selectedCategories.has(category) ? 'checked' : ''}
+          ${selectedCategories.has(category) ? "checked" : ""}
           class="category-checkbox w-4 h-4 text-[#82e256] bg-gray-700 border-gray-600 rounded focus:ring-[#82e256] focus:ring-2 cursor-pointer"
         />
         <span class="text-white text-sm flex-1 group-hover:text-[#82e256] transition-colors">${category}</span>
-        ${selectedCategories.has(category) ? `
+        ${
+          selectedCategories.has(category)
+            ? `
           <svg class="w-4 h-4 text-[#82e256]" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
           </svg>
-        ` : ''}
+        `
+            : ""
+        }
       </label>
-    `).join('');
+    `,
+      )
+      .join("");
 
     // Agregar event listeners
-    document.querySelectorAll('.category-checkbox').forEach(checkbox => {
-      checkbox.addEventListener('change', handleCategoryChange);
+    document.querySelectorAll(".category-checkbox").forEach((checkbox) => {
+      checkbox.addEventListener("change", handleCategoryChange);
     });
   }
 
@@ -442,7 +575,7 @@ const structuredData = {
     updateURL();
 
     // Aplicar filtros según el tab actual
-    if (currentTab === 'servicios') {
+    if (currentTab === "servicios") {
       applyFilters();
     } else {
       applyWorkflowFilters();
@@ -454,21 +587,23 @@ const structuredData = {
 
   // Actualizar display de categorías seleccionadas
   function updateSelectedCategoriesDisplay() {
-    const container = document.getElementById('selected-categories-chips');
-    const filterBadge = document.getElementById('filter-badge');
+    const container = document.getElementById("selected-categories-chips");
+    const filterBadge = document.getElementById("filter-badge");
 
     if (!container || !filterBadge) return;
 
     if (selectedCategories.size === 0) {
-      container.classList.add('hidden');
-      container.innerHTML = '';
-      filterBadge.classList.add('hidden');
+      container.classList.add("hidden");
+      container.innerHTML = "";
+      filterBadge.classList.add("hidden");
     } else {
-      container.classList.remove('hidden');
-      filterBadge.classList.remove('hidden');
+      container.classList.remove("hidden");
+      filterBadge.classList.remove("hidden");
       filterBadge.textContent = selectedCategories.size.toString();
 
-      container.innerHTML = Array.from(selectedCategories).map(category => `
+      container.innerHTML = Array.from(selectedCategories)
+        .map(
+          (category) => `
         <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-[#82e256]/20 text-[#82e256] border border-[#82e256]/40 rounded-full text-xs font-semibold">
           ${category}
           <button
@@ -480,20 +615,24 @@ const structuredData = {
             </svg>
           </button>
         </span>
-      `).join('');
+      `,
+        )
+        .join("");
 
       // Agregar event listeners a los botones de remover
-      document.querySelectorAll('.remove-category').forEach(btn => {
-        btn.addEventListener('click', (e) => {
+      document.querySelectorAll(".remove-category").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
           e.stopPropagation();
-          const button = (e.target as HTMLElement).closest('.remove-category') as HTMLElement;
-          const category = button?.getAttribute('data-category');
+          const button = (e.target as HTMLElement).closest(
+            ".remove-category",
+          ) as HTMLElement;
+          const category = button?.getAttribute("data-category");
           if (category) {
             selectedCategories.delete(category);
             updateURL();
 
             // Aplicar filtros según el tab actual
-            if (currentTab === 'servicios') {
+            if (currentTab === "servicios") {
               applyFilters();
             } else {
               applyWorkflowFilters();
@@ -514,39 +653,40 @@ const structuredData = {
 
     // Filtrar por categorías seleccionadas
     if (selectedCategories.size > 0) {
-      filtered = filtered.filter(service =>
-        selectedCategories.has(service.category)
+      filtered = filtered.filter((service) =>
+        selectedCategories.has(service.category),
       );
     }
 
     // Filtrar por texto de búsqueda
     if (searchQuery) {
       const query = searchQuery.toLowerCase();
-      filtered = filtered.filter(service =>
-        service.name.toLowerCase().includes(query) ||
-        service.description.toLowerCase().includes(query) ||
-        service.category.toLowerCase().includes(query)
+      filtered = filtered.filter(
+        (service) =>
+          service.name.toLowerCase().includes(query) ||
+          service.description.toLowerCase().includes(query) ||
+          service.category.toLowerCase().includes(query),
       );
     }
 
     renderServices(filtered);
-    updateResultsCount(filtered.length, 'servicios');
+    updateResultsCount(filtered.length, "servicios");
   }
 
   // Renderizar servicios
   function renderServices(services: any[]) {
-    const container = document.getElementById('services-container');
-    const noResults = document.getElementById('no-results');
+    const container = document.getElementById("services-container");
+    const noResults = document.getElementById("no-results");
 
     if (!container) return;
 
     if (services.length === 0) {
-      container.innerHTML = '';
-      noResults?.classList.remove('hidden');
+      container.innerHTML = "";
+      noResults?.classList.remove("hidden");
       return;
     }
 
-    noResults?.classList.add('hidden');
+    noResults?.classList.add("hidden");
 
     container.innerHTML = services
       .map(
@@ -558,7 +698,7 @@ const structuredData = {
             <span class="material-symbols-outlined text-[#82e256]" style="font-size: 3rem;">${getIconName(service.icon)}</span>
           </div>
           <div class="text-xs font-semibold text-white/80 bg-black/30 px-3 py-1 rounded-full inline-block">
-            ${service.category || 'Servicio Profesional'}
+            ${service.category || "Servicio Profesional"}
           </div>
         </div>
 
@@ -582,7 +722,7 @@ const structuredData = {
               Consultar IA
             </button>
             <a
-              href="https://aquicreamos.com/#asesorias"
+              /#asesorias"
               class="flex-1 text-xs font-semibold text-[#82e256] border border-[#82e256] hover:bg-[#82e256] hover:text-black px-3 py-1.5 rounded-md transition-all hover:scale-105 flex items-center justify-center gap-1.5"
             >
               <span class="material-symbols-outlined" style="font-size: 14px;">calendar_month</span>
@@ -591,14 +731,14 @@ const structuredData = {
           </div>
         </div>
       </article>
-    `
+    `,
       )
-      .join('');
+      .join("");
 
     // Agregar event listeners a los botones
-    document.querySelectorAll('.service-btn').forEach((btn) => {
-      btn.addEventListener('click', function () {
-        const serviceId = this.getAttribute('data-service-id');
+    document.querySelectorAll(".service-btn").forEach((btn) => {
+      btn.addEventListener("click", function () {
+        const serviceId = this.getAttribute("data-service-id");
         const service = services.find((s) => s.id == serviceId);
         if (service) {
           showServiceModal(service);
@@ -610,40 +750,40 @@ const structuredData = {
   // Mapear iconos de string a nombres de material symbols
   function getIconName(icon: string): string {
     const iconMap: Record<string, string> = {
-      layers: 'layers',
-      server: 'dns',
-      cpu: 'memory',
-      eye: 'visibility',
-      code2: 'code',
-      zap: 'bolt',
-      database: 'database',
-      docker: 'view_in_ar',
-      box: 'inventory_2',
-      robot: 'smart_toy',
-      wifi: 'wifi',
-      broadcast: 'podcasts',
-      smartphone: 'smartphone',
-      users: 'group',
-      activity: 'monitoring',
-      gauge: 'speed',
-      shield: 'shield',
-      table: 'table_chart',
-      checkcircle: 'check_circle',
-      scan: 'qr_code_scanner',
-      linechart: 'show_chart',
-      bell: 'notifications',
-      folder: 'folder',
-      lock: 'lock',
-      barchart2: 'bar_chart',
-      creditcard: 'credit_card',
-      repeat: 'autorenew',
-      layers2: 'layers',
-      rocket: 'rocket_launch',
-      sparkles: 'auto_awesome',
-      cloud: 'cloud',
-      api: 'api',
+      layers: "layers",
+      server: "dns",
+      cpu: "memory",
+      eye: "visibility",
+      code2: "code",
+      zap: "bolt",
+      database: "database",
+      docker: "view_in_ar",
+      box: "inventory_2",
+      robot: "smart_toy",
+      wifi: "wifi",
+      broadcast: "podcasts",
+      smartphone: "smartphone",
+      users: "group",
+      activity: "monitoring",
+      gauge: "speed",
+      shield: "shield",
+      table: "table_chart",
+      checkcircle: "check_circle",
+      scan: "qr_code_scanner",
+      linechart: "show_chart",
+      bell: "notifications",
+      folder: "folder",
+      lock: "lock",
+      barchart2: "bar_chart",
+      creditcard: "credit_card",
+      repeat: "autorenew",
+      layers2: "layers",
+      rocket: "rocket_launch",
+      sparkles: "auto_awesome",
+      cloud: "cloud",
+      api: "api",
     };
-    return iconMap[icon] || 'settings';
+    return iconMap[icon] || "settings";
   }
 
   // Estado del chat
@@ -656,14 +796,15 @@ const structuredData = {
     conversationHistory = [];
 
     // Actualizar título del modal
-    const modalTitle = document.getElementById('ai-modal-title');
-    const modalSubtitle = document.getElementById('ai-modal-subtitle');
+    const modalTitle = document.getElementById("ai-modal-title");
+    const modalSubtitle = document.getElementById("ai-modal-subtitle");
 
     if (modalTitle) modalTitle.textContent = service.name;
-    if (modalSubtitle) modalSubtitle.textContent = 'Pregúntame sobre este servicio';
+    if (modalSubtitle)
+      modalSubtitle.textContent = "Pregúntame sobre este servicio";
 
     // Limpiar mensajes anteriores
-    const chatMessages = document.getElementById('chat-messages');
+    const chatMessages = document.getElementById("chat-messages");
     if (chatMessages) {
       chatMessages.innerHTML = `
         <div class="message-ai flex gap-3">
@@ -674,7 +815,7 @@ const structuredData = {
             <p class="text-white">¡Hola! 👋 Soy una IA Tecnica virtual. Preguntame lo que quieras puedo ayudarte con información sobre <strong class="text-[#82e256]">${service.name}</strong>.</p>
             <p class="text-white mt-2">${service.description}</p>
             <p class="text-gray-400 text-sm mt-3">ó prefieres agendar una</p>
-            <a href="https://aquicreamos.com/#asesorias" class="inline-flex items-center gap-2 mt-4 px-4 py-2 text-purple-400 font-semibold rounded-lg transition-all">
+            <a /#asesorias" class="inline-flex items-center gap-2 mt-4 px-4 py-2 text-purple-400 font-semibold rounded-lg transition-all">
               <span class="material-symbols-outlined text-sm">calendar_month</span>
                asesoría personalizada
             </a>
@@ -685,25 +826,27 @@ const structuredData = {
     }
 
     // Mostrar modal
-    const modal = document.getElementById('ai-modal');
+    const modal = document.getElementById("ai-modal");
     if (modal) {
-      modal.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
+      modal.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
     }
 
     // Focus en el input
     setTimeout(() => {
-      const chatInput = document.getElementById('chat-input') as HTMLInputElement;
+      const chatInput = document.getElementById(
+        "chat-input",
+      ) as HTMLInputElement;
       chatInput?.focus();
     }, 100);
   }
 
   // Cerrar modal
   function closeModal() {
-    const modal = document.getElementById('ai-modal');
+    const modal = document.getElementById("ai-modal");
     if (modal) {
-      modal.classList.add('hidden');
-      document.body.style.overflow = 'auto';
+      modal.classList.add("hidden");
+      document.body.style.overflow = "auto";
     }
     currentService = null;
     conversationHistory = [];
@@ -711,11 +854,13 @@ const structuredData = {
 
   // Agregar mensaje al chat
   function addMessage(content: string, isUser: boolean) {
-    const chatMessages = document.getElementById('chat-messages');
+    const chatMessages = document.getElementById("chat-messages");
     if (!chatMessages) return;
 
-    const messageDiv = document.createElement('div');
-    messageDiv.className = isUser ? 'message-user flex gap-3 justify-end' : 'message-ai flex gap-3';
+    const messageDiv = document.createElement("div");
+    messageDiv.className = isUser
+      ? "message-user flex gap-3 justify-end"
+      : "message-ai flex gap-3";
 
     if (isUser) {
       messageDiv.innerHTML = `
@@ -747,13 +892,13 @@ const structuredData = {
 
     // Agregar mensaje del usuario
     addMessage(question, true);
-    conversationHistory.push({ role: 'user', content: question });
+    conversationHistory.push({ role: "user", content: question });
 
     // Mostrar indicador de carga
-    const chatMessages = document.getElementById('chat-messages');
-    const loadingDiv = document.createElement('div');
-    loadingDiv.className = 'message-ai flex gap-3';
-    loadingDiv.id = 'loading-message';
+    const chatMessages = document.getElementById("chat-messages");
+    const loadingDiv = document.createElement("div");
+    loadingDiv.className = "message-ai flex gap-3";
+    loadingDiv.id = "loading-message";
     loadingDiv.innerHTML = `
       <div class="flex-shrink-0">
         <span class="text-3xl">🤖</span>
@@ -773,19 +918,20 @@ const structuredData = {
     chatMessages!.scrollTop = chatMessages!.scrollHeight;
 
     try {
-      const BACKEND_URL = import.meta.env.PUBLIC_BACKEND_URL || 'http://localhost:3001';
+      const BACKEND_URL =
+        import.meta.env.PUBLIC_BACKEND_URL || "http://localhost:3001";
       const response = await fetch(`${BACKEND_URL}/api/chat`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           question,
           conversationHistory,
           serviceContext: {
             serviceName: currentService.name,
-            serviceDescription: currentService.description
-          }
+            serviceDescription: currentService.description,
+          },
         }),
       });
 
@@ -796,52 +942,63 @@ const structuredData = {
 
       if (data.success && data.response) {
         addMessage(data.response, false);
-        conversationHistory.push({ role: 'assistant', content: data.response });
+        conversationHistory.push({ role: "assistant", content: data.response });
       } else {
-        addMessage('Lo siento, hubo un error al procesar tu pregunta. Por favor, intenta de nuevo.', false);
+        addMessage(
+          "Lo siento, hubo un error al procesar tu pregunta. Por favor, intenta de nuevo.",
+          false,
+        );
       }
     } catch (error) {
-      console.error('Error sending message:', error);
+      console.error("Error sending message:", error);
       loadingDiv.remove();
-      addMessage('Lo siento, hubo un error de conexión. Por favor, verifica tu conexión e intenta de nuevo.', false);
+      addMessage(
+        "Lo siento, hubo un error de conexión. Por favor, verifica tu conexión e intenta de nuevo.",
+        false,
+      );
     }
   }
 
   // Actualizar contador de resultados
-  function updateResultsCount(count: number, type: 'servicios' | 'automatizaciones') {
-    const counter = document.getElementById('results-count');
-    const typeLabel = document.getElementById('results-type');
+  function updateResultsCount(
+    count: number,
+    type: "servicios" | "automatizaciones",
+  ) {
+    const counter = document.getElementById("results-count");
+    const typeLabel = document.getElementById("results-type");
     if (counter) {
       counter.textContent = count.toString();
     }
     if (typeLabel) {
-      const text = type === 'servicios' ? 'servicios' : 'automatizaciones';
+      const text = type === "servicios" ? "servicios" : "automatizaciones";
       typeLabel.textContent = text;
     }
   }
 
   // Variable para rastrear el tab actual
-  let currentTab: 'servicios' | 'automatizaciones' = 'servicios';
+  let currentTab: "servicios" | "automatizaciones" = "servicios";
 
   // Event listener para búsqueda de texto
-  const searchInput = document.getElementById('search-input') as HTMLInputElement;
-  const clearSearchBtn = document.getElementById('clear-search-btn');
+  const searchInput = document.getElementById(
+    "search-input",
+  ) as HTMLInputElement;
+  const clearSearchBtn = document.getElementById("clear-search-btn");
 
   if (searchInput && clearSearchBtn) {
-    searchInput.addEventListener('input', (e) => {
+    searchInput.addEventListener("input", (e) => {
       searchQuery = (e.target as HTMLInputElement).value;
 
       // Mostrar/ocultar botón de limpiar
       if (searchQuery) {
-        clearSearchBtn.classList.remove('hidden');
+        clearSearchBtn.classList.remove("hidden");
       } else {
-        clearSearchBtn.classList.add('hidden');
+        clearSearchBtn.classList.add("hidden");
       }
 
       updateURL();
 
       // Aplicar filtros según el tab actual
-      if (currentTab === 'servicios') {
+      if (currentTab === "servicios") {
         applyFilters();
       } else {
         applyWorkflowFilters();
@@ -851,14 +1008,14 @@ const structuredData = {
     });
 
     // Botón para limpiar búsqueda
-    clearSearchBtn.addEventListener('click', () => {
-      searchInput.value = '';
-      searchQuery = '';
-      clearSearchBtn.classList.add('hidden');
+    clearSearchBtn.addEventListener("click", () => {
+      searchInput.value = "";
+      searchQuery = "";
+      clearSearchBtn.classList.add("hidden");
       updateURL();
 
       // Aplicar filtros según el tab actual
-      if (currentTab === 'servicios') {
+      if (currentTab === "servicios") {
         applyFilters();
       } else {
         applyWorkflowFilters();
@@ -869,60 +1026,63 @@ const structuredData = {
 
     // Mostrar botón si hay texto inicial desde URL
     if (searchQuery) {
-      clearSearchBtn.classList.remove('hidden');
+      clearSearchBtn.classList.remove("hidden");
     }
   }
 
   // Toggle filter dropdown
-  const filterToggleBtn = document.getElementById('filter-toggle-btn');
-  const filterDropdown = document.getElementById('filter-dropdown');
-  const applyFiltersBtn = document.getElementById('apply-filters-btn');
+  const filterToggleBtn = document.getElementById("filter-toggle-btn");
+  const filterDropdown = document.getElementById("filter-dropdown");
+  const applyFiltersBtn = document.getElementById("apply-filters-btn");
 
   if (filterToggleBtn && filterDropdown) {
-    filterToggleBtn.addEventListener('click', (e) => {
+    filterToggleBtn.addEventListener("click", (e) => {
       e.stopPropagation();
-      const isHidden = filterDropdown.classList.contains('hidden');
+      const isHidden = filterDropdown.classList.contains("hidden");
 
       if (isHidden) {
-        filterDropdown.classList.remove('hidden');
+        filterDropdown.classList.remove("hidden");
         // Trigger reflow para la animación
         void filterDropdown.offsetWidth;
       } else {
-        filterDropdown.classList.add('hidden');
+        filterDropdown.classList.add("hidden");
       }
     });
 
     // Cerrar dropdown al hacer clic fuera
-    document.addEventListener('click', (e) => {
-      if (!filterToggleBtn.contains(e.target as Node) && !filterDropdown.contains(e.target as Node)) {
-        filterDropdown.classList.add('hidden');
+    document.addEventListener("click", (e) => {
+      if (
+        !filterToggleBtn.contains(e.target as Node) &&
+        !filterDropdown.contains(e.target as Node)
+      ) {
+        filterDropdown.classList.add("hidden");
       }
     });
 
     // Botón "Aplicar filtros" cierra el dropdown
     if (applyFiltersBtn) {
-      applyFiltersBtn.addEventListener('click', () => {
-        filterDropdown.classList.add('hidden');
+      applyFiltersBtn.addEventListener("click", () => {
+        filterDropdown.classList.add("hidden");
       });
     }
 
     // Cerrar con tecla ESC
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !filterDropdown.classList.contains('hidden')) {
-        filterDropdown.classList.add('hidden');
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !filterDropdown.classList.contains("hidden")) {
+        filterDropdown.classList.add("hidden");
       }
     });
   }
 
   // Limpiar todas las categorías
-  const clearCategoriesBtn = document.getElementById('clear-categories');
+  const clearCategoriesBtn = document.getElementById("clear-categories");
   if (clearCategoriesBtn) {
-    clearCategoriesBtn.addEventListener('click', () => {
+    clearCategoriesBtn.addEventListener("click", () => {
       selectedCategories.clear();
       updateURL();
 
       // Aplicar filtros según el tab actual
-      if (currentTab === 'servicios') {
+      if (currentTab === "servicios") {
         applyFilters();
       } else {
         applyWorkflowFilters();
@@ -935,16 +1095,16 @@ const structuredData = {
   }
 
   // Limpiar todos los filtros (búsqueda + categorías)
-  const clearAllFiltersBtn = document.getElementById('clear-all-filters');
+  const clearAllFiltersBtn = document.getElementById("clear-all-filters");
   if (clearAllFiltersBtn) {
-    clearAllFiltersBtn.addEventListener('click', () => {
+    clearAllFiltersBtn.addEventListener("click", () => {
       // Limpiar búsqueda
       if (searchInput) {
-        searchInput.value = '';
-        searchQuery = '';
+        searchInput.value = "";
+        searchQuery = "";
       }
       if (clearSearchBtn) {
-        clearSearchBtn.classList.add('hidden');
+        clearSearchBtn.classList.add("hidden");
       }
 
       // Limpiar categorías
@@ -954,7 +1114,7 @@ const structuredData = {
       updateURL();
 
       // Aplicar filtros según el tab actual
-      if (currentTab === 'servicios') {
+      if (currentTab === "servicios") {
         applyFilters();
       } else {
         applyWorkflowFilters();
@@ -968,28 +1128,28 @@ const structuredData = {
 
   // Actualizar visibilidad del botón "Limpiar todos los filtros"
   function updateClearAllButton() {
-    const clearAllBtn = document.getElementById('clear-all-filters');
+    const clearAllBtn = document.getElementById("clear-all-filters");
     if (!clearAllBtn) return;
 
     const hasFilters = searchQuery || selectedCategories.size > 0;
 
     if (hasFilters) {
-      clearAllBtn.classList.remove('hidden');
+      clearAllBtn.classList.remove("hidden");
     } else {
-      clearAllBtn.classList.add('hidden');
+      clearAllBtn.classList.add("hidden");
     }
   }
 
   // Event listeners para el modal
-  const closeModalBtn = document.getElementById('close-ai-modal');
+  const closeModalBtn = document.getElementById("close-ai-modal");
   if (closeModalBtn) {
-    closeModalBtn.addEventListener('click', closeModal);
+    closeModalBtn.addEventListener("click", closeModal);
   }
 
   // Cerrar modal al hacer clic fuera de él
-  const aiModal = document.getElementById('ai-modal');
+  const aiModal = document.getElementById("ai-modal");
   if (aiModal) {
-    aiModal.addEventListener('click', (e) => {
+    aiModal.addEventListener("click", (e) => {
       if (e.target === aiModal) {
         closeModal();
       }
@@ -997,14 +1157,16 @@ const structuredData = {
   }
 
   // Event listener para el formulario de chat
-  const chatForm = document.getElementById('chat-form');
+  const chatForm = document.getElementById("chat-form");
   if (chatForm) {
-    chatForm.addEventListener('submit', async (e) => {
+    chatForm.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const chatInput = document.getElementById('chat-input') as HTMLInputElement;
+      const chatInput = document.getElementById(
+        "chat-input",
+      ) as HTMLInputElement;
       if (chatInput && chatInput.value.trim()) {
         const question = chatInput.value.trim();
-        chatInput.value = '';
+        chatInput.value = "";
         await sendMessage(question);
       }
     });
@@ -1014,74 +1176,81 @@ const structuredData = {
   loadServices();
 
   // ===== TABS LOGIC =====
-  const tabServiciosBtn = document.getElementById('tab-servicios');
-  const tabAutomatizacionesBtn = document.getElementById('tab-automatizaciones');
-  const contentServicios = document.getElementById('content-servicios');
-  const contentAutomatizaciones = document.getElementById('content-automatizaciones');
-  const sectionFiltros = document.getElementById('section-filtros');
+  const tabServiciosBtn = document.getElementById("tab-servicios");
+  const tabAutomatizacionesBtn = document.getElementById(
+    "tab-automatizaciones",
+  );
+  const contentServicios = document.getElementById("content-servicios");
+  const contentAutomatizaciones = document.getElementById(
+    "content-automatizaciones",
+  );
+  const sectionFiltros = document.getElementById("section-filtros");
 
   // Función para limpiar todos los filtros al cambiar de tab
   function clearAllFiltersOnTabSwitch() {
     // Limpiar input de búsqueda
-    const searchInputEl = document.getElementById('search-input') as HTMLInputElement;
+    const searchInputEl = document.getElementById(
+      "search-input",
+    ) as HTMLInputElement;
     if (searchInputEl) {
-      searchInputEl.value = '';
+      searchInputEl.value = "";
     }
 
     // Limpiar botón de limpiar búsqueda
-    const clearSearchBtn = document.getElementById('clear-search-btn');
+    const clearSearchBtn = document.getElementById("clear-search-btn");
     if (clearSearchBtn) {
-      clearSearchBtn.classList.add('hidden');
+      clearSearchBtn.classList.add("hidden");
     }
 
     // Limpiar categorías seleccionadas
-    if (typeof selectedCategories !== 'undefined') {
+    if (typeof selectedCategories !== "undefined") {
       selectedCategories.clear();
     }
 
     // Limpiar variable de búsqueda global
-    if (typeof searchQuery !== 'undefined') {
-      searchQuery = '';
+    if (typeof searchQuery !== "undefined") {
+      searchQuery = "";
     }
 
     // Actualizar displays
-    if (typeof updateSelectedCategoriesDisplay === 'function') {
+    if (typeof updateSelectedCategoriesDisplay === "function") {
       updateSelectedCategoriesDisplay();
     }
-    if (typeof renderCategoryCheckboxes === 'function') {
+    if (typeof renderCategoryCheckboxes === "function") {
       renderCategoryCheckboxes();
     }
-    if (typeof updateClearAllButton === 'function') {
+    if (typeof updateClearAllButton === "function") {
       updateClearAllButton();
     }
 
     // Ocultar botón de limpiar todos los filtros
-    const clearAllBtn = document.getElementById('clear-all-filters');
+    const clearAllBtn = document.getElementById("clear-all-filters");
     if (clearAllBtn) {
-      clearAllBtn.classList.add('hidden');
+      clearAllBtn.classList.add("hidden");
     }
 
     // Ocultar badge de filtros
-    const filterBadge = document.getElementById('filter-badge');
+    const filterBadge = document.getElementById("filter-badge");
     if (filterBadge) {
-      filterBadge.classList.add('hidden');
+      filterBadge.classList.add("hidden");
     }
 
     // Ocultar chips de categorías seleccionadas
-    const chipsContainer = document.getElementById('selected-categories-chips');
+    const chipsContainer = document.getElementById("selected-categories-chips");
     if (chipsContainer) {
-      chipsContainer.classList.add('hidden');
-      chipsContainer.innerHTML = '';
+      chipsContainer.classList.add("hidden");
+      chipsContainer.innerHTML = "";
     }
   }
 
-  function switchTab(tab: 'servicios' | 'automatizaciones', updateURL = true) {
+  function switchTab(tab: "servicios" | "automatizaciones", updateURL = true) {
     currentTab = tab;
 
     // Actualizar URL hash para SEO
     if (updateURL) {
-      const newHash = tab === 'servicios' ? '#servicios-profesionales' : '#automatizaciones';
-      window.history.pushState(null, '', newHash);
+      const newHash =
+        tab === "servicios" ? "#servicios-profesionales" : "#automatizaciones";
+      window.history.pushState(null, "", newHash);
 
       // Actualizar meta tags dinámicamente
       updateMetaTags(tab);
@@ -1090,40 +1259,52 @@ const structuredData = {
     // Limpiar todos los filtros al cambiar de tab
     clearAllFiltersOnTabSwitch();
 
-    if (tab === 'servicios') {
+    if (tab === "servicios") {
       // Activar tab servicios
-      tabServiciosBtn?.classList.add('active', 'bg-[#82e256]', 'text-black');
-      tabServiciosBtn?.classList.remove('bg-white/10', 'text-white');
-      tabAutomatizacionesBtn?.classList.remove('active', 'bg-[#82e256]', 'text-black');
-      tabAutomatizacionesBtn?.classList.add('bg-white/10', 'text-white');
+      tabServiciosBtn?.classList.add("active", "bg-[#82e256]", "text-black");
+      tabServiciosBtn?.classList.remove("bg-white/10", "text-white");
+      tabAutomatizacionesBtn?.classList.remove(
+        "active",
+        "bg-[#82e256]",
+        "text-black",
+      );
+      tabAutomatizacionesBtn?.classList.add("bg-white/10", "text-white");
 
       // Mostrar contenido servicios
-      contentServicios?.classList.remove('hidden');
-      contentAutomatizaciones?.classList.add('hidden');
-      sectionFiltros?.classList.remove('hidden');
+      contentServicios?.classList.remove("hidden");
+      contentAutomatizaciones?.classList.add("hidden");
+      sectionFiltros?.classList.remove("hidden");
 
       // Actualizar categorías disponibles para servicios
-      availableCategories = [...new Set(allServices.map(s => s.category).filter(Boolean))];
+      availableCategories = [
+        ...new Set(allServices.map((s) => s.category).filter(Boolean)),
+      ];
       renderCategoryCheckboxes();
 
       // Cargar todos los servicios sin filtros
-      const filtered = filterServices('');
+      const filtered = filterServices("");
       renderServices(filtered);
-      updateResultsCount(filtered.length, 'servicios');
+      updateResultsCount(filtered.length, "servicios");
     } else {
       // Activar tab automatizaciones
-      tabAutomatizacionesBtn?.classList.add('active', 'bg-[#82e256]', 'text-black');
-      tabAutomatizacionesBtn?.classList.remove('bg-white/10', 'text-white');
-      tabServiciosBtn?.classList.remove('active', 'bg-[#82e256]', 'text-black');
-      tabServiciosBtn?.classList.add('bg-white/10', 'text-white');
+      tabAutomatizacionesBtn?.classList.add(
+        "active",
+        "bg-[#82e256]",
+        "text-black",
+      );
+      tabAutomatizacionesBtn?.classList.remove("bg-white/10", "text-white");
+      tabServiciosBtn?.classList.remove("active", "bg-[#82e256]", "text-black");
+      tabServiciosBtn?.classList.add("bg-white/10", "text-white");
 
       // Mostrar contenido automatizaciones
-      contentAutomatizaciones?.classList.remove('hidden');
-      contentServicios?.classList.add('hidden');
-      sectionFiltros?.classList.remove('hidden');
+      contentAutomatizaciones?.classList.remove("hidden");
+      contentServicios?.classList.add("hidden");
+      sectionFiltros?.classList.remove("hidden");
 
       // Actualizar categorías disponibles para workflows
-      availableCategories = [...new Set(workflows.map(w => w.category).filter(Boolean))];
+      availableCategories = [
+        ...new Set(workflows.map((w) => w.category).filter(Boolean)),
+      ];
       renderCategoryCheckboxes();
 
       // Renderizar workflows
@@ -1136,75 +1317,79 @@ const structuredData = {
       }
 
       // Actualizar contador con todos los workflows
-      const filtered = filterWorkflows('');
-      updateResultsCount(filtered.length, 'automatizaciones');
+      const filtered = filterWorkflows("");
+      updateResultsCount(filtered.length, "automatizaciones");
     }
   }
 
   // Event listeners para tabs - ahora con prevención de navegación y actualización de URL
-  tabServiciosBtn?.addEventListener('click', (e) => {
+  tabServiciosBtn?.addEventListener("click", (e) => {
     e.preventDefault();
-    switchTab('servicios', true);
+    switchTab("servicios", true);
   });
 
-  tabAutomatizacionesBtn?.addEventListener('click', (e) => {
+  tabAutomatizacionesBtn?.addEventListener("click", (e) => {
     e.preventDefault();
-    switchTab('automatizaciones', true);
+    switchTab("automatizaciones", true);
   });
 
   // Detectar tab inicial desde URL hash
   function initTabFromURL() {
     const hash = window.location.hash;
-    if (hash === '#automatizaciones') {
-      switchTab('automatizaciones', false);
+    if (hash === "#automatizaciones") {
+      switchTab("automatizaciones", false);
     } else {
       // Por defecto servicios-profesionales
-      if (!hash || hash === '') {
-        window.history.replaceState(null, '', '#servicios-profesionales');
+      if (!hash || hash === "") {
+        window.history.replaceState(null, "", "#servicios-profesionales");
       }
-      switchTab('servicios', false);
+      switchTab("servicios", false);
     }
   }
 
   // Manejar cambios en el hash (navegación con botones del navegador)
-  window.addEventListener('hashchange', () => {
+  window.addEventListener("hashchange", () => {
     const hash = window.location.hash;
-    if (hash === '#automatizaciones') {
-      switchTab('automatizaciones', false);
+    if (hash === "#automatizaciones") {
+      switchTab("automatizaciones", false);
     } else {
-      switchTab('servicios', false);
+      switchTab("servicios", false);
     }
   });
 
   // Función para actualizar meta tags dinámicamente
-  function updateMetaTags(tab: 'servicios' | 'automatizaciones') {
-    const title = tab === 'servicios'
-      ? 'Servicios Profesionales | Aquí Creamos'
-      : 'Automatizaciones IA | Aquí Creamos';
+  function updateMetaTags(tab: "servicios" | "automatizaciones") {
+    const title =
+      tab === "servicios"
+        ? "Servicios Profesionales | Aquí Creamos"
+        : "Automatizaciones IA | Aquí Creamos";
 
-    const description = tab === 'servicios'
-      ? 'Servicios profesionales de desarrollo: web, móvil, IA, machine learning, DevOps y arquitectura cloud. Soluciones tecnológicas a medida.'
-      : 'Automatizaciones inteligentes con IA: chatbots, agentes virtuales, workflows automatizados y soluciones n8n personalizadas para tu negocio.';
+    const description =
+      tab === "servicios"
+        ? "Servicios profesionales de desarrollo: web, móvil, IA, machine learning, DevOps y arquitectura cloud. Soluciones tecnológicas a medida."
+        : "Automatizaciones inteligentes con IA: chatbots, agentes virtuales, workflows automatizados y soluciones n8n personalizadas para tu negocio.";
 
     document.title = title;
 
     // Actualizar meta description
     const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.setAttribute('content', description);
+    if (metaDesc) metaDesc.setAttribute("content", description);
 
     // Actualizar OG tags
     const ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) ogTitle.setAttribute('content', title);
+    if (ogTitle) ogTitle.setAttribute("content", title);
 
     const ogDesc = document.querySelector('meta[property="og:description"]');
-    if (ogDesc) ogDesc.setAttribute('content', description);
+    if (ogDesc) ogDesc.setAttribute("content", description);
 
     // Actualizar Twitter tags
     const twitterTitle = document.querySelector('meta[name="twitter:title"]');
-    if (twitterTitle) twitterTitle.setAttribute('content', title);
+    if (twitterTitle) twitterTitle.setAttribute("content", title);
 
-    const twitterDesc = document.querySelector('meta[name="twitter:description"]');
-    if (twitterDesc) twitterDesc.setAttribute('content', description);
+    const twitterDesc = document.querySelector(
+      'meta[name="twitter:description"]',
+    );
+    if (twitterDesc) twitterDesc.setAttribute("content", description);
   }
 
   // ===== WORKFLOWS DATA & LOGIC =====
@@ -1215,589 +1400,1078 @@ const structuredData = {
       id: 1,
       icon: "message-circle",
       title: "Chatbot WhatsApp con IA y RAG",
-      description: "Asistente inteligente 24/7 para WhatsApp con memoria contextual y búsqueda en base de conocimiento vectorial. Responde preguntas de clientes usando documentación empresarial.",
+      description:
+        "Asistente inteligente 24/7 para WhatsApp con memoria contextual y búsqueda en base de conocimiento vectorial. Responde preguntas de clientes usando documentación empresarial.",
       category: "Atención al Cliente",
-      features: ["Integración WhatsApp Business API", "Base de datos vectorial (Qdrant)", "Memoria de conversación por usuario", "Respuestas personalizadas con GPT-4", "Búsqueda semántica en documentos"],
+      features: [
+        "Integración WhatsApp Business API",
+        "Base de datos vectorial (Qdrant)",
+        "Memoria de conversación por usuario",
+        "Respuestas personalizadas con GPT-4",
+        "Búsqueda semántica en documentos",
+      ],
       tech: ["n8n", "OpenAI GPT-4", "Qdrant", "WhatsApp API"],
       roi: "70% menos tiempo de respuesta (Chatbot inteligente disponible 24/7 con memoria contextual)",
-      difficulty: "Intermedio"
+      difficulty: "Intermedio",
     },
     {
       id: 2,
       icon: "bot",
       title: "Agente IA con Herramientas y Memoria",
-      description: "Agente conversacional con capacidades extendidas: consulta clima, búsqueda web, cálculos matemáticos y memoria persistente de sesiones.",
+      description:
+        "Agente conversacional con capacidades extendidas: consulta clima, búsqueda web, cálculos matemáticos y memoria persistente de sesiones.",
       category: "Asistentes Virtuales",
-      features: ["Herramienta de clima en tiempo real", "Búsqueda web con SerpAPI", "Calculadora matemática avanzada", "Memoria de conversación (15 mensajes)", "Guardado en base de datos PostgreSQL"],
+      features: [
+        "Herramienta de clima en tiempo real",
+        "Búsqueda web con SerpAPI",
+        "Calculadora matemática avanzada",
+        "Memoria de conversación (15 mensajes)",
+        "Guardado en base de datos PostgreSQL",
+      ],
       tech: ["n8n", "OpenAI GPT-4", "SerpAPI", "PostgreSQL"],
       roi: "90% consultas repetitivas automatizadas (Agente IA con herramientas y memoria persistente)",
-      difficulty: "Avanzado"
+      difficulty: "Avanzado",
     },
     {
       id: 3,
       icon: "headphones",
       title: "Soporte al Cliente Automatizado",
-      description: "Sistema completo de atención al cliente con análisis de sentimiento, priorización automática, búsqueda en base de conocimiento y respuestas personalizadas por IA.",
+      description:
+        "Sistema completo de atención al cliente con análisis de sentimiento, priorización automática, búsqueda en base de conocimiento y respuestas personalizadas por IA.",
       category: "Atención al Cliente",
-      features: ["Análisis de sentimiento con IA", "Priorización automática de tickets", "Consulta historial y perfil del cliente", "Base de conocimiento vectorial", "Alertas a equipo si sentimiento negativo", "Notificaciones multi-canal (Email, Slack)"],
+      features: [
+        "Análisis de sentimiento con IA",
+        "Priorización automática de tickets",
+        "Consulta historial y perfil del cliente",
+        "Base de conocimiento vectorial",
+        "Alertas a equipo si sentimiento negativo",
+        "Notificaciones multi-canal (Email, Slack)",
+      ],
       tech: ["n8n", "OpenAI GPT-4", "Qdrant", "PostgreSQL", "Gmail", "Slack"],
       roi: "80% reducción de carga manual (Priorización automática y análisis de sentimiento con IA)",
-      difficulty: "Avanzado"
+      difficulty: "Avanzado",
     },
     {
       id: 4,
       icon: "shopping-cart",
       title: "Recuperación de Carritos Abandonados",
-      description: "Estrategia multi-canal para recuperar ventas perdidas con emails personalizados por IA, SMS y WhatsApp. Descuentos inteligentes basados en valor del carrito.",
+      description:
+        "Estrategia multi-canal para recuperar ventas perdidas con emails personalizados por IA, SMS y WhatsApp. Descuentos inteligentes basados en valor del carrito.",
       category: "E-commerce",
-      features: ["Email personalizado con GPT-4 (1 hora)", "SMS con urgencia (3 horas)", "WhatsApp con video de productos (24 horas)", "Descuentos dinámicos según valor", "Códigos únicos con expiración", "Tracking completo de envíos"],
-      tech: ["n8n", "OpenAI GPT-4", "Gmail", "Twilio", "WhatsApp", "PostgreSQL"],
+      features: [
+        "Email personalizado con GPT-4 (1 hora)",
+        "SMS con urgencia (3 horas)",
+        "WhatsApp con video de productos (24 horas)",
+        "Descuentos dinámicos según valor",
+        "Códigos únicos con expiración",
+        "Tracking completo de envíos",
+      ],
+      tech: [
+        "n8n",
+        "OpenAI GPT-4",
+        "Gmail",
+        "Twilio",
+        "WhatsApp",
+        "PostgreSQL",
+      ],
       roi: "25-40% más conversiones (Recomendaciones y promociones automatizadas por IA)",
-      difficulty: "Intermedio"
+      difficulty: "Intermedio",
     },
     {
       id: 5,
       icon: "file-text",
       title: "Gestión Inteligente de Documentos",
-      description: "Sistema RAG completo para upload, procesamiento y consulta de documentos empresariales con IA.",
+      description:
+        "Sistema RAG completo para upload, procesamiento y consulta de documentos empresariales con IA.",
       category: "Gestión Documental",
-      features: ["Upload y procesamiento automático", "Extracción de texto con OCR", "Indexación en base vectorial", "Sistema de preguntas y respuestas", "Búsqueda semántica avanzada"],
+      features: [
+        "Upload y procesamiento automático",
+        "Extracción de texto con OCR",
+        "Indexación en base vectorial",
+        "Sistema de preguntas y respuestas",
+        "Búsqueda semántica avanzada",
+      ],
       tech: ["n8n", "OpenAI Embeddings", "Qdrant", "LangChain"],
       roi: "90% reducción en búsqueda manual (Indexación vectorial y búsqueda semántica inteligente)",
-      difficulty: "Avanzado"
+      difficulty: "Avanzado",
     },
     {
       id: 6,
       icon: "mail",
       title: "Campañas de Email Marketing con IA",
-      description: "Automatización completa de campañas de email con contenido generado por IA, segmentación inteligente y seguimiento de métricas.",
+      description:
+        "Automatización completa de campañas de email con contenido generado por IA, segmentación inteligente y seguimiento de métricas.",
       category: "Marketing",
-      features: ["Generación de contenido con IA", "Segmentación de audiencias", "Personalización por usuario", "A/B testing automático", "Análisis de tasas de apertura/clics"],
+      features: [
+        "Generación de contenido con IA",
+        "Segmentación de audiencias",
+        "Personalización por usuario",
+        "A/B testing automático",
+        "Análisis de tasas de apertura/clics",
+      ],
       tech: ["n8n", "OpenAI GPT-4", "Gmail/SendGrid", "PostgreSQL"],
       roi: "35% mejora en engagement (Segmentación inteligente y personalización con IA)",
-      difficulty: "Intermedio"
+      difficulty: "Intermedio",
     },
     {
       id: 7,
       icon: "user-plus",
       title: "Lead Generation en LinkedIn",
-      description: "Automatización de prospección en LinkedIn con mensajes personalizados generados por IA y seguimiento automático.",
+      description:
+        "Automatización de prospección en LinkedIn con mensajes personalizados generados por IA y seguimiento automático.",
       category: "Ventas",
-      features: ["Búsqueda automática de prospectos", "Mensajes personalizados con IA", "Seguimiento de interacciones", "Calificación de leads", "Integración con CRM"],
+      features: [
+        "Búsqueda automática de prospectos",
+        "Mensajes personalizados con IA",
+        "Seguimiento de interacciones",
+        "Calificación de leads",
+        "Integración con CRM",
+      ],
       tech: ["n8n", "LinkedIn API", "OpenAI GPT-4", "PostgreSQL"],
       roi: "3x más leads calificados (Prospección y mensajes personalizados por IA)",
-      difficulty: "Avanzado"
+      difficulty: "Avanzado",
     },
     {
       id: 8,
       icon: "briefcase",
       title: "Automatización de Propuestas Upwork",
-      description: "Sistema que detecta proyectos relevantes en Upwork y genera propuestas personalizadas usando IA basándose en tu perfil.",
+      description:
+        "Sistema que detecta proyectos relevantes en Upwork y genera propuestas personalizadas usando IA basándose en tu perfil.",
       category: "Freelancing",
-      features: ["Scraping de proyectos Upwork", "Filtrado por keywords y presupuesto", "Generación de propuestas con IA", "Personalización basada en portfolio", "Envío automático (opcional)"],
+      features: [
+        "Scraping de proyectos Upwork",
+        "Filtrado por keywords y presupuesto",
+        "Generación de propuestas con IA",
+        "Personalización basada en portfolio",
+        "Envío automático (opcional)",
+      ],
       tech: ["n8n", "Upwork API", "OpenAI GPT-4", "Web Scraping"],
       roi: "5x más propuestas enviadas (Generación y envío automático con IA)",
-      difficulty: "Intermedio"
+      difficulty: "Intermedio",
     },
     {
       id: 9,
       icon: "share-2",
       title: "Gestión de Redes Sociales Multi-plataforma",
-      description: "Publica contenido simultáneamente en múltiples plataformas con contenido generado y optimizado por IA para cada red social.",
+      description:
+        "Publica contenido simultáneamente en múltiples plataformas con contenido generado y optimizado por IA para cada red social.",
       category: "Marketing",
-      features: ["Publicación multi-canal (Twitter, LinkedIn, Instagram)", "Adaptación de contenido por red social", "Generación de hashtags con IA", "Programación de posts", "Análisis de engagement"],
-      tech: ["n8n", "OpenAI GPT-4", "Twitter API", "LinkedIn API", "Instagram API"],
+      features: [
+        "Publicación multi-canal (Twitter, LinkedIn, Instagram)",
+        "Adaptación de contenido por red social",
+        "Generación de hashtags con IA",
+        "Programación de posts",
+        "Análisis de engagement",
+      ],
+      tech: [
+        "n8n",
+        "OpenAI GPT-4",
+        "Twitter API",
+        "LinkedIn API",
+        "Instagram API",
+      ],
       roi: "70% ahorro de tiempo (Contenido adaptado y publicación multi-canal automática)",
-      difficulty: "Intermedio"
+      difficulty: "Intermedio",
     },
     {
       id: 10,
       icon: "globe",
       title: "Web Scraping y Enriquecimiento de Datos",
-      description: "Extrae datos de sitios web y enriquécelos con IA para obtener insights, clasificaciones y análisis de mercado.",
+      description:
+        "Extrae datos de sitios web y enriquécelos con IA para obtener insights, clasificaciones y análisis de mercado.",
       category: "Data Intelligence",
-      features: ["Scraping automático programado", "Limpieza de datos con IA", "Clasificación y categorización", "Detección de cambios", "Análisis de tendencias"],
+      features: [
+        "Scraping automático programado",
+        "Limpieza de datos con IA",
+        "Clasificación y categorización",
+        "Detección de cambios",
+        "Análisis de tendencias",
+      ],
       tech: ["n8n", "Cheerio/Puppeteer", "OpenAI GPT-4", "PostgreSQL"],
       roi: "Ahorro de 20h/semana (Scraping automático y análisis de datos con IA)",
-      difficulty: "Avanzado"
+      difficulty: "Avanzado",
     },
     {
       id: 11,
       icon: "pen-tool",
       title: "Creación de Contenido con IA",
-      description: "Generación masiva de contenido optimizado SEO: blogs, posts sociales, scripts de video, newsletters y más.",
+      description:
+        "Generación masiva de contenido optimizado SEO: blogs, posts sociales, scripts de video, newsletters y más.",
       category: "Marketing",
-      features: ["Generación de artículos largos", "Optimización SEO automática", "Creación de meta descriptions", "Generación de imágenes con DALL-E", "Publicación automática en CMS"],
+      features: [
+        "Generación de artículos largos",
+        "Optimización SEO automática",
+        "Creación de meta descriptions",
+        "Generación de imágenes con DALL-E",
+        "Publicación automática en CMS",
+      ],
       tech: ["n8n", "OpenAI GPT-4", "DALL-E", "WordPress API"],
       roi: "10x velocidad de producción (Contenido SEO generado automáticamente con IA)",
-      difficulty: "Intermedio"
+      difficulty: "Intermedio",
     },
     {
       id: 12,
       icon: "bell",
       title: "Notificaciones Inteligentes Multi-Canal",
-      description: "Sistema centralizado de notificaciones que selecciona el canal óptimo (Email, SMS, WhatsApp, Slack) según urgencia y preferencias.",
+      description:
+        "Sistema centralizado de notificaciones que selecciona el canal óptimo (Email, SMS, WhatsApp, Slack) según urgencia y preferencias.",
       category: "Comunicación",
-      features: ["Enrutamiento inteligente por urgencia", "Preferencias personalizadas por usuario", "Fallback automático entre canales", "Consolidación de notificaciones", "Analytics de entrega"],
+      features: [
+        "Enrutamiento inteligente por urgencia",
+        "Preferencias personalizadas por usuario",
+        "Fallback automático entre canales",
+        "Consolidación de notificaciones",
+        "Analytics de entrega",
+      ],
       tech: ["n8n", "Twilio", "WhatsApp", "Gmail", "Slack", "OpenAI"],
       roi: "40% mejor tasa de respuesta a notificaciones importantes",
-      difficulty: "Avanzado"
+      difficulty: "Avanzado",
     },
     {
       id: 13,
       icon: "user-check",
       title: "Onboarding Automatizado de Empleados",
-      description: "Automatiza todo el proceso de incorporación: creación de cuentas, asignación de equipos, capacitaciones, documentación y seguimiento personalizado del nuevo empleado.",
+      description:
+        "Automatiza todo el proceso de incorporación: creación de cuentas, asignación de equipos, capacitaciones, documentación y seguimiento personalizado del nuevo empleado.",
       category: "Talento Humano",
-      features: ["Creación automática de cuentas (Email, Slack, CRM)", "Envío de documentación y contratos", "Programación de capacitaciones", "Checklist interactivo de onboarding", "Seguimiento a 30/60/90 días", "Encuestas de satisfacción automatizadas"],
-      tech: ["n8n", "Google Workspace", "Slack", "BambooHR", "DocuSign", "OpenAI"],
+      features: [
+        "Creación automática de cuentas (Email, Slack, CRM)",
+        "Envío de documentación y contratos",
+        "Programación de capacitaciones",
+        "Checklist interactivo de onboarding",
+        "Seguimiento a 30/60/90 días",
+        "Encuestas de satisfacción automatizadas",
+      ],
+      tech: [
+        "n8n",
+        "Google Workspace",
+        "Slack",
+        "BambooHR",
+        "DocuSign",
+        "OpenAI",
+      ],
       roi: "85% reducción tiempo administrativo en onboarding",
-      difficulty: "Intermedio"
+      difficulty: "Intermedio",
     },
     {
       id: 14,
       icon: "users",
       title: "Reclutamiento Inteligente con IA",
-      description: "Sistema de ATS (Applicant Tracking System) potenciado con IA que filtra CVs, agenda entrevistas, evalúa candidatos y genera procesos completos de entrevista genera reportes de selección.",
+      description:
+        "Sistema de ATS (Applicant Tracking System) potenciado con IA que filtra CVs, agenda entrevistas, evalúa candidatos y genera procesos completos de entrevista genera reportes de selección.",
       category: "Talento Humano",
-      features: ["Parsing de CVs con IA", "Scoring automático de candidatos", "Detección de habilidades y experiencia", "Programación inteligente de entrevistas", "Generación de preguntas personalizadas", "Resúmenes de candidatos con GPT-4"],
+      features: [
+        "Parsing de CVs con IA",
+        "Scoring automático de candidatos",
+        "Detección de habilidades y experiencia",
+        "Programación inteligente de entrevistas",
+        "Generación de preguntas personalizadas",
+        "Resúmenes de candidatos con GPT-4",
+      ],
       tech: ["n8n", "OpenAI GPT-4", "Calendly", "LinkedIn API", "PostgreSQL"],
       roi: "60% reducción tiempo de selección al filtrar candidatos automáticamente y generar con IA entrevistas",
-      difficulty: "Avanzado"
+      difficulty: "Avanzado",
     },
     {
       id: 15,
       icon: "award",
       title: "Evaluaciones de Desempeño Automatizadas",
-      description: "Recolecta feedback 360°, analiza desempeño con IA, genera reportes personalizados y programa reuniones de retroalimentación automáticamente.",
+      description:
+        "Recolecta feedback 360°, analiza desempeño con IA, genera reportes personalizados y programa reuniones de retroalimentación automáticamente.",
       category: "Talento Humano",
-      features: ["Envío automático de encuestas 360°", "Análisis de sentimiento en comentarios", "Generación de reportes personalizados", "Identificación de fortalezas/áreas de mejora", "Recomendaciones de desarrollo con IA", "Dashboard de métricas de equipo"],
+      features: [
+        "Envío automático de encuestas 360°",
+        "Análisis de sentimiento en comentarios",
+        "Generación de reportes personalizados",
+        "Identificación de fortalezas/áreas de mejora",
+        "Recomendaciones de desarrollo con IA",
+        "Dashboard de métricas de equipo",
+      ],
       tech: ["n8n", "OpenAI GPT-4", "Google Forms", "Tableau", "PostgreSQL"],
       roi: "70% ahorro en tiempo de HR al evaluar desempeño constantemente",
-      difficulty: "Intermedio"
+      difficulty: "Intermedio",
     },
     {
       id: 16,
       icon: "calendar",
       title: "Gestión de Vacaciones y Ausencias",
-      description: "Automatiza solicitudes, aprobaciones, detección de conflictos de cobertura y actualización de calendarios compartidos con notificaciones inteligentes.",
+      description:
+        "Automatiza solicitudes, aprobaciones, detección de conflictos de cobertura y actualización de calendarios compartidos con notificaciones inteligentes.",
       category: "Talento Humano",
-      features: ["Solicitud y aprobación vía chat/email", "Validación de disponibilidad de equipo", "Detección de conflictos con IA", "Actualización automática de calendarios", "Cálculo de días disponibles", "Notificaciones a stakeholders"],
+      features: [
+        "Solicitud y aprobación vía chat/email",
+        "Validación de disponibilidad de equipo",
+        "Detección de conflictos con IA",
+        "Actualización automática de calendarios",
+        "Cálculo de días disponibles",
+        "Notificaciones a stakeholders",
+      ],
       tech: ["n8n", "Google Calendar", "Slack", "PostgreSQL", "OpenAI"],
       roi: "50% reducción aprobaciones manuales al iniciar procesos automatizables",
-      difficulty: "Básico"
+      difficulty: "Básico",
     },
     {
       id: 17,
       icon: "heart",
       title: "Encuestas de Clima Laboral con Análisis IA",
-      description: "Encuestas periódicas automatizadas con análisis de sentimiento, detección de tendencias y alertas tempranas de problemas organizacionales.",
+      description:
+        "Encuestas periódicas automatizadas con análisis de sentimiento, detección de tendencias y alertas tempranas de problemas organizacionales.",
       category: "Talento Humano",
-      features: ["Envío programado de encuestas", "Análisis de sentimiento por departamento", "Detección de riesgos de rotación", "Identificación de temas recurrentes", "Generación de planes de acción con IA", "Benchmarking histórico"],
+      features: [
+        "Envío programado de encuestas",
+        "Análisis de sentimiento por departamento",
+        "Detección de riesgos de rotación",
+        "Identificación de temas recurrentes",
+        "Generación de planes de acción con IA",
+        "Benchmarking histórico",
+      ],
       tech: ["n8n", "OpenAI GPT-4", "Typeform", "Slack", "PostgreSQL"],
       roi: "30% reducción en rotación",
-      difficulty: "Intermedio"
+      difficulty: "Intermedio",
     },
     {
       id: 18,
       icon: "graduation-cap",
       title: "Capacitación Personalizada con IA",
-      description: "Recomienda cursos y contenido de capacitación basado en gaps de habilidades, objetivos de carrera y análisis de desempeño usando IA.",
+      description:
+        "Recomienda cursos y contenido de capacitación basado en gaps de habilidades, objetivos de carrera y análisis de desempeño usando IA.",
       category: "Talento Humano",
-      features: ["Análisis de skill gaps con IA", "Recomendaciones personalizadas de cursos", "Programación automática de capacitaciones", "Seguimiento de progreso", "Certificaciones automáticas", "Rutas de aprendizaje adaptativas"],
-      tech: ["n8n", "OpenAI GPT-4", "Udemy API", "LinkedIn Learning", "PostgreSQL"],
+      features: [
+        "Análisis de skill gaps con IA",
+        "Recomendaciones personalizadas de cursos",
+        "Programación automática de capacitaciones",
+        "Seguimiento de progreso",
+        "Certificaciones automáticas",
+        "Rutas de aprendizaje adaptativas",
+      ],
+      tech: [
+        "n8n",
+        "OpenAI GPT-4",
+        "Udemy API",
+        "LinkedIn Learning",
+        "PostgreSQL",
+      ],
       roi: "3x aumento en capacitaciones completadas",
-      difficulty: "Avanzado"
+      difficulty: "Avanzado",
     },
     {
       id: 19,
       icon: "eye",
       title: "Inspección de Calidad con Computer Vision",
-      description: "Sistema automatizado de control de calidad visual usando IA para detectar defectos en productos, generar reportes y alertar sobre anomalías.",
+      description:
+        "Sistema automatizado de control de calidad visual usando IA para detectar defectos en productos, generar reportes y alertar sobre anomalías.",
       category: "Calidad",
-      features: ["Detección de defectos con Computer Vision", "Clasificación automática de severidad", "Generación de reportes de no conformidad", "Alertas en tiempo real a supervisores", "Análisis de tendencias de defectos", "Dashboard de métricas de calidad"],
+      features: [
+        "Detección de defectos con Computer Vision",
+        "Clasificación automática de severidad",
+        "Generación de reportes de no conformidad",
+        "Alertas en tiempo real a supervisores",
+        "Análisis de tendencias de defectos",
+        "Dashboard de métricas de calidad",
+      ],
       tech: ["n8n", "OpenAI Vision", "TensorFlow", "PostgreSQL", "Slack"],
       roi: "95% precisión en detección",
-      difficulty: "Avanzado"
+      difficulty: "Avanzado",
     },
     {
       id: 20,
       icon: "alert-circle",
       title: "Gestión de No Conformidades (NCR)",
-      description: "Automatiza el ciclo completo de no conformidades: registro, asignación, seguimiento, análisis de causa raíz con IA y cierre de acciones correctivas.",
+      description:
+        "Automatiza el ciclo completo de no conformidades: registro, asignación, seguimiento, análisis de causa raíz con IA y cierre de acciones correctivas.",
       category: "Calidad",
-      features: ["Registro automático desde múltiples fuentes", "Clasificación y priorización con IA", "Asignación inteligente de responsables", "Análisis de causa raíz con GPT-4", "Seguimiento de acciones correctivas", "Reportes de tendencias y KPIs"],
+      features: [
+        "Registro automático desde múltiples fuentes",
+        "Clasificación y priorización con IA",
+        "Asignación inteligente de responsables",
+        "Análisis de causa raíz con GPT-4",
+        "Seguimiento de acciones correctivas",
+        "Reportes de tendencias y KPIs",
+      ],
       tech: ["n8n", "OpenAI GPT-4", "Jira", "PostgreSQL", "Slack"],
       roi: "65% reducción tiempo de cierre",
-      difficulty: "Intermedio"
+      difficulty: "Intermedio",
     },
     {
       id: 21,
       icon: "clipboard-check",
       title: "Auditorías Internas Automatizadas",
-      description: "Programación, ejecución y seguimiento de auditorías con checklists inteligentes, generación de hallazgos y planes de acción automáticos.",
+      description:
+        "Programación, ejecución y seguimiento de auditorías con checklists inteligentes, generación de hallazgos y planes de acción automáticos.",
       category: "Calidad",
-      features: ["Programación automática de auditorías", "Checklists inteligentes por proceso", "Captura de evidencias (fotos, documentos)", "Generación automática de hallazgos", "Planes de acción con IA", "Seguimiento hasta cierre"],
+      features: [
+        "Programación automática de auditorías",
+        "Checklists inteligentes por proceso",
+        "Captura de evidencias (fotos, documentos)",
+        "Generación automática de hallazgos",
+        "Planes de acción con IA",
+        "Seguimiento hasta cierre",
+      ],
       tech: ["n8n", "OpenAI GPT-4", "Google Drive", "PostgreSQL", "Teams"],
       roi: "80% ahorro tiempo preparación",
-      difficulty: "Intermedio"
+      difficulty: "Intermedio",
     },
     {
       id: 22,
       icon: "file-check",
       title: "Control de Documentación ISO",
-      description: "Gestión automática de documentos normativos: control de versiones, notificaciones de revisión, aprobaciones y distribución controlada.",
+      description:
+        "Gestión automática de documentos normativos: control de versiones, notificaciones de revisión, aprobaciones y distribución controlada.",
       category: "Calidad",
-      features: ["Control de versiones automático", "Workflow de aprobaciones", "Notificaciones de documentos obsoletos", "Distribución controlada por roles", "Registro de capacitación en documentos", "Auditoría completa de cambios"],
+      features: [
+        "Control de versiones automático",
+        "Workflow de aprobaciones",
+        "Notificaciones de documentos obsoletos",
+        "Distribución controlada por roles",
+        "Registro de capacitación en documentos",
+        "Auditoría completa de cambios",
+      ],
       tech: ["n8n", "SharePoint", "DocuSign", "PostgreSQL", "Email"],
       roi: "90% reducción documentos obsoletos",
-      difficulty: "Básico"
+      difficulty: "Básico",
     },
     {
       id: 23,
       icon: "message-square",
       title: "Análisis de Quejas de Clientes con IA",
-      description: "Analiza quejas y reclamos usando NLP, clasifica por tipo, detecta patrones recurrentes y genera acciones preventivas automáticamente.",
+      description:
+        "Analiza quejas y reclamos usando NLP, clasifica por tipo, detecta patrones recurrentes y genera acciones preventivas automáticamente.",
       category: "Calidad",
-      features: ["Clasificación automática de quejas", "Análisis de sentimiento y urgencia", "Detección de problemas recurrentes", "Generación de informes ejecutivos", "Recomendaciones de mejora con IA", "Alertas de tendencias negativas"],
+      features: [
+        "Clasificación automática de quejas",
+        "Análisis de sentimiento y urgencia",
+        "Detección de problemas recurrentes",
+        "Generación de informes ejecutivos",
+        "Recomendaciones de mejora con IA",
+        "Alertas de tendencias negativas",
+      ],
       tech: ["n8n", "OpenAI GPT-4", "Zendesk", "PostgreSQL", "Tableau"],
       roi: "55% mejora en tiempo de respuesta",
-      difficulty: "Avanzado"
+      difficulty: "Avanzado",
     },
     {
       id: 24,
       icon: "dollar-sign",
       title: "Conciliación Bancaria Automatizada",
-      description: "Importa extractos bancarios, concilia automáticamente con registros contables, detecta discrepancias y genera reportes de conciliación.",
+      description:
+        "Importa extractos bancarios, concilia automáticamente con registros contables, detecta discrepancias y genera reportes de conciliación.",
       category: "Financiera",
-      features: ["Import automático de extractos bancarios", "Matching inteligente con contabilidad", "Detección de discrepancias con IA", "Clasificación de transacciones", "Reportes de conciliación automáticos", "Alertas de partidas sin conciliar"],
+      features: [
+        "Import automático de extractos bancarios",
+        "Matching inteligente con contabilidad",
+        "Detección de discrepancias con IA",
+        "Clasificación de transacciones",
+        "Reportes de conciliación automáticos",
+        "Alertas de partidas sin conciliar",
+      ],
       tech: ["n8n", "OpenAI GPT-4", "Plaid", "QuickBooks", "PostgreSQL"],
       roi: "90% reducción tiempo conciliación",
-      difficulty: "Avanzado"
+      difficulty: "Avanzado",
     },
     {
       id: 25,
       icon: "file-text",
       title: "Gestión de Facturas y Cuentas por Pagar",
-      description: "OCR de facturas, validación automática, workflow de aprobaciones, programación de pagos y alertas de vencimientos.",
+      description:
+        "OCR de facturas, validación automática, workflow de aprobaciones, programación de pagos y alertas de vencimientos.",
       category: "Financiera",
-      features: ["OCR extracción de datos de facturas", "Validación contra órdenes de compra", "Workflow de aprobaciones por monto", "Detección de facturas duplicadas", "Programación de pagos", "Dashboard de aging de cuentas"],
+      features: [
+        "OCR extracción de datos de facturas",
+        "Validación contra órdenes de compra",
+        "Workflow de aprobaciones por monto",
+        "Detección de facturas duplicadas",
+        "Programación de pagos",
+        "Dashboard de aging de cuentas",
+      ],
       tech: ["n8n", "OpenAI Vision", "DocuSign", "QuickBooks", "PostgreSQL"],
       roi: "75% reducción procesamiento manual",
-      difficulty: "Intermedio"
+      difficulty: "Intermedio",
     },
     {
       id: 26,
       icon: "trending-up",
       title: "Cobranza Inteligente Automatizada",
-      description: "Seguimiento automático de cuentas por cobrar con mensajes personalizados, escalación inteligente y predicción de riesgo de morosidad.",
+      description:
+        "Seguimiento automático de cuentas por cobrar con mensajes personalizados, escalación inteligente y predicción de riesgo de morosidad.",
       category: "Financiera",
-      features: ["Recordatorios automáticos escalonados", "Mensajes personalizados con IA", "Predicción de riesgo de mora", "Escalación automática por antigüedad", "Reportes de cartera vencida", "Integración con WhatsApp/Email/SMS"],
+      features: [
+        "Recordatorios automáticos escalonados",
+        "Mensajes personalizados con IA",
+        "Predicción de riesgo de mora",
+        "Escalación automática por antigüedad",
+        "Reportes de cartera vencida",
+        "Integración con WhatsApp/Email/SMS",
+      ],
       tech: ["n8n", "OpenAI GPT-4", "Twilio", "WhatsApp", "PostgreSQL"],
       roi: "40% mejora en recuperación de cartera",
-      difficulty: "Intermedio"
+      difficulty: "Intermedio",
     },
     {
       id: 27,
       icon: "bar-chart-2",
       title: "Reportes Financieros Automatizados",
-      description: "Genera reportes financieros (P&L, Balance, Cash Flow) automáticamente con análisis inteligente, insights y visualizaciones.",
+      description:
+        "Genera reportes financieros (P&L, Balance, Cash Flow) automáticamente con análisis inteligente, insights y visualizaciones.",
       category: "Financiera",
-      features: ["Generación automática de estados financieros", "Análisis de variaciones con IA", "Detección de anomalías financieras", "Insights y recomendaciones", "Visualizaciones interactivas", "Distribución programada a stakeholders"],
+      features: [
+        "Generación automática de estados financieros",
+        "Análisis de variaciones con IA",
+        "Detección de anomalías financieras",
+        "Insights y recomendaciones",
+        "Visualizaciones interactivas",
+        "Distribución programada a stakeholders",
+      ],
       tech: ["n8n", "OpenAI GPT-4", "QuickBooks", "Power BI", "PostgreSQL"],
       roi: "95% ahorro tiempo en reporteo",
-      difficulty: "Avanzado"
+      difficulty: "Avanzado",
     },
     {
       id: 28,
       icon: "shield-alert",
       title: "Detección de Fraude Financiero",
-      description: "Monitorea transacciones en tiempo real, detecta patrones sospechosos con ML, alerta sobre posibles fraudes y genera casos de investigación.",
+      description:
+        "Monitorea transacciones en tiempo real, detecta patrones sospechosos con ML, alerta sobre posibles fraudes y genera casos de investigación.",
       category: "Financiera",
-      features: ["Monitoreo en tiempo real de transacciones", "Detección de patrones anómalos con ML", "Scoring de riesgo por transacción", "Alertas automáticas a equipo de seguridad", "Creación de casos de investigación", "Dashboard de riesgos"],
+      features: [
+        "Monitoreo en tiempo real de transacciones",
+        "Detección de patrones anómalos con ML",
+        "Scoring de riesgo por transacción",
+        "Alertas automáticas a equipo de seguridad",
+        "Creación de casos de investigación",
+        "Dashboard de riesgos",
+      ],
       tech: ["n8n", "OpenAI", "TensorFlow", "PostgreSQL", "Slack"],
       roi: "85% detección temprana de fraudes",
-      difficulty: "Avanzado"
+      difficulty: "Avanzado",
     },
     {
       id: 29,
       icon: "line-chart",
       title: "Presupuesto y Forecast con IA",
-      description: "Genera presupuestos automáticos basados en históricos, tendencias y variables externas. Forecasting inteligente con modelos predictivos.",
+      description:
+        "Genera presupuestos automáticos basados en históricos, tendencias y variables externas. Forecasting inteligente con modelos predictivos.",
       category: "Financiera",
-      features: ["Análisis de tendencias históricas", "Forecasting con modelos ML", "Simulaciones de escenarios", "Ajustes automáticos por estacionalidad", "Comparación budget vs actual", "Alertas de desviaciones significativas"],
+      features: [
+        "Análisis de tendencias históricas",
+        "Forecasting con modelos ML",
+        "Simulaciones de escenarios",
+        "Ajustes automáticos por estacionalidad",
+        "Comparación budget vs actual",
+        "Alertas de desviaciones significativas",
+      ],
       tech: ["n8n", "OpenAI GPT-4", "Prophet", "PostgreSQL", "Excel API"],
       roi: "30% mejora en precisión de forecast",
-      difficulty: "Avanzado"
+      difficulty: "Avanzado",
     },
     {
       id: 30,
       icon: "package",
       title: "Optimización de Stock con IA",
-      description: "Predicción de demanda con ML, cálculo automático de puntos de reorden, alertas de stock bajo y optimización de niveles de inventario.",
+      description:
+        "Predicción de demanda con ML, cálculo automático de puntos de reorden, alertas de stock bajo y optimización de niveles de inventario.",
       category: "Inventarios",
-      features: ["Predicción de demanda con ML", "Cálculo dinámico de punto de reorden", "Alertas de stock bajo/alto", "Optimización de niveles por SKU", "Análisis de rotación de inventario", "Recomendaciones de compra inteligentes"],
+      features: [
+        "Predicción de demanda con ML",
+        "Cálculo dinámico de punto de reorden",
+        "Alertas de stock bajo/alto",
+        "Optimización de niveles por SKU",
+        "Análisis de rotación de inventario",
+        "Recomendaciones de compra inteligentes",
+      ],
       tech: ["n8n", "OpenAI", "Prophet", "PostgreSQL", "Slack"],
       roi: "45% reducción en quiebres de stock",
-      difficulty: "Avanzado"
+      difficulty: "Avanzado",
     },
     {
       id: 31,
       icon: "shopping-bag",
       title: "Gestión de Órdenes de Compra Automatizada",
-      description: "Genera órdenes de compra automáticamente basadas en niveles de inventario, envía a proveedores y hace seguimiento hasta recepción.",
+      description:
+        "Genera órdenes de compra automáticamente basadas en niveles de inventario, envía a proveedores y hace seguimiento hasta recepción.",
       category: "Inventarios",
-      features: ["Generación automática de OC", "Selección inteligente de proveedores", "Envío automático de órdenes", "Seguimiento de entregas", "Alertas de retrasos", "Registro de recepciones"],
+      features: [
+        "Generación automática de OC",
+        "Selección inteligente de proveedores",
+        "Envío automático de órdenes",
+        "Seguimiento de entregas",
+        "Alertas de retrasos",
+        "Registro de recepciones",
+      ],
       tech: ["n8n", "OpenAI GPT-4", "Email", "PostgreSQL", "SAP API"],
       roi: "70% reducción tiempo de compras",
-      difficulty: "Intermedio"
+      difficulty: "Intermedio",
     },
     {
       id: 32,
       icon: "check-square",
       title: "Inventario Cíclico Automatizado",
-      description: "Programa conteos cíclicos basados en criticidad ABC, asigna tareas, registra conteos y ajusta automáticamente discrepancias menores.",
+      description:
+        "Programa conteos cíclicos basados en criticidad ABC, asigna tareas, registra conteos y ajusta automáticamente discrepancias menores.",
       category: "Inventarios",
-      features: ["Programación inteligente por clasificación ABC", "Asignación automática de conteos", "App móvil para registro", "Ajuste automático de diferencias menores", "Análisis de causas de discrepancias", "Dashboard de precisión de inventario"],
+      features: [
+        "Programación inteligente por clasificación ABC",
+        "Asignación automática de conteos",
+        "App móvil para registro",
+        "Ajuste automático de diferencias menores",
+        "Análisis de causas de discrepancias",
+        "Dashboard de precisión de inventario",
+      ],
       tech: ["n8n", "Mobile App", "PostgreSQL", "OpenAI GPT-4", "Slack"],
       roi: "85% mejora en precisión",
-      difficulty: "Intermedio"
+      difficulty: "Intermedio",
     },
     {
       id: 33,
       icon: "truck",
       title: "Picking y Packing Inteligente",
-      description: "Optimiza rutas de picking con IA, genera listas inteligentes, valida con computer vision y automatiza etiquetado de envíos.",
+      description:
+        "Optimiza rutas de picking con IA, genera listas inteligentes, valida con computer vision y automatiza etiquetado de envíos.",
       category: "Inventarios",
-      features: ["Optimización de rutas de picking con IA", "Agrupación inteligente de pedidos", "Validación visual de productos", "Generación automática de etiquetas", "Integración con carriers", "Seguimiento de productividad"],
+      features: [
+        "Optimización de rutas de picking con IA",
+        "Agrupación inteligente de pedidos",
+        "Validación visual de productos",
+        "Generación automática de etiquetas",
+        "Integración con carriers",
+        "Seguimiento de productividad",
+      ],
       tech: ["n8n", "OpenAI", "Computer Vision", "Shippo API", "PostgreSQL"],
       roi: "50% aumento en productividad",
-      difficulty: "Avanzado"
+      difficulty: "Avanzado",
     },
     {
       id: 34,
       icon: "mail-open",
       title: "Email Parser y Automatización de Respuestas",
-      description: "Extrae datos estructurados de emails (facturas, órdenes, solicitudes), clasifica por tipo con IA y ejecuta acciones automáticas según el contenido.",
+      description:
+        "Extrae datos estructurados de emails (facturas, órdenes, solicitudes), clasifica por tipo con IA y ejecuta acciones automáticas según el contenido.",
       category: "Productividad",
-      features: ["Parsing inteligente de emails", "Extracción de datos clave (fechas, montos, contactos)", "Clasificación automática por tipo", "Respuestas automáticas personalizadas", "Creación de tickets/tareas según contenido", "Archivado y etiquetado inteligente"],
+      features: [
+        "Parsing inteligente de emails",
+        "Extracción de datos clave (fechas, montos, contactos)",
+        "Clasificación automática por tipo",
+        "Respuestas automáticas personalizadas",
+        "Creación de tickets/tareas según contenido",
+        "Archivado y etiquetado inteligente",
+      ],
       tech: ["n8n", "OpenAI GPT-4", "Gmail API", "Regex", "PostgreSQL"],
       roi: "80% reducción en procesamiento manual de emails",
-      difficulty: "Intermedio"
+      difficulty: "Intermedio",
     },
     {
       id: 35,
       icon: "video",
       title: "Transcripción y Resumen de Reuniones",
-      description: "Graba, transcribe y genera resúmenes ejecutivos de reuniones con IA. Extrae acción items, decisiones clave y envía minutas automáticamente.",
+      description:
+        "Graba, transcribe y genera resúmenes ejecutivos de reuniones con IA. Extrae acción items, decisiones clave y envía minutas automáticamente.",
       category: "Productividad",
-      features: ["Transcripción automática de audio/video", "Resumen ejecutivo con GPT-4", "Extracción de action items y asignaciones", "Identificación de decisiones clave", "Generación de minutas estructuradas", "Distribución automática a participantes"],
-      tech: ["n8n", "OpenAI Whisper", "GPT-4", "Zoom API", "Google Meet", "Email"],
+      features: [
+        "Transcripción automática de audio/video",
+        "Resumen ejecutivo con GPT-4",
+        "Extracción de action items y asignaciones",
+        "Identificación de decisiones clave",
+        "Generación de minutas estructuradas",
+        "Distribución automática a participantes",
+      ],
+      tech: [
+        "n8n",
+        "OpenAI Whisper",
+        "GPT-4",
+        "Zoom API",
+        "Google Meet",
+        "Email",
+      ],
       roi: "90% ahorro en documentación de reuniones",
-      difficulty: "Avanzado"
+      difficulty: "Avanzado",
     },
     {
       id: 36,
       icon: "layout",
       title: "Generación de Reportes Visuales con IA",
-      description: "Crea reportes ejecutivos automáticos con gráficos, insights y recomendaciones generadas por IA desde múltiples fuentes de datos.",
+      description:
+        "Crea reportes ejecutivos automáticos con gráficos, insights y recomendaciones generadas por IA desde múltiples fuentes de datos.",
       category: "Analítica",
-      features: ["Agregación de datos de múltiples fuentes", "Generación de visualizaciones automáticas", "Análisis de tendencias con IA", "Insights y recomendaciones escritas", "Exportación a PDF/PowerPoint", "Distribución programada"],
-      tech: ["n8n", "OpenAI GPT-4", "Chart.js", "Power BI API", "Python", "PostgreSQL"],
+      features: [
+        "Agregación de datos de múltiples fuentes",
+        "Generación de visualizaciones automáticas",
+        "Análisis de tendencias con IA",
+        "Insights y recomendaciones escritas",
+        "Exportación a PDF/PowerPoint",
+        "Distribución programada",
+      ],
+      tech: [
+        "n8n",
+        "OpenAI GPT-4",
+        "Chart.js",
+        "Power BI API",
+        "Python",
+        "PostgreSQL",
+      ],
       roi: "85% ahorro en creación de reportes",
-      difficulty: "Avanzado"
+      difficulty: "Avanzado",
     },
     {
       id: 37,
       icon: "slack",
       title: "Asistente Virtual para Slack/Teams",
-      description: "Bot empresarial que responde preguntas, ejecuta comandos, consulta sistemas internos y automatiza tareas desde Slack o Microsoft Teams.",
+      description:
+        "Bot empresarial que responde preguntas, ejecuta comandos, consulta sistemas internos y automatiza tareas desde Slack o Microsoft Teams.",
       category: "Productividad",
-      features: ["Comandos naturales con IA", "Consulta de sistemas internos (CRM, ERP, RRHH)", "Creación de tickets y tareas", "Respuestas desde base de conocimiento", "Ejecución de workflows por comando", "Notificaciones inteligentes"],
+      features: [
+        "Comandos naturales con IA",
+        "Consulta de sistemas internos (CRM, ERP, RRHH)",
+        "Creación de tickets y tareas",
+        "Respuestas desde base de conocimiento",
+        "Ejecución de workflows por comando",
+        "Notificaciones inteligentes",
+      ],
       tech: ["n8n", "OpenAI GPT-4", "Slack API", "Microsoft Teams", "Qdrant"],
       roi: "60% reducción en consultas repetitivas a equipos",
-      difficulty: "Avanzado"
+      difficulty: "Avanzado",
     },
     {
       id: 38,
       icon: "database",
       title: "Sincronización de Datos Multi-Sistema",
-      description: "Mantén sincronizados CRM, ERP, e-commerce y otros sistemas automáticamente con validación de datos y resolución de conflictos con IA.",
+      description:
+        "Mantén sincronizados CRM, ERP, e-commerce y otros sistemas automáticamente con validación de datos y resolución de conflictos con IA.",
       category: "Integraciones",
-      features: ["Sincronización bidireccional en tiempo real", "Mapeo inteligente de campos", "Detección y resolución de conflictos", "Validación de datos con reglas", "Logs de auditoría completos", "Alertas de errores de sincronización"],
+      features: [
+        "Sincronización bidireccional en tiempo real",
+        "Mapeo inteligente de campos",
+        "Detección y resolución de conflictos",
+        "Validación de datos con reglas",
+        "Logs de auditoría completos",
+        "Alertas de errores de sincronización",
+      ],
       tech: ["n8n", "PostgreSQL", "APIs REST", "OpenAI", "Webhooks"],
       roi: "95% reducción en errores de datos duplicados",
-      difficulty: "Avanzado"
+      difficulty: "Avanzado",
     },
     {
       id: 39,
       icon: "bookmark",
       title: "Content Curation y Newsletter Automática",
-      description: "Busca, filtra y curatea contenido relevante de múltiples fuentes, genera resúmenes con IA y publica newsletters personalizadas automáticamente.",
+      description:
+        "Busca, filtra y curatea contenido relevante de múltiples fuentes, genera resúmenes con IA y publica newsletters personalizadas automáticamente.",
       category: "Marketing",
-      features: ["Agregación de contenido de RSS, blogs, news", "Filtrado por relevancia con IA", "Resúmenes automáticos de artículos", "Generación de newsletter HTML", "Personalización por segmento de audiencia", "Publicación automática programada"],
+      features: [
+        "Agregación de contenido de RSS, blogs, news",
+        "Filtrado por relevancia con IA",
+        "Resúmenes automáticos de artículos",
+        "Generación de newsletter HTML",
+        "Personalización por segmento de audiencia",
+        "Publicación automática programada",
+      ],
       tech: ["n8n", "OpenAI GPT-4", "RSS Feeds", "Mailchimp", "HTML/CSS"],
       roi: "75% ahorro en curación de contenido",
-      difficulty: "Intermedio"
+      difficulty: "Intermedio",
     },
     {
       id: 40,
       icon: "phone-call",
       title: "IVR Inteligente con Voice AI",
-      description: "Sistema telefónico automatizado con reconocimiento de voz, enrutamiento inteligente y respuestas generadas por IA en lenguaje natural.",
+      description:
+        "Sistema telefónico automatizado con reconocimiento de voz, enrutamiento inteligente y respuestas generadas por IA en lenguaje natural.",
       category: "Atención al Cliente",
-      features: ["Reconocimiento de voz (Speech-to-Text)", "Procesamiento de lenguaje natural", "Enrutamiento inteligente de llamadas", "Respuestas de voz generadas (Text-to-Speech)", "Integración con CRM para contexto", "Transcripción y análisis de llamadas"],
-      tech: ["n8n", "Twilio", "OpenAI Whisper", "GPT-4", "ElevenLabs", "PostgreSQL"],
+      features: [
+        "Reconocimiento de voz (Speech-to-Text)",
+        "Procesamiento de lenguaje natural",
+        "Enrutamiento inteligente de llamadas",
+        "Respuestas de voz generadas (Text-to-Speech)",
+        "Integración con CRM para contexto",
+        "Transcripción y análisis de llamadas",
+      ],
+      tech: [
+        "n8n",
+        "Twilio",
+        "OpenAI Whisper",
+        "GPT-4",
+        "ElevenLabs",
+        "PostgreSQL",
+      ],
       roi: "70% reducción en llamadas transferidas a agentes",
-      difficulty: "Avanzado"
+      difficulty: "Avanzado",
     },
     {
       id: 41,
       icon: "image",
       title: "Generación de Imágenes para Marketing",
-      description: "Crea imágenes, banners y contenido visual automáticamente con IA para campañas, posts sociales y anuncios según tu marca.",
+      description:
+        "Crea imágenes, banners y contenido visual automáticamente con IA para campañas, posts sociales y anuncios según tu marca.",
       category: "Marketing",
-      features: ["Generación de imágenes con DALL-E/Midjourney", "Aplicación de branding automático", "Variaciones A/B de diseños", "Redimensionamiento multi-plataforma", "Generación de copy visual con IA", "Biblioteca organizada de assets"],
+      features: [
+        "Generación de imágenes con DALL-E/Midjourney",
+        "Aplicación de branding automático",
+        "Variaciones A/B de diseños",
+        "Redimensionamiento multi-plataforma",
+        "Generación de copy visual con IA",
+        "Biblioteca organizada de assets",
+      ],
       tech: ["n8n", "DALL-E", "OpenAI GPT-4", "Cloudinary", "Canvas API"],
       roi: "60% ahorro en costos de diseño",
-      difficulty: "Intermedio"
+      difficulty: "Intermedio",
     },
     {
       id: 42,
       icon: "git-branch",
       title: "CI/CD y Deploy Automation",
-      description: "Pipeline completo de integración y despliegue continuo con pruebas automáticas, notificaciones y rollback inteligente.",
+      description:
+        "Pipeline completo de integración y despliegue continuo con pruebas automáticas, notificaciones y rollback inteligente.",
       category: "DevOps",
-      features: ["Detección automática de commits", "Ejecución de tests automatizados", "Build y deploy multi-ambiente", "Notificaciones de estado del pipeline", "Rollback automático en fallos", "Métricas de deployment"],
-      tech: ["n8n", "GitHub Actions", "Docker", "Kubernetes", "Slack", "Datadog"],
+      features: [
+        "Detección automática de commits",
+        "Ejecución de tests automatizados",
+        "Build y deploy multi-ambiente",
+        "Notificaciones de estado del pipeline",
+        "Rollback automático en fallos",
+        "Métricas de deployment",
+      ],
+      tech: [
+        "n8n",
+        "GitHub Actions",
+        "Docker",
+        "Kubernetes",
+        "Slack",
+        "Datadog",
+      ],
       roi: "80% reducción en tiempo de deploy",
-      difficulty: "Avanzado"
+      difficulty: "Avanzado",
     },
     {
       id: 43,
       icon: "activity",
       title: "Monitoreo y Alertas de Infraestructura",
-      description: "Monitorea servidores, aplicaciones y servicios 24/7 con detección de anomalías con ML y alertas inteligentes escalables.",
+      description:
+        "Monitorea servidores, aplicaciones y servicios 24/7 con detección de anomalías con ML y alertas inteligentes escalables.",
       category: "DevOps",
-      features: ["Monitoreo de métricas en tiempo real", "Detección de anomalías con ML", "Alertas multi-nivel según severidad", "Diagnóstico automático con IA", "Creación de tickets para incidencias", "Dashboard de salud del sistema"],
+      features: [
+        "Monitoreo de métricas en tiempo real",
+        "Detección de anomalías con ML",
+        "Alertas multi-nivel según severidad",
+        "Diagnóstico automático con IA",
+        "Creación de tickets para incidencias",
+        "Dashboard de salud del sistema",
+      ],
       tech: ["n8n", "Prometheus", "Grafana", "OpenAI", "PagerDuty", "Slack"],
       roi: "90% detección proactiva de incidentes",
-      difficulty: "Avanzado"
+      difficulty: "Avanzado",
     },
     {
       id: 44,
       icon: "smartphone",
       title: "Notificaciones Push Personalizadas",
-      description: "Sistema de notificaciones mobile y web con segmentación inteligente, personalización por usuario y análisis de engagement.",
+      description:
+        "Sistema de notificaciones mobile y web con segmentación inteligente, personalización por usuario y análisis de engagement.",
       category: "Marketing",
-      features: ["Segmentación avanzada de audiencias", "Personalización con datos de usuario", "Scheduling inteligente por zona horaria", "A/B testing de mensajes", "Análisis de tasas de apertura/conversión", "Re-engagement automático"],
+      features: [
+        "Segmentación avanzada de audiencias",
+        "Personalización con datos de usuario",
+        "Scheduling inteligente por zona horaria",
+        "A/B testing de mensajes",
+        "Análisis de tasas de apertura/conversión",
+        "Re-engagement automático",
+      ],
       tech: ["n8n", "Firebase", "OneSignal", "OpenAI GPT-4", "PostgreSQL"],
       roi: "45% mejora en engagement de usuarios",
-      difficulty: "Intermedio"
+      difficulty: "Intermedio",
     },
     {
       id: 45,
       icon: "file-signature",
       title: "Firma Electrónica y Gestión de Contratos",
-      description: "Automatiza envío, firma, almacenamiento y seguimiento de contratos con recordatorios y flujos de aprobación personalizados.",
+      description:
+        "Automatiza envío, firma, almacenamiento y seguimiento de contratos con recordatorios y flujos de aprobación personalizados.",
       category: "Legal",
-      features: ["Generación de contratos desde templates", "Envío automático para firma electrónica", "Seguimiento de estado de firmas", "Recordatorios automáticos", "Almacenamiento centralizado", "Alertas de vencimientos"],
+      features: [
+        "Generación de contratos desde templates",
+        "Envío automático para firma electrónica",
+        "Seguimiento de estado de firmas",
+        "Recordatorios automáticos",
+        "Almacenamiento centralizado",
+        "Alertas de vencimientos",
+      ],
       tech: ["n8n", "DocuSign", "HelloSign", "Google Drive", "PostgreSQL"],
       roi: "85% reducción en tiempo de firma de contratos",
-      difficulty: "Básico"
+      difficulty: "Básico",
     },
     {
       id: 46,
       icon: "credit-card",
       title: "Procesamiento y Reconciliación de Pagos",
-      description: "Procesa pagos multi-pasarela, reconcilia automáticamente con cuentas bancarias y detecta discrepancias con IA.",
+      description:
+        "Procesa pagos multi-pasarela, reconcilia automáticamente con cuentas bancarias y detecta discrepancias con IA.",
       category: "Financiera",
-      features: ["Integración multi-pasarela (Stripe, PayPal, etc)", "Reconciliación automática con bancos", "Detección de transacciones duplicadas", "Identificación de chargebacks", "Reportes de comisiones por pasarela", "Alertas de pagos fallidos"],
+      features: [
+        "Integración multi-pasarela (Stripe, PayPal, etc)",
+        "Reconciliación automática con bancos",
+        "Detección de transacciones duplicadas",
+        "Identificación de chargebacks",
+        "Reportes de comisiones por pasarela",
+        "Alertas de pagos fallidos",
+      ],
       tech: ["n8n", "Stripe", "PayPal", "Plaid", "OpenAI", "PostgreSQL"],
       roi: "90% automatización de reconciliación",
-      difficulty: "Avanzado"
+      difficulty: "Avanzado",
     },
     {
       id: 47,
       icon: "target",
       title: "Lead Scoring y Cualificación con IA",
-      description: "Puntúa y cualifica leads automáticamente usando ML, enriquece datos desde múltiples fuentes y prioriza oportunidades de venta.",
+      description:
+        "Puntúa y cualifica leads automáticamente usando ML, enriquece datos desde múltiples fuentes y prioriza oportunidades de venta.",
       category: "Ventas",
-      features: ["Scoring predictivo con Machine Learning", "Enriquecimiento de datos (Clearbit, Hunter)", "Análisis de intención de compra", "Segmentación automática por score", "Asignación inteligente a vendedores", "Seguimiento de evolución de leads"],
+      features: [
+        "Scoring predictivo con Machine Learning",
+        "Enriquecimiento de datos (Clearbit, Hunter)",
+        "Análisis de intención de compra",
+        "Segmentación automática por score",
+        "Asignación inteligente a vendedores",
+        "Seguimiento de evolución de leads",
+      ],
       tech: ["n8n", "OpenAI", "Clearbit", "HubSpot", "Python ML", "PostgreSQL"],
       roi: "3x aumento en conversión de leads calificados",
-      difficulty: "Avanzado"
+      difficulty: "Avanzado",
     },
     {
       id: 48,
       icon: "compass",
       title: "Análisis de Competencia Automático",
-      description: "Monitorea precios, productos, contenido y estrategias de competidores con scraping y análisis de tendencias con IA.",
+      description:
+        "Monitorea precios, productos, contenido y estrategias de competidores con scraping y análisis de tendencias con IA.",
       category: "Inteligencia de Mercado",
-      features: ["Scraping de sitios de competencia", "Monitoreo de precios en tiempo real", "Análisis de contenido y SEO", "Detección de nuevos productos/servicios", "Alertas de cambios significativos", "Reportes comparativos automáticos"],
+      features: [
+        "Scraping de sitios de competencia",
+        "Monitoreo de precios en tiempo real",
+        "Análisis de contenido y SEO",
+        "Detección de nuevos productos/servicios",
+        "Alertas de cambios significativos",
+        "Reportes comparativos automáticos",
+      ],
       tech: ["n8n", "Puppeteer", "OpenAI GPT-4", "Bright Data", "PostgreSQL"],
       roi: "Insights de mercado en tiempo real 24/7",
-      difficulty: "Avanzado"
+      difficulty: "Avanzado",
     },
     {
       id: 49,
       icon: "map-pin",
       title: "Gestión de Eventos y Asistentes",
-      description: "Automatiza registro, confirmaciones, recordatorios, check-in y seguimiento post-evento con comunicación personalizada.",
+      description:
+        "Automatiza registro, confirmaciones, recordatorios, check-in y seguimiento post-evento con comunicación personalizada.",
       category: "Eventos",
-      features: ["Registro y confirmación automática", "Generación de QR codes de acceso", "Recordatorios por email/SMS/WhatsApp", "Check-in digital con validación", "Encuestas post-evento automáticas", "Análisis de asistencia y satisfacción"],
-      tech: ["n8n", "Eventbrite API", "QR Code Gen", "Twilio", "Google Forms", "PostgreSQL"],
+      features: [
+        "Registro y confirmación automática",
+        "Generación de QR codes de acceso",
+        "Recordatorios por email/SMS/WhatsApp",
+        "Check-in digital con validación",
+        "Encuestas post-evento automáticas",
+        "Análisis de asistencia y satisfacción",
+      ],
+      tech: [
+        "n8n",
+        "Eventbrite API",
+        "QR Code Gen",
+        "Twilio",
+        "Google Forms",
+        "PostgreSQL",
+      ],
       roi: "70% ahorro en logística de eventos",
-      difficulty: "Intermedio"
+      difficulty: "Intermedio",
     },
     {
       id: 50,
       icon: "thermometer",
       title: "Monitoreo de Temperatura y IoT",
-      description: "Monitorea sensores IoT (temperatura, humedad, energía), detecta anomalías y ejecuta acciones automáticas de respuesta.",
+      description:
+        "Monitorea sensores IoT (temperatura, humedad, energía), detecta anomalías y ejecuta acciones automáticas de respuesta.",
       category: "IoT",
-      features: ["Integración con sensores IoT", "Monitoreo en tiempo real de métricas", "Detección de umbrales críticos", "Alertas automáticas multi-canal", "Logs históricos y analytics", "Acciones automáticas (apagar/encender equipos)"],
-      tech: ["n8n", "MQTT", "Arduino/Raspberry Pi", "InfluxDB", "Grafana", "Twilio"],
+      features: [
+        "Integración con sensores IoT",
+        "Monitoreo en tiempo real de métricas",
+        "Detección de umbrales críticos",
+        "Alertas automáticas multi-canal",
+        "Logs históricos y analytics",
+        "Acciones automáticas (apagar/encender equipos)",
+      ],
+      tech: [
+        "n8n",
+        "MQTT",
+        "Arduino/Raspberry Pi",
+        "InfluxDB",
+        "Grafana",
+        "Twilio",
+      ],
       roi: "40% reducción en incidentes críticos",
-      difficulty: "Avanzado"
+      difficulty: "Avanzado",
     },
     {
       id: 51,
       icon: "book-open",
       title: "Gestión de Tickets de Soporte con IA",
-      description: "Sistema completo de ticketing con asignación inteligente, respuestas sugeridas por IA, escalación automática y SLA tracking.",
+      description:
+        "Sistema completo de ticketing con asignación inteligente, respuestas sugeridas por IA, escalación automática y SLA tracking.",
       category: "Atención al Cliente",
-      features: ["Creación automática desde email/chat/form", "Clasificación y priorización con IA", "Asignación inteligente a agentes", "Sugerencias de respuestas con GPT-4", "Escalación automática por SLA", "Análisis de satisfacción (CSAT)"],
-      tech: ["n8n", "OpenAI GPT-4", "Zendesk", "Freshdesk", "Slack", "PostgreSQL"],
+      features: [
+        "Creación automática desde email/chat/form",
+        "Clasificación y priorización con IA",
+        "Asignación inteligente a agentes",
+        "Sugerencias de respuestas con GPT-4",
+        "Escalación automática por SLA",
+        "Análisis de satisfacción (CSAT)",
+      ],
+      tech: [
+        "n8n",
+        "OpenAI GPT-4",
+        "Zendesk",
+        "Freshdesk",
+        "Slack",
+        "PostgreSQL",
+      ],
       roi: "55% reducción en tiempo de resolución",
-      difficulty: "Intermedio"
+      difficulty: "Intermedio",
     },
     {
       id: 52,
       icon: "cloud-lightning",
       title: "Backup y Disaster Recovery Automático",
-      description: "Backups programados multi-destino con validación, alertas de fallos y restauración automática en caso de desastres.",
+      description:
+        "Backups programados multi-destino con validación, alertas de fallos y restauración automática en caso de desastres.",
       category: "DevOps",
-      features: ["Backups automáticos programados", "Almacenamiento multi-destino (S3, Drive, etc)", "Validación de integridad de backups", "Versionado y retención automática", "Alertas de fallos de backup", "Restauración con un click"],
+      features: [
+        "Backups automáticos programados",
+        "Almacenamiento multi-destino (S3, Drive, etc)",
+        "Validación de integridad de backups",
+        "Versionado y retención automática",
+        "Alertas de fallos de backup",
+        "Restauración con un click",
+      ],
       tech: ["n8n", "AWS S3", "Google Drive", "Restic", "PostgreSQL", "Slack"],
       roi: "99.9% disponibilidad de datos",
-      difficulty: "Avanzado"
+      difficulty: "Avanzado",
     },
     {
       id: 53,
       icon: "users",
       title: "Referral Program Automation",
-      description: "Programa de referidos automatizado con tracking, recompensas, notificaciones y análisis de viralidad con gamificación.",
+      description:
+        "Programa de referidos automatizado con tracking, recompensas, notificaciones y análisis de viralidad con gamificación.",
       category: "Marketing",
-      features: ["Generación de códigos únicos de referido", "Tracking de conversiones por referido", "Distribución automática de recompensas", "Notificaciones de logros y milestones", "Leaderboard y gamificación", "Analytics de viralidad"],
+      features: [
+        "Generación de códigos únicos de referido",
+        "Tracking de conversiones por referido",
+        "Distribución automática de recompensas",
+        "Notificaciones de logros y milestones",
+        "Leaderboard y gamificación",
+        "Analytics de viralidad",
+      ],
       tech: ["n8n", "PostgreSQL", "Stripe", "Email/SMS", "OpenAI", "React"],
       roi: "2-3x crecimiento orgánico por referidos",
-      difficulty: "Intermedio"
-    }
+      difficulty: "Intermedio",
+    },
   ];
 
   function renderWorkflows(workflowsToRender: any[]) {
-    const container = document.getElementById('workflows-container');
+    const container = document.getElementById("workflows-container");
     if (!container) return;
 
     if (workflowsToRender.length === 0) {
@@ -1815,7 +2489,9 @@ const structuredData = {
       return;
     }
 
-    container.innerHTML = workflowsToRender.map((workflow, index) => `
+    container.innerHTML = workflowsToRender
+      .map(
+        (workflow, index) => `
       <article
         id="workflow-${workflow.id}"
         class="workflow-card bg-white/5 backdrop-blur border border-white/10 rounded-xl overflow-hidden transition-all duration-300"
@@ -1826,18 +2502,20 @@ const structuredData = {
         <div class="workflow-card-compact p-6 cursor-pointer transition-colors" onclick="toggleWorkflowExpansion(${workflow.id})" id="compact-${workflow.id}">
           <div class="flex items-start justify-between mb-4">
             <div class="w-16 h-16 bg-[#82e256]/10 rounded-2xl flex items-center justify-center border border-[#82e256]/30">
-              <i data-lucide="${workflow.icon || 'zap'}" class="text-[#82e256]" style="width: 2.5rem; height: 2.5rem;"></i>
+              <i data-lucide="${workflow.icon || "zap"}" class="text-[#82e256]" style="width: 2.5rem; height: 2.5rem;"></i>
             </div>
             <div class="flex items-center gap-2">
               <span class="text-xs px-3 py-1 rounded-full bg-[#82e256]/20 text-[#82e256] font-semibold" itemprop="applicationCategory">
                 ${workflow.category}
               </span>
               <span class="text-xs px-2 py-1 rounded-full font-bold ${
-                workflow.difficulty === 'Avanzado' ? 'bg-red-500/20 text-red-400' :
-                workflow.difficulty === 'Intermedio' ? 'bg-yellow-500/20 text-yellow-400' :
-                'bg-green-500/20 text-green-400'
+                workflow.difficulty === "Avanzado"
+                  ? "bg-red-500/20 text-red-400"
+                  : workflow.difficulty === "Intermedio"
+                    ? "bg-yellow-500/20 text-yellow-400"
+                    : "bg-green-500/20 text-green-400"
               }">
-                ${workflow.difficulty === 'Avanzado' ? 'ADV' : workflow.difficulty === 'Intermedio' ? 'MED' : 'BAS'}
+                ${workflow.difficulty === "Avanzado" ? "ADV" : workflow.difficulty === "Intermedio" ? "MED" : "BAS"}
               </span>
             </div>
           </div>
@@ -1892,7 +2570,7 @@ const structuredData = {
                 Características
               </h4>
               <p class="text-sm text-gray-300">
-                ${workflow.features.join(', ')}
+                ${workflow.features.join(", ")}
               </p>
             </div>
 
@@ -1903,19 +2581,23 @@ const structuredData = {
                 Stack tecnológico
               </h4>
               <div class="flex flex-wrap gap-2">
-                ${workflow.tech.map(tech => `
+                ${workflow.tech
+                  .map(
+                    (tech) => `
                   <span class="text-xs px-2 py-1 bg-white/10 rounded text-gray-300">${tech}</span>
-                `).join('')}
+                `,
+                  )
+                  .join("")}
               </div>
             </div>
 
             <!-- CTAs en grid horizontal -->
             <div class="grid grid-cols-2 gap-3 pt-3">
-              <a href="https://aquicreamos.com/#asesorias" class="flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-[#82e256] to-[#6bc73d] text-black rounded-lg hover:shadow-lg transition-all text-sm font-semibold">
+              <a /#asesorias" class="flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-[#82e256] to-[#6bc73d] text-black rounded-lg hover:shadow-lg transition-all text-sm font-semibold">
                 <i data-lucide="calendar" class="w-4 h-4"></i>
                 Agendar asesoría
               </a>
-              <a href="https://aquicreamos.com/faq" class="flex items-center justify-center gap-2 px-4 py-2 bg-white/5 border border-[#82e256] text-[#82e256] rounded-lg hover:bg-[#82e256]/10 transition-all text-sm font-semibold">
+              <a /faq" class="flex items-center justify-center gap-2 px-4 py-2 bg-white/5 border border-[#82e256] text-[#82e256] rounded-lg hover:bg-[#82e256]/10 transition-all text-sm font-semibold">
                 <i data-lucide="help-circle" class="w-4 h-4"></i>
                 Ver FAQs
               </a>
@@ -1923,10 +2605,12 @@ const structuredData = {
           </div>
         </div>
       </article>
-    `).join('');
+    `,
+      )
+      .join("");
 
     // Inicializar iconos de Lucide
-    if (typeof lucide !== 'undefined') {
+    if (typeof lucide !== "undefined") {
       lucide.createIcons();
     }
   }
@@ -1937,36 +2621,45 @@ const structuredData = {
   // Función para colapsar un workflow específico
   function collapseWorkflow(workflowId: number) {
     const expandedSection = document.getElementById(`expanded-${workflowId}`);
-    const chevron = document.querySelector(`.chevron-${workflowId}`) as HTMLElement;
-    const article = document.getElementById(`workflow-${workflowId}`) as HTMLElement;
+    const chevron = document.querySelector(
+      `.chevron-${workflowId}`,
+    ) as HTMLElement;
+    const article = document.getElementById(
+      `workflow-${workflowId}`,
+    ) as HTMLElement;
 
     if (!expandedSection || !chevron || !article) return;
 
     // Ocultar contenido expandido
-    expandedSection.classList.add('hidden');
+    expandedSection.classList.add("hidden");
 
     // Resetear chevron
-    chevron.style.transform = 'rotate(0deg)';
+    chevron.style.transform = "rotate(0deg)";
 
     // Limpiar TODOS los estilos inline del article para restaurar estado original
-    article.removeAttribute('style');
+    article.removeAttribute("style");
 
     // Remover clases adicionales
-    article.classList.remove('ring-2', 'ring-[#82e256]/50');
+    article.classList.remove("ring-2", "ring-[#82e256]/50");
   }
 
   // Función para expandir/colapsar workflow
   function toggleWorkflowExpansion(workflowId: number) {
     const expandedSection = document.getElementById(`expanded-${workflowId}`);
     const chevron = document.querySelector(`.chevron-${workflowId}`);
-    const article = document.getElementById(`workflow-${workflowId}`) as HTMLElement;
+    const article = document.getElementById(
+      `workflow-${workflowId}`,
+    ) as HTMLElement;
 
     if (!expandedSection || !chevron || !article) return;
 
-    const isExpanded = !expandedSection.classList.contains('hidden');
+    const isExpanded = !expandedSection.classList.contains("hidden");
 
     // Si hay otro workflow expandido, colapsarlo primero
-    if (currentExpandedWorkflow !== null && currentExpandedWorkflow !== workflowId) {
+    if (
+      currentExpandedWorkflow !== null &&
+      currentExpandedWorkflow !== workflowId
+    ) {
       collapseWorkflow(currentExpandedWorkflow);
     }
 
@@ -1976,32 +2669,34 @@ const structuredData = {
       currentExpandedWorkflow = null;
     } else {
       // Expandir - Aumentar tamaño del article
-      expandedSection.classList.remove('hidden');
-      chevron.style.transform = 'rotate(180deg)';
-      article.style.position = 'relative';
-      article.style.width = 'calc(200% + 1.5rem)'; // 2 columnas + gap
-      article.style.zIndex = '200';
-      article.style.backgroundColor = 'rgba(0, 0, 0, 0.4)';
-      article.classList.add('ring-2', 'ring-[#82e256]/50');
+      expandedSection.classList.remove("hidden");
+      chevron.style.transform = "rotate(180deg)";
+      article.style.position = "relative";
+      article.style.width = "calc(200% + 1.5rem)"; // 2 columnas + gap
+      article.style.zIndex = "200";
+      article.style.backgroundColor = "rgba(0, 0, 0, 0.4)";
+      article.classList.add("ring-2", "ring-[#82e256]/50");
 
       // Detectar en qué columna está la card
       // En grid de 3 columnas:
       // - índice % 3 === 0 -> columna izquierda (0, 3, 6, 9...) -> expandir a la derecha
       // - índice % 3 === 1 -> columna centro (1, 4, 7, 10...) -> expandir a la izquierda
       // - índice % 3 === 2 -> columna derecha (2, 5, 8, 11...) -> expandir a la izquierda
-      const container = document.getElementById('workflows-container');
+      const container = document.getElementById("workflows-container");
       if (container) {
-        const cards = Array.from(container.querySelectorAll('.workflow-card'));
-        const cardIndex = cards.findIndex(card => card.id === `workflow-${workflowId}`);
+        const cards = Array.from(container.querySelectorAll(".workflow-card"));
+        const cardIndex = cards.findIndex(
+          (card) => card.id === `workflow-${workflowId}`,
+        );
 
         // Solo la columna izquierda expande a la derecha
         if (cardIndex % 3 === 0) {
           // Columna izquierda - expandir hacia la derecha
-          article.style.left = '0';
+          article.style.left = "0";
         } else {
           // Columna centro o derecha - expandir hacia la izquierda
           // Necesita offset negativo para cubrir la card de la izquierda
-          article.style.left = 'calc(-100% - 1.5rem)';
+          article.style.left = "calc(-100% - 1.5rem)";
         }
       }
 
@@ -2009,11 +2704,11 @@ const structuredData = {
 
       // Scroll suave hacia la card expandida
       setTimeout(() => {
-        article.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        article.scrollIntoView({ behavior: "smooth", block: "nearest" });
       }, 100);
 
       // Re-inicializar iconos de Lucide para el contenido expandido
-      if (typeof lucide !== 'undefined') {
+      if (typeof lucide !== "undefined") {
         lucide.createIcons();
       }
     }
@@ -2028,38 +2723,46 @@ const structuredData = {
     return [
       {
         question: "¿Cuánto tiempo toma implementar esta automatización?",
-        answer: "El tiempo de implementación varía según la complejidad y tus sistemas actuales. Típicamente entre 1-4 semanas, incluyendo configuración, integración y período de pruebas."
+        answer:
+          "El tiempo de implementación varía según la complejidad y tus sistemas actuales. Típicamente entre 1-4 semanas, incluyendo configuración, integración y período de pruebas.",
       },
       {
-        question: "¿Necesito conocimientos técnicos para usar esta automatización?",
-        answer: "No. Una vez implementada, la automatización funciona de forma autónoma. Te proporcionamos documentación y capacitación para que tu equipo pueda usarla sin conocimientos técnicos."
+        question:
+          "¿Necesito conocimientos técnicos para usar esta automatización?",
+        answer:
+          "No. Una vez implementada, la automatización funciona de forma autónoma. Te proporcionamos documentación y capacitación para que tu equipo pueda usarla sin conocimientos técnicos.",
       },
       {
         question: "¿Puedo personalizar esta automatización para mi negocio?",
-        answer: "Absolutamente. Cada automatización se adapta a tus procesos, sistemas y necesidades específicas. No vendemos soluciones genéricas sino automatizaciones a medida."
-      }
+        answer:
+          "Absolutamente. Cada automatización se adapta a tus procesos, sistemas y necesidades específicas. No vendemos soluciones genéricas sino automatizaciones a medida.",
+      },
     ];
   }
 
   // Función para toggle de FAQs
   function toggleFAQ(workflowId: number, faqIdx: number) {
-    const answer = document.querySelector(`.faq-answer-${workflowId}-${faqIdx}`);
-    const chevron = document.querySelector(`.faq-chevron-${workflowId}-${faqIdx}`);
+    const answer = document.querySelector(
+      `.faq-answer-${workflowId}-${faqIdx}`,
+    );
+    const chevron = document.querySelector(
+      `.faq-chevron-${workflowId}-${faqIdx}`,
+    );
 
     if (!answer || !chevron) return;
 
-    const isHidden = answer.classList.contains('hidden');
+    const isHidden = answer.classList.contains("hidden");
 
     if (isHidden) {
-      answer.classList.remove('hidden');
-      chevron.style.transform = 'rotate(180deg)';
+      answer.classList.remove("hidden");
+      chevron.style.transform = "rotate(180deg)";
     } else {
-      answer.classList.add('hidden');
-      chevron.style.transform = 'rotate(0deg)';
+      answer.classList.add("hidden");
+      chevron.style.transform = "rotate(0deg)";
     }
 
     // Re-inicializar iconos
-    if (typeof lucide !== 'undefined') {
+    if (typeof lucide !== "undefined") {
       lucide.createIcons();
     }
   }
@@ -2072,12 +2775,13 @@ const structuredData = {
     if (!query) return workflows;
 
     const lowerQuery = query.toLowerCase();
-    return workflows.filter(workflow =>
-      workflow.title.toLowerCase().includes(lowerQuery) ||
-      workflow.description.toLowerCase().includes(lowerQuery) ||
-      workflow.category.toLowerCase().includes(lowerQuery) ||
-      workflow.features.some(f => f.toLowerCase().includes(lowerQuery)) ||
-      workflow.tech.some(t => t.toLowerCase().includes(lowerQuery))
+    return workflows.filter(
+      (workflow) =>
+        workflow.title.toLowerCase().includes(lowerQuery) ||
+        workflow.description.toLowerCase().includes(lowerQuery) ||
+        workflow.category.toLowerCase().includes(lowerQuery) ||
+        workflow.features.some((f) => f.toLowerCase().includes(lowerQuery)) ||
+        workflow.tech.some((t) => t.toLowerCase().includes(lowerQuery)),
     );
   }
 
@@ -2087,25 +2791,26 @@ const structuredData = {
 
     // Filtrar por categorías seleccionadas
     if (selectedCategories.size > 0) {
-      filtered = filtered.filter(workflow =>
-        selectedCategories.has(workflow.category)
+      filtered = filtered.filter((workflow) =>
+        selectedCategories.has(workflow.category),
       );
     }
 
     // Filtrar por texto de búsqueda
     if (searchQuery) {
       const query = searchQuery.toLowerCase();
-      filtered = filtered.filter(workflow =>
-        workflow.title.toLowerCase().includes(query) ||
-        workflow.description.toLowerCase().includes(query) ||
-        workflow.category.toLowerCase().includes(query) ||
-        workflow.features.some(f => f.toLowerCase().includes(query)) ||
-        workflow.tech.some(t => t.toLowerCase().includes(query))
+      filtered = filtered.filter(
+        (workflow) =>
+          workflow.title.toLowerCase().includes(query) ||
+          workflow.description.toLowerCase().includes(query) ||
+          workflow.category.toLowerCase().includes(query) ||
+          workflow.features.some((f) => f.toLowerCase().includes(query)) ||
+          workflow.tech.some((t) => t.toLowerCase().includes(query)),
       );
     }
 
     renderWorkflows(filtered);
-    updateResultsCount(filtered.length, 'automatizaciones');
+    updateResultsCount(filtered.length, "automatizaciones");
   }
 
   // Inicializar tab desde URL al cargar la página

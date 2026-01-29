@@ -1,5 +1,5 @@
 ---
-import SpotlightCard from './SpotlightCard.astro';
+import SpotlightCard from "./SpotlightCard.astro";
 
 interface Props {
   currentService?: string;
@@ -9,20 +9,56 @@ const { currentService } = Astro.props;
 
 // Todos los servicios disponibles
 const todosLosServicios = [
-  { slug: "agentes-ia", title: "Agentes de inteligencia artificial y MCP's", image: "/img/personaje1/01.png" },
-  { slug: "aplicaciones-ia", title: "Apps con integraciones hechas a la medida + IA", image: "/img/personaje3/01.png" },
-  { slug: "desarrollo-web", title: "Diseño y Desarrollo Web Moderno & Rápido + IA", image: "/img/personaje4/01.png" },
-  { slug: "apps-moviles", title: "Aplicaciones Nativas & Cross-Platform", image: "/img/personaje5/01.png" },
-  { slug: "computer-vision", title: "Visión por Computadora hecha a la medida. + IA", image: "/img/personaje7/01.png" },
-  { slug: "arquitectura", title: "Oficina de Arquitectura de Software + IA", image: "/img/personaje6/01.png" },
-  { slug: "desarrollo-fullstack", title: "Desarrollo Full-Stack", image: "/img/personaje9/01.png" },
-  { slug: "ia-machine-learning", title: "Aprendizaje Automático y por refuerzo + Modelos de IA", image: "/img/personaje8/01.png" },
-  { slug: "devops-infraestructura", title: "DevOps & Infraestructura Cloud", image: "/img/personaje010/01.png" },
+  {
+    slug: "agentes-ia",
+    title: "Agentes de inteligencia artificial y MCP's",
+    image: "/img/personaje1/01.png",
+  },
+  {
+    slug: "aplicaciones-ia",
+    title: "Apps con integraciones hechas a la medida + IA",
+    image: "/img/personaje3/01.png",
+  },
+  {
+    slug: "desarrollo-web",
+    title: "Diseño y Desarrollo Web Moderno & Rápido + IA",
+    image: "/img/personaje4/01.png",
+  },
+  {
+    slug: "apps-moviles",
+    title: "Aplicaciones Nativas & Cross-Platform",
+    image: "/img/personaje5/01.png",
+  },
+  {
+    slug: "computer-vision",
+    title: "Visión por Computadora hecha a la medida. + IA",
+    image: "/img/personaje7/01.png",
+  },
+  {
+    slug: "arquitectura",
+    title: "Oficina de Arquitectura de Software + IA",
+    image: "/img/personaje6/01.png",
+  },
+  {
+    slug: "desarrollo-fullstack",
+    title: "Desarrollo Full-Stack",
+    image: "/img/personaje9/01.png",
+  },
+  {
+    slug: "ia-machine-learning",
+    title: "Aprendizaje Automático y por refuerzo + Modelos de IA",
+    image: "/img/personaje8/01.png",
+  },
+  {
+    slug: "devops-infraestructura",
+    title: "DevOps & Infraestructura Cloud",
+    image: "/img/personaje010/01.png",
+  },
 ];
 
 // Filtrar el servicio actual si se proporciona
 const serviciosFiltrados = currentService
-  ? todosLosServicios.filter(s => s.slug !== currentService)
+  ? todosLosServicios.filter((s) => s.slug !== currentService)
   : todosLosServicios;
 ---
 
@@ -45,7 +81,11 @@ const serviciosFiltrados = currentService
               href={`/servicios/${servicio.slug}`}
               className="group"
             >
-              <img src={servicio.image} alt={servicio.title} class="w-16 h-16 mb-4 object-contain" />
+              <img
+                src={servicio.image}
+                alt={servicio.title}
+                class="w-16 h-16 mb-4 object-contain"
+              />
               <h3 class="text-lg font-bold text-white group-hover:text-[#82e256] transition-colors">
                 {servicio.title}
               </h3>
@@ -72,7 +112,7 @@ const serviciosFiltrados = currentService
 
       <div class="mt-12 text-center">
         <a
-          href="https://aquicreamos.com/servicios"
+          servicios"
           class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#82e256] to-[#6bc73d] hover:from-[#6bc73d] hover:to-[#5ba62e] text-black font-bold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
         >
           <svg

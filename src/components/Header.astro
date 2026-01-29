@@ -1,6 +1,12 @@
 ---
 interface Props {
-  currentPage?: "home" | "servicios" | "soluciones" | "blog" | "podcast" | "contacto";
+  currentPage?:
+    | "home"
+    | "servicios"
+    | "soluciones"
+    | "blog"
+    | "podcast"
+    | "contacto";
 }
 
 const { currentPage = "home" } = Astro.props;
@@ -9,7 +15,7 @@ const { currentPage = "home" } = Astro.props;
 <header
   class="bg-[#00464e] flex flex-row justify-between items-center p-3 w-full fixed top-0 left-0 z-50 shadow-[0_2px_10px_rgba(0,0,0,0.5)] animate-on-scroll"
 >
-  <a href="https://aquicreamos.com/">
+  <a ">
     <img
       src="/img/logoAquicreamos.png"
       class="h-7 card-animate"
@@ -27,7 +33,7 @@ const { currentPage = "home" } = Astro.props;
       <ul class="flex flex-row gap-6 items-center justify-center card-animate">
         <li>
           <a
-            href="https://aquicreamos.com/#home"
+            #home"
             class={`transition-colors ${currentPage === "home" ? "text-[#82e256] font-semibold" : "text-white hover:text-[#82e256]"}`}
           >
             Inicio
@@ -35,7 +41,7 @@ const { currentPage = "home" } = Astro.props;
         </li>
         <li>
           <a
-            href="https://aquicreamos.com/#servicios"
+            #servicios"
             class="text-white hover:text-[#82e256] transition-colors"
           >
             Servicios
@@ -43,23 +49,20 @@ const { currentPage = "home" } = Astro.props;
         </li>
         <li>
           <a
-            href="https://aquicreamos.com/soluciones"
+            soluciones"
             class={`transition-colors ${currentPage === "soluciones" ? "text-[#82e256] font-semibold" : "text-white hover:text-[#82e256]"}`}
           >
             Soluciones
           </a>
         </li>
         <li>
-          <a
-            href="https://aquicreamos.com/#videos"
-            class="text-white hover:text-[#82e256] transition-colors"
-          >
+          <a #videos" class="text-white hover:text-[#82e256] transition-colors">
             Videos
           </a>
         </li>
         <li>
           <a
-            href="https://aquicreamos.com/blog"
+            blog"
             class={`transition-colors ${currentPage === "blog" ? "text-[#82e256] font-semibold" : "text-white hover:text-[#82e256]"}`}
           >
             Blog
@@ -67,23 +70,20 @@ const { currentPage = "home" } = Astro.props;
         </li>
         <li>
           <a
-            href="https://aquicreamos.com/podcast"
+            podcast"
             class={`transition-colors ${currentPage === "podcast" ? "text-[#82e256] font-semibold" : "text-white hover:text-[#82e256]"}`}
           >
             Podcast
           </a>
         </li>
         <li>
-          <a
-            href="https://aquicreamos.com/#stack"
-            class="text-white hover:text-[#82e256] transition-colors"
-          >
+          <a #stack" class="text-white hover:text-[#82e256] transition-colors">
             Stack
           </a>
         </li>
         <li>
           <a
-            href="https://aquicreamos.com/#asesorias"
+            #asesorias"
             class={`transition-colors ${currentPage === "contacto" ? "text-[#82e256] font-semibold" : "text-white hover:text-[#82e256]"}`}
           >
             Asesorías
@@ -100,49 +100,49 @@ const { currentPage = "home" } = Astro.props;
 >
   <nav class="flex flex-col p-4 gap-4">
     <a
-      href="https://aquicreamos.com/#home"
+      #home"
       class="text-white hover:text-[#82e256] transition-colors py-2 border-b border-white/10"
     >
       Inicio
     </a>
     <a
-      href="https://aquicreamos.com/#servicios"
+      #servicios"
       class="text-white hover:text-[#82e256] transition-colors py-2 border-b border-white/10"
     >
       Servicios
     </a>
     <a
-      href="https://aquicreamos.com/soluciones"
+      soluciones"
       class="text-white hover:text-[#82e256] transition-colors py-2 border-b border-white/10"
     >
       Soluciones
     </a>
     <a
-      href="https://aquicreamos.com/#videos"
+      #videos"
       class="text-white hover:text-[#82e256] transition-colors py-2 border-b border-white/10"
     >
       Videos
     </a>
     <a
-      href="https://aquicreamos.com/blog"
+      blog"
       class="text-white hover:text-[#82e256] transition-colors py-2 border-b border-white/10"
     >
       Blog
     </a>
     <a
-      href="https://aquicreamos.com/podcast"
+      podcast"
       class="text-white hover:text-[#82e256] transition-colors py-2 border-b border-white/10"
     >
       Podcast
     </a>
     <a
-      href="https://aquicreamos.com/#stack"
+      #stack"
       class="text-white hover:text-[#82e256] transition-colors py-2 border-b border-white/10"
     >
       Stack
     </a>
     <a
-      href="https://aquicreamos.com/#asesorias"
+      #asesorias"
       class="text-white hover:text-[#82e256] transition-colors py-2"
     >
       Asesorías

@@ -3,40 +3,46 @@
 const faqItems = [
   {
     title: "¿Cómo pueden contratar nuestros servicios?",
-    content: "El proceso es simple: 1) Contacto inicial (formulario o email), 2) Discovery call (30-60 min para entender tus necesidades), 3) Propuesta personalizada (enviada en 2-3 días), 4) Reunión de clarificación, 5) Firma de contrato, 6) Inicio del proyecto. Tiempo total: 1-2 semanas. Podemos firmar",
+    content:
+      "El proceso es simple: 1) Contacto inicial (formulario o email), 2) Discovery call (30-60 min para entender tus necesidades), 3) Propuesta personalizada (enviada en 2-3 días), 4) Reunión de clarificación, 5) Firma de contrato, 6) Inicio del proyecto. Tiempo total: 1-2 semanas. Podemos firmar",
     mediaType: null,
-    mediaSrc: null
+    mediaSrc: null,
   },
   {
     title: "¿Cómo implementamos un proyecto?",
-    content: "Seguimos metodología ágil en 4 fases: 1) Planificación (1-2 semanas): requisitos, arquitectura, backlog. 2) Desarrollo Iterativo (sprints de 2 semanas): desarrollo incremental, revisiones semanales, demos. 3) Testing y Refinamiento: integración, UAT, optimización. 4) Despliegue: producción, capacitación, documentación. Comunicación: reportes semanales y acceso a herramientas de gestión.",
+    content:
+      "Seguimos metodología ágil en 4 fases: 1) Planificación (1-2 semanas): requisitos, arquitectura, backlog. 2) Desarrollo Iterativo (sprints de 2 semanas): desarrollo incremental, revisiones semanales, demos. 3) Testing y Refinamiento: integración, UAT, optimización. 4) Despliegue: producción, capacitación, documentación. Comunicación: reportes semanales y acceso a herramientas de gestión.",
     mediaType: "video",
-    mediaSrc: "https://www.youtube.com/embed/VIDEO_ID"
+    mediaSrc: "https://www.youtube.com/embed/VIDEO_ID",
   },
   {
     title: "¿Cómo integrar IA en mi negocio?",
-    content: "Proceso estratégico en 4 pasos: 1) Identificación de Oportunidades (analizar procesos para mayor ROI), 2) Evaluación de Datos (revisar calidad y disponibilidad), 3) Proyecto Piloto (caso de uso específico y medible), 4) Escalamiento. Casos comunes: chatbots 24/7, cualificación de leads, automatización administrativa, predicción de demanda, personalización. Resultados en 4-8 semanas.",
+    content:
+      "Proceso estratégico en 4 pasos: 1) Identificación de Oportunidades (analizar procesos para mayor ROI), 2) Evaluación de Datos (revisar calidad y disponibilidad), 3) Proyecto Piloto (caso de uso específico y medible), 4) Escalamiento. Casos comunes: chatbots 24/7, cualificación de leads, automatización administrativa, predicción de demanda, personalización. Resultados en 4-8 semanas.",
     mediaType: "video",
-    mediaSrc: "https://www.youtube.com/embed/VIDEO_ID"
+    mediaSrc: "https://www.youtube.com/embed/VIDEO_ID",
   },
   {
     title: "¿Qué pasará en la asesoría?",
-    content: "Sesión de 60 minutos: 10' conocernos y contexto, 15' profundizar en el problema, 20' propuesta de solución con referencias, 10' hoja de ruta inicial y estimación, 5' Q&A y próximos pasos. Recibirás: resumen por email, recomendaciones técnicas, recursos relevantes, y propuesta formal (si decides continuar). 100% gratuita, sin compromiso.",
+    content:
+      "Sesión de 60 minutos: 10' conocernos y contexto, 15' profundizar en el problema, 20' propuesta de solución con referencias, 10' hoja de ruta inicial y estimación, 5' Q&A y próximos pasos. Recibirás: resumen por email, recomendaciones técnicas, recursos relevantes, y propuesta formal (si decides continuar). 100% gratuita, sin compromiso.",
     mediaType: "audio",
-    mediaSrc: "/audio/asesoria.mp3"
+    mediaSrc: "/audio/asesoria.mp3",
   },
   {
     title: "¿Qué arquitectura debo usar en mi proyecto?",
-    content: "Depende de tus necesidades: Monolito Modular (MVPs, equipos pequeños, presupuesto limitado), Microservicios (apps empresariales complejas, equipos distribuidos, alta escalabilidad), Serverless (tráfico variable, event-driven, optimización de costos), Híbrida (migración gradual, necesidades mixtas). Aplicamos TOGAF 2026 considerando arquitectura de negocio, aplicaciones, datos y tecnología. En la consultoría analizamos tu caso específico.",
+    content:
+      "Depende de tus necesidades: Monolito Modular (MVPs, equipos pequeños, presupuesto limitado), Microservicios (apps empresariales complejas, equipos distribuidos, alta escalabilidad), Serverless (tráfico variable, event-driven, optimización de costos), Híbrida (migración gradual, necesidades mixtas). Aplicamos TOGAF 2026 considerando arquitectura de negocio, aplicaciones, datos y tecnología. En la consultoría analizamos tu caso específico.",
     mediaType: "audio",
-    mediaSrc: "/audio/arquitectura.mp3"
+    mediaSrc: "/audio/arquitectura.mp3",
   },
   {
     title: "¿La IA resuelve todos mis problemas?",
-    content: "No. La IA NO es solución si: procesos caóticos (automatizarás el caos), datos de baja calidad ('garbage in, garbage out'), problemas organizacionales (resistencia al cambio), expectativas de resultados instantáneos, o sin presupuesto para mantenimiento. La IA SÍ es solución para: tareas repetitivas a escala, personalización masiva, análisis de grandes volúmenes, disponibilidad 24/7, predicciones basadas en datos. Te diremos la verdad y recomendaremos alternativas si la IA no es lo mejor para ti.",
+    content:
+      "No. La IA NO es solución si: procesos caóticos (automatizarás el caos), datos de baja calidad ('garbage in, garbage out'), problemas organizacionales (resistencia al cambio), expectativas de resultados instantáneos, o sin presupuesto para mantenimiento. La IA SÍ es solución para: tareas repetitivas a escala, personalización masiva, análisis de grandes volúmenes, disponibilidad 24/7, predicciones basadas en datos. Te diremos la verdad y recomendaremos alternativas si la IA no es lo mejor para ti.",
     mediaType: null,
-    mediaSrc: null
-  }
+    mediaSrc: null,
+  },
 ];
 ---
 
@@ -44,7 +50,6 @@ const faqItems = [
   <div class="max-w-7xl mx-auto px-5 md:px-16">
     <!-- Header -->
     <div class="text-center mb-16">
-     
       <h1
         class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight bg-gradient-to-r from-white via-white to-[#82e256] bg-clip-text text-transparent"
       >
@@ -55,11 +60,21 @@ const faqItems = [
         inteligencia artificial. Usa nuestro FAQ o haz tu propia pregunta.
       </p>
       <a
-        href="https://aquicreamos.com/faq"
+        faq"
         class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-900/40 to-blue-800/40 hover:from-blue-900/60 hover:to-blue-800/60 border border-blue-500/30 hover:border-blue-400/50 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105"
       >
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        <svg
+          class="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          ></path>
         </svg>
         Ver Todas las Preguntas Frecuentes
       </a>
@@ -87,43 +102,53 @@ const faqItems = [
 
         <!-- FAQ Items -->
         <div class="space-y-0">
-          {faqItems.map((item, index) => (
-            <div class="faq-item" data-index={index}>
-              <div class="faq-header">
-                <div class="faq-header-content">
-                  <h3 class="faq-title">{item.title}</h3>
+          {
+            faqItems.map((item, index) => (
+              <div class="faq-item" data-index={index}>
+                <div class="faq-header">
+                  <div class="faq-header-content">
+                    <h3 class="faq-title">{item.title}</h3>
 
-                  {/* Media Icons - Clickeable para abrir modal */}
-                  {item.mediaType && (
-                    <button
-                      class="media-badge-btn"
-                      data-media-type={item.mediaType}
-                      data-index={index}
-                      aria-label={`Reproducir ${item.mediaType === 'audio' ? 'audio' : 'video'}`}
-                    >
-                      {item.mediaType === 'audio' ? (
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"></path>
-                        </svg>
-                      ) : (
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"></path>
-                        </svg>
-                      )}
-                    </button>
-                  )}
+                    {/* Media Icons - Clickeable para abrir modal */}
+                    {item.mediaType && (
+                      <button
+                        class="media-badge-btn"
+                        data-media-type={item.mediaType}
+                        data-index={index}
+                        aria-label={`Reproducir ${item.mediaType === "audio" ? "audio" : "video"}`}
+                      >
+                        {item.mediaType === "audio" ? (
+                          <svg
+                            class="w-4 h-4"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z" />
+                          </svg>
+                        ) : (
+                          <svg
+                            class="w-4 h-4"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" />
+                          </svg>
+                        )}
+                      </button>
+                    )}
+                  </div>
+
+                  <div class="faq-icon" />
                 </div>
 
-                <div class="faq-icon"></div>
-              </div>
-
-              <div class="faq-body">
-                <div class="faq-content">
-                  <p>{item.content}</p>
+                <div class="faq-body">
+                  <div class="faq-content">
+                    <p>{item.content}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))
+          }
         </div>
       </div>
 
@@ -143,7 +168,9 @@ const faqItems = [
               d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
             ></path>
           </svg>
-          <h2 class="text-2xl font-bold text-white">Tu Pregunta Personalizada</h2>
+          <h2 class="text-2xl font-bold text-white">
+            Tu Pregunta Personalizada
+          </h2>
         </div>
 
         <div
@@ -187,12 +214,19 @@ const faqItems = [
 
           <!-- Botón para chatbot conversacional -->
           <div class="mt-6 pt-6 border-t border-white/10">
-            <p class="text-white/60 text-sm mb-3 text-center">O conversa con nuestro asistente</p>
+            <p class="text-white/60 text-sm mb-3 text-center">
+              O conversa con nuestro asistente
+            </p>
             <button
               id="open-floating-chat-consulta"
               class="w-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#82e256]/50 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-3"
             >
-              <img src="/img/ia.svg" style="filter: contrast(0) brightness(1) grayscale(0);" alt="Chat" class="w-5 h-5" />
+              <img
+                src="/img/ia.svg"
+                style="filter: contrast(0) brightness(1) grayscale(0);"
+                alt="Chat"
+                class="w-5 h-5"
+              />
               <span>Chat Interactivo IA</span>
             </button>
           </div>
@@ -251,27 +285,62 @@ const faqItems = [
 <!-- ═══════════════════════════════════════════════════════════════════ -->
 
 <!-- Modal de Audio -->
-<div id="audio-modal" class="media-modal hidden fixed inset-0 flex items-center justify-center" style="z-index: 999999;">
-  <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" data-modal-backdrop="audio"></div>
+<div
+  id="audio-modal"
+  class="media-modal hidden fixed inset-0 flex items-center justify-center"
+  style="z-index: 999999;"
+>
+  <div
+    class="absolute inset-0 bg-black/90 backdrop-blur-sm"
+    data-modal-backdrop="audio"
+  >
+  </div>
   <div class="relative z-10 w-full max-w-lg p-4">
     <!-- Botón de Cerrar Circular - Superior Izquierdo -->
-    <button class="close-modal absolute top-2 left-2 z-20 w-12 h-12 bg-gradient-to-br from-[#82e256] to-[#6bc73d] hover:from-[#6bc73d] hover:to-[#5ab32c] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110 border-2 border-white/20" data-modal="audio" aria-label="Cerrar audio">
-      <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+    <button
+      class="close-modal absolute top-2 left-2 z-20 w-12 h-12 bg-gradient-to-br from-[#82e256] to-[#6bc73d] hover:from-[#6bc73d] hover:to-[#5ab32c] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110 border-2 border-white/20"
+      data-modal="audio"
+      aria-label="Cerrar audio"
+    >
+      <svg
+        class="w-6 h-6 text-black"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        stroke-width="3"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18L18 6M6 6l12 12"></path>
       </svg>
     </button>
 
-    <div class="bg-gradient-to-br from-black/80 to-black/60 backdrop-blur-xl rounded-2xl border-2 border-[#82e256]/30 shadow-2xl overflow-hidden">
+    <div
+      class="bg-gradient-to-br from-black/80 to-black/60 backdrop-blur-xl rounded-2xl border-2 border-[#82e256]/30 shadow-2xl overflow-hidden"
+    >
       <!-- Header -->
-      <div class="flex items-center justify-center p-6 border-b border-white/10 relative">
+      <div
+        class="flex items-center justify-center p-6 border-b border-white/10 relative"
+      >
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-lg flex items-center justify-center">
-            <svg class="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"></path>
+          <div
+            class="w-10 h-10 bg-gradient-to-br from-[#82e256] to-[#6bc73d] rounded-lg flex items-center justify-center"
+          >
+            <svg
+              class="w-5 h-5 text-black"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"
+              ></path>
             </svg>
           </div>
           <div>
-            <h4 class="text-white font-bold text-lg" id="audio-modal-title">Audio</h4>
+            <h4 class="text-white font-bold text-lg" id="audio-modal-title">
+              Audio
+            </h4>
             <p class="text-gray-400 text-xs">Escucha la respuesta completa</p>
           </div>
         </div>
@@ -281,17 +350,33 @@ const faqItems = [
       <div class="p-6">
         <div class="audio-player-modal">
           <button class="play-btn-modal" id="audio-play-btn">
-            <svg class="play-icon-modal w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"></path>
+            <svg
+              class="play-icon-modal w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"
+              ></path>
             </svg>
-            <svg class="pause-icon-modal w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+            <svg
+              class="pause-icon-modal w-6 h-6 hidden"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z"
+                clip-rule="evenodd"></path>
             </svg>
           </button>
           <div class="audio-info-modal">
             <div class="flex items-center justify-between mb-2">
-              <span class="text-sm text-white" id="audio-current-time">0:00</span>
-              <span class="text-sm text-gray-400" id="audio-duration">0:00</span>
+              <span class="text-sm text-white" id="audio-current-time"
+                >0:00</span
+              >
+              <span class="text-sm text-gray-400" id="audio-duration">0:00</span
+              >
             </div>
             <div class="audio-progress-modal">
               <div class="audio-progress-bar-modal"></div>
@@ -305,36 +390,79 @@ const faqItems = [
 </div>
 
 <!-- Modal de Video (YouTube Short) -->
-<div id="video-modal" class="media-modal hidden fixed inset-0 flex items-center justify-center" style="z-index: 999999;">
-  <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" data-modal-backdrop="video"></div>
+<div
+  id="video-modal"
+  class="media-modal hidden fixed inset-0 flex items-center justify-center"
+  style="z-index: 999999;"
+>
+  <div
+    class="absolute inset-0 bg-black/90 backdrop-blur-sm"
+    data-modal-backdrop="video"
+  >
+  </div>
 
   <!-- Botón de Cerrar Circular - Superior Izquierdo -->
-  <button class="close-modal absolute top-6 left-6 z-20 w-14 h-14 bg-gradient-to-br from-[#82e256] to-[#6bc73d] hover:from-[#6bc73d] hover:to-[#5ab32c] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110 border-2 border-white/20" data-modal="video" aria-label="Cerrar video">
-    <svg class="w-7 h-7 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+  <button
+    class="close-modal absolute top-6 left-6 z-20 w-14 h-14 bg-gradient-to-br from-[#82e256] to-[#6bc73d] hover:from-[#6bc73d] hover:to-[#5ab32c] rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110 border-2 border-white/20"
+    data-modal="video"
+    aria-label="Cerrar video"
+  >
+    <svg
+      class="w-7 h-7 text-black"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      stroke-width="3"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M6 18L18 6M6 6l12 12"></path>
     </svg>
   </button>
 
   <div class="relative z-10 w-full h-full flex items-center justify-center p-4">
-    <div class="relative flex flex-col items-center gap-6 h-full justify-center max-w-2xl w-full">
+    <div
+      class="relative flex flex-col items-center gap-6 h-full justify-center max-w-2xl w-full"
+    >
       <!-- Header -->
       <div class="flex items-center justify-center w-full">
-        <div class="flex items-center gap-3 bg-black/60 backdrop-blur-xl px-6 py-3 rounded-xl border border-white/10">
-          <div class="w-10 h-10 bg-gradient-to-br from-red-500 to-red-600 rounded-lg flex items-center justify-center">
-            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"></path>
+        <div
+          class="flex items-center gap-3 bg-black/60 backdrop-blur-xl px-6 py-3 rounded-xl border border-white/10"
+        >
+          <div
+            class="w-10 h-10 bg-gradient-to-br from-red-500 to-red-600 rounded-lg flex items-center justify-center"
+          >
+            <svg
+              class="w-5 h-5 text-white"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"
+              ></path>
             </svg>
           </div>
           <div>
-            <h4 class="text-white font-bold text-base" id="video-modal-title">Video</h4>
-            <p class="text-gray-400 text-xs" id="video-modal-description">Video explicativo</p>
+            <h4 class="text-white font-bold text-base" id="video-modal-title">
+              Video
+            </h4>
+            <p class="text-gray-400 text-xs" id="video-modal-description">
+              Video explicativo
+            </p>
           </div>
         </div>
       </div>
 
       <!-- Video Container -->
-      <div class="video-container-modal flex-1 flex items-center justify-center" style="max-height: 90vh;">
-        <div class="relative rounded-xl overflow-hidden border-2 border-gray-700 hover:border-[#82e256] transition-all duration-300 shadow-2xl" style="height: 85vh;">
+      <div
+        class="video-container-modal flex-1 flex items-center justify-center"
+        style="max-height: 90vh;"
+      >
+        <div
+          class="relative rounded-xl overflow-hidden border-2 border-gray-700 hover:border-[#82e256] transition-all duration-300 shadow-2xl"
+          style="height: 85vh;"
+        >
           <iframe
             id="video-iframe-modal"
             class="transition-all duration-500"
@@ -343,8 +471,7 @@ const faqItems = [
             title="Video"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+            allowfullscreen></iframe>
         </div>
       </div>
     </div>
@@ -429,7 +556,7 @@ const faqItems = [
 
   .faq-icon::before,
   .faq-icon::after {
-    content: '';
+    content: "";
     position: absolute;
     background-color: #82e256;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -577,50 +704,58 @@ const faqItems = [
   const faqItemsData = [
     {
       title: "¿Cómo pueden contratar nuestros servicios?",
-      content: "El proceso es simple: 1) Contacto inicial (formulario o email), 2) Discovery call (30-60 min para entender tus necesidades), 3) Propuesta personalizada (enviada en 2-3 días), 4) Reunión de clarificación, 5) Firma de contrato, 6) Inicio del proyecto. Tiempo total: 1-2 semanas.",
+      content:
+        "El proceso es simple: 1) Contacto inicial (formulario o email), 2) Discovery call (30-60 min para entender tus necesidades), 3) Propuesta personalizada (enviada en 2-3 días), 4) Reunión de clarificación, 5) Firma de contrato, 6) Inicio del proyecto. Tiempo total: 1-2 semanas.",
       mediaType: null,
-      mediaSrc: null
+      mediaSrc: null,
     },
     {
       title: "¿Cómo implementamos un proyecto?",
-      content: "Seguimos metodología ágil en 4 fases: 1) Planificación (1-2 semanas): requisitos, arquitectura, backlog. 2) Desarrollo Iterativo (sprints de 2 semanas): desarrollo incremental, revisiones semanales, demos. 3) Testing y Refinamiento: integración, UAT, optimización. 4) Despliegue: producción, capacitación, documentación. Comunicación: reportes semanales y acceso a herramientas de gestión.",
+      content:
+        "Seguimos metodología ágil en 4 fases: 1) Planificación (1-2 semanas): requisitos, arquitectura, backlog. 2) Desarrollo Iterativo (sprints de 2 semanas): desarrollo incremental, revisiones semanales, demos. 3) Testing y Refinamiento: integración, UAT, optimización. 4) Despliegue: producción, capacitación, documentación. Comunicación: reportes semanales y acceso a herramientas de gestión.",
       mediaType: "video",
-      mediaSrc: "https://www.youtube.com/embed/VIDEO_ID"
+      mediaSrc: "https://www.youtube.com/embed/VIDEO_ID",
     },
     {
       title: "¿Cómo integrar IA en mi negocio?",
-      content: "Proceso estratégico en 4 pasos: 1) Identificación de Oportunidades (analizar procesos para mayor ROI), 2) Evaluación de Datos (revisar calidad y disponibilidad), 3) Proyecto Piloto (caso de uso específico y medible), 4) Escalamiento. Casos comunes: chatbots 24/7, cualificación de leads, automatización administrativa, predicción de demanda, personalización. Resultados en 4-8 semanas.",
+      content:
+        "Proceso estratégico en 4 pasos: 1) Identificación de Oportunidades (analizar procesos para mayor ROI), 2) Evaluación de Datos (revisar calidad y disponibilidad), 3) Proyecto Piloto (caso de uso específico y medible), 4) Escalamiento. Casos comunes: chatbots 24/7, cualificación de leads, automatización administrativa, predicción de demanda, personalización. Resultados en 4-8 semanas.",
       mediaType: "video",
-      mediaSrc: "https://www.youtube.com/embed/VIDEO_ID"
+      mediaSrc: "https://www.youtube.com/embed/VIDEO_ID",
     },
     {
       title: "¿Qué pasará en la asesoría?",
-      content: "Sesión de 60 minutos: 10' conocernos y contexto, 15' profundizar en el problema, 20' propuesta de solución con referencias, 10' hoja de ruta inicial y estimación, 5' Q&A y próximos pasos. Recibirás: resumen por email, recomendaciones técnicas, recursos relevantes, y propuesta formal (si decides continuar). 100% gratuita, sin compromiso.",
+      content:
+        "Sesión de 60 minutos: 10' conocernos y contexto, 15' profundizar en el problema, 20' propuesta de solución con referencias, 10' hoja de ruta inicial y estimación, 5' Q&A y próximos pasos. Recibirás: resumen por email, recomendaciones técnicas, recursos relevantes, y propuesta formal (si decides continuar). 100% gratuita, sin compromiso.",
       mediaType: "audio",
-      mediaSrc: "/audio/asesoria.mp3"
+      mediaSrc: "/audio/asesoria.mp3",
     },
     {
       title: "¿Qué arquitectura debo usar en mi proyecto?",
-      content: "Depende de tus necesidades: Monolito Modular (MVPs, equipos pequeños, presupuesto limitado), Microservicios (apps empresariales complejas, equipos distribuidos, alta escalabilidad), Serverless (tráfico variable, event-driven, optimización de costos), Híbrida (migración gradual, necesidades mixtas). Aplicamos TOGAF 2026 considerando arquitectura de negocio, aplicaciones, datos y tecnología. En la consultoría analizamos tu caso específico.",
+      content:
+        "Depende de tus necesidades: Monolito Modular (MVPs, equipos pequeños, presupuesto limitado), Microservicios (apps empresariales complejas, equipos distribuidos, alta escalabilidad), Serverless (tráfico variable, event-driven, optimización de costos), Híbrida (migración gradual, necesidades mixtas). Aplicamos TOGAF 2026 considerando arquitectura de negocio, aplicaciones, datos y tecnología. En la consultoría analizamos tu caso específico.",
       mediaType: "audio",
-      mediaSrc: "/audio/arquitectura.mp3"
+      mediaSrc: "/audio/arquitectura.mp3",
     },
     {
       title: "¿La IA resuelve todos mis problemas?",
-      content: "No. La IA NO es solución si: procesos caóticos (automatizarás el caos), datos de baja calidad ('garbage in, garbage out'), problemas organizacionales (resistencia al cambio), expectativas de resultados instantáneos, o sin presupuesto para mantenimiento. La IA SÍ es solución para: tareas repetitivas a escala, personalización masiva, análisis de grandes volúmenes, disponibilidad 24/7, predicciones basadas en datos. Te diremos la verdad y recomendaremos alternativas si la IA no es lo mejor para ti.",
+      content:
+        "No. La IA NO es solución si: procesos caóticos (automatizarás el caos), datos de baja calidad ('garbage in, garbage out'), problemas organizacionales (resistencia al cambio), expectativas de resultados instantáneos, o sin presupuesto para mantenimiento. La IA SÍ es solución para: tareas repetitivas a escala, personalización masiva, análisis de grandes volúmenes, disponibilidad 24/7, predicciones basadas en datos. Te diremos la verdad y recomendaremos alternativas si la IA no es lo mejor para ti.",
       mediaType: null,
-      mediaSrc: null
-    }
+      mediaSrc: null,
+    },
   ];
 
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener("DOMContentLoaded", () => {
     // ═══════════════════════════════════════════════════════════════════
     // BOTÓN PARA ABRIR CHAT FLOTANTE
     // ═══════════════════════════════════════════════════════════════════
-    const openFloatingChatBtn = document.getElementById('open-floating-chat-consulta');
+    const openFloatingChatBtn = document.getElementById(
+      "open-floating-chat-consulta",
+    );
     if (openFloatingChatBtn) {
-      openFloatingChatBtn.addEventListener('click', () => {
-        const floatingChatBtn = document.getElementById('floating-chat-btn');
+      openFloatingChatBtn.addEventListener("click", () => {
+        const floatingChatBtn = document.getElementById("floating-chat-btn");
         floatingChatBtn?.click();
       });
     }
@@ -628,20 +763,20 @@ const faqItems = [
     // ═══════════════════════════════════════════════════════════════════
     // FAQ ACCORDION
     // ═══════════════════════════════════════════════════════════════════
-    const faqHeaders = document.querySelectorAll('.faq-header');
+    const faqHeaders = document.querySelectorAll(".faq-header");
 
-    faqHeaders.forEach(header => {
-      header.addEventListener('click', () => {
+    faqHeaders.forEach((header) => {
+      header.addEventListener("click", () => {
         const currentItem = header.parentElement as HTMLElement;
-        const isOpen = currentItem.classList.contains('is-open');
+        const isOpen = currentItem.classList.contains("is-open");
 
         // Cerrar todos
-        document.querySelectorAll('.faq-item').forEach(item => {
-          item.classList.remove('is-open');
+        document.querySelectorAll(".faq-item").forEach((item) => {
+          item.classList.remove("is-open");
         });
 
         if (!isOpen) {
-          currentItem.classList.add('is-open');
+          currentItem.classList.add("is-open");
         }
       });
     });
@@ -649,18 +784,18 @@ const faqItems = [
     // ═══════════════════════════════════════════════════════════════════
     // MODALES - Abrir al hacer clic en badges de media
     // ═══════════════════════════════════════════════════════════════════
-    const mediaBadgeBtns = document.querySelectorAll('.media-badge-btn');
+    const mediaBadgeBtns = document.querySelectorAll(".media-badge-btn");
 
-    mediaBadgeBtns.forEach(btn => {
-      btn.addEventListener('click', (e) => {
+    mediaBadgeBtns.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
         e.stopPropagation();
-        const mediaType = btn.getAttribute('data-media-type');
-        const index = parseInt(btn.getAttribute('data-index') || '0');
+        const mediaType = btn.getAttribute("data-media-type");
+        const index = parseInt(btn.getAttribute("data-index") || "0");
         const itemData = faqItemsData[index];
 
-        if (mediaType === 'audio') {
+        if (mediaType === "audio") {
           openAudioModal(itemData);
-        } else if (mediaType === 'video') {
+        } else if (mediaType === "video") {
           openVideoModal(itemData);
         }
       });
@@ -670,13 +805,17 @@ const faqItems = [
     // AUDIO MODAL
     // ═══════════════════════════════════════════════════════════════════
     function openAudioModal(itemData) {
-      const modal = document.getElementById('audio-modal');
-      const audioElement = document.getElementById('audio-element-modal') as HTMLAudioElement;
-      const modalTitle = document.getElementById('audio-modal-title');
-      const playBtn = document.getElementById('audio-play-btn');
-      const progressBar = document.querySelector('.audio-progress-bar-modal') as HTMLElement;
-      const currentTimeEl = document.getElementById('audio-current-time');
-      const durationEl = document.getElementById('audio-duration');
+      const modal = document.getElementById("audio-modal");
+      const audioElement = document.getElementById(
+        "audio-element-modal",
+      ) as HTMLAudioElement;
+      const modalTitle = document.getElementById("audio-modal-title");
+      const playBtn = document.getElementById("audio-play-btn");
+      const progressBar = document.querySelector(
+        ".audio-progress-bar-modal",
+      ) as HTMLElement;
+      const currentTimeEl = document.getElementById("audio-current-time");
+      const durationEl = document.getElementById("audio-duration");
 
       if (modal && audioElement && itemData.mediaSrc) {
         // Set title
@@ -686,16 +825,16 @@ const faqItems = [
         audioElement.src = itemData.mediaSrc;
 
         // Show modal
-        modal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
+        modal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
 
         // Reset player
         audioElement.currentTime = 0;
-        playBtn?.classList.remove('playing');
-        if (progressBar) progressBar.style.width = '0%';
+        playBtn?.classList.remove("playing");
+        if (progressBar) progressBar.style.width = "0%";
 
         // Update duration when loaded
-        audioElement.addEventListener('loadedmetadata', () => {
+        audioElement.addEventListener("loadedmetadata", () => {
           if (durationEl) {
             durationEl.textContent = formatTime(audioElement.duration);
           }
@@ -704,46 +843,55 @@ const faqItems = [
     }
 
     function closeAudioModal() {
-      const modal = document.getElementById('audio-modal');
-      const audioElement = document.getElementById('audio-element-modal') as HTMLAudioElement;
-      const playBtn = document.getElementById('audio-play-btn');
-      const progressBar = document.querySelector('.audio-progress-bar-modal') as HTMLElement;
+      const modal = document.getElementById("audio-modal");
+      const audioElement = document.getElementById(
+        "audio-element-modal",
+      ) as HTMLAudioElement;
+      const playBtn = document.getElementById("audio-play-btn");
+      const progressBar = document.querySelector(
+        ".audio-progress-bar-modal",
+      ) as HTMLElement;
 
       if (modal) {
-        modal.classList.add('hidden');
-        document.body.style.overflow = 'auto';
+        modal.classList.add("hidden");
+        document.body.style.overflow = "auto";
       }
 
       if (audioElement) {
         audioElement.pause();
         audioElement.currentTime = 0;
-        audioElement.src = '';
+        audioElement.src = "";
       }
 
-      playBtn?.classList.remove('playing');
-      if (progressBar) progressBar.style.width = '0%';
+      playBtn?.classList.remove("playing");
+      if (progressBar) progressBar.style.width = "0%";
     }
 
     // Audio player controls
-    const audioPlayBtn = document.getElementById('audio-play-btn');
-    const audioElement = document.getElementById('audio-element-modal') as HTMLAudioElement;
-    const audioProgressBar = document.querySelector('.audio-progress-bar-modal') as HTMLElement;
-    const audioCurrentTime = document.getElementById('audio-current-time');
+    const audioPlayBtn = document.getElementById("audio-play-btn");
+    const audioElement = document.getElementById(
+      "audio-element-modal",
+    ) as HTMLAudioElement;
+    const audioProgressBar = document.querySelector(
+      ".audio-progress-bar-modal",
+    ) as HTMLElement;
+    const audioCurrentTime = document.getElementById("audio-current-time");
 
     if (audioPlayBtn && audioElement) {
-      audioPlayBtn.addEventListener('click', () => {
+      audioPlayBtn.addEventListener("click", () => {
         if (audioElement.paused) {
           audioElement.play();
-          audioPlayBtn.classList.add('playing');
+          audioPlayBtn.classList.add("playing");
         } else {
           audioElement.pause();
-          audioPlayBtn.classList.remove('playing');
+          audioPlayBtn.classList.remove("playing");
         }
       });
 
       // Update progress
-      audioElement.addEventListener('timeupdate', () => {
-        const progress = (audioElement.currentTime / audioElement.duration) * 100;
+      audioElement.addEventListener("timeupdate", () => {
+        const progress =
+          (audioElement.currentTime / audioElement.duration) * 100;
         if (audioProgressBar) {
           audioProgressBar.style.width = `${progress}%`;
         }
@@ -753,16 +901,18 @@ const faqItems = [
       });
 
       // Reset on end
-      audioElement.addEventListener('ended', () => {
-        audioPlayBtn.classList.remove('playing');
-        if (audioProgressBar) audioProgressBar.style.width = '0%';
+      audioElement.addEventListener("ended", () => {
+        audioPlayBtn.classList.remove("playing");
+        if (audioProgressBar) audioProgressBar.style.width = "0%";
         audioElement.currentTime = 0;
       });
 
       // Seek on click
-      const audioProgressContainer = document.querySelector('.audio-progress-modal');
+      const audioProgressContainer = document.querySelector(
+        ".audio-progress-modal",
+      );
       if (audioProgressContainer) {
-        audioProgressContainer.addEventListener('click', (e) => {
+        audioProgressContainer.addEventListener("click", (e) => {
           const rect = audioProgressContainer.getBoundingClientRect();
           const percent = (e.clientX - rect.left) / rect.width;
           audioElement.currentTime = percent * audioElement.duration;
@@ -774,42 +924,49 @@ const faqItems = [
     // VIDEO MODAL
     // ═══════════════════════════════════════════════════════════════════
     function openVideoModal(itemData) {
-      const modal = document.getElementById('video-modal');
-      const videoIframe = document.getElementById('video-iframe-modal') as HTMLIFrameElement;
-      const modalTitle = document.getElementById('video-modal-title');
-      const modalDescription = document.getElementById('video-modal-description');
+      const modal = document.getElementById("video-modal");
+      const videoIframe = document.getElementById(
+        "video-iframe-modal",
+      ) as HTMLIFrameElement;
+      const modalTitle = document.getElementById("video-modal-title");
+      const modalDescription = document.getElementById(
+        "video-modal-description",
+      );
 
       if (modal && videoIframe && itemData.mediaSrc) {
         // Set title and description
         if (modalTitle) modalTitle.textContent = itemData.title;
-        const shortContent = itemData.content.length > 60
-          ? itemData.content.substring(0, 60) + '...'
-          : itemData.content;
+        const shortContent =
+          itemData.content.length > 60
+            ? itemData.content.substring(0, 60) + "..."
+            : itemData.content;
         if (modalDescription) modalDescription.textContent = shortContent;
 
         // Set video source (autoplay enabled)
-        const videoSrc = itemData.mediaSrc.includes('?')
+        const videoSrc = itemData.mediaSrc.includes("?")
           ? `${itemData.mediaSrc}&autoplay=1&mute=1`
           : `${itemData.mediaSrc}?autoplay=1&mute=1`;
         videoIframe.src = videoSrc;
 
         // Show modal
-        modal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
+        modal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
       }
     }
 
     function closeVideoModal() {
-      const modal = document.getElementById('video-modal');
-      const videoIframe = document.getElementById('video-iframe-modal') as HTMLIFrameElement;
+      const modal = document.getElementById("video-modal");
+      const videoIframe = document.getElementById(
+        "video-iframe-modal",
+      ) as HTMLIFrameElement;
 
       if (modal) {
-        modal.classList.add('hidden');
-        document.body.style.overflow = 'auto';
+        modal.classList.add("hidden");
+        document.body.style.overflow = "auto";
       }
 
       if (videoIframe) {
-        videoIframe.src = '';
+        videoIframe.src = "";
       }
     }
 
@@ -817,39 +974,39 @@ const faqItems = [
     // CERRAR MODALES
     // ═══════════════════════════════════════════════════════════════════
     // Close buttons
-    document.querySelectorAll('.close-modal').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const modalType = btn.getAttribute('data-modal');
-        if (modalType === 'audio') {
+    document.querySelectorAll(".close-modal").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const modalType = btn.getAttribute("data-modal");
+        if (modalType === "audio") {
           closeAudioModal();
-        } else if (modalType === 'video') {
+        } else if (modalType === "video") {
           closeVideoModal();
         }
       });
     });
 
     // Close on backdrop click
-    document.querySelectorAll('[data-modal-backdrop]').forEach(backdrop => {
-      backdrop.addEventListener('click', () => {
-        const modalType = backdrop.getAttribute('data-modal-backdrop');
-        if (modalType === 'audio') {
+    document.querySelectorAll("[data-modal-backdrop]").forEach((backdrop) => {
+      backdrop.addEventListener("click", () => {
+        const modalType = backdrop.getAttribute("data-modal-backdrop");
+        if (modalType === "audio") {
           closeAudioModal();
-        } else if (modalType === 'video') {
+        } else if (modalType === "video") {
           closeVideoModal();
         }
       });
     });
 
     // Close on ESC key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        const audioModal = document.getElementById('audio-modal');
-        const videoModal = document.getElementById('video-modal');
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        const audioModal = document.getElementById("audio-modal");
+        const videoModal = document.getElementById("video-modal");
 
-        if (audioModal && !audioModal.classList.contains('hidden')) {
+        if (audioModal && !audioModal.classList.contains("hidden")) {
           closeAudioModal();
         }
-        if (videoModal && !videoModal.classList.contains('hidden')) {
+        if (videoModal && !videoModal.classList.contains("hidden")) {
           closeVideoModal();
         }
       }
@@ -859,68 +1016,75 @@ const faqItems = [
     // HELPER FUNCTIONS
     // ═══════════════════════════════════════════════════════════════════
     function formatTime(seconds: number): string {
-      if (isNaN(seconds)) return '0:00';
+      if (isNaN(seconds)) return "0:00";
       const mins = Math.floor(seconds / 60);
       const secs = Math.floor(seconds % 60);
-      return `${mins}:${secs.toString().padStart(2, '0')}`;
+      return `${mins}:${secs.toString().padStart(2, "0")}`;
     }
 
     // ═══════════════════════════════════════════════════════════════════
     // FORMULARIO DE IA
     // ═══════════════════════════════════════════════════════════════════
-    const form = document.getElementById('ai-question-form') as HTMLFormElement;
-    const responseDiv = document.getElementById('ai-response');
-    const answerDiv = document.getElementById('ai-answer');
+    const form = document.getElementById("ai-question-form") as HTMLFormElement;
+    const responseDiv = document.getElementById("ai-response");
+    const answerDiv = document.getElementById("ai-answer");
 
     if (form) {
-      form.addEventListener('submit', async (e) => {
+      form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
-        const question = (document.getElementById('user-question') as HTMLTextAreaElement).value;
+        const question = (
+          document.getElementById("user-question") as HTMLTextAreaElement
+        ).value;
 
         if (!question.trim()) {
-          alert('Por favor escribe una pregunta');
+          alert("Por favor escribe una pregunta");
           return;
         }
 
         // Mostrar loading
         if (answerDiv) {
-          answerDiv.innerHTML = '<div class="flex items-center gap-3"><div class="animate-spin rounded-full h-5 w-5 border-b-2 border-[#82e256]"></div><span>Consultando con IA...</span></div>';
+          answerDiv.innerHTML =
+            '<div class="flex items-center gap-3"><div class="animate-spin rounded-full h-5 w-5 border-b-2 border-[#82e256]"></div><span>Consultando con IA...</span></div>';
         }
         if (responseDiv) {
-          responseDiv.classList.remove('hidden');
+          responseDiv.classList.remove("hidden");
         }
 
         // Llamar a la API real con RAG
         try {
-          const BACKEND_URL = import.meta.env.PUBLIC_BACKEND_URL || 'http://localhost:3001';
+          const BACKEND_URL =
+            import.meta.env.PUBLIC_BACKEND_URL || "http://localhost:3001";
           const response = await fetch(`${BACKEND_URL}/api/assistant-rag`, {
-            method: 'POST',
+            method: "POST",
             headers: {
-              'Content-Type': 'application/json',
+              "Content-Type": "application/json",
             },
             body: JSON.stringify({
               question: question,
               conversationHistory: [], // Sin historial en este formulario
-              context: 'consulta-ia', // Contexto técnico
-              route: window.location.pathname
+              context: "consulta-ia", // Contexto técnico
+              route: window.location.pathname,
             }),
           });
 
           if (response.ok) {
             const data = await response.json();
             if (answerDiv) {
-              answerDiv.innerHTML = data.answer || 'No pude procesar tu pregunta.';
+              answerDiv.innerHTML =
+                data.answer || "No pude procesar tu pregunta.";
             }
           } else {
             if (answerDiv) {
-              answerDiv.innerHTML = '<p class="text-red-400">Lo siento, hubo un error al procesar tu pregunta. Por favor intenta de nuevo.</p>';
+              answerDiv.innerHTML =
+                '<p class="text-red-400">Lo siento, hubo un error al procesar tu pregunta. Por favor intenta de nuevo.</p>';
             }
           }
         } catch (error) {
-          console.error('Error:', error);
+          console.error("Error:", error);
           if (answerDiv) {
-            answerDiv.innerHTML = '<p class="text-red-400">Error de conexión. Por favor verifica tu conexión a internet.</p>';
+            answerDiv.innerHTML =
+              '<p class="text-red-400">Error de conexión. Por favor verifica tu conexión a internet.</p>';
           }
         }
       });
